@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI News Report - 13 Abril 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a25;
+            --bg-card-hover: #22222f;
+            --accent-blue: #3b82f6;
+            --accent-purple: #8b5cf6;
+            --accent-green: #10b981;
+            --accent-orange: #f59e0b;
+            --accent-red: #ef4444;
+            --accent-pink: #ec4899;
+            --accent-cyan: #06b6d4;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --border-color: #2a2a3a;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 3rem 0;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 2rem;
+        }
+
+        .header-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--text-primary), var(--accent-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .header-date {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        /* Search & Filters */
+        .controls {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 280px;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 0.875rem 1rem 0.875rem 3rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            transition: all 0.2s;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+        }
+
+        .search-box::before {
+            content: "🔍";
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1rem;
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.625rem 1rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .filter-btn:hover {
+            background: var(--bg-card-hover);
+            color: var(--text-primary);
+        }
+
+        .filter-btn.active {
+            background: var(--accent-blue);
+            color: white;
+            border-color: var(--accent-blue);
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.25rem;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--accent-blue);
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 0.25rem;
+        }
+
+        /* Sections */
+        .section {
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .section-title .emoji {
+            font-size: 1.75rem;
+        }
+
+        /* Cards Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+            border-color: var(--accent-blue);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            line-height: 1.4;
+        }
+
+        .card-badge {
+            padding: 0.25rem 0.625rem;
+            border-radius: 6px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .badge-new { background: var(--accent-green); color: #000; }
+        .badge-update { background: var(--accent-purple); color: #fff; }
+        .badge-major { background: var(--accent-red); color: #fff; }
+        .badge-info { background: var(--accent-cyan); color: #000; }
+
+        .card-description {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .card-source {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .card-date {
+            color: var(--text-muted);
+            font-size: 0.75rem;
+        }
+
+        .card-link {
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            transition: color 0.2s;
+        }
+
+        .card-link:hover {
+            color: var(--accent-purple);
+        }
+
+        /* Sources Section */
+        .sources-section {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        .sources-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .sources-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 0.75rem;
+        }
+
+        .source-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .source-item a {
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.2s;
+        }
+
+        .source-item a:hover {
+            color: var(--accent-purple);
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: 2rem;
+        }
+
+        /* Hidden cards */
+        .card.hidden {
+            display: none;
+        }
+
+        /* No results */
+        .no-results {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: var(--text-muted);
+            display: none;
+        }
+
+        .no-results.visible {
+            display: block;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .controls {
+                flex-direction: column;
+            }
+
+            .search-box {
+                width: 100%;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-badge">Daily AI Intelligence</div>
+            <h1>🤖 AI News Report</h1>
+            <p class="header-date">📅 Lunes, 13 de Abril 2026 | Última actualización: 17:45 UTC</p>
+        </header>
+
+        <!-- Stats -->
+        <div class="stats-bar">
+            <div class="stat-card">
+                <div class="stat-number">12</div>
+                <div class="stat-label">Noticias</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">8</div>
+                <div class="stat-label">Modelos</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">6</div>
+                <div class="stat-label">Frameworks</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">$127B+</div>
+                <div class="stat-label">Funding</div>
+            </div>
+        </div>
+
+        <!-- Search & Filters -->
+        <div class="controls">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Buscar noticias...">
+            </div>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="models">🤖 Modelos</button>
+                <button class="filter-btn" data-filter="tools">🆕 Herramientas</button>
+                <button class="filter-btn" data-filter="news">📰 News</button>
+                <button class="filter-btn" data-filter="funding">💰 Funding</button>
+                <button class="filter-btn" data-filter="regulation">⚖️ Regulación</button>
+            </div>
+        </div>
+
+        <!-- No Results -->
+        <div class="no-results" id="noResults">
+            <p>No se encontraron resultados para tu búsqueda.</p>
+        </div>
+
+        <!-- 🆕 Nuevas Herramientas -->
+        <section class="section" data-category="tools">
+            <h2 class="section-title"><span class="emoji">🆕</span> Nuevas Herramientas y Frameworks</h2>
+            <div class="cards-grid">
+                <div class="card" data-category="tools">
+                    <div class="card-header">
+                        <h3 class="card-title">Google Agent Development Kit (ADK)</h3>
+                        <span class="card-badge badge-new">Nuevo</span>
+                    </div>
+                    <p class="card-description">Framework de Google para construir sistemas multi-agente. Permite crear agentes complejos con composición jerárquica e integración con el ecosistema Google. 8,200+ estrellas en GitHub.</p>
+                    <div class="card-footer">
+                        <span class="card-source">📌 Fazm.ai</span>
+                        <a href="https://fazm.ai/blog/new-ai-model-releases-open-source-projects-april-2026" target="_blank" class="card-link">Ver fuente →</a>
+                    </div>
+                    <span class="card-date">📅 Abril 2026</span>
+                </div>
+
+                <div class="card" data-category="tools">
+                    <div class="card-header">
+                        <h3 class="card-title">OpenAI Codex CLI</h3>
+                        <span class="card-badge badge-new">Nuevo</span>
+                    </div>
+                    <p class="card-description">Agente de codificación nativo para terminal con ejecución en sandbox. 5,800+ estrellas en GitHub. Integración directa con APIs de OpenAI.</p>
+                    <div class="card-footer">
+                        <span class="card-source">📌 Fazm.ai</span>
+                        <a href="https://fazm.ai/blog/new-ai-model-releases-open-source-projects-april-2026" target="_blank" class="card-link">Ver fuente →</a>
+                    </div>
+                    <span class="card-date">📅 Abril 2026</span>
+                </div>
+
+                <div class="card" data-category="tools">
+                    <div class="card-header">
+                        <h3 class="card-title">Block Goose - AI Agent Local</h3>
+                        <span class="card-badge badge-new">Nuevo</span>
+                    </div>
+                    <p class="card-description">Agente AI local-first con soporte MCP (Model Context Protocol). 4,900+ estrellas en GitHub. Enfocado en privacidad y ejecución local.</p>
+                    <div class="card-footer">
+                        <span class="card-source">📌 Fazm.ai</span>
+                        <a href="https://fazm.ai/blog/new-ai-model-releases-open-source-projects-april-2026" target="_blank" class="card-link">Ver fuente →</a>
+                    </div>
+                    <span class="card-date">📅 Abril 2026</span>
+                </div>
+
+                <div class="card" data-category="tools">
+                    <div class="card-header">
+                        <h3 class="card-title">HuggingFace smolagents</h3>
+                        <span class="card-badge badge-new">Nuevo</span>
+                    </div>
+                    <p class="card-description">Librería ligera para agentes con uso de herramientas y ejecución de código. 4,100+ estrellas en GitHub. Ideal para proyectos de código abierto.</p>
+                    <div class="card-footer">
+                        <span class="card-source">📌 Fazm.ai</span>
+                        <a href="https://fazm.ai/blog/new-ai-model-releases-open-source-projects-april-2026" target="_blank" class="card-link">Ver fuente →</a>
+                    </div>
+                    <span class="card-date">📅 Abril 2026</span>
+                </div>
+
+                <div class="card" data-category="tools">
+                    <div class="card-header">
+                        <h3 class="card-title">Microsoft markitdown</h3>
+                        <span class="card-badge badge-new">Nuevo</span>
+                    </div>
+                    <p class="card-description">Convierte cualquier formato de documento a Markdown limpio para ingestión en LLMs. 3,600+ estrellas en GitHub.</p>
+                    <div class="card-footer">
+                        <span class="card-source">📌 Fazm.ai</span>
+                        <a href="https://fazm.ai/blog/new-ai-model-releases-open-source-projects-april-2026" target="_blank" class="card-link">Ver fuente →</a>
+                    </div>
+                    <span class="card-date">📅 Abril 2026</span>
+                </div>
+
+                <div class="card" data-category="tools">
+                    <div class="card-header">
+                        <h3 class="card-title">Memento-Skills Framework</h3>
+                        <span class="card-badge badge-new">Nuevo</span>
+                    </div>
+                    <p class="card-description">Framework que permite a agentes AI reescribir sus propias habilidades sin reentrenamiento del modelo subyacente. Usa RL para evaluación y selección de skills.</p>
+                    <div class="card-footer">
+                        <span class="card-source">📌 VentureBeat</span>
+                        <a href="https://venturebeat.com/orchestration/new-framework-lets-ai-agents-rewrite-their-own-skills-without-retraining-the" target="_blank" class="card-link">Ver fuente →</a>
+                    </div>
+                    <span class="card-date">📅 Abril 2026</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 🤖 Nuevos Modelos -->
+        <section class="section" data-category="models">
+            <h2 class="section-title"><span class="emoji">🤖</span> Nuevos Modelos de AI</h2>
+            <div class="cards-grid">
+                <div class="card" data-category="models">
+                    <div class="card-header">
+                        <h3 class="card-title">Google Gemma 4</h3>
+                        <span class="card-badge badge-major">Major</span>
+                    </div>
+                    <p class="card-description">Cuatro tamaños optimizados para uso local. Gemma 31B debutará en posición #3 del Arena list. Mejor reasoning, math e instruction-following. Licencia Apache 2.0.</p>
+                    <div class="card-footer">
+                        <span class="card-source">📌 Ars Technica</span>
+                        <a href="https://arstechnica.com/ai/2026/04/google-announces-gemma-4-open-ai-models-switches-to-apache-2-0-license/" target="_blank" class="card-link">Ver fuente →</a>
+                    </div>
+                    <span class="card-date">📅 13 Abril 2026</span>
+                </div>
+
+                <div class="card" data-category="models">
+                    <div class="card-header">
+                        <h3 class="card-title">Microsoft MAI Models (Transcribe-1, Voice-1, Image-2)</h3>
+                        <span class="card-badge badge-new">Nuevo</span>
+                    </div>
+                    <p class="card-description">MAI-Transcribe-1 para speech-to-text. MAI-Voice-1 y MAI-Image-2 disponibles comercialmente por primera vez. Microsoft expande más allá de OpenAI.</p>
+                    <div class="card-footer">
+                        <span class="card-source">📌 GeekWire</span>
+                        <a href="https://www.geekwire.com/2026/microsoft-releases-new-ai-models-to-further-expand-beyond-openai/" target="_blank" class="card-link">Ver fuente →</a>
+                    </div>
+                    <span class="card-date">📅 Abril 2026</span>
+                </div>
+
+                <div class="card" data-category="models">
+                    <div class="card-header">
+                        <h3 class="card-title">Claude Mythos 5</h3>
+                        <span class="card-badge badge-major">Major</span>
+                    </div>
+                    <p class="card-description">Modelo de Anthropic con 10 billones de parámetros. Considerado revolucionario según análisis de la industria. Parte del lanzamiento de April 2026.</p>
+                    <div class="card-footer">
+                        <span class="card-source">📌 SearchCans</span>
+                        <a href="https://www.searchcans.com/blog/ai-model-releases-april-2026-startups/" target="_blank" class="card-link">Ver fuente →</a>
+                    </div>
+                    <span class="card-date">📅 Abril 2026</span>
+                </div>
+
+                <div class="card" data-category="models">
+                    <div class="card-header">
+                        <h3 class="card-title">Google Gemini 3.1</h3>
+                        <span class="card-badge badge-update">Update</span>
+                    </div>
+                    <p class="card-description">Nuevo algoritmo de compresión que reduce necesidades de memoria KV-cache por 6x. Gemini 3.1 Flash-Lite disponible a $0.25 por millón de tokens input.</p>
+                    <div class="card-footer">
+                        <span class="card-source">📌 SearchCans</span>
+                        <a href="https://www.searchcans.com/blog/ai-model-releases-april-2026-startups/" target="_blank" class="card-link">Ver fuente →</a>
+                    </div>
+                    <span class="card-date">📅 Abril 2026</span>
+                </div>
+
+                <div class="card" data-category="models">
+                    <div class="card-header">
+                        <h3 class="card-title">Meta Muse SPark</h3>
+                        <span class="card-badge badge-new">Nuevo</span>
+                    </div>
+                    <p class="card-description">Primer modelo de Meta Superintelligence Labs. Enfoque en reasoning multimodal y salud. Representa la entrada de Meta en el laboratorio de superinteligencia.</p>
+                    <div class="card-footer">
+                        <span class="card-source">📌 LinkedIn</span>
+                        <a href="https://www.linkedin.com/pulse/ai-updates-march-31-april-7-2026-dhanushkumar-r-cogqc" target="_blank" class="card-link">Ver fuente →</a>
+                    </div>
+                    <span class="card-date">📅 9 Abril 2026</span>
+                </div>
+
+                <div class="card" data-category="models">
+                    <div class="card-header">
+                        <h3 class="card-title">MiniMax M2.7</h3>
+                        <span class="card-badge badge-new">Nuevo</span>
+                    </div>
+                    <p class="card-description">Modelo trending en HuggingFace con alto ratio likes/descargas. Destaca en el ranking de modelos de abril 2026 según SOO Group.</p>
+                    <div class="card-footer">
+                        <span class="card-source">📌 SOO Group</span>
+                        <a href="https://thesoogroup.com/blog/hugging-face-trending-models-april-2026-minimax-gemma-variants" target="_blank" class="card-link">Ver fuente →</a>
+                    </div>
+                    <span class="card-date">📅 Abril 2026</span>
+                </div>
+
+                <div class="card" data-category="models">
+                    <div class="card-header">
+                        <h3 class="card-title">DeepSeek-V3</h3>
+                        <span class="card-badge badge-new">Nuevo</span>
+                    </div>
+                    <p class="card-description">MoE con 671B parámetros totales, 37B activos. Código de inferencia abierto en GitHub. 3,200+ estrellas en las primeras semanas.</p>
+                    <div class="card-footer">
+                        <span class="card-source">📌 Fazm.ai</span>
+                        <a href="https://fazm.ai/blog/new-open-source-ai-projects-github-hugging-face-april-2026" target="_blank" class="card-link">Ver fuente →</a>
+                    </div>
+                    <span class="card-date">📅 Abril 2026</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 📰 News -->
+        <section class="section" data-category="news">
+            <h2 class="section-title"><span class="emoji">📰</span> News Destacadas</h2>
+            <div class="cards-grid">
+                <div class="card" data-category="news">
+                    <div class="card-header">
+                        <h3 class="card-title">Microsoft Copilot: GPT + Claude Juntos</h3>
+                        <span class="card-badge badge-major">Major</span>
+                    </div>
+                    <p class="card-description">Copilot Researcher ahora usa Claude de Anthropic para revisar el trabajo de GPT de OpenAI. Primera integración de modelos rivales en producto enterprise de Microsoft.</p>
+                    <div class="card-footer">
+                        <span class="card-source">📌 GeekWire</span>
+                        <a href="https://www.geekwire.com/2026/gpt-drafts-claude-critiques-microsoft-blends-rival-ai-models-in-new-copilot-upgrade/" target="_blank" class="card-link">Ver fuente →</a>
+                    </div>
+                    <span class="card-date">📅 Abril 2026</span>
+                </div>
+
+                <div class="card" data-category="news">
+                    <div class="card-header">
+                        <h3 class="card-title">OpenAI Adquiere Astral (uv, Ruff, Ty)</h3>
+                        <span class="card-badge badge-major">Major</span>
+                    </div>
+                    <p class="card-description">OpenAI adquiere Astral (creadores de uv, Ruff y Ty - herramientas Python) para integrar dev tools en Codex. 6ta adquisición de 2026.</p>
+                    <div class="card-footer">
+                        <span class="card-source">📌 LinkedIn</span>
+                        <a href="https://www.linkedin.com/posts/mrudulgole_ai-generativeai-aiagents-activity-7445840467977719810-IbvO" target="_blank" class="card-link">Ver fuente →</a>
+                    </div>
+                    <span class="card-date">📅 Abril 2026</span>
+                </div>
+
+                <div class="card" data-category="news">
+                    <div class="card-header">
+                        <h3 class="card-title">OpenAI, Anthropic y Google vs DeepSeek</h3>
+                        <span class="card-badge badge-info">Info</span>
+                    </div>
+                    <p class="card-description">Las tres compañías comparten información sobre ataques de destilación adversaria a través del Frontier Model Forum. DeepSeek accused de "free-riding" de capacidades de labs US.</p>
+                    <div class="card-footer">
+                        <span class="card-source">📌 LetsDataScience</span>
+                        <a href="https://letsdatascience.com/blog/openai-anthropic-google-sharing-intelligence-china" target="_blank" class="card-link">Ver fuente →</a>
+                    </div>
+                    <span class="card-date">📅 Abril 2026</span>
+                </div>
+
+                <div class="card" data-category="news">
+                    <div class="card-header">
+                        <h3 class="card-title">AI Tool Launches: Récord de Históricos</h3>
+                        <span class="card-badge badge-info">Info</span>
+                    </div>
+                    <p class="card-description">Las launches de herramientas AI alcanzan récord histórico. La industria transiciona de experimentación a infraestructura según análisis de Enterprise News.</p>
+                    <div class="card-footer">
+                        <span class="card-source">📌 Enterprise News</span>
+                        <a href="https://www.enterprisenews.com/press-release/story/89139/ai-tool-launches-hit-record-pace-as-industry-moves-from-experimentation-to-infrastructure/" target="_blank" class="card-link">Ver fuente →</a>
+                    </div>
+                    <span class="card-date">📅 Abril 2026</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 💰 Funding -->
+        <section class="section" data-category="funding">
+            <h2 class="section-title"><span class="emoji">💰</span> Funding y Startups</h2>
+            <div class="cards-grid">
+                <div class="card" data-category="funding">
+                    <div class="card-header">
+                        <h3 class="card-title">OpenAI: $122 Billones</h3>
+                        <span class="card-badge badge-major">Mega Round</span>
+                    </div>
+                    <p class="card-description">OpenAI cierra ronda de $122B el 1 de Abril, valorando la company en $852B. Impulsado por Amazon, Nvidia y SoftBank. Representa casi la mitad del VC total de Q1 2026.</p>
+                    <div class="card-footer">
+                        <span class="card-source">📌 San Francisco Business Times</span>
+                        <a href="https://www.bizjournals.com/sanfrancisco/news/2026/04/03/venture-capital-us-q1-startups-record.html" target="_blank" class="card-link">Ver fuente →</a>
+                    </div>
+                    <span class="card-date">📅 3 Abril 2026</span>
+                </div>
+
+                <div class="card" data-category="funding">
+                    <div class="card-header">
+                        <h3 class="card-title">Shield AI: $1.5B Series G</h3>
+                        <span class="card-badge badge-new">Nuevo</span>
+                    </div>
+                    <p class="card-description">$1.5B equity + $500M Blackstone preferred. Valued at $12.7B — 140% increase desde $5.3B hace un año. Co-liderado por Advent International y JPMorgan.</p>
+                    <div class="card-footer">
+                        <span class="card-source">📌 AI Funding Tracker</span>
+                        <a href="https://aifundingtracker.com/top-50-ai-startups/" target="_blank" class="card-link">Ver fuente →</a>
+                    </div>
+                    <span class="card-date">📅 26 Marzo 2026</span>
+                </div>
+
+                <div class="card" data-category="funding">
+                    <div class="card-header">
+                        <h3 class="card-title">xAI / SpaceX: IPO Filing $1.75T</h3>
+                        <span class="card-badge badge-major">IPO</span>
+                    </div>
+                    <p class="card-description">xAI y SpaceX filed para IPO con target de $1.75T valuation. Movimiento esperado para 2026 según AI Funding Tracker.</p>
+                    <div class="card-footer">
+                        <span class="card-source">📌 AI Funding Tracker</span>
+                        <a href="https://aifundingtracker.com/top-50-ai-startups/" target="_blank" class="card-link">Ver fuente →</a>
+                    </div>
+                    <span class="card-date">📅 1 Abril 2026</span>
+                </div>
+
+                <div class="card" data-category="funding">
+                    <div class="card-header">
+                        <h3 class="card-title">Q1 2026: $221B en AI Startups</h3>
+                        <span class="card-badge badge-info">Record</span>
+                    </div>
+                    <p class="card-description">AI startups raised $221B en Q1 2026. Venture funding no muestra signos de desaceleración. OpenAI y Anthropic lideran con las mayores rondas.</p>
+                    <div class="card-footer">
+                        <span class="card-source">📌 PYMNTS</span>
+                        <a href="https://www.pymnts.com/artificial-intelligence-2/2026/ai-startups-raised-221-billion-in-q1-as-venture-funding-shows-no-slowdown/" target="_blank" class="card-link">Ver fuente →</a>
+                    </div>
+                    <span class="card-date">📅 Abril 2026</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ⚖️ Regulación -->
+        <section class="section" data-category="regulation">
+            <h2 class="section-title"><span class="emoji">⚖️</span> Regulación y Política</h2>
+            <div class="cards-grid">
+                <div class="card" data-category="regulation">
+                    <div class="card-header">
+                        <h3 class="card-title">White House AI Framework</h3>
+                        <span class="card-badge badge-info">Federal</span>
+                    </div>
+                    <p class="card-description">Trump administration lanza National AI Policy Framework. Recommienda preemption federal de state AI laws. 7 pilares de política con estándares nacionales.</p>
+                    <div class="card-footer">
+                        <span class="card-source">📌 Morrison Foerster</span>
+                        <a href="https://www.mofo.com/resources/insights/260402-trump-administration-releases-national-ai-policy-framework" target="_blank" class="card-link">Ver fuente →</a>
+                    </div>
+                    <span class="card-date">📅 20 Marzo 2026</span>
+                </div>
+
+                <div class="card" data-category="regulation">
+                    <div class="card-header">
+                        <h3 class="card-title">AI Industry: $100M+ en Midterms 2026</h3>
+                        <span class="card-badge badge-info">Política</span>
+                    </div>
+                    <p class="card-description">Innovation Council Action (ligado a advisors de Trump) announce $100M+ para 2026 midterms. OpenAI's Greg Brockman contributed $25M a Leading the Future.</p>
+                    <div class="card-footer">
+                        <span class="card-source">📌 ABC News</span>
+                        <a href="https://abcnews.com/Politics/ai-industry-2026-midterms-government-regulations-looming/story?id=131610305" target="_blank" class="card-link">Ver fuente →</a>
+                    </div>
+                    <span class="card-date">📅 Abril 2026</span>
+                </div>
+
+                <div class="card" data-category="regulation">
+                    <div class="card-header">
+                        <h3 class="card-title">California AI Transparency Law Avanza</h3>
+                        <span class="card-badge badge-update">Update</span>
+                    </div>
+                    <p class="card-description">Juez federal permite que la nueva ley de transparencia AI de California avance. Caso continúa su proceso legal.</p>
+                    <div class="card-footer">
+                        <span class="card-source">📌 Instagram/ozor.news</span>
+                        <a href="https://www.instagram.com/popular/ai-regulation-policy-news-april-2026/" target="_blank" class="card-link">Ver fuente →</a>
+                    </div>
+                    <span class="card-date">📅 Abril 2026</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fuentes -->
+        <section class="sources-section">
+            <h2 class="sources-title">📚 Fuentes del Reporte</h2>
+            <div class="sources-list">
+                <div class="source-item">
+                    <span>1.</span>
+                    <a href="https://arstechnica.com/ai/2026/04/google-announces-gemma-4-open-ai-models-switches-to-apache-2-0-license/" target="_blank">Ars Technica - Google announces Gemma 4</a>
+                </div>
+                <div class="source-item">
+                    <span>2.</span>
+                    <a href="https://www.geekwire.com/2026/microsoft-releases-new-ai-models-to-further-expand-beyond-openai/" target="_blank">GeekWire - Microsoft releases new AI models</a>
+                </div>
+                <div class="source-item">
+                    <span>3.</span>
+                    <a href="https://www.geekwire.com/2026/gpt-drafts-claude-critiques-microsoft-blends-rival-ai-models-in-new-copilot-upgrade/" target="_blank">GeekWire - GPT drafts, Claude critiques</a>
+                </div>
+                <div class="source-item">
+                    <span>4.</span>
+                    <a href="https://fazm.ai/blog/new-ai-model-releases-open-source-projects-april-2026" target="_blank">Fazm.ai - New AI Model Releases April 2026</a>
+                </div>
+                <div class="source-item">
+                    <span>5.</span>
+                    <a href="https://fazm.ai/blog/new-open-source-ai-projects-github-hugging-face-april-2026" target="_blank">Fazm.ai - Open Source AI Projects April 2026</a>
+                </div>
+                <div class="source-item">
+                    <span>6.</span>
+                    <a href="https://thesoogroup.com/blog/hugging-face-trending-models-april-2026-minimax-gemma-variants" target="_blank">SOO Group - HuggingFace Trending Models</a>
+                </div>
+                <div class="source-item">
+                    <span>7.</span>
+                    <a href="https://www.searchcans.com/blog/ai-model-releases-april-2026-startups/" target="_blank">SearchCans - AI Model Releases April 2026</a>
+                </div>
+                <div class="source-item">
+                    <span>8.</span>
+                    <a href="https://aifundingtracker.com/top-50-ai-startups/" target="_blank">AI Funding Tracker - Top 50 AI Startups</a>
+                </div>
+                <div class="source-item">
+                    <span>9.</span>
+                    <a href="https://www.bizjournals.com/sanfrancisco/news/2026/04/03/venture-capital-us-q1-startups-record.html" target="_blank">SF Business Times - VC Funding Record</a>
+                </div>
+                <div class="source-item">
+                    <span>10.</span>
+                    <a href="https://www.pymnts.com/artificial-intelligence-2/2026/ai-startups-raised-221-billion-in-q1-as-venture-funding-shows-no-slowdown/" target="_blank">PYMNTS - AI Startups $221B Q1</a>
+                </div>
+                <div class="source-item">
+                    <span>11.</span>
+                    <a href="https://venturebeat.com/orchestration/new-framework-lets-ai-agents-rewrite-their-own-skills-without-retraining-the" target="_blank">VentureBeat - Memento-Skills Framework</a>
+                </div>
+                <div class="source-item">
+                    <span>12.</span>
+                    <a href="https://letsdatascience.com/blog/openai-anthropic-google-sharing-intelligence-china" target="_blank">LetsDataScience - OpenAI Anthropic Google Unity</a>
+                </div>
+                <div class="source-item">
+                    <span>13.</span>
+                    <a href="https://www.mofo.com/resources/insights/260402-trump-administration-releases-national-ai-policy-framework" target="_blank">Morrison Foerster - White House AI Framework</a>
+                </div>
+                <div class="source-item">
+                    <span>14.</span>
+                    <a href="https://abcnews.com/Politics/ai-industry-2026-midterms-government-regulations-looming/story?id=131610305" target="_blank">ABC News - AI Industry Midterms</a>
+                </div>
+                <div class="source-item">
+                    <span>15.</span>
+                    <a href="https://www.linkedin.com/pulse/ai-updates-march-31-april-7-2026-dhanushkumar-r-cogqc" target="_blank">LinkedIn - AI Updates March 31 - April 7</a>
+                </div>
+                <div class="source-item">
+                    <span>16.</span>
+                    <a href="https://www.linkedin.com/posts/mrudulgole_ai-generativeai-aiagents-activity-7445840467977719810-IbvO" target="_blank">LinkedIn - OpenAI Acquires Astral</a>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>🤖 AI News Report | Generado automáticamente | 13 de Abril 2026</p>
+            <p>Fuentes: Ars Technica, GeekWire, Fazm.ai, SOO Group, SearchCans, AI Funding Tracker, PYMNTS, VentureBeat, LetsDataScience, Morrison Foerster, ABC News</p>
+        </footer>
+    </div>
+
+    <script>
+        // Search functionality
+        const searchInput = document.getElementById('searchInput');
+        const cards = document.querySelectorAll('.card');
+        const noResults = document.getElementById('noResults');
+        const filterButtons = document.querySelectorAll('.filter-btn');
+
+        let currentFilter = 'all';
+
+        function filterCards() {
+            const searchTerm = searchInput.value.toLowerCase();
+            let visibleCount = 0;
+
+            cards.forEach(card => {
+                const text = card.textContent.toLowerCase();
+                const category = card.dataset.category;
+                const matchesSearch = text.includes(searchTerm);
+                const matchesFilter = currentFilter === 'all' || category === currentFilter;
+
+                if (matchesSearch && matchesFilter) {
+                    card.classList.remove('hidden');
+                    visibleCount++;
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+
+            noResults.classList.toggle('visible', visibleCount === 0);
+        }
+
+        searchInput.addEventListener('input', filterCards);
+
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentFilter = btn.dataset.filter;
+                filterCards();
+            });
+        });
+    </script>
+</body>
+</html>
