@@ -3,39 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tech Business Report - 13 Abril 2026</title>
+    <title>Tech & Business Report - 13 Abril 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-primary: #0f0f1a;
-            --bg-secondary: #1a1a2e;
-            --bg-card: #16213e;
-            --accent-blue: #00d4ff;
-            --accent-purple: #7b2cbf;
-            --accent-green: #00ff88;
-            --accent-red: #ff4757;
-            --accent-orange: #ffa502;
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a24;
+            --accent-blue: #3b82f6;
+            --accent-purple: #8b5cf6;
+            --accent-green: #10b981;
+            --accent-red: #ef4444;
+            --accent-yellow: #f59e0b;
             --text-primary: #ffffff;
-            --text-secondary: #a0a0b0;
-            --border-color: #2d2d4a;
+            --text-secondary: #94a3b8;
+            --border-color: #2a2a3a;
         }
         
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', sans-serif;
             background: var(--bg-primary);
             color: var(--text-primary);
             line-height: 1.6;
+            min-height: 100vh;
         }
         
+        /* Header */
         .header {
-            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-card) 100%);
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
             padding: 2rem;
             border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
         
         .header-content {
@@ -44,31 +46,27 @@
         }
         
         .header h1 {
-            font-size: 2rem;
-            background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+            font-size: 1.75rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
         
-        .header .timestamp {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
+        .header-meta {
+            display: flex;
+            gap: 1.5rem;
             margin-top: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
         }
         
+        /* Controls */
         .controls {
-            background: var(--bg-secondary);
-            padding: 1rem 2rem;
-            border-bottom: 1px solid var(--border-color);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        
-        .controls-content {
             max-width: 1400px;
-            margin: 0 auto;
+            margin: 1.5rem auto;
+            padding: 0 2rem;
             display: flex;
             flex-wrap: wrap;
             gap: 1rem;
@@ -78,6 +76,7 @@
         .search-box {
             flex: 1;
             min-width: 250px;
+            position: relative;
         }
         
         .search-box input {
@@ -87,7 +86,7 @@
             border: 1px solid var(--border-color);
             border-radius: 8px;
             color: var(--text-primary);
-            font-size: 1rem;
+            font-size: 0.9rem;
         }
         
         .search-box input:focus {
@@ -95,73 +94,85 @@
             border-color: var(--accent-blue);
         }
         
-        .filters {
+        .filter-buttons {
             display: flex;
-            flex-wrap: wrap;
             gap: 0.5rem;
+            flex-wrap: wrap;
         }
         
         .filter-btn {
-            padding: 0.5rem 1rem;
+            padding: 0.6rem 1rem;
             background: var(--bg-card);
             border: 1px solid var(--border-color);
             border-radius: 20px;
             color: var(--text-secondary);
+            font-size: 0.8rem;
             cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 0.9rem;
+            transition: all 0.2s;
         }
         
         .filter-btn:hover, .filter-btn.active {
             background: var(--accent-blue);
-            color: var(--bg-primary);
+            color: white;
             border-color: var(--accent-blue);
         }
         
-        .main-content {
+        /* Stats Bar */
+        .stats-bar {
             max-width: 1400px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-        
-        .stats-grid {
+            margin: 0 auto 1.5rem;
+            padding: 0 2rem;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 1rem;
-            margin-bottom: 2rem;
         }
         
         .stat-card {
             background: var(--bg-card);
-            border-radius: 12px;
-            padding: 1.5rem;
             border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1rem;
+            text-align: center;
         }
         
-        .stat-card .label {
+        .stat-card .stat-label {
+            font-size: 0.75rem;
             color: var(--text-secondary);
-            font-size: 0.85rem;
             text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
         
-        .stat-card .value {
-            font-size: 1.8rem;
-            font-weight: bold;
-            margin-top: 0.5rem;
+        .stat-card .stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: 0.25rem;
         }
         
-        .stat-card .value.blue { color: var(--accent-blue); }
-        .stat-card .value.green { color: var(--accent-green); }
-        .stat-card .value.red { color: var(--accent-red); }
-        .stat-card .value.orange { color: var(--accent-orange); }
-        .stat-card .value.purple { color: var(--accent-purple); }
+        .stat-card .stat-change {
+            font-size: 0.75rem;
+            margin-top: 0.25rem;
+        }
+        
+        .stat-change.positive { color: var(--accent-green); }
+        .stat-change.negative { color: var(--accent-red); }
+        
+        /* Main Content */
+        .main-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem 2rem;
+        }
         
         .section {
             margin-bottom: 2rem;
+            display: none;
         }
         
+        .section.active { display: block; }
+        
         .section-title {
-            font-size: 1.5rem;
+            font-size: 1.25rem;
+            font-weight: 600;
             margin-bottom: 1rem;
             padding-bottom: 0.5rem;
             border-bottom: 2px solid var(--accent-blue);
@@ -170,63 +181,90 @@
             gap: 0.5rem;
         }
         
-        .cards-grid {
+        .section-icon { font-size: 1.5rem; }
+        
+        /* News Grid */
+        .news-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 1rem;
         }
         
-        .card {
+        .news-card {
             background: var(--bg-card);
-            border-radius: 12px;
-            padding: 1.5rem;
             border: 1px solid var(--border-color);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 12px;
+            padding: 1.25rem;
+            transition: transform 0.2s, border-color 0.2s;
         }
         
-        .card:hover {
+        .news-card:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 20px rgba(0, 212, 255, 0.1);
+            border-color: var(--accent-blue);
         }
         
-        .card-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-            color: var(--accent-blue);
-        }
-        
-        .card-description {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            margin-bottom: 1rem;
-        }
-        
-        .card-metrics {
+        .news-card .card-header {
             display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.75rem;
+        }
+        
+        .news-card .card-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .news-card .card-tag {
+            font-size: 0.65rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            background: var(--accent-blue);
+            color: white;
+        }
+        
+        .news-card .card-description {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
             margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+        
+        .news-card .card-metrics {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            padding: 0.75rem;
+            background: var(--bg-secondary);
+            border-radius: 8px;
         }
         
         .metric {
-            background: var(--bg-secondary);
-            padding: 0.25rem 0.75rem;
-            border-radius: 4px;
-            font-size: 0.85rem;
+            text-align: center;
+            flex: 1;
         }
         
-        .metric.positive { color: var(--accent-green); }
-        .metric.negative { color: var(--accent-red); }
+        .metric .metric-value {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--accent-green);
+        }
         
-        .card-footer {
+        .metric .metric-label {
+            font-size: 0.65rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+        }
+        
+        .news-card .card-footer {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             color: var(--text-secondary);
-            border-top: 1px solid var(--border-color);
             padding-top: 0.75rem;
+            border-top: 1px solid var(--border-color);
         }
         
         .card-footer a {
@@ -238,14 +276,16 @@
             text-decoration: underline;
         }
         
+        /* Sources Section */
         .sources-section {
             background: var(--bg-secondary);
             border-radius: 12px;
-            padding: 2rem;
-            margin-top: 3rem;
+            padding: 1.5rem;
+            margin-top: 2rem;
         }
         
-        .sources-section h2 {
+        .sources-section h3 {
+            font-size: 1.1rem;
             margin-bottom: 1rem;
         }
         
@@ -255,700 +295,947 @@
             gap: 0.5rem;
         }
         
-        .sources-list a {
+        .source-item {
+            font-size: 0.75rem;
+            padding: 0.5rem;
+            background: var(--bg-card);
+            border-radius: 4px;
+        }
+        
+        .source-item a {
             color: var(--accent-blue);
             text-decoration: none;
-            font-size: 0.9rem;
+            word-break: break-all;
         }
         
-        .sources-list a:hover {
-            text-decoration: underline;
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: 2rem;
         }
         
-        .hidden {
-            display: none !important;
-        }
-        
+        /* Responsive */
         @media (max-width: 768px) {
-            .header h1 { font-size: 1.5rem; }
-            .main-content { padding: 1rem; }
-            .cards-grid { grid-template-columns: 1fr; }
-            .controls-content { flex-direction: column; }
-            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .header { padding: 1rem; }
+            .controls { padding: 0 1rem; }
+            .main-content { padding: 0 1rem 1rem; }
+            .stats-bar { grid-template-columns: repeat(2, 1fr); padding: 0 1rem; }
+            .news-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
     <header class="header">
         <div class="header-content">
-            <h1>🚀 Tech Business Report</h1>
-            <div class="timestamp">Fecha: 13 Abril 2026 | Generado: 12:45 UTC</div>
+            <h1>📊 Tech & Business Intelligence Report</h1>
+            <div class="header-meta">
+                <span>📅 13 Abril 2026</span>
+                <span>🕐 Generado: 17:57 UTC</span>
+                <span>📡 Datos: últimas 24-48 horas</span>
+            </div>
         </div>
     </header>
     
     <div class="controls">
-        <div class="controls-content">
-            <div class="search-box">
-                <input type="text" id="searchInput" placeholder="Buscar en el reporte...">
-            </div>
-            <div class="filters">
-                <button class="filter-btn active" data-filter="all">Todos</button>
-                <button class="filter-btn" data-filter="funding">💰 Funding</button>
-                <button class="filter-btn" data-filter="bigtech">🏢 Big Tech</button>
-                <button class="filter-btn" data-filter="ipo">📈 IPOs</button>
-                <button class="filter-btn" data-filter="productos">🚀 Productos</button>
-                <button class="filter-btn" data-filter="cyber">🔒 Cybersecurity</button>
-                <button class="filter-btn" data-filter="regulacion">⚖️ Regulación</button>
-                <button class="filter-btn" data-filter="silicon">🌐 Silicon Valley</button>
-                <button class="filter-btn" data-filter="semiconductor">💎 Semiconductors</button>
-            </div>
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Buscar noticias...">
+        </div>
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all">Todos</button>
+            <button class="filter-btn" data-filter="funding">💰 Funding</button>
+            <button class="filter-btn" data-filter="bigtech">🏢 Big Tech</button>
+            <button class="filter-btn" data-filter="ipos">📈 IPOs</button>
+            <button class="filter-btn" data-filter="products">🚀 Productos</button>
+            <button class="filter-btn" data-filter="cyber">🔒 Cybersecurity</button>
+            <button class="filter-btn" data-filter="regulation">⚖️ Regulación</button>
+            <button class="filter-btn" data-filter="layoffs">🌐 Silicon Valley</button>
+        </div>
+    </div>
+    
+    <div class="stats-bar">
+        <div class="stat-card">
+            <div class="stat-label">Funding Q1 2026</div>
+            <div class="stat-value">$312B</div>
+            <div class="stat-change positive">+46% YoY</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-label">Big Tech Capex 2026</div>
+            <div class="stat-value">$650B</div>
+            <div class="stat-change negative">+60% vs 2025</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-label">Tech Layoffs Q1</div>
+            <div class="stat-value">52,000+</div>
+            <div class="stat-change negative">+24% vs Q1 2025</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-label">Semiconductor Ventas Feb</div>
+            <div class="stat-value">$88.8B</div>
+            <div class="stat-change positive">+61.8% YoY</div>
         </div>
     </div>
     
     <main class="main-content">
-        <div class="stats-grid">
-            <div class="stat-card">
-                <div class="label">Funding Q1 2026</div>
-                <div class="value green">$297B</div>
-            </div>
-            <div class="stat-card">
-                <div class="label">Big Tech Capex 2026</div>
-                <div class="value blue">$650B+</div>
-            </div>
-            <div class="stat-card">
-                <div class="label">Tech Layoffs 2026</div>
-                <div class="value red">52,000+</div>
-            </div>
-            <div class="stat-card">
-                <div class="label">Semiconductor Market</div>
-                <div class="value purple">$1.3T</div>
-            </div>
-        </div>
-        
-        <section class="section" data-category="funding">
-            <h2 class="section-title">💰 Funding & Acquisitions</h2>
-            <div class="cards-grid">
-                <div class="card">
-                    <div class="card-title">Q1 2026: Funding Récord con $297B Invertidos</div>
-                    <div class="card-description">La inversión global en startups alcanzó $297 mil millones en Q1 2026, rompiendo todos los récords. OpenAI lideró con $122B, superando el récord anterior de $40B.</div>
+        <!-- FUNDING & ACQUISITIONS -->
+        <section class="section active" data-category="funding">
+            <h2 class="section-title"><span class="section-icon">💰</span> Funding & Acquisitions</h2>
+            <div class="news-grid">
+                <div class="news-card" data-tags="funding ai startup">
+                    <div class="card-header">
+                        <span class="card-title">Q1 2026: Récord de Funding para Startups</span>
+                        <span class="card-tag">FUNDING</span>
+                    </div>
+                    <div class="card-description">
+                        El Q1 2026 rompe todos los récords de venture capital. OpenAI levantó $122B (valorado en $852B), Anthropic $30B ($380B valuation), xAI $20B, y Waymo $16B. Las empresas de AI capturaron el 65% del total de deals.
+                    </div>
                     <div class="card-metrics">
-                        <span class="metric positive">+83% vs Q4 2025</span>
-                        <span class="metric">3 empresas = 83% del capital</span>
+                        <div class="metric">
+                            <div class="metric-value">$312B</div>
+                            <div class="metric-label">Q1 Total</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">+46%</div>
+                            <div class="metric-label">YoY Growth</div>
+                        </div>
                     </div>
                     <div class="card-footer">
-                        <span>📅 13 Abril 2026</span>
-                        <a href="https://techcrunch.com/2026/04/01/startup-funding-shatters-all-records-in-q1/" target="_blank">TechCrunch</a>
+                        <span>📅 13 Abr 2026</span>
+                        <a href="https://techcrunch.com/2026/04/01/startup-funding-shatters-all-records-in-q1/" target="_blank">TechCrunch ↗</a>
                     </div>
                 </div>
-                <div class="card">
-                    <div class="card-title">OpenAI: $122B Valoreda en $852B</div>
-                    <div class="card-description">OpenAI levantó $122B, convirtiéndose en la startup más valiosa del mundo. La ronda anterior de $40B fue superada significativamente.</div>
+                
+                <div class="news-card" data-tags="funding startup seed">
+                    <div class="card-header">
+                        <span class="card-title">US Seed Weekly: $29.5M en 4 Deals</span>
+                        <span class="card-tag">SEED</span>
+                    </div>
+                    <div class="card-description">
+                        Semana del 27 Mar - 3 Abr: Whirl AI ($8.9M) para agentes AI enterprise IT, CavilinQ ($8.8M) para interconnects quantum computing, Miravoice ($6.3M) para voice agents, Anvil Robotics ($5.5M) para robotics.
+                    </div>
                     <div class="card-metrics">
-                        <span class="metric positive">Valuación: $852B</span>
-                        <span class="metric">Generative AI</span>
+                        <div class="metric">
+                            <div class="metric-value">$29.5M</div>
+                            <div class="metric-label">Total Raised</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">4</div>
+                            <div class="metric-label">Deals</div>
+                        </div>
                     </div>
                     <div class="card-footer">
-                        <span>📅 13 Abril 2026</span>
-                        <a href="https://techcrunch.com/2026/04/01/startup-funding-shatters-all-records-in-q1/" target="_blank">TechCrunch</a>
+                        <span>📅 13 Abr 2026</span>
+                        <a href="https://qubit.capital/blog/us-seed-weekly-funding-roundup-week-1-april-2026" target="_blank">Qubit Capital ↗</a>
                     </div>
                 </div>
-                <div class="card">
-                    <div class="card-title">Anthropic: $30B Adicionales</div>
-                    <div class="card-description">Anthropic levantó $30B en Series G, alcanzando valoración de $380B. Su rival directo OpenAI supera los $852B.</div>
-                    <div class="card-metrics">
-                        <span class="metric positive">Valuación: $380B</span>
-                        <span class="metric">Generative AI</span>
+                
+                <div class="news-card" data-tags="funding fintech">
+                    <div class="card-header">
+                        <span class="card-title">Forbes: Fintech Funding 2026 va más allá de AI</span>
+                        <span class="card-tag">FINTECH</span>
+                    </div>
+                    <div class="card-description">
+                        El boom de fintech en 2026 no es solo AI. Empresas de pagos y banking digital se transforman en startups AI. Revolut y Stripe se preparan para IPOs potenciales en NY/London. Europa no se queda atrás.
                     </div>
                     <div class="card-footer">
-                        <span>📅 13 Abril 2026</span>
-                        <a href="https://techcrunch.com/2026/04/01/startup-funding-shatters-all-records-in-q1/" target="_blank">TechCrunch</a>
+                        <span>📅 1 Abr 2026</span>
+                        <a href="https://www.forbes.com/sites/zennonkapron/2026/04/01/why-the-2026-fintech-funding-boom-is-about-more-than-ai/" target="_blank">Forbes ↗</a>
                     </div>
                 </div>
-                <div class="card">
-                    <div class="card-title">xAI: $20B para Infraestructura AI</div>
-                    <div class="card-description">xAI de Elon Musk levantó $20B para construir infraestructura de AI a escala soberana. El cuarto mega-deal del quarter.</div>
+                
+                <div class="news-card" data-tags="funding startup india">
+                    <div class="card-header">
+                        <span class="card-title">ClayCo (India): $4.15M de Twenty-Nine Capital</span>
+                        <span class="card-tag">INDIA</span>
+                    </div>
+                    <div class="card-description">
+                        ClayCo levantó Rs 34.59 crore (~$4.15M USD) liderado por Twenty-Nine Capital Partners Ventures. Las startups indias continúan attracting capital significativo en 2026.
+                    </div>
                     <div class="card-metrics">
-                        <span class="metric">AI Infrastructure</span>
-                        <span class="metric">~$20B</span>
+                        <div class="metric">
+                            <div class="metric-value">$4.15M</div>
+                            <div class="metric-label">Raised</div>
+                        </div>
                     </div>
                     <div class="card-footer">
-                        <span>📅 13 Abril 2026</span>
-                        <a href="https://techcrunch.com/2026/01/06/xai-says-it-raised-20b-in-series-e-funding/" target="_blank">TechCrunch</a>
+                        <span>📅 8 Abr 2026</span>
+                        <a href="https://scouts.yutori.com/efbe0f63-c3f5-447b-a278-27219fb3e5d6" target="_blank">Scouts by Yutori ↗</a>
                     </div>
                 </div>
-                <div class="card">
-                    <div class="card-title">Waymo: $16B para Flota Robotaxi</div>
-                    <div class="card-description">Waymo levantó $16B para escalar su flota de robotaxis y expandir a Londres y Tokio.</div>
+                
+                <div class="news-card" data-tags="funding series-a">
+                    <div class="card-header">
+                        <span class="card-title">Abril 2026: 33 Series A por $625M</span>
+                        <span class="card-tag">SERIES A</span>
+                    </div>
+                    <div class="card-description">
+                        Solo en Abril (hasta el 17): 33 rounds Series A totalizando $625M. California lidera con 61 rounds ($1.67B YTD), Massachusetts 14 ($714M), New York 29 ($450M).
+                    </div>
                     <div class="card-metrics">
-                        <span class="metric">Transportation</span>
-                        <span class="metric">$16B</span>
+                        <div class="metric">
+                            <div class="metric-value">$625M</div>
+                            <div class="metric-label">Abril</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">33</div>
+                            <div class="metric-label">Rounds</div>
+                        </div>
                     </div>
                     <div class="card-footer">
-                        <span>📅 13 Abril 2026</span>
-                        <a href="https://techcrunch.com/2026/02/02/waymo-raises-16-billion-round-to-scale-robotaxi-fleet-london-tokyo/" target="_blank">TechCrunch</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-title">OpenAI Superó $120B Totales</div>
-                    <div class="card-description">OpenAI ha levantado más de $120B en total. SpaceX también ha filed confidencialmente para IPO.</div>
-                    <div class="card-metrics">
-                        <span class="metric positive">Total: $120B+</span>
-                        <span class="metric">SpaceX IPO Filed</span>
-                    </div>
-                    <div class="card-footer">
-                        <span>📅 13 Abril 2026</span>
-                        <a href="https://techcrunch.com/2026/03/31/openai-not-yet-public-raises-3b-from-retail-investors-in-monster-122b-fund-raise/" target="_blank">TechCrunch</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-title">CoreWeave: IPO Exitoso en Marzo 2026</div>
-                    <div class="card-description">CoreWeave (respaldado por Nvidia) debutó en Nasdaq con valoración de ~$23B. Acciones abrieron +25% sobre precio de IPO.</div>
-                    <div class="card-metrics">
-                        <span class="metric positive">Valuación: $23B</span>
-                        <span class="metric">NYSE: CRWV</span>
-                    </div>
-                    <div class="card-footer">
-                        <span>📅 13 Abril 2026</span>
-                        <a href="https://dealroom.net/blog/upcoming-recent-ipos" target="_blank">Dealroom</a>
+                        <span>📅 13 Abr 2026</span>
+                        <a href="https://fundraiseinsider.com/blog/series-a-startups/" target="_blank">Fundraise Insider ↗</a>
                     </div>
                 </div>
             </div>
         </section>
         
+        <!-- BIG TECH MOVES -->
         <section class="section" data-category="bigtech">
-            <h2 class="section-title">🏢 Big Tech Moves</h2>
-            <div class="cards-grid">
-                <div class="card">
-                    <div class="card-title">Big Tech: $650B+ en Capex AI 2026</div>
-                    <div class="card-description">Google, Amazon, Meta y Microsoft invertirán casi $650B en AI en 2026, casi igualando el presupuesto anual de India. Capex subió 60% vs $410B en 2025.</div>
+            <h2 class="section-title"><span class="section-icon">🏢</span> Big Tech Moves</h2>
+            <div class="news-grid">
+                <div class="news-card" data-tags="bigtech capex ai">
+                    <div class="card-header">
+                        <span class="card-title">Big Tech: $650B Capex en 2026 (+60% YoY)</span>
+                        <span class="card-tag">CAPEX</span>
+                    </div>
+                    <div class="card-description">
+                        Google, Amazon, Meta y Microsoft signaling $650B collectively en capex 2026. AI, cloud y data centers como high-ticket items. Amazon cayó 11% tras anunciar $200B capex (+50% vs 2025). Los 4 hyperscalers perdieron $1T en market cap post-earnings.
+                    </div>
                     <div class="card-metrics">
-                        <span class="metric negative">+60% vs 2025</span>
-                        <span class="metric">34% como % de revenue</span>
+                        <div class="metric">
+                            <div class="metric-value">$650B</div>
+                            <div class="metric-label">Total Capex</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">+60%</div>
+                            <div class="metric-label">vs 2025</div>
+                        </div>
                     </div>
                     <div class="card-footer">
-                        <span>📅 13 Abril 2026</span>
-                        <a href="https://www.siliconrepublic.com/business/big-tech-650bn-capital-expense-bill-2026-meta-amazon-google-microsoft" target="_blank">Silicon Republic</a>
+                        <span>📅 13 Abr 2026</span>
+                        <a href="https://www.siliconrepublic.com/business/big-tech-650bn-capital-expense-bill-2026-meta-amazon-google-microsoft" target="_blank">Silicon Republic ↗</a>
                     </div>
                 </div>
-                <div class="card">
-                    <div class="card-title">Tech Rally Tras Tregua Iran</div>
-                    <div class="card-description">Meta, Amazon, Alphabet y Nvidia lideraron el rally tras el anuncio de cese al fuego de 2 semanas con Irán. Magnificent 7 recuperándose.</div>
-                    <div class="card-metrics">
-                        <span class="metric positive">Rally significativo</span>
-                        <span class="metric">Abril 2026</span>
+                
+                <div class="news-card" data-tags="bigtech h1b layoffs">
+                    <div class="card-header">
+                        <span class="card-title">Big Tech H-1B Filings Plummet</span>
+                        <span class="card-tag">IMMIGRATION</span>
+                    </div>
+                    <div class="card-description">
+                        Amazon, Google, Meta y Microsoft reducen significativamente filings H-1B mientras recortan jobs y sube costs de inmigración. La tendencia refleja la shift hacia AI-driven automation.
                     </div>
                     <div class="card-footer">
-                        <span>📅 8 Abril 2026</span>
-                        <a href="https://www.cnbc.com/2026/04/08/alphabet-nvidia-microsoft-tech-stocks-iran-ceasefire.html" target="_blank">CNBC</a>
+                        <span>📅 13 Abr 2026</span>
+                        <a href="https://finance.yahoo.com/sectors/technology/articles/big-tech-h-1b-filings-113109325.html" target="_blank">Yahoo Finance ↗</a>
                     </div>
                 </div>
-                <div class="card">
-                    <div class="card-title">CoreWeave- Meta: $21B AI Computing Deal</div>
-                    <div class="card-description">CoreWeave y Meta cerraron un acuerdo de $21B para infraestructura de AI computing.</div>
-                    <div class="card-metrics">
-                        <span class="metric">$21B Deal</span>
-                        <span class="metric">AI Infrastructure</span>
+                
+                <div class="news-card" data-tags="bigtech earnings apple">
+                    <div class="card-header">
+                        <span class="card-title">Apple Dealt a Blow - Bloomberg Video</span>
+                        <span class="card-tag">EARNINGS</span>
+                    </div>
+                    <div class="card-description">
+                        Microsoft y Meta allayan tariff fears con earnings beats. Apple enfrenta desafíos. Bloomberg analysts discuten la diferencia de impacto entre las big techs.
                     </div>
                     <div class="card-footer">
-                        <span>📅 9 Abril 2026</span>
-                        <a href="https://www.youtube.com/watch?v=HXg-abDM9-4" target="_blank">Bloomberg Tech</a>
+                        <span>📅 13 Abr 2026</span>
+                        <a href="https://www.youtube.com/watch?v=W_AyIyC9eBk" target="_blank">Bloomberg ↗</a>
                     </div>
                 </div>
-                <div class="card">
-                    <div class="card-title">Microsoft y Meta: Beat Expectations</div>
-                    <div class="card-description">Microsoft y Meta superaron expectativas de earnings. Acciones subieron tras alivianar miedos sobre tarifas.</div>
+                
+                <div class="news-card" data-tags="bigtech meta layoffs">
+                    <div class="card-header">
+                        <span class="card-title">Meta: 20% Workforce Cuts (15,000)</span>
+                        <span class="card-tag">LAYOFFS</span>
+                    </div>
+                    <div class="card-description">
+                        Meta planning sweeping layoffs con 20% de workforce (~15,000 empleados) en el chopping block según Reuters. La compañía continúa reduciendo mientras invierte en AI.
+                    </div>
                     <div class="card-metrics">
-                        <span class="metric positive">Beat expectations</span>
-                        <span class="metric">Q1 2026</span>
+                        <div class="metric">
+                            <div class="metric-value">15,000</div>
+                            <div class="metric-label">Jobs at Risk</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">20%</div>
+                            <div class="metric-label">of Workforce</div>
+                        </div>
                     </div>
                     <div class="card-footer">
-                        <span>📅 13 Abril 2026</span>
-                        <a href="https://www.youtube.com/watch?v=W_AyIyC9eBk" target="_blank">Bloomberg</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <section class="section" data-category="ipo">
-            <h2 class="section-title">📈 IPOs & Earnings</h2>
-            <div class="cards-grid">
-                <div class="card">
-                    <div class="card-title">Mega IPOs: SpaceX y OpenAI en Camino</div>
-                    <div class="card-description">SpaceX ha filing confidencialmente para IPO. OpenAI también considera pública. Juntos podrían levantar decenas de miles de millones.</div>
-                    <div class="card-metrics">
-                        <span class="metric">SpaceX IPO Filed</span>
-                        <span class="metric">OpenAI Considering</span>
-                    </div>
-                    <div class="card-footer">
-                        <span>📅 13 Abril 2026</span>
-                        <a href="https://www.youtube.com/watch?v=kbT58pJrW_4" target="_blank">Bloomberg Deals</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-title">US IPOs: $23B Raised, +91% YoY</div>
-                    <div class="card-description">Empresas estadounidenses han levantado más de $23B en IPOs en 2026, un aumento del 91% interanual. Mercados absorben grandes transacciones.</div>
-                    <div class="card-metrics">
-                        <span class="metric positive">+91% YoY</span>
-                        <span class="metric">$23B Raised</span>
-                    </div>
-                    <div class="card-footer">
-                        <span>📅 1 Abril 2026</span>
-                        <a href="https://www.reuters.com/business/finance/mega-ipos-set-test-us-market-depth-despite-volatility-2026-04-01/" target="_blank">Reuters</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-title">Klarna IPO: $17.4B Market Cap</div>
-                    <div class="card-description">Klarna debutó en NYSE levantando $1.37B. Acciones cerraron +15% sobre precio de listing. Valuación ~$17.4B.</div>
-                    <div class="card-metrics">
-                        <span class="metric positive">+15% Day 1</span>
-                        <span class="metric">Fintech</span>
-                    </div>
-                    <div class="card-footer">
-                        <span>📅 2025-2026</span>
-                        <a href="https://dealroom.net/blog/upcoming-recent-ipos" target="_blank">Dealroom</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-title">Figma IPO: $33/Share en NYSE</div>
-                    <div class="card-description">Figma se públicos en NYSE a $33/share. La empresa de diseño levantó ~$1.2B en su IPO.</div>
-                    <div class="card-metrics">
-                        <span class="metric">NYSE: Figma</span>
-                        <span class="metric">$33/share</span>
-                    </div>
-                    <div class="card-footer">
-                        <span>📅 Julio 2025</span>
-                        <a href="https://dealroom.net/blog/upcoming-recent-ipos" target="_blank">Dealroom</a>
+                        <span>📅 13 Abr 2026</span>
+                        <a href="https://www.aol.com/news/meta-shares-jump-3-mark-160008337.html" target="_blank">AOL News ↗</a>
                     </div>
                 </div>
             </div>
         </section>
         
-        <section class="section" data-category="productos">
-            <h2 class="section-title">🚀 Tech Productos</h2>
-            <div class="cards-grid">
-                <div class="card">
-                    <div class="card-title">CES 2026: AR Glasses y AI Gadgets</div>
-                    <div class="card-description">Lanzamientos destacados: XREAL 1S, Meta AR glasses concept, Roborock Saros Rover, Samsung Micro RGB TV ($29,999), LG CLOiD robot.</div>
+        <!-- IPOs & EARNINGS -->
+        <section class="section" data-category="ipos">
+            <h2 class="section-title"><span class="section-icon">📈</span> IPOs & Earnings</h2>
+            <div class="news-grid">
+                <div class="news-card" data-tags="ipo spacex openai">
+                    <div class="card-header">
+                        <span class="card-title">Mega IPOs: SpaceX y OpenAI tested market depth</span>
+                        <span class="card-tag">IPO</span>
+                    </div>
+                    <div class="card-description">
+                        Companies raised most through share sales in Q1 since 2021. SpaceX y mega-IPOs de OpenAI may raise tens of billions más a pesar de volatility por Iran war y software stock selloff. US IPOs $23B YTD (+91% YoY).
+                    </div>
                     <div class="card-metrics">
-                        <span class="metric">AR/VR</span>
-                        <span class="metric">AI Robotics</span>
+                        <div class="metric">
+                            <div class="metric-value">$23B</div>
+                            <div class="metric-label">US IPOs YTD</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">+91%</div>
+                            <div class="metric-label">YoY</div>
+                        </div>
                     </div>
                     <div class="card-footer">
-                        <span>📅 Enero 2026</span>
-                        <a href="https://www.engadget.com/general/all-the-tech-and-gadgets-announced-at-ces-2026-130124023.html" target="_blank">Engadget</a>
+                        <span>📅 1 Abr 2026</span>
+                        <a href="https://www.reuters.com/business/finance/mega-ipos-set-test-us-market-depth-despite-volatility-2026-04-01/" target="_blank">Reuters ↗</a>
                     </div>
                 </div>
-                <div class="card">
-                    <div class="card-title">AI-Powered Home Hubs y Smart Fitness</div>
-                    <div class="card-description">Lanzamientos de Abril 2026 incluyen: AI fitness trackers con coaching, smart home hubs con AI, foldable phones next-gen.</div>
-                    <div class="card-metrics">
-                        <span class="metric">AIoT</span>
-                        <span class="metric">Wearables</span>
+                
+                <div class="news-card" data-tags="ipo spacex openai market">
+                    <div class="card-header">
+                        <span class="card-title">2026 IPO Enthusiasm Fueled by AI</span>
+                        <span class="card-tag">IPO</span>
+                    </div>
+                    <div class="card-description">
+                        Tech roars back con 2026 IPO enthusiasm fueled por AI. SpaceX, OpenAI y otras grandes empresas de AI driving el próximo wave de public offerings.
                     </div>
                     <div class="card-footer">
-                        <span>📅 Abril 2026</span>
-                        <a href="https://thebusinesslegacy.com/weeks-top-tech-product-launches-and-what-consumers-should-know/" target="_blank">Business Legacy</a>
+                        <span>📅 13 Abr 2026</span>
+                        <a href="https://www.youtube.com/watch?v=6A5Dl-XnFBA" target="_blank">YouTube/Asking For A Trend ↗</a>
                     </div>
                 </div>
-                <div class="card">
-                    <div class="card-title">Boston Dynamics Atlas: Producción</div>
-                    <div class="card-description">Boston Dynamics anunció versión de producción del robot Atlas. El robot aprende chores vía teleoperación.</div>
+                
+                <div class="news-card" data-tags="ipo klarna coreweave figcaption">
+                    <div class="card-header">
+                        <span class="card-title">2026 IPOs: Klarna, CoreWeave, Figma</span>
+                        <span class="card-tag">RECENT</span>
+                    </div>
+                    <div class="card-description">
+                        Klarna raised $1.37B en NYSE debut, closing $17.4B valuation (+15% from listing). CoreWeave (NVidia-backed) started trading at $39, valuation ~$23B. Figma raised $6.26B en July 2025 IPO.
+                    </div>
                     <div class="card-metrics">
-                        <span class="metric">Robotics</span>
-                        <span class="metric">Production Ready</span>
+                        <div class="metric">
+                            <div class="metric-value">$17.4B</div>
+                            <div class="metric-label">Klarna Valuation</div>
+                        </div>
                     </div>
                     <div class="card-footer">
-                        <span>📅 CES 2026</span>
-                        <a href="https://www.engadget.com/big-tech/boston-dynamics-announces-production-ready-version-of-atlas-robot-at-ces-2026-234047772.html" target="_blank">Engadget</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-title">Best Gadgets Abril 2026</div>
-                    <div class="card-description">Top gadgets: Supertiny 100W charger, DuRoBo Krono e-reader, Xreal 1S AR glasses, Shokz OpenFit Pro, Dreame X60 Max Ultra.</div>
-                    <div class="card-metrics">
-                        <span class="metric">Consumer Tech</span>
-                        <span class="metric">Gadgets</span>
-                    </div>
-                    <div class="card-footer">
-                        <span>📅 Abril 2026</span>
-                        <a href="https://www.yankodesign.com/2026/04/09/10-best-gadgets-of-april-2026-every-tech-savvy-gen-z-is-obsessed-with-and-we-get-why/" target="_blank">Yanko Design</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <section class="section" data-category="semiconductor">
-            <h2 class="section-title">💎 Semiconductors</h2>
-            <div class="cards-grid">
-                <div class="card">
-                    <div class="card-title">TSMC: 35% Revenue Increase</div>
-                    <div class="card-description">TSMC reportó aumento de 35% en revenue trimestral. IA demand supera preocupaciones por conflicto en Iran. 72% del mercado global de foundry.</div>
-                    <div class="card-metrics">
-                        <span class="metric positive">+35% Revenue</span>
-                        <span class="metric">72% Market Share</span>
-                    </div>
-                    <div class="card-footer">
-                        <span>📅 10 Abril 2026</span>
-                        <a href="https://www.bloomberg.com/news/articles/2026-04-10/tsmc-s-sales-beat-estimates-after-war-fails-to-dent-ai-demand" target="_blank">Bloomberg</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-title">Semiconductor Revenue: $1.3T en 2026</div>
-                    <div class="card-description">Gartner proyecta que revenue global de semiconductores alcanzará $1.3T en 2026, el crecimiento más rápido en dos décadas.</div>
-                    <div class="card-metrics">
-                        <span class="metric positive">$1.3T Market</span>
-                        <span class="metric">+Fastest Growth</span>
-                    </div>
-                    <div class="card-footer">
-                        <span>📅 8 Abril 2026</span>
-                        <a href="https://semiconductorsinsight.com/latest-semiconductor-news-today-april-2026/" target="_blank">Semiconductors Insight</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-title">Chip Price Hikes: 14 Fabricantes</div>
-                    <div class="card-description">Texas Instruments, NXP, Infineon, MPS, Murata y otros anunció incrementos de precios de 15-85% en Abril 2026. Driven por AI demand y costos de materiales.</div>
-                    <div class="card-metrics">
-                        <span class="metric negative">+15% a +85%</span>
-                        <span class="metric">Power/Analog ICs</span>
-                    </div>
-                    <div class="card-footer">
-                        <span>📅 Abril 2026</span>
-                        <a href="https://www.briocean.com/april-2026-price-hikes-across-14-chip-suppliers-market-impact-sourcing-insights/" target="_blank">Briocean</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-title">Nvidia: Dominance Continúa en AI Chips</div>
-                    <div class="card-description">Nvidia permanece como la opción default para AI training e inference a escala. 2026 no será el año que su dominance se rompe.</div>
-                    <div class="card-metrics">
-                        <span class="metric">AI Server GPUs</span>
-                        <span class="metric">Market Leader</span>
-                    </div>
-                    <div class="card-footer">
-                        <span>📅 2026</span>
-                        <a href="https://www.kmjournal.net/news/articleView.html?idxno=6947" target="_blank">KMJ</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-title">TSMC: 2nm Production y $100B US Investment</div>
-                    <div class="card-description">TSMC transicionó a producción massiva de 2nm. Anunció inversión de $100B en US, adicionando a $65B para tres plantas en Arizona.</div>
-                    <div class="card-metrics">
-                        <span class="metric">2nm Node</span>
-                        <span class="metric">$100B US Investment</span>
-                    </div>
-                    <div class="card-footer">
-                        <span>📅 Enero 2026</span>
-                        <a href="https://www.reuters.com/world/china/tsmc-likely-post-fourth-quarter-profit-leap-driven-by-ai-boom-2026-01-14/" target="_blank">Reuters</a>
+                        <span>📅 13 Abr 2026</span>
+                        <a href="https://dealroom.net/blog/upcoming-recent-ipos" target="_blank">DealRoom ↗</a>
                     </div>
                 </div>
             </div>
         </section>
         
+        <!-- PRODUCTOS TECH -->
+        <section class="section" data-category="products">
+            <h2 class="section-title"><span class="section-icon">🚀</span> Productos Tech</h2>
+            <div class="news-grid">
+                <div class="news-card" data-tags="gadgets ai home">
+                    <div class="card-header">
+                        <span class="card-title">Top Gadgets Abril 2026 - Gen Z Obsessed</span>
+                        <span class="card-tag">GADGETS</span>
+                    </div>
+                    <div class="card-description">
+                        AI-powered home assistant hubs, next-gen foldable smartphones, AR glasses, y smart fitness trackers con AI coaching. Trend: dispositivos inteligentes y experiencias immersivas dominate el mercado.
+                    </div>
+                    <div class="card-footer">
+                        <span>📅 9 Abr 2026</span>
+                        <a href="https://www.yankodesign.com/2026/04/09/10-best-gadgets-of-april-2026-every-tech-savvy-gen-z-is-obsessed-with-and-we-get-why/" target="_blank">Yanko Design ↗</a>
+                    </div>
+                </div>
+                
+                <div class="news-card" data-tags="ces 2026 robots lg samsung">
+                    <div class="card-header">
+                        <span class="card-title">CES 2026: LG CLOiD Robot, Samsung Micro RGB TV</span>
+                        <span class="card-tag">CES 2026</span>
+                    </div>
+                    <div class="card-description">
+                        LG unveiled CLOiD - robot para household tasks (laundry folding, dishwasher unloading, food serving). Samsung showed first Micro RGB TV (115", $29,999). Boston Dynamics announced production-ready Atlas.
+                    </div>
+                    <div class="card-footer">
+                        <span>📅 13 Ene 2026</span>
+                        <a href="https://www.engadget.com/general/all-the-tech-and-gadgets-announced-at-ces-2026-130124023.html" target="_blank">Engadget ↗</a>
+                    </div>
+                </div>
+                
+                <div class="news-card" data-tags="gadgets robots japan">
+                    <div class="card-header">
+                        <span class="card-title">Japan: Physical AI Ready for Real World</span>
+                        <span class="card-tag">ROBOTICS</span>
+                    </div>
+                    <div class="card-description">
+                        Japan is proving experimental physical AI is ready for the real world. Robots filling jobs nobody wants mientras tech avanza en automation.
+                    </div>
+                    <div class="card-footer">
+                        <span>📅 5 Abr 2026</span>
+                        <a href="https://techcrunch.com/2026/04/05/japan-is-proving-experimental-physical-ai-is-ready-for-the-real-world/" target="_blank">TechCrunch ↗</a>
+                    </div>
+                </div>
+                
+                <div class="news-card" data-tags="gadgets audio headphones">
+                    <div class="card-header">
+                        <span class="card-title">10 Gadgets Everyone's Quietly Buying 2026</span>
+                        <span class="card-tag">GADGETS</span>
+                    </div>
+                    <div class="card-description">
+                        Ecoute TH1 Vacuum Tube Headphones, Even Realities R1 Smart Ring, ACEMAGIC Retro X5 Mini PC, Yarbo M Series Modular Yard Robot. productos destacados del momento.
+                    </div>
+                    <div class="card-footer">
+                        <span>📅 8 Abr 2026</span>
+                        <a href="https://the-gadgeteer.com/2026/04/08/10-gadgets-everyones-quietly-buying-in-2026/" target="_blank">The Gadgeteer ↗</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- CYBERSECURITY -->
         <section class="section" data-category="cyber">
-            <h2 class="section-title">🔒 Cybersecurity</h2>
-            <div class="cards-grid">
-                <div class="card">
-                    <div class="card-title">Iran Ataca Datacenters de Amazon y Oracle</div>
-                    <div class="card-description">Irán causó serios ciberataques a datacenters de Amazon y Oracle en Bahrain y Dubai. Ciberdisrupciones significativas reportadas.</div>
+            <h2 class="section-title"><span class="section-icon">🔒</span> Cybersecurity</h2>
+            <div class="news-grid">
+                <div class="news-card" data-tags="ransomware nike mcdonalds india">
+                    <div class="card-header">
+                        <span class="card-title">Ransomware 2026: Nike, McDonald's India atacados</span>
+                        <span class="card-tag">RANSOMWARE</span>
+                    </div>
+                    <div class="card-description">
+                        Nike investigating potential data breach tras grupo WorldLeaks claim 1.4 TB stolen (188,000+ files de product design, manufacturing, supply chain). Everest ransomware claims 861 GB de McDonald's India data.
+                    </div>
                     <div class="card-metrics">
-                        <span class="metric negative">Critical</span>
-                        <span class="metric">Middle East</span>
+                        <div class="metric">
+                            <div class="metric-value">1.4 TB</div>
+                            <div class="metric-label">Nike Data</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">861 GB</div>
+                            <div class="metric-label">McDonald's India</div>
+                        </div>
                     </div>
                     <div class="card-footer">
-                        <span>📅 Abril 2026</span>
-                        <a href="https://red-n-security.com/april-4-2026/" target="_blank">Red N Security</a>
+                        <span>📅 13 Abr 2026</span>
+                        <a href="https://www.blackfog.com/the-state-of-ransomware-2026/" target="_blank">BlackFog ↗</a>
                     </div>
                 </div>
-                <div class="card">
-                    <div class="card-title">Russian Hackers: SOHO Routers Espionage</div>
-                    <div class="card-description">Funcionarios de seguridad británicos encontraron que un grupo vinculado al ejército ruso está espiando usuarios de routers SOHO comprometidos.</div>
-                    <div class="card-metrics">
-                        <span class="metric negative">State-Sponsored</span>
-                        <span class="metric">Russia/GRU</span>
+                
+                <div class="news-card" data-tags="data breach crunchbase ericsson">
+                    <div class="card-header">
+                        <span class="card-title">Crunchbase Confirms Data Breach</span>
+                        <span class="card-tag">BREACH</span>
+                    </div>
+                    <div class="card-description">
+                        Crunchbase confirmed data breach después de hacking claims. También: Ericsson breach affected 15,000+ employees/customers US operations via third-party provider. Pinnacle Holdings: 20,000 affected.
                     </div>
                     <div class="card-footer">
-                        <span>📅 Abril 2026</span>
-                        <a href="https://www.cybersecurity-review.com/news-april-2026/" target="_blank">Cybersecurity Review</a>
+                        <span>📅 13 Abr 2026</span>
+                        <a href="https://www.pkware.com/blog/2026-data-breaches" target="_blank">PKWARE ↗</a>
                     </div>
                 </div>
-                <div class="card">
-                    <div class="card-title">Nike: 1.4TB Data Breach Investigada</div>
-                    <div class="card-description">Nike investiga potencial breach después de que WorldLeaks afirmó haber robado ~1.4TB de datos: 188K+ archivos de producto, supply chain.</div>
+                
+                <div class="news-card" data-tags="cybersecurity ai attacks training">
+                    <div class="card-header">
+                        <span class="card-title">Biggest Cyber Breaches 2026: AI-assisted Attacks Rising</span>
+                        <span class="card-tag">CYBERSECURITY</span>
+                    </div>
+                    <div class="card-description">
+                        AI-assisted attacks rising sharply, zero-day vulnerabilities exploited faster than security teams can respond. Navia Benefit Solutions breach: 2.7M people affected. Training (CompTIA Security+, CySA+) como prevention.
+                    </div>
                     <div class="card-metrics">
-                        <span class="metric negative">1.4TB Exfiltrated</span>
-                        <span class="metric">188K+ Files</span>
+                        <div class="metric">
+                            <div class="metric-value">2.7M</div>
+                            <div class="metric-label">Navia Affected</div>
+                        </div>
                     </div>
                     <div class="card-footer">
-                        <span>📅 Abril 2026</span>
-                        <a href="https://www.blackfog.com/the-state-of-ransomware-2026/" target="_blank">BlackFog</a>
+                        <span>📅 13 Abr 2026</span>
+                        <a href="https://www.acilearning.com/blog/the-biggest-cybersecurity-breaches-of-2026-so-far-and-the-training-that-could-have-prevented-them/" target="_blank">ACI Learning ↗</a>
                     </div>
                 </div>
-                <div class="card">
-                    <div class="card-title">McDonald's India: 861GB Breach</div>
-                    <div class="card-description">Everest ransomware group klaim breach en McDonald's India: 861GB de datos robados incluyendo info de clientes y documentos internos.</div>
-                    <div class="card-metrics">
-                        <span class="metric negative">861GB</span>
-                        <span class="metric">Ransomware</span>
+                
+                <div class="news-card" data-tags="cybersecurity law firm data breach">
+                    <div class="card-header">
+                        <span class="card-title">Law Firm: Hackers Accessed Client Data</span>
+                        <span class="card-tag">CYBERSECURITY</span>
+                    </div>
+                    <div class="card-description">
+                        Law firm cyber attack: hackers accessed clients' sensitive data. Daily cyber news coverage de ataques a law firms y otras professional services.
                     </div>
                     <div class="card-footer">
-                        <span>📅 Abril 2026</span>
-                        <a href="https://www.blackfog.com/the-state-of-ransomware-2026/" target="_blank">BlackFog</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-title">AI-Assisted Attacks: Rising Sharply</div>
-                    <div class="card-description">Ataques assistidos por AI están aumentando sharply. Zero-day vulnerabilities siendo explotadas más rápido de lo que security teams pueden responder.</div>
-                    <div class="card-metrics">
-                        <span class="metric negative">AI-Powered</span>
-                        <span class="metric">Zero-Days</span>
-                    </div>
-                    <div class="card-footer">
-                        <span>📅 Abril 2026</span>
-                        <a href="https://www.acilearning.com/blog/the-biggest-cybersecurity-breaches-of-2026-so-far-and-the-training-that-could-have-prevented-them/" target="_blank">ACI Learning</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <section class="section" data-category="regulacion">
-            <h2 class="section-title">⚖️ Regulación</h2>
-            <div class="cards-grid">
-                <div class="card">
-                    <div class="card-title">EU Fines Big Tech: +€7B en 2 Años</div>
-                    <div class="card-description">La EU ha multado a Big Tech con más de €7B en los últimos dos años. Google y Meta enfrentan multas significativas por DMA violations.</div>
-                    <div class="card-metrics">
-                        <span class="metric negative">€7B+ Fines</span>
-                        <span class="metric">DMA/DSA</span>
-                    </div>
-                    <div class="card-footer">
-                        <span>📅 10 Abril 2026</span>
-                        <a href="https://www.cnbc.com/2026/04/10/google-meta-big-tech-6-billion-euros-eu-fine.html" target="_blank">CNBC</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-title">DOJ Remedies en Google Ad Tech</div>
-                    <div class="card-description">DOJ ganó remedios significativos contra Google: prohíbe contratos de distribución exclusivos y requiere compartir datos limitados de búsqueda.</div>
-                    <div class="card-metrics">
-                        <span class="metric">DOJ Antitrust</span>
-                        <span class="metric">Behavioral Remedies</span>
-                    </div>
-                    <div class="card-footer">
-                        <span>📅 2026</span>
-                        <a href="https://techpolicy.press/looking-ahead-on-us-antitrust-enforcement-and-tech-will-2026-deliver-more-of-the-same" target="_blank">Tech Policy Press</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-title">EU Tech Transfer Rules: Q2 2026</div>
-                    <div class="card-description">La Comisión Europea adoptará nuevas reglas de antitrust para transferencia de tecnología (TTBER) en Q2 2026.</div>
-                    <div class="card-metrics">
-                        <span class="metric">EU Antitrust</span>
-                        <span class="metric">TTBER</span>
-                    </div>
-                    <div class="card-footer">
-                        <span>📅 Q2 2026</span>
-                        <a href="https://www.mlex.com/mlex/articles/2444789/eu-commission-to-adopt-new-tech-transfer-antitrust-rules-in-second-quarter-of-2026" target="_blank">MLex</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-title">FTC Case vs Meta: Rechazado</div>
-                    <div class="card-description">Juez Boasberg rechazó el caso de monopolización de FTC contra Meta, concluyendo que Meta NO tiene poder de monopolio cuando TikTok y YouTube se incluyen.</div>
-                    <div class="card-metrics">
-                        <span class="metric negative">Case Rejected</span>
-                        <span class="metric">Noviembre 2025</span>
-                    </div>
-                    <div class="card-footer">
-                        <span>📅 2025-2026</span>
-                        <a href="https://techpolicy.press/looking-ahead-on-us-antitrust-enforcement-and-tech-will-2026-deliver-more-of-the-same" target="_blank">Tech Policy Press</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-title">AI Regulation: EU AI Act y DMA</div>
-                    <div class="card-description">La EC lanzó investigaciones sobre integración de AI features en Google y WhatsApp. EU busca regular AI bajo reglas de competencia tradicionales.</div>
-                    <div class="card-metrics">
-                        <span class="metric">EU AI Act</span>
-                        <span class="metric">Investigation</span>
-                    </div>
-                    <div class="card-footer">
-                        <span>📅 2026</span>
-                        <a href="https://www.hausfeld.com/what-we-think/competition-bulletin/regulating-artificial-intelligence-between-the-eu-digital-markets-act-and-competition-law" target="_blank">Hausfeld</a>
+                        <span>📅 8 Abr 2026</span>
+                        <a href="https://www.youtube.com/watch?v=fTSeqXWJChA" target="_blank">WCYB Digital ↗</a>
                     </div>
                 </div>
             </div>
         </section>
         
-        <section class="section" data-category="silicon">
-            <h2 class="section-title">🌐 Silicon Valley (Layoffs & Hiring)</h2>
-            <div class="cards-grid">
-                <div class="card">
-                    <div class="card-title">52,000+ Tech Jobs Eliminados en Q1 2026</div>
-                    <div class="card-description">Más de 52,000 jobs tech eliminados en Q1 2026. Es el mayor número de cuts en Q1 desde 2023. 80%+ hitting US.</div>
+        <!-- REGULACIÓN -->
+        <section class="section" data-category="regulation">
+            <h2 class="section-title"><span class="section-icon">⚖️</span> Regulación & Antitrust</h2>
+            <div class="news-grid">
+                <div class="news-card" data-tags="regulation eu fines bigtech">
+                    <div class="card-header">
+                        <span class="card-title">Big Tech Fined +$7B by EU in 2 Years</span>
+                        <span class="card-tag">EU FINES</span>
+                    </div>
+                    <div class="card-description">
+                        Google y Meta multadas con más de $7B total por EU en últimos 2 años. EU accountability para companies que hacen negocio en Europa. Commission's spokesperson: rules protect European people.
+                    </div>
                     <div class="card-metrics">
-                        <span class="metric negative">52,000+ Cuts</span>
-                        <span class="metric">Q1 2026 Record</span>
+                        <div class="metric">
+                            <div class="metric-value">$7B+</div>
+                            <div class="metric-label">Total Fines</div>
+                        </div>
                     </div>
                     <div class="card-footer">
-                        <span>📅 Abril 2026</span>
-                        <a href="https://www.mercurynews.com/2026/04/03/us-job-cut-announcements-in-tech-keep-rising-with-ai-adoption-2/" target="_blank">Mercury News</a>
+                        <span>📅 10 Abr 2026</span>
+                        <a href="https://www.cnbc.com/2026/04/10/google-meta-big-tech-6-billion-euros-eu-fine.html" target="_blank">CNBC ↗</a>
                     </div>
                 </div>
-                <div class="card">
-                    <div class="card-title">Oracle: Hasta 30,000 Employees Layoffs</div>
-                    <div class="card-description">Oracle laid off hasta 30,000 empleados vía email a las 6 AM (Abril 2026). Shift a AI investments.</div>
-                    <div class="card-metrics">
-                        <span class="metric negative">30,000 Jobs</span>
-                        <span class="metric">Abril 2026</span>
+                
+                <div class="news-card" data-tags="antitrust enforcement pragmatic shift">
+                    <div class="card-header">
+                        <span class="card-title">Antitrust 2026: From Blocking to Remedying</span>
+                        <span class="card-tag">ANTITRUST</span>
+                    </div>
+                    <div class="card-description">
+                        US antitrust enforcement undergoes fundamental transformation en 2026. Federal agencies pivot from aggressive blocking strategies toward pragmatic approach con structural remedies y negotiated settlements.
                     </div>
                     <div class="card-footer">
-                        <span>📅 Abril 2026</span>
-                        <a href="https://tech-insider.org/tech-layoffs-2026-ai-workforce-impact/" target="_blank">Tech Insider</a>
+                        <span>📅 13 Abr 2026</span>
+                        <a href="https://www.thelegalfeed.com/news/antitrust-enforcement-enters-new-pragmatic-era-2026-signals-strategic-shift-from-blocking-to-remedying-tech-deals/" target="_blank">The Legal Feed ↗</a>
                     </div>
                 </div>
-                <div class="card">
-                    <div class="card-title">Block: 4,000 Cut (40% of Workforce)</div>
-                    <div class="card-description">Block (Jack Dorsey) eliminó 4,000 personas, o 40% de su workforce, diciendo que AI ahora maneja 50% del trabajo.</div>
-                    <div class="card-metrics">
-                        <span class="metric negative">40% Workforce</span>
-                        <span class="metric">AI Handles 50% Work</span>
+                
+                <div class="news-card" data-tags="regulation eu tech transfer antitrust">
+                    <div class="card-header">
+                        <span class="card-title">EU: New Tech Transfer antitrust rules Q2 2026</span>
+                        <span class="card-tag">EU REGULATION</span>
+                    </div>
+                    <div class="card-description">
+                        European Commission adoptará nueva versión de tech transfer antitrust rules during Q2 2026. Regulation impacting licensing y technology transfer agreements.
                     </div>
                     <div class="card-footer">
-                        <span>📅 Febrero 2026</span>
-                        <a href="https://www.theguardian.com/technology/2026/apr/06/tech-layoffs-ai-work" target="_blank">The Guardian</a>
+                        <span>📅 23 Feb 2026</span>
+                        <a href="https://www.mlex.com/mlex/articles/2444789/eu-commission-to-adopt-new-tech-transfer-antitrust-rules-in-second-quarter-of-2026" target="_blank">MLex ↗</a>
                     </div>
                 </div>
-                <div class="card">
-                    <div class="card-title">Salesforce: 4,000 Support Workers</div>
-                    <div class="card-description">Salesforce eliminó 4,000 customer support workers, con AI manejando 50% del trabajo. Más ejemplo de AI reemplazando roles.</div>
-                    <div class="card-metrics">
-                        <span class="metric negative">4,000 Jobs</span>
-                        <span class="metric">Support Roles</span>
+                
+                <div class="news-card" data-tags="regulation global antitrust enforcement">
+                    <div class="card-header">
+                        <span class="card-title">Global Antitrust Enforcement Outlook 2026</span>
+                        <span class="card-tag">GLOBAL</span>
+                    </div>
+                    <div class="card-description">
+                        Global antitrust enforcement transforming driven por tech advancements, expanding regulatory powers, y integration de competition policy con industrial y security objectives. 2026 expected como record year for state-level enforcement.
                     </div>
                     <div class="card-footer">
-                        <span>📅 2026</span>
-                        <a href="https://techxplore.com/news/2026-04-hiring-humans-silicon-valley-ai.html" target="_blank">TechXplore</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-title">Amazon: 16,000 Corporate Cuts</div>
-                    <div class="card-description">Amazon lideró layoffs 2026 con 16,000 corporate cuts. La empresa más silenciosa en términos de números.</div>
-                    <div class="card-metrics">
-                        <span class="metric negative">16,000 Jobs</span>
-                        <span class="metric">Amazon</span>
-                    </div>
-                    <div class="card-footer">
-                        <span>📅 2026</span>
-                        <a href="https://tech-insider.org/tech-layoffs-2026-ai-workforce-impact/" target="_blank">Tech Insider</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-title">Dell: 11,000 Cuts + Pivot to AI Servers</div>
-                    <div class="card-description">Dell cortó 11,000 trabajos mientras pivota a AI servers. Otro ejemplo de transformación por AI.</div>
-                    <div class="card-metrics">
-                        <span class="metric negative">11,000 Jobs</span>
-                        <span class="metric">AI Pivot</span>
-                    </div>
-                    <div class="card-footer">
-                        <span>📅 2026</span>
-                        <a href="https://tech-insider.org/tech-layoffs-2026-ai-workforce-impact/" target="_blank">Tech Insider</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-title">AI Responsible for 50% of Layoffs</div>
-                    <div class="card-description">AI accountó por 50% de posiciones eliminadas en Q1 2026. Estudio de Stanford muestra que entry-level coding y customer service jobs ya están siendo afectados.</div>
-                    <div class="card-metrics">
-                        <span class="metric negative">50% AI-Driven</span>
-                        <span class="metric">MIT: 12% Workforce</span>
-                    </div>
-                    <div class="card-footer">
-                        <span>📅 Abril 2026</span>
-                        <a href="https://www.tomshardware.com/tech-industry/tech-industry-lays-off-nearly-80-000-employees-in-the-first-quarter-of-2026-almost-50-percent-of-affected-positions-cut-due-to-ai" target="_blank">Tom's Hardware</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-title">"Stop Hiring Humans": Silicon Valley AI Panic</div>
-                    <div class="card-description">Silicon Valley confronta panic de AI job. Managers dicen AI permitirá hacer más con menos. Feeling de ser reemplazable.</div>
-                    <div class="card-metrics">
-                        <span class="metric negative">AI Replacing</span>
-                        <span class="metric">White-Collar</span>
-                    </div>
-                    <div class="card-footer">
-                        <span>📅 Abril 2026</span>
-                        <a href="https://techxplore.com/news/2026-04-hiring-humans-silicon-valley-ai.html" target="_blank">TechXplore</a>
+                        <span>📅 13 Abr 2026</span>
+                        <a href="https://www.hoganlovells.com/en/publications/global-antitrust-enforcement-outlook-2026-the-trends-shaping-the-year-ahead" target="_blank">Hogan Lovells ↗</a>
                     </div>
                 </div>
             </div>
         </section>
         
+        <!-- SILICON VALLEY -->
+        <section class="section" data-category="layoffs">
+            <h2 class="section-title"><span class="section-icon">🌐</span> Silicon Valley - Layoffs & Hiring</h2>
+            <div class="news-grid">
+                <div class="news-card" data-tags="layoffs ai 2026 tech workers">
+                    <div class="card-header">
+                        <span class="card-title">52,000+ Tech Jobs Eliminated in Q1 2026</span>
+                        <span class="card-tag">LAYOFFS</span>
+                    </div>
+                    <div class="card-description">
+                        Over 30,700 tech workers laid off globally en first weeks of 2026 alone (80%+ US). Q1 total exceeds 52,000 - most first-quarter cuts since 2023. AI accounting for 25% of layoff announcements.
+                    </div>
+                    <div class="card-metrics">
+                        <div class="metric">
+                            <div class="metric-value">52,000+</div>
+                            <div class="metric-label">Q1 Jobs Cut</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">25%</div>
+                            <div class="metric-label">AI-driven</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span>📅 13 Abr 2026</span>
+                        <a href="https://www.mercurynews.com/2026/04/03/us-job-cut-announcements-in-tech-keep-rising-with-ai-adoption-2/" target="_blank">The Mercury News ↗</a>
+                    </div>
+                </div>
+                
+                <div class="news-card" data-tags="oracle layoffs ai">
+                    <div class="card-header">
+                        <span class="card-title">Oracle Lays Off Up to 30,000 Via 6 AM Email</span>
+                        <span class="card-tag">ORACLE</span>
+                    </div>
+                    <div class="card-description">
+                        Oracle reportedly laid off thousands de employees via 6 AM email. La compañía shift toward AI investments mientras declining stock prices y taking on debt para AI. Cut described como "bloodbath" por staff.
+                    </div>
+                    <div class="card-metrics">
+                        <div class="metric">
+                            <div class="metric-value">30,000</div>
+                            <div class="metric-label">Est. Cuts</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span>📅 13 Abr 2026</span>
+                        <a href="https://tech-insider.org/tech-layoffs-2026-ai-workforce-impact/" target="_blank">Tech Insider ↗</a>
+                    </div>
+                </div>
+                
+                <div class="news-card" data-tags="amazon layoffs ai">
+                    <div class="card-header">
+                        <span class="card-title">Amazon: 16,000 Corporate Cuts in 2026</span>
+                        <span class="card-tag">AMAZON</span>
+                    </div>
+                    <div class="card-description">
+                        Amazon announced 16,000 corporate employee cuts en January 2026. Company suggesting AI will do work instead. The quiet giant of 2026 layoffs continuo.
+                    </div>
+                    <div class="card-metrics">
+                        <div class="metric">
+                            <div class="metric-value">16,000</div>
+                            <div class="metric-label">Jobs Cut</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span>📅 13 Abr 2026</span>
+                        <a href="https://www.aol.com/news/amazon-axes-16-000-more-171947950.html" target="_blank">AOL ↗</a>
+                    </div>
+                </div>
+                
+                <div class="news-card" data-tags="ai jobs silicon valley human workers">
+                    <div class="card-header">
+                        <span class="card-title">'Stop Hiring Humans'? Silicon Valley AI Job Panic</span>
+                        <span class="card-tag">AI JOBS</span>
+                    </div>
+                    <div class="card-description">
+                        Silicon Valley confronta AI job panic. Salesforce laid off 4,000 customer support workers (AI now handles 50% of work). Block CEO: similar AI replacement. Perplexity AI CEO: people should embrace being replaced.
+                    </div>
+                    <div class="card-footer">
+                        <span>📅 13 Abr 2026</span>
+                        <a href="https://techxplore.com/news/2026-04-hiring-humans-silicon-valley-ai.html" target="_blank">Tech Xplore ↗</a>
+                    </div>
+                </div>
+                
+                <div class="news-card" data-tags="ai silicon valley transformation white collar">
+                    <div class="card-header">
+                        <span class="card-title">A.I. Could Change the World - But First Silicon Valley</span>
+                        <span class="card-tag">AI TRANSFORMATION</span>
+                    </div>
+                    <div class="card-description">
+                        NYT: A.I. Could Change the World. But First It Is Changing Silicon Valley. Tech industry predicts AI will profoundly affect white-collar work. Lawyers still writing contracts, but transformation underway.
+                    </div>
+                    <div class="card-footer">
+                        <span>📅 2 Abr 2026</span>
+                        <a href="https://www.nytimes.com/2026/04/02/technology/ai-silicon-valley-tech-work.html" target="_blank">NYT ↗</a>
+                    </div>
+                </div>
+                
+                <div class="news-card" data-tags="dell layoffs ai servers">
+                    <div class="card-header">
+                        <span class="card-title">Dell Cuts 11,000 While Pivoting to AI Servers</span>
+                        <span class="card-tag">DELL</span>
+                    </div>
+                    <div class="card-description">
+                        Dell cutting 11,000 employees while pivoting to AI servers. La compañía transition hacia AI infrastructure mientras reduce workforce tradicional.
+                    </div>
+                    <div class="card-metrics">
+                        <div class="metric">
+                            <div class="metric-value">11,000</div>
+                            <div class="metric-label">Jobs Cut</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span>📅 13 Abr 2026</span>
+                        <a href="https://tech-insider.org/tech-layoffs-2026-ai-workforce-impact/" target="_blank">Tech Insider ↗</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- SEMICONDUCTOR SECTION -->
+        <section class="section" data-category="semiconductor">
+            <h2 class="section-title"><span class="section-icon">💎</span> Semiconductor & Chips</h2>
+            <div class="news-grid">
+                <div class="news-card" data-tags="semiconductor revenue memory">
+                    <div class="card-header">
+                        <span class="card-title">Semiconductor Revenue: $1.3T in 2026</span>
+                        <span class="card-tag">MARKET</span>
+                    </div>
+                    <div class="card-description">
+                        Semiconductor industry revenue to hit $1.3 trillion en 2026 como AI demand drives memory crunch affecting consumers. Only small number de companies make memory semiconductors: Micron, Samsung, SK Hynix.
+                    </div>
+                    <div class="card-metrics">
+                        <div class="metric">
+                            <div class="metric-value">$1.3T</div>
+                            <div class="metric-label">2026 Revenue</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span>📅 13 Abr 2026</span>
+                        <a href="https://finance.yahoo.com/sectors/technology/article/semiconductor-industry-revenue-to-hit-13-trillion-in-2026-as-memory-crunch-hits-consumers-151202545.html" target="_blank">Yahoo Finance ↗</a>
+                    </div>
+                </div>
+                
+                <div class="news-card" data-tags="semiconductor sales february">
+                    <div class="card-header">
+                        <span class="card-title">Global Semiconductor Sales: $88.8B (Feb 2026)</span>
+                        <span class="card-tag">SALES</span>
+                    </div>
+                    <div class="card-description">
+                        Global semiconductor sales $88.8B en February 2026, +7.6% vs January y +61.8% vs February 2025. Asia Pacific/All Other +93.5%, Americas +59.2%, China +57.4%, Europe +42.3%. Japan -0.3%.
+                    </div>
+                    <div class="card-metrics">
+                        <div class="metric">
+                            <div class="metric-value">$88.8B</div>
+                            <div class="metric-label">Feb 2026</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">+61.8%</div>
+                            <div class="metric-label">YoY</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span>📅 3 Abr 2026</span>
+                        <a href="https://www.semiconductors.org/?p=30831" target="_blank">SIA ↗</a>
+                    </div>
+                </div>
+                
+                <div class="news-card" data-tags="semiconductor price hikes chip suppliers">
+                    <div class="card-header">
+                        <span class="card-title">April 2026: Price Hikes Across 14 Chip Suppliers</span>
+                        <span class="card-tag">PRICES</span>
+                    </div>
+                    <div class="card-description">
+                        Broad-based price upcycle en early 2026 driven by AI demand y rising material costs. March: MPS, Murata, NXP, onsemi, AOS, Texas Instruments announced price increases. Most effective April 2026.
+                    </div>
+                    <div class="card-metrics">
+                        <div class="metric">
+                            <div class="metric-value">14</div>
+                            <div class="metric-label">Suppliers</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">Abril</div>
+                            <div class="metric-label">Effective</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span>📅 13 Abr 2026</span>
+                        <a href="https://www.briocean.com/april-2026-price-hikes-across-14-chip-suppliers-market-impact-sourcing-insights/" target="_blank">Briocean ↗</a>
+                    </div>
+                </div>
+                
+                <div class="news-card" data-tags="tsmc taiwan ai supply">
+                    <div class="card-header">
+                        <span class="card-title">TSMC April 10: AI Demand Supply Update</span>
+                        <span class="card-tag">TSMC</span>
+                    </div>
+                    <div class="card-description">
+                        TSMC's April 10 sales report crucial indicator de AI demand fulfillment amid ongoing Iran conflict. Taiwan imports 95% energy needs, 48% natural gas para electricity. Strong revenue = AI demand remains strong.
+                    </div>
+                    <div class="card-metrics">
+                        <div class="metric">
+                            <div class="metric-value">72%</div>
+                            <div class="metric-label">Global Foundry Share</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span>📅 3 Abr 2026</span>
+                        <a href="https://www.fool.com/investing/2026/04/03/reason-why-april-10-could-be-huge-for-tsmc/" target="_blank">Motley Fool ↗</a>
+                    </div>
+                </div>
+                
+                <div class="news-card" data-tags="coreweave meta ai computing">
+                    <div class="card-header">
+                        <span class="card-title">CoreWeave, Meta: $21B AI Computing Deal</span>
+                        <span class="card-tag">AI INFRASTRUCTURE</span>
+                    </div>
+                    <div class="card-description">
+                        CoreWeave y Meta struck $21 billion AI computing deal. Major infrastructure agreement per Bloomberg Tech report. CoreWeave emerge como key AI infrastructure provider.
+                    </div>
+                    <div class="card-metrics">
+                        <div class="metric">
+                            <div class="metric-value">$21B</div>
+                            <div class="metric-label">Deal Value</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span>📅 9 Abr 2026</span>
+                        <a href="https://www.youtube.com/watch?v=HXg-abDM9-4" target="_blank">Bloomberg Tech ↗</a>
+                    </div>
+                </div>
+                
+                <div class="news-card" data-tags="arm ai chip meta cloud">
+                    <div class="card-header">
+                        <span class="card-title">Arm Releases First AI Chip - Meta as Customer</span>
+                        <span class="card-tag">ARM</span>
+                    </div>
+                    <div class="card-description">
+                        Arm releases first ever AI chip, con Meta como initial customer. Strategic pivot from smartphones to cloud AI. Inside Arm's AI pivot según CNBC.
+                    </div>
+                    <div class="card-footer">
+                        <span>📅 13 Abr 2026</span>
+                        <a href="https://www.youtube.com/watch?v=zkTrk_ymh4g" target="_blank">CNBC ↗</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- SOURCES -->
         <section class="sources-section">
-            <h2>📚 Fuentes</h2>
+            <h3>📚 Fuentes Completas</h3>
             <div class="sources-list">
-                <a href="https://techcrunch.com/2026/04/01/startup-funding-shatters-all-records-in-q1/" target="_blank">TechCrunch - Startup Funding Shatters Records Q1 2026</a>
-                <a href="https://www.siliconrepublic.com/business/big-tech-650bn-capital-expense-bill-2026-meta-amazon-google-microsoft" target="_blank">Silicon Republic - Big Tech $650bn Capex 2026</a>
-                <a href="https://www.cnbc.com/2026/04/08/alphabet-nvidia-microsoft-tech-stocks-iran-ceasefire.html" target="_blank">CNBC - Tech Rally Iran Ceasefire</a>
-                <a href="https://www.reuters.com/business/finance/mega-ipos-set-test-us-market-depth-despite-volatility-2026-04-01/" target="_blank">Reuters - Mega IPOs 2026</a>
-                <a href="https://www.bloomberg.com/news/articles/2026-04-10/tsmc-s-sales-beat-estimates-after-war-fails-to-dent-ai-demand" target="_blank">Bloomberg - TSMC Sales Beat Estimates</a>
-                <a href="https://semiconductorsinsight.com/latest-semiconductor-news-today-april-2026/" target="_blank">Semiconductors Insight - April 2026</a>
-                <a href="https://www.briocean.com/april-2026-price-hikes-across-14-chip-suppliers-market-impact-sourcing-insights/" target="_blank">Briocean - Chip Price Hikes April 2026</a>
-                <a href="https://www.mercurynews.com/2026/04/03/us-job-cut-announcements-in-tech-keep-rising-with-ai-adoption-2/" target="_blank">Mercury News - Tech Layoffs Rising</a>
-                <a href="https://tech-insider.org/tech-layoffs-2026-ai-workforce-impact/" target="_blank">Tech Insider - 150K+ Tech Jobs Cut 2026</a>
-                <a href="https://www.theguardian.com/technology/2026/apr/06/tech-layoffs-ai-work" target="_blank">The Guardian - Tech Layoffs AI Work</a>
-                <a href="https://www.tomshardware.com/tech-industry/tech-industry-lays-off-nearly-80-000-employees-in-the-first-quarter-of-2026-almost-50-percent-of-affected-positions-cut-due-to-ai" target="_blank">Tom's Hardware - 80K Q1 2026 Layoffs</a>
-                <a href="https://techxplore.com/news/2026-04-hiring-humans-silicon-valley-ai.html" target="_blank">TechXplore - Stop Hiring Humans</a>
-                <a href="https://www.cybersecurity-review.com/news-april-2026/" target="_blank">Cybersecurity Review - April 2026</a>
-                <a href="https://www.blackfog.com/the-state-of-ransomware-2026/" target="_blank">BlackFog - State of Ransomware 2026</a>
-                <a href="https://red-n-security.com/april-4-2026/" target="_blank">Red N Security - April 4 2026</a>
-                <a href="https://www.cnbc.com/2026/04/10/google-meta-big-tech-6-billion-euros-eu-fine.html" target="_blank">CNBC - EU Fines Big Tech €7B</a>
-                <a href="https://techpolicy.press/looking-ahead-on-us-antitrust-enforcement-and-tech-will-2026-deliver-more-of-the-same" target="_blank">Tech Policy Press - Antitrust 2026</a>
-                <a href="https://www.mlex.com/mlex/articles/2444789/eu-commission-to-adopt-new-tech-transfer-antitrust-rules-in-second-quarter-of-2026" target="_blank">MLex - EU Tech Transfer Rules</a>
-                <a href="https://www.hausfeld.com/what-we-think/competition-bulletin/regulating-artificial-intelligence-between-the-eu-digital-markets-act-and-competition-law" target="_blank">Hausfeld - AI Regulation DMA</a>
-                <a href="https://www.engadget.com/general/all-the-tech-and-gadgets-announced-at-ces-2026-130124023.html" target="_blank">Engadget - CES 2026 Gadgets</a>
-                <a href="https://www.yankodesign.com/2026/04/09/10-best-gadgets-of-april-2026-every-tech-savvy-gen-z-is-obsessed-with-and-we-get-why/" target="_blank">Yanko Design - Best Gadgets April 2026</a>
-                <a href="https://thebusinesslegacy.com/weeks-top-tech-product-launches-and-what-consumers-should-know/" target="_blank">Business Legacy - Tech Product Launches</a>
-                <a href="https://dealroom.net/blog/upcoming-recent-ipos" target="_blank">Dealroom - IPO Calendar</a>
-                <a href="https://www.reuters.com/world/china/tsmc-likely-post-fourth-quarter-profit-leap-driven-by-ai-boom-2026-01-14/" target="_blank">Reuters - TSMC Q4 2026</a>
-                <a href="https://www.acilearning.com/blog/the-biggest-cybersecurity-breaches-of-2026-so-far-and-the-training-that-could-have-prevented-them/" target="_blank">ACI Learning - Cybersecurity Breaches 2026</a>
+                <div class="source-item">
+                    <a href="https://techcrunch.com/2026/04/01/startup-funding-shatters-all-records-in-q1/">TechCrunch - Q1 2026 Startup Funding Shatters Records</a>
+                </div>
+                <div class="source-item">
+                    <a href="https://qubit.capital/blog/us-seed-weekly-funding-roundup-week-1-april-2026">Qubit Capital - US Seed Weekly Funding Roundup</a>
+                </div>
+                <div class="source-item">
+                    <a href="https://www.forbes.com/sites/zennonkapron/2026/04/01/why-the-2026-fintech-funding-boom-is-about-more-than-ai/">Forbes - Fintech Funding Boom 2026</a>
+                </div>
+                <div class="source-item">
+                    <a href="https://fundraiseinsider.com/blog/series-a-startups/">Fundraise Insider - Series A Startups 2026</a>
+                </div>
+                <div class="source-item">
+                    <a href="https://www.siliconrepublic.com/business/big-tech-650bn-capital-expense-bill-2026-meta-amazon-google-microsoft">Silicon Republic - Big Tech $650B Capex 2026</a>
+                </div>
+                <div class="source-item">
+                    <a href="https://finance.yahoo.com/sectors/technology/articles/big-tech-h-1b-filings-113109325.html">Yahoo Finance - Big Tech H-1B Filings Plunge</a>
+                </div>
+                <div class="source-item">
+                    <a href="https://www.reuters.com/business/finance/mega-ipos-set-test-us-market-depth-despite-volatility-2026-04-01/">Reuters - Mega IPOs 2026</a>
+                </div>
+                <div class="source-item">
+                    <a href="https://dealroom.net/blog/upcoming-recent-ipos">DealRoom - IPO Calendar</a>
+                </div>
+                <div class="source-item">
+                    <a href="https://www.yankodesign.com/2026/04/09/10-best-gadgets-of-april-2026-every-tech-savvy-gen-z-is-obsessed-with-and-we-get-why/">Yanko Design - Best Gadgets April 2026</a>
+                </div>
+                <div class="source-item">
+                    <a href="https://www.engadget.com/general/all-the-tech-and-gadgets-announced-at-ces-2026-130124023.html">Engadget - CES 2026 All Gadgets</a>
+                </div>
+                <div class="source-item">
+                    <a href="https://techcrunch.com/2026/04/05/japan-is-proving-experimental-physical-ai-is-ready-for-the-real-world/">TechCrunch - Japan Physical AI</a>
+                </div>
+                <div class="source-item">
+                    <a href="https://the-gadgeteer.com/2026/04/08/10-gadgets-everyones-quietly-buying-in-2026/">The Gadgeteer - Gadgets 2026</a>
+                </div>
+                <div class="source-item">
+                    <a href="https://www.blackfog.com/the-state-of-ransomware-2026/">BlackFog - State of Ransomware 2026</a>
+                </div>
+                <div class="source-item">
+                    <a href="https://www.pkware.com/blog/2026-data-breaches">PKWARE - 2026 Data Breaches</a>
+                </div>
+                <div class="source-item">
+                    <a href="https://www.acilearning.com/blog/the-biggest-cybersecurity-breaches-of-2026-so-far-and-the-training-that-could-have-prevented-them/">ACI Learning - Cyber Breaches 2026</a>
+                </div>
+                <div class="source-item">
+                    <a href="https://www.cnbc.com/2026/04/10/google-meta-big-tech-6-billion-euros-eu-fine.html">CNBC - Big Tech Fined $7B EU</a>
+                </div>
+                <div class="source-item">
+                    <a href="https://www.thelegalfeed.com/news/antitrust-enforcement-enters-new-pragmatic-era-2026-signals-strategic-shift-from-blocking-to-remedying-tech-deals/">The Legal Feed - Antitrust 2026</a>
+                </div>
+                <div class="source-item">
+                    <a href="https://www.hoganlovells.com/en/publications/global-antitrust-enforcement-outlook-2026-the-trends-shaping-the-year-ahead">Hogan Lovells - Global Antitrust Outlook 2026</a>
+                </div>
+                <div class="source-item">
+                    <a href="https://www.mercurynews.com/2026/04/03/us-job-cut-announcements-in-tech-keep-rising-with-ai-adoption-2/">The Mercury News - Tech Layoffs Rising</a>
+                </div>
+                <div class="source-item">
+                    <a href="https://tech-insider.org/tech-layoffs-2026-ai-workforce-impact/">Tech Insider - Tech Layoffs 2026 AI</a>
+                </div>
+                <div class="source-item">
+                    <a href="https://www.aol.com/news/amazon-axes-16-000-more-171947950.html">AOL - Amazon 16,000 Cuts</a>
+                </div>
+                <div class="source-item">
+                    <a href="https://techxplore.com/news/2026-04-hiring-humans-silicon-valley-ai.html">Tech Xplore - Stop Hiring Humans</a>
+                </div>
+                <div class="source-item">
+                    <a href="https://www.nytimes.com/2026/04/02/technology/ai-silicon-valley-tech-work.html">NYT - AI Changing Silicon Valley</a>
+                </div>
+                <div class="source-item">
+                    <a href="https://finance.yahoo.com/sectors/technology/article/semiconductor-industry-revenue-to-hit-13-trillion-in-2026-as-memory-crunch-hits-consumers-151202545.html">Yahoo Finance - Semiconductor $1.3T 2026</a>
+                </div>
+                <div class="source-item">
+                    <a href="https://www.semiconductors.org/?p=30831">SIA - Global Semiconductor Sales Feb 2026</a>
+                </div>
+                <div class="source-item">
+                    <a href="https://www.briocean.com/april-2026-price-hikes-across-14-chip-suppliers-market-impact-sourcing-insights/">Briocean - April 2026 Chip Price Hikes</a>
+                </div>
+                <div class="source-item">
+                    <a href="https://www.fool.com/investing/2026/04/03/reason-why-april-10-could-be-huge-for-tsmc/">Motley Fool - TSMC April 10</a>
+                </div>
+                <div class="source-item">
+                    <a href="https://scouts.yutori.com/efbe0f63-c3f5-447b-a278-27219fb3e5d6">Scouts by Yutori - ClayCo Funding</a>
+                </div>
+                <div class="source-item">
+                    <a href="https://www.youtube.com/watch?v=W_AyIyC9eBk">Bloomberg - Apple Dealt a Blow</a>
+                </div>
+                <div class="source-item">
+                    <a href="https://www.youtube.com/watch?v=6A5Dl-XnFBA">YouTube - Tech IPOs 2026</a>
+                </div>
             </div>
         </section>
     </main>
     
+    <footer class="footer">
+        <p>Tech & Business Intelligence Report | 13 Abril 2026</p>
+        <p>Generated by Logos AI | Data Sources: TechCrunch, Reuters, CNBC, Forbes, Yahoo Finance, SIA, Bloomberg, NYT</p>
+    </footer>
+    
     <script>
-        // Search functionality
+        // Filter functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const sections = document.querySelectorAll('.section');
         const searchInput = document.getElementById('searchInput');
-        const cards = document.querySelectorAll('.card');
+        const newsCards = document.querySelectorAll('.news-card');
         
-        searchInput.addEventListener('input', (e) => {
-            const searchTerm = e.target.value.toLowerCase();
-            cards.forEach(card => {
-                const text = card.textContent.toLowerCase();
-                if (text.includes(searchTerm)) {
-                    card.classList.remove('hidden');
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const filter = btn.dataset.filter;
+                
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                if (filter === 'all') {
+                    sections.forEach(s => s.classList.add('active'));
                 } else {
-                    card.classList.add('hidden');
+                    sections.forEach(s => {
+                        if (s.dataset.category === filter) {
+                            s.classList.add('active');
+                        } else {
+                            s.classList.remove('active');
+                        }
+                    });
                 }
             });
         });
         
-        // Filter functionality
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const sections = document.querySelectorAll('.section');
-        
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                filterBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
+        // Search functionality
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase();
+            
+            newsCards.forEach(card => {
+                const title = card.querySelector('.card-title').textContent.toLowerCase();
+                const description = card.querySelector('.card-description').textContent.toLowerCase();
+                const tags = card.dataset.tags || '';
                 
-                const filter = btn.dataset.filter;
-                
-                if (filter === 'all') {
-                    sections.forEach(section => section.classList.remove('hidden'));
-                    cards.forEach(card => card.classList.remove('hidden'));
+                if (title.includes(query) || description.includes(query) || tags.includes(query)) {
+                    card.style.display = 'block';
                 } else {
-                    sections.forEach(section => {
-                        if (section.dataset.category === filter) {
-                            section.classList.remove('hidden');
-                            section.querySelectorAll('.card').forEach(card => card.classList.remove('hidden'));
-                        } else {
-                            section.classList.add('hidden');
-                        }
-                    });
+                    card.style.display = 'none';
                 }
             });
         });
