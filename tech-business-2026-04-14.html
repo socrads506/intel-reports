@@ -1,0 +1,1393 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech & Business Report - 14 Abr 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a24;
+            --bg-card-hover: #22222e;
+            --border-color: #2a2a3a;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0b0;
+            --text-muted: #606070;
+            --accent-blue: #3b82f6;
+            --accent-purple: #8b5cf6;
+            --accent-green: #10b981;
+            --accent-red: #ef4444;
+            --accent-orange: #f59e0b;
+            --accent-cyan: #06b6d4;
+            --accent-pink: #ec4899;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-card) 100%);
+            border-bottom: 1px solid var(--border-color);
+            padding: 30px 0;
+            margin-bottom: 30px;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .header-left h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 5px;
+        }
+
+        .header-left .date {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .header-right {
+            text-align: right;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* Metrics Bar */
+        .metrics-bar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .metric-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent-blue);
+        }
+
+        .metric-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .metric-label {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        .metric-trend {
+            font-size: 0.8rem;
+            margin-top: 5px;
+        }
+
+        .trend-up { color: var(--accent-green); }
+        .trend-down { color: var(--accent-red); }
+        .trend-neutral { color: var(--accent-orange); }
+
+        /* Controls */
+        .controls {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 250px;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 12px 16px 12px 45px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-size: 0.95rem;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+        }
+
+        .search-box::before {
+            content: "🔍";
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.1rem;
+        }
+
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .filter-btn {
+            padding: 10px 18px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--accent-blue);
+            border-color: var(--accent-blue);
+            color: white;
+        }
+
+        /* Sections */
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-icon {
+            font-size: 1.6rem;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--card-accent, var(--accent-blue));
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            border-color: var(--card-accent, var(--accent-blue));
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+
+        .card-title {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            flex: 1;
+            padding-right: 10px;
+        }
+
+        .card-category {
+            font-size: 0.7rem;
+            padding: 4px 8px;
+            background: rgba(59, 130, 246, 0.2);
+            color: var(--accent-blue);
+            border-radius: 4px;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .card-description {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+
+        .card-metrics {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .metric-badge {
+            background: var(--bg-secondary);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .metric-badge .value {
+            color: var(--accent-green);
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 12px;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.8rem;
+        }
+
+        .card-date {
+            color: var(--text-muted);
+        }
+
+        .card-source {
+            color: var(--accent-cyan);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .card-source:hover {
+            text-decoration: underline;
+        }
+
+        /* Sources Section */
+        .sources-section {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 25px;
+            margin-top: 40px;
+        }
+
+        .sources-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .source-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            background: var(--bg-card);
+            border-radius: 6px;
+            font-size: 0.85rem;
+        }
+
+        .source-item a {
+            color: var(--accent-cyan);
+            text-decoration: none;
+            flex: 1;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .source-item a:hover {
+            text-decoration: underline;
+        }
+
+        .source-item .source-name {
+            color: var(--text-secondary);
+            white-space: nowrap;
+        }
+
+        /* Hidden class for filtering */
+        .hidden {
+            display: none !important;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container { padding: 15px; }
+            .header-content { flex-direction: column; text-align: center; }
+            .header-right { text-align: center; }
+            .cards-grid { grid-template-columns: 1fr; }
+            .controls { flex-direction: column; }
+            .filter-buttons { justify-content: center; }
+            .metrics-bar { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        /* Summary Alert */
+        .summary-alert {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+            border: 1px solid var(--accent-blue);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+
+        .summary-alert h3 {
+            color: var(--accent-blue);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .summary-alert p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="container header-content">
+            <div class="header-left">
+                <h1>📊 Tech & Business Report</h1>
+                <div class="date">Lunes 13 - Martes 14 de Abril, 2026</div>
+            </div>
+            <div class="header-right">
+                <div>Generado: 14 Abr 2026, 12:10 CST</div>
+                <div>Versión: 1.0</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Key Metrics -->
+        <div class="metrics-bar">
+            <div class="metric-card">
+                <div class="metric-value" style="color: var(--accent-green);">$1.3T</div>
+                <div class="metric-label">Mercado Semiconductores 2026</div>
+                <div class="metric-trend trend-up">↑ Pronóstico Gartner</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value" style="color: var(--accent-orange);">52,050</div>
+                <div class="metric-label">Tech Layoffs Q1 2026</div>
+                <div class="metric-trend trend-down">↑ +40% vs Q1 2025</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value" style="color: var(--accent-cyan);">$4.08/hr</div>
+                <div class="metric-label">Alquiler GPU Nvidia Blackwell</div>
+                <div class="metric-trend trend-up">↑ +48% en 2 meses</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value" style="color: var(--accent-purple);">$650B</div>
+                <div class="metric-label">Capex Big Tech AI 2026</div>
+                <div class="metric-trend trend-up">↑ Casi igual al presupuesto India</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value" style="color: var(--accent-blue);">$850B</div>
+                <div class="metric-label">Valoración OpenAI</div>
+                <div class="metric-trend trend-up">↑ Abril 2026</div>
+            </div>
+        </div>
+
+        <!-- Summary Alert -->
+        <div class="summary-alert">
+            <h3>📋 Resumen Ejecutivo</h3>
+            <p>La semana del 13 de abril muestra una intensificación de la guerra de IA: los precios de GPU se disparan (+48%), las Big Tech gastan casi $650B en IA, y las regulaciones se endurecen con nuevo marco para modelos de IA en finanzas. China avanza hacia IPOs en HK mientras EE.UU. supera 52K despidos tech en Q1. Semiconductores alcanzan $1.3T en pronóstico, con SpaceX preparando el IPO más esperado del año.</p>
+        </div>
+
+        <!-- Controls -->
+        <div class="controls">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Buscar en el reporte...">
+            </div>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="funding">💰 Funding</button>
+                <button class="filter-btn" data-filter="bigtech">🏢 Big Tech</button>
+                <button class="filter-btn" data-filter="ipo">📈 IPOs</button>
+                <button class="filter-btn" data-filter="productos">🚀 Productos</button>
+                <button class="filter-btn" data-filter="cyber">🔒 Ciberseguridad</button>
+                <button class="filter-btn" data-filter="regulacion">⚖️ Regulación</button>
+                <button class="filter-btn" data-filter="laboral">🌐 Laboral</button>
+            </div>
+        </div>
+
+        <!-- 💰 Funding & Acquisitions -->
+        <div class="section" data-category="funding">
+            <h2 class="section-title"><span class="section-icon">💰</span> Funding & Acquisitions</h2>
+            <div class="cards-grid">
+
+                <div class="card" style="--card-accent: var(--accent-green);" data-category="funding">
+                    <div class="card-header">
+                        <div class="card-title">Kandou AI - $225M Strategic Funding</div>
+                        <span class="card-category">Strategic</span>
+                    </div>
+                    <div class="card-description">
+                        Kandou AI levantó $225M en funding estratégico liderado por Maverick Silicon, con participación de SoftBank, Synopsys, Cadence Design Systems y Alchip Technologies. La startup desarrolla soluciones DC-DC power conversion para AI data centers.
+                    </div>
+                    <div class="card-metrics">
+                        <span class="metric-badge">Raised: <span class="value">$225M</span></span>
+                        <span class="metric-badge">Lead: <span class="value">Maverick Silicon</span></span>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">Q1 2026</span>
+                        <a href="https://semiengineering.com/startup-funding-q1-2026/" class="card-source" target="_blank">Semiconductor Engineering</a>
+                    </div>
+                </div>
+
+                <div class="card" style="--card-accent: var(--accent-green);" data-category="funding">
+                    <div class="card-header">
+                        <div class="card-title">Positron AI - $230M Series B</div>
+                        <span class="card-category">Series B</span>
+                    </div>
+                    <div class="card-description">
+                        Positron AI cerró $230M en Series B liderado por ARENA Private Wealth, Jump Trading y Unless Management, con participación de Qatar Investment Authority, Arm, Helena Group y others. La ronda supera expectativas del mercado.
+                    </div>
+                    <div class="card-metrics">
+                        <span class="metric-badge">Raised: <span class="value">$230M</span></span>
+                        <span class="metric-badge">Lead: <span class="value">ARENA Private Wealth</span></span>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">Q1 2026</span>
+                        <a href="https://semiengineering.com/startup-funding-q1-2026/" class="card-source" target="_blank">Semiconductor Engineering</a>
+                    </div>
+                </div>
+
+                <div class="card" style="--card-accent: var(--accent-green);" data-category="funding">
+                    <div class="card-header">
+                        <div class="card-title">Upscale AI - $200M Series A</div>
+                        <span class="card-category">Series A</span>
+                    </div>
+                    <div class="card-description">
+                        Upscale AI levantó $200M en Series A liderado por Tiger Global, Premji Invest y Xora Innovation, con participación de Maverick Silicon, StepStone Group, Mayfield, Intel Capital y Qualcomm Ventures.
+                    </div>
+                    <div class="card-metrics">
+                        <span class="metric-badge">Raised: <span class="value">$200M</span></span>
+                        <span class="metric-badge">Lead: <span class="value">Tiger Global</span></span>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">Q1 2026</span>
+                        <a href="https://semiengineering.com/startup-funding-q1-2026/" class="card-source" target="_blank">Semiconductor Engineering</a>
+                    </div>
+                </div>
+
+                <div class="card" style="--card-accent: var(--accent-purple);" data-category="funding">
+                    <div class="card-header">
+                        <div class="card-title">Ricursive Intelligence - $300M Series A</div>
+                        <span class="card-category">Series A</span>
+                    </div>
+                    <div class="card-description">
+                        Ricursive Intelligence levantó $300M en Series A liderado por Lightspeed Venture Partners, con participación de DST Global, Nvidia's NVentures, Felicis Ventures, Sequoia Capital y Radical AI. DC-DC power conversion tile para AI data centers.
+                    </div>
+                    <div class="card-metrics">
+                        <span class="metric-badge">Raised: <span class="value">$300M</span></span>
+                        <span class="metric-badge">Valuation: <span class="value">~$1B+</span></span>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">Q1 2026</span>
+                        <a href="https://semiengineering.com/startup-funding-q1-2026/" class="card-source" target="_blank">Semiconductor Engineering</a>
+                    </div>
+                </div>
+
+                <div class="card" style="--card-accent: var(--accent-green);" data-category="funding">
+                    <div class="card-header">
+                        <div class="card-title">Glean - $150M Series F</div>
+                        <span class="card-category">Series F</span>
+                    </div>
+                    <div class="card-description">
+                        Enterprise AI platform Glean levantó $150M en Series F alcanzando valoración de $7.2B. La plataforma expande capacidades de AI agents para empresas.
+                    </div>
+                    <div class="card-metrics">
+                        <span class="metric-badge">Raised: <span class="value">$150M</span></span>
+                        <span class="metric-badge">Valuation: <span class="value">$7.2B</span></span>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">Jun 2025</span>
+                        <a href="https://www.businesswire.com/news/home/20250610090029/en/Glean-Raises-%24150M-Series-F-at-%247.2B-Valuation-to-Accelerate-Enterprise-AI-Agent-Innovation-Globally" class="card-source" target="_blank">BusinessWire</a>
+                    </div>
+                </div>
+
+                <div class="card" style="--card-accent: var(--accent-cyan);" data-category="funding">
+                    <div class="card-header">
+                        <div class="card-title">SoftBank - Skild AI Funding</div>
+                        <span class="card-category">Mega Round</span>
+                    </div>
+                    <div class="card-description">
+                        SoftBank lideró funding round para AI robotics startup Skild AI, llevando la valoración de la empresa a cerca de $4B. Robotica AI sigue atrayendo capital institucional.
+                    </div>
+                    <div class="card-metrics">
+                        <span class="metric-badge">Valuation: <span class="value">~$4B</span></span>
+                        <span class="metric-badge">Lead: <span class="value">SoftBank</span></span>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">2025-2026</span>
+                        <a href="https://www.crescendo.ai/news/latest-vc-investment-deals-in-ai-startups" class="card-source" target="_blank">Crescendo AI</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- 🏢 Big Tech Moves -->
+        <div class="section" data-category="bigtech">
+            <h2 class="section-title"><span class="section-icon">🏢</span> Big Tech Moves</h2>
+            <div class="cards-grid">
+
+                <div class="card" style="--card-accent: var(--accent-blue);" data-category="bigtech">
+                    <div class="card-header">
+                        <div class="card-title">Apple - Probando 4 Diseños de AI Glasses</div>
+                        <span class="card-category">Hardware</span>
+                    </div>
+                    <div class="card-description">
+                        Apple está probando cuatro diseños de AI glasses con múltiples estilos de marco, colores y nuevo sistema de cámara vertical. Competirá directamente con Meta Ray-Ban en el mercado de wearables inteligentes post-smartphone.
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">13 Abr 2026</span>
+                        <a href="https://www.bloomberg.com/news/newsletters/2026-04-12/apple-ai-smart-glasses-features-styles-colors-cameras-giannandrea-leaving-mnvtz4yg" class="card-source" target="_blank">Bloomberg</a>
+                    </div>
+                </div>
+
+                <div class="card" style="--card-accent: var(--accent-purple);" data-category="bigtech">
+                    <div class="card-header">
+                        <div class="card-title">OpenAI - Primera Oficina Permanente en Londres</div>
+                        <span class="card-category">Expansión</span>
+                    </div>
+                    <div class="card-description">
+                        OpenAI secured su primera oficina permanente en King's Cross, Londres, con capacidad para 544 empleados. Abrirá en 2027 y será el hub de investigación más grande fuera de EE.UU.
+                    </div>
+                    <div class="card-metrics">
+                        <span class="metric-badge">Capacity: <span class="value">544 employees</span></span>
+                        <span class="metric-badge">Opening: <span class="value">2027</span></span>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">13 Abr 2026</span>
+                        <a href="https://techstartups.com/2026/04/13/top-tech-news-today-april-13-2026/" class="card-source" target="_blank">TechStartups / Reuters</a>
+                    </div>
+                </div>
+
+                <div class="card" style="--card-accent: var(--accent-pink);" data-category="bigtech">
+                    <div class="card-header">
+                        <div class="card-title">Meta - AI Characters Fotorrealistas y Zuckerberg Bot</div>
+                        <span class="card-category">AI</span>
+                    </div>
+                    <div class="card-description">
+                        Meta está construyendo personajes AI fotorrealistas en 3D y Mark Zuckerberg ha entrenado un AI bot de sí mismo para dar feedback a empleados. La compañía avanza hacia AI agents más embodied.
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">13 Abr 2026</span>
+                        <a href="https://techstartups.com/2026/04/13/top-tech-news-today-april-13-2026/" class="card-source" target="_blank">Financial Times / TechStartups</a>
+                    </div>
+                </div>
+
+                <div class="card" style="--card-accent: var(--accent-cyan);" data-category="bigtech">
+                    <div class="card-header">
+                        <div class="card-title">Anthropic - Claude en Microsoft Word</div>
+                        <span class="card-category">Enterprise AI</span>
+                    </div>
+                    <div class="card-description">
+                        Anthropic lanzó versión beta de Claude para Word, añadiendo AI drafting, editing, tracked changes y clickable citations para Microsoft Word Team y Enterprise users. Extiende presencia en Office suite.
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">13 Abr 2026</span>
+                        <a href="https://techstartups.com/2026/04/13/top-tech-news-today-april-13-2026/" class="card-source" target="_blank">Business Insider / TechStartups</a>
+                    </div>
+                </div>
+
+                <div class="card" style="--card-accent: var(--accent-orange);" data-category="bigtech">
+                    <div class="card-header">
+                        <div class="card-title">Alphabet - Capex $175-185B para 2026</div>
+                        <span class="card-category">Investment</span>
+                    </div>
+                    <div class="card-description">
+                        Alphabet duplicó su guía de capex para 2026 a $175-185B, vs $91B en 2025. Google, Amazon, Meta y Microsoft set to spend nearly $650B en AI en 2026, casi igualando el presupuesto anual de India.
+                    </div>
+                    <div class="card-metrics">
+                        <span class="metric-badge">Capex: <span class="value">$175-185B</span></span>
+                        <span class="metric-badge">Big Tech Total: <span class="value">~$650B</span></span>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">Feb-Abr 2026</span>
+                        <a href="https://www.businesstoday.in/markets/stocks/story/google-microsoft-meta-amazon-apple-big-tech-leadership-in-us-stock-market-breaking-down-516021-2026-02-13" class="card-source" target="_blank">Business Today</a>
+                    </div>
+                </div>
+
+                <div class="card" style="--card-accent: var(--accent-red);" data-category="bigtech">
+                    <div class="card-header">
+                        <div class="card-title">Big Tech - Efecto AI en Workforce</div>
+                        <span class="card-category">Employment</span>
+                    </div>
+                    <div class="card-description">
+                        A pesar de layoffs, head counts permanecen elevados en las 5 grandes. Meta CEO Zuckerberg: "Proyectos que requerían grandes equipos ahora se logran con una sola persona talented." Microsoft CEO: espera que headcount crezca post-AI adoption.
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">8 Abr 2026</span>
+                        <a href="https://www.businessinsider.com/big-tech-hiring-layoffs-amazon-apple-microsoft-google-meta-charts-2026-4" class="card-source" target="_blank">Business Insider</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- 📈 IPOs & Earnings -->
+        <div class="section" data-category="ipo">
+            <h2 class="section-title"><span class="section-icon">📈</span> IPOs & Earnings</h2>
+            <div class="cards-grid">
+
+                <div class="card" style="--card-accent: var(--accent-orange);" data-category="ipo">
+                    <div class="card-header">
+                        <div class="card-title">SpaceX IPO - Filing Confidencial</div>
+                        <span class="card-category">IPO</span>
+                    </div>
+                    <div class="card-description">
+                        SpaceX ha filed confidencialmente para IPO. Se espera que hasta 30% de shares se allocate a retail investors, significativamente mayor al 10% típico. Podría ser el catalyst más grande del año para el mercado de IPOs.
+                    </div>
+                    <div class="card-metrics">
+                        <span class="metric-badge">Retail Allocation: <span class="value">Up to 30%</span></span>
+                        <span class="metric-badge">Expected: <span class="value">2026</span></span>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">Abril 2026</span>
+                        <a href="https://www.cnbc.com/2026/04/08/investors-are-getting-hyped-over-the-spacex-ipo-heres-what-the-market-impact-may-be.html" class="card-source" target="_blank">CNBC</a>
+                    </div>
+                </div>
+
+                <div class="card" style="--card-accent: var(--accent-cyan);" data-category="ipo">
+                    <div class="card-header">
+                        <div class="card-title">Chinese AI Startup StepFun - Prepara IPO Hong Kong</div>
+                        <span class="card-category">IPO</span>
+                    </div>
+                    <div class="card-description">
+                        StepFun, founded 2023 por ex-Microsoft exec Jiang Daxin, está reestruturando para IPO en Hong Kong. Respaldada por Shanghai government, Tencent y Qiming Venture Partners. Beijing tighten scrutiny on offshore "red-chip" structures.
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">13 Abr 2026</span>
+                        <a href="https://techstartups.com/2026/04/13/top-tech-news-today-april-13-2026/" class="card-source" target="_blank">Reuters / TechStartups</a>
+                    </div>
+                </div>
+
+                <div class="card" style="--card-accent: var(--accent-green);" data-category="ipo">
+                    <div class="card-header">
+                        <div class="card-title">Victory Giant - ~$2.2B HK Listing</div>
+                        <span class="card-category">IPO</span>
+                    </div>
+                    <div class="card-description">
+                        Chinese AI hardware-linked firm Victory Giant planea listing en Hong Kong que podría raise hasta ~$2.2B. La empresa produce server PCBs y es proxy para appetite de investors en AI hardware infrastructure.
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">13 Abr 2026</span>
+                        <a href="https://techstartups.com/2026/04/13/top-tech-news-today-april-13-2026/" class="card-source" target="_blank">Tech in Asia / TechStartups</a>
+                    </div>
+                </div>
+
+                <div class="card" style="--card-accent: var(--accent-blue);" data-category="ipo">
+                    <div class="card-header">
+                        <div class="card-title">NFLX, TSM - Earnings Week April 13</div>
+                        <span class="card-category">Earnings</span>
+                    </div>
+                    <div class="card-description">
+                        Semana de earnings clave: Netflix (NFLX) y Taiwan Semiconductor Manufacturing (TSM) entre los más anticipados. TSM shares subieron 2.5% esta semana ante positive sentiment por AI demand.
+                    </div>
+                    <div class="card-metrics">
+                        <span class="metric-badge">TSM Price: <span class="value">T$2,015</span></span>
+                        <span class="metric-badge">Movement: <span class="value">+2.5%</span></span>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">13 Abr 2026</span>
+                        <a href="https://finance.yahoo.com/calendar/ipo?from=2026-04-12&to=2026-04-18&day=2026-04-13" class="card-source" target="_blank">Yahoo Finance</a>
+                    </div>
+                </div>
+
+                <div class="card" style="--card-accent: var(--accent-purple);" data-category="ipo">
+                    <div class="card-header">
+                        <div class="card-title">2026 IPO Market - Mega IPOs Expected</div>
+                        <span class="card-category">Market</span>
+                    </div>
+                    <div class="card-description">
+                        2026 set to be tech's comeback story para IPOs. Tres companies podrían swallow entire pie del mercado. SpaceX leads como expected catalyst más significativo del año.
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">2026</span>
+                        <a href="https://global.morningstar.com/en-nd/markets/mega-ipos-that-could-make-waves-through-us-stock-market" class="card-source" target="_blank">Morningstar</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- 🚀 Productos Tech -->
+        <div class="section" data-category="productos">
+            <h2 class="section-title"><span class="section-icon">🚀</span> Productos Tech</h2>
+            <div class="cards-grid">
+
+                <div class="card" style="--card-accent: var(--accent-cyan);" data-category="productos">
+                    <div class="card-header">
+                        <div class="card-title">CES 2026 - LG CLOiD Robot</div>
+                        <span class="card-category">Robotics</span>
+                    </div>
+                    <div class="card-description">
+                        LG lanzó CLOiD robot en CES 2026: diseñado para help with household tasks como laundry cycles, folding clothes, unloading dishwasher y serving food. Competencia directa con 1X Neo ($20K home robot).
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">Ene 2026</span>
+                        <a href="https://www.engadget.com/general/all-the-tech-and-gadgets-announced-at-ces-2026-130124023.html" class="card-source" target="_blank">Engadget</a>
+                    </div>
+                </div>
+
+                <div class="card" style="--card-accent: var(--accent-pink);" data-category="productos">
+                    <div class="card-header">
+                        <div class="card-title">Samsung Micro RGB TV - $29,999</div>
+                        <span class="card-category">Display</span>
+                    </div>
+                    <div class="card-description">
+                        Samsung unveiled first Micro RGB TV: 115-pulgadas, $29,999. LG también presentó new Gallery TV, su versión del Samsung Frame TV format. Display tech evolution continúa en CES 2026.
+                    </div>
+                    <div class="card-metrics">
+                        <span class="metric-badge">Price: <span class="value">$29,999</span></span>
+                        <span class="metric-badge">Size: <span class="value">115"</span></span>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">Ene 2026</span>
+                        <a href="https://www.engadget.com/general/all-the-tech-and-gadgets-announced-at-ces-2026-130124023.html" class="card-source" target="_blank">Engadget</a>
+                    </div>
+                </div>
+
+                <div class="card" style="--card-accent: var(--accent-green);" data-category="productos">
+                    <div class="card-header">
+                        <div class="card-title">Boston Dynamics Atlas - Production Ready</div>
+                        <span class="card-category">Robotics</span>
+                    </div>
+                    <div class="card-description">
+                        Boston Dynamics announced production-ready version del Atlas robot en CES 2026. El robot humanoide más avanzado del mundo finalmente entra en stage de producción comercial.
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">Ene 2026</span>
+                        <a href="https://www.engadget.com/big-tech/boston-dynamics-announces-production-ready-version-of-atlas-robot-at-ces-2026-234047772.html" class="card-source" target="_blank">Engadget</a>
+                    </div>
+                </div>
+
+                <div class="card" style="--card-accent: var(--accent-orange);" data-category="productos">
+                    <div class="card-header">
+                        <div class="card-title">AI Gadgets April 2026 - Best of</div>
+                        <span class="card-category">Consumer</span>
+                    </div>
+                    <div class="card-description">
+                        Yanko Design selecciona mejores gadgets April 2026: Supertiny 100W charger (world's smallest), Xiaomi 6mm power bank (más delgado que cualquier phone), y más innovations para tech-savvy consumers.
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">9 Abr 2026</span>
+                        <a href="https://www.yankodesign.com/2026/04/09/10-best-gadgets-of-april-2026-every-tech-savvy-gen-z-is-obsessed-with-and-we-get-why/" class="card-source" target="_blank">Yanko Design</a>
+                    </div>
+                </div>
+
+                <div class="card" style="--card-accent: var(--accent-blue);" data-category="productos">
+                    <div class="card-header">
+                        <div class="card-title">Grado Labs - X2 Driver Platform</div>
+                        <span class="card-category">Audio</span>
+                    </div>
+                    <div class="card-description">
+                        Grado updated toda su lineup de headphones con new X2 driver platform: desde SR60 ($125) hasta flagship GS3000 ($3,000). Incluye updated cables y refined build components.
+                    </div>
+                    <div class="card-metrics">
+                        <span class="metric-badge">Flagship: <span class="value">$3,000</span></span>
+                        <span class="metric-badge">Entry: <span class="value">$125</span></span>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">Abr 2026</span>
+                        <a href="https://www.gearpatrol.com/audio/best-tech-audio-hi-fi-releases-2026-april-week-2/" class="card-source" target="_blank">Gear Patrol</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- 🔒 Ciberseguridad -->
+        <div class="section" data-category="cyber">
+            <h2 class="section-title"><span class="section-icon">🔒</span> Ciberseguridad</h2>
+            <div class="cards-grid">
+
+                <div class="card" style="--card-accent: var(--accent-red);" data-category="cyber">
+                    <div class="card-header">
+                        <div class="card-title">Rockstar Games - Data Breach Confirmado</div>
+                        <span class="card-category">Breach</span>
+                    </div>
+                    <div class="card-description">
+                        Rockstar Games confirmó breach en third-party provider. Hacking group ShinyHunters claims responsibility y amenaza con leak data unless ransom paid by April 14. Incident podría involve corporate info.
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">13 Abr 2026</span>
+                        <a href="https://techstartups.com/2026/04/13/top-tech-news-today-april-13-2026/" class="card-source" target="_blank">The Verge / TechStartups</a>
+                    </div>
+                </div>
+
+                <div class="card" style="--card-accent: var(--accent-orange);" data-category="cyber">
+                    <div class="card-header">
+                        <div class="card-title">OpenAI - Supply Chain Attack Response</div>
+                        <span class="card-category">Security</span>
+                    </div>
+                    <div class="card-description">
+                        OpenAI detected compromised GitHub Actions workflow que descargó malicious version de Axios library, attributed a North Korean actors UNC1069. No user data compromised. OpenAI revoked affected macOS certificates as precaution.
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">13 Abr 2026</span>
+                        <a href="https://techstartups.com/2026/04/13/openai-flags-security-issue-after-axios-supply-chain-attack-linked-to-north-korea-says-no-user-data-was-accessed/" class="card-source" target="_blank">TechStartups / The Hacker News</a>
+                    </div>
+                </div>
+
+                <div class="card" style="--card-accent: var(--accent-pink);" data-category="cyber">
+                    <div class="card-header">
+                        <div class="card-title">Nike - Investigating Potential Breach</div>
+                        <span class="card-category">Breach</span>
+                    </div>
+                    <div class="card-description">
+                        Nike investiga potential data breach después que cybercrime group WorldLeaks claims haber robado ~1.4 TB de data, incluyendo 188K+ files de product design, manufacturing y supply chain info.
+                    </div>
+                    <div class="card-metrics">
+                        <span class="metric-badge">Data: <span class="value">~1.4 TB</span></span>
+                        <span class="metric-badge">Files: <span class="value">188K+</span></span>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">2026</span>
+                        <a href="https://www.blackfog.com/the-state-of-ransomware-2026/" class="card-source" target="_blank">BlackFog / SecurityWeek</a>
+                    </div>
+                </div>
+
+                <div class="card" style="--card-accent: var(--accent-cyan);" data-category="cyber">
+                    <div class="card-header">
+                        <div class="card-title">McDonald's India - 861 GB Data Theft</div>
+                        <span class="card-category">Breach</span>
+                    </div>
+                    <div class="card-description">
+                        Everest ransomware group claims responsabilidad por breach en McDonald's India. Afectados ~861 GB de data sensible incluyendo internal documents y personal customer information.
+                    </div>
+                    <div class="card-metrics">
+                        <span class="metric-badge">Data: <span class="value">861 GB</span></span>
+                        <span class="metric-badge">Group: <span class="value">Everest</span></span>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">2026</span>
+                        <a href="https://www.blackfog.com/the-state-of-ransomware-2026/" class="card-source" target="_blank">BlackFog / TEISS</a>
+                    </div>
+                </div>
+
+                <div class="card" style="--card-accent: var(--accent-purple);" data-category="cyber">
+                    <div class="card-header">
+                        <div class="card-title">Reguladores Warn - AI as Cyber Risk</div>
+                        <span class="card-category">Regulación</span>
+                    </div>
+                    <div class="card-description">
+                        Bloomberg Tech 4/13/2026: Reguladores warn de nueva era de cyber risk from AI. U.K. financial regulators preparing to warn banks about Anthropic's Claude Mythos Preview security risks.
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">13 Abr 2026</span>
+                        <a href="https://www.youtube.com/watch?v=PktAgPaRpCQ" class="card-source" target="_blank">Bloomberg Technology</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ⚖️ Regulación -->
+        <div class="section" data-category="regulacion">
+            <h2 class="section-title"><span class="section-icon">⚖️</span> Regulación & Policy</h2>
+            <div class="cards-grid">
+
+                <div class="card" style="--card-accent: var(--accent-blue);" data-category="regulacion">
+                    <div class="card-header">
+                        <div class="card-title">U.K. - Regulators Assess Anthropic AI Risks</div>
+                        <span class="card-category">AI Regulation</span>
+                    </div>
+                    <div class="card-description">
+                        Financial Times: U.K. regulators preparing to warn banks, insurers y exchanges about security risks de Anthropic's Claude Mythos Preview. El modelo puede identify vulnerabilities en software financiero.
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">13 Abr 2026</span>
+                        <a href="https://techstartups.com/2026/04/13/top-tech-news-today-april-13-2026/" class="card-source" target="_blank">Financial Times / TechStartups</a>
+                    </div>
+                </div>
+
+                <div class="card" style="--card-accent: var(--accent-orange);" data-category="regulacion">
+                    <div class="card-header">
+                        <div class="card-title">Trump Officials - Test Anthropic Mythos Model</div>
+                        <span class="card-category">AI Policy</span>
+                    </div>
+                    <div class="card-description">
+                        Treasury Secretary Bessent y Fed Chair Powell encouraged major banks (JPMorgan, Goldman, Citigroup, BofA, Morgan Stanley) to test Anthropic's Mythos model para vulnerability detection.
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">13 Abr 2026</span>
+                        <a href="https://techcrunch.com/2026/04/13/trump-officials-urge-banks-to-test-anthropics-restricted-mythos-ai-model/" class="card-source" target="_blank">TechCrunch</a>
+                    </div>
+                </div>
+
+                <div class="card" style="--card-accent: var(--accent-red);" data-category="regulacion">
+                    <div class="card-header">
+                        <div class="card-title">Ohio - Primera Convicción bajo Ley AI</div>
+                        <span class="card-category">AI Law</span>
+                    </div>
+                    <div class="card-description">
+                        Ohio man became first convicted bajo nueva ley estatal específicamente targeting AI-generated sexually explicit imagery. Primera implementación nationwide de regulación targeting AI misuse.
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">8 Abr 2026</span>
+                        <a href="https://techstartups.com/2026/04/13/top-tech-news-today-april-13-2026/" class="card-source" target="_blank">The Guardian / TechStartups</a>
+                    </div>
+                </div>
+
+                <div class="card" style="--card-accent: var(--accent-green);" data-category="regulacion">
+                    <div class="card-header">
+                        <div class="card-title">Antitrust 2026 - Nueva Era Pragmática</div>
+                        <span class="card-category">Antitrust</span>
+                    </div>
+                    <div class="card-description">
+                        US antitrust enforcement undergoing fundamental transformation: agencies pivot from aggressive blocking strategies toward pragmatic approach emphasizing structural remedies y negotiated settlements.
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">Abr 2026</span>
+                        <a href="https://www.thelegalfeed.com/news/antitrust-enforcement-enters-new-pragmatic-era-2026-signals-strategic-shift-from-blocking-to-remedying-tech-deals/" class="card-source" target="_blank">The Legal Feed</a>
+                    </div>
+                </div>
+
+                <div class="card" style="--card-accent: var(--accent-cyan);" data-category="regulacion">
+                    <div class="card-header">
+                        <div class="card-title">EU - AI Act Code of Practice</div>
+                        <span class="card-category">Regulation</span>
+                    </div>
+                    <div class="card-description">
+                        European Commission published second draft of Code of Practice on transparent AI systems under EU AI Act. European Parliament adopted negotiation position on proposed Digital Omnibus on AI.
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">Mar 2026</span>
+                        <a href="https://kempitlaw.com/insights/tech-law-developments-april-2026/" class="card-source" target="_blank">Kemp IT Law</a>
+                    </div>
+                </div>
+
+                <div class="card" style="--card-accent: var(--accent-purple);" data-category="regulacion">
+                    <div class="card-header">
+                        <div class="card-title">Google - Ad Tech Remedies Ruling</div>
+                        <span class="card-category">Antitrust</span>
+                    </div>
+                    <div class="card-description">
+                        Judge Mehta imposed behavioral remedies en Google ad tech case: banning exclusive distribution contracts y requiring limited search data sharing. DOJ request to force divestiture of Chrome rejected.
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">2025-2026</span>
+                        <a href="https://techpolicy.press/looking-ahead-on-us-antitrust-enforcement-and-tech-will-2026-deliver-more-of-the-same" class="card-source" target="_blank">TechPolicy Press</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- 🌐 Silicon Valley / Laboral -->
+        <div class="section" data-category="laboral">
+            <h2 class="section-title"><span class="section-icon">🌐</span> Silicon Valley & Empleo</h2>
+            <div class="cards-grid">
+
+                <div class="card" style="--card-accent: var(--accent-red);" data-category="laboral">
+                    <div class="card-header">
+                        <div class="card-title">52,050 Tech Layoffs en Q1 2026</div>
+                        <span class="card-category">Layoffs</span>
+                    </div>
+                    <div class="card-description">
+                        Q1 2026 registró 52,050 tech layoffs - un 40% jump vs same period last year. AI led reasons para cuts en March: 15,341 firings (25% of total). Dell alone cut 11,000 jobs en Q1.
+                    </div>
+                    <div class="card-metrics">
+                        <span class="metric-badge">Q1 Total: <span class="value">52,050</span></span>
+                        <span class="metric-badge">AI-Blamed: <span class="value">15,341</span></span>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">2 Abr 2026</span>
+                        <a href="https://nypost.com/2026/04/02/business/ai-pushes-2026-tech-layoffs-past-50k-and-counting-employers-say/" class="card-source" target="_blank">NY Post / Challenger</a>
+                    </div>
+                </div>
+
+                <div class="card" style="--card-accent: var(--accent-orange);" data-category="laboral">
+                    <div class="card-header">
+                        <div class="card-title">Block - 4,000 Layoffs (40% of Workforce)</div>
+                        <span class="card-category">Layoffs</span>
+                    </div>
+                    <div class="card-description">
+                        CEO Jack Dorsey blame recent round de 4,000 layoffs - 40% de company's workforce - on AI, warning de more to come. Salesforce también laid off 4,000 customer support workers.
+                    </div>
+                    <div class="card-metrics">
+                        <span class="metric-badge">Cut: <span class="value">4,000</span></span>
+                        <span class="metric-badge">% of Staff: <span class="value">40%</span></span>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">Abr 2026</span>
+                        <a href="https://techxplore.com/news/2026-04-hiring-humans-silicon-valley-ai.html" class="card-source" target="_blank">TechXplore</a>
+                    </div>
+                </div>
+
+                <div class="card" style="--card-accent: var(--accent-green);" data-category="laboral">
+                    <div class="card-header">
+                        <div class="card-title">Gallup - 50% Usa AI en Trabajo</div>
+                        <span class="card-category">AI Adoption</span>
+                    </div>
+                    <div class="card-description">
+                        Gallup: Por primera vez, half of employed U.S. adults dicen usar AI al trabajo al menos few times per year. Leaders más likely than workers to view AI impact positively.
+                    </div>
+                    <div class="card-metrics">
+                        <span class="metric-badge">Usage: <span class="value">50%</span></span>
+                        <span class="metric-badge">Frequency: <span class="value">Few times/year</span></span>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">13 Abr 2026</span>
+                        <a href="https://techstartups.com/2026/04/13/top-tech-news-today-april-13-2026/" class="card-source" target="_blank">Gallup / TechStartups</a>
+                    </div>
+                </div>
+
+                <div class="card" style="--card-accent: var(--accent-blue);" data-category="laboral">
+                    <div class="card-header">
+                        <div class="card-title">Data Center Moratorium Bills - 11/12 Failed</div>
+                        <span class="card-category">Policy</span>
+                    </div>
+                    <div class="card-description">
+                        12 state-level data center moratorium bills introduced en 2026, pero 11 stalled or voted down. Communities pushing back on physical footprint de AI infrastructure.
+                    </div>
+                    <div class="card-metrics">
+                        <span class="metric-badge">Introduced: <span class="value">12</span></span>
+                        <span class="metric-badge">Failed: <span class="value">11</span></span>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">2026</span>
+                        <a href="https://techstartups.com/2026/04/13/top-tech-news-today-april-13-2026/" class="card-source" target="_blank">Business Insider / TechStartups</a>
+                    </div>
+                </div>
+
+                <div class="card" style="--card-accent: var(--accent-cyan);" data-category="laboral">
+                    <div class="card-header">
+                        <div class="card-title">Japan - New Domestic AI Company</div>
+                        <span class="card-category">Strategic</span>
+                    </div>
+                    <div class="card-description">
+                        SoftBank + major Japanese companies (Sony, Honda) establecieron new AI development company para build homegrown capabilities. Large-scale "physical AI" foundation model effort by 2030.
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">13 Abr 2026</span>
+                        <a href="https://techstartups.com/2026/04/13/top-tech-news-today-april-13-2026/" class="card-source" target="_blank">NHK World / TechStartups</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- 🔌 Semiconductors -->
+        <div class="section" data-category="funding">
+            <h2 class="section-title"><span class="section-icon">🔌</span> Semiconductores & Chips</h2>
+            <div class="cards-grid">
+
+                <div class="card" style="--card-accent: var(--accent-green);" data-category="funding">
+                    <div class="card-header">
+                        <div class="card-title">Gartner - $1.3T Semiconductor Revenue 2026</div>
+                        <span class="card-category">Market</span>
+                    </div>
+                    <div class="card-description">
+                        Gartner released major forecast: Global semiconductor revenue to hit $1.3 trillion en 2026, fastest growth in two decades. AI demand driving unprecedented expansion.
+                    </div>
+                    <div class="card-metrics">
+                        <span class="metric-badge">Market: <span class="value">$1.3T</span></span>
+                        <span class="metric-badge">Growth: <span class="value">Fastest in 20 yrs</span></span>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">8 Abr 2026</span>
+                        <a href="https://semiconductorsinsight.com/latest-semiconductor-news-today-april-2026/" class="card-source" target="_blank">Semiconductors Insight / Gartner</a>
+                    </div>
+                </div>
+
+                <div class="card" style="--card-accent: var(--accent-orange);" data-category="funding">
+                    <div class="card-header">
+                        <div class="card-title">Nvidia Blackwell GPU - $4.08/hr (+48%)</div>
+                        <span class="card-category">Infrastructure</span>
+                    </div>
+                    <div class="card-description">
+                        Renting Nvidia Blackwell GPU now costs $4.08/hour, up 48% from $2.75 dos meses atrás (Ornn Compute Price Index). AI compute crunch pushing prices up amid surging demand.
+                    </div>
+                    <div class="card-metrics">
+                        <span class="metric-badge">Current: <span class="value">$4.08/hr</span></span>
+                        <span class="metric-badge">2 months ago: <span class="value">$2.75/hr</span></span>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">13 Abr 2026</span>
+                        <a href="https://techstartups.com/2026/04/13/top-tech-news-today-april-13-2026/" class="card-source" target="_blank">Wall Street Journal / TechStartups</a>
+                    </div>
+                </div>
+
+                <div class="card" style="--card-accent: var(--accent-red);" data-category="funding">
+                    <div class="card-header">
+                        <div class="card-title">14 Chip Suppliers - April 2026 Price Hikes</div>
+                        <span class="card-category">Pricing</span>
+                    </div>
+                    <div class="card-description">
+                        Broad-based price upcycle en early 2026 driven by AI demand y rising material costs. MPS, Murata, NXP, onsemi, AOS, Texas Instruments, Infineon announced increases effective April 2026.
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">Abr 2026</span>
+                        <a href="https://www.briocean.com/april-2026-price-hikes-across-14-chip-suppliers-market-impact-sourcing-insights/" class="card-source" target="_blank">Briocean</a>
+                    </div>
+                </div>
+
+                <div class="card" style="--card-accent: var(--accent-cyan);" data-category="funding">
+                    <div class="card-header">
+                        <div class="card-title">China to Restrict Nvidia Chip Purchases</div>
+                        <span class="card-category">Geopolitics</span>
+                    </div>
+                    <div class="card-description">
+                        Beijing drafting regulations to limit AI chip purchases from Nvidia, adding geopolitical risk. NVDA dropped 3.2% esta semana a $183.14 despite 8 consecutive earnings beats.
+                    </div>
+                    <div class="card-metrics">
+                        <span class="metric-badge">NVDA: <span class="value">$183.14</span></span>
+                        <span class="metric-badge">Weekly: <span class="value">-3.2%</span></span>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">Abr 2026</span>
+                        <a href="https://www.aol.com/articles/daily-market-alert-chip-stocks-135149455.html" class="card-source" target="_blank">AOL / Daily Market Alert</a>
+                    </div>
+                </div>
+
+                <div class="card" style="--card-accent: var(--accent-purple);" data-category="funding">
+                    <div class="card-header">
+                        <div class="card-title">TSMC - Shares Rise +2.5% on AI Demand</div>
+                        <span class="card-category">Stock</span>
+                    </div>
+                    <div class="card-description">
+                        TSMC shares rose 2.5% to T$2,015, remaining close to recent record highs. Stock +20% year-to-date. Wells Fargo upgraded AMD as top chip pick, seeing MI300 AI accelerators gaining share.
+                    </div>
+                    <div class="card-metrics">
+                        <span class="metric-badge">TSM: <span class="value">T$2,015</span></span>
+                        <span class="metric-badge">YTD: <span class="value">+20%</span></span>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">13 Abr 2026</span>
+                        <a href="https://www.investing.com/news/stock-market-news/tsmc-shares-rise-on-amdmeta-cheer-nvidia-earnings-in-focus-4523216" class="card-source" target="_blank">Investing.com</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Sources -->
+        <div class="sources-section">
+            <h2 style="font-size: 1.3rem; margin-bottom: 5px;">📚 Fuentes</h2>
+            <div class="sources-list">
+                <div class="source-item">
+                    <span class="source-name">Bloomberg</span>
+                    <a href="https://www.bloomberg.com/news/newsletters/2026-04-12/apple-ai-smart-glasses-features-styles-colors-cameras-giannandrea-leaving-mnvtz4yg" target="_blank">bloomberg.com</a>
+                </div>
+                <div class="source-item">
+                    <span class="source-name">Wall Street Journal</span>
+                    <a href="https://www.wsj.com/tech/ai/ai-is-using-so-much-energy-that-computing-firepower-is-running-out-156e5c85" target="_blank">wsj.com</a>
+                </div>
+                <div class="source-item">
+                    <span class="source-name">TechCrunch</span>
+                    <a href="https://techcrunch.com/2026/04/13/trump-officials-urge-banks-to-test-anthropics-restricted-mythos-ai-model/" target="_blank">techcrunch.com</a>
+                </div>
+                <div class="source-item">
+                    <span class="source-name">Business Insider</span>
+                    <a href="https://www.businessinsider.com/big-tech-hiring-layoffs-amazon-apple-microsoft-google-meta-charts-2026-4" target="_blank">businessinsider.com</a>
+                </div>
+                <div class="source-item">
+                    <span class="source-name">CNBC</span>
+                    <a href="https://www.cnbc.com/2026/04/08/investors-are-getting-hyped-over-the-spacex-ipo-heres-what-the-market-impact-may-be.html" target="_blank">cnbc.com</a>
+                </div>
+                <div class="source-item">
+                    <span class="source-name">Yahoo Finance</span>
+                    <a href="https://finance.yahoo.com/calendar/ipo?from=2026-04-12&to=2026-04-18&day=2026-04-13" target="_blank">finance.yahoo.com</a>
+                </div>
+                <div class="source-item">
+                    <span class="source-name">Semiconductor Engineering</span>
+                    <a href="https://semiengineering.com/startup-funding-q1-2026/" target="_blank">semiengineering.com</a>
+                </div>
+                <div class="source-item">
+                    <span class="source-name">TechStartups</span>
+                    <a href="https://techstartups.com/2026/04/13/top-tech-news-today-april-13-2026/" target="_blank">techstartups.com</a>
+                </div>
+                <div class="source-item">
+                    <span class="source-name">The Verge</span>
+                    <a href="https://www.theverge.com" target="_blank">theverge.com</a>
+                </div>
+                <div class="source-item">
+                    <span class="source-name">Engadget</span>
+                    <a href="https://www.engadget.com/general/all-the-tech-and-gadgets-announced-at-ces-2026-130124023.html" target="_blank">engadget.com</a>
+                </div>
+                <div class="source-item">
+                    <span class="source-name">NY Post</span>
+                    <a href="https://nypost.com/2026/04/02/business/ai-pushes-2026-tech-layoffs-past-50k-and-counting-employers-say/" target="_blank">nypost.com</a>
+                </div>
+                <div class="source-item">
+                    <span class="source-name">TechXplore</span>
+                    <a href="https://techxplore.com/news/2026-04-hiring-humans-silicon-valley-ai.html" target="_blank">techxplore.com</a>
+                </div>
+                <div class="source-item">
+                    <span class="source-name">BlackFog</span>
+                    <a href="https://www.blackfog.com/the-state-of-ransomware-2026/" target="_blank">blackfog.com</a>
+                </div>
+                <div class="source-item">
+                    <span class="source-name">Investing.com</span>
+                    <a href="https://www.investing.com/news/stock-market-news/tsmc-shares-rise-on-amdmeta-cheer-nvidia-earnings-in-focus-4523216" target="_blank">investing.com</a>
+                </div>
+                <div class="source-item">
+                    <span class="source-name">AOL</span>
+                    <a href="https://www.aol.com/articles/daily-market-alert-chip-stocks-135149455.html" target="_blank">aol.com</a>
+                </div>
+                <div class="source-item">
+                    <span class="source-name">Yanko Design</span>
+                    <a href="https://www.yankodesign.com/2026/04/09/10-best-gadgets-of-april-2026-every-tech-savvy-gen-z-is-obsessed-with-and-we-get-why/" target="_blank">yankodesign.com</a>
+                </div>
+                <div class="source-item">
+                    <span class="source-name">Gear Patrol</span>
+                    <a href="https://www.gearpatrol.com/audio/best-tech-audio-hi-fi-releases-2026-april-week-2/" target="_blank">gearpatrol.com</a>
+                </div>
+                <div class="source-item">
+                    <span class="source-name">Briocean</span>
+                    <a href="https://www.briocean.com/april-2026-price-hikes-across-14-chip-suppliers-market-impact-sourcing-insights/" target="_blank">briocean.com</a>
+                </div>
+                <div class="source-item">
+                    <span class="source-name">Morningstar</span>
+                    <a href="https://global.morningstar.com/en-nd/markets/mega-ipos-that-could-make-waves-through-us-stock-market" target="_blank">morningstar.com</a>
+                </div>
+                <div class="source-item">
+                    <span class="source-name">The Legal Feed</span>
+                    <a href="https://www.thelegalfeed.com/news/antitrust-enforcement-enters-new-pragmatic-era-2026-signals-strategic-shift-from-blocking-to-remedying-tech-deals/" target="_blank">thelegalfeed.com</a>
+                </div>
+                <div class="source-item">
+                    <span class="source-name">TechPolicy Press</span>
+                    <a href="https://techpolicy.press/looking-ahead-on-us-antitrust-enforcement-and-tech-will-2026-deliver-more-of-the-same" target="_blank">techpolicy.press</a>
+                </div>
+                <div class="source-item">
+                    <span class="source-name">Kemp IT Law</span>
+                    <a href="https://kempitlaw.com/insights/tech-law-developments-april-2026/" target="_blank">kempitlaw.com</a>
+                </div>
+                <div class="source-item">
+                    <span class="source-name">Semiconductors Insight</span>
+                    <a href="https://semiconductorsinsight.com/latest-semiconductor-news-today-april-2026/" target="_blank">semiconductorsinsight.com</a>
+                </div>
+                <div class="source-item">
+                    <span class="source-name">Wellington Management</span>
+                    <a href="https://www.wellington.com/en/insights/venture-capital-outlook" target="_blank">wellington.com</a>
+                </div>
+                <div class="source-item">
+                    <span class="source-name">SVB</span>
+                    <a href="https://www.svb.com/business-growth/access-to-capital/investor-reflections-on-svb-state-of-the-markets/" target="_blank">svb.com</a>
+                </div>
+                <div class="source-item">
+                    <span class="source-name">Harvard Law Forum</span>
+                    <a href="https://corpgov.law.harvard.edu/2025/12/23/venture-capital-outlook-for-2026-5-key-trends/" target="_blank">corpgov.law.harvard.edu</a>
+                </div>
+                <div class="source-item">
+                    <span class="source-name">The Guardian</span>
+                    <a href="https://www.theguardian.com/us-news/2026/apr/08/ohio-man-convicted-ai-sexually-explicit-images" target="_blank">theguardian.com</a>
+                </div>
+                <div class="source-item">
+                    <span class="source-name">Bloomberg Technology (Video)</span>
+                    <a href="https://www.youtube.com/watch?v=PktAgPaRpCQ" target="_blank">youtube.com/bloomberg</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Filter functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const cards = document.querySelectorAll('.card');
+        const sections = document.querySelectorAll('.section');
+        const searchInput = document.getElementById('searchInput');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active button
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filter = btn.dataset.filter;
+
+                // Filter sections and cards
+                sections.forEach(section => {
+                    const category = section.dataset.category;
+                    if (filter === 'all' || category === filter) {
+                        section.classList.remove('hidden');
+                    } else {
+                        section.classList.add('hidden');
+                    }
+                });
+            });
+        });
+
+        // Search functionality
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase();
+
+            cards.forEach(card => {
+                const text = card.textContent.toLowerCase();
+                if (text.includes(query) || query === '') {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+
+            // Also hide sections with no visible cards
+            sections.forEach(section => {
+                const visibleCards = section.querySelectorAll('.card:not(.hidden)');
+                if (visibleCards.length === 0 && query !== '') {
+                    section.classList.add('hidden');
+                } else if (query === '') {
+                    section.classList.remove('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
