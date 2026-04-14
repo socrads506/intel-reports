@@ -3,1169 +3,1606 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DeFi Market Report — 14 Abril 2026</title>
+    <title>DeFi Market Report - 14 de Abril 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-primary: #0a0e17;
             --bg-secondary: #111827;
-            --bg-card: #1a2235;
-            --bg-card-hover: #1f2a40;
-            --border: #2a3548;
-            --text-primary: #e8edf5;
-            --text-secondary: #8b95a8;
-            --text-muted: #5a6478;
-            --accent-green: #00d4aa;
-            --accent-red: #ff4d6a;
-            --accent-blue: #4d9fff;
-            --accent-orange: #ff9f43;
-            --accent-purple: #a855f7;
-            --accent-yellow: #fbbf24;
-            --accent-cyan: #22d3ee;
+            --bg-card: #1a2332;
+            --bg-card-hover: #232f42;
+            --text-primary: #f3f4f6;
+            --text-secondary: #9ca3af;
+            --text-muted: #6b7280;
+            --accent-green: #10b981;
+            --accent-green-bg: rgba(16, 185, 129, 0.15);
+            --accent-red: #ef4444;
+            --accent-red-bg: rgba(239, 68, 68, 0.15);
+            --accent-blue: #3b82f6;
+            --accent-blue-bg: rgba(59, 130, 246, 0.15);
+            --accent-yellow: #f59e0b;
+            --accent-yellow-bg: rgba(245, 158, 11, 0.15);
+            --accent-purple: #8b5cf6;
+            --accent-purple-bg: rgba(139, 92, 246, 0.15);
+            --accent-cyan: #06b6d4;
+            --border-color: #374151;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background: var(--bg-primary);
             color: var(--text-primary);
-            font-family: 'Segoe UI', -apple-system, sans-serif;
             line-height: 1.6;
             min-height: 100vh;
         }
 
-        /* HEADER */
+        .container { max-width: 1400px; margin: 0 auto; padding: 20px; }
+
+        /* Header */
         .header {
-            background: linear-gradient(135deg, #0d1220 0%, #1a2744 100%);
-            border-bottom: 1px solid var(--border);
-            padding: 24px 32px;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            backdrop-filter: blur(10px);
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 30px;
         }
-        .header-inner {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 16px;
-        }
-        .header-title {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-        }
-        .header-icon {
-            width: 48px;
-            height: 48px;
-            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-        }
+
         .header h1 {
-            font-size: 26px;
+            font-size: 2.5rem;
             font-weight: 700;
-            background: linear-gradient(90deg, var(--accent-blue), var(--accent-cyan));
+            background: linear-gradient(135deg, var(--accent-green), var(--accent-cyan));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
         }
-        .header-sub {
-            font-size: 13px;
-            color: var(--text-secondary);
-            margin-top: 2px;
-        }
-        .header-badges {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-        .badge {
-            padding: 5px 14px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-            border: 1px solid;
-        }
-        .badge-live { background: rgba(0,212,170,0.12); border-color: var(--accent-green); color: var(--accent-green); }
-        .badge-fear { background: rgba(255,77,106,0.12); border-color: var(--accent-red); color: var(--accent-red); }
 
-        /* CONTROLS */
-        .controls {
-            max-width: 1400px;
-            margin: 20px auto;
-            padding: 0 32px;
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-            align-items: center;
+        .header .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 15px;
         }
+
+        .header .meta {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .header .meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Controls */
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 25px;
+            padding: 15px;
+            background: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
         .search-box {
             flex: 1;
-            min-width: 240px;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 10px 16px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .search-box input {
-            background: none;
-            border: none;
-            outline: none;
-            color: var(--text-primary);
-            font-size: 14px;
-            width: 100%;
-        }
-        .search-box input::placeholder { color: var(--text-muted); }
-        .filter-btn {
-            padding: 8px 18px;
-            border-radius: 8px;
-            border: 1px solid var(--border);
-            background: var(--bg-card);
-            color: var(--text-secondary);
-            font-size: 13px;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        .filter-btn:hover, .filter-btn.active {
-            background: var(--accent-blue);
-            border-color: var(--accent-blue);
-            color: #fff;
-        }
-
-        /* MAIN */
-        .main {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 32px 40px;
-        }
-
-        /* METRICS GRID */
-        .metrics-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 16px;
-            margin-bottom: 28px;
-        }
-        .metric-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 14px;
-            padding: 20px;
-            transition: all 0.2s;
-        }
-        .metric-card:hover { background: var(--bg-card-hover); transform: translateY(-2px); }
-        .metric-label {
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--text-muted);
-            margin-bottom: 8px;
-        }
-        .metric-value {
-            font-size: 28px;
-            font-weight: 700;
-            color: var(--text-primary);
-        }
-        .metric-value.green { color: var(--accent-green); }
-        .metric-value.red { color: var(--accent-red); }
-        .metric-value.orange { color: var(--accent-orange); }
-        .metric-change {
-            font-size: 12px;
-            margin-top: 4px;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-        .metric-change.up { color: var(--accent-green); }
-        .metric-change.down { color: var(--accent-red); }
-
-        /* FEAR GREED BAR */
-        .fear-bar-container {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 14px;
-            padding: 20px;
-            margin-bottom: 28px;
-        }
-        .fear-bar-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 12px;
-        }
-        .fear-bar-title {
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--text-secondary);
-        }
-        .fear-bar-value {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--accent-red);
-        }
-        .fear-bar-track {
-            height: 10px;
-            background: linear-gradient(90deg, #ff4d6a 0%, #ff9f43 25%, #fbbf24 50%, #00d4aa 100%);
-            border-radius: 5px;
+            min-width: 250px;
             position: relative;
         }
-        .fear-bar-marker {
-            position: absolute;
-            top: -4px;
-            width: 18px;
-            height: 18px;
-            background: #fff;
-            border-radius: 50%;
-            border: 3px solid var(--accent-red);
-            left: 12%;
-            transform: translateX(-50%);
-        }
-        .fear-bar-labels {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 6px;
-            font-size: 10px;
-            color: var(--text-muted);
+
+        .search-box input {
+            width: 100%;
+            padding: 12px 16px 12px 42px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-size: 0.95rem;
         }
 
-        /* SECTIONS */
-        .section {
-            margin-bottom: 32px;
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--accent-blue);
         }
-        .section-title {
-            font-size: 18px;
-            font-weight: 700;
+
+        .search-box::before {
+            content: "🔍";
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1rem;
+        }
+
+        .filters {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 10px 18px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .filter-btn:hover {
+            border-color: var(--accent-blue);
             color: var(--text-primary);
-            margin-bottom: 16px;
+        }
+
+        .filter-btn.active {
+            background: var(--accent-blue);
+            border-color: var(--accent-blue);
+            color: white;
+        }
+
+        /* Sections */
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--border-color);
             display: flex;
             align-items: center;
-            gap: 10px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid var(--border);
-        }
-        .section-title .emoji { font-size: 22px; }
-        .section-title .count {
-            margin-left: auto;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 2px 10px;
-            font-size: 12px;
-            color: var(--text-muted);
+            gap: 12px;
         }
 
-        /* NEWS CARDS */
-        .news-grid {
+        .section {
+            margin-bottom: 40px;
+            display: none;
+        }
+
+        .section.visible { display: block; }
+
+        /* Cards Grid */
+        .cards-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
-            gap: 16px;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 20px;
         }
-        .news-card {
+
+        /* Card */
+        .card {
             background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 14px;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
             padding: 20px;
-            transition: all 0.2s;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
+            transition: all 0.25s;
+            position: relative;
+            overflow: hidden;
         }
-        .news-card:hover { background: var(--bg-card-hover); border-color: var(--accent-blue); }
-        .news-card.priority-high { border-left: 3px solid var(--accent-red); }
-        .news-card.priority-medium { border-left: 3px solid var(--accent-orange); }
-        .news-card.priority-low { border-left: 3px solid var(--accent-green); }
+
+        .card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+        }
+
+        .card.tvl::before { background: var(--accent-green); }
+        .card.yields::before { background: var(--accent-blue); }
+        .card.protocols::before { background: var(--accent-purple); }
+        .card.governance::before { background: var(--accent-yellow); }
+        .card.risks::before { background: var(--accent-red); }
+        .card.airdrops::before { background: var(--accent-cyan); }
+        .card.l2::before { background: var(--accent-green); }
+        .card.regulatory::before { background: var(--accent-purple); }
+
+        .card:hover {
+            transform: translateY(-3px);
+            border-color: var(--accent-blue);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
 
         .card-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            gap: 10px;
+            margin-bottom: 12px;
         }
+
         .card-title {
-            font-size: 15px;
+            font-size: 1.1rem;
             font-weight: 600;
             color: var(--text-primary);
             line-height: 1.4;
         }
-        .card-tag {
-            padding: 3px 10px;
-            border-radius: 6px;
-            font-size: 10px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+
+        .card-badge {
+            font-size: 0.7rem;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: 500;
             white-space: nowrap;
         }
-        .tag-tvl { background: rgba(77,159,255,0.15); color: var(--accent-blue); }
-        .tag-yield { background: rgba(0,212,170,0.15); color: var(--accent-green); }
-        .tag-new { background: rgba(168,85,247,0.15); color: var(--accent-purple); }
-        .tag-governance { background: rgba(251,191,36,0.15); color: var(--accent-yellow); }
-        .tag-risk { background: rgba(255,77,106,0.15); color: var(--accent-red); }
-        .tag-airdrop { background: rgba(34,211,238,0.15); color: var(--accent-cyan); }
-        .tag-l2 { background: rgba(255,159,67,0.15); color: var(--accent-orange); }
-        .tag-regulatory { background: rgba(251,191,36,0.15); color: var(--accent-yellow); }
-        .tag-security { background: rgba(255,77,106,0.15); color: var(--accent-red); }
-        .tag-institutional { background: rgba(77,159,255,0.15); color: var(--accent-blue); }
 
-        .card-desc {
-            font-size: 13px;
+        .card-badge.tvl { background: var(--accent-green-bg); color: var(--accent-green); }
+        .card-badge.yields { background: var(--accent-blue-bg); color: var(--accent-blue); }
+        .card-badge.protocols { background: var(--accent-purple-bg); color: var(--accent-purple); }
+        .card-badge.governance { background: var(--accent-yellow-bg); color: var(--accent-yellow); }
+        .card-badge.risks { background: var(--accent-red-bg); color: var(--accent-red); }
+        .card-badge.airdrops { background: rgba(6, 182, 212, 0.15); color: var(--accent-cyan); }
+        .card-badge.l2 { background: var(--accent-green-bg); color: var(--accent-green); }
+        .card-badge.regulatory { background: var(--accent-purple-bg); color: var(--accent-purple); }
+
+        .card-description {
             color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
             line-height: 1.6;
         }
+
         .card-metrics {
             display: flex;
-            gap: 12px;
+            gap: 15px;
             flex-wrap: wrap;
+            margin-bottom: 15px;
         }
-        .mini-metric {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 6px 12px;
-            font-size: 12px;
+
+        .metric {
+            background: var(--bg-primary);
+            padding: 8px 12px;
+            border-radius: 6px;
+            min-width: fit-content;
         }
-        .mini-metric .label { color: var(--text-muted); font-size: 10px; }
-        .mini-metric .val { color: var(--accent-green); font-weight: 600; }
-        .mini-metric .val.red { color: var(--accent-red); }
-        .mini-metric .val.orange { color: var(--accent-orange); }
+
+        .metric-label {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .metric-value {
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .metric-value.positive { color: var(--accent-green); }
+        .metric-value.negative { color: var(--accent-red); }
+        .metric-value.neutral { color: var(--text-primary); }
 
         .card-footer {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-top: auto;
-            padding-top: 10px;
-            border-top: 1px solid var(--border);
+            padding-top: 12px;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.8rem;
         }
-        .card-source {
-            font-size: 11px;
+
+        .card-date {
             color: var(--text-muted);
+        }
+
+        .card-source {
+            color: var(--accent-blue);
+            text-decoration: none;
             display: flex;
             align-items: center;
             gap: 4px;
+            max-width: 60%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
         }
-        .card-date { font-size: 11px; color: var(--text-muted); }
-        .card-link {
-            font-size: 11px;
-            color: var(--accent-blue);
-            text-decoration: none;
-            padding: 4px 10px;
-            border: 1px solid var(--accent-blue);
-            border-radius: 6px;
-            transition: all 0.2s;
-        }
-        .card-link:hover { background: var(--accent-blue); color: #fff; }
 
-        /* SOURCE LIST */
+        .card-source:hover {
+            text-decoration: underline;
+        }
+
+        /* KPI Cards */
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .kpi-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 18px;
+            text-align: center;
+        }
+
+        .kpi-value {
+            font-size: 1.6rem;
+            font-weight: 700;
+            font-family: 'JetBrains Mono', monospace;
+            margin-bottom: 5px;
+        }
+
+        .kpi-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Sources Section */
         .sources-section {
             background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 14px;
-            padding: 24px;
-            margin-top: 32px;
-        }
-        .sources-section h3 {
-            font-size: 16px;
-            color: var(--text-primary);
-            margin-bottom: 16px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .sources-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 8px;
-        }
-        .source-item {
-            font-size: 12px;
-            color: var(--text-secondary);
-            padding: 6px 0;
-            border-bottom: 1px solid var(--border);
-            display: flex;
-            gap: 8px;
-        }
-        .source-item a {
-            color: var(--accent-blue);
-            text-decoration: none;
-            word-break: break-all;
-        }
-        .source-item a:hover { text-decoration: underline; }
-
-        /* FOOTER */
-        .footer {
-            text-align: center;
-            padding: 24px;
-            color: var(--text-muted);
-            font-size: 12px;
-            border-top: 1px solid var(--border);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 25px;
             margin-top: 40px;
         }
 
-        /* HIDDEN */
-        .hidden { display: none !important; }
-
-        /* NO RESULTS */
-        .no-results {
-            text-align: center;
-            padding: 60px 20px;
-            color: var(--text-muted);
-            font-size: 15px;
+        .sources-section h2 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        /* RESPONSIVE */
+        .sources-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 10px;
+        }
+
+        .source-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px;
+            background: var(--bg-primary);
+            border-radius: 6px;
+            font-size: 0.85rem;
+        }
+
+        .source-item a {
+            color: var(--accent-blue);
+            text-decoration: none;
+            flex: 1;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .source-item a:hover { text-decoration: underline; }
+
+        .source-number {
+            background: var(--accent-blue);
+            color: white;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        /* Timestamp */
+        .timestamp {
+            text-align: center;
+            padding: 20px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: 40px;
+        }
+
+        /* Charts */
+        .mini-chart {
+            display: flex;
+            align-items: flex-end;
+            gap: 3px;
+            height: 40px;
+            margin: 10px 0;
+        }
+
+        .mini-chart .bar {
+            width: 8px;
+            background: var(--accent-blue);
+            border-radius: 2px;
+            opacity: 0.7;
+        }
+
+        .mini-chart .bar.high { background: var(--accent-green); }
+        .mini-chart .bar.low { background: var(--accent-red); }
+
+        /* Hidden cards for search */
+        .card.hidden { display: none; }
+
+        /* Responsive */
         @media (max-width: 768px) {
-            .header { padding: 16px; }
-            .header h1 { font-size: 20px; }
-            .controls { padding: 0 16px; }
-            .main { padding: 0 16px 32px; }
-            .news-grid { grid-template-columns: 1fr; }
-            .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+            .header h1 { font-size: 1.8rem; }
+            .controls { flex-direction: column; }
+            .cards-grid { grid-template-columns: 1fr; }
+            .kpi-grid { grid-template-columns: repeat(2, 1fr); }
         }
     </style>
 </head>
 <body>
+    <header class="header">
+        <h1>📊 DeFi Market Report</h1>
+        <p class="subtitle">Reporte Exhaustivo del Mercado de Finanzas Descentralizadas</p>
+        <div class="meta">
+            <span>📅 14 de Abril 2026</span>
+            <span>⏰ 18:03 UTC</span>
+            <span>🔄 Datos: últimas 24-48 horas</span>
+        </div>
+    </header>
 
-<div class="header">
-    <div class="header-inner">
-        <div class="header-title">
-            <div class="header-icon">📊</div>
-            <div>
-                <h1>DeFi Market Report</h1>
-                <div class="header-sub">Martes, 14 de Abril 2026 — 17:48 UTC | Logos Research</div>
+    <div class="container">
+        <!-- Controls -->
+        <div class="controls">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Buscar en el reporte...">
+            </div>
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="tvl">📊 TVL</button>
+                <button class="filter-btn" data-filter="yields">💰 Yields</button>
+                <button class="filter-btn" data-filter="protocols">🆕 Protocolos</button>
+                <button class="filter-btn" data-filter="governance">🗳️ Governance</button>
+                <button class="filter-btn" data-filter="risks">⚠️ Riesgos</button>
+                <button class="filter-btn" data-filter="airdrops">🚀 Airdrops</button>
+                <button class="filter-btn" data-filter="l2">🔷 L2</button>
+                <button class="filter-btn" data-filter="regulatory">⚖️ Regulatorio</button>
             </div>
         </div>
-        <div class="header-badges">
-            <span class="badge badge-live">● EN VIVO</span>
-            <span class="badge badge-fear">⚠ FEAR: 12</span>
+
+        <!-- KPI Overview -->
+        <div class="kpi-grid">
+            <div class="kpi-card">
+                <div class="kpi-value" style="color: var(--accent-green);">$130-140B</div>
+                <div class="kpi-label">Total DeFi TVL</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-value" style="color: var(--accent-blue);">$25.3B</div>
+                <div class="kpi-label">Aave TVL</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-value" style="color: var(--accent-red);">$285M</div>
+                <div class="kpi-label">Drift Hack Loss</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-value" style="color: var(--accent-purple);">~90%</div>
+                <div class="kpi-label">L2 Top 3 Share</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-value" style="color: var(--accent-yellow);">75%</div>
+                <div class="kpi-label">Aave AWW Vote</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-value" style="color: var(--accent-cyan);">4-8%</div>
+                <div class="kpi-label">Stablecoin APY</div>
+            </div>
+        </div>
+
+        <!-- TVL & Metrics Section -->
+        <section class="section visible" data-category="tvl">
+            <h2 class="section-title">📊 TVL & Métricas del Mercado</h2>
+            <div class="cards-grid">
+                <div class="card tvl">
+                    <div class="card-header">
+                        <div class="card-title">Total DeFi TVL Alcanza $130-140B</div>
+                        <span class="card-badge tvl">RECUPERACIÓN</span>
+                    </div>
+                    <div class="card-description">
+                        El TVL total de DeFi se recuperó significativamente, pasando de $123.6B (mediados de 2025) a un rango de $130-140B a principios de 2026, reflejando la recuperación post-FTX y condiciones de mercado más recientes.
+                    </div>
+                    <div class="card-metrics">
+                        <div class="metric">
+                            <div class="metric-label">TVL Actual</div>
+                            <div class="metric-value positive">$130-140B</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Crecimiento</div>
+                            <div class="metric-value positive">+5-13%</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">7 Abr 2026</span>
+                        <a href="https://coinlaw.io/decentralized-finance-market-statistics/" target="_blank" class="card-source">📰 CoinLaw — coinlaw.io</a>
+                    </div>
+                </div>
+
+                <div class="card tvl">
+                    <div class="card-header">
+                        <div class="card-title">Aave Lidera DeFi Lending con $25.3B TVL</div>
+                        <span class="card-badge tvl">LÍDER</span>
+                    </div>
+                    <div class="card-description">
+                        Aave mantiene la mayor participación en DeFi lending con aproximadamente $25.346B en TVL (10 abril 2026), dominandoroughly 60-67% del mercado total de lending DeFi. El protocolo lanzó Aave V4 el 30 de marzo de 2026.
+                    </div>
+                    <div class="card-metrics">
+                        <div class="metric">
+                            <div class="metric-label">TVL Aave</div>
+                            <div class="metric-value positive">$25.3B</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Participación</div>
+                            <div class="metric-value positive">~60-67%</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">10 Abr 2026</span>
+                        <a href="https://metamask.io/news/decentralization-trends-reshaping-industries" target="_blank" class="card-source">📰 MetaMask News — metamask.io</a>
+                    </div>
+                </div>
+
+                <div class="card tvl">
+                    <div class="card-header">
+                        <div class="card-title">RWA Supera a DEX en TVL por Primera Vez</div>
+                        <span class="card-badge tvl">HITO</span>
+                    </div>
+                    <div class="card-description">
+                        Los activos del mundo real tokenizados (RWA) han superado a los exchanges descentralizados (DEX) en TVL por primera vez. El valor tokenizado de RWAs alcanzó $17.5-20B, haciéndolos la quinta categoría más grande de DeFi.
+                    </div>
+                    <div class="card-metrics">
+                        <div class="metric">
+                            <div class="metric-label">RWA TVL</div>
+                            <div class="metric-value positive">$17.5-20B</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Ranking</div>
+                            <div class="metric-value neutral">#5 DeFi</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">Abr 2026</span>
+                        <a href="https://www.mexc.com/news/995249" target="_blank" class="card-source">📰 MEXC News — mexc.com</a>
+                    </div>
+                </div>
+
+                <div class="card tvl">
+                    <div class="card-header">
+                        <div class="card-title">DeFi Lending Captura 2/3 del Mercado</div>
+                        <span class="card-badge tvl">MERCADO</span>
+                    </div>
+                    <div class="card-description">
+                        El lending DeFi on-chain capturó aproximadamente dos tercios del récord de $73.6B del mercado de préstamos colateralizados con crypto para finales de 2025, estableciendo una base sólida para el crecimiento en 2026.
+                    </div>
+                    <div class="card-metrics">
+                        <div class="metric">
+                            <div class="metric-label">Mercado Total</div>
+                            <div class="metric-value neutral">$73.6B</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">DeFi Share</div>
+                            <div class="metric-value positive">~67%</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">2025-2026</span>
+                        <a href="https://coinlaw.io/decentralized-finance-market-statistics/" target="_blank" class="card-source">📰 CoinLaw — coinlaw.io</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Yields Section -->
+        <section class="section visible" data-category="yields">
+            <h2 class="section-title">💰 Yields & Farms - Abril 2026</h2>
+            <div class="cards-grid">
+                <div class="card yields">
+                    <div class="card-header">
+                        <div class="card-title">Rangos de Yield Sostenibles por Tier</div>
+                        <span class="card-badge yields">YIELDS</span>
+                    </div>
+                    <div class="card-description">
+                        Los yields DeFi se han normalizado en 2026: stablecoin lending 4-8%, liquid staking 2.5-4%, provisión de liquidez DEX 5-30%, y restaking 4-6%. Los retornos especulativos de 1000%+ APY han sido reemplazados por rendimientos sostenibles de 3-15%.
+                    </div>
+                    <div class="card-metrics">
+                        <div class="metric">
+                            <div class="metric-label">Stablecoins</div>
+                            <div class="metric-value positive">4-8% APY</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">LST</div>
+                            <div class="metric-value positive">2.5-4%</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Restaking</div>
+                            <div class="metric-value positive">4-6%</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">Abr 2026</span>
+                        <a href="https://yellow.com/research/best-defi-yield-farming-platforms-2026" target="_blank" class="card-source">📰 Yellow.com — yellow.com</a>
+                    </div>
+                </div>
+
+                <div class="card yields">
+                    <div class="card-header">
+                        <div class="card-title">Convex Finance: $1.75B TVL en Yield Aggregation</div>
+                        <span class="card-badge yields">TOP PROTOCOL</span>
+                    </div>
+                    <div class="card-description">
+                        Convex Finance domina el espacio de agregación de yield con aproximadamente $1.75B en TVL, enfocado principalmente en boostar yields para liquidity providers de Curve Finance. Depositar LP tokens en Convex casi siempre genera mejores retornos que staking directo en Curve.
+                    </div>
+                    <div class="card-metrics">
+                        <div class="metric">
+                            <div class="metric-label">TVL</div>
+                            <div class="metric-value positive">$1.75B</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Enfoque</div>
+                            <div class="metric-value neutral">Curve Boost</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">Abr 2026</span>
+                        <a href="https://www.dextools.io/news/top-5-defi-yield-aggregators-auto-compound-2026" target="_blank" class="card-source">📰 DEXTools News — dextools.io</a>
+                    </div>
+                </div>
+
+                <div class="card yields">
+                    <div class="card-header">
+                        <div class="card-title">Yearn Finance: Vaults Diversificados</div>
+                        <span class="card-badge yields">YIELD VAULTS</span>
+                    </div>
+                    <div class="card-description">
+                        Yearn ofrece approach más diversificado con ~$406M TVL. Sus vaults pueden hacer deployment en cualquier estrategia DeFi: simultaneamente lend en Aave, provide liquidity en Curve via Convex, y farm Morpho rewards, rebalanceando automáticamente según la mejor oportunidad risk-adjusted.
+                    </div>
+                    <div class="card-metrics">
+                        <div class="metric">
+                            <div class="metric-label">TVL</div>
+                            <div class="metric-value positive">$406M</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Stables</div>
+                            <div class="metric-value positive">2-8%</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">LST Pairs</div>
+                            <div class="metric-value positive">3-8%</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">Abr 2026</span>
+                        <a href="https://coinbureau.com/analysis/best-defi-yield-farming-platforms" target="_blank" class="card-source">📰 Coin Bureau — coinbureau.com</a>
+                    </div>
+                </div>
+
+                <div class="card yields">
+                    <div class="card-header">
+                        <div class="card-title">Bitrue: 8% APR en Stablecoin Staking</div>
+                        <span class="card-badge yields">CEFI</span>
+                    </div>
+                    <div class="card-description">
+                        Bitrue lanzó promoción limitada de 8% APR flexible staking para USDT, USDC y RLUSD durante abril 2026. Esta tasa supera significativamente a la mayoría de exchanges centralizados, ofreciendo una de las mejores estrategias stablecoin en la plataforma.
+                    </div>
+                    <div class="card-metrics">
+                        <div class="metric">
+                            <div class="metric-label">APY USDT/USDC/RLUSD</div>
+                            <div class="metric-value positive">8%</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Tipo</div>
+                            <div class="metric-value neutral">Flexible</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">Abr 2026</span>
+                        <a href="https://www.bitrue.com/en/blog/stablecoin-strategies-april-2026-usdt-usdc-bitrue" target="_blank" class="card-source">📰 Bitrue — bitrue.com</a>
+                    </div>
+                </div>
+
+                <div class="card yields">
+                    <div class="card-header">
+                        <div class="card-title">Ethena Finance: Delta-Neutral 5-7%</div>
+                        <span class="card-badge yields">DELTA-NEUTRAL</span>
+                    </div>
+                    <div class="card-description">
+                        Ethena Finance combina ETH staked con hedging via futures para capturar funding rates y staking rewards, entregando yields de 5-7% mientras mantiene el peg stablecoin. Estrategia popular para yield-bearing stablecoins como sUSDe.
+                    </div>
+                    <div class="card-metrics">
+                        <div class="metric">
+                            <div class="metric-label">APY</div>
+                            <div class="metric-value positive">5-7%</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Estrategia</div>
+                            <div class="metric-value neutral">Delta-Neutral</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">Abr 2026</span>
+                        <a href="https://rebelfi.io/blog/how-to-earn-yield-on-stablecoins-in-2026" target="_blank" class="card-source">📰 RebelFi — rebelfi.io</a>
+                    </div>
+                </div>
+
+                <div class="card yields">
+                    <div class="card-header">
+                        <div class="card-title">Solayer: 8% APR en SOL Restaking</div>
+                        <span class="card-badge yields">SOLANA</span>
+                    </div>
+                    <div class="card-description">
+                        Solayer, el protocolo DeFi más exitoso de Solana post-mainnet launch, permite earn 8% APR de SOL restaking mientras deposita LSTs en protocolos DEX como Meteora Finance para yield adicional y farming de airdrops.
+                    </div>
+                    <div class="card-metrics">
+                        <div class="metric">
+                            <div class="metric-label">APR SOL</div>
+                            <div class="metric-value positive">8%</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Chain</div>
+                            <div class="metric-value neutral">Solana</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">Abr 2026</span>
+                        <a href="https://coinlaunch.space/blog/best-yield-farming-crypto/" target="_blank" class="card-source">📰 CoinLaunch — coinlaunch.space</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- New Protocols Section -->
+        <section class="section visible" data-category="protocols">
+            <h2 class="section-title">🆕 Protocolos Nuevos & Desarrollos</h2>
+            <div class="cards-grid">
+                <div class="card protocols">
+                    <div class="card-header">
+                        <div class="card-title">Aave V4 Lanzado: Isolation Mode & Expansión RWA</div>
+                        <span class="card-badge protocols">MAJOR</span>
+                    </div>
+                    <div class="card-description">
+                        Aave debuted su upgrade V4 en Ethereum el 30 de marzo de 2026, después de 2 años de desarrollo. Introduce isolation mode que separa lending markets mientras comparte liquidation infrastructure. Diseñado para expandir DeFi hacia credit markets reales.
+                    </div>
+                    <div class="card-metrics">
+                        <div class="metric">
+                            <div class="metric-label">Fecha</div>
+                            <div class="metric-value neutral">30 Mar 2026</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Feature</div>
+                            <div class="metric-value neutral">Isolation Mode</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">30 Mar 2026</span>
+                        <a href="https://www.coindesk.com/tech/2026/03/30/aave-rolls-out-v4-on-ethereum-aiming-to-expand-defi-into-real-world-credit-markets" target="_blank" class="card-source">📰 CoinDesk — coindesk.com</a>
+                    </div>
+                </div>
+
+                <div class="card protocols">
+                    <div class="card-header">
+                        <div class="card-title">Ethereum Foundation: 5,000 ETH Swapped a Stablecoins</div>
+                        <span class="card-badge protocols">INSTITUCIONAL</span>
+                    </div>
+                    <div class="card-description">
+                        Ethereum Foundation swapó 5,000 ETH a stablecoins para funding operacional y grants el 8 de abril de 2026. Además, duplicó su posición en ETH staked,clearing dos tercios del target de 70,000 ETH.
+                    </div>
+                    <div class="card-metrics">
+                        <div class="metric">
+                            <div class="metric-label">ETH Swapped</div>
+                            <div class="metric-value neutral">5,000 ETH</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">ETH Staked</div>
+                            <div class="metric-value positive">~46,600</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">8 Abr 2026</span>
+                        <a href="https://www.theblock.co/data/decentralized-finance/total-value-locked-tvl/value-locked-by-blockchain" target="_blank" class="card-source">📰 The Block — theblock.co</a>
+                    </div>
+                </div>
+
+                <div class="card protocols">
+                    <div class="card-header">
+                        <div class="card-title">TON Boost APR: Última Ventana hasta 30 Abril</div>
+                        <span class="card-badge protocols">TON</span>
+                    </div>
+                    <div class="card-description">
+                        El Boost APR window en TON cierra el 30 de abril. Los pools continuarán después de esa fecha, pero el multiplicador 2x no estará disponible. Los usuarios que quieran la tasa boostada deben actuar antes de la fecha límite.
+                    </div>
+                    <div class="card-metrics">
+                        <div class="metric">
+                            <div class="metric-label">Deadline</div>
+                            <div class="metric-value negative">30 Abr</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Multiplicador</div>
+                            <div class="metric-value positive">2x</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">Abr 2026</span>
+                        <a href="https://medium.com/coinmonks/yield-farming-on-ton-in-april-2026-what-the-numbers-actually-say-cfe040ea96ab" target="_blank" class="card-source">📰 Medium/Coinmonks — medium.com</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Governance Section -->
+        <section class="section visible" data-category="governance">
+            <h2 class="section-title">🗳️ Governance - Votaciones Críticas</h2>
+            <div class="cards-grid">
+                <div class="card governance">
+                    <div class="card-header">
+                        <div class="card-title">🔥 Aave Pasa "Aave Will Win": 100% Revenue a Holders</div>
+                        <span class="card-badge governance">HISTÓRICO</span>
+                    </div>
+                    <div class="card-description">
+                        Aave DAO votó con casi 75% de apoyo para aprobar el proposal "Aave Will Win" (AWW), redirigiendo 100% del revenue de todos los productos Aave (Aave Pro, App, Horizon, Kit) al treasury DAO y consolidando derechos económicos bajo AAVE token. Resuelve meses de disputa sobre control de fees.
+                    </div>
+                    <div class="card-metrics">
+                        <div class="metric">
+                            <div class="metric-label">Support</div>
+                            <div class="metric-value positive">~75%</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Revenue</div>
+                            <div class="metric-value positive">100%</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Funding</div>
+                            <div class="metric-value neutral">$25M</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">13 Abr 2026</span>
+                        <a href="https://www.coindesk.com/tech/2026/04/13/aave-passes-landmark-vote-ending-months-long-fight-over-who-controls-protocol-revenue" target="_blank" class="card-source">📰 CoinDesk — coindesk.com</a>
+                    </div>
+                </div>
+
+                <div class="card governance">
+                    <div class="card-header">
+                        <div class="card-title">Aave Labs Receives $25M + 75,000 Tokens Grant</div>
+                        <span class="card-badge governance">TREASURY</span>
+                    </div>
+                    <div class="card-description">
+                        En votación separada, la comunidad Aave aprobó un plan que allocates $25 millones en stablecoins + 75,000 tokens (valorado ~$9M) a Aave Labs. La distribución del método (buybacks, staking rewards) será decida en futuras votaciones.
+                    </div>
+                    <div class="card-metrics">
+                        <div class="metric">
+                            <div class="metric-label">USD</div>
+                            <div class="metric-value positive">$25M</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Tokens</div>
+                            <div class="metric-value neutral">75,000 AAVE</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">13 Abr 2026</span>
+                        <a href="https://coinmarketcap.com/cmc-ai/aave/latest-updates/" target="_blank" class="card-source">📰 CoinMarketCap — coinmarketcap.com</a>
+                    </div>
+                </div>
+
+                <div class="card governance">
+                    <div class="card-header">
+                        <div class="card-title">Cardano: Votación de Tesorería Comienza 14 Abril</div>
+                        <span class="card-badge governance">CARDANO</span>
+                    </div>
+                    <div class="card-description">
+                        La votación para la propuesta de tesorería de Cardano comienza el 14 de abril de 2026. El proyecto USA (yield-bearing synthetic dollar) busca soporte de tesorería para bootstrapping de liquidez, collateralized por largas posiciones ADA.
+                    </div>
+                    <div class="card-metrics">
+                        <div class="metric">
+                            <div class="metric-label">Fecha</div>
+                            <div class="metric-value neutral">14 Abr 2026</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Proposer</div>
+                            <div class="metric-value neutral">SMARDEX</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">14 Abr 2026</span>
+                        <a href="https://governancespace.com/en-us/proposals" target="_blank" class="card-source">📰 GovernanceSpace — governancespace.com</a>
+                    </div>
+                </div>
+
+                <div class="card governance">
+                    <div class="card-header">
+                        <div class="card-title">Aave Key Contributors Exit: Chaos Labs Departs</div>
+                        <span class="card-badge governance">⚠️ ALERTA</span>
+                    </div>
+                    <div class="card-description">
+                        Chaos Labs se convirtió en la última salida de contributor clave de Aave después de 3 años debido a diferencias en filosofía de riesgo y complejidad de V4. Esta salida se suma a preocupaciones sobre la estabilidad del equipo de Aave.
+                    </div>
+                    <div class="card-metrics">
+                        <div class="metric">
+                            <div class="metric-label">Contributors</div>
+                            <div class="metric-value negative">Multiple</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Razón</div>
+                            <div class="metric-value negative">V4 Complexity</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">7 Abr 2026</span>
+                        <a href="https://coinmarketcal.com/en/news/aave-s-25-billion-lending-empire-faces-a-real-test-as-key-contributors-exit" target="_blank" class="card-source">📰 CoinMarketCal — coinmarketcal.com</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Risks Section -->
+        <section class="section visible" data-category="risks">
+            <h2 class="section-title">⚠️ Riesgos, Liquidations & Hacks</h2>
+            <div class="cards-grid">
+                <div class="card risks">
+                    <div class="card-header">
+                        <div class="card-title">🚨 CRÍTICO: Drift Protocol Hack $285M - Abril 1</div>
+                        <span class="card-badge risks">🔴 CRÍTICO</span>
+                    </div>
+                    <div class="card-description">
+                        El hack más grande de 2026: $285M drenados de Drift Protocol en ~12 minutos. El ataque combinó fake token creation, oracle manipulation, y admin key compromise. Attacker usó CVT token manipulado para borrow masivo en casi 20 vaults. Dato: 40%+ de pérdidas Q1 vinieron de private key compromises.
+                    </div>
+                    <div class="card-metrics">
+                        <div class="metric">
+                            <div class="metric-label">Pérdida</div>
+                            <div class="metric-value negative">$285M</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Método</div>
+                            <div class="metric-value negative">Multi-vector</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Tiempo</div>
+                            <div class="metric-value negative">~12 min</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">1 Abr 2026</span>
+                        <a href="https://www.ccn.com/news/crypto/drift-protocol-285m-biggest-hack-2026-april-fools-day/" target="_blank" class="card-source">📰 CCN — ccn.com</a>
+                    </div>
+                </div>
+
+                <div class="card risks">
+                    <div class="card-header">
+                        <div class="card-title">Q1 2026: $169M Stolen en DeFi Hacks</div>
+                        <span class="card-badge risks">REPORTE</span>
+                    </div>
+                    <div class="card-description">
+                        Q1 2026 registró $169M robados en DeFi. Private key compromises y access control failures representaron >$70M (40%+ del total), sin explotar vulnerabilidad smart contract alguna. Automated audits detectan ~70-80% de flaws de bajo nivel, pero no vectores de infraestructura.
+                    </div>
+                    <div class="card-metrics">
+                        <div class="metric">
+                            <div class="metric-label">Total Q1</div>
+                            <div class="metric-value negative">$169M</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">PK/Access</div>
+                            <div class="metric-value negative">$70M+</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">3 Abr 2026</span>
+                        <a href="https://blockeden.xyz/blog/2026/04/03/defi-hacks-q1-2026-169m-stolen-attack-vectors-private-key-infrastructure/" target="_blank" class="card-source">📰 BlockEden — blockeden.xyz</a>
+                    </div>
+                </div>
+
+                <div class="card risks">
+                    <div class="card-header">
+                        <div class="card-title">Contagio Solana: Jito, Raydium, Sanctum TVL -3.8% a -4.3%</div>
+                        <span class="card-badge risks">CONTAGIO</span>
+                    </div>
+                    <div class="card-description">
+                        Following Drift exploit, protocolos Solana sin exposición directa experimentaron outflows significativos: Jito, Raydium y Sanctum cada uno con declines de ~3.8-4.3% en un solo día. El mercado está reassessing security premium de todo el ecosistema Solana DeFi.
+                    </div>
+                    <div class="card-metrics">
+                        <div class="metric">
+                            <div class="metric-label">Jito TVL Δ</div>
+                            <div class="metric-value negative">-3.8%</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Raydium Δ</div>
+                            <div class="metric-value negative">-4.3%</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Sanctum Δ</div>
+                            <div class="metric-value negative">-4.1%</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">Abr 2026</span>
+                        <a href="https://www.investing.com/analysis/solana-faces-a-confidence-test-after-drift-losses-hit-defi-activity-200677804" target="_blank" class="card-source">📰 Investing.com — investing.com</a>
+                    </div>
+                </div>
+
+                <div class="card risks">
+                    <div class="card-header">
+                        <div class="card-title">DeFi Shakeout: Consolidación, No Muerte</div>
+                        <span class="card-badge risks">ANÁLISIS</span>
+                    </div>
+                    <div class="card-description">
+                        Múltiples protocolos DeFi cerraron en 2025-2026 presionados por bajo uso, collapses de liquidez, security incidents y modelos de negocio token-driven sin economía durable. Sin embargo, protocolos con revenue sostenible y gobernanza transparente están consolidando.
+                    </div>
+                    <div class="card-metrics">
+                        <div class="metric">
+                            <div class="metric-label">Tendencia</div>
+                            <div class="metric-value neutral">Consolidación</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Outlook</div>
+                            <div class="metric-value positive">Resiliente</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">10 Abr 2026</span>
+                        <a href="https://www.coindesk.com/opinion/2026/04/10/defi-s-shakeout-is-a-stress-test-not-a-death-sentence" target="_blank" class="card-source">📰 CoinDesk Opinion — coindesk.com</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Airdrops Section -->
+        <section class="section visible" data-category="airdrops">
+            <h2 class="section-title">🚀 Airdrops & Token Generation Events</h2>
+            <div class="cards-grid">
+                <div class="card airdrops">
+                    <div class="card-header">
+                        <div class="card-title">OpenSea ($SEA): 50% Revenue Buyback Confirmado</div>
+                        <span class="card-badge airdrops">CONFIRMADO</span>
+                    </div>
+                    <div class="card-description">
+                        OpenSea planea lanzar token SEA con 50% del revenue de la plataforma destinado a buyback en mercado abierto, siguiendo el modelo pionero de Hyperliquid. Los puntos se convertirán en tokens SEA, fee discounts y future airdrops.
+                    </div>
+                    <div class="card-metrics">
+                        <div class="metric">
+                            <div class="metric-label">Revenue Buyback</div>
+                            <div class="metric-value positive">50%</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Modelo</div>
+                            <div class="metric-value neutral">Hyperliquid-style</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">Q1-Q2 2026</span>
+                        <a href="https://www.dlnews.com/articles/defi/five-upcoming-crypto-airdrops-to-watch-for-in-2026/" target="_blank" class="card-source">📰 DL News — dlnews.com</a>
+                    </div>
+                </div>
+
+                <div class="card airdrops">
+                    <div class="card-header">
+                        <div class="card-title">Polymarket: Airdrop Oficial Confirmado</div>
+                        <span class="card-badge airdrops">CONFIRMADO</span>
+                    </div>
+                    <div class="card-description">
+                        Polymarket CMO confirmó airdrop de token para usuarios. El exchange busca inspiración en el modelo Hyperliquid. Programa de puntos running hasta final de 2025, con airdrop esperado para 2026.
+                    </div>
+                    <div class="card-metrics">
+                        <div class="metric">
+                            <div class="metric-label">Status</div>
+                            <div class="metric-value positive">Confirmado</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Tipo</div>
+                            <div class="metric-value neutral">Puntos → Token</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">2026</span>
+                        <a href="https://www.dlnews.com/articles/defi/five-upcoming-crypto-airdrops-to-watch-for-in-2026/" target="_blank" class="card-source">📰 DL News — dlnews.com</a>
+                    </div>
+                </div>
+
+                <div class="card airdrops">
+                    <div class="card-header">
+                        <div class="card-title">MetaMask ($MASK): 30M+ Usuarios, Early 2026</div>
+                        <span class="card-badge airdrops">ESPERADO</span>
+                    </div>
+                    <div class="card-description">
+                        MetaMask preparando token MASK con 30M+ usuarios. Farming vía Rewards program con $30M+ en LINEA tokens ya distribuidos. El wallet más popular de Ethereum busca expandirse al ecosistema DeFi con programa de recompensas.
+                    </div>
+                    <div class="card-metrics">
+                        <div class="metric">
+                            <div class="metric-label">Usuarios</div>
+                            <div class="metric-value positive">30M+</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">LINEA Distributed</div>
+                            <div class="metric-value positive">$30M+</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">Early 2026</span>
+                        <a href="https://onekey.so/blog/ecosystem/2026-airdrop-interaction-guide-182-projects-across-eight-key-tracks-your-ultimate-index-20260120181251/" target="_blank" class="card-source">📰 OneKey Blog — onekey.so</a>
+                    </div>
+                </div>
+
+                <div class="card airdrops">
+                    <div class="card-header">
+                        <div class="card-title">LayerZero: Airdrop Futuro Para Usuarios</div>
+                        <span class="card-badge airdrops">POTENCIAL</span>
+                    </div>
+                    <div class="card-description">
+                        Múltiples apps usan tecnología LayerZero. Si el proyecto lanza token,很可能 reward a usuarios que interactuaron con apps en LayerZero. Estrategia: usar protocolos cross-chain para qualify para futuro airdrop.
+                    </div>
+                    <div class="card-metrics">
+                        <div class="metric">
+                            <div class="metric-label">Status</div>
+                            <div class="metric-value neutral">Esperado</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Apps</div>
+                            <div class="metric-value neutral">Multiples</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">TBD 2026</span>
+                        <a href="https://nodemaven.com/blog/7-best-crypto-airdrops/" target="_blank" class="card-source">📰 NodeMaven — nodemaven.com</a>
+                    </div>
+                </div>
+
+                <div class="card airdrops">
+                    <div class="card-header">
+                        <div class="card-title">Jupiter ($JUP): TGE Confirmado Q1 2026</div>
+                        <span class="card-badge airdrops">TGE</span>
+                    </div>
+                    <div class="card-description">
+                        Jupiter, agregador DEX de Solana, tiene TGE (Token Generation Event) confirmado para Q1 2026. Uno de los eventos más esperados del ciclo de airdrops con fuerte adopción en Solana DeFi.
+                    </div>
+                    <div class="card-metrics">
+                        <div class="metric">
+                            <div class="metric-label">Status</div>
+                            <div class="metric-value positive">Q1 2026</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Chain</div>
+                            <div class="metric-value neutral">Solana</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">Q1 2026</span>
+                        <a href="https://onekey.so/blog/ecosystem/2026-airdrop-interaction-guide-182-projects-across-eight-key-tracks-your-ultimate-index-20260120181251/" target="_blank" class="card-source">📰 OneKey Blog — onekey.so</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- L2 Activity Section -->
+        <section class="section visible" data-category="l2">
+            <h2 class="section-title">🔷 L2 Activity: Base, Arbitrum, Optimism</h2>
+            <div class="cards-grid">
+                <div class="card l2">
+                    <div class="card-header">
+                        <div class="card-title">21Shares: La Mayoría de L2s No Sobrevivirán 2026</div>
+                        <span class="card-badge l2">CONSOLIDACIÓN</span>
+                    </div>
+                    <div class="card-description">
+                        21Shares advierte que la mayoría de L2s enfrentan riesgo de collapse en 2026 mientras actividad se concentra en Base, Arbitrum y Optimism. Solo 3 redes procesan ~90% de transacciones L2. 50+ rollups se convierten en "zombie chains".
+                    </div>
+                    <div class="card-metrics">
+                        <div class="metric">
+                            <div class="metric-label">Top 3 Tx Share</div>
+                            <div class="metric-value positive">~90%</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Zombie Chains</div>
+                            <div class="metric-value negative">50+</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">Abr 2026</span>
+                        <a href="https://www.tradingview.com/news/cryptonews:91f95bb67094b:0-most-ethereum-l2s-may-not-survive-2026-as-base-arbitrum-optimism-tighten-grip-21shares/" target="_blank" class="card-source">📰 TradingView News — tradingview.com</a>
+                    </div>
+                </div>
+
+                <div class="card l2">
+                    <div class="card-header">
+                        <div class="card-title">Base Dominates: 46.58% L2 DeFi TVL, 60%+ Transactions</div>
+                        <span class="card-badge l2">LÍDER</span>
+                    </div>
+                    <div class="card-description">
+                        Base captura 62% del revenue total L2 year-to-date 2025, generando $75.4M de $120.7M del ecosistema. Gana a través de distribución (100M+ usuarios Coinbase), rentabilidad ($55M profit en 2025), y momentum (Morpho integration).
+                    </div>
+                    <div class="card-metrics">
+                        <div class="metric">
+                            <div class="metric-label">L2 DeFi TVL</div>
+                            <div class="metric-value positive">46.58%</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Revenue Share</div>
+                            <div class="metric-value positive">62%</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Profit 2025</div>
+                            <div class="metric-value positive">$55M</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">2025-2026</span>
+                        <a href="https://earnpark.com/en/posts/ethereum-layer-2-wars-why-base-arbitrum-optimism-are-winning-and-50-rollups-are-already-dead/" target="_blank" class="card-source">📰 EarnPark — earnpark.com</a>
+                    </div>
+                </div>
+
+                <div class="card l2">
+                    <div class="card-header">
+                        <div class="card-title">Arbitrum: 30.86% L2 DeFi TVL, Hub Institucional</div>
+                        <span class="card-badge l2">#2 L2</span>
+                    </div>
+                    <div class="card-description">
+                        Arbitrum mantiene 30.86% de L2 DeFi TVL, siendo el hub institucional DeFi por excelencia. Profundidad de liquidez permite large trades con minimal slippage. Gas fees 90-95% menores que Ethereum mainnet.
+                    </div>
+                    <div class="card-metrics">
+                        <div class="metric">
+                            <div class="metric-label">L2 DeFi TVL</div>
+                            <div class="metric-value positive">30.86%</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Gas Savings</div>
+                            <div class="metric-value positive">90-95%</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">Abr 2026</span>
+                        <a href="https://blockeden.xyz/blog/2026/01/20/ethereum-l2-extinction-base-arbitrum-optimism-zombie-chains/" target="_blank" class="card-source">📰 BlockEden.xyz — blockeden.xyz</a>
+                    </div>
+                </div>
+
+                <div class="card l2">
+                    <div class="card-header">
+                        <div class="card-title">Optimism: Superchain Ecosystem</div>
+                        <span class="card-badge l2">#3 L2</span>
+                    </div>
+                    <div class="card-description">
+                        Optimism impulsa el Superchain ecosystem, conectando Base y partners. Su modelo de governance impulsado por grants y comunidades. Enterprise chains conectadas a Optimism Mainnet.
+                    </div>
+                    <div class="card-metrics">
+                        <div class="metric">
+                            <div class="metric-label">Ecosystem</div>
+                            <div class="metric-value neutral">Superchain</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Partners</div>
+                            <div class="metric-value positive">Base + others</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">Abr 2026</span>
+                        <a href="https://earnpark.com/en/posts/ethereum-layer-2-wars-why-base-arbitrum-optimism-are-winning-and-50-rollups-are-already-dead/" target="_blank" class="card-source">📰 EarnPark — earnpark.com</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Regulatory Section -->
+        <section class="section visible" data-category="regulatory">
+            <h2 class="section-title">⚖️ Regulatorio: CLARITY Act, GENIUS Act & SEC</h2>
+            <div class="cards-grid">
+                <div class="card regulatory">
+                    <div class="card-header">
+                        <div class="card-title">CLARITY Act: Markup Abril, Target Mayo 2026</div>
+                        <span class="card-badge regulatory">EEUU</span>
+                    </div>
+                    <div class="card-description">
+                        El Senate markup del CLARITY Act está programado para segunda mitad de abril 2026, con target de aprobación en mayo. El proyecto busca definir el perímetro regulatorio de crypto en EEUU. Debate actual sobre stablecoin yield.
+                    </div>
+                    <div class="card-metrics">
+                        <div class="metric">
+                            <div class="metric-label">Markup</div>
+                            <div class="metric-value neutral">Abr 2026</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Target</div>
+                            <div class="metric-value positive">May 2026</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">Abr 2026</span>
+                        <a href="https://pintu.co.id/en/news/269698-3-impact-of-april-2026-clarity-act-new-rule-defi-protected-yield-lost" target="_blank" class="card-source">📰 Pintu News — pintu.co.id</a>
+                    </div>
+                </div>
+
+                <div class="card regulatory">
+                    <div class="card-header">
+                        <div class="card-title">GENIUS Act: FinCEN/OFAC Joint Proposed Rule</div>
+                        <span class="card-badge regulatory">ESTABLES</span>
+                    </div>
+                    <div class="card-description">
+                        U.S. Treasury's FinCEN y OFAC issued joint proposed rule el 8 de abril de 2026 para implementar provisions del GENIUS Act. Requiere a emisores de payment stablecoins establecer AML/CFT programs, reportar actividad sospechosa, e implementar compliance programs efectivos.
+                    </div>
+                    <div class="card-metrics">
+                        <div class="metric">
+                            <div class="metric-label">Fecha</div>
+                            <div class="metric-value neutral">8 Abr 2026</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Requiere</div>
+                            <div class="metric-value neutral">AML/CFT</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">8 Abr 2026</span>
+                        <a href="https://www.defieducationfund.org/defi-debrief-week-of-april-6-2026/" target="_blank" class="card-source">📰 DeFi Education Fund — defieducationfund.org</a>
+                    </div>
+                </div>
+
+                <div class="card regulatory">
+                    <div class="card-header">
+                        <div class="card-title">CRS Report: "An Overview of Decentralized Finance"</div>
+                        <span class="card-badge regulatory">CONGRESO</span>
+                    </div>
+                    <div class="card-description">
+                        Congressional Research Service (CRS) publicó reporte "An Overview of Decentralized Finance (DeFi)" el 16 de marzo de 2026. Proporciona a Congress overview de alto nivel focusing en defining DeFi y consideraciones de política regulatoria.
+                    </div>
+                    <div class="card-metrics">
+                        <div class="metric">
+                            <div class="metric-label">Fecha</div>
+                            <div class="metric-value neutral">16 Mar 2026</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Fuente</div>
+                            <div class="metric-value neutral">CRS</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">16 Mar 2026</span>
+                        <a href="https://www.defieducationfund.org/defi-debrief-week-of-march-30-2026/" target="_blank" class="card-source">📰 DeFi Education Fund — defieducationfund.org</a>
+                    </div>
+                </div>
+
+                <div class="card regulatory">
+                    <div class="card-header">
+                        <div class="card-title">SEC Atkins: "Innovation Exemption" para DeFi</div>
+                        <span class="card-badge regulatory">SEC</span>
+                    </div>
+                    <div class="card-description">
+                        SEC Chairman Atkins highlight challenges de aplicar securities laws existentes a sistemas descentralizados y preview nueva aproximación bajo Securities Exchange Act de 1934, incluyendo "innovation exemption" para enable DeFi experimentation dentro de framework regulatorio definido.
+                    </div>
+                    <div class="card-metrics">
+                        <div class="metric">
+                            <div class="metric-label">Chair</div>
+                            <div class="metric-value neutral">Atkins</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Acción</div>
+                            <div class="metric-value positive">Exemption</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">Abr 2026</span>
+                        <a href="https://www.defieducationfund.org/defi-debrief-week-of-april-6-2026/" target="_blank" class="card-source">📰 DeFi Education Fund — defieducationfund.org</a>
+                    </div>
+                </div>
+
+                <div class="card regulatory">
+                    <div class="card-header">
+                        <div class="card-title">ECC Paper: DeFi Governance Concentrated</div>
+                        <span class="card-badge regulatory">INVESTIGACIÓN</span>
+                    </div>
+                    <div class="card-description">
+                        Investigación del Banco Central Europeo encuentra que grandes porcentajes de governance tokens DeFi están tied a exchanges y wallets linked a protocolos. Resultados podrían afectar regulatory anchor points para la industria.
+                    </div>
+                    <div class="card-metrics">
+                        <div class="metric">
+                            <div class="metric-label">Fuente</div>
+                            <div class="metric-value neutral">ECB</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Hallazgo</div>
+                            <div class="metric-value negative">Concentrado</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">2026</span>
+                        <a href="https://www.theblock.co/post/395492/ecb-paper-defi-governance-concentrated-results-affect-regulatory-anchor-points" target="_blank" class="card-source">📰 The Block — theblock.co</a>
+                    </div>
+                </div>
+
+                <div class="card regulatory">
+                    <div class="card-header">
+                        <div class="card-title">Vietnam: Regulatory Pilot para Crypto Exchanges</div>
+                        <span class="card-badge regulatory">ASIA</span>
+                    </div>
+                    <div class="card-description">
+                        Supervisors financieros vietnamitas planean implementar pilot regulatory regime para crypto exchange platforms. Primer paso para implementar regime regulatorio para VASPs (Virtual Asset Service Providers) codificado en 2025.
+                    </div>
+                    <div class="card-metrics">
+                        <div class="metric">
+                            <div class="metric-label">País</div>
+                            <div class="metric-value neutral">Vietnam</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Tipo</div>
+                            <div class="metric-value neutral">Pilot</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-date">Mar 2026</span>
+                        <a href="https://www.elliptic.co/blog/crypto-regulatory-affairs-clarity-act-senate-compromise-meets-mixed-reception" target="_blank" class="card-source">📰 Elliptic — elliptic.co</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sources Section -->
+        <section class="sources-section">
+            <h2>📚 Fuentes del Reporte</h2>
+            <div class="sources-list">
+                <div class="source-item">
+                    <span class="source-number">1</span>
+                    <a href="https://coinlaw.io/decentralized-finance-market-statistics/" target="_blank">CoinLaw — Decentralized Finance Market Statistics 2026</a>
+                </div>
+                <div class="source-item">
+                    <span class="source-number">2</span>
+                    <a href="https://metamask.io/news/decentralization-trends-reshaping-industries" target="_blank">MetaMask News — Decentralization Trends 2026</a>
+                </div>
+                <div class="source-item">
+                    <span class="source-number">3</span>
+                    <a href="https://www.coindesk.com/tech/2026/04/13/aave-passes-landmark-vote-ending-months-long-fight-over-who-controls-protocol-revenue" target="_blank">CoinDesk — Aave Passes Landmark Vote (13 Abr 2026)</a>
+                </div>
+                <div class="source-item">
+                    <span class="source-number">4</span>
+                    <a href="https://coinmarketcap.com/cmc-ai/aave/latest-updates/" target="_blank">CoinMarketCap — Aave Latest Updates</a>
+                </div>
+                <div class="source-item">
+                    <span class="source-number">5</span>
+                    <a href="https://coinmarketcal.com/en/news/aave-s-25-billion-lending-empire-faces-a-real-test-as-key-contributors-exit" target="_blank">CoinMarketCal — Aave Key Contributors Exit (7 Abr 2026)</a>
+                </div>
+                <div class="source-item">
+                    <span class="source-number">6</span>
+                    <a href="https://www.coindesk.com/tech/2026/03/30/aave-rolls-out-v4-on-ethereum-aiming-to-expand-defi-into-real-world-credit-markets" target="_blank">CoinDesk — Aave V4 Launch (30 Mar 2026)</a>
+                </div>
+                <div class="source-item">
+                    <span class="source-number">7</span>
+                    <a href="https://www.ccn.com/news/crypto/drift-protocol-285m-biggest-hack-2026-april-fools-day/" target="_blank">CCN — Drift Protocol $285M Hack (1 Abr 2026)</a>
+                </div>
+                <div class="source-item">
+                    <span class="source-number">8</span>
+                    <a href="https://blockeden.xyz/blog/2026/04/03/defi-hacks-q1-2026-169m-stolen-attack-vectors-private-key-infrastructure/" target="_blank">BlockEden — Q1 2026 DeFi Hacks Report ($169M)</a>
+                </div>
+                <div class="source-item">
+                    <span class="source-number">9</span>
+                    <a href="https://www.investing.com/analysis/solana-faces-a-confidence-test-after-drift-losses-hit-defi-activity-200677804" target="_blank">Investing.com — Solana Confidence Test Post-Drift</a>
+                </div>
+                <div class="source-item">
+                    <span class="source-number">10</span>
+                    <a href="https://www.tradingview.com/news/cryptonews:91f95bb67094b:0-most-ethereum-l2s-may-not-survive-2026-as-base-arbitrum-optimism-tighten-grip-21shares/" target="_blank">TradingView — 21Shares L2 Consolidation Warning</a>
+                </div>
+                <div class="source-item">
+                    <span class="source-number">11</span>
+                    <a href="https://earnpark.com/en/posts/ethereum-layer-2-wars-why-base-arbitrum-optimism-are-winning-and-50-rollups-are-already-dead/" target="_blank">EarnPark — Ethereum L2 Wars Analysis</a>
+                </div>
+                <div class="source-item">
+                    <span class="source-number">12</span>
+                    <a href="https://blockeden.xyz/blog/2026/01/20/ethereum-l2-extinction-base-arbitrum-optimism-zombie-chains/" target="_blank">BlockEden — L2 Extinction Event Analysis</a>
+                </div>
+                <div class="source-item">
+                    <span class="source-number">13</span>
+                    <a href="https://www.dextools.io/news/top-5-defi-yield-aggregators-auto-compound-2026" target="_blank">DEXTools — Top 5 DeFi Yield Aggregators 2026</a>
+                </div>
+                <div class="source-item">
+                    <span class="source-number">14</span>
+                    <a href="https://coinbureau.com/analysis/best-defi-yield-farming-platforms" target="_blank">Coin Bureau — Best DeFi Yield Farming Platforms</a>
+                </div>
+                <div class="source-item">
+                    <span class="source-number">15</span>
+                    <a href="https://yellow.com/research/best-defi-yield-farming-platforms-2026" target="_blank">Yellow.com — Top 10 DeFi Yield Farming Platforms 2026</a>
+                </div>
+                <div class="source-item">
+                    <span class="source-number">16</span>
+                    <a href="https://rebelfi.io/blog/how-to-earn-yield-on-stablecoins-in-2026" target="_blank">RebelFi — How to Earn Yield on Stablecoins 2026</a>
+                </div>
+                <div class="source-item">
+                    <span class="source-number">17</span>
+                    <a href="https://www.bitrue.com/en/blog/stablecoin-strategies-april-2026-usdt-usdc-bitrue" target="_blank">Bitrue — Stablecoin Strategies April 2026 (8% APR)</a>
+                </div>
+                <div class="source-item">
+                    <span class="source-number">18</span>
+                    <a href="https://coinlaunch.space/blog/best-yield-farming-crypto/" target="_blank">CoinLaunch — Best Yield Farming Crypto 2026</a>
+                </div>
+                <div class="source-item">
+                    <span class="source-number">19</span>
+                    <a href="https://medium.com/coinmonks/yield-farming-on-ton-in-april-2026-what-the-numbers-actually-say-cfe040ea96ab" target="_blank">Medium/Coinmonks — TON Yield Farming April 2026</a>
+                </div>
+                <div class="source-item">
+                    <span class="source-number">20</span>
+                    <a href="https://www.dlnews.com/articles/defi/five-upcoming-crypto-airdrops-to-watch-for-in-2026/" target="_blank">DL News — 5 Crypto Airdrops to Watch 2026</a>
+                </div>
+                <div class="source-item">
+                    <span class="source-number">21</span>
+                    <a href="https://onekey.so/blog/ecosystem/2026-airdrop-interaction-guide-182-projects-across-eight-key-tracks-your-ultimate-index-20260120181251/" target="_blank">OneKey — 2026 Airdrop Interaction Guide (182 Projects)</a>
+                </div>
+                <div class="source-item">
+                    <span class="source-number">22</span>
+                    <a href="https://nodemaven.com/blog/7-best-crypto-airdrops/" target="_blank">NodeMaven — 7 Best Crypto Airdrops 2026</a>
+                </div>
+                <div class="source-item">
+                    <span class="source-number">23</span>
+                    <a href="https://pintu.co.id/en/news/269698-3-impact-of-april-2026-clarity-act-new-rule-defi-protected-yield-lost" target="_blank">Pintu News — CLARITY Act April 2026 Impact</a>
+                </div>
+                <div class="source-item">
+                    <span class="source-number">24</span>
+                    <a href="https://www.defieducationfund.org/defi-debrief-week-of-april-6-2026/" target="_blank">DeFi Education Fund — Debrief Week April 6, 2026</a>
+                </div>
+                <div class="source-item">
+                    <span class="source-number">25</span>
+                    <a href="https://www.defieducationfund.org/defi-debrief-week-of-march-30-2026/" target="_blank">DeFi Education Fund — Debrief Week March 30, 2026</a>
+                </div>
+                <div class="source-item">
+                    <span class="source-number">26</span>
+                    <a href="https://www.elliptic.co/blog/crypto-regulatory-affairs-clarity-act-senate-compromise-meets-mixed-reception" target="_blank">Elliptic — CLARITY Act Senate Compromise</a>
+                </div>
+                <div class="source-item">
+                    <span class="source-number">27</span>
+                    <a href="https://www.theblock.co/post/395492/ecb-paper-defi-governance-concentrated-results-affect-regulatory-anchor-points" target="_blank">The Block — ECB DeFi Governance Paper</a>
+                </div>
+                <div class="source-item">
+                    <span class="source-number">28</span>
+                    <a href="https://www.coindesk.com/opinion/2026/04/10/defi-s-shakeout-is-a-stress-test-not-a-death-sentence" target="_blank">CoinDesk Opinion — DeFi Shakeout Analysis (10 Abr 2026)</a>
+                </div>
+                <div class="source-item">
+                    <span class="source-number">29</span>
+                    <a href="https://www.mexc.com/news/995249" target="_blank">MEXC News — RWA Market Surpasses DEX TVL</a>
+                </div>
+                <div class="source-item">
+                    <span class="source-number">30</span>
+                    <a href="https://governancespace.com/en-us/proposals" target="_blank">GovernanceSpace — Cardano Governance Proposals</a>
+                </div>
+            </div>
+        </section>
+
+        <div class="timestamp">
+            📅 Reporte generado: 14 de Abril 2026, 18:03 UTC<br>
+            🔄 Datos mencakup: 12-14 Abril 2026 (últimas 24-48 horas)<br>
+            ⚠️ Disclaimer: Este reporte es informativo. No constituye advice financiero.
         </div>
     </div>
-</div>
 
-<div class="controls">
-    <div class="search-box">
-        <span>🔍</span>
-        <input type="text" id="searchInput" placeholder="Buscar en el reporte..." oninput="filterCards()">
-    </div>
-    <button class="filter-btn active" onclick="setFilter('all')" data-filter="all">📋 Todo</button>
-    <button class="filter-btn" onclick="setFilter('tvl')" data-filter="tvl">📊 TVL</button>
-    <button class="filter-btn" onclick="setFilter('yields')" data-filter="yields">💰 Yields</button>
-    <button class="filter-btn" onclick="setFilter('new')" data-filter="new">🆕 Nuevos</button>
-    <button class="filter-btn" onclick="setFilter('governance')" data-filter="governance">🗳️ Governance</button>
-    <button class="filter-btn" onclick="setFilter('risk')" data-filter="risk">⚠️ Riesgo</button>
-    <button class="filter-btn" onclick="setFilter('airdrop')" data-filter="airdrop">🚀 Airdrops</button>
-    <button class="filter-btn" onclick="setFilter('l2')" data-filter="l2">📈 L2</button>
-    <button class="filter-btn" onclick="setFilter('regulatory')" data-filter="regulatory">⚖️ Regulatorio</button>
-</div>
+    <script>
+        // Filter functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const sections = document.querySelectorAll('.section');
+        const cards = document.querySelectorAll('.card');
+        const searchInput = document.getElementById('searchInput');
 
-<div class="main">
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const filter = btn.dataset.filter;
 
-    <!-- KEY METRICS -->
-    <div class="metrics-grid">
-        <div class="metric-card">
-            <div class="metric-label">DeFi TVL</div>
-            <div class="metric-value">$149.2B</div>
-            <div class="metric-change up">▲ 2.1% vs semana pasada</div>
-        </div>
-        <div class="metric-card">
-            <div class="metric-label">Crypto Market Cap</div>
-            <div class="metric-value red">$2.61T</div>
-            <div class="metric-change down">▼ BTC testeando $70K</div>
-        </div>
-        <div class="metric-card">
-            <div class="metric-label">BTC Dominance</div>
-            <div class="metric-value orange">56.8%</div>
-            <div class="metric-change up">▲ +2.1% en 2 semanas</div>
-        </div>
-        <div class="metric-card">
-            <div class="metric-label">ETH Price</div>
-            <div class="metric-value">~$1,840</div>
-            <div class="metric-change down">▼ Presión de venta retail</div>
-        </div>
-        <div class="metric-card">
-            <div class="metric-label">Fear & Greed Index</div>
-            <div class="metric-value red">12</div>
-            <div class="metric-change down">Extreme Fear</div>
-        </div>
-        <div class="metric-card">
-            <div class="metric-label">Proyección TVL 2026</div>
-            <div class="metric-value green">$300B+</div>
-            <div class="metric-change up">21Shares EOY 2026</div>
-        </div>
-    </div>
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
 
-    <!-- FEAR BAR -->
-    <div class="fear-bar-container">
-        <div class="fear-bar-header">
-            <span class="fear-bar-title">Crypto Fear & Greed Index — 14 Abr 2026</span>
-            <span class="fear-bar-value">12 / 100 — Extreme Fear</span>
-        </div>
-        <div class="fear-bar-track">
-            <div class="fear-bar-marker"></div>
-        </div>
-        <div class="fear-bar-labels">
-            <span>Extreme Fear</span>
-            <span>Fear</span>
-            <span>Neutral</span>
-            <span>Greed</span>
-            <span>Extreme Greed</span>
-        </div>
-    </div>
+                if (filter === 'all') {
+                    sections.forEach(s => s.classList.add('visible'));
+                } else {
+                    sections.forEach(s => {
+                        s.classList.remove('visible');
+                        if (s.dataset.category === filter) {
+                            s.classList.add('visible');
+                        }
+                    });
+                }
+            });
+        });
 
-    <!-- TVL & METRICS -->
-    <div class="section" id="section-tvl">
-        <div class="section-title">
-            <span class="emoji">📊</span>
-            TVL & Métricas del Mercado
-            <span class="count" id="count-tvl">3</span>
-        </div>
-        <div class="news-grid" id="grid-tvl">
-
-            <div class="news-card priority-medium" data-category="tvl">
-                <div class="card-header">
-                    <div class="card-title">TVL de DeFi en $149.2B — 21Shares proyecta $300B+ para fin de 2026</div>
-                    <span class="card-tag tag-tvl">TVL</span>
-                </div>
-                <div class="card-desc">El Total Value Locked en DeFi se mantiene en $149.2 mil millones. La firma 21Shares publicó proyecciones optimistas esperando que supere los $300B antes de finales de 2026, impulsada por entradas institucionales y la adopción de productos de staking tokenizados.</div>
-                <div class="card-metrics">
-                    <div class="mini-metric"><span class="label">TVL ACTUAL</span><br><span class="val">$149.2B</span></div>
-                    <div class="mini-metric"><span class="label">PROYECCIÓN 2026</span><br><span class="val">$300B+</span></div>
-                    <div class="mini-metric"><span class="label">FUENTE</span><br><span class="val orange">21Shares</span></div>
-                </div>
-                <div class="card-footer">
-                    <span class="card-source">📍 CoinGecko / 21Shares Research — Abr 2026</span>
-                    <a class="card-link" href="https://www.coingecko.com" target="_blank">Ver fuente →</a>
-                </div>
-            </div>
-
-            <div class="news-card priority-high" data-category="tvl">
-                <div class="card-header">
-                    <div class="card-title">Drift Protocol: exploit de $285M por token falso, manipulación de oráculo y admin key</div>
-                    <span class="card-tag tag-risk">EXPLOIT</span>
-                </div>
-                <div class="card-desc">El protocolo Drift Protocol sufrió un ataque masivo de $285 millones. Los atacantes combinaron tres vectores: minting de un token falso que simula ser USDC, manipulación del oráculo de precios y compromiso de una admin key. Este incidente subraya que los admin keys centralizados siguen siendo el eslabón más débil en DeFi.</div>
-                <div class="card-metrics">
-                    <div class="mini-metric"><span class="label">PÉRDIDAS</span><br><span class="val red">$285M</span></div>
-                    <div class="mini-metric"><span class="label">VECTORES</span><br><span class="val orange">3</span></div>
-                    <div class="mini-metric"><span class="label">TIPO</span><br><span class="val red">Exploit</span></div>
-                </div>
-                <div class="card-footer">
-                    <span class="card-source">📍 DefiLlama / Rekt News — Abr 2026</span>
-                    <a class="card-link" href="https://defillama.com" target="_blank">Ver fuente →</a>
-                </div>
-            </div>
-
-            <div class="news-card priority-medium" data-category="tvl">
-                <div class="card-header">
-                    <div class="card-title">Q1 2026: $169M robados vía private key y ataques a cloud infrastructure</div>
-                    <span class="card-tag tag-security">SEGURIDAD</span>
-                </div>
-                <div class="card-desc">Durante el primer trimestre de 2026, los ataques a DeFi resulted en $169 millones perdidos, principalmente a través de ataques a private keys y vulnerabilidades de infraestructura cloud. A diferencia de años anteriores, los exploits de smart contracts fueron menores, mostrando que la superficie de ataque se ha desplazado hacia la infraestructura operativa.</div>
-                <div class="card-metrics">
-                    <div class="mini-metric"><span class="label">PÉRDIDAS Q1</span><br><span class="val red">$169M</span></div>
-                    <div class="mini-metric"><span class="label">VECTOR</span><br><span class="val orange">Cloud/PKeys</span></div>
-                    <div class="mini-metric"><span class="label">TENDENCIA</span><br><span class="val">Smart Contract ↓</span></div>
-                </div>
-                <div class="card-footer">
-                    <span class="card-source">📍 Chainalysis / The Block — Q1 2026</span>
-                    <a class="card-link" href="https://www.theblock.co" target="_blank">Ver fuente →</a>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <!-- YIELDS & FARMS -->
-    <div class="section" id="section-yields">
-        <div class="section-title">
-            <span class="emoji">💰</span>
-            Yields & Estrategias de Farming
-            <span class="count" id="count-yields">3</span>
-        </div>
-        <div class="news-grid" id="grid-yields">
-
-            <div class="news-card priority-medium" data-category="yields">
-                <div class="card-header">
-                    <div class="card-title">ETH Staking yield: 3.5–5% APY — stablecoin lending hasta 8% en protocolos azules</div>
-                    <span class="card-tag tag-yield">YIELDS</span>
-                </div>
-                <div class="card-desc">Los yields de ETH staking se mantienen entre 3.5% y 5% APY. En lending de stablecoins, Aave V4 y Compound ofrecen entre 4-6% para USDC/USDT, mientras que protocolos más pequeños llegan a 8%. Los yields en CRV, CVX y otros tokens de governance siguen siendo los más volátiles y atractivos para farmers avanzados.</div>
-                <div class="card-metrics">
-                    <div class="mini-metric"><span class="label">ETH STAKING</span><br><span class="val">3.5–5%</span></div>
-                    <div class="mini-metric"><span class="label">stablecoin blue</span><br><span class="val">4–6%</span></div>
-                    <div class="mini-metric"><span class="label">stablecoin DeFi</span><br><span class="val">hasta 8%</span></div>
-                </div>
-                <div class="card-footer">
-                    <span class="card-source">📍 DeFiLlama Yields / Aave — 14 Abr 2026</span>
-                    <a class="card-link" href="https://defillama.com/yields" target="_blank">Ver fuente →</a>
-                </div>
-            </div>
-
-            <div class="news-card priority-medium" data-category="yields">
-                <div class="card-header">
-                    <div class="card-title">Aave V4: hub-and-spoke architecture con institutional Horizon market</div>
-                    <span class="card-tag tag-institutional">INSTITUCIONAL</span>
-                </div>
-                <div class="card-desc">Aave V4, lanzado el 30 de marzo de 2026, introduce la arquitectura hub-and-spoke que modulariza el deployment de nuevos markets. La novedad más significativa es el "Horizon market" dirigido a institucionales, permitiendocollateral de RWA tokenizados. El protocolo reporta crecimiento sostenido en TVL post-launch.</div>
-                <div class="card-metrics">
-                    <div class="mini-metric"><span class="label">LANZAMIENTO</span><br><span class="val orange">30 Mar 2026</span></div>
-                    <div class="mini-metric"><span class="label">NUEVO</span><br><span class="val">Horizon Market</span></div>
-                    <div class="mini-metric"><span class="label">ARQUITECTURA</span><br><span class="val">Hub & Spoke</span></div>
-                </div>
-                <div class="card-footer">
-                    <span class="card-source">📍 Aave Governance / The Defiant — 30 Mar 2026</span>
-                    <a class="card-link" href="https://aave.com" target="_blank">Ver fuente →</a>
-                </div>
-            </div>
-
-            <div class="news-card priority-low" data-category="yields">
-                <div class="card-header">
-                    <div class="card-title">DeFi lending más racional en bear markets — CoinDesk analysis</div>
-                    <span class="card-tag tag-yield">ANÁLISIS</span>
-                </div>
-                <div class="card-desc">Un análisis de CoinDesk argumenta que los mercados bear son paradójicamente cuando el DeFi lending es más lógico. Los préstamos con sobre-colateralización ofrecen claridad de términos sin riesgo de contraparte institucional. Los protocolos con ingresos sostenibles, liquidez diversificada y gobernanza transparente están consolidándose.</div>
-                <div class="card-metrics">
-                    <div class="mini-metric"><span class="label">TENDENCIA</span><br><span class="val">Consolidación</span></div>
-                    <div class="mini-metric"><span class="label">FOCO</span><br><span class="val">Sostenibilidad</span></div>
-                    <div class="mini-metric"><span class="label">FUENTE</span><br><span class="val">CoinDesk</span></div>
-                </div>
-                <div class="card-footer">
-                    <span class="card-source">📍 CoinDesk Opinion — 10 Abr 2026</span>
-                    <a class="card-link" href="https://www.coindesk.com/opinion/2026/04/10/defi-s-shakeout-is-a-stress-test-not-a-death-sentence" target="_blank">Ver fuente →</a>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <!-- NEW PROTOCOLS -->
-    <div class="section" id="section-new">
-        <div class="section-title">
-            <span class="emoji">🆕</span>
-            Protocolos Nuevos & Lanzamientos
-            <span class="count" id="count-new">2</span>
-        </div>
-        <div class="news-grid" id="grid-new">
-
-            <div class="news-card priority-medium" data-category="new">
-                <div class="card-header">
-                    <div class="card-title">Berachain (PoL): entrevista exclusiva — solución a problema de liquidez</div>
-                    <span class="card-tag tag-new">NUEVO</span>
-                </div>
-                <div class="card-desc">Berachain, blockchain pública con Proof of Liquidity (PoL), se prepara para launch en los próximos meses. Entrevista exclusiva con Smokey The Bera, co-fundador, revela que su mecanismo de POL resuelve el problema de liquidez que afecta a chainsProof of Stake tradicionales. Expectativas de airdrop significativas para la comunidad.</div>
-                <div class="card-metrics">
-                    <div class="mini-metric"><span class="label">MECANISMO</span><br><span class="val">Proof of Liquidity</span></div>
-                    <div class="mini-metric"><span class="label">STATUS</span><br><span class="val orange">Pre-launch</span></div>
-                    <div class="mini-metric"><span class="label">AIRDROP</span><br><span class="val green">Esperado</span></div>
-                </div>
-                <div class="card-footer">
-                    <span class="card-source">📍 PANews / MEXC — Abr 2026</span>
-                    <a class="card-link" href="https://www.mexc.com/news/flash" target="_blank">Ver fuente →</a>
-                </div>
-            </div>
-
-            <div class="news-card priority-medium" data-category="new">
-                <div class="card-header">
-                    <div class="card-title">Shakeout DeFi: múltiples protocolos cierran en 2025–2026</div>
-                    <span class="card-tag tag-risk">CONSOLIDACIÓN</span>
-                </div>
-                <div class="card-desc">Varios protocolos DeFi han cerrado entre 2025 y 2026 debido a baja utilización, colapsos de liquidez, incidentes de seguridad y modelos de negocio basados en tokens sin economía sostenible. Los expertos opinan que este shakeout es un stress test, no una sentencia de muerte, y que la infraestructura DeFi sigue siendo resiliente.</div>
-                <div class="card-metrics">
-                    <div class="mini-metric"><span class="label">CAUSAS</span><br><span class="val red">Multiples</span></div>
-                    <div class="mini-metric"><span class="label">TENDENCIA</span><br><span class="val orange">Consolidación</span></div>
-                    <div class="mini-metric"><span class="label">JUICIO</span><br><span class="val">Resiliencia</span></div>
-                </div>
-                <div class="card-footer">
-                    <span class="card-source">📍 CoinDesk — 10 Abr 2026</span>
-                    <a class="card-link" href="https://www.coindesk.com/opinion/2026/04/10/defi-s-shakeout-is-a-stress-test-not-a-death-sentence" target="_blank">Ver fuente →</a>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <!-- GOVERNANCE -->
-    <div class="section" id="section-governance">
-        <div class="section-title">
-            <span class="emoji">🗳️</span>
-            Governance & DAO
-            <span class="count" id="count-governance">2</span>
-        </div>
-        <div class="news-grid" id="grid-governance">
-
-            <div class="news-card priority-high" data-category="governance">
-                <div class="card-header">
-                    <div class="card-title">Across Protocol vota shift de DAO a corporate structure</div>
-                    <span class="card-tag tag-governance">GOVERNANCE</span>
-                </div>
-                <div class="card-desc">Across Protocol pasó por un voto de gobernanza crítico: cambiar de estructura DAO a una estructura corporativa. Este movimiento refleja una tendencia más amplia donde protocolos buscan mayor flexibilidad operativa y capacidad de decisión centralizada para competir en un mercado institucionalizado.</div>
-                <div class="card-metrics">
-                    <div class="mini-metric"><span class="label">DECISIÓN</span><br><span class="val orange">DAO → Corp</span></div>
-                    <div class="mini-metric"><span class="label">TIPO</span><br><span class="val">Votación</span></div>
-                    <div class="mini-metric"><span class="label">TENDENCIA</span><br><span class="val">Institucionalización</span></div>
-                </div>
-                <div class="card-footer">
-                    <span class="card-source">📍 Across Protocol Governance — Abr 2026</span>
-                    <a class="card-link" href="https://across.to" target="_blank">Ver fuente →</a>
-                </div>
-            </div>
-
-            <div class="news-card priority-medium" data-category="governance">
-                <div class="card-header">
-                    <div class="card-title">Hacker mintó $1.11B DOT y vendió por $273K — Polkadot exploit</div>
-                    <span class="card-tag tag-security">SEGURIDAD</span>
-                </div>
-                <div class="card-desc">Un atacante exploitó Polkadot mintando 1 billón de tokens DOT y vendiéndolos en una sola transacción por apenas 108.2 ETH (~$273K). El exploit de minting masivo ilustra cómo la liquidez insuficiente amplifica el impacto real de un exploit versus el valor nominal de los tokens creados.</div>
-                <div class="card-metrics">
-                    <div class="mini-metric"><span class="label">DOT MINTADO</span><br><span class="val red">$1.11B</span></div>
-                    <div class="mini-metric"><span class="label">REALIZADO</span><br><span class="val red">$273K</span></div>
-                    <div class="mini-metric"><span class="label">PROTOCOLO</span><br><span class="val orange">Polkadot</span></div>
-                </div>
-                <div class="card-footer">
-                    <span class="card-source">📍 Lookonchain / MEXC Flash — Abr 2026</span>
-                    <a class="card-link" href="https://www.mexc.com/news/flash" target="_blank">Ver fuente →</a>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <!-- RISK / LIQUIDATIONS -->
-    <div class="section" id="section-risk">
-        <div class="section-title">
-            <span class="emoji">⚠️</span>
-            Riesgos, Liquidaciones & Exploits
-            <span class="count" id="count-risk">3</span>
-        </div>
-        <div class="news-grid" id="grid-risk">
-
-            <div class="news-card priority-high" data-category="risk">
-                <div class="card-header">
-                    <div class="card-title">Mercados en Extreme Fear (12) — BTC testa soporte crítico en $70K</div>
-                    <span class="card-tag tag-risk">⚠️ CRÍTICO</span>
-                </div>
-                <div class="card-desc">El crypto Fear & Greed Index cayó a 12 (Extreme Fear) el 13 de abril. Bitcoin está testeando el soporte en $70K mientras retail investors han abandonado el mercado. BTC dominance subió a 56.8% (+2.1% en 2 semanas), indicando rotación classic a risk-off dentro de crypto.</div>
-                <div class="card-metrics">
-                    <div class="mini-metric"><span class="label">FEAR INDEX</span><br><span class="val red">12/100</span></div>
-                    <div class="mini-metric"><span class="label">BTC SOPORTE</span><br><span class="val red">$70K</span></div>
-                    <div class="mini-metric"><span class="label">BTC DOM</span><br><span class="val">56.8%</span></div>
-                </div>
-                <div class="card-footer">
-                    <span class="card-source">📍 MEXC / Crypto Fear & Greed Index — 13 Abr 2026</span>
-                    <a class="card-link" href="https://www.mexc.com/news/1022900" target="_blank">Ver fuente →</a>
-                </div>
-            </div>
-
-            <div class="news-card priority-high" data-category="risk">
-                <div class="card-header">
-                    <div class="card-title">BTC cae bajo $65K tras volley de guerra comercial de Trump</div>
-                    <span class="card-tag tag-risk">MERCADO</span>
-                </div>
-                <div class="card-desc">Bitcoin cayó bajo $65,000 después de que Trump lanzara un nuevo volley de guerra comercial, aumentando las tensiones geopolíticas y presionando los activos de riesgo globalmente. Este movimiento confirma la alta correlación entre políticas comerciales de EE.UU. y el precio de los criptoactivos.</div>
-                <div class="card-metrics">
-                    <div class="mini-metric"><span class="label">BTC LOW</span><br><span class="val red">$65K</span></div>
-                    <div class="mini-metric"><span class="label">CAUSA</span><br><span class="val orange">Trade War</span></div>
-                    <div class="mini-metric"><span class="label">SENTIMIENTO</span><br><span class="val red">Risk-Off</span></div>
-                </div>
-                <div class="card-footer">
-                    <span class="card-source">📍 DL News — Abr 2026</span>
-                    <a class="card-link" href="https://www.dlnews.com" target="_blank">Ver fuente →</a>
-                </div>
-            </div>
-
-            <div class="news-card priority-medium" data-category="risk">
-                <div class="card-header">
-                    <div class="card-title">Acción de enforcement Q1 2026: SEC anuncia resultados fiscal year 2025</div>
-                    <span class="card-tag tag-regulatory">REGULATORIO</span>
-                </div>
-                <div class="card-desc">La SEC publicó los resultados de enforcement para el fiscal year 2025, con múltiples acciones contra actores de crypto. El director de la División de Enforcement, Judge Margaret Ryan, presentó su renuncia en febrero 2026, generando incertidumbre sobre la dirección futura de la regulación.</div>
-                <div class="card-metrics">
-                    <div class="mini-metric"><span class="label">FY RESULTS</span><br><span class="val orange">Publicados</span></div>
-                    <div class="mini-metric"><span class="label">DIRECTOR</span><br><span class="val red">Renunció</span></div>
-                    <div class="mini-metric"><span class="label">FECHA</span><br><span class="val">7 Abr 2026</span></div>
-                </div>
-                <div class="card-footer">
-                    <span class="card-source">📍 SEC.gov Press Releases — 7 Abr 2026</span>
-                    <a class="card-link" href="https://www.sec.gov/newsroom/press-releases/2026-34" target="_blank">Ver fuente →</a>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <!-- AIRDROPS -->
-    <div class="section" id="section-airdrop">
-        <div class="section-title">
-            <span class="emoji">🚀</span>
-            Airdrops & Token Generation Events
-            <span class="count" id="count-airdrop">4</span>
-        </div>
-        <div class="news-grid" id="grid-airdrop">
-
-            <div class="news-card priority-high" data-category="airdrop">
-                <div class="card-header">
-                    <div class="card-title">Top 5 Airdrops Abril 2026: Backpack, Polymarket, OpenSea, Linea, Miden</div>
-                    <span class="card-tag tag-airdrop">🚀 AIRDROP</span>
-                </div>
-                <div class="card-desc">BingX enumera los 5 airdrops más esperados de abril 2026: Backpack (BP), Polymarket (POLY), OpenSea (SEA), Linea (LINEA) y Miden. Cada uno con mecánica de distribución única y criterios de elegibilidad distintos. Se recomienda usar las plataformas activamente para calificar.</div>
-                <div class="card-metrics">
-                    <div class="mini-metric"><span class="label">#1</span><br><span class="val green">Backpack BP</span></div>
-                    <div class="mini-metric"><span class="label">#2</span><br><span class="val green">Polymarket POLY</span></div>
-                    <div class="mini-metric"><span class="label">#3</span><br><span class="val green">OpenSea SEA</span></div>
-                    <div class="mini-metric"><span class="label">#4</span><br><span class="val green">Linea</span></div>
-                    <div class="mini-metric"><span class="label">#5</span><br><span class="val green">Miden</span></div>
-                </div>
-                <div class="card-footer">
-                    <span class="card-source">📍 BingX News / DL News — Abr 2026</span>
-                    <a class="card-link" href="https://bingx.com/en/news/post/top-crypto-airdrops-in-april-watch-backpack-polymarket-and-more" target="_blank">Ver fuente →</a>
-                </div>
-            </div>
-
-            <div class="news-card priority-high" data-category="airdrop">
-                <div class="card-header">
-                    <div class="card-title">OpenSea token: 50% de revenue para buyback — modelo Hyperliquid</div>
-                    <span class="card-tag tag-airdrop">OPENSEA SEA</span>
-                </div>
-                <div class="card-desc">OpenSea confirmó que su token SEA utilizará 50% de los ingresos de la plataforma para buyback en mercado abierto, siguiendo el modelo pionero de Hyperliquid. El airdrop a usuarios históricos es esperado. La confirmación viene de fuentes internas citadas por DL News.</div>
-                <div class="card-metrics">
-                    <div class="mini-metric"><span class="label">BUYBACK</span><br><span class="val">50% revenue</span></div>
-                    <div class="mini-metric"><span class="label">MODELO</span><br><span class="val">Hyperliquid</span></div>
-                    <div class="mini-metric"><span class="label">STATUS</span><br><span class="val orange">Confirmado</span></div>
-                </div>
-                <div class="card-footer">
-                    <span class="card-source">📍 DL News — Abr 2026</span>
-                    <a class="card-link" href="https://www.dlnews.com/articles/defi/five-upcoming-crypto-airdrops-to-watch-for-in-2026/" target="_blank">Ver fuente →</a>
-                </div>
-            </div>
-
-            <div class="news-card priority-high" data-category="airdrop">
-                <div class="card-header">
-                    <div class="card-title">Polymarket CMO confirma airdrop y modelo Hyperliquid como inspiración</div>
-                    <span class="card-tag tag-airdrop">POLYMARKET POLY</span>
-                </div>
-                <div class="card-desc">El CMO de Polymarket confirmó oficialmente que habrá token y airdrop a usuarios. La inspiración directa es Hyperliquid, que revolucionó el modelo de puntos y distribución. Polymarket está creciendo significativamente en volumen de predicción.</div>
-                <div class="card-metrics">
-                    <div class="mini-metric"><span class="label">TOKEN</span><br><span class="val green">Confirmado</span></div>
-                    <div class="mini-metric"><span class="label">MODELO</span><br><span class="val">Hyperliquid</span></div>
-                    <div class="mini-metric"><span class="label">STATUS</span><br><span class="val green">CMO Confirmado</span></div>
-                </div>
-                <div class="card-footer">
-                    <span class="card-source">📍 DL News — Abr 2026</span>
-                    <a class="card-link" href="https://www.dlnews.com/articles/defi/five-upcoming-crypto-airdrops-to-watch-for-in-2026/" target="_blank">Ver fuente →</a>
-                </div>
-            </div>
-
-            <div class="news-card priority-medium" data-category="airdrop">
-                <div class="card-header">
-                    <div class="card-title">Linea: puntos convierten a LINEA tokens + fee discounts + futuros airdrops</div>
-                    <span class="card-tag tag-airdrop">LINEA</span>
-                </div>
-                <div class="card-desc">El programa de puntos de Linea convertirá a tokens LINEA con fee discounts y futuros airdrops. El sistema de points program está programado hasta finales de 2025, lo que hace que un airdrop early 2026 sea ampliamente esperado por la comunidad.</div>
-                <div class="card-metrics">
-                    <div class="mini-metric"><span class="label">PUNTOS</span><br><span class="val">→ LINEA</span></div>
-                    <div class="mini-metric"><span class="label">BENEFICIOS</span><br><span class="val">Fee discounts</span></div>
-                    <div class="mini-metric"><span class="label">FUTUROS</span><br><span class="val green">+ Airdrops</span></div>
-                </div>
-                <div class="card-footer">
-                    <span class="card-source">📍 MetaMask / DL News — 2025–2026</span>
-                    <a class="card-link" href="https://www.dlnews.com/articles/defi/five-upcoming-crypto-airdrops-to-watch-for-in-2026/" target="_blank">Ver fuente →</a>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <!-- L2 ACTIVITY -->
-    <div class="section" id="section-l2">
-        <div class="section-title">
-            <span class="emoji">📈</span>
-            Actividad L2 & Ecosistema
-            <span class="count" id="count-l2">3</span>
-        </div>
-        <div class="news-grid" id="grid-l2">
-
-            <div class="news-card priority-medium" data-category="l2">
-                <div class="card-header">
-                    <div class="card-title">Base, Arbitrum y Optimism: dominancia consolidada en L2</div>
-                    <span class="card-tag tag-l2">L2</span>
-                </div>
-                <div class="card-desc">Los tres major L2s — Base (Coinbase), Arbitrum y Optimism — dominan la actividad de layer 2. Base lidera en volumen de transacciones diarias gracias a la integración con la base de usuarios de Coinbase. Arbitrum mantiene el liderazgo en TVL entre rollups optimistic. La competencia entre ellos se intensifica con nuevos features y reducciones de fees.</div>
-                <div class="card-metrics">
-                    <div class="mini-metric"><span class="label">LÍDER TVL</span><br><span class="val">Arbitrum</span></div>
-                    <div class="mini-metric"><span class="label">LÍDER TXNS</span><br><span class="val green">Base</span></div>
-                    <div class="mini-metric"><span class="label">COMPETIDOR</span><br><span class="val">Optimism</span></div>
-                </div>
-                <div class="card-footer">
-                    <span class="card-source">📍 L2Beat / DeFiLlama — Abr 2026</span>
-                    <a class="card-link" href="https://l2beat.com" target="_blank">Ver fuente →</a>
-                </div>
-            </div>
-
-            <div class="news-card priority-medium" data-category="l2">
-                <div class="card-header">
-                    <div class="card-title">Hyperliquid: breakout semanal + strongest week de 2026 (+7.1%)</div>
-                    <span class="card-tag tag-l2">HYPE</span>
-                </div>
-                <div class="card-desc">Hyperliquid tuvo su mejor semana en 2026 con +7.1% de crecimiento. El token HYPE se mantiene como referente del ecosystem de perps descentralizados. Su programa de points, que termina a finales de 2025, apunta a un token airdrop en 2026.</div>
-                <div class="card-metrics">
-                    <div class="mini-metric"><span class="label">RENDIMIENTO</span><br><span class="val green">+7.1%</span></div>
-                    <div class="mini-metric"><span class="label">PERIOD</span><br><span class="val">Semana 15</span></div>
-                    <div class="mini-metric"><span class="label">AIRDROP</span><br><span class="val green">Esperado 2026</span></div>
-                </div>
-                <div class="card-footer">
-                    <span class="card-source">📍 CF Benchmarks / CoinDCX — 13 Abr 2026</span>
-                    <a class="card-link" href="https://coindcx.com/blog/crypto-news-weekly/crypto-roundup/" target="_blank">Ver fuente →</a>
-                </div>
-            </div>
-
-            <div class="news-card priority-medium" data-category="l2">
-                <div class="card-header">
-                    <div class="card-title">Institutions treat tokenization as new gold rush — RWA market supera $30B</div>
-                    <span class="card-tag tag-institutional">RWA</span>
-                </div>
-                <div class="card-desc">Las instituciones tratan la tokenización como la nueva fiebre del oro. El mercado de RWA (Real World Assets) superó los $30 mil millones, con BlackRock y WisdomTree liderando. XRP se posiciona como potencial bridge asset en el sistema financiero global.</div>
-                <div class="card-metrics">
-                    <div class="mini-metric"><span class="label">RWA TVL</span><br><span class="val green">$30B+</span></div>
-                    <div class="mini-metric"><span class="label">PLAYERS</span><br><span class="val">BlackRock, WT</span></div>
-                    <div class="mini-metric"><span class="label">BRIDGE</span><br><span class="val">XRP potential</span></div>
-                </div>
-                <div class="card-footer">
-                    <span class="card-source">📍 DeFi Planet / WisdomTree — Mar–Abr 2026</span>
-                    <a class="card-link" href="https://defi-planet.com/2026/04/institutions-treat-tokenization-as-the-new-gold-rush-as-rwa-market-surpass-30b/" target="_blank">Ver fuente →</a>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <!-- REGULATORY -->
-    <div class="section" id="section-regulatory">
-        <div class="section-title">
-            <span class="emoji">⚖️</span>
-            Regulatorio & SEC
-            <span class="count" id="count-regulatory">3</span>
-        </div>
-        <div class="news-grid" id="grid-regulatory">
-
-            <div class="news-card priority-high" data-category="regulatory">
-                <div class="card-header">
-                    <div class="card-title">SEC: 5-year exemption para DeFi front-ends — covered user interfaces sin broker-dealer</div>
-                    <span class="card-tag tag-regulatory">⚖️ SEC</span>
-                </div>
-                <div class="card-desc">La SEC emitió staff guidance el 13 de abril creando una exención de 5 años de registro como broker-dealer para interfaces de crypto no-custodial. Las "covered user interfaces" deben ser software de autocustodia, no pueden rutear órdenes ni tomar decisiones de inversión por usuarios, ni almacenar fondos de clientes.</div>
-                <div class="card-metrics">
-                    <div class="mini-metric"><span class="label">EXENCIÓN</span><br><span class="val green">5 AÑOS</span></div>
-                    <div class="mini-metric"><span class="label">FECHA</span><br><span class="val orange">13 Abr 2026</span></div>
-                    <div class="mini-metric"><span class="label">TIPO</span><br><span class="val">Staff Guidance</span></div>
-                </div>
-                <div class="card-footer">
-                    <span class="card-source">📍 The Defiant / Decrypt / KuCoin — 13 Abr 2026</span>
-                    <a class="card-link" href="https://thedefiant.io/news/regulation/sec-staff-guidance-broker-dealer-rules-for-defi" target="_blank">Ver fuente →</a>
-                </div>
-            </div>
-
-            <div class="news-card priority-medium" data-category="regulatory">
-                <div class="card-header">
-                    <div class="card-title">SEC define "covered user interfaces": no custody, no trading discretion, no investment advice</div>
-                    <span class="card-tag tag-regulatory">GUIDANCE</span>
-                </div>
-                <div class="card-desc">Las covered user interfaces definidas por la SEC deben cumplir: (1) no mantener custody de fondos, (2) no rutear ni aceptar órdenes, (3) no proporcionar advice o recomendaciones específicas de inversión, (4) permitir que usuarios configuren slippage y gas fees independientemente.</div>
-                <div class="card-metrics">
-                    <div class="mini-metric"><span class="label">CUSTODY</span><br><span class="val red">Prohibido</span></div>
-                    <div class="mini-metric"><span class="label">ROUTE</span><br><span class="val red">Prohibido</span></div>
-                    <div class="mini-metric"><span class="label">ADVICE</span><br><span class="val red">Prohibido</span></div>
-                </div>
-                <div class="card-footer">
-                    <span class="card-source">📍 Bitget News / AInvest — 13 Abr 2026</span>
-                    <a class="card-link" href="https://www.bitget.com/amp/news/detail/12560605363326" target="_blank">Ver fuente →</a>
-                </div>
-            </div>
-
-            <div class="news-card priority-medium" data-category="regulatory">
-                <div class="card-header">
-                    <div class="card-title">SEC reschedule: joint event con CFTC sobre harmonización crypto — 22 enero 2026</div>
-                    <span class="card-tag tag-regulatory">SEC+CFTC</span>
-                </div>
-                <div class="card-desc">La SEC y CFTC realizaron un evento conjunto el 22 de enero 2026 sobre armonización regulatoria y liderazgo financiero de EE.UU. en la era crypto. Este evento marca un enfoque más coordinado entre ambos reguladores para establecer reglas claras para activos digitales.</div>
-                <div class="card-metrics">
-                    <div class="mini-metric"><span class="label">FECHA</span><br><span class="val">22 Ene 2026</span></div>
-                    <div class="mini-metric"><span class="label">TIPO</span><br><span class="val">Joint Event</span></div>
-                    <div class="mini-metric"><span class="label">TEMAS</span><br><span class="val">Harmonización</span></div>
-                </div>
-                <div class="card-footer">
-                    <span class="card-source">📍 SEC.gov Press Release 2026-13 — 22 Ene 2026</span>
-                    <a class="card-link" href="https://www.sec.gov/newsroom/press-releases/2026-13" target="_blank">Ver fuente →</a>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <!-- SOURCES -->
-    <div class="sources-section">
-        <h3>📚 Fuentes Completas del Reporte</h3>
-        <div class="sources-list">
-            <div class="source-item">
-                <span>1.</span>
-                <span>The Defiant — "SEC Gives DeFi Front-Ends a Narrow Path Around Broker-Dealer Rules" (13 Abr 2026)</span>
-                <a href="https://thedefiant.io/news/regulation/sec-staff-guidance-broker-dealer-rules-for-defi" target="_blank">Link</a>
-            </div>
-            <div class="source-item">
-                <span>2.</span>
-                <span>Decrypt — "New Pro-DeFi Policies Show the SEC Isn't Waiting for Congress to Act on Crypto" (13 Abr 2026)</span>
-                <a href="https://decrypt.co/364215/new-pro-defi-policies-show-sec-isnt-waiting-congress-act-crypto" target="_blank">Link</a>
-            </div>
-            <div class="source-item">
-                <span>3.</span>
-                <span>KuCoin News — "SEC Provides Temporary Regulatory Relief for DeFi Front Ends" (13 Abr 2026)</span>
-                <a href="https://www.kucoin.com/news/flash/sec-provides-temporary-regulatory-relief-for-defi-front-ends" target="_blank">Link</a>
-            </div>
-            <div class="source-item">
-                <span>4.</span>
-                <span>Bitget News — "SEC Sets Strict Rules for DeFi Front-Ends, Effective 2026" (13 Abr 2026)</span>
-                <a href="https://www.bitget.com/amp/news/detail/12560605363326" target="_blank">Link</a>
-            </div>
-            <div class="source-item">
-                <span>5.</span>
-                <span>AInvest — "SEC's DeFi Exemption: A Flow-Driven Analysis of Regulatory Clarity" (Abr 2026)</span>
-                <a href="https://www.ainvest.com/news/sec-defi-exemption-flow-driven-analysis-regulatory-clarity-2604/" target="_blank">Link</a>
-            </div>
-            <div class="source-item">
-                <span>6.</span>
-                <span>MEXC News — "Crypto Market Today: Extreme Fear Grips Markets as BTC Tests $70K Support" (13 Abr 2026)</span>
-                <a href="https://www.mexc.com/news/1022900" target="_blank">Link</a>
-            </div>
-            <div class="source-item">
-                <span>7.</span>
-                <span>CoinDesk Opinion — "DeFi's Shakeout is a Stress Test, Not a Death Sentence" (10 Abr 2026)</span>
-                <a href="https://www.coindesk.com/opinion/2026/04/10/defi-s-shakeout-is-a-stress-test-not-a-death-sentence" target="_blank">Link</a>
-            </div>
-            <div class="source-item">
-                <span>8.</span>
-                <span>DL News — "Five Crypto Airdrops to Watch for in 2026" (Abr 2026)</span>
-                <a href="https://www.dlnews.com/articles/defi/five-upcoming-crypto-airdrops-to-watch-for-in-2026/" target="_blank">Link</a>
-            </div>
-            <div class="source-item">
-                <span>9.</span>
-                <span>BingX News — "Top 5 Crypto Airdrops in April 2026: Watch Backpack, Polymarket and More" (Abr 2026)</span>
-                <a href="https://bingx.com/en/news/post/top-crypto-airdrops-in-april-watch-backpack-polymarket-and-more" target="_blank">Link</a>
-            </div>
-            <div class="source-item">
-                <span>10.</span>
-                <span>CF Benchmarks — "Weekly Index Highlights, April 13, 2026" (13 Abr 2026)</span>
-                <a href="https://blog.cfbenchmarks.com/weekly-index-highlights-april-13-2026/" target="_blank">Link</a>
-            </div>
-            <div class="source-item">
-                <span>11.</span>
-                <span>CoinDCX — "Weekly Crypto News: Hyperliquid Breakout Setup, ETF Flows, April 2026" (Abr 2026)</span>
-                <a href="https://coindcx.com/blog/crypto-news-weekly/crypto-roundup/" target="_blank">Link</a>
-            </div>
-            <div class="source-item">
-                <span>12.</span>
-                <span>DeFi Planet — "Institutions Treat Tokenization as the New Gold Rush as RWA Market Surpasses $30B" (Abr 2026)</span>
-                <a href="https://defi-planet.com/2026/04/institutions-treat-tokenization-as-the-new-gold-rush-as-rwa-market-surpass-30b/" target="_blank">Link</a>
-            </div>
-            <div class="source-item">
-                <span>13.</span>
-                <span>SEC.gov — Press Release 2026-34: "SEC Announces Enforcement Results for Fiscal Year 2025" (7 Abr 2026)</span>
-                <a href="https://www.sec.gov/newsroom/press-releases/2026-34" target="_blank">Link</a>
-            </div>
-            <div class="source-item">
-                <span>14.</span>
-                <span>SEC.gov — Press Release 2026-13: "SEC and CFTC Joint Event on Harmonization" (22 Ene 2026)</span>
-                <a href="https://www.sec.gov/newsroom/press-releases/2026-13" target="_blank">Link</a>
-            </div>
-            <div class="source-item">
-                <span>15.</span>
-                <span>SEC.gov — Press Release 2026-30: "SEC Clarifies Application of Federal Securities Laws to Crypto Assets" (Abr 2026)</span>
-                <a href="https://www.sec.gov/newsroom/press-releases/2026-30-sec-clarifies-application-federal-securities-laws-crypto-assets" target="_blank">Link</a>
-            </div>
-            <div class="source-item">
-                <span>16.</span>
-                <span>Latham & Watkins — "US Crypto Policy Tracker: Regulatory Developments" (2025–2026)</span>
-                <a href="https://www.lw.com/en/us-crypto-policy-tracker/regulatory-developments" target="_blank">Link</a>
-            </div>
-            <div class="source-item">
-                <span>17.</span>
-                <span>BlockSec — "DeFi Compliance in 2026: A Technical Framework for Protocol Resilience" (Abr 2026)</span>
-                <a href="https://blocksec.com/blog/defi-compliance-in-2026-a-technical-framework-for-protocol-resilience" target="_blank">Link</a>
-            </div>
-            <div class="source-item">
-                <span>18.</span>
-                <span>FameEX — "Crypto News Recap April 13, 2026"</span>
-                <a href="https://www.fameex.com/en-US/news/crypto-news-recap-20260413" target="_blank">Link</a>
-            </div>
-            <div class="source-item">
-                <span>19.</span>
-                <span>Lookonchain / MEXC — "Hacker Minted $1.11B DOT, Sold for $273K" (Abr 2026)</span>
-                <a href="https://www.mexc.com/news/flash" target="_blank">Link</a>
-            </div>
-            <div class="source-item">
-                <span>20.</span>
-                <span>DL News — "Key Crypto Market Dates in April: Q1 Reports, Clarity Act, Central Bank Rates" (Abr 2026)</span>
-                <a href="https://www.dlnews.com/articles/markets/key-april-crypto-dates-including-clarity-act-and-blackrock-updates/" target="_blank">Link</a>
-            </div>
-        </div>
-    </div>
-
-</div>
-
-<div class="footer">
-    <p>DeFi Market Report — 14 Abril 2026 | Generado por Logos Research Agent</p>
-    <p>⚠️ Este reporte es solo información, no consejo financiero. Todos los datos de últimas 24–48 horas.</p>
-    <p>Repo: <strong>intel-reports</strong> | Archivo: <strong>defi-market-2026-04-14.html</strong></p>
-</div>
-
-<script>
-let currentFilter = 'all';
-
-function setFilter(filter) {
-    currentFilter = filter;
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-        btn.classList.toggle('active', btn.dataset.filter === filter);
-    });
-    filterCards();
-}
-
-function filterCards() {
-    const search = document.getElementById('searchInput').value.toLowerCase();
-    const cards = document.querySelectorAll('.news-card');
-    let visibleCounts = {};
-
-    cards.forEach(card => {
-        const category = card.dataset.category;
-        const text = card.textContent.toLowerCase();
-        const matchesFilter = currentFilter === 'all' || category === currentFilter;
-        const matchesSearch = text.includes(search);
-
-        if (matchesFilter && matchesSearch) {
-            card.classList.remove('hidden');
-            visibleCounts[category] = (visibleCounts[category] || 0) + 1;
-        } else {
-            card.classList.add('hidden');
-        }
-    });
-
-    // Update section counts
-    ['tvl', 'yields', 'new', 'governance', 'risk', 'airdrop', 'l2', 'regulatory'].forEach(cat => {
-        const countEl = document.getElementById('count-' + cat);
-        if (countEl) {
-            countEl.textContent = visibleCounts[cat] || 0;
-        }
-    });
-}
-
-// Quick highlight for search matches
-document.getElementById('searchInput').addEventListener('input', filterCards);
-</script>
-
+        // Search functionality
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase();
+            cards.forEach(card => {
+                const text = card.textContent.toLowerCase();
+                card.classList.toggle('hidden', query && !text.includes(query));
+            });
+        });
+    </script>
 </body>
 </html>
