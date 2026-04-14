@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SERVER RECOMMENDATIONS - 2026-04-13</title>
+    <style>
+        body { font-family: -apple-system, system-ui, sans-serif; max-width: 900px; margin: 0 auto; padding: 20px; line-height: 1.6; }
+        h1 { color: #1a1a2e; border-bottom: 3px solid #00d4ff; padding-bottom: 10px; }
+        h2 { color: #2a2a5e; margin-top: 30px; }
+        h3 { color: #3a3a7e; }
+        .high { color: #c00; font-weight: bold; }
+        .medium { color: #d70; }
+        .low { color: #070; }
+        code { background: #f4f4f4; padding: 2px 6px; border-radius: 4px; }
+        pre { background: #1a1a2e; color: #0f0; padding: 15px; border-radius: 8px; overflow-x: auto; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+        th { background: #f4f4f4; }
+        .check { color: #0a0; }
+        .warning { color: #c80; }
+    </style>
+</head>
+<body>
+    <h1>📊 SERVER RECOMMENDATIONS REPORT</h1>
+    <p><strong>Date:</strong> 2026-04-13 21:30 CST | <strong>Server:</strong> rog-server | <strong>By:</strong> Logos AI</p>
+    <hr>
+    <h2>🔴 PRIORIDAD ALTA</h2>
+    <h3>1. Puertos expuestos sin protección</h3>
+    <p><span class="high">Ports 25 (SMTP), 44321-44323</span> están abiertos al mundo sin autenticación adicional.</p>
+    <h3>2. Actualizaciones de seguridad pendientes</h3>
+    <p>Kernel Linux necesita actualizarse (6.8.0-107 → 6.8.0-110) incluyendo parches de seguridad para vim.</p>
+    <h3>3. Tailscale teléfono offline</h3>
+    <p>galaxy-s21-5g (100.109.245.82) muestra "offline" hace 4 horas.</p>
+    <h2>🟡 PRIORIDAD MEDIA</h2>
+    <h3>4. Mejorar autenticación SSH</h3>
+    <p>Solo key-based auth (bueno), pero可以考虑 cambiar puerto default.</p>
+    <h3>5. Backup automático más frecuente</h3>
+    <p>Backup diario a las 00:00. Considerar incremental cada 6 horas.</p>
+    <h2>🟢 PRIORIDAD BAJA</h2>
+    <ul>
+    <li>Limpieza de archivos grandes (jdk17.tar.gz 179MB, polynews 698MB)</li>
+    <li>Docker cleanup (imágenes y containers viejos)</li>
+    <li>Eliminar cloudflared services obsoletos</li>
+    </ul>
+    <h2>✅ LO QUE ESTÁ BIEN</h2>
+    <table>
+    <tr><th>Categoría</th><th>Estado</th></tr>
+    <tr><td>SSH solo con keys</td><td class="check">✅ Excelente</td></tr>
+    <tr><td>Fail2ban activo</td><td class="check">✅ Protegido</td></tr>
+    <tr><td>UFW firewall</td><td class="check">✅ Configurado</td></tr>
+    <tr><td>Docker containers</td><td class="check">✅ 15/15 healthy</td></tr>
+    <tr><td>Cloudflare tunnel</td><td class="check">✅ Domain fijo</td></tr>
+    <tr><td>Daily audit cron</td><td class="check">✅ Programado 04:00</td></tr>
+    <tr><td>Server Brain</td><td class="check">✅ Creado</td></tr>
+    </table>
+    <hr>
+    <p><em>Reporte generado por Logos (AI Assistant) - Auditoría completa de 2 horas</em></p>
+</body>
+</html>
