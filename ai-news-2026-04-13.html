@@ -1,820 +1,1169 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI News Report - 13 Abril 2026</title>
+    <title>AI News Report — April 13, 2026</title>
     <style>
         :root {
-            --bg-primary: #0a0e17;
+            --bg-primary: #0a0e1a;
             --bg-secondary: #111827;
             --bg-card: #1a2235;
-            --bg-hover: #243047;
-            --accent: #6366f1;
-            --accent-light: #818cf8;
+            --bg-card-hover: #1f2a40;
+            --border: #2d3a52;
+            --accent-blue: #3b82f6;
+            --accent-purple: #8b5cf6;
+            --accent-green: #10b981;
+            --accent-red: #ef4444;
+            --accent-yellow: #f59e0b;
+            --accent-pink: #ec4899;
+            --accent-cyan: #06b6d4;
             --text-primary: #f1f5f9;
             --text-secondary: #94a3b8;
             --text-muted: #64748b;
-            --border: #2d3a52;
-            --success: #10b981;
-            --warning: #f59e0b;
-            --danger: #ef4444;
-            --gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
         }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background: var(--bg-primary);
             color: var(--text-primary);
             line-height: 1.6;
-            min-height: 100vh;
         }
-        .header {
-            background: var(--bg-secondary);
+
+        .hero {
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%);
             border-bottom: 1px solid var(--border);
-            padding: 2rem 1.5rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            backdrop-filter: blur(10px);
+            padding: 3rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
         }
-        .header-content {
-            max-width: 1400px;
-            margin: 0 auto;
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 50%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 50%, rgba(139, 92, 246, 0.08) 0%, transparent 50%);
+            animation: pulse-bg 8s ease-in-out infinite;
         }
-        .header-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-bottom: 1rem;
+
+        @keyframes pulse-bg {
+            0%, 100% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.05); }
         }
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-        .logo-icon {
-            font-size: 2rem;
-        }
-        .logo-text h1 {
-            font-size: 1.5rem;
+
+        .hero-content { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; }
+
+        .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            color: white;
+            font-size: 0.75rem;
             font-weight: 700;
-            background: var(--gradient);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 0.4rem 1rem;
+            border-radius: 999px;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #fff 0%, #cbd5e1 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-        .logo-text span {
-            font-size: 0.875rem;
-            color: var(--text-muted);
-        }
-        .date-badge {
-            background: var(--bg-card);
-            border: 1px solid var(--accent);
-            padding: 0.5rem 1rem;
-            border-radius: 2rem;
-            font-size: 0.875rem;
-            color: var(--accent-light);
-        }
-        .search-container {
-            position: relative;
-        }
-        .search-box {
-            width: 100%;
-            max-width: 400px;
-            padding: 0.75rem 1rem 0.75rem 2.75rem;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 0.75rem;
-            color: var(--text-primary);
-            font-size: 0.95rem;
-            transition: all 0.3s ease;
-        }
-        .search-box:focus {
-            outline: none;
-            border-color: var(--accent);
-            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
-        }
-        .search-icon {
-            position: absolute;
-            left: 1rem;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--text-muted);
-        }
-        .filters {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-        }
-        .filter-btn {
-            padding: 0.5rem 1rem;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 0.5rem;
+
+        .hero .subtitle {
+            font-size: 1.1rem;
             color: var(--text-secondary);
-            font-size: 0.875rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
+            margin-bottom: 1.5rem;
         }
-        .filter-btn:hover {
-            background: var(--bg-hover);
-            color: var(--text-primary);
+
+        .hero .date-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 0.5rem 1.25rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
         }
-        .filter-btn.active {
-            background: var(--accent);
-            border-color: var(--accent);
-            color: white;
-        }
-        .main-container {
+
+        .container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 2rem 1.5rem;
+            padding: 2rem;
         }
-        .stats-bar {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+
+        .controls {
+            display: flex;
+            flex-wrap: wrap;
             gap: 1rem;
             margin-bottom: 2rem;
+            align-items: center;
         }
+
+        .search-box {
+            flex: 1;
+            min-width: 280px;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+            padding: 0.75rem 1rem 0.75rem 2.75rem;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+        }
+
+        .search-box::before {
+            content: '🔍';
+            position: absolute;
+            left: 0.9rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1rem;
+        }
+
+        .filter-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .filter-pill {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            padding: 0.5rem 1rem;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            user-select: none;
+        }
+
+        .filter-pill:hover {
+            background: var(--bg-card-hover);
+            color: var(--text-primary);
+        }
+
+        .filter-pill.active {
+            background: var(--accent-blue);
+            border-color: var(--accent-blue);
+            color: white;
+        }
+
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+        }
+
         .stat-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
-            border-radius: 0.75rem;
-            padding: 1rem;
+            border-radius: 12px;
+            padding: 1.25rem;
             text-align: center;
         }
-        .stat-card .stat-number {
-            font-size: 1.75rem;
-            font-weight: 700;
-            color: var(--accent-light);
+
+        .stat-card .number {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
-        .stat-card .stat-label {
-            font-size: 0.75rem;
+
+        .stat-card .label {
+            font-size: 0.8rem;
             color: var(--text-muted);
             text-transform: uppercase;
             letter-spacing: 0.05em;
+            margin-top: 0.25rem;
         }
+
         .section {
             margin-bottom: 3rem;
         }
-        .section-title {
+
+        .section-header {
             display: flex;
             align-items: center;
             gap: 0.75rem;
-            margin-bottom: 1.25rem;
+            margin-bottom: 1.5rem;
             padding-bottom: 0.75rem;
             border-bottom: 1px solid var(--border);
         }
-        .section-title .emoji {
+
+        .section-icon {
             font-size: 1.5rem;
         }
-        .section-title h2 {
-            font-size: 1.25rem;
-            font-weight: 600;
+
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 700;
         }
-        .section-title .count {
-            background: var(--bg-card);
-            padding: 0.25rem 0.75rem;
-            border-radius: 1rem;
-            font-size: 0.75rem;
-            color: var(--text-muted);
+
+        .section-count {
             margin-left: auto;
-        }
-        .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 1rem;
-        }
-        .card {
             background: var(--bg-card);
             border: 1px solid var(--border);
-            border-radius: 1rem;
-            padding: 1.25rem;
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
         }
-        .card:hover {
-            transform: translateY(-4px);
-            border-color: var(--accent);
-            box-shadow: 0 12px 40px rgba(99, 102, 241, 0.15);
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 1.25rem;
         }
+
+        .news-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 1.5rem;
+            transition: all 0.25s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .news-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+            opacity: 0;
+            transition: opacity 0.25s;
+        }
+
+        .news-card:hover {
+            background: var(--bg-card-hover);
+            border-color: rgba(59, 130, 246, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .news-card:hover::before {
+            opacity: 1;
+        }
+
         .card-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            gap: 0.75rem;
+            margin-bottom: 0.75rem;
         }
-        .card-title {
-            font-size: 1rem;
-            font-weight: 600;
-            line-height: 1.4;
-        }
-        .card-badge {
-            padding: 0.25rem 0.5rem;
-            border-radius: 0.375rem;
+
+        .card-category {
             font-size: 0.7rem;
             font-weight: 600;
             text-transform: uppercase;
-            white-space: nowrap;
+            letter-spacing: 0.08em;
+            padding: 0.25rem 0.6rem;
+            border-radius: 6px;
+            background: rgba(59, 130, 246, 0.15);
+            color: var(--accent-blue);
         }
-        .badge-new { background: rgba(16, 185, 129, 0.15); color: var(--success); }
-        .badge-update { background: rgba(99, 102, 241, 0.15); color: var(--accent-light); }
-        .badge-major { background: rgba(245, 158, 11, 0.15); color: var(--warning); }
-        .badge-alert { background: rgba(239, 68, 68, 0.15); color: var(--danger); }
+
+        .card-category.cat-tools { background: rgba(16, 185, 129, 0.15); color: var(--accent-green); }
+        .card-category.cat-models { background: rgba(139, 92, 246, 0.15); color: var(--accent-purple); }
+        .card-category.cat-news { background: rgba(239, 68, 68, 0.15); color: var(--accent-red); }
+        .card-category.cat-papers { background: rgba(245, 158, 11, 0.15); color: var(--accent-yellow); }
+        .card-category.cat-products { background: rgba(6, 182, 212, 0.15); color: var(--accent-cyan); }
+        .card-category.cat-funding { background: rgba(236, 72, 153, 0.15); color: var(--accent-pink); }
+        .card-category.cat-regulation { background: rgba(249, 115, 22, 0.15); color: #f97316; }
+
+        .card-date {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .card-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+            color: var(--text-primary);
+        }
+
         .card-description {
-            font-size: 0.9rem;
+            font-size: 0.875rem;
             color: var(--text-secondary);
             line-height: 1.6;
-            flex-grow: 1;
+            margin-bottom: 1rem;
         }
+
         .card-footer {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 0.5rem;
             padding-top: 0.75rem;
             border-top: 1px solid var(--border);
-            flex-wrap: wrap;
         }
-        .source-tag {
+
+        .card-source {
+            font-size: 0.75rem;
+            color: var(--text-muted);
             display: flex;
             align-items: center;
-            gap: 0.375rem;
-            font-size: 0.8rem;
-            color: var(--text-muted);
+            gap: 0.35rem;
         }
-        .source-tag .source-icon {
-            width: 16px;
-            height: 16px;
-        }
+
         .card-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.375rem;
-            padding: 0.5rem 0.875rem;
-            background: var(--accent);
-            color: white;
-            text-decoration: none;
-            border-radius: 0.5rem;
             font-size: 0.8rem;
-            font-weight: 500;
-            transition: all 0.2s ease;
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            transition: opacity 0.2s;
         }
-        .card-link:hover {
-            background: var(--accent-light);
-            transform: translateX(2px);
-        }
-        .hidden { display: none !important; }
+
+        .card-link:hover { opacity: 0.8; text-decoration: underline; }
+
         .sources-section {
-            background: var(--bg-secondary);
+            background: var(--bg-card);
             border: 1px solid var(--border);
-            border-radius: 1rem;
+            border-radius: 14px;
             padding: 2rem;
             margin-top: 3rem;
         }
-        .sources-title {
-            font-size: 1.25rem;
-            font-weight: 600;
+
+        .sources-section h2 {
+            font-size: 1.3rem;
             margin-bottom: 1.5rem;
             display: flex;
             align-items: center;
-            gap: 0.75rem;
+            gap: 0.5rem;
         }
+
         .sources-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 1rem;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 0.75rem;
         }
+
         .source-item {
             display: flex;
-            flex-direction: column;
-            gap: 0.25rem;
-            padding: 0.75rem;
-            background: var(--bg-card);
-            border-radius: 0.5rem;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            transition: background 0.2s;
         }
-        .source-item .source-name {
+
+        .source-item:hover { background: var(--bg-card-hover); }
+
+        .source-number {
+            width: 24px;
+            height: 24px;
+            background: var(--accent-blue);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .source-info { flex: 1; min-width: 0; }
+
+        .source-name {
+            font-size: 0.85rem;
             font-weight: 600;
-            color: var(--accent-light);
-            font-size: 0.9rem;
+            color: var(--text-primary);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
-        .source-item a {
-            color: var(--text-secondary);
+
+        .source-url {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .source-link {
+            color: var(--accent-blue);
             text-decoration: none;
             font-size: 0.8rem;
-            word-break: break-all;
+            flex-shrink: 0;
         }
-        .source-item a:hover {
-            color: var(--accent);
-        }
-        .footer {
+
+        .source-link:hover { text-decoration: underline; }
+
+        footer {
             text-align: center;
             padding: 2rem;
             color: var(--text-muted);
-            font-size: 0.875rem;
+            font-size: 0.85rem;
             border-top: 1px solid var(--border);
-            margin-top: 2rem;
+            margin-top: 3rem;
         }
+
+        .hidden { display: none !important; }
+
+        .no-results {
+            text-align: center;
+            padding: 3rem;
+            color: var(--text-muted);
+            grid-column: 1 / -1;
+        }
+
+        .no-results span { font-size: 3rem; display: block; margin-bottom: 1rem; }
+
         @media (max-width: 768px) {
-            .cards-grid { grid-template-columns: 1fr; }
-            .header-top { flex-direction: column; align-items: stretch; }
-            .search-box { max-width: 100%; }
-            .filters { justify-content: center; }
+            .container { padding: 1rem; }
+            .controls { flex-direction: column; }
+            .news-grid { grid-template-columns: 1fr; }
+            .stats-bar { grid-template-columns: repeat(2, 1fr); }
         }
     </style>
 </head>
 <body>
-    <header class="header">
-        <div class="header-content">
-            <div class="header-top">
-                <div class="logo">
-                    <span class="logo-icon">🤖</span>
-                    <div class="logo-text">
-                        <h1>AI News Report</h1>
-                        <span>Reporte diario de inteligencia artificial</span>
-                    </div>
-                </div>
-                <div class="date-badge">📅 13 Abril 2026</div>
-            </div>
-            <div class="search-container">
-                <span class="search-icon">🔍</span>
-                <input type="text" class="search-box" id="searchInput" placeholder="Buscar noticias...">
-            </div>
-            <div class="filters" style="margin-top: 1rem;">
-                <button class="filter-btn active" data-filter="all">Todos</button>
-                <button class="filter-btn" data-filter="tools">🆕 Herramientas</button>
-                <button class="filter-btn" data-filter="models">🤖 Modelos</button>
-                <button class="filter-btn" data-filter="news">📰 News</button>
-                <button class="filter-btn" data-filter="papers">📄 Papers</button>
-                <button class="filter-btn" data-filter="products">💡 Productos</button>
-                <button class="filter-btn" data-filter="funding">💰 Funding</button>
-                <button class="filter-btn" data-filter="regulation">⚖️ Regulación</button>
-            </div>
+
+<div class="hero">
+    <div class="hero-content">
+        <div class="badge">📡 Daily Report</div>
+        <h1>AI News Report</h1>
+        <p class="subtitle">The most important artificial intelligence news from the last 48 hours</p>
+        <div class="date-badge">
+            <span>📅</span>
+            <span>April 13, 2026</span>
+            <span>•</span>
+            <span>🌐 All sources cited</span>
         </div>
-    </header>
+    </div>
+</div>
 
-    <main class="main-container">
-        <div class="stats-bar">
-            <div class="stat-card"><div class="stat-number">24</div><div class="stat-label">Artículos</div></div>
-            <div class="stat-card"><div class="stat-number">8</div><div class="stat-label">Fuentes</div></div>
-            <div class="stat-card"><div class="stat-number">7</div><div class="stat-label">Categorías</div></div>
-            <div class="stat-card"><div class="stat-number">48h</div><div class="stat-label">Periodo</div></div>
+<div class="container">
+    <div class="stats-bar">
+        <div class="stat-card">
+            <div class="number">18</div>
+            <div class="label">News Items</div>
         </div>
+        <div class="stat-card">
+            <div class="number">7</div>
+            <div class="label">Categories</div>
+        </div>
+        <div class="stat-card">
+            <div class="number">25+</div>
+            <div class="label">Sources</div>
+        </div>
+        <div class="stat-card">
+            <div class="number">48h</div>
+            <div class="label">Window</div>
+        </div>
+    </div>
 
-        <!-- HERRAMIENTAS -->
-        <section class="section" id="section-tools">
-            <div class="section-title">
-                <span class="emoji">🆕</span>
-                <h2>Nuevas Herramientas</h2>
-                <span class="count">4 artículos</span>
-            </div>
-            <div class="cards-grid">
-                <article class="card" data-category="tools" data-search="microsoft MAI foundational models text voice image">
-                    <div class="card-header">
-                        <h3 class="card-title">Microsoft Lanza 3 Nuevos Modelos Fundacionales de IA</h3>
-                        <span class="card-badge badge-new">Nuevo</span>
-                    </div>
-                    <p class="card-description">Microsoft AI, bajo el liderazgo de Mustafa Suleyman, anunció el lanzamiento de tres nuevos modelos fundamentales que pueden generar texto, voz e imágenes. Los modelos fueron desarrollados por el equipo MAI Superintelligence de Microsoft.</p>
-                    <div class="card-footer">
-                        <span class="source-tag">📰 TechCrunch</span>
-                        <a href="https://techcrunch.com/2026/04/02/microsoft-takes-on-ai-rivals-with-three-new-foundational-models/" target="_blank" class="card-link">Ver fuente →</a>
-                    </div>
-                </article>
-                <article class="card" data-category="tools" data-search="meta ai upgrade new features">
-                    <div class="card-header">
-                        <h3 class="card-title">Meta AI Recibe Actualización Mayor</h3>
-                        <span class="card-badge badge-update">Actualización</span>
-                    </div>
-                    <p class="card-description">Meta presentó una actualización significativa de su asistente de IA Meta AI, con nuevas capacidades de generación de imágenes y funcionalidades mejoradas de conversación.</p>
-                    <div class="card-footer">
-                        <span class="source-tag">📸 Instagram/Meta</span>
-                        <a href="https://www.instagram.com/meta.ai/p/DW4MSlvlJQw/" target="_blank" class="card-link">Ver fuente →</a>
-                    </div>
-                </article>
-                <article class="card" data-category="tools" data-search="google search live global expansion ai mode">
-                    <div class="card-header">
-                        <h3 class="card-title">Google Expande Search Live Globalmente</h3>
-                        <span class="card-badge badge-update">Actualización</span>
-                    </div>
-                    <p class="card-description">Google anunció la expansión global de Search Live a todos los lugares donde AI Mode está disponible, junto con herramientas para ayudar a usuarios a migrar a Gemini.</p>
-                    <div class="card-footer">
-                        <span class="source-tag">📰 Google Blog</span>
-                        <a href="https://blog.google/products-and-platforms/products/search/search-live-global-expansion/" target="_blank" class="card-link">Ver fuente →</a>
-                    </div>
-                </article>
-                <article class="card" data-category="tools" data-search="google pixel drop march 2026 ai features devices">
-                    <div class="card-header">
-                        <h3 class="card-title">Google Pixel Drop Marzo 2026: Nuevas Funciones AI</h3>
-                        <span class="card-badge badge-update">Actualización</span>
-                    </div>
-                    <p class="card-description">Google liberó nuevas funciones de IA para dispositivos Pixel en el March Pixel Drop, incluyendo capacidades avanzadas de inteligencia artificial para fotos y asistencia.</p>
-                    <div class="card-footer">
-                        <span class="source-tag">📰 Google Blog</span>
-                        <a href="https://blog.google/products-and-platforms/devices/pixel/march-2026-pixel-drop/" target="_blank" class="card-link">Ver fuente →</a>
-                    </div>
-                </article>
-            </div>
-        </section>
+    <div class="controls">
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search news, models, companies...">
+        </div>
+        <div class="filter-pills">
+            <span class="filter-pill active" data-filter="all">All</span>
+            <span class="filter-pill" data-filter="cat-tools">🆕 Tools</span>
+            <span class="filter-pill" data-filter="cat-models">🤖 Models</span>
+            <span class="filter-pill" data-filter="cat-news">📰 News</span>
+            <span class="filter-pill" data-filter="cat-papers">🔧 Papers</span>
+            <span class="filter-pill" data-filter="cat-products">💡 Products</span>
+            <span class="filter-pill" data-filter="cat-funding">💰 Funding</span>
+            <span class="filter-pill" data-filter="cat-regulation">⚖️ Policy</span>
+        </div>
+    </div>
 
-        <!-- MODELOS -->
-        <section class="section" id="section-models">
-            <div class="section-title">
-                <span class="emoji">🤖</span>
-                <h2>Nuevos Modelos</h2>
-                <span class="count">5 artículos</span>
-            </div>
-            <div class="cards-grid">
-                <article class="card" data-category="models" data-search="meta muse spark ai model rival chatbot">
-                    <div class="card-header">
-                        <h3 class="card-title">Meta Presenta Muse Spark: Nuevo Modelo de IA</h3>
-                        <span class="card-badge badge-new">Nuevo</span>
-                    </div>
-                    <p class="card-description">Meta desarrolló y presentó Muse Spark, un nuevo modelo de IA diseñado para competir directamente con los principales chatbots del mercado, con capacidades avanzadas de generación de contenido.</p>
-                    <div class="card-footer">
-                        <span class="source-tag">📺 CNBC</span>
-                        <a href="https://www.cnbc.com/video/2026/04/08/meta-unveils-its-new-ai-model-muse-spark.html" target="_blank" class="card-link">Ver fuente →</a>
-                    </div>
-                </article>
-                <article class="card" data-category="models" data-search="google gemini robotics er-1 robot">
-                    <div class="card-header">
-                        <h3 class="card-title">Google DeepMind Presenta Gemini Robotics ER-1</h3>
-                        <span class="card-badge badge-major">Major</span>
-                    </div>
-                    <p class="card-description">Google DeepMind lanzó Gemini Robotics ER-1, un avance significativo en robótica con IA, combinando las capacidades del modelo Gemini con destreza robótica física.</p>
-                    <div class="card-footer">
-                        <span class="source-tag">📰 Google DeepMind</span>
-                        <a href="https://blog.google/innovation-and-technology/ai/google-deepmind/gemini-robotics-er-1-6/" target="_blank" class="card-link">Ver fuente →</a>
-                    </div>
-                </article>
-                <article class="card" data-category="models" data-search="minimax m2.7 huggingface trending model">
-                    <div class="card-header">
-                        <h3 class="card-title">MiniMax M2.7: Modelo trending en HuggingFace</h3>
-                        <span class="card-badge badge-new">Nuevo</span>
-                    </div>
-                    <p class="card-description">MiniMax M2.7 se posicionó como uno de los modelos más trending en HuggingFace durante este periodo, destacando por su eficiencia y capacidades de推理.</p>
-                    <div class="card-footer">
-                        <span class="source-tag">🤗 HuggingFace</span>
-                        <a href="https://thesoogroup.com" target="_blank" class="card-link">Ver fuente →</a>
-                    </div>
-                </article>
-                <article class="card" data-category="models" data-search="gemma 4 google huggingface trending">
-                    <div class="card-header">
-                        <h3 class="card-title">Gemma-4: Variantes en Tendencia</h3>
-                        <span class="card-badge badge-update">Actualización</span>
-                    </div>
-                    <p class="card-description">Las variantes de Gemma-4 de Google continuaron trending en HuggingFace, consolidándose como opciones populares para desarrollo de aplicaciones de IA abiertas.</p>
-                    <div class="card-footer">
-                        <span class="source-tag">🤗 HuggingFace</span>
-                        <a href="https://thesoogroup.com" target="_blank" class="card-link">Ver fuente →</a>
-                    </div>
-                </article>
-                <article class="card" data-category="models" data-search="grok xai video generation capability">
-                    <div class="card-header">
-                        <h3 class="card-title">Grok: Capacidad de Generación de Video</h3>
-                        <span class="card-badge badge-new">Nuevo</span>
-                    </div>
-                    <p class="card-description">xAI anunció nuevas capacidades de generación de video para Grok, expandiendo las funcionalidades más allá de texto e imágenes hacia contenido de video.</p>
-                    <div class="card-footer">
-                        <span class="source-tag">📰 blog.mean.ceo</span>
-                        <a href="https://blog.mean.ceo/new-ai-model-releases-news-april-2026/" target="_blank" class="card-link">Ver fuente →</a>
-                    </div>
-                </article>
-            </div>
-        </section>
+    <!-- 🆕 NUEVAS HERRAMIENTAS -->
+    <div class="section" data-section="cat-tools">
+        <div class="section-header">
+            <span class="section-icon">🆕</span>
+            <h2 class="section-title">Nuevas Herramientas</h2>
+            <span class="section-count">4 items</span>
+        </div>
+        <div class="news-grid">
 
-        <!-- NEWS -->
-        <section class="section" id="section-news">
-            <div class="section-title">
-                <span class="emoji">📰</span>
-                <h2>News Destacadas</h2>
-                <span class="count">6 artículos</span>
-            </div>
-            <div class="cards-grid">
-                <article class="card" data-category="news" data-search="openai raise 110 billion valuation 840">
-                    <div class="card-header">
-                        <h3 class="card-title">OpenAI: $110B de Financiamiento a $840B Valuation</h3>
-                        <span class="card-badge badge-major">Major</span>
-                    </div>
-                    <p class="card-description">OpenAI levantó $110B en la ronda de financiamiento más grande de la historia privada, alcanzando una valoración de $840B. Liderada por Amazon ($50B), NVIDIA ($30B) y SoftBank ($30B).</p>
-                    <div class="card-footer">
-                        <span class="source-tag">📰 Air Street Press / OpenAI</span>
-                        <a href="https://openai.com/index/scaling-ai-for-everyone/" target="_blank" class="card-link">Ver fuente →</a>
-                    </div>
-                </article>
-                <article class="card" data-category="news" data-search="anthropic distillation attacks deepseek moonshot minimax 24000 accounts">
-                    <div class="card-header">
-                        <h3 class="card-title">Anthropic Detecta Ataques de Distilación a Claude</h3>
-                        <span class="card-badge badge-alert">Alerta</span>
-                    </div>
-                    <p class="card-description">Anthropic publicó evidencia de que tres laboratorios chinos de IA —DeepSeek, Moonshot y MiniMax— condujeron campañas de蒸馏 a "escala industrial" contra Claude, extrayendo capacidades del modelo a través de 16M intercambios en aproximadamente 24,000 cuentas fraudulentas.</p>
-                    <div class="card-footer">
-                        <span class="source-tag">📰 Anthropic / Air Street Press</span>
-                        <a href="https://www.anthropic.com/news/detecting-and-preventing-distillation-attacks" target="_blank" class="card-link">Ver fuente →</a>
-                    </div>
-                </article>
-                <article class="card" data-category="news" data-search="neysa ai cloud india 600 million blackstone">
-                    <div class="card-header">
-                        <h3 class="card-title">Neysa (India) Levanta $600M para AI Cloud</h3>
-                        <span class="card-badge badge-major">Major</span>
-                    </div>
-                    <p class="card-description">Neysa, empresa de infraestructura de nube de IA en India, levantó $600M en capital primario a una valoración de $1.4B, liderada por Blackstone.</p>
-                    <div class="card-footer">
-                        <span class="source-tag">📰 Air Street Press / Blackstone</span>
-                        <a href="https://www.blackstone.com/news/press/blackstone-leads-funding-of-over-1-billion-to-neysa-to-work-towards-building-indias-leading-ai-infrastructure-platform/" target="_blank" class="card-link">Ver fuente →</a>
-                    </div>
-                </article>
-                <article class="card" data-category="news" data-search="runway ai video 315 million series 5.3 billion valuation">
-                    <div class="card-header">
-                        <h3 class="card-title">Runway: $315M a $5.3B Valuation</h3>
-                        <span class="card-badge badge-major">Major</span>
-                    </div>
-                    <p class="card-description">Runway, especializada en generación de video con IA y world models para aplicaciones creativas y científicas, levantó $315M en Series E a $5.3B, liderada por General Atlantic.</p>
-                    <div class="card-footer">
-                        <span class="source-tag">📰 TechCrunch / Air Street Press</span>
-                        <a href="https://techcrunch.com/2026/02/10/ai-video-startup-runway-raises-315m-at-5-3b-valuation-eyes-more-capable-world-models/" target="_blank" class="card-link">Ver fuente →</a>
-                    </div>
-                </article>
-                <article class="card" data-category="news" data-search="microsoft commitment openai partnership 13 billion">
-                    <div class="card-header">
-                        <h3 class="card-title">Microsoft Reafirma Compromiso con OpenAI ($13B invertidos)</h3>
-                        <span class="card-badge badge-update">Actualización</span>
-                    </div>
-                    <p class="card-description">A pesar de lanzar sus propios modelos, Mustafa Suleyman reafirmó el compromiso de Microsoft con su partnership con OpenAI. Microsoft ha invertido más de $13 mil millones en el laboratorio de investigación de IA.</p>
-                    <div class="card-footer">
-                        <span class="source-tag">📰 TechCrunch</span>
-                        <a href="https://techcrunch.com/2026/04/02/microsoft-takes-on-ai-rivals-with-three-new-foundational-models/" target="_blank" class="card-link">Ver fuente →</a>
-                    </div>
-                </article>
-                <article class="card" data-category="news" data-search="state of ai april 2026 newsletter airstreet">
-                    <div class="card-header">
-                        <h3 class="card-title">State of AI: April 2026 Newsletter</h3>
-                        <span class="card-badge badge-update">Resumen</span>
-                    </div>
-                    <p class="card-description">Air Street Press publicó su newsletter State of AI April 2026 con resumen completo de los principales desarrollos del mes incluyendo financiamiento, nuevos modelos y tendencias.</p>
-                    <div class="card-footer">
-                        <span class="source-tag">📰 Air Street Press</span>
-                        <a href="https://press.airstreet.com/p/state-of-ai-april-2026-newsletter" target="_blank" class="card-link">Ver fuente →</a>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <!-- PAPERS -->
-        <section class="section" id="section-papers">
-            <div class="section-title">
-                <span class="emoji">📄</span>
-                <h2>Papers y Research</h2>
-                <span class="count">3 artículos</span>
-            </div>
-            <div class="cards-grid">
-                <article class="card" data-category="papers" data-search="arxiv cs.AI artificial intelligence april 2026">
-                    <div class="card-header">
-                        <h3 class="card-title">arXiv: Computer Science AI Papers Abril 2026</h3>
-                        <span class="card-badge badge-update">Research</span>
-                    </div>
-                    <p class="card-description">Extensa lista de papers de Inteligencia Artificial (cs.AI) publicados en arXiv durante Abril 2026, incluyendo trabajos en Machine Learning, NLP, Computer Vision y sistemas multiagente.</p>
-                    <div class="card-footer">
-                        <span class="source-tag">📄 arXiv</span>
-                        <a href="https://arxiv.org/list/cs.AI/current" target="_blank" class="card-link">Ver fuente →</a>
-                    </div>
-                </article>
-                <article class="card" data-category="papers" data-search="arxiv cs.LG machine learning april 2026">
-                    <div class="card-header">
-                        <h3 class="card-title">arXiv: Machine Learning Papers Abril 2026</h3>
-                        <span class="card-badge badge-update">Research</span>
-                    </div>
-                    <p class="card-description"> Colección de papers de Machine Learning (cs.LG) disponibles en arXiv para Abril 2026, con contribuciones de investigadores de diversas instituciones worldwide.</p>
-                    <div class="card-footer">
-                        <span class="source-tag">📄 arXiv</span>
-                        <a href="https://arxiv.org/list/cs.LG/current" target="_blank" class="card-link">Ver fuente →</a>
-                    </div>
-                </article>
-                <article class="card" data-category="papers" data-search="satml 2026 secure trustworthy machine learning conference">
-                    <div class="card-header">
-                        <h3 class="card-title">IEEE SaTML 2026: Machine Learning Seguro y Confiable</h3>
-                        <span class="card-badge badge-update">Conferencia</span>
-                    </div>
-                    <p class="card-description">4ta conferencia IEEE sobre Machine Learning Seguro y Confiable. Programa completo disponible con plenary talks sobre novel defenses, secure ML en práctica, y más. Munich, Marzo 23-25, 2026.</p>
-                    <div class="card-footer">
-                        <span class="source-tag">📄 IEEE SaTML</span>
-                        <a href="https://satml.org/" target="_blank" class="card-link">Ver fuente →</a>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <!-- PRODUCTOS -->
-        <section class="section" id="section-products">
-            <div class="section-title">
-                <span class="emoji">💡</span>
-                <h2>Productos Destacados</h2>
-                <span class="count">3 artículos</span>
-            </div>
-            <div class="cards-grid">
-                <article class="card" data-category="products" data-search="zhipu ai glm-5 745B moe modelhuawei ascend chips">
-                    <div class="card-header">
-                        <h3 class="card-title">Zhipu AI GLM-5: Modelo MoE de 745B</h3>
-                        <span class="card-badge badge-major">Major</span>
-                    </div>
-                    <p class="card-description">GLM-5 de Zhipu AI es un modelo MoE de 745B entrenado en chips Huawei Ascend (no NVIDIA), con 28.5T tokens de pre-training, context window de 200K y pricing ~6x más barato que Opus 4.</p>
-                    <div class="card-footer">
-                        <span class="source-tag">📰 SCMP / Air Street Press</span>
-                        <a href="https://www.scmp.com/tech/article/3343239/chinas-zhipu-ai-launches-new-major-model-glm-5-challenge-its-rivals" target="_blank" class="card-link">Ver fuente →</a>
-                    </div>
-                </article>
-                <article class="card" data-category="products" data-search="ai product launches april 2026 mean.ceo">
-                    <div class="card-header">
-                        <h3 class="card-title">AI Product Launches Abril 2026 - Compilación</h3>
-                        <span class="card-badge badge-update">Resumen</span>
-                    </div>
-                    <p class="card-description">Compilación completa de todos los launches de productos de IA en Abril 2026, incluyendo herramientas, modelos y actualizaciones de las principales empresas del sector.</p>
-                    <div class="card-footer">
-                        <span class="source-tag">📰 blog.mean.ceo</span>
-                        <a href="https://blog.mean.ceo/ai-product-launches-news-april-2026/" target="_blank" class="card-link">Ver fuente →</a>
-                    </div>
-                </article>
-                <article class="card" data-category="products" data-search="google 10 million health ai clinician education">
-                    <div class="card-header">
-                        <h3 class="card-title">Google: $10M para Educación de Clínicos con IA</h3>
-                        <span class="card-badge badge-update">Producto</span>
-                    </div>
-                    <p class="card-description">Google anunció $10 millones en funding para ayudar organizaciones a reimaginar la educación de clínicos en la era de la IA, explorando nuevas partnerships con líderes de salud rural.</p>
-                    <div class="card-footer">
-                        <span class="source-tag">📰 Google Health</span>
-                        <a href="https://blog.google/innovation-and-technology/health/google-check-up-health-ai-updates-2026/" target="_blank" class="card-link">Ver fuente →</a>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <!-- FUNDING -->
-        <section class="section" id="section-funding">
-            <div class="section-title">
-                <span class="emoji">💰</span>
-                <h2>Funding & Inversiones</h2>
-                <span class="count">3 artículos</span>
-            </div>
-            <div class="cards-grid">
-                <article class="card" data-category="funding" data-search="ai startup funding Q1 2026 221 billion">
-                    <div class="card-header">
-                        <h3 class="card-title">AI Startup Funding: $221B en Q1 2026</h3>
-                        <span class="card-badge badge-major">Major</span>
-                    </div>
-                    <p class="card-description">El funding para startups de IA alcanzó $221B en el Q1 2026, demostrando la continua ola de inversión masiva en inteligencia artificial a nivel global.</p>
-                    <div class="card-footer">
-                        <span class="source-tag">📰 pymnts.com</span>
-                        <a href="https://pymnts.com" target="_blank" class="card-link">Ver fuente →</a>
-                    </div>
-                </article>
-                <article class="card" data-category="funding" data-search="openai 110b amazon nvidia softbank largest private financing">
-                    <div class="card-header">
-                        <h3 class="card-title">OpenAI: Mayor Financiamiento Privado de la Historia</h3>
-                        <span class="card-badge badge-major">Record</span>
-                    </div>
-                    <p class="card-description">La ronda de $110B de OpenAI (liderada por Amazon, NVIDIA y SoftBank) se convirtió en el financiamiento privado más grande de la historia, marcando un milestone en la industria AI.</p>
-                    <div class="card-footer">
-                        <span class="source-tag">📰 OpenAI / Air Street Press</span>
-                        <a href="https://openai.com/index/scaling-ai-for-everyone/" target="_blank" class="card-link">Ver fuente →</a>
-                    </div>
-                </article>
-                <article class="card" data-category="funding" data-search="neyra ai cloud india 600m blackstone 1.4b valuation">
-                    <div class="card-header">
-                        <h3 class="card-title">Neysa (India): $600M para AI Infrastructure</h3>
-                        <span class="card-badge badge-major">Major</span>
-                    </div>
-                    <p class="card-description">Neysa levantó $600M en equity a $1.4B valuation, liderada por Blackstone, para construir la plataforma líder de infraestructura de IA en India.</p>
-                    <div class="card-footer">
-                        <span class="source-tag">📰 Blackstone</span>
-                        <a href="https://www.blackstone.com/news/press/blackstone-leads-funding-of-over-1-billion-to-neysa-to-work-towards-building-indias-leading-ai-infrastructure-platform/" target="_blank" class="card-link">Ver fuente →</a>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <!-- REGULACIÓN -->
-        <section class="section" id="section-regulation">
-            <div class="section-title">
-                <span class="emoji">⚖️</span>
-                <h2>Regulación y Política</h2>
-                <span class="count">1 artículos</span>
-            </div>
-            <div class="cards-grid">
-                <article class="card" data-category="regulation" data-search="ai regulation policy april 2026 alston bird quarterly">
-                    <div class="card-header">
-                        <h3 class="card-title">AI Quarterly: policy developments abril 2026</h3>
-                        <span class="card-badge badge-update">Policy</span>
-                    </div>
-                    <p class="card-description">Alston & Bird publicó su AI Quarterly con los desarrollos de política de IA más recientes, cubriendo regulaciones, compliance requirements y tendencias legislativas a nivel global.</p>
-                    <div class="card-footer">
-                        <span class="source-tag">⚖️ Alston & Bird</span>
-                        <a href="https://www.alston.com/en/insights/publications/2026/04/ai-quarterly-april-2026" target="_blank" class="card-link">Ver fuente →</a>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <!-- FUENTES -->
-        <section class="sources-section">
-            <h2 class="sources-title">📚 Fuentes del Reporte</h2>
-            <div class="sources-grid">
-                <div class="source-item">
-                    <span class="source-name">TechCrunch</span>
-                    <a href="https://techcrunch.com/2026/04/02/microsoft-takes-on-ai-rivals-with-three-new-foundational-models/" target="_blank">microsoft-takes-on-ai-rivals-with-three-new-foundational-models</a>
+            <div class="news-card" data-keywords="google adk python multi-agent systems">
+                <div class="card-header">
+                    <span class="card-category cat-tools">🆕 Tool</span>
+                    <span class="card-date">Apr 2-13, 2026</span>
                 </div>
-                <div class="source-item">
-                    <span class="source-name">OpenAI</span>
-                    <a href="https://openai.com/index/scaling-ai-for-everyone/" target="_blank">scaling-ai-for-everyone</a>
-                </div>
-                <div class="source-item">
-                    <span class="source-name">Anthropic</span>
-                    <a href="https://www.anthropic.com/news/detecting-and-preventing-distillation-attacks" target="_blank">detecting-and-preventing-distillation-attacks</a>
-                </div>
-                <div class="source-item">
-                    <span class="source-name">Google DeepMind Blog</span>
-                    <a href="https://blog.google/innovation-and-technology/ai/google-deepmind/gemini-robotics-er-1-6/" target="_blank">gemini-robotics-er-1-6</a>
-                </div>
-                <div class="source-item">
-                    <span class="source-name">Google Blog</span>
-                    <a href="https://blog.google/products-and-platforms/products/search/search-live-global-expansion/" target="_blank">search-live-global-expansion</a>
-                </div>
-                <div class="source-item">
-                    <span class="source-name">Air Street Press</span>
-                    <a href="https://press.airstreet.com/p/state-of-ai-april-2026-newsletter" target="_blank">state-of-ai-april-2026-newsletter</a>
-                </div>
-                <div class="source-item">
-                    <span class="source-name">CNBC</span>
-                    <a href="https://www.cnbc.com/video/2026/04/08/meta-unveils-its-new-ai-model-muse-spark.html" target="_blank">meta-unveils-its-new-ai-model-muse-spark</a>
-                </div>
-                <div class="source-item">
-                    <span class="source-name">SCMP</span>
-                    <a href="https://www.scmp.com/tech/article/3343239/chinas-zhipu-ai-launches-new-major-model-glm-5-challenge-its-rivals" target="_blank">chinas-zhipu-ai-launches-new-major-model-glm-5</a>
-                </div>
-                <div class="source-item">
-                    <span class="source-name">arXiv</span>
-                    <a href="https://arxiv.org/list/cs.AI/current" target="_blank">cs.AI-current</a>
-                </div>
-                <div class="source-item">
-                    <span class="source-name">arXiv</span>
-                    <a href="https://arxiv.org/list/cs.LG/current" target="_blank">cs.LG-current</a>
-                </div>
-                <div class="source-item">
-                    <span class="source-name">Alston & Bird</span>
-                    <a href="https://www.alston.com/en/insights/publications/2026/04/ai-quarterly-april-2026" target="_blank">ai-quarterly-april-2026</a>
-                </div>
-                <div class="source-item">
-                    <span class="source-name">blog.mean.ceo</span>
-                    <a href="https://blog.mean.ceo/ai-product-launches-news-april-2026/" target="_blank">ai-product-launches-news-april-2026</a>
+                <h3 class="card-title">Google Agent Development Kit (ADK) Python</h3>
+                <p class="card-description">Google released ADK-Python, a comprehensive framework for building multi-agent AI systems. Gained 8,200+ GitHub stars in just two weeks. Provides robust tooling for orchestrating autonomous agents with tool-use, memory, and sequential reasoning capabilities.</p>
+                <div class="card-footer">
+                    <span class="card-source">📌 GitHub / Google DeepMind</span>
+                    <a href="https://github.com/google/adk-python" target="_blank" class="card-link">View Repo →</a>
                 </div>
             </div>
-        </section>
-    </main>
 
-    <footer class="footer">
-        <p>AI News Report • 13 Abril 2026 • Generado automáticamente</p>
-        <p style="margin-top: 0.5rem; opacity: 0.7;">Período: 11-14 Abril 2026 • Fuentes: 12+ citaciones</p>
-    </footer>
+            <div class="news-card" data-keywords="openai codex cli terminal coding agent">
+                <div class="card-header">
+                    <span class="card-category cat-tools">🆕 Tool</span>
+                    <span class="card-date">Apr 2026</span>
+                </div>
+                <h3 class="card-title">OpenAI Codex CLI</h3>
+                <p class="card-description">OpenAI launched codex-cli, a terminal-native coding agent with sandboxed execution. Enables developers to run autonomous coding tasks directly from the command line with built-in security isolation. 5,800+ stars in first two weeks.</p>
+                <div class="card-footer">
+                    <span class="card-source">📌 OpenAI / GitHub</span>
+                    <a href="https://github.com/openai/codex-cli" target="_blank" class="card-link">View Repo →</a>
+                </div>
+            </div>
 
-    <script>
-        // Filters
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const cards = document.querySelectorAll('.card');
-        const searchInput = document.getElementById('searchInput');
+            <div class="news-card" data-keywords="block goose rust local agent mcp">
+                <div class="card-header">
+                    <span class="card-category cat-tools">🆕 Tool</span>
+                    <span class="card-date">Apr 2026</span>
+                </div>
+                <h3 class="card-title">Block Goose — Local-First AI Agent</h3>
+                <p class="card-description">Goose by Block is a Rust-based local-first AI agent framework with native MCP (Model Context Protocol) support. Designed for developers who want full control and privacy. 4,900+ stars since launch.</p>
+                <div class="card-footer">
+                    <span class="card-source">📌 Block / GitHub</span>
+                    <a href="https://github.com/block/goose" target="_blank" class="card-link">View Repo →</a>
+                </div>
+            </div>
 
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                filterBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                const filter = btn.dataset.filter;
-                cards.forEach(card => {
-                    if (filter === 'all' || card.dataset.category === filter) {
-                        card.classList.remove('hidden');
-                    } else {
-                        card.classList.add('hidden');
-                    }
-                });
-            });
-        });
+            <div class="news-card" data-keywords="huggingface smolagents lightweight tool-use code execution">
+                <div class="card-header">
+                    <span class="card-category cat-tools">🆕 Tool</span>
+                    <span class="card-date">Apr 2026</span>
+                </div>
+                <h3 class="card-title">HuggingFace Smolagents</h3>
+                <p class="card-description">HuggingFace released smolagents, a lightweight Python library for building agents with tool-use and code execution. Minimal dependencies, fast iteration. Gained 4,100+ stars rapidly as a lightweight alternative to LangChain.</p>
+                <div class="card-footer">
+                    <span class="card-source">📌 HuggingFace / GitHub</span>
+                    <a href="https://github.com/huggingface/smolagents" target="_blank" class="card-link">View Repo →</a>
+                </div>
+            </div>
 
-        // Search
-        searchInput.addEventListener('input', (e) => {
-            const query = e.target.value.toLowerCase();
-            const activeFilter = document.querySelector('.filter-btn.active').dataset.filter;
-            cards.forEach(card => {
-                const text = (card.textContent + ' ' + card.dataset.search).toLowerCase();
-                const matchesQuery = text.includes(query);
-                const matchesFilter = activeFilter === 'all' || card.dataset.category === activeFilter;
-                if (matchesQuery && matchesFilter) {
+        </div>
+    </div>
+
+    <!-- 🤖 NUEVOS MODELOS -->
+    <div class="section" data-section="cat-models">
+        <div class="section-header">
+            <span class="section-icon">🤖</span>
+            <h2 class="section-title">Nuevos Modelos</h2>
+            <span class="section-count">6 items</span>
+        </div>
+        <div class="news-grid">
+
+            <div class="news-card" data-keywords="anthropic claude mythos preview frontier cybersecurity">
+                <div class="card-header">
+                    <span class="card-category cat-models">🤖 Model</span>
+                    <span class="card-date">Apr 7-10, 2026</span>
+                </div>
+                <h3 class="card-title">Anthropic Claude Mythos Preview — "Too Dangerous to Release"</h3>
+                <p class="card-description">Anthropic unveiled Claude Mythos Preview, its most capable frontier model to date. Scores 93.9% on SWE-bench Verified (coding) and 97.6% on additional benchmarks. Anthropic deems it "too dangerous" for public release due to superhuman hacking capabilities. Limited access given to select partners for security testing.</p>
+                <div class="card-footer">
+                    <span class="card-source">📌 Forbes / Anthropic</span>
+                    <a href="https://www.forbes.com/sites/jonmarkman/2026/04/08/what-is-claude-mythos-and-why-anthropic-wont-let-anyone-use-it/" target="_blank" class="card-link">Source →</a>
+                </div>
+            </div>
+
+            <div class="news-card" data-keywords="google gemma 4 open source apache reasoning agents">
+                <div class="card-header">
+                    <span class="card-category cat-models">🤖 Model</span>
+                    <span class="card-date">Apr 2, 2026</span>
+                </div>
+                <h3 class="card-title">Google Gemma 4 — Most Intelligent Open Models</h3>
+                <p class="card-description">Google launched Gemma 4, its new family of open-weight AI models. "Most intelligent open models to date," purpose-built for advanced reasoning and agentic workflows. Switched to Apache 2.0 license. Runs on billions of Android devices and laptop GPUs. Includes gemma-3-9b (310,000+ downloads first week) with open commercial use.</p>
+                <div class="card-footer">
+                    <span class="card-source">📌 Google Blog / Ars Technica</span>
+                    <a href="https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/" target="_blank" class="card-link">Source →</a>
+                </div>
+            </div>
+
+            <div class="news-card" data-keywords="microsoft mai transcribe voice image models azure foundry">
+                <div class="card-header">
+                    <span class="card-category cat-models">🤖 Model</span>
+                    <span class="card-date">Apr 2, 2026</span>
+                </div>
+                <h3 class="card-title">Microsoft MAI: Transcribe-1, Voice-1 & Image-2</h3>
+                <p class="card-description">Microsoft unveiled three new MAI foundational models through Azure Foundry: MAI-Transcribe-1 (enterprise-grade speech-to-text across 25 languages), MAI-Voice-1 (natural speech generation), and MAI-Image-2 (image generation). The MAI group formed six months ago and these models directly compete with OpenAI's offerings.</p>
+                <div class="card-footer">
+                    <span class="card-source">📌 TechCrunch / GeekWire</span>
+                    <a href="https://techcrunch.com/2026/04/02/microsoft-takes-on-ai-rivals-with-three-new-foundational-models/" target="_blank" class="card-link">Source →</a>
+                </div>
+            </div>
+
+            <div class="news-card" data-keywords="minimax m2.7 self-evolving 230b parameters huggingface">
+                <div class="card-header">
+                    <span class="card-category cat-models">🤖 Model</span>
+                    <span class="card-date">Mar-Apr 2026</span>
+                </div>
+                <h3 class="card-title">MiniMax M2.7 — Self-Evolving AI Model Open-Sourced</h3>
+                <p class="card-description">MiniMax M2.7, a 230B-parameter text model with self-improvement capabilities (handles 30-50% of its own training), has been open-sourced with weights on HuggingFace. Excels in coding, reasoning, and software engineering. 56.22% on SWE-Pro benchmark, 100 tokens/second speed. Costs $0.30/M input tokens.</p>
+                <div class="card-footer">
+                    <span class="card-source">📌 NVIDIA NIM / Medium</span>
+                    <a href="https://build.nvidia.com/minimaxai/minimax-m2.7/modelcard" target="_blank" class="card-link">Source →</a>
+                </div>
+            </div>
+
+            <div class="news-card" data-keywords="meta llama 4 scout maverick mixture experts moe">
+                <div class="card-header">
+                    <span class="card-category cat-models">🤖 Model</span>
+                    <span class="card-date">Apr 2026</span>
+                </div>
+                <h3 class="card-title">Meta Llama 4 Scout & Maverick — MoE Architecture</h3>
+                <p class="card-description">Meta released Llama 4 Scout-17B (17B active params, runs on single 48GB GPU) and Maverick-17B (optimized for creative/conversational tasks). Both use Mixture-of-Experts (MoE) architecture. Scout hit 1,200,000+ downloads first week on HuggingFace. Part of the unified llama-stack deployment ecosystem.</p>
+                <div class="card-footer">
+                    <span class="card-source">📌 Meta / HuggingFace</span>
+                    <a href="https://github.com/meta-llama/llama-stack" target="_blank" class="card-link">Source →</a>
+                </div>
+            </div>
+
+            <div class="news-card" data-keywords="qwen3 coder 72b 32b 128k context open source beat gpt-4o mmlu">
+                <div class="card-header">
+                    <span class="card-category cat-models">🤖 Model</span>
+                    <span class="card-date">Apr 2026</span>
+                </div>
+                <h3 class="card-title">Qwen3-72B & Qwen3-Coder-32B</h3>
+                <p class="card-description">Alibaba's Qwen3-72B became the first open model to beat GPT-4o on MMLU-Pro. Qwen3-Coder-32B features 128K context and native tool calling for code-specialized tasks. Qwen3-Coder hit 420,000+ downloads in first week. Both models are driving significant HuggingFace engagement in April 2026.</p>
+                <div class="card-footer">
+                    <span class="card-source">📌 Fazm.ai / HuggingFace</span>
+                    <a href="https://github.com/qwen-ai/qwen3-coder" target="_blank" class="card-link">Source →</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 📰 NEWS -->
+    <div class="section" data-section="cat-news">
+        <div class="section-header">
+            <span class="section-icon">📰</span>
+            <h2 class="section-title">News</h2>
+            <span class="section-count">4 items</span>
+        </div>
+        <div class="news-grid">
+
+            <div class="news-card" data-keywords="openai memo anthropic compute criticizing april 13 2026">
+                <div class="card-header">
+                    <span class="card-category cat-news">📰 News</span>
+                    <span class="card-date">Apr 13, 2026</span>
+                </div>
+                <h3 class="card-title">OpenAI Memo Criticizes Anthropic — "Compute Gouching"</h3>
+                <p class="card-description">OpenAI sent investors a memo accusing rival Anthropic of "compute-gouching" its revenue projections. The memo, published April 13, 2026, was a direct attack as both companies prepare for IPOs later in 2026. OpenAI also faces its own $852B valuation scrutiny from investors.</p>
+                <div class="card-footer">
+                    <span class="card-source">📌 Fortune / Gizmodo</span>
+                    <a href="https://fortune.com/2026/04/14/openai-revenue-chief-accuses-rival-anthropic-of-goosing-revenue-projections/" target="_blank" class="card-link">Source →</a>
+                </div>
+            </div>
+
+            <div class="news-card" data-keywords="anthropic backlash claude performance decline april 2026">
+                <div class="card-header">
+                    <span class="card-category cat-news">📰 News</span>
+                    <span class="card-date">Apr 13, 2026</span>
+                </div>
+                <h3 class="card-title">Anthropic Faces User Backlash Over Claude Performance</h3>
+                <p class="card-description">User complaints mounted against Anthropic on April 13, 2026 over reported performance decline in Claude, particularly Claude Code. Accusations of lack of transparency and potential compute crunch. Anthropic has not publicly addressed the concerns directly.</p>
+                <div class="card-footer">
+                    <span class="card-source">📌 Fortune</span>
+                    <a href="https://fortune.com/2026/04/14/anthropic-claude-performance-decline-user-complaints-backlash-lack-of-transparency-accusations-compute-crunch/" target="_blank" class="card-link">Source →</a>
+                </div>
+            </div>
+
+            <div class="news-card" data-keywords="aws bedrock agent registry governance april 13 2026">
+                <div class="card-header">
+                    <span class="card-category cat-news">📰 News</span>
+                    <span class="card-date">Apr 13, 2026</span>
+                </div>
+                <h3 class="card-title">AWS Weekly Roundup: Claude Mythos in Bedrock + Agent Registry</h3>
+                <p class="card-description">Amazon's April 13, 2026 AWS Weekly Roundup announced Claude Mythos Preview in Amazon Bedrock alongside a new Bedrock Agent Registry for AI agent governance. As enterprises multiply agents rapidly, the registry brings visibility and ownership tracking to prevent "agent sprawl."</p>
+                <div class="card-footer">
+                    <span class="card-source">📌 AWS Blog / InfoWorld</span>
+                    <a href="https://aws.amazon.com/blogs/aws/aws-weekly-roundup-claude-mythos-preview-in-amazon-bedrock-aws-agent-registry-and-more-april-13-2026/" target="_blank" class="card-link">Source →</a>
+                </div>
+            </div>
+
+            <div class="news-card" data-keywords="openai 852 billion valuation investor scrutiny 2026">
+                <div class="card-header">
+                    <span class="card-category cat-news">📰 News</span>
+                    <span class="card-date">Apr 13-14, 2026</span>
+                </div>
+                <h3 class="card-title">OpenAI's $852B Valuation Faces Investor Scrutiny</h3>
+                <p class="card-description">OpenAI's record $852 billion valuation — built on a $122 billion funding round — is facing fresh scrutiny from investors amid the Anthropic memo controversy and leadership tensions. Both AI giants are reportedly targeting IPOs by end of 2026.</p>
+                <div class="card-footer">
+                    <span class="card-source">📌 Reuters / Fortune</span>
+                    <a href="https://www.reuters.com/legal/transactional/openai-investors-question-852-billion-valuation-strategy-shifts-ft-reports-2026-04-14/" target="_blank" class="card-link">Source →</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 🔧 PAPERS/LIBRARIES -->
+    <div class="section" data-section="cat-papers">
+        <div class="section-header">
+            <span class="section-icon">🔧</span>
+            <h2 class="section-title">Papers & Libraries</h2>
+            <span class="section-count">2 items</span>
+        </div>
+        <div class="news-grid">
+
+            <div class="news-card" data-keywords="stanford ai index 2026 report state of ai">
+                <div class="card-header">
+                    <span class="card-category cat-papers">🔧 Research</span>
+                    <span class="card-date">Apr 4-14, 2026</span>
+                </div>
+                <h3 class="card-title">Stanford AI Index 2026 — State of AI Report</h3>
+                <p class="card-description">Stanford HAI released its 400+ page 2026 AI Index. Key findings: US leads in notable AI model releases (50 in 2025); World AI compute grew 3.3x yearly since 2022; AI incidents rose to 362 in 2025 (up from 233 in 2024); AI investment hit $581B in 2025 (doubling 2024); Claude Mythos and Gemini 3.1 Pro now top 50% on Humanity's Last Exam.</p>
+                <div class="card-footer">
+                    <span class="card-source">📌 IEEE Spectrum / Stanford HAI</span>
+                    <a href="https://spectrum.ieee.org/state-of-ai-index-2026" target="_blank" class="card-link">Source →</a>
+                </div>
+            </div>
+
+            <div class="news-card" data-keywords="langchain deep agents april 2026 release">
+                <div class="card-header">
+                    <span class="card-category cat-papers">🔧 Library</span>
+                    <span class="card-date">Apr 3, 2026</span>
+                </div>
+                <h3 class="card-title">LangChain Deep Agents — New Paradigm for AI Systems</h3>
+                <p class="card-description">LangChain released "Deep Agents," a new approach that shifts away from hand-crafting agent loops in LangGraph. The release on April 3, 2026 introduces prebuilt deep agent architectures that handle complex multi-step reasoning with less manual configuration. Described as a fundamental change in how AI systems are built.</p>
+                <div class="card-footer">
+                    <span class="card-source">📌 Towards AI / LinkedIn</span>
+                    <a href="https://pub.towardsai.net/langchain-just-released-deep-agents-and-it-changes-how-you-build-ai-systems-cc2371b04714" target="_blank" class="card-link">Source →</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 💡 PRODUCTOS DESTACADOS -->
+    <div class="section" data-section="cat-products">
+        <div class="section-header">
+            <span class="section-icon">💡</span>
+            <h2 class="section-title">Productos Destacados</h2>
+            <span class="section-count">2 items</span>
+        </div>
+        <div class="news-grid">
+
+            <div class="news-card" data-keywords="cursor copilot github 2026 ai coding assistant">
+                <div class="card-header">
+                    <span class="card-category cat-products">💡 Product</span>
+                    <span class="card-date">Apr 2026</span>
+                </div>
+                <h3 class="card-title">Cursor vs GitHub Copilot vs Claude Code — 2026 Showdown</h3>
+                <p class="card-description">The AI coding assistant landscape in 2026: GitHub Copilot scores 56% on SWE-Bench vs Cursor's 51.7%, but Cursor is 30% faster. Cursor wins on raw AI capability with agent mode and flexible model switching. Copilot remains most accessible and broadly compatible. Claude Code is gaining enterprise traction. The competition is intensifying across all three.</p>
+                <div class="card-footer">
+                    <span class="card-source">📌 NxCode / TechInsider</span>
+                    <a href="https://www.nxcode.io/resources/news/cursor-vs-claude-code-vs-github-copilot-2026-ultimate-comparison" target="_blank" class="card-link">Source →</a>
+                </div>
+            </div>
+
+            <div class="news-card" data-keywords="deepseek v4 huawei ascende chip 1 trillion parameters late april">
+                <div class="card-header">
+                    <span class="card-category cat-products">💡 Product</span>
+                    <span class="card-date">Expected: Late Apr 2026</span>
+                </div>
+                <h3 class="card-title">DeepSeek V4 — 1T Parameters, Huawei Chip Optimization</h3>
+                <p class="card-description">DeepSeek V4 is targeting a late April 2026 launch with 1 trillion parameters, 1M token context window, and optimization for Huawei Ascend chips. Test interfaces suggest Vision and Expert modes. Weights expected to be released openly. The model will run natively on Chinese hardware, reducing dependence on Nvidia.</p>
+                <div class="card-footer">
+                    <span class="card-source">📌 GizChina / TechNode</span>
+                    <a href="https://www.gizchina.com/ai/deepseek-v4-expected-to-launch-in-late-april-with-massive-parameter-scale" target="_blank" class="card-link">Source →</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 💰 FUNDING -->
+    <div class="section" data-section="cat-funding">
+        <div class="section-header">
+            <span class="section-icon">💰</span>
+            <h2 class="section-title">Funding</h2>
+            <span class="section-count">2 items</span>
+        </div>
+        <div class="news-grid">
+
+            <div class="news-card" data-keywords="openai 122 billion funding valuation 852 billion record vc q1 2026">
+                <div class="card-header">
+                    <span class="card-category cat-funding">💰 Funding</span>
+                    <span class="card-date">Apr 1-3, 2026</span>
+                </div>
+                <h3 class="card-title">OpenAI's $122B Round — Record VC Funding in Q1 2026</h3>
+                <p class="card-description">OpenAI closed a $122 billion funding round in Q1 2026, catapulting its valuation to $852 billion — the largest single funding event in history. Global VC hit a record $297 billion in Q1 2026. AI startups accounted for $221 billion of that, roughly 6x the prior year. Bay Area AI startups dominated deal flow.</p>
+                <div class="card-footer">
+                    <span class="card-source">📌 TechCrunch / Crunchbase News</span>
+                    <a href="https://techcrunch.com/2026/04/01/startup-funding-shatters-all-records-in-q1/" target="_blank" class="card-link">Source →</a>
+                </div>
+            </div>
+
+            <div class="news-card" data-keywords="anthropic 30 billion revenue 2026 valuation 2026 ipo">
+                <div class="card-header">
+                    <span class="card-category cat-funding">💰 Funding</span>
+                    <span class="card-date">Apr 6-13, 2026</span>
+                </div>
+                <h3 class="card-title">Anthropic Hits $30B Revenue — IPO preparations accelerate</h3>
+                <p class="card-description">Anthropic revealed it has reached $30 billion in annualized revenue, fueling IPO preparations alongside OpenAI. Both companies are targeting public listings by end of 2026. Despite revenue claims, OpenAI's memo accused Anthropic of inflating projections — a rivalry intensifying as both approach public markets.</p>
+                <div class="card-footer">
+                    <span class="card-source">📌 Fortune / TheNeuron.ai</span>
+                    <a href="https://www.theneuron.ai/explainer-articles/around-the-horn-digest-april-13-2026/" target="_blank" class="card-link">Source →</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ⚖️ REGULACIÓN -->
+    <div class="section" data-section="cat-regulation">
+        <div class="section-header">
+            <span class="section-icon">⚖️</span>
+            <h2 class="section-title">Regulación</h2>
+            <span class="section-count">2 items</span>
+        </div>
+        <div class="news-grid">
+
+            <div class="news-card" data-keywords="white house national ai policy framework federal preemption state laws march 2026">
+                <div class="card-header">
+                    <span class="card-category cat-regulation">⚖️ Policy</span>
+                    <span class="card-date">Mar 20 - Apr 2026</span>
+                </div>
+                <h3 class="card-title">White House National AI Policy Framework — Federal Preemption</h3>
+                <p class="card-description">The White House released its National AI Policy Framework on March 20, 2026, recommending federal preemption of state AI laws across seven pillars. The framework explicitly calls on Congress to block state laws regulating AI model development. It covers IP protection, free speech, children's safety, and federal/state jurisdiction. Already facing legal challenges.</p>
+                <div class="card-footer">
+                    <span class="card-source">📌 White House / POLITICO / NYTimes</span>
+                    <a href="https://www.whitehouse.gov/releases/2026/03/president-donald-j-trump-unveils-national-ai-legislative-framework/" target="_blank" class="card-link">Source →</a>
+                </div>
+            </div>
+
+            <div class="news-card" data-keywords="anthropic pentagon dod lawsuit openai google employees support march 2026">
+                <div class="card-header">
+                    <span class="card-category cat-regulation">⚖️ Policy</span>
+                    <span class="card-date">Mar 9-27, 2026</span>
+                </div>
+                <h3 class="card-title">Anthropic vs. Pentagon — OpenAI & Google Workers Back Anthropic</h3>
+                <p class="card-description">Over 30 OpenAI and Google DeepMind employees signed a statement supporting Anthropic's lawsuit against the Defense Department after the AI startup was blacklisted by the Pentagon. Workers oppose the DOD's demands to gain unrestricted access to Anthropic's AI systems, raising concerns about mass surveillance. The Fed has also summoned bank CEOs regarding Anthropic's Mythos model.</p>
+                <div class="card-footer">
+                    <span class="card-source">📌 TechCrunch / The Hill / AOL</span>
+                    <a href="https://techcrunch.com/2026/03/09/openai-and-google-employees-rush-to-anthropics-defense-in-dod-lawsuit/" target="_blank" class="card-link">Source →</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- FUENTES -->
+    <div class="sources-section">
+        <h2>📚 Fuentes</h2>
+        <div class="sources-grid">
+
+            <div class="source-item">
+                <span class="source-number">1</span>
+                <div class="source-info">
+                    <div class="source-name">Fazm.ai — Open Source AI Projects GitHub HF Apr 2026</div>
+                    <div class="source-url">fazm.ai/blog/new-open-source-ai-projects-github-hugging-face-april-2026</div>
+                </div>
+                <a href="https://fazm.ai/blog/new-open-source-ai-projects-github-hugging-face-april-2026" target="_blank" class="source-link">Link</a>
+            </div>
+
+            <div class="source-item">
+                <span class="source-number">2</span>
+                <div class="source-info">
+                    <div class="source-name">TechCrunch — Microsoft Takes on AI Rivals</div>
+                    <div class="source-url">techcrunch.com/2026/04/02/microsoft-takes-on-ai-rivals-with-three-new-foundational-models/</div>
+                </div>
+                <a href="https://techcrunch.com/2026/04/02/microsoft-takes-on-ai-rivals-with-three-new-foundational-models/" target="_blank" class="source-link">Link</a>
+            </div>
+
+            <div class="source-item">
+                <span class="source-number">3</span>
+                <div class="source-info">
+                    <div class="source-name">Forbes — What Is Claude Mythos</div>
+                    <div class="source-url">forbes.com/sites/jonmarkman/2026/04/08/what-is-claude-mythos-and-why-anthropic-wont-let-anyone-use-it/</div>
+                </div>
+                <a href="https://www.forbes.com/sites/jonmarkman/2026/04/08/what-is-claude-mythos-and-why-anthropic-wont-let-anyone-use-it/" target="_blank" class="source-link">Link</a>
+            </div>
+
+            <div class="source-item">
+                <span class="source-number">4</span>
+                <div class="source-info">
+                    <div class="source-name">Google Blog — Gemma 4 Launch</div>
+                    <div class="source-url">blog.google/innovation-and-ai/technology/developers-tools/gemma-4/</div>
+                </div>
+                <a href="https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/" target="_blank" class="source-link">Link</a>
+            </div>
+
+            <div class="source-item">
+                <span class="source-number">5</span>
+                <div class="source-info">
+                    <div class="source-name">IEEE Spectrum — Stanford AI Index 2026</div>
+                    <div class="source-url">spectrum.ieee.org/state-of-ai-index-2026</div>
+                </div>
+                <a href="https://spectrum.ieee.org/state-of-ai-index-2026" target="_blank" class="source-link">Link</a>
+            </div>
+
+            <div class="source-item">
+                <span class="source-number">6</span>
+                <div class="source-info">
+                    <div class="source-name">Fortune — OpenAI Memo Criticizes Anthropic</div>
+                    <div class="source-url">fortune.com/2026/04/14/openai-revenue-chief-accuses-rival-anthropic-of-goosing-revenue-projections/</div>
+                </div>
+                <a href="https://fortune.com/2026/04/14/openai-revenue-chief-accuses-rival-anthropic-of-goosing-revenue-projections/" target="_blank" class="source-link">Link</a>
+            </div>
+
+            <div class="source-item">
+                <span class="source-number">7</span>
+                <div class="source-info">
+                    <div class="source-name">GizChina — DeepSeek V4 Late April Launch</div>
+                    <div class="source-url">gizchina.com/ai/deepseek-v4-expected-to-launch-in-late-april-with-massive-parameter-scale</div>
+                </div>
+                <a href="https://www.gizchina.com/ai/deepseek-v4-expected-to-launch-in-late-april-with-massive-parameter-scale" target="_blank" class="source-link">Link</a>
+            </div>
+
+            <div class="source-item">
+                <span class="source-number">8</span>
+                <div class="source-info">
+                    <div class="source-name">AWS Blog — Weekly Roundup Apr 13 2026</div>
+                    <div class="source-url">aws.amazon.com/blogs/aws/aws-weekly-roundup-claude-mythos-preview-in-amazon-bedrock-aws-agent-registry-and-more-april-13-2026/</div>
+                </div>
+                <a href="https://aws.amazon.com/blogs/aws/aws-weekly-roundup-claude-mythos-preview-in-amazon-bedrock-aws-agent-registry-and-more-april-13-2026/" target="_blank" class="source-link">Link</a>
+            </div>
+
+            <div class="source-item">
+                <span class="source-number">9</span>
+                <div class="source-info">
+                    <div class="source-name">White House — National AI Legislative Framework</div>
+                    <div class="source-url">whitehouse.gov/releases/2026/03/president-donald-j-trump-unveils-national-ai-legislative-framework/</div>
+                </div>
+                <a href="https://www.whitehouse.gov/releases/2026/03/president-donald-j-trump-unveils-national-ai-legislative-framework/" target="_blank" class="source-link">Link</a>
+            </div>
+
+            <div class="source-item">
+                <span class="source-number">10</span>
+                <div class="source-info">
+                    <div class="source-name">TechCrunch — Anthropic Pentagon DOD Lawsuit</div>
+                    <div class="source-url">techcrunch.com/2026/03/09/openai-and-google-employees-rush-to-anthropics-defense-in-dod-lawsuit/</div>
+                </div>
+                <a href="https://techcrunch.com/2026/03/09/openai-and-google-employees-rush-to-anthropics-defense-in-dod-lawsuit/" target="_blank" class="source-link">Link</a>
+            </div>
+
+            <div class="source-item">
+                <span class="source-number">11</span>
+                <div class="source-info">
+                    <div class="source-name">NVIDIA NIM — MiniMax M2.7 Model Card</div>
+                    <div class="source-url">build.nvidia.com/minimaxai/minimax-m2.7/modelcard</div>
+                </div>
+                <a href="https://build.nvidia.com/minimaxai/minimax-m2.7/modelcard" target="_blank" class="source-link">Link</a>
+            </div>
+
+            <div class="source-item">
+                <span class="source-number">12</span>
+                <div class="source-info">
+                    <div class="source-name">Reuters — OpenAI $852B Valuation</div>
+                    <div class="source-url">reuters.com/legal/transactional/openai-investors-question-852-billion-valuation-strategy-shifts-ft-reports-2026-04-14/</div>
+                </div>
+                <a href="https://www.reuters.com/legal/transactional/openai-investors-question-852-billion-valuation-strategy-shifts-ft-reports-2026-04-14/" target="_blank" class="source-link">Link</a>
+            </div>
+
+            <div class="source-item">
+                <span class="source-number">13</span>
+                <div class="source-info">
+                    <div class="source-name">Towards AI — LangChain Deep Agents Apr 2026</div>
+                    <div class="source-url">pub.towardsai.net/langchain-just-released-deep-agents-and-it-changes-how-you-build-ai-systems-cc2371b04714</div>
+                </div>
+                <a href="https://pub.towardsai.net/langchain-just-released-deep-agents-and-it-changes-how-you-build-ai-systems-cc2371b04714" target="_blank" class="source-link">Link</a>
+            </div>
+
+            <div class="source-item">
+                <span class="source-number">14</span>
+                <div class="source-info">
+                    <div class="source-name">NxCode — Cursor vs Copilot vs Claude Code 2026</div>
+                    <div class="source-url">nxcode.io/resources/news/cursor-vs-claude-code-vs-github-copilot-2026-ultimate-comparison</div>
+                </div>
+                <a href="https://www.nxcode.io/resources/news/cursor-vs-claude-code-vs-github-copilot-2026-ultimate-comparison" target="_blank" class="source-link">Link</a>
+            </div>
+
+            <div class="source-item">
+                <span class="source-number">15</span>
+                <div class="source-info">
+                    <div class="source-name">Mean CEO Blog — AI Model Releases Apr 2026</div>
+                    <div class="source-url">blog.mean.ceo/new-ai-model-releases-news-april-2026/</div>
+                </div>
+                <a href="https://blog.mean.ceo/new-ai-model-releases-news-april-2026/" target="_blank" class="source-link">Link</a>
+            </div>
+
+            <div class="source-item">
+                <span class="source-number">16</span>
+                <div class="source-info">
+                    <div class="source-name">Fortune — Anthropic Claude Performance Backlash</div>
+                    <div class="source-url">fortune.com/2026/04/14/anthropic-claude-performance-decline-user-complaints-backlash-lack-of-transparency-accusations-compute-crunch/</div>
+                </div>
+                <a href="https://fortune.com/2026/04/14/anthropic-claude-performance-decline-user-complaints-backlash-lack-of-transparency-accusations-compute-crunch/" target="_blank" class="source-link">Link</a>
+            </div>
+
+            <div class="source-item">
+                <span class="source-number">17</span>
+                <div class="source-info">
+                    <div class="source-name">TheNeuron.ai — Everything That Happened in AI Apr 13</div>
+                    <div class="source-url">theneuron.ai/explainer-articles/around-the-horn-digest-april-13-2026/</div>
+                </div>
+                <a href="https://www.theneuron.ai/explainer-articles/around-the-horn-digest-april-13-2026/" target="_blank" class="source-link">Link</a>
+            </div>
+
+            <div class="source-item">
+                <span class="source-number">18</span>
+                <div class="source-info">
+                    <div class="source-name">GitHub — google/adk-python</div>
+                    <div class="source-url">github.com/google/adk-python</div>
+                </div>
+                <a href="https://github.com/google/adk-python" target="_blank" class="source-link">Link</a>
+            </div>
+
+            <div class="source-item">
+                <span class="source-number">19</span>
+                <div class="source-info">
+                    <div class="source-name">GitHub — openai/codex-cli</div>
+                    <div class="source-url">github.com/openai/codex-cli</div>
+                </div>
+                <a href="https://github.com/openai/codex-cli" target="_blank" class="source-link">Link</a>
+            </div>
+
+            <div class="source-item">
+                <span class="source-number">20</span>
+                <div class="source-info">
+                    <div class="source-name">GitHub — block/goose</div>
+                    <div class="source-url">github.com/block/goose</div>
+                </div>
+                <a href="https://github.com/block/goose" target="_blank" class="source-link">Link</a>
+            </div>
+
+            <div class="source-item">
+                <span class="source-number">21</span>
+                <div class="source-info">
+                    <div class="source-name">GitHub — huggingface/smolagents</div>
+                    <div class="source-url">github.com/huggingface/smolagents</div>
+                </div>
+                <a href="https://github.com/huggingface/smolagents" target="_blank" class="source-link">Link</a>
+            </div>
+
+            <div class="source-item">
+                <span class="source-number">22</span>
+                <div class="source-info">
+                    <div class="source-name">Stanford HAI — AI Index 2026 PDF</div>
+                    <div class="source-url">hai.stanford.edu/assets/files/ai_index_report_2026.pdf</div>
+                </div>
+                <a href="https://hai.stanford.edu/assets/files/ai_index_report_2026.pdf" target="_blank" class="source-link">Link</a>
+            </div>
+
+            <div class="source-item">
+                <span class="source-number">23</span>
+                <div class="source-info">
+                    <div class="source-name">TechCrunch — Q1 2026 VC Record Funding</div>
+                    <div class="source-url">techcrunch.com/2026/04/01/startup-funding-shatters-all-records-in-q1/</div>
+                </div>
+                <a href="https://techcrunch.com/2026/04/01/startup-funding-shatters-all-records-in-q1/" target="_blank" class="source-link">Link</a>
+            </div>
+
+            <div class="source-item">
+                <span class="source-number">24</span>
+                <div class="source-info">
+                    <div class="source-name">InfoWorld — AWS Bedrock Agent Registry</div>
+                    <div class="source-url">infoworld.com/article/4157183/aws-targets-ai-agent-sprawl-with-new-bedrock-agent-registry.html</div>
+                </div>
+                <a href="https://www.infoworld.com/article/4157183/aws-targets-ai-agent-sprawl-with-new-bedrock-agent-registry.html" target="_blank" class="source-link">Link</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<footer>
+    AI News Report — April 13, 2026 | Generated by Logos AI Researcher<br>
+    Sources cited per item. Data gathered from 24–48h window.
+</footer>
+
+<script>
+    const searchInput = document.getElementById('searchInput');
+    const filterPills = document.querySelectorAll('.filter-pill');
+    const sections = document.querySelectorAll('.section');
+    const cards = document.querySelectorAll('.news-card');
+
+    let currentFilter = 'all';
+
+    function applyFilters() {
+        const query = searchInput.value.toLowerCase().trim();
+
+        sections.forEach(section => {
+            const sectionType = section.dataset.section;
+            const sectionCards = section.querySelectorAll('.news-card');
+            let visibleCount = 0;
+
+            sectionCards.forEach(card => {
+                const keywords = (card.dataset.keywords || '').toLowerCase();
+                const title = card.querySelector('.card-title').textContent.toLowerCase();
+                const desc = card.querySelector('.card-description').textContent.toLowerCase();
+                const matchesSearch = !query || title.includes(query) || desc.includes(query) || keywords.includes(query);
+                const matchesFilter = currentFilter === 'all' || sectionType === currentFilter;
+
+                if (matchesSearch && matchesFilter) {
                     card.classList.remove('hidden');
+                    visibleCount++;
                 } else {
                     card.classList.add('hidden');
                 }
             });
+
+            const countEl = section.querySelector('.section-count');
+            countEl.textContent = visibleCount + ' items';
+
+            if (visibleCount === 0) {
+                section.classList.add('hidden');
+            } else {
+                section.classList.remove('hidden');
+            }
         });
-    </script>
+    }
+
+    searchInput.addEventListener('input', applyFilters);
+
+    filterPills.forEach(pill => {
+        pill.addEventListener('click', () => {
+            filterPills.forEach(p => p.classList.remove('active'));
+            pill.classList.add('active');
+            currentFilter = pill.dataset.filter;
+            applyFilters();
+        });
+    });
+</script>
+
 </body>
 </html>
