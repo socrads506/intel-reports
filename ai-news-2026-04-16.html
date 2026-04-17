@@ -3,57 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI News Report - 16 de Abril 2026</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>AI News Report - 16 Abril 2026</title>
     <style>
-        :root {
-            --bg-primary: #0a0a0f;
-            --bg-secondary: #12121a;
-            --bg-card: #1a1a25;
-            --bg-card-hover: #22222f;
-            --border-color: #2a2a3a;
-            --text-primary: #ffffff;
-            --text-secondary: #a0a0b0;
-            --text-muted: #6a6a7a;
-            --accent-blue: #3b82f6;
-            --accent-purple: #8b5cf6;
-            --accent-green: #10b981;
-            --accent-orange: #f59e0b;
-            --accent-red: #ef4444;
-            --accent-cyan: #06b6d4;
-            --accent-pink: #ec4899;
-            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
-            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
-        }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a25;
+            --bg-card-hover: #22222f;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0b0;
+            --accent-blue: #3b82f6;
+            --accent-purple: #8b5cf6;
+            --accent-green: #10b981;
+            --accent-orange: #f59e0b;
+            --accent-red: #ef4444;
+            --accent-pink: #ec4899;
+            --border-color: #2a2a3a;
+        }
+
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
             background: var(--bg-primary);
             color: var(--text-primary);
             line-height: 1.6;
             min-height: 100vh;
         }
 
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        /* Header */
         .header {
-            background: var(--bg-secondary);
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, #1a1035 100%);
+            padding: 2rem;
             border-bottom: 1px solid var(--border-color);
-            padding: 30px 0;
-            margin-bottom: 30px;
             position: sticky;
             top: 0;
             z-index: 100;
@@ -61,532 +46,289 @@
         }
 
         .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
-        .logo-section {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .logo {
-            width: 50px;
-            height: 50px;
-            background: var(--gradient-1);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-        }
-
-        .logo-text h1 {
-            font-size: 24px;
-            font-weight: 800;
-            background: var(--gradient-1);
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            margin-bottom: 0.5rem;
         }
 
-        .logo-text span {
-            font-size: 12px;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 2px;
+        .header .date {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
         }
 
-        .date-badge {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            padding: 12px 24px;
-            border-radius: 50px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .date-badge .icon {
-            font-size: 18px;
-        }
-
-        .date-badge .date {
-            font-weight: 600;
-            font-size: 14px;
-        }
-
-        .date-badge .time {
-            color: var(--text-muted);
-            font-size: 12px;
-        }
-
-        /* Search and Filters */
-        .controls {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 20px;
-            margin-bottom: 30px;
+        .search-container {
+            margin-top: 1rem;
         }
 
         .search-box {
-            position: relative;
-            margin-bottom: 15px;
-        }
-
-        .search-box input {
             width: 100%;
-            padding: 15px 20px 15px 50px;
+            padding: 0.75rem 1rem;
             background: var(--bg-card);
             border: 1px solid var(--border-color);
-            border-radius: 12px;
+            border-radius: 8px;
             color: var(--text-primary);
-            font-size: 16px;
-            transition: all 0.3s ease;
-        }
-
-        .search-box input:focus {
+            font-size: 1rem;
             outline: none;
-            border-color: var(--accent-blue);
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+            transition: border-color 0.3s, box-shadow 0.3s;
         }
 
-        .search-box .search-icon {
-            position: absolute;
-            left: 18px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--text-muted);
-            font-size: 18px;
+        .search-box:focus {
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
         }
 
         .filters {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 0.5rem;
+            margin-top: 1rem;
         }
 
         .filter-btn {
-            padding: 10px 20px;
+            padding: 0.5rem 1rem;
             background: var(--bg-card);
             border: 1px solid var(--border-color);
-            border-radius: 50px;
+            border-radius: 20px;
             color: var(--text-secondary);
-            font-size: 14px;
-            font-weight: 500;
             cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            transition: all 0.3s;
+            font-size: 0.9rem;
         }
 
-        .filter-btn:hover {
-            background: var(--bg-card-hover);
-            color: var(--text-primary);
-        }
-
-        .filter-btn.active {
+        .filter-btn:hover, .filter-btn.active {
             background: var(--accent-blue);
-            border-color: var(--accent-blue);
             color: white;
+            border-color: var(--accent-blue);
         }
 
-        /* Stats Bar */
-        .stats-bar {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-bottom: 30px;
+        .main-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
         }
 
-        .stat-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 20px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .stat-icon {
-            width: 45px;
-            height: 45px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-        }
-
-        .stat-icon.blue { background: rgba(59, 130, 246, 0.2); }
-        .stat-icon.purple { background: rgba(139, 92, 246, 0.2); }
-        .stat-icon.green { background: rgba(16, 185, 129, 0.2); }
-        .stat-icon.orange { background: rgba(245, 158, 11, 0.2); }
-        .stat-icon.cyan { background: rgba(6, 182, 212, 0.2); }
-        .stat-icon.pink { background: rgba(236, 72, 153, 0.2); }
-
-        .stat-info h3 {
-            font-size: 24px;
-            font-weight: 700;
-        }
-
-        .stat-info p {
-            font-size: 12px;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* Section Titles */
-        .section-header {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-
-        .section-icon {
-            width: 50px;
-            height: 50px;
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
+        .section {
+            margin-bottom: 3rem;
         }
 
         .section-title {
-            font-size: 20px;
-            font-weight: 700;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
         }
 
-        .section-count {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            padding: 5px 12px;
-            border-radius: 50px;
-            font-size: 12px;
-            color: var(--text-muted);
+        .section-title .emoji {
+            font-size: 1.75rem;
         }
 
-        /* News Grid */
-        .news-grid {
+        .cards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 20px;
-            margin-bottom: 40px;
+            gap: 1.5rem;
         }
 
-        .news-card {
+        .card {
             background: var(--bg-card);
+            border-radius: 12px;
+            padding: 1.5rem;
             border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 24px;
-            transition: all 0.3s ease;
+            transition: all 0.3s;
             cursor: pointer;
-            position: relative;
-            overflow: hidden;
         }
 
-        .news-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: var(--gradient-1);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .news-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
+        .card:hover {
+            background: var(--bg-card-hover);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
             border-color: var(--accent-blue);
         }
 
-        .news-card:hover::before {
-            opacity: 1;
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.75rem;
         }
-
-        .news-card.hidden {
-            display: none;
-        }
-
-        .card-category {
-            display: inline-block;
-            padding: 5px 12px;
-            border-radius: 50px;
-            font-size: 11px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 12px;
-        }
-
-        .category-tools { background: rgba(59, 130, 246, 0.2); color: #3b82f6; }
-        .category-models { background: rgba(139, 92, 246, 0.2); color: #8b5cf6; }
-        .category-news { background: rgba(6, 182, 212, 0.2); color: #06b6d4; }
-        .category-papers { background: rgba(16, 185, 129, 0.2); color: #10b981; }
-        .category-products { background: rgba(245, 158, 11, 0.2); color: #f59e0b; }
-        .category-funding { background: rgba(236, 72, 153, 0.2); color: #ec4899; }
-        .category-regulation { background: rgba(239, 68, 68, 0.2); color: #ef4444; }
 
         .card-title {
-            font-size: 17px;
+            font-size: 1.1rem;
             font-weight: 600;
-            margin-bottom: 10px;
+            color: var(--text-primary);
             line-height: 1.4;
         }
 
-        .card-description {
-            font-size: 14px;
-            color: var(--text-secondary);
-            margin-bottom: 15px;
-            line-height: 1.6;
+        .card-date {
+            font-size: 0.8rem;
+            color: var(--accent-blue);
+            white-space: nowrap;
+            margin-left: 1rem;
         }
 
-        .card-meta {
+        .card-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-footer {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding-top: 15px;
+            padding-top: 0.75rem;
             border-top: 1px solid var(--border-color);
         }
 
         .card-source {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 12px;
-            color: var(--text-muted);
-        }
-
-        .card-source .source-icon {
-            width: 20px;
-            height: 20px;
-            background: var(--bg-secondary);
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 10px;
-        }
-
-        .card-date {
-            font-size: 12px;
-            color: var(--text-muted);
+            font-size: 0.8rem;
+            color: var(--accent-green);
         }
 
         .card-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
             color: var(--accent-blue);
-            font-size: 13px;
-            font-weight: 500;
             text-decoration: none;
-            margin-top: 12px;
-            padding: 8px 14px;
-            background: rgba(59, 130, 246, 0.1);
-            border-radius: 8px;
-            transition: all 0.3s ease;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            transition: color 0.3s;
         }
 
         .card-link:hover {
-            background: rgba(59, 130, 246, 0.2);
+            color: var(--accent-purple);
+            text-decoration: underline;
         }
 
-        /* Sources Section */
         .sources-section {
             background: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 30px;
-            margin-top: 40px;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-top: 3rem;
         }
 
         .sources-title {
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
         }
 
-        .sources-grid {
+        .sources-list {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 15px;
+            gap: 1rem;
         }
 
         .source-item {
             background: var(--bg-card);
+            padding: 1rem;
+            border-radius: 8px;
             border: 1px solid var(--border-color);
-            border-radius: 10px;
-            padding: 15px;
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
         }
 
-        .source-number {
-            width: 28px;
-            height: 28px;
-            background: var(--accent-blue);
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            font-weight: 600;
-            flex-shrink: 0;
+        .source-item a {
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-size: 0.9rem;
+            word-break: break-all;
         }
 
-        .source-info {
-            flex: 1;
-            min-width: 0;
+        .source-item a:hover {
+            text-decoration: underline;
         }
 
         .source-name {
-            font-size: 13px;
-            font-weight: 500;
-            margin-bottom: 4px;
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
         }
 
-        .source-url {
-            font-size: 11px;
+        .hidden {
+            display: none !important;
+        }
+
+        .stats-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background: var(--bg-secondary);
+            border-radius: 12px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
             color: var(--accent-blue);
-            word-break: break-all;
-            display: block;
         }
 
-        .source-url:hover {
-            text-decoration: underline;
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
         }
 
-        /* Footer */
         .footer {
             text-align: center;
-            padding: 40px 0;
-            color: var(--text-muted);
-            font-size: 13px;
+            padding: 2rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: 3rem;
         }
 
-        .footer a {
-            color: var(--accent-blue);
-            text-decoration: none;
-        }
-
-        .footer a:hover {
-            text-decoration: underline;
-        }
-
-        /* No Results */
-        .no-results {
-            text-align: center;
-            padding: 60px 20px;
-            color: var(--text-muted);
-            display: none;
-        }
-
-        .no-results.visible {
-            display: block;
-        }
-
-        .no-results .icon {
-            font-size: 48px;
-            margin-bottom: 15px;
-        }
-
-        /* Responsive */
         @media (max-width: 768px) {
-            .container {
-                padding: 15px;
+            .header h1 {
+                font-size: 1.75rem;
             }
 
-            .header-content {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .news-grid {
+            .cards-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .main-content {
+                padding: 1rem;
             }
 
             .stats-bar {
-                grid-template-columns: 1fr;
+                gap: 1rem;
             }
 
-            .filters {
-                justify-content: center;
-            }
-
-            .sources-grid {
-                grid-template-columns: 1fr;
+            .stat-value {
+                font-size: 1.5rem;
             }
         }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .news-card {
-            animation: fadeIn 0.4s ease forwards;
-        }
-
-        .news-card:nth-child(1) { animation-delay: 0.05s; }
-        .news-card:nth-child(2) { animation-delay: 0.1s; }
-        .news-card:nth-child(3) { animation-delay: 0.15s; }
-        .news-card:nth-child(4) { animation-delay: 0.2s; }
-        .news-card:nth-child(5) { animation-delay: 0.25s; }
-        .news-card:nth-child(6) { animation-delay: 0.3s; }
     </style>
 </head>
 <body>
     <header class="header">
-        <div class="container">
-            <div class="header-content">
-                <div class="logo-section">
-                    <div class="logo">🤖</div>
-                    <div class="logo-text">
-                        <h1>AI News Report</h1>
-                        <span>Reporte Diario de Inteligencia Artificial</span>
-                    </div>
-                </div>
-                <div class="date-badge">
-                    <span class="icon">📅</span>
-                    <div>
-                        <div class="date">16 de Abril 2026</div>
-                        <div class="time">Actualizado 01:20 UTC</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <main class="container">
-        <!-- Controls -->
-        <div class="controls">
-            <div class="search-box">
-                <span class="search-icon">🔍</span>
-                <input type="text" id="searchInput" placeholder="Buscar noticias...">
+        <div class="header-content">
+            <h1>🤖 AI News Report</h1>
+            <p class="date">📅 Jueves 16 de Abril, 2026 | Última actualización: 01:52 UTC</p>
+            <div class="search-container">
+                <input type="text" class="search-box" id="searchBox" placeholder="Buscar noticias...">
             </div>
             <div class="filters">
-                <button class="filter-btn active" data-filter="all">🎯 Todos</button>
+                <button class="filter-btn active" data-filter="all">📊 Todos</button>
                 <button class="filter-btn" data-filter="tools">🆕 Herramientas</button>
                 <button class="filter-btn" data-filter="models">🤖 Modelos</button>
                 <button class="filter-btn" data-filter="news">📰 News</button>
@@ -596,881 +338,587 @@
                 <button class="filter-btn" data-filter="regulation">⚖️ Regulación</button>
             </div>
         </div>
+    </header>
 
-        <!-- Stats Bar -->
+    <main class="main-content">
         <div class="stats-bar">
-            <div class="stat-card">
-                <div class="stat-icon blue">🆕</div>
-                <div class="stat-info">
-                    <h3>8</h3>
-                    <p>Nuevas Herramientas</p>
-                </div>
+            <div class="stat-item">
+                <div class="stat-value" id="totalNews">0</div>
+                <div class="stat-label">Noticias</div>
             </div>
-            <div class="stat-card">
-                <div class="stat-icon purple">🤖</div>
-                <div class="stat-info">
-                    <h3>10+</h3>
-                    <p>Nuevos Modelos</p>
-                </div>
+            <div class="stat-item">
+                <div class="stat-value">24-48h</div>
+                <div class="stat-label">Ventana de tiempo</div>
             </div>
-            <div class="stat-card">
-                <div class="stat-icon green">📄</div>
-                <div class="stat-info">
-                    <h3>50+</h3>
-                    <p>Papers/Libraries</p>
-                </div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-icon orange">💰</div>
-                <div class="stat-info">
-                    <h3>$297B</h3>
-                    <p>Funding Q1 2026</p>
-                </div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-icon cyan">🏢</div>
-                <div class="stat-info">
-                    <h3>4</h3>
-                    <p>Major Tech Cos</p>
-                </div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-icon pink">⚖️</div>
-                <div class="stat-info">
-                    <h3>1</h3>
-                    <p>New Framework</p>
-                </div>
+            <div class="stat-item">
+                <div class="stat-value">10+</div>
+                <div class="stat-label">Fuentes</div>
             </div>
         </div>
 
-        <!-- No Results Message -->
-        <div class="no-results" id="noResults">
-            <div class="icon">🔍</div>
-            <h3>No se encontraron resultados</h3>
-            <p>Intenta con otros términos de búsqueda o cambia los filtros.</p>
-        </div>
-
-        <!-- 🆕 Nuevas Herramientas -->
-        <section class="section">
-            <div class="section-header">
-                <div class="section-icon">🆕</div>
-                <h2 class="section-title">Nuevas Herramientas</h2>
-                <span class="section-count">8 items</span>
-            </div>
-            <div class="news-grid">
-                <article class="news-card" data-category="tools">
-                    <span class="card-category category-tools">Herramientas</span>
-                    <h3 class="card-title">AI Mode en Chrome - Nueva Forma de Explorar la Web</h3>
-                    <p class="card-description">Google lanza AI Mode en Chrome, una nueva forma de explorar la web potenciada por IA generativa. Permite búsquedas más intuitivas y conversaciones contextuales.</p>
-                    <a href="https://blog.google/products-and-platforms/products/search/ai-mode-chrome/" target="_blank" class="card-link">Ver fuente →</a>
-                    <div class="card-meta">
-                        <div class="card-source">
-                            <span class="source-icon">🔵</span>
-                            Google Blog
-                        </div>
+        <section class="section" id="section-tools">
+            <h2 class="section-title"><span class="emoji">🆕</span> Nuevas Herramientas</h2>
+            <div class="cards-grid">
+                <article class="card" data-category="tools" data-search="AI Mode Chrome Google">
+                    <div class="card-header">
+                        <h3 class="card-title">Google AI Mode llega a Chrome con nueva experiencia de búsqueda</h3>
                         <span class="card-date">16 Abr 2026</span>
                     </div>
-                </article>
-
-                <article class="news-card" data-category="tools">
-                    <span class="card-category category-tools">Herramientas</span>
-                    <h3 class="card-title">Gemini App Ahora Disponible en Mac</h3>
-                    <p class="card-description">La app Gemini de Google ya está disponible para macOS, llevando la asistencia de IA directamente a usuarios de Apple.</p>
-                    <a href="https://blog.google/innovation-and-ai/products/gemini-app/gemini-app-now-on-mac-os/" target="_blank" class="card-link">Ver fuente →</a>
-                    <div class="card-meta">
-                        <div class="card-source">
-                            <span class="source-icon">🔵</span>
-                            Google Blog
-                        </div>
-                        <span class="card-date">16 Abr 2026</span>
+                    <p class="card-description">Google lanza AI Mode en Chrome, una nueva forma de explorar la web con IA. Esta funcionalidad permite a los usuarios realizar búsquedas más inteligentes y obtener respuestas contextuales directamente en el navegador.</p>
+                    <div class="card-footer">
+                        <span class="card-source">Google Blog</span>
+                        <a href="https://blog.google/products-and-platforms/products/search/ai-mode-chrome/" class="card-link" target="_blank">Ver fuente →</a>
                     </div>
                 </article>
 
-                <article class="news-card" data-category="tools">
-                    <span class="card-category category-tools">Herramientas</span>
-                    <h3 class="card-title">Imágenes Personalizadas en Gemini App</h3>
-                    <p class="card-description">Nuevas formas de crear imágenes personalizadas en la app Gemini, expandiendo las capacidades creativas de los usuarios.</p>
-                    <a href="https://blog.google/innovation-and-ai/products/gemini-app/personal-intelligence-nano-banana/" target="_blank" class="card-link">Ver fuente →</a>
-                    <div class="card-meta">
-                        <div class="card-source">
-                            <span class="source-icon">🔵</span>
-                            Google Blog
-                        </div>
-                        <span class="card-date">16 Abr 2026</span>
-                    </div>
-                </article>
-
-                <article class="news-card" data-category="tools">
-                    <span class="card-category category-tools">Herramientas</span>
-                    <h3 class="card-title">Prepay para Gemini API - Mayor Control de Gastos</h3>
-                    <p class="card-description">Google introduce opción de prepago para Gemini API, dando a developers más control sobre sus costos de uso.</p>
-                    <a href="https://blog.google/innovation-and-ai/technology/developers-tools/prepay-gemini-api/" target="_blank" class="card-link">Ver fuente →</a>
-                    <div class="card-meta">
-                        <div class="card-source">
-                            <span class="source-icon">🔵</span>
-                            Google Blog
-                        </div>
-                        <span class="card-date">15 Abr 2026</span>
-                    </div>
-                </article>
-
-                <article class="news-card" data-category="tools">
-                    <span class="card-category category-tools">Herramientas</span>
-                    <h3 class="card-title">Microsoft Copilot Researcher: Critique & Council</h3>
-                    <p class="card-description">Microsoft lanza nuevas features para Copilot Researcher que combinan GPT y Claude en secuencia para mejorar la calidad de investigación de IA.</p>
-                    <a href="https://decrypt.co/362805/microsoft-gpt-claude-work-together-ai-research" target="_blank" class="card-link">Ver fuente →</a>
-                    <div class="card-meta">
-                        <div class="card-source">
-                            <span class="source-icon">🟣</span>
-                            Decrypt
-                        </div>
-                        <span class="card-date">15 Abr 2026</span>
-                    </div>
-                </article>
-
-                <article class="news-card" data-category="tools">
-                    <span class="card-category category-tools">Herramientas</span>
-                    <h3 class="card-title">Grab Lanza 13 Features de IA en GrabX 2026</h3>
-                    <p class="card-description">Grab, super-app del sudeste asiático, reveló 13 nuevas features potenciadas por IA en su evento anual GrabX 2026 en Jakarta.</p>
-                    <a href="https://techcoffeehouse.com/2026/04/08/grab-launches-13-ai-features-at-grabx-2026/" target="_blank" class="card-link">Ver fuente →</a>
-                    <div class="card-meta">
-                        <div class="card-source">
-                            <span class="source-icon">☕</span>
-                            Tech Coffee House
-                        </div>
-                        <span class="card-date">8 Abr 2026</span>
-                    </div>
-                </article>
-
-                <article class="news-card" data-category="tools">
-                    <span class="card-category category-tools">Herramientas</span>
-                    <h3 class="card-title">JetBrains Air - Nuevo Ambiente de Desarrollo Agentico</h3>
-                    <p class="card-description">Air permite delegar tareas de código a múltiples agentes incluyendo Claude Agent, Codex, Gemini y Junie, ejecutándolos concurrentemente.</p>
-                    <a href="https://blog.jetbrains.com/research/2026/04/which-ai-coding-tools-do-developers-actually-use-at-work/" target="_blank" class="card-link">Ver fuente →</a>
-                    <div class="card-meta">
-                        <div class="card-source">
-                            <span class="source-icon">🔵</span>
-                            JetBrains Blog
-                        </div>
-                        <span class="card-date">14 Abr 2026</span>
-                    </div>
-                </article>
-
-                <article class="news-card" data-category="tools">
-                    <span class="card-category category-tools">Herramientas</span>
-                    <h3 class="card-title">GitHub Copilot Student Plan - Actualización</h3>
-                    <p class="card-description">A partir del 12 de marzo, el acceso gratuito a Copilot para estudiantes ahora se gestiona bajo el nuevo plan GitHub Copilot Student.</p>
-                    <a href="https://github.com/orgs/community/discussions/189268" target="_blank" class="card-link">Ver fuente →</a>
-                    <div class="card-meta">
-                        <div class="card-source">
-                            <span class="source-icon">🐙</span>
-                            GitHub
-                        </div>
-                        <span class="card-date">12 Mar 2026</span>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <!-- 🤖 Nuevos Modelos -->
-        <section class="section">
-            <div class="section-header">
-                <div class="section-icon">🤖</div>
-                <h2 class="section-title">Nuevos Modelos</h2>
-                <span class="section-count">10+ items</span>
-            </div>
-            <div class="news-grid">
-                <article class="news-card" data-category="models">
-                    <span class="card-category category-models">Modelos</span>
-                    <h3 class="card-title">Claude Opus 4.7 - El Último Modelo de Anthropic</h3>
-                    <p class="card-description">El nuevo modelo Opus 4.7 trae mejor performance en coding, agents, visión y tareas multi-step. Mayor thoroughness y consistencia en el trabajo importante.</p>
-                    <a href="https://www.anthropic.com/news/claude-opus-4-7" target="_blank" class="card-link">Ver fuente →</a>
-                    <div class="card-meta">
-                        <div class="card-source">
-                            <span class="source-icon">🟣</span>
-                            Anthropic
-                        </div>
-                        <span class="card-date">16 Abr 2026</span>
-                    </div>
-                </article>
-
-                <article class="news-card" data-category="models">
-                    <span class="card-category category-models">Modelos</span>
-                    <h3 class="card-title">Gemini 3.1 Flash TTS - Síntesis de Voz Expressiva</h3>
-                    <p class="card-description">Google presenta Gemini 3.1 Flash TTS, la próxima generación de síntesis de voz expresiva con IA. Disponible desde el 15 de abril.</p>
-                    <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-tts/" target="_blank" class="card-link">Ver fuente →</a>
-                    <div class="card-meta">
-                        <div class="card-source">
-                            <span class="source-icon">🔵</span>
-                            Google Blog
-                        </div>
-                        <span class="card-date">15 Abr 2026</span>
-                    </div>
-                </article>
-
-                <article class="news-card" data-category="models">
-                    <span class="card-category category-models">Modelos</span>
-                    <h3 class="card-title">Google Gemma 4 - Familia de Modelos Multimodales</h3>
-                    <p class="card-description">Gemma 4 es una familia de modelos multimodales de código abierto lanzados bajo licencia Apache 2.0. Cuatro variantes disponibles con capacidades de visión.</p>
-                    <a href="https://huggingface.co/blog/gemma4" target="_blank" class="card-link">Ver fuente →</a>
-                    <div class="card-meta">
-                        <div class="card-source">
-                            <span class="source-icon">🤗</span>
-                            Hugging Face
-                        </div>
-                        <span class="card-date">Abr 2026</span>
-                    </div>
-                </article>
-
-                <article class="news-card" data-category="models">
-                    <span class="card-category category-models">Modelos</span>
-                    <h3 class="card-title">Zhipu GLM-5.1 - Mejor que GPT-5.4 en Coding</h3>
-                    <p class="card-description">Zhipu AI open-source un modelo que superó a GPT-5.4 en coding tasks. GLM-5.1 tiene 744B parámetros MoE bajo licencia MIT.</p>
-                    <a href="https://whatllm.org/blog/new-ai-models-april-2026" target="_blank" class="card-link">Ver fuente →</a>
-                    <div class="card-meta">
-                        <div class="card-source">
-                            <span class="source-icon">📝</span>
-                            WhatLLM.org
-                        </div>
-                        <span class="card-date">Abr 2026</span>
-                    </div>
-                </article>
-
-                <article class="news-card" data-category="models">
-                    <span class="card-category category-models">Modelos</span>
-                    <h3 class="card-title">Alibaba Qwen 3.6 Plus - Coding Agéntico</h3>
-                    <p class="card-description">Qwen 3.6 Plus de Alibaba con capacidades de coding agéntico y 1M de contexto. El modelo que está sorprendiendo a las alternativas pagadas.</p>
-                    <a href="https://www.mejba.me/blog/spring-2026-ai-model-updates" target="_blank" class="card-link">Ver fuente →</a>
-                    <div class="card-meta">
-                        <div class="card-source">
-                            <span class="source-icon">📝</span>
-                            Mejba Blog
-                        </div>
-                        <span class="card-date">Abr 2026</span>
-                    </div>
-                </article>
-
-                <article class="news-card" data-category="models">
-                    <span class="card-category category-models">Modelos</span>
-                    <h3 class="card-title">Claude Mythos - Preview Gated de Anthropic</h3>
-                    <p class="card-description">Anthropic lanza Claude Mythos como preview gated. Según expertos, es una 'evolución' en lo que sabemos sobre seguridad en IA.</p>
-                    <a href="https://www.cnbc.com/video/2026/04/10/anthropics-new-ai-model-is-an-evolution-in-what-we-know-about-security-cato-networks-etay-maor.html" target="_blank" class="card-link">Ver fuente →</a>
-                    <div class="card-meta">
-                        <div class="card-source">
-                            <span class="source-icon">🔴</span>
-                            CNBC
-                        </div>
-                        <span class="card-date">10 Abr 2026</span>
-                    </div>
-                </article>
-
-                <article class="news-card" data-category="models">
-                    <span class="card-category category-models">Modelos</span>
-                    <h3 class="card-title">MiniMax M2.7 - Modelo Destacado en HF</h3>
-                    <p class="card-description">MiniMax M2.7 es uno de los tres modelos que dominan Hugging Face en abril 2026, junto con variantes de Gemma-4.</p>
-                    <a href="https://thesoogroup.com/blog/hugging-face-trending-models-april-2026-minimax-gemma-variants" target="_blank" class="card-link">Ver fuente →</a>
-                    <div class="card-meta">
-                        <div class="card-source">
-                            <span class="source-icon">📝</span>
-                            TheSOO Group
-                        </div>
-                        <span class="card-date">Abr 2026</span>
-                    </div>
-                </article>
-
-                <article class="news-card" data-category="models">
-                    <span class="card-category category-models">Modelos</span>
-                    <h3 class="card-title">Gemini Robotics-ER 1.6 - Robots Más Inteligentes</h3>
-                    <p class="card-description">Google DeepMind introduce Gemini Robotics-ER 1.6, un modelo mejorado diseñado para permitir robots realizar tareas complejas del mundo real.</p>
-                    <a href="https://decrypt.co/362805/microsoft-gpt-claude-work-together-ai-research" target="_blank" class="card-link">Ver fuente →</a>
-                    <div class="card-meta">
-                        <div class="card-source">
-                            <span class="source-icon">🟣</span>
-                            Decrypt
-                        </div>
-                        <span class="card-date">15 Abr 2026</span>
-                    </div>
-                </article>
-
-                <article class="news-card" data-category="models">
-                    <span class="card-category category-models">Modelos</span>
-                    <h3 class="card-title">PrismML Bonsai 8B - Cuantización 1-bit</h3>
-                    <p class="card-description">Nuevo modelo con cuantización de 1-bit que permite运行 modelos grandes en hardware limitado con mínima pérdida de calidad.</p>
-                    <a href="https://whatllm.org/blog/new-ai-models-april-2026" target="_blank" class="card-link">Ver fuente →</a>
-                    <div class="card-meta">
-                        <div class="card-source">
-                            <span class="source-icon">📝</span>
-                            WhatLLM.org
-                        </div>
-                        <span class="card-date">Abr 2026</span>
-                    </div>
-                </article>
-
-                <article class="news-card" data-category="models">
-                    <span class="card-category category-models">Modelos</span>
-                    <h3 class="card-title">Microsoft MAI Foundational Models</h3>
-                    <p class="card-description">Microsoft lanza modelos foundationales MAI para speech, voice e image, expandiendo su ecosistema de IA empresarial.</p>
-                    <a href="https://whatllm.org/blog/new-ai-models-april-2026" target="_blank" class="card-link">Ver fuente →</a>
-                    <div class="card-meta">
-                        <div class="card-source">
-                            <span class="source-icon">📝</span>
-                            WhatLLM.org
-                        </div>
-                        <span class="card-date">Abr 2026</span>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <!-- 📰 News -->
-        <section class="section">
-            <div class="section-header">
-                <div class="section-icon">📰</div>
-                <h2 class="section-title">News Destacadas</h2>
-                <span class="section-count">6 items</span>
-            </div>
-            <div class="news-grid">
-                <article class="news-card" data-category="news">
-                    <span class="card-category category-news">News</span>
-                    <h3 class="card-title">Anthropic Alcanza $30B Run Rate con Broadcom Deal</h3>
-                    <p class="card-description">Anthropic confirma que su revenue run rate supera los $30 mil millones, un salto impresionante desde $9B a finales de 2025. Broadcom confirma acuerdo para enviar chips Google TPU a Anthropic.</p>
-                    <a href="https://www.bloomberg.com/news/articles/2026-04-06/broadcom-confirms-deal-to-ship-google-tpu-chips-to-anthropic" target="_blank" class="card-link">Ver fuente →</a>
-                    <div class="card-meta">
-                        <div class="card-source">
-                            <span class="source-icon">🟣</span>
-                            Bloomberg
-                        </div>
-                        <span class="card-date">6 Abr 2026</span>
-                    </div>
-                </article>
-
-                <article class="news-card" data-category="news">
-                    <span class="card-category category-news">News</span>
-                    <h3 class="card-title">Sam Altman: "Sean Humildes Sobre la Superinteligencia"</h3>
-                    <p class="card-description">El CEO de OpenAI Sam Altman dice que deberíamos permanecer "humildes" sobre lo que aún no sabemos sobre la superinteligencia, señalando la incertidumbre sobre cómo funcionará.</p>
-                    <a href="https://www.instagram.com/popular/openai-anthropic-google-deepmind-news-april-2026/" target="_blank" class="card-link">Ver fuente →</a>
-                    <div class="card-meta">
-                        <div class="card-source">
-                            <span class="source-icon">📸</span>
-                            Instagram/Media
-                        </div>
-                        <span class="card-date">Abr 2026</span>
-                    </div>
-                </article>
-
-                <article class="news-card" data-category="news">
-                    <span class="card-category category-news">News</span>
-                    <h3 class="card-title">Anthropic Rechaza Ofertas de VC - Valoración $800B+</h3>
-                    <p class="card-description">Anthropic está rechazando ofertas de venture capital que la valoran en más de $800 mil millones, prefiriendo mantener independencia.</p>
-                    <a href="https://techcrunch.com/2026/04/15/anthropic-shrugs-off-vc-funding-offers-valuing-it-at-800b-for-now/" target="_blank" class="card-link">Ver fuente →</a>
-                    <div class="card-meta">
-                        <div class="card-source">
-                            <span class="source-icon">🟣</span>
-                            TechCrunch
-                        </div>
-                        <span class="card-date">15 Abr 2026</span>
-                    </div>
-                </article>
-
-                <article class="news-card" data-category="news">
-                    <span class="card-category category-news">News</span>
-                    <h3 class="card-title">Project Glasswing - Iniciativa de Seguridad de IA</h3>
-                    <p class="card-description">Nueva iniciativa que reúne a AWS, Anthropic, Apple, Broadcom, Cisco, CrowdStrike, Google, JPMorganChase, Microsoft, NVIDIA y Palo Alto Networks para asegurar software crítico.</p>
-                    <a href="https://www.anthropic.com/glasswing" target="_blank" class="card-link">Ver fuente →</a>
-                    <div class="card-meta">
-                        <div class="card-source">
-                            <span class="source-icon">🟣</span>
-                            Anthropic
-                        </div>
-                        <span class="card-date">7 Abr 2026</span>
-                    </div>
-                </article>
-
-                <article class="news-card" data-category="news">
-                    <span class="card-category category-news">News</span>
-                    <h3 class="card-title">Carrera IA 2026: OpenAI vs Google vs Anthropic</h3>
-                    <p class="card-description">La competencia entre los tres laboratorios se ha intensificado dramaticamente en 2026, con cada uno lanzando modelos cada vez más poderosos a ritmo acelerado.</p>
-                    <a href="https://qverlabs.com/blog/openai-vs-google-deepmind-vs-anthropic-2026" target="_blank" class="card-link">Ver fuente →</a>
-                    <div class="card-meta">
-                        <div class="card-source">
-                            <span class="source-icon">📝</span>
-                            QverLabs
-                        </div>
-                        <span class="card-date">Abr 2026</span>
-                    </div>
-                </article>
-
-                <article class="news-card" data-category="news">
-                    <span class="card-category category-news">News</span>
-                    <h3 class="card-title">IA Agentes en Abril 2026: De Investigación a Producción</h3>
-                    <p class="card-description">Estado actual de agentes de IA en abril 2026. La ola de agentes llegó, con focus en agentic commerce y challenges de producción.</p>
-                    <a href="https://dev.to/aibughunter/ai-agents-in-april-2026-from-research-to-production-whats-actually-happening-55oc" target="_blank" class="card-link">Ver fuente →</a>
-                    <div class="card-meta">
-                        <div class="card-source">
-                            <span class="source-icon">💻</span>
-                            DEV Community
-                        </div>
-                        <span class="card-date">16 Abr 2026</span>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <!-- 💡 Productos Destacados -->
-        <section class="section">
-            <div class="section-header">
-                <div class="section-icon">💡</div>
-                <h2 class="section-title">Productos Destacados</h2>
-                <span class="section-count">4 items</span>
-            </div>
-            <div class="news-grid">
-                <article class="news-card" data-category="products">
-                    <span class="card-category category-products">Productos</span>
-                    <h3 class="card-title">Grab - 13 Features de IA en GrabX 2026</h3>
-                    <p class="card-description">La super-app del sudeste asiático lanza múltiples features de IA en su conferencia anual, posicionándose como líder en IA móvil.</p>
-                    <a href="https://techcoffeehouse.com/2026/04/08/grab-launches-13-ai-features-at-grabx-2026/" target="_blank" class="card-link">Ver fuente →</a>
-                    <div class="card-meta">
-                        <div class="card-source">
-                            <span class="source-icon">☕</span>
-                            Tech Coffee House
-                        </div>
-                        <span class="card-date">8 Abr 2026</span>
-                    </div>
-                </article>
-
-                <article class="news-card" data-category="products">
-                    <span class="card-category category-products">Productos</span>
-                    <h3 class="card-title">JetBrains Air - Ambiente de Desarrollo Agentico</h3>
-                    <p class="card-description">Air permite delegar tareas de código a múltiples agentes de IA (Claude Agent, Codex, Gemini, Junie) y ejecutarlos concurrentemente.</p>
-                    <a href="https://blog.jetbrains.com/air/2026/03/air-launches-as-public-preview-a-new-wave-of-dev-tooling-built-on-26-years-of-experience/" target="_blank" class="card-link">Ver fuente →</a>
-                    <div class="card-meta">
-                        <div class="card-source">
-                            <span class="source-icon">🔵</span>
-                            JetBrains
-                        </div>
+                <article class="card" data-category="tools" data-search="OpenClaw agent framework AI">
+                    <div class="card-header">
+                        <h3 class="card-title">OpenClaw continúa liderando como framework open-source para AI Agents</h3>
                         <span class="card-date">Mar 2026</span>
                     </div>
-                </article>
-
-                <article class="news-card" data-category="products">
-                    <span class="card-category category-products">Productos</span>
-                    <h3 class="card-title">GitHub Copilot Student - Nuevo Plan</h3>
-                    <p class="card-description">Acceso gratuito a Copilot ahora gestionado bajo el nuevo plan GitHub Copilot Student con mejores features para educación.</p>
-                    <a href="https://github.com/orgs/community/discussions/189268" target="_blank" class="card-link">Ver fuente →</a>
-                    <div class="card-meta">
-                        <div class="card-source">
-                            <span class="source-icon">🐙</span>
-                            GitHub
-                        </div>
-                        <span class="card-date">12 Mar 2026</span>
+                    <p class="card-description">OpenClaw sigue siendo uno de los frameworks más populares para construir AI agents autónomos en 2026. Su arquitectura permite crear agentes capaces de ejecutar tareas complejas con alta fiabilidad.</p>
+                    <div class="card-footer">
+                        <span class="card-source">Kingston International College</span>
+                        <a href="https://www.facebook.com/kingstoninternationalcollegesingapore/posts/in-2026-openclaw-continues-to-generate-massive-interest-across-the-ai-landscape-/1437040091772686/" class="card-link" target="_blank">Ver fuente →</a>
                     </div>
                 </article>
 
-                <article class="news-card" data-category="products">
-                    <span class="card-category category-products">Productos</span>
-                    <h3 class="card-title">Cursor 3 - IDE que Decide No Escribir Código</h3>
-                    <p class="card-description">Cursor 3 representa un cambio paradigmático donde el IDE ahora gestiona más código automáticamente, reduciendo intervención humana.</p>
-                    <a href="https://www.mejba.me/blog/spring-2026-ai-model-updates" target="_blank" class="card-link">Ver fuente →</a>
-                    <div class="card-meta">
-                        <div class="card-source">
-                            <span class="source-icon">📝</span>
-                            Mejba Blog
-                        </div>
+                <article class="card" data-category="tools" data-search="Cursor 3 IDE AI coding">
+                    <div class="card-header">
+                        <h3 class="card-title">Cursor 3: El IDE que decide no escribir código</h3>
                         <span class="card-date">Abr 2026</span>
+                    </div>
+                    <p class="card-description">Cursor 3 revoluciona el desarrollo con capacidades agenticas avanzadas. Reemplaza 15,000 líneas de código usando Markdown skills y Git Worktrees para una experiencia más eficiente.</p>
+                    <div class="card-footer">
+                        <span class="card-source">Mejba.me</span>
+                        <a href="https://www.mejba.me/blog/spring-2026-ai-model-updates" class="card-link" target="_blank">Ver fuente →</a>
                     </div>
                 </article>
             </div>
         </section>
 
-        <!-- 💰 Funding -->
-        <section class="section">
-            <div class="section-header">
-                <div class="section-icon">💰</div>
-                <h2 class="section-title">Funding & Inversiones</h2>
-                <span class="section-count">5 items</span>
+        <section class="section" id="section-models">
+            <h2 class="section-title"><span class="emoji">🤖</span> Nuevos Modelos</h2>
+            <div class="cards-grid">
+                <article class="card" data-category="models" data-search="Google Gemma 4 multimodal Apache">
+                    <div class="card-header">
+                        <h3 class="card-title">Google Gemma 4: Familia multimodal con 4 variantes bajo Apache 2.0</h3>
+                        <span class="card-date">Abr 2026</span>
+                    </div>
+                    <p class="card-description">Google lanza Gemma 4, una familia de modelos multimodales open-source bajo licencia Apache 2.0. Incluye variantes densas y MoE, con capacidades de reasoning y soporte para múltiples frameworks.</p>
+                    <div class="card-footer">
+                        <span class="card-source">WhatLLM.org / HuggingFace</span>
+                        <a href="https://huggingface.co/blog/gemma4" class="card-link" target="_blank">Ver fuente →</a>
+                    </div>
+                </article>
+
+                <article class="card" data-category="models" data-search="Gemini 3.1 Flash TTS speech">
+                    <div class="card-header">
+                        <h3 class="card-title">Gemini 3.1 Flash TTS: Nueva generación de voz IA expresiva</h3>
+                        <span class="card-date">15 Abr 2026</span>
+                    </div>
+                    <p class="card-description">Google presenta Gemini 3.1 Flash TTS, el nuevo modelo de síntesis de voz con capacidades expresivas avanzadas. Perfecto para aplicaciones que requieren voz natural y emotiva.</p>
+                    <div class="card-footer">
+                        <span class="card-source">Google Blog</span>
+                        <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-tts/" class="card-link" target="_blank">Ver fuente →</a>
+                    </div>
+                </article>
+
+                <article class="card" data-category="models" data-search="Google Nano Banana image generation">
+                    <div class="card-header">
+                        <h3 class="card-title">Google Nano Banana 2: Generación y edición avanzada de imágenes</h3>
+                        <span class="card-date">16 Abr 2026</span>
+                    </div>
+                    <p class="card-description">Google lanza Nano Banana 2, un modelo avanzado de generación y edición de imágenes. Proporciona a los desarrolladores herramientas poderosas para crear contenido visual con IA.</p>
+                    <div class="card-footer">
+                        <span class="card-source">Medium - Provenance Report</span>
+                        <a href="https://medium.com/@provenance_report/ai-dev-intel-april-16-2026-41522b0901c1" class="card-link" target="_blank">Ver fuente →</a>
+                    </div>
+                </article>
+
+                <article class="card" data-category="models" data-search="Zhipu GLM-5.1 MIT open source coding">
+                    <div class="card-header">
+                        <h3 class="card-title">Zhipu GLM-5.1: Modelo open-source que supera a GPT-5.4 en código</h3>
+                        <span class="card-date">Abr 2026</span>
+                    </div>
+                    <p class="card-description">Zhipu AI open-source GLM-5.1 (744B MoE, licencia MIT) que logró superar a GPT-5.4 en benchmarks de coding. También disponible GLM-5V-Turbo para coding multimodal.</p>
+                    <div class="card-footer">
+                        <span class="card-source">WhatLLM.org</span>
+                        <a href="https://whatllm.org/blog/new-ai-models-april-2026" class="card-link" target="_blank">Ver fuente →</a>
+                    </div>
+                </article>
+
+                <article class="card" data-category="models" data-search="Anthropic Claude Opus 4.7 enterprise">
+                    <div class="card-header">
+                        <h3 class="card-title">Anthropic Claude Opus 4.7: Enfoque en tareas empresariales complejas</h3>
+                        <span class="card-date">Abr 2026</span>
+                    </div>
+                    <p class="card-description">Claude Opus 4.7 se centra en resolver desafíos empresariales con modelos frontier. Incluye features como auto mode y herramientas de security para vulnerabilidad research y penetration testing.</p>
+                    <div class="card-footer">
+                        <span class="card-source">AI Business</span>
+                        <a href="https://aibusiness.com/generative-ai/anthropic-releases-good-not-great-claude-opus-4-7" class="card-link" target="_blank">Ver fuente →</a>
+                    </div>
+                </article>
+
+                <article class="card" data-category="models" data-search="OpenAI Codex Spark speed">
+                    <div class="card-header">
+                        <h3 class="card-title">OpenAI Codex Spark: 1200 tokens por segundo, optimizado para velocidad</h3>
+                        <span class="card-date">Abr 2026</span>
+                    </div>
+                    <p class="card-description">OpenAI lanza Codex Spark, un modelo diseñado específicamente para velocidad, alcanzando 1200 tokens por segundo. Ideal para aplicaciones que requieren respuestas instantáneas.</p>
+                    <div class="card-footer">
+                        <span class="card-source">The New Stack / LinkedIn</span>
+                        <a href="https://thenewstack.io/openais-new-codex-spark-is-optimized-for-speed/" class="card-link" target="_blank">Ver fuente →</a>
+                    </div>
+                </article>
+
+                <article class="card" data-category="models" data-search="Alibaba Qwen 3.6 Plus agentic coding">
+                    <div class="card-header">
+                        <h3 class="card-title">Alibaba Qwen 3.6 Plus: 1M context para agentic coding</h3>
+                        <span class="card-date">Abr 2026</span>
+                    </div>
+                    <p class="card-description">Alibaba lanza Qwen 3.6 Plus con 1M tokens de context window, optimizado para agentic coding. El modelo que está "quietly embarrassing paid alternatives" según expertos.</p>
+                    <div class="card-footer">
+                        <span class="card-source">Mejba.me</span>
+                        <a href="https://www.mejba.me/blog/spring-2026-ai-model-updates" class="card-link" target="_blank">Ver fuente →</a>
+                    </div>
+                </article>
             </div>
-            <div class="news-grid">
-                <article class="news-card" data-category="funding">
-                    <span class="card-category category-funding">Funding</span>
-                    <h3 class="card-title">Q1 2026: Record $297B en Funding de Startups</h3>
-                    <p class="card-description">La inversión global en startups alcanzó $297 mil millones en Q1 2026, rompiendo todos los récords según datos de Crunchbase. IA dominó con casi dos tercios del capital.</p>
-                    <a href="https://techcrunch.com/2026/04/01/startup-funding-shatters-all-records-in-q1/" target="_blank" class="card-link">Ver fuente →</a>
-                    <div class="card-meta">
-                        <div class="card-source">
-                            <span class="source-icon">🟣</span>
-                            TechCrunch
-                        </div>
-                        <span class="card-date">1 Abr 2026</span>
+        </section>
+
+        <section class="section" id="section-news">
+            <h2 class="section-title"><span class="emoji">📰</span> News Destacadas</h2>
+            <div class="cards-grid">
+                <article class="card" data-category="news" data-search="Anthropic London expansion 800 staff">
+                    <div class="card-header">
+                        <h3 class="card-title">Anthropic revela planes de expansión major en Londres: 800 empleados</h3>
+                        <span class="card-date">16 Abr 2026</span>
+                    </div>
+                    <p class="card-description">Anthropic expande su presencia en Londres con nuevo espacio de oficina para 800 personas en Knowledge Quarter. Anuncio llega días después de que OpenAI revelara sus planes de abrir su primera oficina permanente en UK.</p>
+                    <div class="card-footer">
+                        <span class="card-source">CNBC</span>
+                        <a href="https://www.cnbc.com/amp/2026/04/16/anthropic-london-office-800-staff-openai-expansion.html" class="card-link" target="_blank">Ver fuente →</a>
                     </div>
                 </article>
 
-                <article class="news-card" data-category="funding">
-                    <span class="card-category category-funding">Funding</span>
-                    <h3 class="card-title">OpenAI: $122B Recaudados, Valoración $852B</h3>
-                    <p class="card-description">OpenAI anunció que ahora vale $852 mil millones tras recolectar $122 mil millones, superando el récord anterior de $40 mil millones.</p>
-                    <a href="https://www.nytimes.com/2026/04/01/technology/ai-companies-fund-raising-records.html" target="_blank" class="card-link">Ver fuente →</a>
-                    <div class="card-meta">
-                        <div class="card-source">
-                            <span class="source-icon">🟡</span>
-                            New York Times
-                        </div>
-                        <span class="card-date">1 Abr 2026</span>
+                <article class="card" data-category="news" data-search="OpenAI Anthropic Google DeepSeek China AI">
+                    <div class="card-header">
+                        <h3 class="card-title">OpenAI, Anthropic y Google se unen contra copias de modelos IA chinos</h3>
+                        <span class="card-date">Abr 2026</span>
+                    </div>
+                    <p class="card-description">Las tres grandes companies comparten información sobre adversarial distillation attacks a través del Frontier Model Forum. OpenAI advierte que DeepSeek descubrió "métodos sofisticados" para extraer datos de sus modelos.</p>
+                    <div class="card-footer">
+                        <span class="card-source">Let's Data Science</span>
+                        <a href="https://letsdatascience.com/blog/openai-anthropic-google-sharing-intelligence-china" class="card-link" target="_blank">Ver fuente →</a>
                     </div>
                 </article>
 
-                <article class="news-card" data-category="funding">
-                    <span class="card-category category-funding">Funding</span>
-                    <h3 class="card-title">Anthropic: $30B a Valoración $380B</h3>
-                    <p class="card-description">Anthropic levantó $30 mil millones en Series G, alcanzando una valoración de $380 mil millones. Gran año para la startup de IA safe.</p>
-                    <a href="https://techcrunch.com/2026/02/12/anthropic-raises-another-30-billion-in-series-g-with-a-new-value-of-380-billion/" target="_blank" class="card-link">Ver fuente →</a>
-                    <div class="card-meta">
-                        <div class="card-source">
-                            <span class="source-icon">🟣</span>
-                            TechCrunch
-                        </div>
+                <article class="card" data-category="news" data-search="Microsoft Copilot GPT Claude">
+                    <div class="card-header">
+                        <h3 class="card-title">Microsoft Copilot: GPT hace drafts, Claude corrige en nueva actualización</h3>
+                        <span class="card-date">Abr 2026</span>
+                    </div>
+                    <p class="card-description">Microsoft usa Claude de Anthropic para revisar el trabajo de GPT dentro del Researcher agent de Copilot. Mezcla合作关系 de la gigante tecnológica con sus socios IA antiguos y nuevos.</p>
+                    <div class="card-footer">
+                        <span class="card-source">GeekWire</span>
+                        <a href="https://www.geekwire.com/2026/gpt-drafts-claude-critiques-microsoft-blends-rival-ai-models-in-new-copilot-upgrade/" class="card-link" target="_blank">Ver fuente →</a>
+                    </div>
+                </article>
+
+                <article class="card" data-category="news" data-search="anti-AI sentiment violence protests">
+                    <div class="card-header">
+                        <h3 class="card-title">Sentimiento anti-IA crece y empieza a volverse violento</h3>
+                        <span class="card-date">16 Abr 2026</span>
+                    </div>
+                    <p class="card-description">Fortune reporta que el sentimiento anti-IA está en aumento y comenzando a volverse violento. Incluye incidentes como cócteles Molotov contra propiedades de Sam Altman.</p>
+                    <div class="card-footer">
+                        <span class="card-source">Fortune</span>
+                        <a href="https://fortune.com/2026/04/16/anti-ai-sentiment-is-rising-and-its-starting-to-turn-violent/" class="card-link" target="_blank">Ver fuente →</a>
+                    </div>
+                </article>
+
+                <article class="card" data-category="news" data-search="AI agents production April 2026">
+                    <div class="card-header">
+                        <h3 class="card-title">AI Agents en Abril 2026: De Investigación a Producción</h3>
+                        <span class="card-date">16 Abr 2026</span>
+                    </div>
+                    <p class="card-description">Guía práctica para desarrolladores sobre AI agents en Abril 2026. Desde agentic commerce hasta desafíos de producción. La pregunta ya no es "¿Deberíamos usar IA?" sino cómo implementarla.</p>
+                    <div class="card-footer">
+                        <span class="card-source">DEV Community</span>
+                        <a href="https://dev.to/aibughunter/ai-agents-in-april-2026-from-research-to-production-whats-actually-happening-55oc" class="card-link" target="_blank">Ver fuente →</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="section" id="section-products">
+            <h2 class="section-title"><span class="emoji">💡</span> Productos Destacados</h2>
+            <div class="cards-grid">
+                <article class="card" data-category="products" data-search="Gemini app MacOS Apple">
+                    <div class="card-header">
+                        <h3 class="card-title">Gemini App ahora disponible en MacOS</h3>
+                        <span class="card-date">16 Abr 2026</span>
+                    </div>
+                    <p class="card-description">Google lleva su app Gemini a MacOS, permitiendo a usuarios de Apple acceder a las capacidades de IA de Google directamente en sus computadoras Mac.</p>
+                    <div class="card-footer">
+                        <span class="card-source">Google Blog</span>
+                        <a href="https://blog.google/innovation-and-ai/products/gemini-app/gemini-app-now-on-mac-os/" class="card-link" target="_blank">Ver fuente →</a>
+                    </div>
+                </article>
+
+                <article class="card" data-category="products" data-search="Gemini personalized images AI">
+                    <div class="card-header">
+                        <h3 class="card-title">Gemini App: Nuevas formas de crear imágenes personalizadas con IA</h3>
+                        <span class="card-date">16 Abr 2026</span>
+                    </div>
+                    <p class="card-description">Google lanza nuevas funcionalidades en Gemini app para crear imágenes personalizadas. Los usuarios pueden generar contenido visual único usando IA generativa.</p>
+                    <div class="card-footer">
+                        <span class="card-source">Google Blog</span>
+                        <a href="https://blog.google/innovation-and-ai/products/gemini-app/personal-intelligence-nano-banana/" class="card-link" target="_blank">Ver fuente →</a>
+                    </div>
+                </article>
+
+                <article class="card" data-category="products" data-search="Microsoft Copilot Cowork Anthropic Claude">
+                    <div class="card-header">
+                        <h3 class="card-title">Microsoft Copilot Cowork: Claude Code para knowledge workers</h3>
+                        <span class="card-date">Mar 2026</span>
+                    </div>
+                    <p class="card-description">Microsoft trae Claude Cowork de Anthropic a Copilot, básicamente Claude Code para trabajadores del conocimiento que necesitan agentes de larga duración para completar workflows multi-step.</p>
+                    <div class="card-footer">
+                        <span class="card-source">The New Stack</span>
+                        <a href="https://thenewstack.io/microsofts-copilot-llm-team/" class="card-link" target="_blank">Ver fuente →</a>
+                    </div>
+                </article>
+
+                <article class="card" data-category="products" data-search="DeepSeek V4 geopolitical pricing">
+                    <div class="card-header">
+                        <h3 class="card-title">DeepSeek V4: El "terremoto geopolítico" que nadie está precificando</h3>
+                        <span class="card-date">Abr 2026</span>
+                    </div>
+                    <p class="card-description">DeepSeek V4 emerge como un factor geopolítico importante en el mercado de IA, con modelos que se ofrecen a precios 14x más baratos que equivalentes estadounidenses.</p>
+                    <div class="card-footer">
+                        <span class="card-source">Mejba.me</span>
+                        <a href="https://www.mejba.me/blog/spring-2026-ai-model-updates" class="card-link" target="_blank">Ver fuente →</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="section" id="section-funding">
+            <h2 class="section-title"><span class="emoji">💰</span> Funding & Inversiones</h2>
+            <div class="cards-grid">
+                <article class="card" data-category="funding" data-search="OpenAI $122B valuation $852B funding">
+                    <div class="card-header">
+                        <h3 class="card-title">OpenAI cierra ronda de $122B valorada en $852B</h3>
+                        <span class="card-date">Mar 2026</span>
+                    </div>
+                    <p class="card-description">OpenAI logró la ronda de financiamiento más grande de la historia, superando su propio récord de $40B. La compañía ahora está valorada en $852 mil millones.</p>
+                    <div class="card-footer">
+                        <span class="card-source">TechCrunch / Crunchbase</span>
+                        <a href="https://techcrunch.com/2026/04/01/startup-funding-shatters-all-records-in-q1/" class="card-link" target="_blank">Ver fuente →</a>
+                    </div>
+                </article>
+
+                <article class="card" data-category="funding" data-search="Anthropic $30B Series G $380B valuation">
+                    <div class="card-header">
+                        <h3 class="card-title">Anthropic: $30B Series G, valoración de $380B</h3>
                         <span class="card-date">Feb 2026</span>
                     </div>
-                </article>
-
-                <article class="news-card" data-category="funding">
-                    <span class="card-category category-funding">Funding</span>
-                    <h3 class="card-title">xAI: $20B en Series E - Elon Musk's Startup</h3>
-                    <p class="card-description">xAI de Elon Musk cerró una ronda de $20 mil millones en Series E, consolidándose como uno de los grandes del ecosistema IA.</p>
-                    <a href="https://techcrunch.com/2026/01/06/xai-says-it-raised-20b-in-series-e-funding/" target="_blank" class="card-link">Ver fuente →</a>
-                    <div class="card-meta">
-                        <div class="card-source">
-                            <span class="source-icon">🟣</span>
-                            TechCrunch
-                        </div>
-                        <span class="card-date">Ene 2026</span>
+                    <p class="card-description">Anthropic levanta $30 mil millones en Series G, alcanzando una valoración de $380 mil millones. La compañía rechaza ofertas de VC que la valoraban en $800B+ por ahora.</p>
+                    <div class="card-footer">
+                        <span class="card-source">TechCrunch</span>
+                        <a href="https://techcrunch.com/2026/02/12/anthropic-raises-another-30-billion-in-series-g-with-a-new-value-of-380-billion/" class="card-link" target="_blank">Ver fuente →</a>
                     </div>
                 </article>
 
-                <article class="news-card" data-category="funding">
-                    <span class="card-category category-funding">Funding</span>
-                    <h3 class="card-title">Nscale (UK): $2B Series C - AI Infrastructure</h3>
-                    <p class="card-description">Nscale anunció $2 mil millones en Series C, convirtiéndola en una de las empresas de infraestructura IA más capitalizadas de Europa.</p>
-                    <a href="https://intellizence.com/insights/startup-funding/top-startup-funding-deals-of-q1-2026-record-297-billion-raised-with-ai-dominating/" target="_blank" class="card-link">Ver fuente →</a>
-                    <div class="card-meta">
-                        <div class="card-source">
-                            <span class="source-icon">📝</span>
-                            Intellizence
-                        </div>
+                <article class="card" data-category="funding" data-search="xAI SpaceX IPO $1.75T filed April">
+                    <div class="card-header">
+                        <h3 class="card-title">xAI/SpaceX archivo para IPO de $1.75 Billones</h3>
+                        <span class="card-date">1 Abr 2026</span>
+                    </div>
+                    <p class="card-description">xAI y SpaceX presentan documentación para una IPO targets de $1.75 billones, una de las más grandes en la historia de empresas de IA y aeroespacio.</p>
+                    <div class="card-footer">
+                        <span class="card-source">AI Funding Tracker</span>
+                        <a href="https://aifundingtracker.com/top-50-ai-startups/" class="card-link" target="_blank">Ver fuente →</a>
+                    </div>
+                </article>
+
+                <article class="card" data-category="funding" data-search="Shield AI $1.5B Series G $12.7B valuation">
+                    <div class="card-header">
+                        <h3 class="card-title">Shield AI: $1.5B Series G, valorización aumenta 140% en un año</h3>
+                        <span class="card-date">Mar 2026</span>
+                    </div>
+                    <p class="card-description">Shield AI levanta $1.5B en equity más $500M en Blackstone preferred, alcanzando $12.7B de valoración. La compañía de IA para defensa incrementió su valor 140% en un año.</p>
+                    <div class="card-footer">
+                        <span class="card-source">AI Funding Tracker</span>
+                        <a href="https://aifundingtracker.com/top-50-ai-startups/" class="card-link" target="_blank">Ver fuente →</a>
+                    </div>
+                </article>
+
+                <article class="card" data-category="funding" data-search="Kandou AI $225M SoftBank Nvidia funding">
+                    <div class="card-header">
+                        <h3 class="card-title">Kandou AI: $225M en funding estratégico con SoftBank y Nvidia</h3>
                         <span class="card-date">Q1 2026</span>
                     </div>
+                    <p class="card-description">Kandou AI levanta $225M liderado por Maverick Silicon con participación de SoftBank, Synopsys, Cadence y Alchip. La empresa desarrolla tecnología para data centers de IA.</p>
+                    <div class="card-footer">
+                        <span class="card-source">Semiconductor Engineering</span>
+                        <a href="https://semiengineering.com/startup-funding-q1-2026/" class="card-link" target="_blank">Ver fuente →</a>
+                    </div>
+                </article>
+
+                <article class="card" data-category="funding" data-search="Positron AI $230M Series B QQQ funding">
+                    <div class="card-header">
+                        <h3 class="card-title">Positron AI: $230M Series B con participación de Qatar Investment Authority</h3>
+                        <span class="card-date">Q1 2026</span>
+                    </div>
+                    <p class="card-description">Positron AI cierra $230M en Series B liderado por ARENA Private Wealth, Jump Trading y Unless Management, con participación de QIA, Arm, Helena Group y otros.</p>
+                    <div class="card-footer">
+                        <span class="card-source">Semiconductor Engineering</span>
+                        <a href="https://semiengineering.com/startup-funding-q1-2026/" class="card-link" target="_blank">Ver fuente →</a>
+                    </div>
+                </article>
+
+                <article class="card" data-category="funding" data-search="Q1 2026 venture capital record $297B AI">
+                    <div class="card-header">
+                        <h3 class="card-title">Q1 2026: Inversión global en startups rompe todos los récords con $297B</h3>
+                        <span class="card-date">1 Abr 2026</span>
+                    </div>
+                    <p class="card-description">El funding global en startups alcanzó $297B en Q1 2026, rompiendo todos los récord según datos de Crunchbase. Más del 80% fue a empresas de IA en USA.</p>
+                    <div class="card-footer">
+                        <span class="card-source">Crunchbase News</span>
+                        <a href="https://news.crunchbase.com/venture/record-breaking-funding-ai-global-q1-2026/" class="card-link" target="_blank">Ver fuente →</a>
+                    </div>
                 </article>
             </div>
         </section>
 
-        <!-- ⚖️ Regulación -->
-        <section class="section">
-            <div class="section-header">
-                <div class="section-icon">⚖️</div>
-                <h2 class="section-title">Regulación & Política</h2>
-                <span class="section-count">4 items</span>
-            </div>
-            <div class="news-grid">
-                <article class="news-card" data-category="regulation">
-                    <span class="card-category category-regulation">Regulación</span>
-                    <h3 class="card-title">National AI Policy Framework - Marco Nacional de IA</h3>
-                    <p class="card-description">La Casa Blanca liberó el 20 de marzo de 2026 el Marco Nacional de Política de IA, con recomendaciones legislativas que abarcan 7 pilares incluyendo protección infantil, infraestructura, propiedad intelectual y preemption de leyes estatales.</p>
-                    <a href="https://www.whitehouse.gov/wp-content/uploads/2026/03/03.20.26-National-Policy-Framework-for-Artificial-Intelligence-Legislative-Recommendations.pdf" target="_blank" class="card-link">Ver fuente →</a>
-                    <div class="card-meta">
-                        <div class="card-source">
-                            <span class="source-icon">🏛️</span>
-                            The White House
-                        </div>
+        <section class="section" id="section-regulation">
+            <h2 class="section-title"><span class="emoji">⚖️</span> Regulación & Política</h2>
+            <div class="cards-grid">
+                <article class="card" data-category="regulation" data-search="White House National AI Policy Framework Congress">
+                    <div class="card-header">
+                        <h3 class="card-title">Casa Blanca libera National AI Policy Framework para el Congreso</h3>
                         <span class="card-date">20 Mar 2026</span>
                     </div>
-                </article>
-
-                <article class="news-card" data-category="regulation">
-                    <span class="card-category category-regulation">Regulación</span>
-                    <h3 class="card-title">Preemption de Leyes Estatales de IA</h3>
-                    <p class="card-description">El framework recomienda que el Congreso préempte leyes estatales de IA que "impongan cargas indebidas", mientras preserva autoridad estatal en áreas como protección infantil y prevención de fraude.</p>
-                    <a href="https://www.mofo.com/resources/insights/260402-trump-administration-releases-national-ai-policy-framework" target="_blank" class="card-link">Ver fuente →</a>
-                    <div class="card-meta">
-                        <div class="card-source">
-                            <span class="source-icon">📝</span>
-                            Morrison Foerster
-                        </div>
-                        <span class="card-date">Abr 2026</span>
+                    <p class="card-description">La Casa Blanca publica el National Policy Framework for Artificial Intelligence con recomendaciones legislativas. Cubre 7 pilares: child protection, AI infrastructure, intellectual property, censorship, innovation, workforce y preemption.</p>
+                    <div class="card-footer">
+                        <span class="card-source">White House / POLITICO</span>
+                        <a href="https://www.politico.com/news/2026/03/20/white-house-releases-ai-policy-blueprint-for-congress-00837354" class="card-link" target="_blank">Ver fuente →</a>
                     </div>
                 </article>
 
-                <article class="news-card" data-category="regulation">
-                    <span class="card-category category-regulation">Regulación</span>
-                    <h3 class="card-title">AI Quarterly - AI Law, Policy & Practice Review</h3>
-                    <p class="card-description">Alston & Bird publica su revisión trimestral de leyes, políticas y prácticas de IA para abril 2026, cubriendo desarrollos regulatorios clave.</p>
-                    <a href="https://www.alston.com/en/insights/publications/2026/04/ai-quarterly-april-2026" target="_blank" class="card-link">Ver fuente →</a>
-                    <div class="card-meta">
-                        <div class="card-source">
-                            <span class="source-icon">📝</span>
-                            Alston & Bird
-                        </div>
-                        <span class="card-date">Abr 2026</span>
-                    </div>
-                </article>
-
-                <article class="news-card" data-category="regulation">
-                    <span class="card-category category-regulation">Regulación</span>
-                    <h3 class="card-title">Executive Order December 2025 - Background</h3>
-                    <p class="card-description">El Executive Order "Removing Barriers to American Leadership in AI" del 11 de diciembre de 2025 inició la revisión coordinada federal de leyes estatales de IA.</p>
-                    <a href="https://www.whitehouse.gov/presidential-actions/2025/12/eliminating-state-law-obstruction-of-national-artificial-intelligence-policy/" target="_blank" class="card-link">Ver fuente →</a>
-                    <div class="card-meta">
-                        <div class="card-source">
-                            <span class="source-icon">🏛️</span>
-                            The White House
-                        </div>
-                        <span class="card-date">11 Dic 2025</span>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <!-- 🔧 Papers & Libraries -->
-        <section class="section">
-            <div class="section-header">
-                <div class="section-icon">🔧</div>
-                <h2 class="section-title">Papers & Libraries</h2>
-                <span class="section-count">5 items</span>
-            </div>
-            <div class="news-grid">
-                <article class="news-card" data-category="papers">
-                    <span class="card-category category-papers">Papers</span>
-                    <h3 class="card-title">State of Open Source on Hugging Face: Spring 2026</h3>
-                    <p class="card-description">Reporte completo sobre el estado del open source en Hugging Face. Empresas como Airbnb aumentan engagement con el ecosistema open, y modelos chinos open-source continúan creciendo.</p>
-                    <a href="https://huggingface.co/blog/huggingface/state-of-os-hf-spring-2026" target="_blank" class="card-link">Ver fuente →</a>
-                    <div class="card-meta">
-                        <div class="card-source">
-                            <span class="source-icon">🤗</span>
-                            Hugging Face
-                        </div>
-                        <span class="card-date">Feb 2026</span>
-                    </div>
-                </article>
-
-                <article class="news-card" data-category="papers">
-                    <span class="card-category category-papers">Papers</span>
-                    <h3 class="card-title">arXiv: Machine Learning Papers - Abril 2026</h3>
-                    <p class="card-description">Últimos papers de machine learning en arXiv, incluyendo avances en teoría de RL, optimización, deep learning y aplicaciones.</p>
-                    <a href="https://arxiv.org/list/stat.ML/recent" target="_blank" class="card-link">Ver fuente →</a>
-                    <div class="card-meta">
-                        <div class="card-source">
-                            <span class="source-icon">📄</span>
-                            arXiv
-                        </div>
-                        <span class="card-date">15 Abr 2026</span>
-                    </div>
-                </article>
-
-                <article class="news-card" data-category="papers">
-                    <span class="card-category category-papers">Papers</span>
-                    <h3 class="card-title">Awesome AI Agent Papers 2026</h3>
-                    <p class="card-description">Repo curado que filtra los mejores papers de agentes de IA de arXiv en 2026, para que no tengas que hacerlo tú.</p>
-                    <a href="https://github.com/VoltAgent/awesome-ai-agent-papers" target="_blank" class="card-link">Ver fuente →</a>
-                    <div class="card-meta">
-                        <div class="card-source">
-                            <span class="source-icon">🐙</span>
-                            GitHub/VoltAgent
-                        </div>
-                        <span class="card-date">Abr 2026</span>
-                    </div>
-                </article>
-
-                <article class="news-card" data-category="papers">
-                    <span class="card-category category-papers">Papers</span>
-                    <h3 class="card-title">Top 20 AI GitHub Repositories 2026</h3>
-                    <p class="card-description">Repositorios de IA más populares en GitHub en 2026, incluyendo Dify, LangChain, DeepSeek-V3 y más herramientas para desarrollo.</p>
-                    <a href="https://blog.bytebytego.com/p/top-ai-github-repositories-in-2026" target="_blank" class="card-link">Ver fuente →</a>
-                    <div class="card-meta">
-                        <div class="card-source">
-                            <span class="source-icon">📝</span>
-                            ByteByteGo
-                        </div>
+                <article class="card" data-category="regulation" data-search="federal preemption state AI laws">
+                    <div class="card-header">
+                        <h3 class="card-title">Marco propone preemption federal de leyes estatales de IA</h3>
                         <span class="card-date">Mar 2026</span>
                     </div>
+                    <p class="card-description">El framework recomienda que el Congreso preempta leyes estatales de IA que "imponen cargas indebidas", mientras preserva autoridad estatal en áreas como protección infantil y prevención de fraude.</p>
+                    <div class="card-footer">
+                        <span class="card-source">K&L Gates</span>
+                        <a href="https://www.klgates.com/White-House-Releases-National-AI-Policy-Framework-3-24-2026" class="card-link" target="_blank">Ver fuente →</a>
+                    </div>
                 </article>
 
-                <article class="news-card" data-category="papers">
-                    <span class="card-category category-papers">Papers</span>
-                    <h3 class="card-title">AI Release Week Thread - Hugging Face Collections</h3>
-                    <p class="card-description">Colecciones semanales de releases de IA en Hugging Face, documentando todos los modelos y datasets lanzados.</p>
-                    <a href="https://huggingface.co/collections/Presidentlin/ai-release-year-thread-2026" target="_blank" class="card-link">Ver fuente →</a>
-                    <div class="card-meta">
-                        <div class="card-source">
-                            <span class="source-icon">🤗</span>
-                            Hugging Face
-                        </div>
-                        <span class="card-date">14 Abr 2026</span>
+                <article class="card" data-category="regulation" data-search="AI Litigation Task Force DOJ states">
+                    <div class="card-header">
+                        <h3 class="card-title">DOJ establece AI Litigation Task Force contra leyes estatales de IA</h3>
+                        <span class="card-date">Ene 2026</span>
+                    </div>
+                    <p class="card-description">Bajo la orden ejecutiva de Trump, el Departamento de Justicia estableció un task force para identificar y desafiar leyes estatales de IA inconsistentes con política federal.</p>
+                    <div class="card-footer">
+                        <span class="card-source">Nelson Mullins</span>
+                        <a href="https://www.nelsonmullins.com/insights/blogs/ai-task-force/ai/the-white-house-releases-national-ai-legislative-framework" class="card-link" target="_blank">Ver fuente →</a>
+                    </div>
+                </article>
+
+                <article class="card" data-category="regulation" data-search="Utah AI law HB 286 New York RAISE California">
+                    <div class="card-header">
+                        <h3 class="card-title">Utah HB 286 y estados continúan considerando legislación de IA</h3>
+                        <span class="card-date">2026</span>
+                    </div>
+                    <p class="card-description">Mientras el marco federal se desarrolla, estados como Utah (HB 286), Nueva York (RAISE Act) y California (Transparency in Frontier AI Act) continúan aprobando legislación de IA.</p>
+                    <div class="card-footer">
+                        <span class="card-source">DLA Piper</span>
+                        <a href="https://knowledge.dlapiper.com/dlapiperknowledge/globalemploymentlatestdevelopments/2026/US-federal-white-house-releases-the-national-policy-framework-for-artificial-intelligence" class="card-link" target="_blank">Ver fuente →</a>
                     </div>
                 </article>
             </div>
         </section>
 
-        <!-- Sources Section -->
+        <section class="section" id="section-papers">
+            <h2 class="section-title"><span class="emoji">🔧</span> Papers & Frameworks</h2>
+            <div class="cards-grid">
+                <article class="card" data-category="papers" data-search="LangGraph CrewAI AutoGen agent frameworks comparison">
+                    <div class="card-header">
+                        <h3 class="card-title">Top AI Agent Frameworks 2026: LangGraph, CrewAI, AutoGen lideran</h3>
+                        <span class="card-date">Abr 2026</span>
+                    </div>
+                    <p class="card-description">Análisis completo de frameworks de AI agents en 2026. LangGraph y Anthropic SDK obtienen 5 estrellas en reliability, mientras CrewAI, Google ADK y OpenAI SDK被评为3 estrellas para producción.</p>
+                    <div class="card-footer">
+                        <span class="card-source">Towards AI / Medium</span>
+                        <a href="https://pub.towardsai.net/top-ai-agent-frameworks-in-2026-a-production-ready-comparison-7ba5e39ad56d" class="card-link" target="_blank">Ver fuente →</a>
+                    </div>
+                </article>
+
+                <article class="card" data-category="papers" data-search="AI agent frameworks tier list 2026 Mastra LlamaIndex">
+                    <div class="card-header">
+                        <h3 class="card-title">Best AI Agent Frameworks 2026: Comparativa completa con tier list</h3>
+                        <span class="card-date">Abr 2026</span>
+                    </div>
+                    <p class="card-description">Comparativa detallada de frameworks desde code-first (LangChain, CrewAI) hasta no-code (Dify, n8n). Incluye evaluate de producción y enterprise readiness.</p>
+                    <div class="card-footer">
+                        <span class="card-source">Data Science Collective / Medium</span>
+                        <a href="https://medium.com/data-science-collective/the-best-ai-agent-frameworks-for-2026-tier-list-b3a4362fac0d" class="card-link" target="_blank">Ver fuente →</a>
+                    </div>
+                </article>
+
+                <article class="card" data-category="papers" data-search="arxiv machine learning stat.ML April 2026">
+                    <div class="card-header">
+                        <h3 class="card-title">arxiv stat.ML: Nuevos papers de Machine Learning - Abril 2026</h3>
+                        <span class="card-date">15 Abr 2026</span>
+                    </div>
+                    <p class="card-description">Publicaciones recientes en arXiv stat.ML incluyendo papers sobre matrix-parameterized methods, manufacturing MLLMs, y nuevos avances en learning algorithms.</p>
+                    <div class="card-footer">
+                        <span class="card-source">arXiv</span>
+                        <a href="https://arxiv.org/list/stat.ML/recent" class="card-link" target="_blank">Ver fuente →</a>
+                    </div>
+                </article>
+
+                <article class="card" data-category="papers" data-search="HuggingFace transformers releases April 2026">
+                    <div class="card-header">
+                        <h3 class="card-title">HuggingFace Transformers: Releases y nuevos modelos</h3>
+                        <span class="card-date">Abr 2026</span>
+                    </div>
+                    <p class="card-description">Actualizaciones recientes de transformers library y nuevos modelos en HuggingFace. NVIDIA Nemotron-3-Nano-4B-GGUF y más modelos optimizados para inference.</p>
+                    <div class="card-footer">
+                        <span class="card-source">HuggingFace</span>
+                        <a href="https://github.com/huggingface/transformers/releases" class="card-link" target="_blank">Ver fuente →</a>
+                    </div>
+                </article>
+
+                <article class="card" data-category="papers" data-search="GitHub top AI repositories 2026 Dify LangChain">
+                    <div class="card-header">
+                        <h3 class="card-title">Top AI GitHub Repositories 2026: Dify, LangChain, DeepSeek</h3>
+                        <span class="card-date">Abr 2026</span>
+                    </div>
+                    <p class="card-description">Los repos de IA más populares en GitHub 2026 incluyen Dify (agentic workflow platform), LangChain (multi-agent systems), DeepSeek-V3, y más herramientas para desarrollo de AI.</p>
+                    <div class="card-footer">
+                        <span class="card-source">ByteByteGo</span>
+                        <a href="https://blog.bytebytego.com/p/top-ai-github-repositories-in-2026" class="card-link" target="_blank">Ver fuente →</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
         <section class="sources-section">
-            <h2 class="sources-title">📚 Fuentes del Reporte</h2>
-            <div class="sources-grid">
+            <h2 class="sources-title">📚 Fuentes</h2>
+            <div class="sources-list">
                 <div class="source-item">
-                    <span class="source-number">1</span>
-                    <div class="source-info">
-                        <div class="source-name">Google Blog - AI Updates March 2026</div>
-                        <a href="https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-march-2026/" target="_blank" class="source-url">blog.google/innovation-and-ai/technology/ai/google-ai-updates-march-2026</a>
-                    </div>
+                    <a href="https://blog.google/">Google Blog</a>
+                    <div class="source-name">Blog oficial de Google con actualizaciones de productos IA</div>
                 </div>
                 <div class="source-item">
-                    <span class="source-number">2</span>
-                    <div class="source-info">
-                        <div class="source-name">Anthropic News</div>
-                        <a href="https://www.anthropic.com/news" target="_blank" class="source-url">anthropic.com/news</a>
-                    </div>
+                    <a href="https://www.cnbc.com/">CNBC</a>
+                    <div class="source-name">Noticias de negocios y tecnología</div>
                 </div>
                 <div class="source-item">
-                    <span class="source-number">3</span>
-                    <div class="source-info">
-                        <div class="source-name">TechCrunch - Startup Funding Q1 2026</div>
-                        <a href="https://techcrunch.com/2026/04/01/startup-funding-shatters-all-records-in-q1/" target="_blank" class="source-url">techcrunch.com/2026/04/01/startup-funding-shatters-all-records-in-q1</a>
-                    </div>
+                    <a href="https://techcrunch.com/">TechCrunch</a>
+                    <div class="source-name">Startup y venture capital news</div>
                 </div>
                 <div class="source-item">
-                    <span class="source-number">4</span>
-                    <div class="source-info">
-                        <div class="source-name">Bloomberg - Anthropic Broadcom Deal</div>
-                        <a href="https://www.bloomberg.com/news/articles/2026-04-06/broadcom-confirms-deal-to-ship-google-tpu-chips-to-anthropic" target="_blank" class="source-url">bloomberg.com/news/articles/2026-04-06/broadcom-confirms-deal</a>
-                    </div>
+                    <a href="https://fortune.com/">Fortune</a>
+                    <div class="source-name">Business y tecnología</div>
                 </div>
                 <div class="source-item">
-                    <span class="source-number">5</span>
-                    <div class="source-info">
-                        <div class="source-name">New York Times - AI Companies Fund Raising</div>
-                        <a href="https://www.nytimes.com/2026/04/01/technology/ai-companies-fund-raising-records.html" target="_blank" class="source-url">nytimes.com/2026/04/01/technology/ai-companies-fund-raising-records</a>
-                    </div>
+                    <a href="https://huggingface.co/blog">HuggingFace Blog</a>
+                    <div class="source-name">Modelos y datasets de IA</div>
                 </div>
                 <div class="source-item">
-                    <span class="source-number">6</span>
-                    <div class="source-info">
-                        <div class="source-name">Hugging Face Blog - Gemma 4</div>
-                        <a href="https://huggingface.co/blog/gemma4" target="_blank" class="source-url">huggingface.co/blog/gemma4</a>
-                    </div>
+                    <a href="https://arxiv.org/">arXiv</a>
+                    <div class="source-name">Preprints de investigación en IA y ML</div>
                 </div>
                 <div class="source-item">
-                    <span class="source-number">7</span>
-                    <div class="source-info">
-                        <div class="source-name">WhatLLM.org - New AI Models April 2026</div>
-                        <a href="https://whatllm.org/blog/new-ai-models-april-2026" target="_blank" class="source-url">whatllm.org/blog/new-ai-models-april-2026</a>
-                    </div>
+                    <a href="https://github.com/">GitHub</a>
+                    <div class="source-name">Repositorios de código y proyectos OSS</div>
                 </div>
                 <div class="source-item">
-                    <span class="source-number">8</span>
-                    <div class="source-info">
-                        <div class="source-name">The White House - National AI Framework</div>
-                        <a href="https://www.whitehouse.gov/wp-content/uploads/2026/03/03.20.26-National-Policy-Framework-for-Artificial-Intelligence-Legislative-Recommendations.pdf" target="_blank" class="source-url">whitehouse.gov - National AI Policy Framework PDF</a>
-                    </div>
+                    <a href="https://www.geekwire.com/">GeekWire</a>
+                    <div class="source-name">Tecnología y negocios en Pacific Northwest</div>
                 </div>
                 <div class="source-item">
-                    <span class="source-number">9</span>
-                    <div class="source-info">
-                        <div class="source-name">arXiv - Machine Learning</div>
-                        <a href="https://arxiv.org/list/stat.ML/recent" target="_blank" class="source-url">arxiv.org/list/stat.ML/recent</a>
-                    </div>
+                    <a href="https://www.alston.com/en/insights/publications/2026/04/ai-quarterly-april-2026">Alston & Bird AI Quarterly</a>
+                    <div class="source-name">Revisión de ley y política de IA - Abril 2026</div>
                 </div>
                 <div class="source-item">
-                    <span class="source-number">10</span>
-                    <div class="source-info">
-                        <div class="source-name">ByteByteGo - Top AI GitHub Repositories</div>
-                        <a href="https://blog.bytebytego.com/p/top-ai-github-repositories-in-2026" target="_blank" class="source-url">blog.bytebytego.com/p/top-ai-github-repositories-in-2026</a>
-                    </div>
+                    <a href="https://news.crunchbase.com/venture/record-breaking-funding-ai-global-q1-2026/">Crunchbase News</a>
+                    <div class="source-name">Datos de funding y venture capital</div>
                 </div>
                 <div class="source-item">
-                    <span class="source-number">11</span>
-                    <div class="source-info">
-                        <div class="source-name">Decrypt - Microsoft GPT Claude Research</div>
-                        <a href="https://decrypt.co/362805/microsoft-gpt-claude-work-together-ai-research" target="_blank" class="source-url">decrypt.co/362805/microsoft-gpt-claude-work-together-ai-research</a>
-                    </div>
+                    <a href="https://aifundingtracker.com/top-50-ai-startups/">AI Funding Tracker</a>
+                    <div class="source-name">Tracking de inversiones en startups de IA</div>
                 </div>
                 <div class="source-item">
-                    <span class="source-number">12</span>
-                    <div class="source-info">
-                        <div class="source-name">JetBrains Blog - AI Coding Tools Survey</div>
-                        <a href="https://blog.jetbrains.com/research/2026/04/which-ai-coding-tools-do-developers-actually-use-at-work/" target="_blank" class="source-url">blog.jetbrains.com/research/2026/04/which-ai-coding-tools</a>
-                    </div>
-                </div>
-                <div class="source-item">
-                    <span class="source-number">13</span>
-                    <div class="source-info">
-                        <div class="source-name">GitHub Community - Copilot Student Update</div>
-                        <a href="https://github.com/orgs/community/discussions/189268" target="_blank" class="source-url">github.com/orgs/community/discussions/189268</a>
-                    </div>
-                </div>
-                <div class="source-item">
-                    <span class="source-number">14</span>
-                    <div class="source-info">
-                        <div class="source-name">CNBC - Anthropic AI Model Security</div>
-                        <a href="https://www.cnbc.com/video/2026/04/10/anthropics-new-ai-model-is-an-evolution-in-what-we-know-about-security-cato-networks-etay-maor.html" target="_blank" class="source-url">cnbc.com - Anthropic Mythos</a>
-                    </div>
-                </div>
-                <div class="source-item">
-                    <span class="source-number">15</span>
-                    <div class="source-info">
-                        <div class="source-name">QverLabs - OpenAI vs Google vs Anthropic 2026</div>
-                        <a href="https://qverlabs.com/blog/openai-vs-google-deepmind-vs-anthropic-2026" target="_blank" class="source-url">qverlabs.com/blog/openai-vs-google-deepmind-vs-anthropic-2026</a>
-                    </div>
+                    <a href="https://www.politico.com/news/2026/03/20/white-house-releases-ai-policy-blueprint-for-congress-00837354">POLITICO</a>
+                    <div class="source-name">Política y gobierno</div>
                 </div>
             </div>
         </section>
-
-        <footer class="footer">
-            <p>Reporte generado automáticamente por Logos AI</p>
-            <p>Fecha: 16 de Abril 2026 | Fuentes: Múltiples</p>
-        </footer>
     </main>
 
+    <footer class="footer">
+        <p>AI News Report | Generado automáticamente | Datos de últimas 24-48 horas</p>
+        <p>Socio Labs | 16 de Abril 2026</p>
+    </footer>
+
     <script>
-        // Search functionality
-        const searchInput = document.getElementById('searchInput');
-        const newsCards = document.querySelectorAll('.news-card');
-        const noResults = document.getElementById('noResults');
-        const filterBtns = document.querySelectorAll('.filter-btn');
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const cards = document.querySelectorAll('.card');
+            const searchBox = document.getElementById('searchBox');
 
-        let activeFilter = 'all';
+            // Update stats
+            document.getElementById('totalNews').textContent = cards.length;
 
-        function filterCards() {
-            const searchTerm = searchInput.value.toLowerCase();
-            let visibleCount = 0;
+            // Filter functionality
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
 
-            newsCards.forEach(card => {
-                const title = card.querySelector('.card-title').textContent.toLowerCase();
-                const description = card.querySelector('.card-description').textContent.toLowerCase();
-                const category = card.dataset.category;
+                    const filter = this.dataset.filter;
 
-                const matchesSearch = title.includes(searchTerm) || description.includes(searchTerm);
-                const matchesFilter = activeFilter === 'all' || category === activeFilter;
-
-                if (matchesSearch && matchesFilter) {
-                    card.classList.remove('hidden');
-                    visibleCount++;
-                } else {
-                    card.classList.add('hidden');
-                }
+                    cards.forEach(card => {
+                        if (filter === 'all' || card.dataset.category === filter) {
+                            card.classList.remove('hidden');
+                        } else {
+                            card.classList.add('hidden');
+                        }
+                    });
+                });
             });
 
-            noResults.classList.toggle('visible', visibleCount === 0);
-        }
+            // Search functionality
+            searchBox.addEventListener('input', function() {
+                const query = this.value.toLowerCase();
 
-        searchInput.addEventListener('input', filterCards);
+                cards.forEach(card => {
+                    const searchText = card.dataset.search.toLowerCase();
+                    const title = card.querySelector('.card-title').textContent.toLowerCase();
+                    const description = card.querySelector('.card-description').textContent.toLowerCase();
 
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
+                    if (query === '' || searchText.includes(query) || title.includes(query) || description.includes(query)) {
+                        card.classList.remove('hidden');
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+
+                // Reset filter buttons
                 filterBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                activeFilter = btn.dataset.filter;
-                filterCards();
+                document.querySelector('[data-filter="all"]').classList.add('active');
             });
         });
-
-        // Initial count
-        filterCards();
     </script>
 </body>
 </html>
