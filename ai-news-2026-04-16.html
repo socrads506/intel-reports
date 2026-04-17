@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI News Report - 16 Abril 2026</title>
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a25;
+            --bg-card-hover: #222233;
+            --accent-blue: #3b82f6;
+            --accent-purple: #8b5cf6;
+            --accent-green: #10b981;
+            --accent-orange: #f59e0b;
+            --accent-red: #ef4444;
+            --accent-pink: #ec4899;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --border: #2a2a3a;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+        
+        .container { max-width: 1400px; margin: 0 auto; padding: 20px; }
+        
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 30px;
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+        
+        .report-date {
+            color: var(--accent-green);
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        
+        .report-meta {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+        
+        .controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+        
+        .search-box {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .search-box input {
+            width: 100%;
+            padding: 12px 16px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-size: 1rem;
+        }
+        
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+        }
+        
+        .filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .filter-btn {
+            padding: 10px 18px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--accent-blue);
+            color: white;
+            border-color: var(--accent-blue);
+        }
+        
+        .stats {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .stat-card {
+            background: var(--bg-secondary);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            flex: 1;
+            min-width: 150px;
+        }
+        
+        .stat-card .number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent-blue);
+        }
+        
+        .stat-card .label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-4px);
+            background: var(--bg-card-hover);
+            border-color: var(--accent-blue);
+            box-shadow: 0 10px 40px rgba(59, 130, 246, 0.1);
+        }
+        
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+        
+        .card-category {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .cat-tools { background: rgba(59, 130, 246, 0.2); color: var(--accent-blue); }
+        .cat-models { background: rgba(139, 92, 246, 0.2); color: var(--accent-purple); }
+        .cat-news { background: rgba(16, 185, 129, 0.2); color: var(--accent-green); }
+        .cat-papers { background: rgba(245, 158, 11, 0.2); color: var(--accent-orange); }
+        .cat-products { background: rgba(236, 72, 153, 0.2); color: var(--accent-pink); }
+        .cat-funding { background: rgba(16, 185, 129, 0.2); color: var(--accent-green); }
+        .cat-regulation { background: rgba(239, 68, 68, 0.2); color: var(--accent-red); }
+        
+        .card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: var(--text-primary);
+        }
+        
+        .card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+        
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 15px;
+            border-top: 1px solid var(--border);
+        }
+        
+        .source {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+        
+        .source a {
+            color: var(--accent-blue);
+            text-decoration: none;
+        }
+        
+        .source a:hover { text-decoration: underline; }
+        
+        .card-date {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+        
+        section { margin-bottom: 50px; }
+        
+        section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--accent-blue);
+        }
+        
+        .sources-section {
+            background: var(--bg-secondary);
+            padding: 30px;
+            border-radius: 12px;
+            margin-top: 40px;
+        }
+        
+        .sources-section h2 { border-bottom: none; margin-bottom: 20px; }
+        
+        .sources-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 10px;
+        }
+        
+        .sources-list a {
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 8px 12px;
+            background: var(--bg-card);
+            border-radius: 6px;
+            display: block;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        
+        .sources-list a:hover { background: var(--bg-card-hover); }
+        
+        .no-results {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-secondary);
+        }
+        
+        @media (max-width: 768px) {
+            header h1 { font-size: 1.8rem; }
+            .grid { grid-template-columns: 1fr; }
+            .controls { flex-direction: column; }
+            .stats { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🤖 AI News Report</h1>
+        <div class="report-date">📅 16 de Abril, 2026</div>
+        <div class="report-meta">Reporte de las últimas 24-48 horas • Fuentes verificadas</div>
+    </header>
+    
+    <div class="container">
+        <div class="controls">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="🔍 Buscar noticias...">
+            </div>
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="models">🤖 Modelos</button>
+                <button class="filter-btn" data-filter="tools">🆕 Herramientas</button>
+                <button class="filter-btn" data-filter="news">📰 News</button>
+                <button class="filter-btn" data-filter="products">💡 Productos</button>
+                <button class="filter-btn" data-filter="funding">💰 Funding</button>
+                <button class="filter-btn" data-filter="regulation">⚖️ Regulación</button>
+            </div>
+        </div>
+        
+        <div class="stats">
+            <div class="stat-card"><div class="number" id="totalCount">0</div><div class="label">Total Noticias</div></div>
+            <div class="stat-card"><div class="number" id="modelCount">0</div><div class="label">Modelos</div></div>
+            <div class="stat-card"><div class="number" id="toolCount">0</div><div class="label">Herramientas</div></div>
+            <div class="stat-card"><div class="number" id="fundingCount">0</div><div class="label">Funding</div></div>
+        </div>
+        
+        <div class="grid" id="newsGrid"></div>
+        
+        <div class="sources-section">
+            <h2>📚 Fuentes</h2>
+            <div class="sources-list" id="sourcesList"></div>
+        </div>
+    </div>
+    
+    <script>
+        const news = [
+            {
+                category: "models",
+                title: "Google Gemini 3.1 Flash TTS - Síntesis de Voz Expressiva",
+                description: "Google lanzó Gemini 3.1 Flash TTS, la próxima generación de síntesis de voz IA con capacidades expresivas avanzadas. El modelo ofrece voz natural con emociones y tonos realistas.",
+                source: "Google Blog",
+                url: "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-tts/",
+                date: "15 Abr 2026"
+            },
+            {
+                category: "models",
+                title: "Anthropic Claude Opus 4.7 - Rendimiento Mejorado",
+                description: "Anthropic lanzó Claude Opus 4.7, el último modelo de la familia Opus. Mejora significativa en coding, agentes, visión y tareas multi-paso con mayor consistencia.",
+                source: "Anthropic News",
+                url: "https://www.anthropic.com/news/claude-opus-4-7",
+                date: "16 Abr 2026"
+            },
+            {
+                category: "models",
+                title: "Google AI Mode en Chrome - Búsqueda con IA",
+                description: "Google lanzó AI Mode en Chrome, una nueva forma de explorar la web utilizando inteligencia artificial directamente en el navegador.",
+                source: "Google Blog",
+                url: "https://blog.google/products-and-platforms/products/search/ai-mode-chrome/",
+                date: "16 Abr 2026"
+            },
+            {
+                category: "products",
+                title: "Gemini App Ahora Disponible en MacOS",
+                description: "La aplicación Gemini de Google ya está disponible para MacOS, permitiendo a los usuarios acceder a las capacidades del modelo de Google en escritorio Apple.",
+                source: "Google Blog",
+                url: "https://blog.google/innovation-and-ai/products/gemini-app/gemini-app-now-on-mac-os/",
+                date: "16 Abr 2026"
+            },
+            {
+                category: "products",
+                title: "Google Nano Banana 2 - Generación de Imágenes",
+                description: "Google lanzó Nano Banana 2, modelo avanzado de generación y edición de imágenes. Proporciona a desarrolladores capacidades de imagen de última generación.",
+                source: "Medium - Provenance Report",
+                url: "https://medium.com/@provenance_report/ai-dev-intel-april-16-2026-41522b0901c1",
+                date: "16 Abr 2026"
+            },
+            {
+                category: "products",
+                title: "Google Prepay para Gemini API",
+                description: "Google introdujo opción de prepago para Gemini API, dando a los desarrolladores más control sobre sus gastos en la plataforma.",
+                source: "Google Blog",
+                url: "https://blog.google/innovation-and-ai/technology/developers-tools/prepay-gemini-api/",
+                date: "15 Abr 2026"
+            },
+            {
+                category: "models",
+                title: "OpenAI Codex - Para Casi Todo",
+                description: "OpenAI lanzó Codex, orientado a tareas de codificación empresarial. El modelo está disponible como producto empresarial para automatizar procesos de desarrollo.",
+                source: "OpenAI News",
+                url: "https://openai.com/index/codex-for-almost-everything/",
+                date: "16 Abr 2026"
+            },
+            {
+                category: "models",
+                title: "GPT-5.3 Instant y Codex - Actualización de Abril",
+                description: "OpenAI lanzó GPT-5.3 Instant y GPT-5.3-Codex como parte de su línea de productos. Ambos modelos disponibles en la plataforma de desarrollo.",
+                source: "OpenAI News",
+                url: "https://openai.com/index/introducing-gpt-5-3-codex/",
+                date: "16 Abr 2026"
+            },
+            {
+                category: "funding",
+                title: "Q1 2026: $297 Billones en Funding de Startups - Récord Histórico",
+                description: "La inversión global en startups alcanzó $297 mil millones en Q1 2026, rompiendo todos los récords. El 65% del VC global fue a solo 4 companies: OpenAI, Anthropic, xAI y Waymo.",
+                source: "TechCrunch",
+                url: "https://techcrunch.com/2026/04/01/startup-funding-shatters-all-records-in-q1/",
+                date: "1 Abr 2026"
+            },
+            {
+                category: "funding",
+                title: "OpenAI: $122 Billones de Funding - Valoración $852B",
+                description: "OpenAI anunció una ronda de $122 mil millones, alcanzando valoración de $852 mil millones. Es la ronda de funding más grande de la historia, superando su propio récord anterior de $40B.",
+                source: "TechCrunch",
+                url: "https://techcrunch.com/2026/04/01/startup-funding-shatters-all-records-in-q1/",
+                date: "1 Abr 2026"
+            },
+            {
+                category: "funding",
+                title: "Anthropic Recibe $30 Billones - Valoración $380B",
+                description: "Anthropic levantó $30 mil millones en Series G con nueva valoración de $380 mil millones. La compañía rechazó ofertas de VC por $800B+.",
+                source: "TechCrunch",
+                url: "https://techcrunch.com/2026/02/12/anthropic-raises-another-30-billion-in-series-g-with-a-new-value-of-380-billion/",
+                date: "12 Feb 2026"
+            },
+            {
+                category: "funding",
+                title: "Ricursive Intelligence: $300 Millones en Series A",
+                description: "Ricursive Intelligence levantó $300M en Series A liderado por Lightspeed Venture Partners, con participación de DST Global, NVIDIA NVentures, Felicis Ventures y Sequoia Capital.",
+                source: "Semiconductor Engineering",
+                url: "https://semiengineering.com/startup-funding-q1-2026/",
+                date: "Q1 2026"
+            },
+            {
+                category: "funding",
+                title: "Positron AI: $230 Millones en Series B",
+                description: "Positron AI cerró $230M en Series B liderado por ARENA Private Wealth, Jump Trading y Unless Management, con participación de Qatar Investment Authority y Arm.",
+                source: "Semiconductor Engineering",
+                url: "https://semiengineering.com/startup-funding-q1-2026/",
+                date: "Q1 2026"
+            },
+            {
+                category: "funding",
+                title: "Upscale AI: $200 Millones en Series A",
+                description: "Upscale AI levantó $200M en Series A liderado por Tiger Global, Premji Invest y Xora Innovation, con participación de Intel Capital y Qualcomm Ventures.",
+                source: "Semiconductor Engineering",
+                url: "https://semiengineering.com/startup-funding-q1-2026/",
+                date: "Q1 2026"
+            },
+            {
+                category: "news",
+                title: "OpenAI, Anthropic y Google: Alianza Contra Model Distillation de China",
+                description: "Las tres principales empresas de IA están compartiendo información sobre ataques de destilación adversa a través del Frontier Model Forum. OpenAI acusó a DeepSeek de intentar 'free-ride' en capacidades de labs estadounidenses.",
+                source: "Let's Data Science",
+                url: "https://letsdatascience.com/blog/openai-anthropic-google-sharing-intelligence-china",
+                date: "Abr 2026"
+            },
+            {
+                category: "news",
+                title: "Anthropic Adquiere Coefficient Bio por ~$400M",
+                description: "Anthropic compró la startup de biotech Coefficient Bio por aproximadamente $400 millones en un deal de acciones. La startup de solo 8 meses se enfocaba en drug discovery con IA.",
+                source: "Instagram - @welomoney",
+                url: "https://www.instagram.com/popular/openai-anthropic-google-deepmind-ai-news-april-2026/",
+                date: "Abr 2026"
+            },
+            {
+                category: "news",
+                title: "Anthropic Expande Sociedad con Google y Broadcom para Compute",
+                description: "Anthropic anunció expansión de sociedad con Google y Broadcom para aumentar capacidad de compute. La compañía busca manejar mayor demanda de sus modelos.",
+                source: "Anthropic News",
+                url: "https://www.anthropic.com/news/google-broadcom-partnership-compute",
+                date: "Abr 2026"
+            },
+            {
+                category: "regulation",
+                title: "Marco Nacional de Política de IA - Casa Blanca",
+                description: "La Casa Blanca lanzó el Marco Nacional de Política de IA el 20 de marzo de 2026, recomendando legislación para crear un sistema unificado de gobernanza de IA en lugar de reglas estatales fragmentadas.",
+                source: "White House",
+                url: "https://www.whitehouse.gov/releases/2026/03/president-donald-j-trump-unveils-national-ai-legislative-framework/",
+                date: "20 Mar 2026"
+            },
+            {
+                category: "regulation",
+                title: "Preemption de Leyes Estatales de IA",
+                description: "El marco recomienda al Congreso preemptar leyes estatales de IA que 'impongan cargas indebidas', mientras preserva autoridad estatal en áreas como protección infantil, fraude y poderes de policía.",
+                source: "Ropes & Gray",
+                url: "https://www.ropesgray.com/en/insights/alerts/2026/03/the-white-house-legislative-recommendations-national-policy-framework-for-artificial-intelligence-an",
+                date: "Mar 2026"
+            },
+            {
+                category: "regulation",
+                title: "AI Quarterly - Revisión de Ley, Política y Práctica | Abril 2026",
+                description: "Alston & Bird publicó revisión trimestral de IA cubriendo desarrollos en ley, política y práctica de IA para Abril 2026.",
+                source: "Alston & Bird",
+                url: "https://www.alston.com/en/insights/publications/2026/04/ai-quarterly-april-2026",
+                date: "Abr 2026"
+            },
+            {
+                category: "products",
+                title: "OpenAI Adquiere TBPN por 'Cientos de Millones'",
+                description: "OpenAI compró TBPN (Technology Business Programming Network) por una cantidad en 'cientos de millones'. La empresa dijo que necesitaba 'crear espacio para conversación constructiva' sobre IA.",
+                source: "Fortune",
+                url: "https://fortune.com/2026/04/07/openai-drama-sam-altman-ipo-anthropic-cybersecurity-risks-eye-on-ai/",
+                date: "7 Abr 2026"
+            },
+            {
+                category: "news",
+                title: "Mercor Confirma Brecha de Datos Masiva",
+                description: "Mercor, startup de IA valorada en $10 mil millones que trabaja con OpenAI y Anthropic, confirmó una brecha de seguridad mayor affecting datos de usuarios.",
+                source: "Fortune",
+                url: "https://fortune.com/2026/04/02/mercor-ai-startup-security-incident-10-billion/",
+                date: "2 Abr 2026"
+            },
+            {
+                category: "products",
+                title: "Google Imágenes Personalizadas en Gemini App",
+                description: "Google introdujo nuevas formas de crear imágenes personalizadas en la app Gemini, expandiendo capacidades de generación visual del modelo.",
+                source: "Google Blog",
+                url: "https://blog.google/innovation-and-ai/products/gemini-app/personal-intelligence-nano-banana/",
+                date: "16 Abr 2026"
+            },
+            {
+                category: "tools",
+                title: "AI Agents en Abril 2026: De Investigación a Producción",
+                description: "Análisis exhaustivo del estado de AI agents en Abril 2026. La onda de agentes llegó - desde comercio agentico hasta desafíos de producción.",
+                source: "DEV Community",
+                url: "https://dev.to/aibughunter/ai-agents-in-april-2026-from-research-to-production-whats-actually-happening-55oc",
+                date: "16 Abr 2026"
+            },
+            {
+                category: "tools",
+                title: "LangGraph: Mejor Framework de AI Agents para 2026",
+                description: "LangGraph es评选为2026年最佳AI代理框架，适用于严肃开发者。它不是最快设置的，但是是最可靠的系统之一。",
+                source: "AlphaCorp AI",
+                url: "https://alphacorp.ai/blog/the-8-best-ai-agent-frameworks-in-2026-a-developers-guide",
+                date: "2026"
+            },
+            {
+                category: "funding",
+                title: "Kandou AI: $225 Millones en Strategic Funding",
+                description: "Kandou AI levantó $225M en funding estratégico liderado por Maverick Silicon con participación de SoftBank, Synopsys, Cadence Design Systems y Alchip Technologies.",
+                source: "Semiconductor Engineering",
+                url: "https://semiengineering.com/startup-funding-q1-2026/",
+                date: "Q1 2026"
+            },
+            {
+                category: "funding",
+                title: "xAI: $20 Billones en Series E",
+                description: "xAI de Elon Musk levantó $20 mil millones en Series E, una de las mega-rounds más grandes del trimestre.",
+                source: "TechCrunch",
+                url: "https://techcrunch.com/2026/01/06/xai-says-it-raised-20b-in-series-e-funding/",
+                date: "6 Ene 2026"
+            },
+            {
+                category: "funding",
+                title: "Waymo: $16 Billones para Escalar Flota Robotaxi",
+                description: "Waymo levantó $16 mil millones para escalar su flota de robotaxi en Londres y Tokio, expandiendo presencia global.",
+                source: "TechCrunch",
+                url: "https://techcrunch.com/2026/02/02/waymo-raises-16-billion-round-to-scale-robotaxi-fleet-london-tokyo/",
+                date: "2 Feb 2026"
+            },
+            {
+                category: "news",
+                title: "AI Agents Go Production-Ready - Abril 2026",
+                description: "Los AI agents están pasando de investigación a producción. El panorama de agentes incluye OpenClaw Earn, starter kits y nuevos estándares de deployment.",
+                source: "AI Agent Store",
+                url: "https://aiagentstore.ai/ai-agent-news/2026-april",
+                date: "Abr 2026"
+            },
+            {
+                category: "news",
+                title: "MiniMax M2.7: Modelo Trending en HuggingFace",
+                description: "MiniMax M2.7 es uno de los tres modelos que dominan HuggingFace en Abril 2026, junto con variantes de Gemma-4.",
+                source: "The Soo Group",
+                url: "https://thesoogroup.com/blog/hugging-face-trending-models-april-2026-minimax-gemma-variants",
+                date: "Abr 2026"
+            },
+            {
+                category: "products",
+                title: "Meta Muse Spark: Nuevo Modelo de IA Propietario",
+                description: "Meta debutó Muse Spark, su primer modelo mayor de IA desde el deal de $14 mil millones con Alexandr Wang. El modelo será propietario pero 'hope to open-source future versions'.",
+                source: "CNBC",
+                url: "https://www.cnbc.com/2026/04/08/meta-debuts-first-major-ai-model-since-14-billion-deal-to-bring-in-alexandr-wang.html",
+                date: "8 Abr 2026"
+            },
+            {
+                category: "news",
+                title: "Spring 2026 AI Updates: 7 Lanzamientos que Cambian Todo",
+                description: "Review de los 7 principales lanzamientos de IA en Spring 2026: OpenAI 'Spud', GPT Image 2, Anthropic's Conway, Cursor 3, DeepSeek V4, Google Gemma 4, y Alibaba Qwen 3.6 Plus.",
+                source: "Mejba",
+                url: "https://www.mejba.me/blog/spring-2026-ai-model-updates",
+                date: "Abr 2026"
+            },
+            {
+                category: "regulation",
+                title: "Trump's AI Executive Order & National Framework",
+                description: "Guía detallada del Executive Order de IA de Trump y el Marco Nacional de Política. Crea sistema unificado para gobernar IA en lugar de múltiples reglas estatales.",
+                source: "Interbiz Consulting",
+                url: "https://interbizconsulting.com/ai-regulation-policy-news-april-2026",
+                date: "Abr 2026"
+            },
+            {
+                category: "models",
+                title: "Gemma 4: Modelos Abiertos Más Capaces de Google",
+                description: "Google lanzó Gemma 4, sus modelos abiertos más capaces hasta la fecha. Purpose-built para razonamiento avanzado y workflows agentic. Disponible en Hugging Face.",
+                source: "Google Blog",
+                url: "https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/",
+                date: "Abr 2026"
+            },
+            {
+                category: "models",
+                title: "Google Gemma 4 - Capacidades Multimodales On-Device",
+                description: "Gemma 4 ofrece inteligencia multimodal frontier en dispositivo. Presentado en AI Engineer Europe con capacidades E2B architecture.",
+                source: "YouTube - AI Engineer",
+                url: "https://www.youtube.com/watch?v=_zdroS0Hc74",
+                date: "10 Abr 2026"
+            },
+            {
+                category: "tools",
+                title: "Top AI Agent Frameworks 2026: Comparación Production-Ready",
+                description: "Comparación exhaustiva de frameworks de AI agents en 2026: LangGraph, CrewAI, AutoGen, OpenAI Agents SDK, Anthropic Agent SDK, Google ADK, LlamaIndex Workflows.",
+                source: "Towards AI",
+                url: "https://pub.towardsai.net/top-ai-agent-frameworks-in-2026-a-production-ready-comparison-7ba5e39ad56d",
+                date: "2026"
+            },
+            {
+                category: "models",
+                title: "State of Open Source en HuggingFace: Spring 2026",
+                description: "HuggingFace publicó estado del open source en Spring 2026. Empresas como Airbnb incrementaron engagement con ecosistema open. Modelos de código abierto de China en ascenso.",
+                source: "HuggingFace Blog",
+                url: "https://huggingface.co/blog/huggingface/state-of-os-hf-spring-2026",
+                date: "Feb 2026"
+            },
+            {
+                category: "news",
+                title: "Nvidia NemoClaw en GTC 2026",
+                description: "Nvidia introdujo NemoClaw, software stack open-source que unifica Nemotron AI models con OpenClaw agent orchestration y OpenShell runtime.",
+                source: "Tech AI Magazine",
+                url: "https://www.magzter.com/stories/technology/Tech-AI-Magazine/TOP-HUGGING-FACE-MODELS-FOR-APRIL-2026",
+                date: "Abr 2026"
+            },
+            {
+                category: "news",
+                title: "2026 April - China Open Source Highlights en HuggingFace",
+                description: "HuggingFace publicó collection de highlights de open source de China para Abril 2026, mostrando impacto creciente de modelos chinos en ecosistema global.",
+                source: "HuggingFace",
+                url: "https://huggingface.co/collections/zh-ai-community/2026-april-china-open-source-highlights",
+                date: "Abr 2026"
+            },
+            {
+                category: "news",
+                title: "Open Source AI Projects - Últimas 24 Horas",
+                description: "Lista de proyectos de IA open source lanzados en las últimas 24 horas de Abril 2026, incluyendo trends de GitHub y herramientas para desarrolladores.",
+                source: "devFlokers",
+                url: "https://www.devflokers.com/blog/open-source-ai-projects-released-last-24-hours-april-2026",
+                date: "Abr 2026"
+            }
+        ];
+        
+        const sources = [
+            { name: "Google Blog", url: "https://blog.google/innovation-and-ai/" },
+            { name: "OpenAI News", url: "https://openai.com/news/" },
+            { name: "Anthropic News", url: "https://www.anthropic.com/news" },
+            { name: "TechCrunch", url: "https://techcrunch.com" },
+            { name: "Fortune", url: "https://fortune.com" },
+            { name: "HuggingFace Blog", url: "https://huggingface.co/blog" },
+            { name: "White House", url: "https://www.whitehouse.gov" },
+            { name: "Medium - Provenance Report", url: "https://medium.com/@provenance_report" },
+            { name: "DEV Community", url: "https://dev.to" },
+            { name: "Let's Data Science", url: "https://letsdatascience.com" },
+            { name: "CNBC", url: "https://www.cnbc.com" },
+            { name: "Semiconductor Engineering", url: "https://semiengineering.com" },
+            { name: "Alston & Bird", url: "https://www.alston.com" },
+            { name: "Ropes & Gray", url: "https://www.ropesgray.com" },
+            { name: "AI Agent Store", url: "https://aiagentstore.ai" },
+            { name: "Interbiz Consulting", url: "https://interbizconsulting.com" },
+            { name: "Mejba", url: "https://www.mejba.me" },
+            { name: "Towards AI", url: "https://pub.towardsai.net" },
+            { name: "AlphaCorp AI", url: "https://alphacorp.ai" },
+            { name: "The Soo Group", url: "https://thesoogroup.com" }
+        ];
+        
+        function renderNews(filter = 'all', search = '') {
+            const grid = document.getElementById('newsGrid');
+            let filtered = news;
+            
+            if (filter !== 'all') {
+                filtered = filtered.filter(item => item.category === filter);
+            }
+            
+            if (search) {
+                const searchLower = search.toLowerCase();
+                filtered = filtered.filter(item => 
+                    item.title.toLowerCase().includes(searchLower) ||
+                    item.description.toLowerCase().includes(searchLower)
+                );
+            }
+            
+            if (filtered.length === 0) {
+                grid.innerHTML = '<div class="no-results">No se encontraron noticias con esos criterios.</div>';
+                return;
+            }
+            
+            grid.innerHTML = filtered.map(item => `
+                <div class="card">
+                    <div class="card-header">
+                        <span class="card-category cat-${item.category}">${getCategoryName(item.category)}</span>
+                        <span class="card-date">${item.date}</span>
+                    </div>
+                    <h3>${item.title}</h3>
+                    <p>${item.description}</p>
+                    <div class="card-footer">
+                        <span class="source"><a href="${item.url}" target="_blank">${item.source}</a></span>
+                    </div>
+                </div>
+            `).join('');
+            
+            updateStats(filtered, filter);
+        }
+        
+        function getCategoryName(cat) {
+            const names = {
+                models: '🤖 Modelos',
+                tools: '🆕 Herramientas',
+                news: '📰 News',
+                products: '💡 Productos',
+                funding: '💰 Funding',
+                papers: '🔧 Papers',
+                regulation: '⚖️ Regulación'
+            };
+            return names[cat] || cat;
+        }
+        
+        function updateStats(filtered, filter) {
+            document.getElementById('totalCount').textContent = filtered.length;
+            document.getElementById('modelCount').textContent = news.filter(n => n.category === 'models').length;
+            document.getElementById('toolCount').textContent = news.filter(n => n.category === 'tools' || n.category === 'products').length;
+            document.getElementById('fundingCount').textContent = news.filter(n => n.category === 'funding').length;
+        }
+        
+        function renderSources() {
+            const list = document.getElementById('sourcesList');
+            list.innerHTML = sources.map(s => 
+                `<a href="${s.url}" target="_blank">${s.name}</a>`
+            ).join('');
+        }
+        
+        // Event Listeners
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            const activeFilter = document.querySelector('.filter-btn.active').dataset.filter;
+            renderNews(activeFilter, e.target.value);
+        });
+        
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                renderNews(btn.dataset.filter, document.getElementById('searchInput').value);
+            });
+        });
+        
+        // Initialize
+        renderNews();
+        renderSources();
+    </script>
+</body>
+</html>
