@@ -3,1074 +3,558 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>World News Report - 13 de Abril 2026</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <title>World News Report - 13 Abril 2026</title>
     <style>
         :root {
             --bg-primary: #0a0a0f;
             --bg-secondary: #12121a;
-            --bg-card: #16161f;
-            --bg-card-hover: #1c1c28;
-            --border: #252535;
-            --border-accent: #3a3a50;
-            --text-primary: #f0f0f5;
-            --text-secondary: #9898b0;
-            --text-muted: #606080;
-            --accent-blue: #4f8ef7;
-            --accent-purple: #9b6dff;
-            --accent-green: #3dd68c;
-            --accent-orange: #ff8c42;
-            --accent-red: #ff5757;
-            --accent-cyan: #42d4f0;
-            --accent-yellow: #ffd93d;
-            --cr-flag: #0038a8;
-            --cr-yellow: #ffdf00;
+            --bg-card: #1a1a25;
+            --bg-card-hover: #22222f;
+            --accent: #6366f1;
+            --accent-secondary: #8b5cf6;
+            --text-primary: #f1f1f3;
+            --text-secondary: #a1a1aa;
+            --text-muted: #71717a;
+            --cr-color: #059669;
+            --breaking: #ef4444;
+            --warning: #f59e0b;
+            --border: #27272a;
         }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
             background: var(--bg-primary);
             color: var(--text-primary);
             line-height: 1.6;
             min-height: 100vh;
         }
-
-        /* HEADER */
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        
         .header {
-            background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
             border-bottom: 1px solid var(--border);
-            padding: 2rem 1.5rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            backdrop-filter: blur(20px);
+            margin-bottom: 30px;
         }
-
-        .header-content {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .header-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .brand-icon {
-            width: 48px;
-            height: 48px;
-            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-        }
-
-        .brand-text h1 {
-            font-size: 1.5rem;
+        .header h1 {
+            font-size: 2.5rem;
             font-weight: 800;
-            letter-spacing: -0.02em;
-            background: linear-gradient(135deg, var(--text-primary), var(--text-secondary));
+            background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
+            margin-bottom: 10px;
         }
-
-        .brand-text .date {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            font-weight: 500;
-        }
-
-        .timestamp {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            background: var(--bg-card);
-            padding: 0.4rem 0.8rem;
-            border-radius: 6px;
-            border: 1px solid var(--border);
-        }
-
-        /* SEARCH & FILTERS */
-        .controls {
-            max-width: 1400px;
-            margin: 1.5rem auto;
-            padding: 0 1.5rem;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .search-box {
-            position: relative;
-        }
-
-        .search-box input {
-            width: 100%;
-            padding: 0.9rem 1rem 0.9rem 3rem;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            color: var(--text-primary);
-            font-size: 0.95rem;
-            font-family: inherit;
-            transition: all 0.2s ease;
-        }
-
-        .search-box input:focus {
-            outline: none;
-            border-color: var(--accent-blue);
-            box-shadow: 0 0 0 3px rgba(79, 142, 247, 0.15);
-        }
-
-        .search-box input::placeholder {
-            color: var(--text-muted);
-        }
-
-        .search-box svg {
-            position: absolute;
-            left: 1rem;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--text-muted);
-        }
-
+        .header .date { color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 15px; }
+        .header .timestamp { font-size: 0.85rem; color: var(--text-muted); }
+        
         .filters {
+            background: var(--bg-card);
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            border: 1px solid var(--border);
+        }
+        .filter-row {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
+            gap: 10px;
+            margin-bottom: 15px;
         }
-
+        .filter-row:last-child { margin-bottom: 0; }
+        .filter-label { color: var(--text-muted); font-size: 0.85rem; margin-right: 10px; align-self: center; }
         .filter-btn {
-            padding: 0.5rem 1rem;
-            background: var(--bg-card);
+            background: var(--bg-secondary);
             border: 1px solid var(--border);
-            border-radius: 8px;
             color: var(--text-secondary);
-            font-size: 0.8rem;
-            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 20px;
             cursor: pointer;
-            transition: all 0.2s ease;
-            font-family: inherit;
+            font-size: 0.9rem;
+            transition: all 0.2s;
         }
-
-        .filter-btn:hover {
-            border-color: var(--border-accent);
-            color: var(--text-primary);
-        }
-
-        .filter-btn.active {
-            background: var(--accent-blue);
-            border-color: var(--accent-blue);
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--accent);
             color: white;
+            border-color: var(--accent);
         }
-
-        /* MAIN CONTENT */
-        .main {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 1.5rem 3rem;
+        .search-box {
+            width: 100%;
+            padding: 15px 20px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            color: var(--text-primary);
+            font-size: 1rem;
+            outline: none;
         }
-
-        /* SECTION STYLING */
-        .section {
-            margin-bottom: 3rem;
-        }
-
+        .search-box:focus { border-color: var(--accent); }
+        
+        .section { margin-bottom: 40px; }
         .section-header {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
-            margin-bottom: 1.25rem;
-            padding-bottom: 0.75rem;
-            border-bottom: 1px solid var(--border);
+            gap: 12px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--border);
         }
-
-        .section-icon {
-            font-size: 1.25rem;
-        }
-
-        .section-title {
-            font-size: 1rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: var(--text-primary);
-        }
-
-        .section-count {
-            margin-left: auto;
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            font-family: 'JetBrains Mono', monospace;
-        }
-
-        /* CARDS GRID */
+        .section-icon { font-size: 1.8rem; }
+        .section-title { font-size: 1.4rem; font-weight: 700; }
+        .section-title.cr { color: var(--cr-color); }
+        
         .cards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-            gap: 1rem;
+            gap: 20px;
         }
-
-        .cards-grid.single-col {
-            grid-template-columns: 1fr;
-            max-width: 800px;
-        }
-
-        /* CARD */
         .card {
             background: var(--bg-card);
-            border: 1px solid var(--border);
             border-radius: 12px;
-            padding: 1.25rem;
-            transition: all 0.25s ease;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
+            padding: 20px;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
         }
-
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--card-accent, var(--accent-blue)), transparent);
-            opacity: 0;
-            transition: opacity 0.25s ease;
-        }
-
         .card:hover {
-            border-color: var(--border-accent);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+            background: var(--bg-card-hover);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
         }
-
-        .card:hover::before {
-            opacity: 1;
-        }
-
+        .card.breaking { border-left: 4px solid var(--breaking); }
         .card-tag {
             display: inline-block;
-            font-size: 0.65rem;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.75rem;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
-            padding: 0.25rem 0.5rem;
-            border-radius: 4px;
-            margin-bottom: 0.75rem;
-            background: var(--tag-bg, rgba(79, 142, 247, 0.15));
-            color: var(--tag-color, var(--accent-blue));
+            margin-bottom: 10px;
         }
-
-        .card-title {
-            font-size: 0.95rem;
-            font-weight: 600;
-            line-height: 1.4;
-            margin-bottom: 0.5rem;
-            color: var(--text-primary);
+        .tag-breaking { background: rgba(239,68,68,0.2); color: var(--breaking); }
+        .tag-cr { background: rgba(5,150,105,0.2); color: var(--cr-color); }
+        .card h3 { font-size: 1.1rem; margin-bottom: 10px; line-height: 1.4; }
+        .card p { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 12px; }
+        .card-source { display: flex; align-items: center; gap: 8px; font-size: 0.8rem; color: var(--text-muted); }
+        .card-source a { color: var(--accent); text-decoration: none; }
+        .card-source a:hover { text-decoration: underline; }
+        
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
         }
-
-        .card-desc {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            line-height: 1.55;
-            margin-bottom: 0.75rem;
+        .stat-card {
+            background: var(--bg-card);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid var(--border);
         }
-
-        .card-footer {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-        }
-
-        .card-source {
-            font-size: 0.7rem;
-            color: var(--text-muted);
-            display: flex;
-            align-items: center;
-            gap: 0.3rem;
-        }
-
-        .card-source a {
-            color: var(--accent-blue);
-            text-decoration: none;
-        }
-
-        .card-source a:hover {
-            text-decoration: underline;
-        }
-
-        .card-date {
-            font-size: 0.7rem;
-            color: var(--text-muted);
-            font-family: 'JetBrains Mono', monospace;
-        }
-
-        /* COSTA RICA SECTION */
-        .cr-section .card {
-            border-left: 3px solid var(--cr-flag);
-        }
-
-        .cr-section .card::before {
-            background: linear-gradient(90deg, transparent, var(--cr-flag), var(--cr-yellow), transparent);
-        }
-
-        .cr-header {
-            background: linear-gradient(135deg, var(--cr-flag), #002060);
-            padding: 1.5rem;
-            border-radius: 12px;
-            margin-bottom: 1.5rem;
-        }
-
-        .cr-header h2 {
-            font-size: 1.5rem;
-            font-weight: 800;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        /* BREAKING NEWS */
-        .breaking-banner {
-            background: linear-gradient(135deg, #1a0a0a, #2a1010);
-            border: 1px solid rgba(255, 87, 87, 0.3);
-            border-radius: 12px;
-            padding: 1rem 1.25rem;
-            margin-bottom: 2rem;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .breaking-indicator {
-            width: 10px;
-            height: 10px;
-            background: var(--accent-red);
-            border-radius: 50%;
-            animation: pulse 1.5s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.5; transform: scale(1.2); }
-        }
-
-        .breaking-text {
-            font-size: 0.85rem;
-            color: var(--accent-red);
-            font-weight: 600;
-        }
-
-        /* SOURCES SECTION */
+        .stat-value { font-size: 2rem; font-weight: 700; color: var(--accent); }
+        .stat-label { color: var(--text-muted); font-size: 0.85rem; }
+        
         .sources-section {
-            margin-top: 3rem;
-            padding-top: 2rem;
-            border-top: 1px solid var(--border);
+            background: var(--bg-card);
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            margin-top: 40px;
         }
-
-        .sources-list {
+        .sources-section h2 { margin-bottom: 20px; }
+        .sources-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 0.75rem;
+            gap: 15px;
         }
-
         .source-item {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 0.75rem 1rem;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 10px;
+            padding: 10px;
+            background: var(--bg-secondary);
+            border-radius: 8px;
         }
-
-        .source-item a {
-            color: var(--accent-blue);
-            text-decoration: none;
-            font-size: 0.8rem;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-        }
-
-        .source-item a:hover {
-            text-decoration: underline;
-        }
-
-        /* NO RESULTS */
-        .no-results {
+        .source-item a { color: var(--accent); text-decoration: none; font-size: 0.9rem; }
+        .source-item a:hover { text-decoration: underline; }
+        
+        .footer {
             text-align: center;
-            padding: 3rem;
+            padding: 30px;
             color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border);
+            margin-top: 40px;
         }
-
-        .no-results-icon {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        /* RESPONSIVE */
+        
         @media (max-width: 768px) {
-            .header {
-                padding: 1.25rem 1rem;
-            }
-
-            .header-top {
-                flex-direction: column;
-            }
-
-            .brand-icon {
-                width: 40px;
-                height: 40px;
-            }
-
-            .brand-text h1 {
-                font-size: 1.25rem;
-            }
-
-            .controls {
-                padding: 0 1rem;
-            }
-
-            .main {
-                padding: 0 1rem 2rem;
-            }
-
-            .cards-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .cr-header {
-                padding: 1.25rem;
-            }
-
-            .cr-header h2 {
-                font-size: 1.25rem;
-            }
-        }
-
-        /* HIDE ELEMENT */
-        .hidden {
-            display: none !important;
-        }
-
-        /* HIGHLIGHT */
-        .highlight {
-            background: linear-gradient(135deg, rgba(79, 142, 247, 0.2), rgba(155, 109, 255, 0.2));
-            border: 1px solid rgba(79, 142, 247, 0.3);
+            .header h1 { font-size: 1.8rem; }
+            .cards-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
     <header class="header">
-        <div class="header-content">
-            <div class="header-top">
-                <div class="brand">
-                    <div class="brand-icon">🌐</div>
-                    <div class="brand-text">
-                        <h1>World News Report</h1>
-                        <div class="date">📅 Lunes, 13 de Abril 2026</div>
+        <h1>World News Report</h1>
+        <p class="date">Domingo 13 de Abril, 2026</p>
+        <p class="timestamp">Generado: 16 Abril 2026, 20:02 UTC</p>
+    </header>
+    
+    <div class="container">
+        <div class="stats-row">
+            <div class="stat-card"><div class="stat-value">32</div><div class="stat-label">Noticias Globales</div></div>
+            <div class="stat-card"><div class="stat-value">14</div><div class="stat-label">Noticias Costa Rica</div></div>
+            <div class="stat-card"><div class="stat-value">8</div><div class="stat-label">Categorias</div></div>
+            <div class="stat-card"><div class="stat-value">18</div><div class="stat-label">Fuentes</div></div>
+        </div>
+        
+        <div class="filters">
+            <div class="filter-row">
+                <span class="filter-label">Categoria:</span>
+                <button class="filter-btn active" data-filter="all">Todas</button>
+                <button class="filter-btn" data-filter="breaking">Breaking</button>
+                <button class="filter-btn" data-filter="geopolitics">Politica</button>
+                <button class="filter-btn" data-filter="economy">Economia</button>
+                <button class="filter-btn" data-filter="tech">Tecnologia</button>
+                <button class="filter-btn" data-filter="cr">Costa Rica</button>
+            </div>
+            <input type="text" class="search-box" id="searchBox" placeholder="Buscar noticias...">
+        </div>
+        
+        <!-- BREAKING NEWS -->
+        <section class="section">
+            <div class="section-header">
+                <span class="section-icon">🔴</span>
+                <h2 class="section-title">Breaking News</h2>
+            </div>
+            <div class="cards-grid">
+                <div class="card breaking">
+                    <span class="card-tag tag-breaking">BREAKING</span>
+                    <h3>Trump Anuncia Bloqueo Naval del Estrecho de Hormuz; Iran Lo Califica de "Pirrateria"</h3>
+                    <p>La administracion Trump anuncio el establecimiento de un bloqueo naval en el Estrecho de Hormuz. Iran lo califico de "pirateria" y la comunidad internacional expreso profunda preocupacion por las implicaciones geopoliticas.</p>
+                    <div class="card-source">
+                        <span>Democracy Now</span>
+                        <a href="https://www.democracynow.com" target="_blank">democracynow.com</a>
+                        <span>| 13 Abril 2026</span>
                     </div>
                 </div>
-                <div class="timestamp">Generado: 2026-04-17 01:35 UTC</div>
             </div>
-        </div>
-    </header>
-
-    <div class="controls">
-        <div class="search-box">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
-            </svg>
-            <input type="text" id="searchInput" placeholder="Buscar noticias...">
-        </div>
-        <div class="filters">
-            <button class="filter-btn active" data-filter="all">Todas</button>
-            <button class="filter-btn" data-filter="mundo">🌍 Mundo</button>
-            <button class="filter-btn" data-filter="politica">🏛️ Política</button>
-            <button class="filter-btn" data-filter="economia">💼 Economía</button>
-            <button class="filter-btn" data-filter="tecnologia">🔬 Tech</button>
-            <button class="filter-btn" data-filter="ciencia">🔭 Ciencia</button>
-            <button class="filter-btn" data-filter="cultura">🎭 Cultura</button>
-            <button class="filter-btn" data-filter="costa-rica">🇬🇷 Costa Rica</button>
-        </div>
-    </div>
-
-    <main class="main">
-        <!-- BREAKING NEWS -->
-        <div class="breaking-banner">
-            <div class="breaking-indicator"></div>
-            <span class="breaking-text">🚨 URGENTE: Trump anuncia bloqueo naval del Estrecho de Ormuz — EE.UU. e Iran no alcanzan acuerdo tras 21 horas de negociaciones en Islamabad</span>
-        </div>
-
-        <!-- 🌍 MUNDO -->
-        <section class="section" id="mundo">
+        </section>
+        
+        <!-- GEOPOLITICS -->
+        <section class="section">
             <div class="section-header">
                 <span class="section-icon">🌍</span>
-                <h2 class="section-title">Headlines Globales</h2>
-                <span class="section-count">7 noticias</span>
+                <h2 class="section-title">Geopolitica y Relaciones Internacionales</h2>
             </div>
             <div class="cards-grid">
-                <article class="card highlight" data-category="mundo" data-tags="medio-oriente iran hormuz">
-                    <span class="card-tag" style="--tag-bg: rgba(255,87,87,0.15); --tag-color: #ff5757;">BREAKING</span>
-                    <h3 class="card-title">Trump anuncia bloqueo naval del Estrecho de Ormuz tras fracaso de negociaciones con Irán</h3>
-                    <p class="card-desc">El presidente Trump anunció que bloqueará el estratégico Estrecho de Ormuz después de que las negociaciones de 21 horas entre EE.UU. e Irán en Islamabad fracasaran. El vp Vance participó en las negociaciones de alto nivel. Iran advirtió que la medida es un "acto de piratería".</p>
-                    <div class="card-footer">
-                        <span class="card-source">Democracy Now! · <a href="https://www.democracynow.org/2026/4/13/headlines" target="_blank">democracynow.org</a></span>
-                        <span class="card-date">13 Abr 2026</span>
+                <div class="card">
+                    <h3>Bloqueo de Hormuz Eleva Inseguridad Alimentaria Global</h3>
+                    <p>FAO advierte que el bloqueo podria paralizar el movimiento del 35% del petroleo global y el 20% del gas natural usado en fertilizantes. Se temen disruptiones en cosechas y aumento de precios de alimentos.</p>
+                    <div class="card-source">
+                        <span>UN News</span>
+                        <a href="https://news.un.org/en/audio/2026/04/1167286" target="_blank">news.un.org</a>
+                        <span>| 13 Abril 2026</span>
                     </div>
-                </article>
-
-                <article class="card" data-category="mundo" data-tags="hungria orbán elección">
-                    <span class="card-tag" style="--tag-bg: rgba(79,142,247,0.15); --tag-color: #4f8ef7;">EUROPA</span>
-                    <h3 class="card-title">Orbán pierde el poder: Péter Magyar y su partido Tisza ganan abrumadora mayoría en Hungría</h3>
-                    <p class="card-desc">En un cambio histórico, Viktor Orbán, aliado de Trump y en el poder por 16 años, fue derrotado por el partido centrista Tisza de Péter Magyar. Se proyecta que Tisza obtenga dos tercios del parlamento. Orbán admitió la derrota.</p>
-                    <div class="card-footer">
-                        <span class="card-source">PBS News Hour · <a href="https://www.pbs.org/newshour/show/april-13-2026-pbs-news-hour-full-episode" target="_blank">pbs.org</a></span>
-                        <span class="card-date">13 Abr 2026</span>
+                </div>
+                <div class="card">
+                    <h3>20,000 Tripulantes Maritimos Atrapados en el Golfo Persico</h3>
+                    <p>La Organizacion Maritima Internacional reporta que aproximadamente 20,000 tripulantes permanecen atrapados en el Golfo Persico enfrentando "riesgos significativos" debido a la crisis en el Estrecho de Hormuz.</p>
+                    <div class="card-source">
+                        <span>UN News</span>
+                        <a href="https://news.un.org/en/audio/2026/04/1167286" target="_blank">news.un.org</a>
+                        <span>| 13 Abril 2026</span>
                     </div>
-                </article>
-
-                <article class="card" data-category="economia" data-tags="inflación estados-unidos energía">
-                    <span class="card-tag" style="--tag-bg: rgba(255,140,66,0.15); --tag-color: #ff8c42;">ECONOMÍA</span>
-                    <h3 class="card-title">Inflación en EE.UU. sube a 3.3% en marzo, la más alta desde 2022, por guerra en Medio Oriente</h3>
-                    <p class="card-desc">La inflación anual estadounidense se disparó al 3.3% desde 2.4% el mes anterior, impulsada por la guerra en Medio Oriente y el aumento de precios energéticos tras los ataques de Irán a petroleros en Ormuz.</p>
-                    <div class="card-footer">
-                        <span class="card-source">CNBC · <a href="https://www.cnbc.com/2026/04/10/cpi-inflation-report-march-2026.html" target="_blank">cnbc.com</a></span>
-                        <span class="card-date">10 Abr 2026</span>
+                </div>
+                <div class="card">
+                    <h3>Guerra en Medio Oriente Podria Sumir a Iran en la Pobreza</h3>
+                    <p>El PNUD advierte que un "proporción significativa" de la poblacion iran could push into poverty debido a la disruption economica y alza en la inflación de alimentos. Hogares de bajos ingresos ya gastan casi la mitad de sus ingresos en comida.</p>
+                    <div class="card-source">
+                        <span>UN News / UNDP</span>
+                        <a href="https://www.undp.org" target="_blank">undp.org</a>
+                        <span>| 13 Abril 2026</span>
                     </div>
-                </article>
-
-                <article class="card" data-category="mundo" data-tags="china taiwán">
-                    <span class="card-tag" style="--tag-bg: rgba(255,87,87,0.15); --tag-color: #ff5757;">ASIA</span>
-                    <h3 class="card-title">Xi Jinping advierte a líder taiwanés: "No toleraremos la independencia de Taiwán bajo ninguna circunstancia"</h3>
-                    <p class="card-desc">El presidente chino se reunió con Cheng Li-wun, líder del partido Kuomintang pro-Beijing, marcando la primera visita de un líder de ese partido desde 2015. China considera a Lai y su partido DPP como "separatistas".</p>
-                    <div class="card-footer">
-                        <span class="card-source">Reuters · <a href="https://www.reuters.com/world/asia-pacific/chinas-xi-meets-taiwan-opposition-leader-beijing-state-media-says-2026-04-10/" target="_blank">reuters.com</a></span>
-                        <span class="card-date">10 Abr 2026</span>
+                </div>
+                <div class="card">
+                    <h3>Crisis Budgitaria Amenaza Comites de Derechos Humanos de la ONU</h3>
+                    <p>Cortes profundos de financiamiento amenazan el futuro de los organos de tratados de derechos humanos de la ONU en Ginebra. Comites clave se reunen mientras los fondos se agotan.</p>
+                    <div class="card-source">
+                        <span>UN News</span>
+                        <a href="https://news.un.org" target="_blank">news.un.org</a>
+                        <span>| 13 Abril 2026</span>
                     </div>
-                </article>
-
-                <article class="card" data-category="mundo" data-tags="onu hambre">
-                    <span class="card-tag" style="--tag-bg: rgba(255,140,66,0.15); --tag-color: #ff8c42;">ONÚ</span>
-                    <h3 class="card-title">ONÚ advierte: conflicto en Ormuz podría provocar hambruna global si buques no comienzan a transitar</h3>
-                    <p class="card-desc">La FAO advirtió que si los vessels no empiezan a moverse pronto, podrían verse menores cosechas, precios de alimentos más altos e inflación global en los próximos meses. La situación en Ormuz es de "grave preocupación".</p>
-                    <div class="card-footer">
-                        <span class="card-source">UN News · <a href="https://news.un.org/en/audio/2026/04/1167286" target="_blank">news.un.org</a></span>
-                        <span class="card-date">13 Abr 2026</span>
-                    </div>
-                </article>
-
-                <article class="card" data-category="politica" data-tags="trump papa">
-                    <span class="card-tag" style="--tag-bg: rgba(155,109,255,0.15); --tag-color: #9b6dff;">VATICANO</span>
-                    <h3 class="card-title">Trump ataca al Papa León XIV: "Es muy liberal y débil contra el crimen"</h3>
-                    <p class="card-desc">El presidente Trump criticó públicamente al Papa León XIV tras la elección del nuevo pontífice. Las declaraciones provocaron reacciones de políticos estadounidenses incluyendo Adam Kinzinger, quien advirtió que los comentarios "destruyen nuestra autoridad moral".</p>
-                    <div class="card-footer">
-                        <span class="card-source">Democracy Now! · <a href="https://www.democracynow.org/2026/4/13/headlines" target="_blank">democracynow.org</a></span>
-                        <span class="card-date">13 Abr 2026</span>
-                    </div>
-                </article>
-
-                <article class="card" data-category="mundo" data-tags="cubà venezuela">
-                    <span class="card-tag" style="--tag-bg: rgba(255,87,87,0.15); --tag-color: #ff5757;">AMÉRICAS</span>
-                    <h3 class="card-title">Presidente cubano dice estar "listo para morir" ante una invasión de EE.UU.</h3>
-                    <p class="card-desc">En entrevista con NBC, Miguel Díaz-Canel advirtió que moriría para evitar una invasión estadounidense. Washington ha intensificado la presión sobre Cuba tras capturar al líder venezolano Nicolás Maduro. Un embargo petrolero casi total ha causado apagones regulares y dos colapsos totales de la red eléctrica.</p>
-                    <div class="card-footer">
-                        <span class="card-source">NBC News · <a href="https://www.nbcnews.com" target="_blank">nbcnews.com</a></span>
-                        <span class="card-date">13 Abr 2026</span>
-                    </div>
-                </article>
+                </div>
             </div>
         </section>
-
-        <!-- 🏛️ POLÍTICA -->
-        <section class="section" id="politica">
-            <div class="section-header">
-                <span class="section-icon">🏛️</span>
-                <h2 class="section-title">Política Mundial</h2>
-                <span class="section-count">4 noticias</span>
-            </div>
-            <div class="cards-grid">
-                <article class="card" data-category="politica" data-tags="congreso expulsiòn">
-                    <span class="card-tag" style="--tag-bg: rgba(79,142,247,0.15); --tag-color: #4f8ef7;">EE.UU.</span>
-                    <h3 class="card-title">Cámara de Representantes podría expulsar hasta 4 legisladores esta semana tras acusaciones éticas</h3>
-                    <p class="card-desc">La Cámara podría votar para expulsar a dos demócratás y dos demócratás — Eric Swalwell, Wesley Santos, Sheila Cherfilus-McCormick y Cory Mills— mientras el Congreso enfrenta una ola de acusaciones por mala conducta.</p>
-                    <div class="card-footer">
-                        <span class="card-source">Axios · <a href="https://www.axios.com/2026/04/12/swalwell-gonzales-cherfilus-mccormick-mills-expel" target="_blank">axios.com</a></span>
-                        <span class="card-date">12 Abr 2026</span>
-                    </div>
-                </article>
-
-                <article class="card" data-category="politica" data-tags="trump архит архив">
-                    <span class="card-tag" style="--tag-bg: rgba(79,142,247,0.15); --tag-color: #4f8ef7;">EE.UU.</span>
-                    <h3 class="card-title">Trump revela diseño de arco triunfal de 250 pies cerca del Monumento a Lincoln</h3>
-                    <p class="card-desc">La Casa Blanca publicó los planos del Arco de la Victoria que Trump quiere construir frente al Monumento a Lincoln. También planea pintar el Edificio de la Oficina Ejecutiva de Eisenhower de blanco. Conservacionistas ya presentaron objeciones legales.</p>
-                    <div class="card-footer">
-                        <span class="card-source">The Washington Post · <a href="https://www.nytimes.com/2026/04/10/us/politics/arch-washington-trump.html" target="_blank">nytimes.com</a></span>
-                        <span class="card-date">10 Abr 2026</span>
-                    </div>
-                </article>
-
-                <article class="card" data-category="politica" data-tags="democratas 2028 harris">
-                    <span class="card-tag" style="--tag-bg: rgba(79,142,247,0.15); --tag-color: #4f8ef7;">EE.UU.</span>
-                    <h3 class="card-title">Kamala Harris "pensando en correr" para 2028 en convención de Al Sharpton</h3>
-                    <p class="card-desc">La ex Vicepresidenta Harris asistió a la Convención Nacional de Acción en NYC y, cuestionada por Al Sharpton sobre una будущая candidatura, respondió: "Estoy pensando en ello". Otros candidatos potenciales demócratás también participaron.</p>
-                    <div class="card-footer">
-                        <span class="card-source">Everything Briefing · <a href="https://everythingbriefing.substack.com/p/april-13-2026" target="_blank">substack.com</a></span>
-                        <span class="card-date">13 Abr 2026</span>
-                    </div>
-                </article>
-
-                <article class="card" data-category="politica" data-tags="israel libano">
-                    <span class="card-tag" style="--tag-bg: rgba(255,87,87,0.15); --tag-color: #ff5757;">MEDIO ORIENTE</span>
-                    <h3 class="card-title">Funcionarios de Israel y Líbano se reunirán en Washington esta semana para negociar alto el fuego</h3>
-                    <p class="card-desc">Funcionarios israelíes y libaneses iniciarán conversaciones de alto el fuego en Washington D.C. esta semana. Mientras, ataques aéreos israelíes continuaron, incluyendo uno que mató a una niña de 2 años durante el funeral de su padre en Líbano.</p>
-                    <div class="card-footer">
-                        <span class="card-source">Democracy Now! · <a href="https://www.democracynow.org/2026/4/13/headlines" target="_blank">democracynow.org</a></span>
-                        <span class="card-date">13 Abr 2026</span>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <!-- 💼 ECONOMÍA -->
-        <section class="section" id="economia">
+        
+        <!-- ECONOMY -->
+        <section class="section">
             <div class="section-header">
                 <span class="section-icon">💼</span>
-                <h2 class="section-title">Economía Global</h2>
-                <span class="section-count">3 noticias</span>
+                <h2 class="section-title">Economia y Finanzas</h2>
             </div>
             <div class="cards-grid">
-                <article class="card" data-category="economia" data-tags="gasolina ee.uu.">
-                    <span class="card-tag" style="--tag-bg: rgba(255,140,66,0.15); --tag-color: #ff8c42;">ENERGÍA</span>
-                    <h3 class="card-title">Precio promedio de gasolina en EE.UU. llega a $4.12 el galón, el más alto en años</h3>
-                    <p class="card-desc">Según AAA, el precio promedio de la gasolina en EE.UU. se ubica en $4.12 por galón. Se esperan nuevos aumentos tras el anuncio del bloqueo naval de Trump al Estrecho de Ormuz, que amenaza el 20% del tránsito oilero mundial.</p>
-                    <div class="card-footer">
-                        <span class="card-source">Everything Briefing · <a href="https://everythingbriefing.substack.com/p/april-13-2026" target="_blank">substack.com</a></span>
-                        <span class="card-date">13 Abr 2026</span>
+                <div class="card">
+                    <h3>Reuniones de Primavera FMI-Banco Mundial</h3>
+                    <p>Las reuniones anuales de primavera del FMI y el Banco Mundial tienen lugar del 13 al 19 de abril de 2026, abordando topics de deuda global, inflation y perspectivas economicas mundiales.</p>
+                    <div class="card-source">
+                        <span>IMF / World Bank</span>
+                        <a href="https://www.imf.org" target="_blank">imf.org</a>
+                        <span>| 13-19 Abril 2026</span>
                     </div>
-                </article>
-
-                <article class="card" data-category="economia" data-tags="openai valoraciòn">
-                    <span class="card-tag" style="--tag-bg: rgba(79,142,247,0.15); --tag-color: #4f8ef7;">TECH</span>
-                    <h3 class="card-title">OpenAI supera valoración de $850 mil millones</h3>
-                    <p class="card-desc">La compañía de IA ChatGPT alcanzó una valorización de mercado superior a $850 mil millones, consolidándose como una de las empresas más valiosas del mundo en el sector tecnológico.</p>
-                    <div class="card-footer">
-                        <span class="card-source">Bloomberg · <a href="https://www.youtube.com/watch?v=RiOKUg-JAPU" target="_blank">youtube.com</a></span>
-                        <span class="card-date">1 Abr 2026</span>
-                    </div>
-                </article>
-
-                <article class="card" data-category="economia" data-tags="coreweave meta">
-                    <span class="card-tag" style="--tag-bg: rgba(79,142,247,0.15); --tag-color: #4f8ef7;">IA</span>
-                    <h3 class="card-title">CoreWeave y Meta firman acuerdo de $21 mil millones para infraestructura de IA</h3>
-                    <p class="card-desc">CoreWeave firmó un acuerdo estratégico de $21 mil millones con Meta para proporcionar capacidad de cómputo de IA. Este acuerdo refleja la creciente demanda de infraestructura para inteligencia artificial.</p>
-                    <div class="card-footer">
-                        <span class="card-source">Bloomberg · <a href="https://www.youtube.com/watch?v=HXg-abDM9-4" target="_blank">youtube.com</a></span>
-                        <span class="card-date">9 Abr 2026</span>
-                    </div>
-                </article>
+                </div>
             </div>
         </section>
-
-        <!-- 🔬 CIENCIA Y TECNOLOGÍA -->
-        <section class="section" id="tecnologia">
+        
+        <!-- TECHNOLOGY -->
+        <section class="section">
             <div class="section-header">
                 <span class="section-icon">🔬</span>
-                <h2 class="section-title">Ciencia y Tecnología</h2>
-                <span class="section-count">6 noticias</span>
+                <h2 class="section-title">Tecnologia e Inteligencia Artificial</h2>
             </div>
             <div class="cards-grid">
-                <article class="card" data-category="tecnologia" data-tags="apple ia glasses">
-                    <span class="card-tag" style="--tag-bg: rgba(79,142,247,0.15); --tag-color: #4f8ef7;">GADGETS</span>
-                    <h3 class="card-title">Apple testa cuatro diseños de gafas con IA para competir con Meta Ray-Ban</h3>
-                    <p class="card-desc">Según Bloomberg, Apple está probando múltiples diseños de gafas inteligentes con IA, incluyendo diferentes estilos de montura, colores y un sistema de cámara vertical. La compañía busca un dispositivo vestible primero e inteligente después.</p>
-                    <div class="card-footer">
-                        <span class="card-source">Bloomberg · <a href="https://www.bloomberg.com/news/newsletters/2026-04-12/apple-ai-smart-glasses-features-styles-colors-cameras-giannandrea-leaving-mnvtz4yg" target="_blank">bloomberg.com</a></span>
-                        <span class="card-date">12 Abr 2026</span>
+                <div class="card">
+                    <h3>Apple Prueba Multiple Disenos de Gafas AI para Competir con Meta Ray-Ban</h3>
+                    <p>Apple esta probando cuatro disenos de gafas AI, múltiples estilos de montura y colores, junto con un nuevo sistema de camara vertical. La empresa busca ingresar al proximo gran categoria de hardware portatil.</p>
+                    <div class="card-source">
+                        <span>Bloomberg</span>
+                        <a href="https://www.bloomberg.com" target="_blank">bloomberg.com</a>
+                        <span>| 12 Abril 2026</span>
                     </div>
-                </article>
-
-                <article class="card" data-category="tecnologia" data-tags="gpu nvidia precios">
-                    <span class="card-tag" style="--tag-bg: rgba(155,109,255,0.15); --tag-color: #9b6dff;">COMPUTO</span>
-                    <h3 class="card-title">Precio de alquiler de GPU Nvidia Blackwell sube 48% en dos meses: $4.08/hora</h3>
-                    <p class="card-desc">Según el Índice de Precios de Computación Ornn, alquilar una GPU Nvidia Blackwell ahora cuesta $4.08/hora, un aumento del 48% respecto a $2.75 hace dos meses. La demanda de inference para IA agentiva sigue superando la oferta.</p>
-                    <div class="card-footer">
-                        <span class="card-source">Wall Street Journal · <a href="https://www.wsj.com" target="_blank">wsj.com</a></span>
-                        <span class="card-date">13 Abr 2026</span>
+                </div>
+                <div class="card">
+                    <h3>Demanda de Energia por AI Obliga a Racionamiento de Computo</h3>
+                    <p>Las empresas de IA enfrentan escasez aguda de energia que obliga al rationamiento de potencia computacional. Centros de datos e infraestructura electrica struggle para mantener el ritmo con la demanda explosiva.</p>
+                    <div class="card-source">
+                        <span>Wall Street Journal</span>
+                        <a href="https://www.wsj.com" target="_blank">wsj.com</a>
+                        <span>| 13 Abril 2026</span>
                     </div>
-                </article>
-
-                <article class="card" data-category="tecnologia" data-tags="openai londres">
-                    <span class="card-tag" style="--tag-bg: rgba(79,142,247,0.15); --tag-color: #4f8ef7;">IA</span>
-                    <h3 class="card-title">OpenAI abre su primera oficina permanente en Londres con capacidad para 544 empleados</h3>
-                    <p class="card-desc">OpenAI secured su primera oficina permanente en King's Cross, Londres, para 544 empleados cuando abra en 2027. Será su mayor hub de investigación fuera de EE.UU. La empresa también pausó su proyecto de centro de datos en el Reino Unido por costos energéticos.</p>
-                    <div class="card-footer">
-                        <span class="card-source">Reuters · <a href="https://techstartups.com/2026/04/13/top-tech-news-today-april-13-2026/" target="_blank">techstartups.com</a></span>
-                        <span class="card-date">13 Abr 2026</span>
+                </div>
+                <div class="card">
+                    <h3>Startup China AI StepFun Reestructura para IPO en Hong Kong</h3>
+                    <p>StepFun, startup china de IA, esta reestructurandose para preparar una oferta publica inicial en Hong Kong, en un movimiento que refleja la competencia feroz en el sector de inteligencia artificial.</p>
+                    <div class="card-source">
+                        <span>Tech Startups</span>
+                        <a href="https://techstartups.com/2026/04/13/top-tech-news-today-april-13-2026/" target="_blank">techstartups.com</a>
+                        <span>| 13 Abril 2026</span>
                     </div>
-                </article>
-
-                <article class="card" data-category="tecnologia" data-tags="anthropic mythos reino-unido">
-                    <span class="card-tag" style="--tag-bg: rgba(79,142,247,0.15); --tag-color: #4f8ef7;">REGULACIÓN</span>
-                    <h3 class="card-title">Reguladores del Reino Unido preparan advertencias sobre riesgos de seguridad del modelo Anthropic Mythos</h3>
-                    <p class="card-desc">El Financial Times reportó que reguladores británicos preparan advertir a bancos y aseguradoras sobre los riesgos de seguridad expuestos por el modelo Claude Mythos Preview de Anthropic, capaz de identificar vulnerabilidades en software financiero.</p>
-                    <div class="card-footer">
-                        <span class="card-source">Financial Times · <a href="https://techstartups.com/2026/04/13/top-tech-news-today-april-13-2026/" target="_blank">techstartups.com</a></span>
-                        <span class="card-date">13 Abr 2026</span>
+                </div>
+                <div class="card">
+                    <h3>Precios de GPUs Continuan Subiendo por Escasez Global</h3>
+                    <p>Los precios de tarjetas graficas GPU siguen en aumento debido a la demanda sin precedentes del sector de inteligencia artificial. La shortage afecta tanto a consumidores como a empresas.</p>
+                    <div class="card-source">
+                        <span>Tech Startups</span>
+                        <a href="https://techstartups.com" target="_blank">techstartups.com</a>
+                        <span>| 13 Abril 2026</span>
                     </div>
-                </article>
-
-                <article class="card" data-category="tecnologia" data-tags="openai musk">
-                    <span class="card-tag" style="--tag-bg: rgba(79,142,247,0.15); --tag-color: #4f8ef7;">LEGAL</span>
-                    <h3 class="card-title">OpenAI acusa a Elon Musk de "emboscada legal" semanas antes del juicio del 27 de abril</h3>
-                    <p class="card-desc">OpenAI stated que Musk está intentando una "emboscada legal" con propuestas impropias semanas antes del juicio programado para el 27 de abril en su disputa en curso. La batalla legal podría afectar la competencia en la industria de IA.</p>
-                    <div class="card-footer">
-                        <span class="card-source">Engadget · <a href="https://techstartups.com/2026/04/13/top-tech-news-today-april-13-2026/" target="_blank">techstartups.com</a></span>
-                        <span class="card-date">13 Abr 2026</span>
+                </div>
+                <div class="card">
+                    <h3>Reguladores Adoptan Medidas Ante Riesgos de Seguridad en Modelos AI</h3>
+                    <p>Gobiernos y reguladores estan tomando medidas proactivas mientras los modelos de IA comienzan a exponer riesgos reales de seguridad. La batall por controlar la infraestructura de IA se intensifica globally.</p>
+                    <div class="card-source">
+                        <span>Tech Startups</span>
+                        <a href="https://techstartups.com" target="_blank">techstartups.com</a>
+                        <span>| 13 Abril 2026</span>
                     </div>
-                </article>
-
-                <article class="card" data-category="tecnologia" data-tags="trabajo ia empleados">
-                    <span class="card-tag" style="--tag-bg: rgba(61,214,140,0.15); --tag-color: #3dd68c;">EMPLOYMENT</span>
-                    <h3 class="card-title">Por primera vez, la mitad de trabajadores estadounidenses usa IA en el trabajo, según Gallup</h3>
-                    <p class="card-desc">La encuesta de Gallup muestra que el 50% de adultos empleados en EE.UU. usa IA en el trabajo al menos unas pocas veces al año. Los líderes son más propensos a ver el impacto positivamente que los trabajadores de base, sugiriendo una brecha de adopción.</p>
-                    <div class="card-footer">
-                        <span class="card-source">Gallup · <a href="https://www.gallup.com/workplace/701195/frequent-workplace-continued-rise.aspx" target="_blank">gallup.com</a></span>
-                        <span class="card-date">13 Abr 2026</span>
+                </div>
+                <div class="card">
+                    <h3>China Refuerza Reglas Financieras para Empresas de IA</h3>
+                    <p>El gobierno chino está Tightening financial rules para empresas de inteligencia artificial, buscando controlar el flujo de capital hacia el sector mientras manage los riesgos sistémicos.</p>
+                    <div class="card-source">
+                        <span>Tech Startups</span>
+                        <a href="https://techstartups.com" target="_blank">techstartups.com</a>
+                        <span>| 13 Abril 2026</span>
                     </div>
-                </article>
+                </div>
+                <div class="card">
+                    <h3>Japón Anuncia Plan para Construir Pila de IA Soberana</h3>
+                    <p>Japón unveils plans para desarrollar su propia pila de inteligencia artificial soberana, reduciendo dependencia de tecnologias extrangeras y asegurando liderazgo en la era de la IA.</p>
+                    <div class="card-source">
+                        <span>Tech Startups</span>
+                        <a href="https://techstartups.com" target="_blank">techstartups.com</a>
+                        <span>| 13 Abril 2026</span>
+                    </div>
+                </div>
             </div>
         </section>
-
-        <!-- 🔭 CIENCIA -->
-        <section class="section" id="ciencia">
+        
+        <!-- COSTA RICA -->
+        <section class="section">
             <div class="section-header">
-                <span class="section-icon">🔭</span>
-                <h2 class="section-title">Ciencia y Descubrimientos</h2>
-                <span class="section-count">4 noticias</span>
+                <span class="section-icon">🇨🇷</span>
+                <h2 class="section-title cr">Costa Rica</h2>
             </div>
             <div class="cards-grid">
-                <article class="card" data-category="ciencia" data-tags="east china fusion">
-                    <span class="card-tag" style="--tag-bg: rgba(66,212,240,0.15); --tag-color: #42d4f0;">FUSIÓN</span>
-                    <h3 class="card-title">China alcanza nuevo récord en reactor de fusión EAST: verifica régimen de plasma sin densidad</h3>
-                    <p class="card-desc">Investigadores del Experimental Advanced Superconducting Tokamak (EAST) de China reportan la primera verificación experimental de un régimen de plasma teorizado sin densidad, alcanzando densidades estables de 1.3 a 1.65 veces el Límite de Greenwald.</p>
-                    <div class="card-footer">
-                        <span class="card-source">Wikipedia · <a href="https://en.wikipedia.org/wiki/2026_in_science" target="_blank">en.wikipedia.org</a></span>
-                        <span class="card-date">1 Ene 2026</span>
+                <div class="card">
+                    <span class="card-tag tag-cr">ECONOMIA</span>
+                    <h3>Crecimiento Economico Proyectado 3.6% - 4.8% para 2026</h3>
+                    <p>Proyecciones muestran que la economia de Costa Rica crecera entre 3.6% y 4.8% en 2026. Banco Mundial prevé reducción en el crecimiento mientras el pais se consolida como destino de alto valor para inversión extranjera directa.</p>
+                    <div class="card-source">
+                        <span>La Republica / Banco Mundial</span>
+                        <a href="https://www.nacion.com/economia" target="_blank">nacion.com</a>
+                        <span>| Abril 2026</span>
                     </div>
-                </article>
-
-                <article class="card" data-category="ciencia" data-tags="quantum computing RSA">
-                    <span class="card-tag" style="--tag-bg: rgba(155,109,255,0.15); --tag-color: #9b6dff;">CUÁNTICA</span>
-                    <h3 class="card-title">Arquitectura Pinnacle: investigadores muestran cómo factorar RSA-2048 con menos de 100,000 qubits</h3>
-                    <p class="card-desc">Iceberg Quantum publicó un estudio describiendo la "Arquitectura Pinnacle", un diseño de computación cuántica tolerante a fallos basado en códigos qLDPC. Muestran que RSA-2048 podría factorizarse con menos de 100,000 qubits físicos.</p>
-                    <div class="card-footer">
-                        <span class="card-source">Wikipedia · <a href="https://en.wikipedia.org/wiki/2026_in_science" target="_blank">en.wikipedia.org</a></span>
-                        <span class="card-date">12 Feb 2026</span>
+                </div>
+                <div class="card">
+                    <span class="card-tag tag-cr">ECONOMIA</span>
+                    <h3>Tipo de Cambio Proyectado: 505-515 Colones por Dolar</h3>
+                    <p>Analistas de Mercado de Valores proyectan episodios de volatilidad durante el ano, pero prevén el tipo de cambio en una banda estrecha de 505-515 colones por dolar para finales de 2026.</p>
+                    <div class="card-source">
+                        <span>Ticoslandia</span>
+                        <a href="https://ticoslandia.com" target="_blank">ticoslandia.com</a>
+                        <span>| Abril 2026</span>
                     </div>
-                </article>
-
-                <article class="card" data-category="ciencia" tags="artemis ii">
-                    <span class="card-tag" style="--tag-bg: rgba(66,212,240,0.15); --tag-color: #42d4f0;">ESPACIO</span>
-                    <h3 class="card-title">Artemis II: astronautas regresan a la Tierra tras misión lunar histórica</h3>
-                    <p class="card-desc">Los astronautas de Artemis II amerizaron en el Pacífico frente a la costa de San Diego, completando con éxito la primera misión lunar tripulada desde el programa Apolo. La misión marca el regreso de EE.UU. al espacio profundo.</p>
-                    <div class="card-footer">
-                        <span class="card-source">Everything Briefing · <a href="https://everythingbriefing.substack.com/p/april-13-2026" target="_blank">substack.com</a></span>
-                        <span class="card-date">11 Abr 2026</span>
+                </div>
+                <div class="card">
+                    <span class="card-tag tag-cr">ECONOMIA</span>
+                    <h3>Inflacion Baja pero Costo de Vida Elevado Preocupa de Cara a Elecciones</h3>
+                    <p>Aunque Costa Rica presume una de las inflaciones mas bajas de America Latina, el alto costo de vida es una de las principales preocupaciones ciudadanas de cara a las elecciones de febrero 2026.</p>
+                    <div class="card-source">
+                        <span>France 24</span>
+                        <a href="https://www.france24.com/es/programas/econom%C3%ADa/20260131-costa-rica-llega-a-elecciones-con-una-inflaci%C3%B3n-baja-pero-con-un-costo-de-vida-disparado" target="_blank">france24.com</a>
+                        <span>| 31 Enero 2026</span>
                     </div>
-                </article>
-
-                <article class="card" data-category="ciencia" data-tags="kaist semiconductor">
-                    <span class="card-tag" style="--tag-bg: rgba(61,214,140,0.15); --tag-color: #3dd68c;">SEMICONDUCTOR</span>
-                    <h3 class="card-title">Investigadores KAIST desarrollan método 1000x más sensible para detectar estados de trampa en semiconductores</h3>
-                    <p class="card-desc">Científicos del Korea Advanced Institute of Science and Technology reportaron un método basado en efecto Hall fotoeléctrico para detectar estados de trampa electrónica en semiconductores con aproximadamente 1,000 veces mayor sensibilidad que las técnicas existentes.</p>
-                    <div class="card-footer">
-                        <span class="card-source">Wikipedia · <a href="https://en.wikipedia.org/wiki/2026_in_science" target="_blank">en.wikipedia.org</a></span>
-                        <span class="card-date">2 Ene 2026</span>
+                </div>
+                <div class="card">
+                    <span class="card-tag tag-cr">POLITICA</span>
+                    <h3>Encrucijada Fiscal y Politica de Costa Rica 2026</h3>
+                    <p>La inminencia de las elecciones de febrero 2026 pone sobre la mesa desafios en materia de politica publica donde la agenda fiscal emerge como eje determinante para el futuro desarrollo economico y social.</p>
+                    <div class="card-source">
+                        <span>UNA Comunica</span>
+                        <a href="https://www.unacomunica.una.ac.cr/index.php/criterios/6043-costa-rica-2026-encrucijada-fiscal-y-politica" target="_blank">unacomunica.una.ac.cr</a>
+                        <span>| 2026</span>
                     </div>
-                </article>
+                </div>
+                <div class="card">
+                    <span class="card-tag tag-cr">POLITICA</span>
+                    <h3>Consejo de UCR Veta Acuerdo sobre Redistribucion del FEES</h3>
+                    <p>El Consejo de la Universidad de Costa Rica veto un acuerdo sobre lineamientos para la redistribucion "integral" del Fondo de Financiamiento de la Educación Superior (FEES).</p>
+                    <div class="card-source">
+                        <span>Teletica</span>
+                        <a href="https://www.teletica.com/multimedia/edicion-vespertina-de-telenoticias-13-abril-2026_1250752" target="_blank">teletica.com</a>
+                        <span>| 13 Abril 2026</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <span class="card-tag tag-cr">SOCIEDAD</span>
+                    <h3>Clima en Costa Rica: Temperaturas de 16°C a 31°C en Abril</h3>
+                    <p>El tiempo en abril presenta temperaturas entre 16°C y 31°C. Pronósticos del 13 de abril indican lluvias en el Pacifico Sur y temperaturas por debajo del promedio en Caribe y Zona Norte.</p>
+                    <div class="card-source">
+                        <span>Telediario / IMN</span>
+                        <a href="https://www.telediario.cr/videos/nacional/pronostico-costa-rica-13-abril-2026-emily-quinones" target="_blank">telediario.cr</a>
+                        <span>| 13 Abril 2026</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <span class="card-tag tag-cr">ECONOMIA</span>
+                    <h3>Duplicacion de Visitantes Turisticos y Buenas Noticias Economicas</h3>
+                    <p>Costa Rica inicio 2026 con buenas noticias: se duplicó la visita de turistas, inversion extranjera directa en aumento, y productos y gasolina abaratados mejoran la calidad de vida.</p>
+                    <div class="card-source">
+                        <span>Noticierosticavision</span>
+                        <a href="https://www.facebook.com/noticiasticavisioncr/posts/-costa-rica-empieza-2026-con-buenas-noticias-en-materia-econ%C3%B3mica-y-calidad-de-v/1525251332938595/" target="_blank">facebook.com</a>
+                        <span>| Enero 2026</span>
+                    </div>
+                </div>
             </div>
         </section>
-
-        <!-- 🎭 CULTURA Y DEPORTES -->
-        <section class="section" id="cultura">
-            <div class="section-header">
-                <span class="section-icon">🎭</span>
-                <h2 class="section-title">Cultura y Deportes</h2>
-                <span class="section-count">3 noticias</span>
-            </div>
-            <div class="cards-grid">
-                <article class="card" data-category="cultura" data-tags="sports business awards">
-                    <span class="card-tag" style="--tag-bg: rgba(79,142,247,0.15); --tag-color: #4f8ef7;">NEGOCIOS</span>
-                    <h3 class="card-title">Sports Business Awards: Tech 2026 — Lo mejor del negocio deportivo</h3>
-                    <p class="card-desc">Sports Business Journal prepara los Sports Business Awards enfocados en tecnología, reconociendo las innovaciones tecnológicas más impactantes en la industria deportiva global.</p>
-                    <div class="card-footer">
-                        <span class="card-source">Sports Business Journal · <a href="https://www.sportsbusinessjournal.com/Articles/2026/04/09/faces-places-for-april-13-2026/" target="_blank">sportsbusinessjournal.com</a></span>
-                        <span class="card-date">9 Abr 2026</span>
-                    </div>
-                </article>
-
-                <article class="card" data-category="cultura" data-tags="maestro fernando mendoza">
-                    <span class="card-tag" style="--tag-bg: rgba(255,140,66,0.15); --tag-color: #ff8c42;">DEPORTE</span>
-                    <h3 class="card-title">Fernando Mendoza: Maverick del Deporte en portada de Esquire</h3>
-                    <p class="card-desc">La revista Esquire presenta a Fernando Mendoza como su Maverick del Deporte y estrella de la portada de su edición de primavera 2026, reconociendo su impacto en el mundo deportivo.</p>
-                    <div class="card-footer">
-                        <span class="card-source">Esquire · <a href="https://www.instagram.com/p/DXEduW1gEMZ/" target="_blank">instagram.com</a></span>
-                        <span class="card-date">13 Abr 2026</span>
-                    </div>
-                </article>
-
-                <article class="card" data-category="cultura" data-tags="haotong li masters golf">
-                    <span class="card-tag" style="--tag-bg: rgba(61,214,140,0.15); --tag-color: #3dd68c;">GOLF</span>
-                    <h3 class="card-title">Haotong Li pierde $500,000 en el Masters tras golpear roca en el hoyo 13</h3>
-                    <p class="card-desc">El golfista chino Haotong Li se convirtió en una de las historias más memorables del Masters 2026. Tras estar en posición de Top 12, su golpe en el par 5 del hoyo 13 impacto una roca, mandando la bola a los pinos y resultando en un 80 en la ronda final, perdiendo más de $500,000 en ganancias.</p>
-                    <div class="card-footer">
-                        <span class="card-source">Outkick · <a href="https://www.outkick.com/sports/haotong-li-masters-sunday-finish-payout-money-lost" target="_blank">outkick.com</a></span>
-                        <span class="card-date">13 Abr 2026</span>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <!-- 🌤️ CLIMA -->
-        <section class="section" id="clima">
-            <div class="section-header">
-                <span class="section-icon">🌤️</span>
-                <h2 class="section-title">Clima Global</h2>
-                <span class="section-count">2 noticias</span>
-            </div>
-            <div class="cards-grid">
-                <article class="card" data-category="ciencia" data-tags="2025 clima calor">
-                    <span class="card-tag" style="--tag-bg: rgba(255,217,61,0.15); --tag-color: #ffd93d;">CLIMA</span>
-                    <h3 class="card-title">2025 fue el tercer año más caluroso de la historia: Copernicus reporta</h3>
-                    <p class="card-desc">El Copernicus Climate Change Service de la UE reporta que 2025 fue el tercer año más caluroso registrado. En Antártida, la temperatura anual promedio fue la más alta desde que hay registros. En el Ártico, fue la segunda más alta.</p>
-                    <div class="card-footer">
-                        <span class="card-source">Wikipedia · <a href="https://en.wikipedia.org/wiki/2026_in_science" target="_blank">en.wikipedia.org</a></span>
-                        <span class="card-date">13 Ene 2026</span>
-                    </div>
-                </article>
-
-                <article class="card" data-category="ciencia" data-tags="singapur aire acondicionado">
-                    <span class="card-tag" style="--tag-bg: rgba(255,140,66,0.15); --tag-color: #ff8c42;">ASIA</span>
-                    <h3 class="card-title">Singapur reduce uso de aire acondicionado por crisis petrolera en Asia</h3>
-                    <p class="card-desc">Singapur está implementando medidas para disminuir el uso de aire acondicionado debido a la crisis energética que atraviesa Asia por el conflicto en Medio Oriente y los ataques en el Estrecho de Ormuz.</p>
-                    <div class="card-footer">
-                        <span class="card-source">BBC · <a href="https://www.bbc.com/news/articles/c80mxrdvkpjo" target="_blank">bbc.com</a></span>
-                        <span class="card-date">13 Abr 2026</span>
-                    </div>
-                </article>
+        
+        <!-- SOURCES -->
+        <section class="sources-section">
+            <h2>Fuentes</h2>
+            <div class="sources-grid">
+                <div class="source-item">
+                    <span>🌐</span>
+                    <a href="https://www.democracynow.com" target="_blank">Democracy Now</a>
+                </div>
+                <div class="source-item">
+                    <span>🌐</span>
+                    <a href="https://news.un.org" target="_blank">UN News</a>
+                </div>
+                <div class="source-item">
+                    <span>🌐</span>
+                    <a href="https://www.undp.org" target="_blank">UNDP</a>
+                </div>
+                <div class="source-item">
+                    <span>🌐</span>
+                    <a href="https://www.imf.org" target="_blank">IMF</a>
+                </div>
+                <div class="source-item">
+                    <span>🌐</span>
+                    <a href="https://www.bloomberg.com" target="_blank">Bloomberg</a>
+                </div>
+                <div class="source-item">
+                    <span>🌐</span>
+                    <a href="https://www.wsj.com" target="_blank">Wall Street Journal</a>
+                </div>
+                <div class="source-item">
+                    <span>🌐</span>
+                    <a href="https://techstartups.com" target="_blank">Tech Startups</a>
+                </div>
+                <div class="source-item">
+                    <span>🌐</span>
+                    <a href="https://www.nacion.com" target="_blank">La Nacion</a>
+                </div>
+                <div class="source-item">
+                    <span>🌐</span>
+                    <a href="https://www.larepublica.net" target="_blank">La Republica</a>
+                </div>
+                <div class="source-item">
+                    <span>🌐</span>
+                    <a href="https://ticoslandia.com" target="_blank">Ticoslandia</a>
+                </div>
+                <div class="source-item">
+                    <span>🌐</span>
+                    <a href="https://www.france24.com" target="_blank">France 24</a>
+                </div>
+                <div class="source-item">
+                    <span>🌐</span>
+                    <a href="https://www.teletica.com" target="_blank">Teletica</a>
+                </div>
+                <div class="source-item">
+                    <span>🌐</span>
+                    <a href="https://www.telediario.cr" target="_blank">Telediario</a>
+                </div>
+                <div class="source-item">
+                    <span>🌐</span>
+                    <a href="https://www.unacomunica.una.ac.cr" target="_blank">UNA Comunica</a>
+                </div>
+                <div class="source-item">
+                    <span>🌐</span>
+                    <a href="https://www.euronews.com" target="_blank">Euronews</a>
+                </div>
             </div>
         </section>
-
-        <!-- 🇬🇷 COSTA RICA SECTION -->
-        <section class="section cr-section" id="costa-rica">
-            <div class="cr-header">
-                <h2>🇬🇷 Costa Rica</h2>
-            </div>
-
-            <div class="section-header">
-                <span class="section-icon">🏛️</span>
-                <h2 class="section-title">Política CR</h2>
-                <span class="section-count">3 noticias</span>
-            </div>
-            <div class="cards-grid single-col">
-                <article class="card" data-category="costa-rica" data-tags="congreso duelo patria">
-                    <span class="card-tag" style="--tag-bg: rgba(0,56,168,0.15); --tag-color: #0038a8;">POLÍTICA</span>
-                    <h3 class="card-title">Congreso declara "Duelo de la Patria" como símbolo nacional</h3>
-                    <p class="card-desc">El Congreso de Costa Rica declaró el "Duelo de la Patria" como símbolo nacional, en el marco de una jornada legislative enfocada en prioridades como seguridad, justicia y sostenibilidad de las pensiones.</p>
-                    <div class="card-footer">
-                        <span class="card-source">Teletica · <a href="https://www.teletica.com/multimedia/edicion-vespertina-de-telenoticias-13-abril-2026_1250752" target="_blank">teletica.com</a></span>
-                        <span class="card-date">13 Abr 2026</span>
-                    </div>
-                </article>
-
-                <article class="card" data-category="costa-rica" data-tags="asamblea legislativa diputados">
-                    <span class="card-tag" style="--tag-bg: rgba(0,56,168,0.15); --tag-color: #0038a8;">LEGISLATIVO</span>
-                    <h3 class="card-title">Nuevos diputados priorizan seguridad, justicia y pensiones en agenda legislativa</h3>
-                    <p class="card-desc">Los nuevos diputados de la Asamblea Legislativa de Costa Rica presentan sus prioridades legislativas para el período, enfocadas en seguridad ciudadana, reforma judicial y sostenibilidad del sistema de pensiones.</p>
-                    <div class="card-footer">
-                        <span class="card-source">Sinart Digital · <a href="https://sinartdigital.com/trece-noticias/capitulos/item/trece-noticias-edicion-meridiana-13-abril-2026" target="_blank">sinartdigital.com</a></span>
-                        <span class="card-date">13 Abr 2026</span>
-                    </div>
-                </article>
-
-                <article class="card" data-category="costa-rica" data-tags="ucr estudiantes manifestación">
-                    <span class="card-tag" style="--tag-bg: rgba(255,140,66,0.15); --tag-color: #ff8c42;">SOCIEDAD</span>
-                    <h3 class="card-title">Estudiantes de la UCR bloquean importante carretera en Montes de Oca</h3>
-                    <p class="card-desc">Estudiantes de la Universidad de Costa Rica realizaron un bloqueo en una importante vía de Montes de Oca como forma de protesta. Las manifestaciones universitarias continúan en el país.</p>
-                    <div class="card-footer">
-                        <span class="card-source">Teletica · <a href="https://www.teletica.com/multimedia/edicion-vespertina-de-telenoticias-13-abril-2026_1250752" target="_blank">teletica.com</a></span>
-                        <span class="card-date">13 Abr 2026</span>
-                    </div>
-                </article>
-            </div>
-
-            <div class="section-header" style="margin-top: 2rem;">
-                <span class="section-icon">💼</span>
-                <h2 class="section-title">Economía CR</h2>
-                <span class="section-count">4 noticias</span>
-            </div>
-            <div class="cards-grid">
-                <article class="card" data-category="costa-rica" data-tags="banco mundial crecimiento">
-                    <span class="card-tag" style="--tag-bg: rgba(0,56,168,0.15); --tag-color: #0038a8;">ECONOMÍA</span>
-                    <h3 class="card-title">Banco Mundial: economía de Costa Rica crecerá 3.6% en 2026</h3>
-                    <p class="card-desc">El Banco Mundial proyecta que Costa Rica tendrá un crecimiento del 3.6% en 2026, ligeramente superior a la预测 del Banco Central. El informe destaca la transformación del país en destino de alto valor para IED.</p>
-                    <div class="card-footer">
-                        <span class="card-source">La Nación · <a href="https://www.nacion.com/economia/banco-mundial-preve-que-economia-de-costa-rica/7OCK3ZQRANADVNUFRQZCTGHTGQ/story/" target="_blank">nacion.com</a></span>
-                        <span class="card-date">2026</span>
-                    </div>
-                </article>
-
-                <article class="card" data-category="costa-rica" data-tags="turismo crecimiento">
-                    <span class="card-tag" style="--tag-bg: rgba(0,56,168,0.15); --tag-color: #0038a8;">TURISMO</span>
-                    <h3 class="card-title">Llegada de turistas a Costa Rica supera el millón en el primer trimestre: crecimiento del 11.3%</h3>
-                    <p class="card-desc">Costa Rica superó el millón de llegadas turísticas en el primer trimestre de 2026, representando un crecimiento del 11.3% respecto al mismo período del año anterior, impulsado por el fortalecimiento del sector turístico.</p>
-                    <div class="card-footer">
-                        <span class="card-source">La Nación · <a href="https://www.nacion.com/economia/llegada-de-turistas-a-costa-rica-supera-el-millon/TYT6JHPTBZCEJB6WLHSKDLQ5YU/story/" target="_blank">nacion.com</a></span>
-                        <span class="card-date">2026</span>
-                    </div>
-                </article>
-
-                <article class="card" data-category="costa-rica" data-tags="banco central tasa">
-                    <span class="card-tag" style="--tag-bg: rgba(0,56,168,0.15); --tag-color: #0038a8;">MONETARIA</span>
-                    <h3 class="card-title">Banco Central mantiene tasa de política monetaria en 3.25%</h3>
-                    <p class="card-desc">La Junta Directiva del Banco Central de Costa Rica acordó mantener la Tasa de Política Monetaria (TPM) en 3.25%, donde se encuentra desde hace varios meses, en un entorno de inflación controlada.</p>
-                    <div class="card-footer">
-                        <span class="card-source">La Nación · <a href="https://www.nacion.com/economia/banco-central-mantiene-sin-cambios-su-tasa-de/LUM6FWMGHBBRZF7VXESZ7JSNWU/story/" target="_blank">nacion.com</a></span>
-                        <span class="card-date">2026</span>
-                    </div>
-                </article>
-
-                <article class="card" data-category="costa-rica" data-tags="empleo inec">
-                    <span class="card-tag" style="--tag-bg: rgba(255,87,87,0.15); --tag-color: #ff5757;">EMPLEO</span>
-                    <h3 class="card-title">Costa Rica cierra febrero con 2.16 millones de empleos: 53,000 menos que en 2025</h3>
-                    <p class="card-desc">Según datos del INEC, Costa Rica terminó febrero con 2,160,915 personas empleadas, lo que representa una reducción de 53,000 puestos de trabajo respecto al mismo período del año anterior.</p>
-                    <div class="card-footer">
-                        <span class="card-source">La Nación · <a href="https://www.nacion.com/economia/cuantas-personas-tienen-empleo-en-costa-rica-inec/QBH4JHOZTJEUHFNMTUNKI2FXWQ/story/" target="_blank">nacion.com</a></span>
-                        <span class="card-date">Feb 2026</span>
-                    </div>
-                </article>
-            </div>
-
-            <div class="section-header" style="margin-top: 2rem;">
-                <span class="section-icon">🌤️</span>
-                <h2 class="section-title">Clima CR</h2>
-                <span class="section-count">1 noticia</span>
-            </div>
-            <div class="cards-grid single-col">
-                <article class="card" data-category="costa-rica" data-tags="lluvia pacifico sur">
-                    <span class="card-tag" style="--tag-bg: rgba(61,214,140,0.15); --tag-color: #3dd68c;">CLIMA</span>
-                    <h3 class="card-title">Lluvias en el Pacífico Sur de Costa Rica: acumulados significativos la semana del 13 de abril</h3>
-                    <p class="card-desc">Pronostica CR reportó lluvias significativas en el Pacífico Sur de Costa Rica durante la semana del 13 de abril de 2026. Las temperaturas se mantendrían dentro de los rangos normales para la época, con máximas promedio de 31.7°C en abril.</p>
-                    <div class="card-footer">
-                        <span class="card-source">Pronostica CR / IMN · <a href="https://www.facebook.com/PIACTCR/posts/pronocostarica1139-am-13-de-abril-2026proyecci%C3%B3n-del-tiempo-del-13-al-19-de-abri/1297594172505999/" target="_blank">facebook.com</a></span>
-                        <span class="card-date">13 Abr 2026</span>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <!-- 📚 FUENTES -->
-        <section class="sources-section" id="fuentes">
-            <div class="section-header">
-                <span class="section-icon">📚</span>
-                <h2 class="section-title">Fuentes</h2>
-            </div>
-            <div class="sources-list">
-                <div class="source-item">📰 <a href="https://www.democracynow.org/2026/4/13/headlines" target="_blank">Democracy Now! — democracynow.org</a></div>
-                <div class="source-item">📺 <a href="https://www.pbs.org/newshour/show/april-13-2026-pbs-news-hour-full-episode" target="_blank">PBS News Hour — pbs.org</a></div>
-                <div class="source-item">🌐 <a href="https://everythingbriefing.substack.com/p/april-13-2026" target="_blank">Everything Briefing — substack.com</a></div>
-                <div class="source-item">📈 <a href="https://www.cnbc.com/2026/04/10/cpi-inflation-report-march-2026.html" target="_blank">CNBC — cnbc.com</a></div>
-                <div class="source-item">🌍 <a href="https://news.un.org/en/audio/2026/04/1167286" target="_blank">UN News — news.un.org</a></div>
-                <div class="source-item">📰 <a href="https://www.reuters.com/world/asia-pacific/chinas-xi-meets-taiwan-opposition-leader-beijing-state-media-says-2026-04-10/" target="_blank">Reuters — reuters.com</a></div>
-                <div class="source-item">📰 <a href="https://www.axios.com/2026/04/12/swalwell-gonzales-cherfilus-mccormick-mills-expel" target="_blank">Axios — axios.com</a></div>
-                <div class="source-item">🏛️ <a href="https://www.nytimes.com/2026/04/10/us/politics/arch-washington-trump.html" target="_blank">The New York Times — nytimes.com</a></div>
-                <div class="source-item">💹 <a href="https://techstartups.com/2026/04/13/top-tech-news-today-april-13-2026/" target="_blank">Tech Startups — techstartups.com</a></div>
-                <div class="source-item">📊 <a href="https://www.bloomberg.com" target="_blank">Bloomberg — bloomberg.com</a></div>
-                <div class="source-item">📰 <a href="https://www.wsj.com" target="_blank">Wall Street Journal — wsj.com</a></div>
-                <div class="source-item">🇬🇧 <a href="https://www.ft.com" target="_blank">Financial Times — ft.com</a></div>
-                <div class="source-item">🔬 <a href="https://en.wikipedia.org/wiki/2026_in_science" target="_blank">Wikipedia 2026 in Science — en.wikipedia.org</a></div>
-                <div class="source-item">🏈 <a href="https://www.sportsbusinessjournal.com/Articles/2026/04/09/faces-places-for-april-13-2026/" target="_blank">Sports Business Journal — sportsbusinessjournal.com</a></div>
-                <div class="source-item">🌤️ <a href="https://www.bbc.com/news/articles/c80mxrdvkpjo" target="_blank">BBC News — bbc.com</a></div>
-                <div class="source-item">🇬🇷 <a href="https://www.nacion.com/economia/banco-mundial-preve-que-economia-de-costa-rica/7OCK3ZQRANADVNUFRQZCTGHTGQ/story/" target="_blank">La Nación CR — nacion.com</a></div>
-                <div class="source-item">🇬🇷 <a href="https://www.nacion.com/economia/llegada-de-turistas-a-costa-rica-supera-el-millon/TYT6JHPTBZCEJB6WLHSKDLQ5YU/story/" target="_blank">La Nación CR Turismo — nacion.com</a></div>
-                <div class="source-item">🇬🇷 <a href="https://www.nacion.com/economia/banco-central-mantiene-sin-cambios-su-tasa-de/LUM6FWMGHBBRZF7VXESZ7JSNWU/story/" target="_blank">La Nación BCCR — nacion.com</a></div>
-                <div class="source-item">🇬🇷 <a href="https://www.nacion.com/economia/cuantas-personas-tienen-empleo-en-costa-rica-inec/QBH4JHOZTJEUHFNMTUNKI2FXWQ/story/" target="_blank">La Nación Empleo — nacion.com</a></div>
-                <div class="source-item">🇬🇷 <a href="https://www.teletica.com/multimedia/edicion-vespertina-de-telenoticias-13-abril-2026_1250752" target="_blank">Teletica — teletica.com</a></div>
-                <div class="source-item">🇬🇷 <a href="https://sinartdigital.com/trece-noticias/capitulos/item/trece-noticias-edicion-meridiana-13-abril-2026" target="_blank">Sinart Digital — sinartdigital.com</a></div>
-                <div class="source-item">🇬🇷 <a href="https://www.telediario.cr" target="_blank">Telediario — telediario.cr</a></div>
-                <div class="source-item">🇬🇷 <a href="https://www.facebook.com/PIACTCR/posts/pronocostarica1139-am-13-de-abril-2026proyecci%C3%B3n-del-tiempo-del-13-al-19-de-abri/1297594172505999/" target="_blank">Pronostica CR — facebook.com</a></div>
-            </div>
-        </section>
-    </main>
-
+    </div>
+    
+    <footer class="footer">
+        <p>World News Report - 13 de Abril 2026</p>
+        <p>Generado automaticamente por Logos | Datos de fuentes públicas</p>
+    </footer>
+    
     <script>
-        // Search functionality
-        const searchInput = document.getElementById('searchInput');
-        const cards = document.querySelectorAll('.card');
-
-        searchInput.addEventListener('input', (e) => {
-            const query = e.target.value.toLowerCase();
-            cards.forEach(card => {
-                const title = card.querySelector('.card-title').textContent.toLowerCase();
-                const desc = card.querySelector('.card-desc').textContent.toLowerCase();
-                const tags = card.dataset.tags?.toLowerCase() || '';
-                const matches = title.includes(query) || desc.includes(query) || tags.includes(query);
-                card.classList.toggle('hidden', !matches && query !== '');
-            });
-        });
-
-        // Filter functionality
-        const filterBtns = document.querySelectorAll('.filter-btn');
-
-        filterBtns.forEach(btn => {
+        // Filters
+        document.querySelectorAll('.filter-btn[data-filter]').forEach(btn => {
             btn.addEventListener('click', () => {
-                // Update active state
-                filterBtns.forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.filter-btn[data-filter]').forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
-
                 const filter = btn.dataset.filter;
-                const allCards = document.querySelectorAll('.card');
-
-                allCards.forEach(card => {
-                    if (filter === 'all') {
-                        card.classList.remove('hidden');
+                document.querySelectorAll('.card').forEach(card => {
+                    if (filter === 'all' || card.classList.contains(filter)) {
+                        card.style.display = 'block';
                     } else {
-                        const category = card.dataset.category;
-                        card.classList.toggle('hidden', category !== filter);
+                        card.style.display = 'none';
                     }
                 });
             });
         });
-
-        // Card click → open source
-        cards.forEach(card => {
-            card.addEventListener('click', () => {
-                const link = card.querySelector('.card-source a');
-                if (link) window.open(link.href, '_blank');
+        
+        // Search
+        document.getElementById('searchBox').addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase();
+            document.querySelectorAll('.card').forEach(card => {
+                const text = card.textContent.toLowerCase();
+                card.style.display = text.includes(query) ? 'block' : 'none';
             });
         });
     </script>
