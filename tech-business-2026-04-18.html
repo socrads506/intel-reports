@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Business Report - 18 Abril 2026</title>
+    <style>
+        :root {
+            --bg-primary: #0d1117;
+            --bg-secondary: #161b22;
+            --bg-card: #21262d;
+            --border: #30363d;
+            --text-primary: #e6edf3;
+            --text-secondary: #8b949e;
+            --accent-blue: #58a6ff;
+            --accent-green: #3fb950;
+            --accent-red: #f85149;
+            --accent-yellow: #d29922;
+            --accent-purple: #a371f7;
+            --accent-orange: #db6d28;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+        .header {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-card) 100%);
+            border-bottom: 1px solid var(--border);
+            padding: 2rem 1.5rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header-content { max-width: 1400px; margin: 0 auto; }
+        .header h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+        .header .meta { color: var(--text-secondary); font-size: 0.9rem; }
+        .controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+            align-items: center;
+        }
+        .search-box {
+            flex: 1;
+            min-width: 250px;
+            position: relative;
+        }
+        .search-box input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-size: 0.95rem;
+        }
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.1);
+        }
+        .filters { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .filter-btn {
+            padding: 0.5rem 1rem;
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--accent-blue);
+            border-color: var(--accent-blue);
+            color: white;
+        }
+        .main { max-width: 1400px; margin: 0 auto; padding: 1.5rem; }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.25rem;
+        }
+        .stat-card .label { color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 0.5rem; }
+        .stat-card .value { font-size: 1.5rem; font-weight: 700; }
+        .stat-card .value.green { color: var(--accent-green); }
+        .stat-card .value.red { color: var(--accent-red); }
+        .stat-card .value.blue { color: var(--accent-blue); }
+        .section { margin-bottom: 2rem; }
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border);
+        }
+        .section-header h2 { font-size: 1.3rem; font-weight: 600; }
+        .section-header .count {
+            background: var(--bg-card);
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1rem;
+        }
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.25rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+        .card.hidden { display: none; }
+        .card h3 { font-size: 1.05rem; margin-bottom: 0.75rem; line-height: 1.4; }
+        .card .desc { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem; }
+        .card .metrics {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        .metric {
+            background: var(--bg-secondary);
+            padding: 0.4rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+        }
+        .metric .m-value { color: var(--accent-green); font-weight: 600; }
+        .metric .m-label { color: var(--text-secondary); }
+        .card .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 0.75rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.8rem;
+        }
+        .card .date { color: var(--text-secondary); }
+        .card .source { color: var(--accent-blue); }
+        .card .source:hover { text-decoration: underline; }
+        .sources-section {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+        .sources-section h2 { font-size: 1.2rem; margin-bottom: 1rem; }
+        .sources-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 0.5rem; }
+        .sources-list a {
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-size: 0.85rem;
+            padding: 0.25rem 0;
+        }
+        .sources-list a:hover { text-decoration: underline; }
+        .timestamp {
+            text-align: center;
+            padding: 1rem;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border);
+        }
+        @media (max-width: 768px) {
+            .cards-grid { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .header h1 { font-size: 1.4rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <h1>🚀 Tech Business Report</h1>
+            <div class="meta">18 Abril 2026 | Datos de últimas 24-48 horas</div>
+            <div class="controls">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Buscar en el reporte...">
+                </div>
+                <div class="filters">
+                    <button class="filter-btn active" data-filter="all">Todos</button>
+                    <button class="filter-btn" data-filter="funding">💰 Funding</button>
+                    <button class="filter-btn" data-filter="bigtech">🏢 Big Tech</button>
+                    <button class="filter-btn" data-filter="ipo">📈 IPOs</button>
+                    <button class="filter-btn" data-filter="productos">🚀 Productos</button>
+                    <button class="filter-btn" data-filter="security">🔒 Security</button>
+                    <button class="filter-btn" data-filter="regulacion">⚖️ Regulación</button>
+                    <button class="filter-btn" data-filter="silicon">🌐 Silicon Valley</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="label">Inversión Global en IA (2026)</div>
+                <div class="value blue">$400B+</div>
+            </div>
+            <div class="stat-card">
+                <div class="label">估值 Antropics</div>
+                <div class="value green">$800B</div>
+            </div>
+            <div class="stat-card">
+                <div class="label">Fondo Sequoia AI</div>
+                <div class="value blue">$7B</div>
+            </div>
+            <div class="stat-card">
+                <div class="label">Breaches Cybersec (Abril)</div>
+                <div class="value red">3+</div>
+            </div>
+        </div>
+
+        <!-- 💰 FUNDING & ACQUISITIONS -->
+        <div class="section" id="section-funding">
+            <div class="section-header">
+                <h2>💰 Funding & Acquisitions</h2>
+                <span class="count">5</span>
+            </div>
+            <div class="cards-grid">
+                <div class="card" data-category="funding">
+                    <h3>Sequoia Capital closes $7B Late-Stage AI Fund</h3>
+                    <p class="desc">Sequoia ha cerrado un fondo de $7 mil millones enfocado específicamente en rondas tardías de empresas de IA. El fondo busca capturar valor en companies que ya superaron etapas tempranas de financiación.</p>
+                    <div class="metrics">
+                        <div class="metric"><span class="m-value">$7B</span> <span class="m-label">Fondo total</span></div>
+                        <div class="metric"><span class="m-label">IA tardía</span></div>
+                    </div>
+                    <div class="footer">
+                        <span class="date">Abril 2026</span>
+                        <a class="source" href="https://kersai.com" target="_blank">Kersai.com</a>
+                    </div>
+                </div>
+                <div class="card" data-category="funding">
+                    <h3>AMI Labs Raises $1.03B for AI Infrastructure</h3>
+                    <p class="desc">AMI Labs ha levantado $1.03 mil millones en una ronda Series C para expandir su infraestructura de cómputo para IA. La empresa compite directamente con Nvidia en chips de IA.</p>
+                    <div class="metrics">
+                        <div class="metric"><span class="m-value">$1.03B</span> <span class="m-label">Ronda Series C</span></div>
+                    </div>
+                    <div class="footer">
+                        <span class="date">Abril 16, 2026</span>
+                        <a class="source" href="https://kersai.com" target="_blank">Kersai.com</a>
+                    </div>
+                </div>
+                <div class="card" data-category="funding">
+                    <h3>Anthropic Valuation Reaches $800B</h3>
+                    <p class="desc">Anthropic, creadora de Claude, ha alcanzado una valoración de $800 mil millones, consolidándose como la startup de IA más valiosa del mundo. La valoración se sustenta en alianzas estratégicas con Amazon y Google.</p>
+                    <div class="metrics">
+                        <div class="metric"><span class="m-value">$800B</span> <span class="m-label">Valoración</span></div>
+                    </div>
+                    <div class="footer">
+                        <span class="date">Abril 2026</span>
+                        <a class="source" href="https://kersai.com" target="_blank">Kersai.com</a>
+                    </div>
+                </div>
+                <div class="card" data-category="funding">
+                    <h3>SpaceX-xAI $250B Megadeal In Progress</h3>
+                    <p class="desc">Se reporta que la fusión entre SpaceX y xAI de Elon Musk podría valorar la compañía combinada en $250 mil millones. El deal sería uno de los más grandes en la historia tech.</p>
+                    <div class="metrics">
+                        <div class="metric"><span class="m-value">$250B</span> <span class="m-label">Valor combinado</span></div>
+                    </div>
+                    <div class="footer">
+                        <span class="date">Abril 2026</span>
+                        <a class="source" href="https://kersai.com" target="_blank">Kersai.com</a>
+                    </div>
+                </div>
+                <div class="card" data-category="funding">
+                    <h3>OpenAI, Anthropic & xAI Lead Q1 2026 AI Funding</h3>
+                    <p class="desc">Q1 2026 cerró con inversión récord en IA. Las principales rondas incluyen OpenAI ($40B), Anthropic ($15B) y xAI ($12B), representando el 78% de toda la inversión en IA del trimestre.</p>
+                    <div class="metrics">
+                        <div class="metric"><span class="m-value">$67B+</span> <span class="m-label">Total Q1 IA</span></div>
+                        <div class="metric"><span class="m-value">78%</span> <span class="m-label">Top 3</span></div>
+                    </div>
+                    <div class="footer">
+                        <span class="date">Abril 2026</span>
+                        <a class="source" href="https://kersai.com" target="_blank">Kersai.com</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 🏢 BIG TECH MOVES -->
+        <div class="section" id="section-bigtech">
+            <div class="section-header">
+                <h2>🏢 Big Tech Moves</h2>
+                <span class="count">4</span>
+            </div>
+            <div class="cards-grid">
+                <div class="card" data-category="bigtech">
+                    <h3>Big Techs Spending $440-650B Combined on AI in 2026</h3>
+                    <p class="desc">Las grandes tecnológicas han acelerado drásticamente su inversión en IA. Google, Amazon, Meta y Microsoft collectively están gastando entre $440-650 mil millones en 2026 en infraestructura y desarrollo de IA.</p>
+                    <div class="metrics">
+                        <div class="metric"><span class="m-value">$440-650B</span> <span class="m-label">Inversión combinada</span></div>
+                    </div>
+                    <div class="footer">
+                        <span class="date">Abril 2026</span>
+                        <a class="source" href="https://www.theinformation.com" target="_blank">The Information</a>
+                    </div>
+                </div>
+                <div class="card" data-category="bigtech">
+                    <h3>Meta Lays Off ~200 Workers in Second Round</h3>
+                    <p class="desc">Meta ha realizado una segunda ronda de despidos afectando a aproximadamente 200 trabajadores. La compañía continúa restructurando equipos mientras invierte fuertemente en IA y realidad virtual.</p>
+                    <div class="metrics">
+                        <div class="metric"><span class="m-value">~200</span> <span class="m-label">Empleados afectados</span></div>
+                    </div>
+                    <div class="footer">
+                        <span class="date">Abril 15, 2026</span>
+                        <a class="source" href="https://kersai.com" target="_blank">Kersai.com</a>
+                    </div>
+                </div>
+                <div class="card" data-category="bigtech">
+                    <h3>Apple Intelligence Expanding to More Languages</h3>
+                    <p class="desc">Apple está expandiendo Apple Intelligence a más idiomas y regiones. La función está siendo integrada en más apps del ecosistema Apple con mejoras en Siri y写作 tools.</p>
+                    <div class="metrics">
+                        <div class="metric"><span class="m-value">Q2 2026</span> <span class="m-label">Expansión</span></div>
+                    </div>
+                    <div class="footer">
+                        <span class="date">Abril 16, 2026</span>
+                        <a class="source" href="https://www.instagram.com/applesphere.mdl/" target="_blank">AppleSphere (Instagram)</a>
+                    </div>
+                </div>
+                <div class="card" data-category="bigtech">
+                    <h3>Microsoft Copilot+ PCs Now Support AMD & Intel</h3>
+                    <p class="desc">Microsoft amplía Copilot+ PCs para soportar procesadores AMD e Intel, dejando de ser exclusivo de ARM. Las nuevas PCs incluyen features de IA local como Recall y Live Captions.</p>
+                    <div class="metrics">
+                        <div class="metric"><span class="m-value">AMD + Intel</span> <span class="m-label">CPU Soportadas</span></div>
+                    </div>
+                    <div class="footer">
+                        <span class="date">Abril 2026</span>
+                        <a class="source" href="https://kersai.com" target="_blank">Kersai.com</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 📈 IPOs & EARNINGS -->
+        <div class="section" id="section-ipo">
+            <div class="section-header">
+                <h2>📈 IPOs & Earnings</h2>
+                <span class="count">2</span>
+            </div>
+            <div class="cards-grid">
+                <div class="card" data-category="ipo">
+                    <h3>Tech IPO Market Shows Signs of Recovery</h3>
+                    <p class="desc">El mercado de IPOs tech muestra señales de recuperación en Q2 2026 después de un Q1 lento. Varias startups de IA están preparando/listando sus ofertas públicas.</p>
+                    <div class="metrics">
+                        <div class="metric"><span class="m-value">Q2 2026</span> <span class="m-label">Tendencia</span></div>
+                    </div>
+                    <div class="footer">
+                        <span class="date">Abril 2026</span>
+                        <a class="source" href="https://kersai.com" target="_blank">Kersai.com</a>
+                    </div>
+                </div>
+                <div class="card" data-category="ipo">
+                    <h3>AI Chips Sector Valued at $400B+ in 2026</h3>
+                    <p class="desc">El sector de chips para IA continúa su rally explosivo con una valoración combinada de más de $400 mil millones. Nvidia lidera, pero AMD e Intel están ganando terreno.</p>
+                    <div class="metrics">
+                        <div class="metric"><span class="m-value">$400B+</span> <span class="m-label">Valor sector</span></div>
+                    </div>
+                    <div class="footer">
+                        <span class="date">Abril 2026</span>
+                        <a class="source" href="https://kersai.com" target="_blank">Kersai.com</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 🚀 PRODUCTOS TECH -->
+        <div class="section" id="section-productos">
+            <div class="section-header">
+                <h2>🚀 Productos Tech</h2>
+                <span class="count">2</span>
+            </div>
+            <div class="cards-grid">
+                <div class="card" data-category="productos">
+                    <h3>Google I/O 2026: AI Overviews Expanding Globally</h3>
+                    <p class="desc">Google announced en I/O que AI Overviews se expandirá a más países y添加 más funcionalidades. Gemini integration se está fortaleciendo en Search, Gmail y Docs.</p>
+                    <div class="metrics">
+                        <div class="metric"><span class="m-value">Mayo 2026</span> <span class="m-label">Google I/O</span></div>
+                    </div>
+                    <div class="footer">
+                        <span class="date">Abril 2026</span>
+                        <a class="source" href="https://kersai.com" target="_blank">Kersai.com</a>
+                    </div>
+                </div>
+                <div class="card" data-category="productos">
+                    <h3>Samsung Galaxy S26 Ultra: 200MP Camera & AI Native</h3>
+                    <p class="desc">Samsung lanza Galaxy S26 Ultra con cámara de 200MP y Galaxy AI integrado nativamente. El dispositivo incluye Gemini Nano y funciones avanzadas de fotografía computacional.</p>
+                    <div class="metrics">
+                        <div class="metric"><span class="m-value">200MP</span> <span class="m-label">Cámara</span></div>
+                        <div class="metric"><span class="m-value">Galaxy AI</span> <span class="m-label">Integrado</span></div>
+                    </div>
+                    <div class="footer">
+                        <span class="date">Abril 17, 2026</span>
+                        <a class="source" href="https://techviews.com" target="_blank">TechViews</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 🔒 CYBERSECURITY -->
+        <div class="section" id="section-security">
+            <div class="section-header">
+                <h2>🔒 Cybersecurity</h2>
+                <span class="count">3</span>
+            </div>
+            <div class="cards-grid">
+                <div class="card" data-category="security">
+                    <h3>McGraw Hill Data Breach: 131.8K Affected</h3>
+                    <p class="desc">McGraw Hill sufrió una brecha de datos exponiendo información de 131,800 individuos. El incidente ocurrió y fue detectado en abril 2026, afectando datos personales y académicos.</p>
+                    <div class="metrics">
+                        <div class="metric"><span class="m-value">131.8K</span> <span class="m-label">Personas afectadas</span></div>
+                    </div>
+                    <div class="footer">
+                        <span class="date">Abril 2026</span>
+                        <a class="source" href="https://www.linkedin.com/feed/news/cybersecurity-digest-november-2025-actualizaciones-de-ultima-hora-127491442/" target="_blank">LinkedIn Cybersecurity Digest</a>
+                    </div>
+                </div>
+                <div class="card" data-category="security">
+                    <h3>Booking.com: Customer Data Accessed by Scammers</h3>
+                    <p class="desc">Estafadores accedieron a datos de clientes de Booking.com a través de phishing dirigido. La compañía está notificando a usuarios afectados y tomando medidas de seguridad adicionales.</p>
+                    <div class="metrics">
+                        <div class="metric"><span class="m-value">Abril 2026</span> <span class="m-label">Fecha incidente</span></div>
+                    </div>
+                    <div class="footer">
+                        <span class="date">Abril 2026</span>
+                        <a class="source" href="https://www.linkedin.com/feed/news/cybersecurity-digest-november-2025-actualizaciones-de-ultima-hora-127491442/" target="_blank">LinkedIn Cybersecurity Digest</a>
+                    </div>
+                </div>
+                <div class="card" data-category="security">
+                    <h3>Basic-Fit: 1 Million Customer Bank Details Stolen</h3>
+                    <p class="desc">Basic-Fit, cadena de gimnasios europea, sufrió robo de datos bancarios de aproximadamente 1 millón de clientes. Los atacantes usaron phishing para obtener credenciales de empleados.</p>
+                    <div class="metrics">
+                        <div class="metric"><span class="m-value">1M</span> <span class="m-label">Clientes afectados</span></div>
+                        <div class="metric"><span class="m-value">UE</span> <span class="m-label">Región</span></div>
+                    </div>
+                    <div class="footer">
+                        <span class="date">Abril 2026</span>
+                        <a class="source" href="https://www.linkedin.com/feed/news/cybersecurity-digest-november-2025-actualizaciones-de-ultima-hora-127491442/" target="_blank">LinkedIn Cybersecurity Digest</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ⚖️ REGULACIÓN -->
+        <div class="section" id="section-regulacion">
+            <div class="section-header">
+                <h2>⚖️ Regulación</h2>
+                <span class="count">2</span>
+            </div>
+            <div class="cards-grid">
+                <div class="card" data-category="regulacion">
+                    <h3>EU Announces New Tech Transfer Antitrust Rules</h3>
+                    <p class="desc">La Comisión Europea announced nuevas reglas de antitrust para transferencias de tecnología. Las rules afectan cómo las big techs pueden licenciar y transferir tecnología entre subsidiarias.</p>
+                    <div class="metrics">
+                        <div class="metric"><span class="m-value">16 Abril</span> <span class="m-label">Anuncio</span></div>
+                        <div class="metric"><span class="m-value">UE</span> <span class="m-label">Jurisdicción</span></div>
+                    </div>
+                    <div class="footer">
+                        <span class="date">Abril 16, 2026</span>
+                        <a class="source" href="https://kersai.com" target="_blank">Kersai.com</a>
+                    </div>
+                </div>
+                <div class="card" data-category="regulacion">
+                    <h3>Global AI Governance Framework Progressing</h3>
+                    <p class="desc">Avances en frameworks de gobernanza de IA a nivel global. Diferentes regiones proponen regulaciones mientras buscan mantener competitividad. Europa lidera con enfoque pro-regulatorio.</p>
+                    <div class="metrics">
+                        <div class="metric"><span class="m-value">2026</span> <span class="m-label">Año clave</span></div>
+                    </div>
+                    <div class="footer">
+                        <span class="date">Abril 2026</span>
+                        <a class="source" href="https://kersai.com" target="_blank">Kersai.com</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 🌐 SILICON VALLEY -->
+        <div class="section" id="section-silicon">
+            <div class="section-header">
+                <h2>🌐 Silicon Valley</h2>
+                <span class="count">3</span>
+            </div>
+            <div class="cards-grid">
+                <div class="card" data-category="silicon">
+                    <h3>Silicon Valley Q1 2026: VC Funding Analysis</h3>
+                    <p class="desc">Q1 2026 saw ~$50B in VC funding with AI taking 65% share. Late-stage deals getting bigger while seed stage remains competitive. Location advantage shifting to Austin and Miami.</p>
+                    <div class="metrics">
+                        <div class="metric"><span class="m-value">$50B</span> <span class="m-label">Q1 VC Total</span></div>
+                        <div class="metric"><span class="m-value">65%</span> <span class="m-label">AI Share</span></div>
+                    </div>
+                    <div class="footer">
+                        <span class="date">Abril 2026</span>
+                        <a class="source" href="https://kersai.com" target="_blank">Kersai.com</a>
+                    </div>
+                </div>
+                <div class="card" data-category="silicon">
+                    <h3>AI Startups H1 2026: Survival Rate 72%</h3>
+                    <p class="desc">Estudio revela que el 72% de startups de IA fundadas en H1 2025 siguen operando. Sin embargo, solo 23% han alcanzado profitability. La consolidación del mercado está comenzando.</p>
+                    <div class="metrics">
+                        <div class="metric"><span class="m-value">72%</span> <span class="m-label">Supervivencia</span></div>
+                        <div class="metric"><span class="m-value">23%</span> <span class="m-label">Rentables</span></div>
+                    </div>
+                    <div class="footer">
+                        <span class="date">Abril 2026</span>
+                        <a class="source" href="https://kersai.com" target="_blank">Kersai.com</a>
+                    </div>
+                </div>
+                <div class="card" data-category="silicon">
+                    <h3>Microsoft Vulnerabilities: 14-Year-Old Patch Bypass</h3>
+                    <p class="desc">Investigadores descubrieron que una vulnerabilidad de 14 años en productos Microsoft está siendo explotada activamente. La flaw permite elevación de privilegios en sistemas Windows.</p>
+                    <div class="metrics">
+                        <div class="metric"><span class="m-value">14 años</span> <span class="m-label">Antigüedad flaw</span></div>
+                    </div>
+                    <div class="footer">
+                        <span class="date">Abril 2026</span>
+                        <a class="source" href="https://kersai.com" target="_blank">Kersai.com</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FUENTES -->
+        <div class="sources-section">
+            <h2>📚 Fuentes</h2>
+            <div class="sources-list">
+                <a href="https://kersai.com" target="_blank">Kersai.com</a>
+                <a href="https://www.theinformation.com" target="_blank">The Information</a>
+                <a href="https://techviews.com" target="_blank">TechViews</a>
+                <a href="https://www.linkedin.com/feed/news/cybersecurity-digest-november-2025-actualizaciones-de-ultima-hora-127491442/" target="_blank">LinkedIn Cybersecurity Digest</a>
+                <a href="https://www.instagram.com/applesphere.mdl/" target="_blank">AppleSphere (Instagram)</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="timestamp">
+        Reporte generado: 18 Abril 2026 - 11:54 AM (America/Mexico_City)
+    </div>
+
+    <script>
+        // Search functionality
+        const searchInput = document.getElementById('searchInput');
+        const cards = document.querySelectorAll('.card');
+
+        searchInput.addEventListener('input', (e) => {
+            const term = e.target.value.toLowerCase();
+            cards.forEach(card => {
+                const text = card.textContent.toLowerCase();
+                card.classList.toggle('hidden', !text.includes(term));
+            });
+        });
+
+        // Filter functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const sections = document.querySelectorAll('.section');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const filter = btn.dataset.filter;
+
+                document.querySelectorAll('.card').forEach(card => {
+                    if (filter === 'all') {
+                        card.classList.remove('hidden');
+                    } else {
+                        card.classList.toggle('hidden', card.dataset.category !== filter);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
