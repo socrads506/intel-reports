@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World News Report - 18 Abril 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #16161f;
+            --bg-card-hover: #1c1c28;
+            --border-color: #2a2a3a;
+            --text-primary: #f0f0f5;
+            --text-secondary: #9090a0;
+            --text-muted: #606070;
+            --accent-red: #ff4444;
+            --accent-orange: #ff8844;
+            --accent-green: #44dd88;
+            --accent-blue: #4488ff;
+            --accent-purple: #aa44ff;
+            --accent-cyan: #44ddff;
+            --accent-yellow: #ffdd44;
+            --tag-world: #ff6b6b;
+            --tag-politics: #ffa94d;
+            --tag-economy: #69db7c;
+            --tag-science: #74c0fc;
+            --tag-culture: #da77f2;
+            --tag-climate: #63e6be;
+            --tag-cr: #ff9797;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 50%, #0f0a15 100%);
+            border-bottom: 1px solid var(--border-color);
+            padding: 40px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(255, 68, 68, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(68, 136, 255, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 68, 68, 0.1);
+            border: 1px solid rgba(255, 68, 68, 0.3);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--accent-red);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-weight: 900;
+            background: linear-gradient(135deg, #fff 0%, #ccc 50%, #888 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+            letter-spacing: -2px;
+        }
+
+        .hero-date {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            font-weight: 300;
+        }
+
+        .hero-date span {
+            color: var(--accent-red);
+            font-weight: 600;
+        }
+
+        .timestamp {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 12px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+
+        /* Search and Filters */
+        .controls {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 30px;
+        }
+
+        .search-box {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 16px 20px 16px 52px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            color: var(--text-primary);
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.2s ease;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 3px rgba(68, 136, 255, 0.1);
+        }
+
+        .search-box input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .search-box svg {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            color: var(--text-muted);
+        }
+
+        .filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .filter-btn {
+            padding: 10px 20px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            font-weight: 500;
+            font-family: inherit;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .filter-btn:hover {
+            background: var(--bg-card-hover);
+            color: var(--text-primary);
+        }
+
+        .filter-btn.active {
+            background: var(--accent-blue);
+            border-color: var(--accent-blue);
+            color: #fff;
+        }
+
+        .filter-btn.active[data-section="world"] { background: var(--tag-world); border-color: var(--tag-world); }
+        .filter-btn.active[data-section="politics"] { background: var(--tag-politics); border-color: var(--tag-politics); }
+        .filter-btn.active[data-section="economy"] { background: var(--tag-economy); border-color: var(--tag-economy); }
+        .filter-btn.active[data-section="science"] { background: var(--tag-science); border-color: var(--tag-science); }
+        .filter-btn.active[data-section="culture"] { background: var(--tag-culture); border-color: var(--tag-culture); }
+        .filter-btn.active[data-section="climate"] { background: var(--tag-climate); border-color: var(--tag-climate); }
+        .filter-btn.active[data-section="costarica"] { background: var(--tag-cr); border-color: var(--tag-cr); color: #000; }
+
+        /* Section Styles */
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .section-icon {
+            font-size: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .section-subtitle {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        /* News Grid */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 20px;
+        }
+
+        .news-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 24px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .news-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--card-accent, var(--accent-blue));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .news-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--card-accent, var(--accent-blue));
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .news-card:hover::before {
+            opacity: 1;
+        }
+
+        .news-card[data-section="world"] { --card-accent: var(--tag-world); }
+        .news-card[data-section="politics"] { --card-accent: var(--tag-politics); }
+        .news-card[data-section="economy"] { --card-accent: var(--tag-economy); }
+        .news-card[data-section="science"] { --card-accent: var(--tag-science); }
+        .news-card[data-section="culture"] { --card-accent: var(--tag-culture); }
+        .news-card[data-section="climate"] { --card-accent: var(--tag-climate); }
+        .news-card[data-section="costarica"] { --card-accent: var(--tag-cr); }
+
+        .card-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--card-accent, var(--accent-blue));
+        }
+
+        .card-tag.red { color: var(--tag-world); background: rgba(255, 107, 107, 0.1); }
+        .card-tag.orange { color: var(--tag-politics); background: rgba(255, 169, 77, 0.1); }
+        .card-tag.green { color: var(--tag-economy); background: rgba(105, 219, 124, 0.1); }
+        .card-tag.blue { color: var(--tag-science); background: rgba(116, 192, 252, 0.1); }
+        .card-tag.purple { color: var(--tag-culture); background: rgba(218, 119, 242, 0.1); }
+        .card-tag.cyan { color: var(--tag-climate); background: rgba(99, 230, 190, 0.1); }
+        .card-tag.cr { color: var(--tag-cr); background: rgba(255, 151, 151, 0.1); }
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .card-description {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+
+        .card-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+            padding-top: 16px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .card-source {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .source-name {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .card-date {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.8rem;
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .card-link:hover {
+            color: var(--text-primary);
+        }
+
+        /* Costa Rica Section Special */
+        .cr-highlight {
+            background: linear-gradient(135deg, rgba(255, 151, 151, 0.05) 0%, rgba(255, 107, 107, 0.02) 100%);
+            border: 1px solid rgba(255, 151, 151, 0.2);
+            border-radius: 20px;
+            padding: 30px;
+            margin-top: 30px;
+        }
+
+        .cr-highlight .section-header {
+            border-bottom-color: rgba(255, 151, 151, 0.3);
+        }
+
+        /* Breaking News Banner */
+        .breaking-banner {
+            background: linear-gradient(90deg, var(--accent-red), var(--accent-orange));
+            color: #fff;
+            padding: 12px 20px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 600;
+        }
+
+        .breaking-banner .pulse {
+            width: 10px;
+            height: 10px;
+            background: #fff;
+            border-radius: 50%;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+
+        /* Stats Row */
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 16px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent-red);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 4px;
+        }
+
+        /* Sources Section */
+        .sources-section {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 30px;
+            margin-top: 50px;
+        }
+
+        .sources-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .sources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 12px;
+        }
+
+        .source-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 14px;
+            background: var(--bg-card);
+            border-radius: 8px;
+            font-size: 0.85rem;
+        }
+
+        .source-item a {
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .source-item a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: 60px;
+        }
+
+        /* No Results */
+        .no-results {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-muted);
+        }
+
+        .no-results h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--text-secondary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero { padding: 30px 15px; }
+            .container { padding: 20px 15px; }
+            .news-grid { grid-template-columns: 1fr; }
+            .controls { padding: 16px; }
+            .filter-btn { padding: 8px 14px; font-size: 0.8rem; }
+            .section-header { flex-wrap: wrap; }
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-primary); }
+        ::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+        /* Hidden cards */
+        .news-card.hidden {
+            display: none;
+        }
+
+        .section.hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">🔥 Breaking News</div>
+            <h1>World News Report</h1>
+            <p class="hero-date">Sábado, <span>18 de Abril 2026</span> · Última actualización: 17:51 UTC</p>
+            <p class="timestamp">Generated: 2026-04-18T17:51:00Z | Logos AI Assistant</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Breaking News Banner -->
+        <div class="breaking-banner">
+            <div class="pulse"></div>
+            <span>ÚLTIMA HORA: Iran recierra Estrecho de Ormuz · Dow Jones sube +700 pts · FMI reduce proyecciones para América Latina</span>
+        </div>
+
+        <!-- Stats Row -->
+        <div class="stats-row">
+            <div class="stat-card">
+                <div class="stat-value">+18</div>
+                <div class="stat-label">Noticias Globales</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">+12</div>
+                <div class="stat-label">Costa Rica</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">5</div>
+                <div class="stat-label">Secciones</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">15+</div>
+                <div class="stat-label">Fuentes</div>
+            </div>
+        </div>
+
+        <!-- Search and Filters -->
+        <div class="controls">
+            <div class="search-box">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                </svg>
+                <input type="text" id="searchInput" placeholder="Buscar noticias...">
+            </div>
+            <div class="filters">
+                <button class="filter-btn active" data-section="all">🌐 Todas</button>
+                <button class="filter-btn" data-section="world">🪐 Mundo</button>
+                <button class="filter-btn" data-section="politics">🏛️ Política</button>
+                <button class="filter-btn" data-section="economy">💼 Economía</button>
+                <button class="filter-btn" data-section="science">🔬 Ciencia</button>
+                <button class="filter-btn" data-section="culture">🎭 Cultura</button>
+                <button class="filter-btn" data-section="climate">🌤️ Clima</button>
+                <button class="filter-btn" data-section="costarica">🇨🇷 Costa Rica</button>
+            </div>
+        </div>
+
+        <!-- 🪐 MUNDO / WORLD -->
+        <section class="section" data-section="world">
+            <div class="section-header">
+                <span class="section-icon">🪐</span>
+                <div>
+                    <h2 class="section-title">MUNDO - Headlines Globales</h2>
+                    <p class="section-subtitle">Las noticias más importantes a nivel mundial · Última actualización: 18 abr 2026</p>
+                </div>
+            </div>
+            <div class="news-grid">
+                <!-- Iran Strait -->
+                <article class="news-card" data-section="world">
+                    <span class="card-tag red">🔥 Alto Impacto</span>
+                    <h3 class="card-title">Iran recierra el Estrecho de Ormuz tras bloqueo naval de EE.UU.</h3>
+                    <p class="card-description">Irán volvió a cerrar el Estrecho de Ormuz después de que la Marina estadounidense bloqueara sus puertos. Por donde transita una quinta parte del comercio mundial de hidrocarburos, lo que podría impactar nuevamente en los precios del petróleo. La Marina de EE.UU. impide el paso de barcos a pesar de la apertura declarada por Iran.</p>
+                    <div class="card-meta">
+                        <div class="card-source">
+                            <span class="source-name">La Nación / AFP</span>
+                        </div>
+                        <a href="https://www.nacion.com/el-mundo/iran-vuelve-a-cerrar-estrecho-de-ormuz-ante/2HCX75CKNVHIPLZ7ZGQRV4LGXY/story/" target="_blank" class="card-link">Ver fuente →</a>
+                    </div>
+                </article>
+
+                <!-- Dow Jones Surge -->
+                <article class="news-card" data-section="world">
+                    <span class="card-tag green">📈 Mercados</span>
+                    <h3 class="card-title">Dow Jones sube +700 puntos mientras Iran abre Estrecho de Ormuz</h3>
+                    <p class="card-description">Los mercados estadounidenses registraron ganancias significativas tras la apertura del Estrecho de Ormuz. El Dow Jones cerró con más de 700 puntos de alza mientras los inversores evalúan el impacto del conflicto geopolítico en los mercados energéticos globales.</p>
+                    <div class="card-meta">
+                        <div class="card-source">
+                            <span class="source-name">Getty Images / Markets</span>
+                        </div>
+                        <a href="https://www.gettyimages.com/editorial-images/news/event/dow-surges-over-700-points-as-iran-opens-strait-of-hormuz/776486621" target="_blank" class="card-link">Ver fuente →</a>
+                    </div>
+                </article>
+
+                <!-- Trump Iran -->
+                <article class="news-card" data-section="world">
+                    <span class="card-tag orange">🏛️ EE.UU.</span>
+                    <h3 class="card-title">Trump firma orden ejecutiva sobre Iran en medio de escalada</h3>
+                    <p class="card-description">El presidente Trump firmó una orden ejecutiva desde la Casa Blanca en relación con el conflicto con Iran. La medida llega en medio de las tensiones crecientes por el control del Estrecho de Ormuz y las sanciones impuestas a Tehran.</p>
+                    <div class="card-meta">
+                        <div class="card-source">
+                            <span class="source-name">MSNBC / YouTube</span>
+                        </div>
+                        <a href="https://www.youtube.com/watch?v=pDqJpLgQiec" target="_blank" class="card-link">Ver fuente →</a>
+                    </div>
+                </article>
+
+                <!-- Gas Prices -->
+                <article class="news-card" data-section="economy">
+                    <span class="card-tag green">⛽ Energía</span>
+                    <h3 class="card-title">Precio de gasolina sube $0.60/galón en EE.UU.</h3>
+                    <p class="card-description">Los precios de la gasolina en Estados Unidos registraron un incremento de $0.60 por galón, reflejando la incertidumbre en los mercados energéticos causada por el conflicto en Oriente Medio y las tensiones en el Estrecho de Ormuz.</p>
+                    <div class="card-meta">
+                        <div class="card-source">
+                            <span class="source-name">Yahoo Finance / Bloomberg</span>
+                        </div>
+                        <a href="https://finance.yahoo.com/" target="_blank" class="card-link">Ver fuente →</a>
+                    </div>
+                </article>
+
+                <!-- IMF World Economic -->
+                <article class="news-card" data-section="economy">
+                    <span class="card-tag green">🌍 Economía Global</span>
+                    <h3 class="card-title">FMI recorta proyecciones económicas globales al 3.1%</h3>
+                    <p class="card-description">El Fondo Monetario Internacional redujo su previsión de crecimiento mundial al 3.1% para 2026, una revisión a la baja de 0.2 puntos porcentuales debido al conflicto en Oriente Medio. La guerra impulsa hausse des prix del petróleo y aumenta presiones inflacionarias.</p>
+                    <div class="card-meta">
+                        <div class="card-source">
+                            <span class="source-name">IMF / El Financiero</span>
+                        </div>
+                        <a href="https://www.imf.org/en/Home" target="_blank" class="card-link">Ver fuente →</a>
+                    </div>
+                </article>
+
+                <!-- CPI Inflation -->
+                <article class="news-card" data-section="economy">
+                    <span class="card-tag green">📊 Inflación</span>
+                    <h3 class="card-title">IPC de marzo alcanza 3.4% en Estados Unidos</h3>
+                    <p class="card-description">El Índice de Precios al Consumidor (IPC) de marzo se elevó a 3.4%, superando las expectativas del mercado. Los analistas warn que la inflación podría mantenerse elevada si las tensiones en Medio Oriente continúan afectando los precios energéticos.</p>
+                    <div class="card-meta">
+                        <div class="card-source">
+                            <span class="source-name">Bloomberg / Yahoo Finance</span>
+                        </div>
+                        <a href="https://finance.yahoo.com/" target="_blank" class="card-link">Ver fuente →</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 🏛️ POLÍTICA INTERNACIONAL -->
+        <section class="section" data-section="politics">
+            <div class="section-header">
+                <span class="section-icon">🏛️</span>
+                <div>
+                    <h2 class="section-title">Política Internacional</h2>
+                    <p class="section-subtitle">Geopolítica, conflictos y relaciones internacionales</p>
+                </div>
+            </div>
+            <div class="news-grid">
+                <!-- Pope Trump -->
+                <article class="news-card" data-section="politics">
+                    <span class="card-tag purple">⛪ Vaticano</span>
+                    <h3 class="card-title">Papa León XIV: "La voz moral que incomoda al poder"</h3>
+                    <p class="card-description">El Papa León XIV ha emergido como figura crítica hacia la administración Trump. Editorial de La Nación analiza el confronto entre el nuevo Papa y el presidente estadounidense, con comentarios públicos que han generado reacciones en ambos lados.</p>
+                    <div class="card-meta">
+                        <div class="card-source">
+                            <span class="source-name">La Nación</span>
+                        </div>
+                        <a href="https://www.nacion.com/opinion/editorial/editorial-leon-xiv-frente-a-trump-la-voz-moral-que/PK34PIENT5AMJCMAPCEWQP22CQ/story/" target="_blank" class="card-link">Ver fuente →</a>
+                    </div>
+                </article>
+
+                <!-- Trump AI Jesus -->
+                <article class="news-card" data-section="world">
+                    <span class="card-tag red">🔥 Controversia</span>
+                    <h3 class="card-title">Trump publica nueva imagen de IA de sí mismo abrazando a Jesús</h3>
+                    <p class="card-description">El presidente Trump generó controversy al publicar una nueva imagen generada por IA de sí mismo abrazando a Jesús. La publicación recibió críticas de sectores religiosos y profundizar la ruptura con el Papa León XIV.</p>
+                    <div class="card-meta">
+                        <div class="card-source">
+                            <span class="source-name">Yahoo News / AFP</span>
+                        </div>
+                        <a href="https://www.yahoo.com/news/world/article/trump-posts-new-ai-image-of-himself-embracing-jesus-amid-backlash-from-christians-and-ongoing-rift-with-pope-leo-181356134.html" target="_blank" class="card-link">Ver fuente →</a>
+                    </div>
+                </article>
+
+                <!-- Venezuela -->
+                <article class="news-card" data-section="politics">
+                    <span class="card-tag orange">🌎 Latam</span>
+                    <h3 class="card-title">Inflación de Venezuela llegaría a 387% en 2026</h3>
+                    <p class="card-description">Según las últimas proyecciones del FMI, la inflación en Venezuela alcanzaría un 387% para 2026, un incremento significativo respecto al 252% registrado en 2025. La crisis económica continúa profundizándose en el país sudamericano.</p>
+                    <div class="card-meta">
+                        <div class="card-source">
+                            <span class="source-name">El Observador CR / IMF</span>
+                        </div>
+                        <a href="https://observador.cr/fmi-revisa-ligeramente-al-alza-crecimiento-para-america-latina-y-el-caribe-a-23-pero-con-advertencias-por-guerra/" target="_blank" class="card-link">Ver fuente →</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 🔬 CIENCIA -->
+        <section class="section" data-section="science">
+            <div class="section-header">
+                <span class="section-icon">🔬</span>
+                <div>
+                    <h2 class="section-title">Ciencia y Tecnología</h2>
+                    <p class="section-subtitle">Breakthroughs, descubrimientos y avances científicos</p>
+                </div>
+            </div>
+            <div class="news-grid">
+                <!-- Astronauts Latin America -->
+                <article class="news-card" data-section="science">
+                    <span class="card-tag blue">🚀 Espacio</span>
+                    <h3 class="card-title">Estos son los astronautas latinoamericanos que han viajado al espacio</h3>
+                    <p class="card-description">Un completo recorrido por los astronauts de América Latina que han participado en misiones espaciales. Desde los primeros casos hasta las misiones más recientes, un análisis del contribuciones de la región a la exploración espacial.</p>
+                    <div class="card-meta">
+                        <div class="card-source">
+                            <span class="source-name">La Nación</span>
+                        </div>
+                        <a href="https://www.nacion.com/ciencia/estos-son-los-astronautas-latinoamericanos-que-han/GXKBZ7K4EBD5ZGBWQ5HH7MGTZA/story/" target="_blank" class="card-link">Ver fuente →</a>
+                    </div>
+                </article>
+
+                <!-- Lyrid Meteor -->
+                <article class="news-card" data-section="science">
+                    <span class="card-tag blue">🌠 Astronomía</span>
+                    <h3 class="card-title">Lluvia de estrellas Lyrid: cómo ver la shower meteórica</h3>
+                    <p class="card-description">La lluvia de meteoros Lyrid alcanzará su punto máximo la próxima semana. Los expertos explican cuándo y cómo observar mejor este fenómeno astronómico annual que ofrece hasta 20 meteoros por hora en condiciones óptimas.</p>
+                    <div class="card-meta">
+                        <div class="card-source">
+                            <span class="source-name">Yahoo News</span>
+                        </div>
+                        <a href="https://www.yahoo.com/news/us/article/the-lyrid-meteor-shower-peaks-next-week-when-and-how-to-best-view-the-shooting-stars-203241240.html" target="_blank" class="card-link">Ver fuente →</a>
+                    </div>
+                </article>
+
+                <!-- IMF inflation -->
+                <article class="news-card" data-section="economy">
+                    <span class="card-tag green">📊 Economía</span>
+                    <h3 class="card-title">Inflación global promediará 4.4% en 2026</h3>
+                    <p class="card-description">El FMI proyecta que la inflación mundial promediará 4.4% en 2026, representando un incremento de 0.6 puntos respecto a las estimaciones previas. El conflicto en Oriente Medio y la perturbation des marchés énergétiques son los principales factores.</p>
+                    <div class="card-meta">
+                        <div class="card-source">
+                            <span class="source-name">El Financiero / AFP</span>
+                        </div>
+                        <a href="https://www.elfinancierocr.com/finanzas/fmi-rebaja-la-proyeccion-de-crecimiento-para-costa/FHYSSYA3LZCQBLRLQHRJVNWQ6U/story/" target="_blank" class="card-link">Ver fuente →</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 🎭 CULTURA Y DEPORTES -->
+        <section class="section" data-section="culture">
+            <div class="section-header">
+                <span class="section-icon">🎭</span>
+                <div>
+                    <h2 class="section-title">Cultura y Deportes</h2>
+                    <p class="section-subtitle">Entretenimiento, deportes y eventos culturales</p>
+                </div>
+            </div>
+            <div class="news-grid">
+                <!-- Keylor Navas -->
+                <article class="news-card" data-section="culture">
+                    <span class="card-tag purple">⚽ Costa Rica</span>
+                    <h3 class="card-title">¡Lo que hiciste Keylor! Atajada de Navas con Pumas levanta elogios</h3>
+                    <p class="card-description">El portero costarricense Keylor Navas volvió a demostrar su calidad con una impresionante atajada con el Pumas que generó elogios en ESPN y en todo el mundo del fútbol. La intervención fue destacada como una de las mejores de la jornada.</p>
+                    <div class="card-meta">
+                        <div class="card-source">
+                            <span class="source-name">La Nación / Puro Deporte</span>
+                        </div>
+                        <a href="https://www.nacion.com/puro-deporte/lo-que-hiciste-keylor-vea-la-impresionante-atajada/4PDCFQ6K5RGBHK7TEAZKDNE7X4/story/" target="_blank" class="card-link">Ver fuente →</a>
+                    </div>
+                </article>
+
+                <!-- Saprissa Alajuelense -->
+                <article class="news-card" data-section="culture">
+                    <span class="card-tag purple">⚽ Fútbol CR</span>
+                    <h3 class="card-title">Saprissa llega encendido al clásico: acrí morada cree amargará a Alajuelense</h3>
+                    <p class="card-description">La afición morada muestra optimismo de cara al clásico nacional mientras Saprissa llega en fuerte forma al encuentro. Más de 1,000 aficionados de Alajuelense también participaron en encuestas sobre el resultado esperado del partido.</p>
+                    <div class="card-meta">
+                        <div class="card-source">
+                            <span class="source-name">La Nación / Puro Deporte</span>
+                        </div>
+                        <a href="https://www.nacion.com/puro-deporte/saprissa-llega-encendido-al-clasico-aficion-morada/O3R74C4FGNG5ZIJTDHRC5CEQRA/story/" target="_blank" class="card-link">Ver fuente →</a>
+                    </div>
+                </article>
+
+                <!-- Basketball homicide -->
+                <article class="news-card" data-section="culture">
+                    <span class="card-tag red">🚨 Criminal</span>
+                    <h3 class="card-title">OIJ detiene por homicide a estrella del baloncesto costarricense</h3>
+                    <p class="card-description">El OIJ detuvo a una estrella del baloncesto costarricense por un caso de homicide cuando estaba por jugar un partido de Primera División en un gimnasio de Heredia. El jugador fue sorprendido por la policía en medio de la preparación del encuentro.</p>
+                    <div class="card-meta">
+                        <div class="card-source">
+                            <span class="source-name">La Nación / Puro Deporte</span>
+                        </div>
+                        <a href="https://www.nacion.com/puro-deporte/oij-detiene-por-caso-de-homicidio-a-estrella-del/OKEXGLBVDBHMLOVC2JMONEZ4ZQ/story/" target="_blank" class="card-link">Ver fuente →</a>
+                    </div>
+                </article>
+
+                <!-- Carolina Jaikel -->
+                <article class="news-card" data-section="culture">
+                    <span class="card-tag purple">💪 Solidaridad</span>
+                    <h3 class="card-title">"Eres un milagro": la gran noticia de Carolina Jaikel contra el cáncer</h3>
+                    <p class="card-description">La expilota de rally Carolina Jaikel recibió una gran noticia en su lucha contra el cáncer que hizo llorar a Andrea Salas. La noticia fue recibida con emoción por los aficionados que han seguido su batalla contra la enfermedad.</p>
+                    <div class="card-meta">
+                        <div class="card-source">
+                            <span class="source-name">La Nación / Puro Deporte</span>
+                        </div>
+                        <a href="https://www.nacion.com/puro-deporte/eres-un-milagro-la-gran-noticia-de-carolina-jaikel/KENNIHQZC5AOTA2UQGXYUI5YXU/story/" target="_blank" class="card-link">Ver fuente →</a>
+                    </div>
+                </article>
+
+                <!-- 420 Entertainment -->
+                <article class="news-card" data-section="culture">
+                    <span class="card-tag purple">🎬 Entretenimiento</span>
+                    <h3 class="card-title">420-themed entertainment: nuevas series y un clásico de culto</h3>
+                    <p class="card-description">Un trío de lanzamientos con temática 420 llegan justo a tiempo para los que celebran la cultura cannabis. Rick Damigella reporta sobre las novedades en Hollywood para esta fecha especial.</p>
+                    <div class="card-meta">
+                        <div class="card-source">
+                            <span class="source-name">CNN</span>
+                        </div>
+                        <a href="https://www.cnn.com/2026/04/18/entertainment/video/hollywood-entertainment-movies-streaming-4x20-quick-hits-the-stoned-age-the-freak-brothers-season-3" target="_blank" class="card-link">Ver fuente →</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 🌤️ CLIMA -->
+        <section class="section" data-section="climate">
+            <div class="section-header">
+                <span class="section-icon">🌤️</span>
+                <div>
+                    <h2 class="section-title">Clima y Medio Ambiente</h2>
+                    <p class="section-subtitle">Cambio climático, medio ambiente y sostenibilidad</p>
+                </div>
+            </div>
+            <div class="news-grid">
+                <article class="news-card" data-section="climate">
+                    <span class="card-tag cyan">⛽ Energía</span>
+                    <h3 class="card-title">Precios del petróleo: impacto del conflicto en Medio Oriente</h3>
+                    <p class="card-description">El conflicto en Oriente Medio sigue perturbation los mercados energéticos globales. Los precios del petróleo mantienen tendencia al alza mientras el Estrecho de Ormuz permanece como punto de conflicto estratégico.</p>
+                    <div class="card-meta">
+                        <div class="card-source">
+                            <span class="source-name">IMF / El Financiero</span>
+                        </div>
+                        <a href="https://www.elfinancierocr.com/finanzas/fmi-rebaja-la-proyeccion-de-crecimiento-para-costa/FHYSSYA3LZCQBLRLQHRJVNWQ6U/story/" target="_blank" class="card-link">Ver fuente →</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 🇬🇷 COSTA RICA SECTION -->
+        <section class="section" data-section="costarica">
+            <div class="section-header">
+                <span class="section-icon">🇨🇷</span>
+                <div>
+                    <h2 class="section-title">COSTA RICA - Noticias Nacionales</h2>
+                    <p class="section-subtitle">Lo más relevante de Costa Rica · 18 de abril 2026</p>
+                </div>
+            </div>
+            <div class="news-grid">
+                <!-- FMI CR -->
+                <article class="news-card" data-section="costarica">
+                    <span class="card-tag green">💰 Economía</span>
+                    <h3 class="card-title">FMI reduce previsión de crecimiento para Costa Rica al 3.6%</h3>
+                    <p class="card-description">El FMI recortó la previsión de crecimiento de Costa Rica para 2026-2027 del 3.8% al 3.6% debido al impacto de la guerra en Medio Oriente. Representa una desaceleración frente al 4.6% del PIB en 2025. Es la tercera previsión más baja de Centroamérica.</p>
+                    <div class="card-meta">
+                        <div class="card-source">
+                            <span class="source-name">La Nación</span>
+                        </div>
+                        <a href="https://www.nacion.com/economia/fmi-reduce-prevision-de-crecimiento-para-costa/FSFSKPP2RZH6XE3M5R676URKNA/story/" target="_blank" class="card-link">Ver fuente →</a>
+                    </div>
+                </article>
+
+                <!-- Deportados -->
+                <article class="news-card" data-section="costarica">
+                    <span class="card-tag cr">🚨 Migración</span>
+                    <h3 class="card-title">Costa Rica recibe segundo grupo de 30 deportados desde EE.UU.</h3>
+                    <p class="card-description">Costa Rica recibió un segundo grupo de 30 personas deportadas desde Estados Unidos: 22 extranjeros y 8 costarricenses. Las autoridades migratorias coordinate el proceso de recepción y atención de los deportados.</p>
+                    <div class="card-meta">
+                        <div class="card-source">
+                            <span class="source-name">La Nación</span>
+                        </div>
+                        <a href="https://www.nacion.com/politica/costa-rica-recibio-un-segundo-grupo-de-30/FI3KN77ECZH4FHFEMZC2RB5U4E/story/" target="_blank" class="card-link">Ver fuente →</a>
+                    </div>
+                </article>
+
+                <!-- Inversión Extranjera -->
+                <article class="news-card" data-section="costarica">
+                    <span class="card-tag green">📈 Inversión</span>
+                    <h3 class="card-title">Nueva inversión extranjera es más sofisticada: dispositivos médicos, servicios y agroindustria</h3>
+                    <p class="card-description">La llegada de nueva IED bajó en 2025; Procomer atribuye el resultado a la incertidumbre por la política arancelaria de Estados Unidos. Sin embargo, la nueva inversión que llega es más sofisticada y se concentra en sectores de alto valor agregado.</p>
+                    <div class="card-meta">
+                        <div class="card-source">
+                            <span class="source-name">La Nación</span>
+                        </div>
+                        <a href="https://www.nacion.com/economia/nueva-inversion-extranjera-es-mas-sofistica-se/IGCAPHMNOFDZRBVVSPC3CWUQSI/story/" target="_blank" class="card-link">Ver fuente →</a>
+                    </div>
+                </article>
+
+                <!-- Laura Chinchilla -->
+                <article class="news-card" data-section="costarica">
+                    <span class="card-tag orange">🏛️ Política</span>
+                    <h3 class="card-title">Laura Chinchilla: "Cuando la gente se da cuenta de que vive en un sistema autoritario, ya es demasiado tarde"</h3>
+                    <p class="card-description">La expresidenta Laura Chinchilla ofreció declaraciones Controversiales sobre los sistemas autoritarios y la democracia en América Latina. Sus declaraciones adquieren especial relevancia en el contexto político actual de la región.</p>
+                    <div class="card-meta">
+                        <div class="card-source">
+                            <span class="source-name">La Nación</span>
+                        </div>
+                        <a href="https://www.nacion.com/politica/expresidenta-laura-chinchilla-cuando-la-gente-se/AUU6V6Y4H5FSXHR52UUQRQ4L5A/story/" target="_blank" class="card-link">Ver fuente →</a>
+                    </div>
+                </article>
+
+                <!-- Papagayo -->
+                <article class="news-card" data-section="costarica">
+                    <span class="card-tag cyan">⚖️ Legal</span>
+                    <h3 class="card-title">Magistrado declara moratoria de tala en polo turístico Papagayo</h3>
+                    <p class="card-description">Un magistrado de la Sala Constitucional impidó la tala en Playa Panama y declaró una moratoria de corta de árboles en el polo turístico Papagayo. La decisión representa un frein al desarrollo turístico en la zona.</p>
+                    <div class="card-meta">
+                        <div class="card-source">
+                            <span class="source-name">La Nación</span>
+                        </div>
+                        <a href="https://www.nacion.com/politica/magistrado-de-sala-constitucional-impide-tala-en/J2O276ZO4ZEWTNVXMUBF7UTIE4/story/" target="_blank" class="card-link">Ver fuente →</a>
+                    </div>
+                </article>
+
+                <!-- Ley lectura -->
+                <article class="news-card" data-section="costarica">
+                    <span class="card-tag blue">📚 Educación</span>
+                    <h3 class="card-title">Proyecto de ley obligaría a dedicar tiempo para leer todos los días en escuelas</h3>
+                    <p class="card-description">Diputadas proponen una reforma para garantizar hasta 30 minutos diarios de lectura obligatoria en el sistema educativo costarricense. La iniciativa busca fomentar el hábito de lectura entre los estudiantes.</p>
+                    <div class="card-meta">
+                        <div class="card-source">
+                            <span class="source-name">La Nación</span>
+                        </div>
+                        <a href="https://www.nacion.com/el-pais/proyecto-de-ley-obligaria-a-dedicar-tiempo-para/GTP26YZSOBB6RISWFBKURA5LH4/story/" target="_blank" class="card-link">Ver fuente →</a>
+                    </div>
+                </article>
+
+                <!-- Fabricio Alvarado -->
+                <article class="news-card" data-section="costarica">
+                    <span class="card-tag orange">⚖️ Legislative</span>
+                    <h3 class="card-title">Diputados recomiendan sancionar a Fabricio Alvarado por abuso sexual</h3>
+                    <p class="card-description">Dos informes legislativos recomiendan sanciones contra el diputado Fabricio Alvarado por casos de abuso sexual. El proceso legislativo avanza en el Congreso de Costa Rica.</p>
+                    <div class="card-meta">
+                        <div class="card-source">
+                            <span class="source-name">La Nación</span>
+                        </div>
+                        <a href="https://www.nacion.com/politica/dos-informes-legislativos-recomiendan-sancionar-a/OLI4CESBPFCD7DFKX4WH26J6GQ/story/" target="_blank" class="card-link">Ver fuente →</a>
+                    </div>
+                </article>
+
+                <!-- Chikungunya -->
+                <article class="news-card" data-section="costarica">
+                    <span class="card-tag cr">🏥 Salud</span>
+                    <h3 class="card-title">Quinto caso de chikungunya en lo que va del 2026 en Costa Rica</h3>
+                    <p class="card-description">Una vecina de Tibás que viajó a otro país se convirtió en el quinto caso de chikungunya registrado en Costa Rica en lo que va del 2026. Las autoridades de salud hacen un llamado a la prevención.</p>
+                    <div class="card-meta">
+                        <div class="card-source">
+                            <span class="source-name">La Nación</span>
+                        </div>
+                        <a href="https://www.nacion.com/el-pais/vecina-de-tibas-que-viajo-a-otro-pais-es-el-quinto/R6QZ2KW7UZFLTCVPFESL74VBJ4/story/" target="_blank" class="card-link">Ver fuente →</a>
+                    </div>
+                </article>
+
+                <!-- BCR SAFI -->
+                <article class="news-card" data-section="costarica">
+                    <span class="card-tag orange">🏦 Finanzas</span>
+                    <h3 class="card-title">Imputado en caso BCR SAFI ahora trabaja en Banca para el Desarrollo</h3>
+                    <p class="card-description">La Fiscalía investiga a un abogado vinculado al caso BCR SAFI por supuestos sobreprecios en compra de inmuebles. El sospechoso ahora labora en Banca para el Desarrollo, lo que ha generado preocupación.</p>
+                    <div class="card-meta">
+                        <div class="card-source">
+                            <span class="source-name">La Nación</span>
+                        </div>
+                        <a href="https://www.nacion.com/el-pais/imputado-en-el-caso-bcr-safi-ahora-trabaja-en/EZ5XI52IVVHP7C4FZG3CDY7CO4/story/" target="_blank" class="card-link">Ver fuente →</a>
+                    </div>
+                </article>
+
+                <!-- INS Seguro -->
+                <article class="news-card" data-section="costarica">
+                    <span class="card-tag green">⚖️ Legal</span>
+                    <h3 class="card-title">INS se negó a pagar seguro de auto que cayó en precipicio</h3>
+                    <p class="card-description">Un hombre logró una condena contra el INS por negarse a pagar un seguro de auto tras un accidente donde el vehículo cayó en un precipicio. La aseguradora alegó ebriedad pero no pudo demostrar intoxicación aguda.</p>
+                    <div class="card-meta">
+                        <div class="card-source">
+                            <span class="source-name">La Nación / Por Tanto</span>
+                        </div>
+                        <a href="https://www.nacion.com/blogs/por-tanto/hombre-logra-condena-contra-el-ins-por-negarse-a/NKWMNYKJWVE4VN5YVUZOZVHTI4/story/" target="_blank" class="card-link">Ver fuente →</a>
+                    </div>
+                </article>
+
+                <!-- Libro mesoamerica -->
+                <article class="news-card" data-section="costarica">
+                    <span class="card-tag purple">📖 Cultura</span>
+                    <h3 class="card-title">El libro de medicina más antiguo de Mesoamérica llega a la UCR</h3>
+                    <p class="card-description">Un importante hallazgo cultural: el libro de medicina más antiguo de Mesoamérica llega a la Universidad de Costa Rica (UCR). El documento representa un tesoro invaluable para la historia de la medicina en la región.</p>
+                    <div class="card-meta">
+                        <div class="card-source">
+                            <span class="source-name">La Nación</span>
+                        </div>
+                        <a href="https://www.nacion.com/opinion/foros/el-libro-de-medicina-mas-antiguo-de-mesoamerica/HYVE7VZRIFHOXANSIEMZ2E42G4/story/" target="_blank" class="card-link">Ver fuente →</a>
+                    </div>
+                </article>
+
+                <!-- Oficina Singapur -->
+                <article class="news-card" data-section="costarica">
+                    <span class="card-tag green">🌏 Comercio</span>
+                    <h3 class="card-title">Costa Rica inaugura Oficina de Promoción de Inversión en Singapur</h3>
+                    <p class="card-description">Costa Rica strengthens its international investment promotion efforts with the opening of a new office in Singapore. The initiative seeks to attract foreign investment from Asian markets.</p>
+                    <div class="card-meta">
+                        <div class="card-source">
+                            <span class="source-name">La Nación</span>
+                        </div>
+                        <a href="https://www.nacion.com/economia/costa-rica-inaugura-oficina-de-promocion-de/WIOZMO3UT5C4LKWKLQIU764TJY/story/" target="_blank" class="card-link">Ver fuente →</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- SOURCES -->
+        <section class="sources-section">
+            <h3 class="sources-title">📚 Fuentes Citadas en Este Reporte</h3>
+            <div class="sources-grid">
+                <div class="source-item">
+                    <span>🇨🇷</span>
+                    <a href="https://www.nacion.com/" target="_blank">La Nación (Costa Rica)</a>
+                </div>
+                <div class="source-item">
+                    <span>🌐</span>
+                    <a href="https://www.nacion.com/el-mundo/iran-vuelve-a-cerrar-estrecho-de-ormuz-ante/2HCX75CKNVHIPLZ7ZGQRV4LGXY/story/" target="_blank">La Nación - Mundo</a>
+                </div>
+                <div class="source-item">
+                    <span>🌐</span>
+                    <a href="https://www.elfinancierocr.com/finanzas/fmi-rebaja-la-proyeccion-de-crecimiento-para-costa/FHYSSYA3LZCQBLRLQHRJVNWQ6U/story/" target="_blank">El Financiero</a>
+                </div>
+                <div class="source-item">
+                    <span>🌐</span>
+                    <a href="https://observador.cr/fmi-revisa-ligeramente-al-alza-crecimiento-para-america-latina-y-el-caribe-a-23-pero-con-advertencias-por-guerra/" target="_blank">El Observador CR</a>
+                </div>
+                <div class="source-item">
+                    <span>🌐</span>
+                    <a href="https://www.imf.org/en/Home" target="_blank">International Monetary Fund (IMF)</a>
+                </div>
+                <div class="source-item">
+                    <span>🌐</span>
+                    <a href="https://finance.yahoo.com/" target="_blank">Yahoo Finance</a>
+                </div>
+                <div class="source-item">
+                    <span>🌐</span>
+                    <a href="https://www.yahoo.com/news/world/article/trump-posts-new-ai-image-of-himself-embracing-jesus-amid-backlash-from-christians-and-ongoing-rift-with-pope-leo-181356134.html" target="_blank">Yahoo News</a>
+                </div>
+                <div class="source-item">
+                    <span>🎬</span>
+                    <a href="https://www.cnn.com/2026/04/18/entertainment/video/hollywood-entertainment-movies-streaming-4x20-quick-hits-the-stoned-age-the-freak-brothers-season-3" target="_blank">CNN Entertainment</a>
+                </div>
+                <div class="source-item">
+                    <span>📷</span>
+                    <a href="https://www.gettyimages.com/editorial-images/news/event/dow-surges-over-700-points-as-iran-opens-strait-of-hormuz/776486621" target="_blank">Getty Images</a>
+                </div>
+                <div class="source-item">
+                    <span>🎥</span>
+                    <a href="https://www.youtube.com/watch?v=pDqJpLgQiec" target="_blank">MSNBC / YouTube</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>World News Report · 18 de Abril 2026</p>
+            <p style="margin-top: 8px; opacity: 0.6;">Generado por Logos AI Assistant · OpenClaw</p>
+            <p style="margin-top: 8px; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; opacity: 0.4;">2026-04-18T17:51:00Z</p>
+        </footer>
+    </main>
+
+    <script>
+        // Search functionality
+        const searchInput = document.getElementById('searchInput');
+        const cards = document.querySelectorAll('.news-card');
+        const sections = document.querySelectorAll('.section');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+
+        let currentFilter = 'all';
+
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase();
+            filterCards(query);
+        });
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentFilter = btn.dataset.section;
+                applyFilters();
+            });
+        });
+
+        function filterCards(query = '') {
+            cards.forEach(card => {
+                const title = card.querySelector('.card-title').textContent.toLowerCase();
+                const desc = card.querySelector('.card-description').textContent.toLowerCase();
+                const matchesSearch = title.includes(query) || desc.includes(query);
+                const matchesFilter = currentFilter === 'all' || card.dataset.section === currentFilter;
+                
+                if (matchesSearch && matchesFilter) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+
+            // Hide empty sections
+            sections.forEach(section => {
+                const visibleCards = section.querySelectorAll('.news-card:not(.hidden)');
+                if (visibleCards.length === 0) {
+                    section.classList.add('hidden');
+                } else {
+                    section.classList.remove('hidden');
+                }
+            });
+        }
+
+        function applyFilters() {
+            const query = searchInput.value.toLowerCase();
+            filterCards(query);
+        }
+
+        // Card click to source
+        document.querySelectorAll('.card-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.stopPropagation();
+            });
+        });
+
+        document.querySelectorAll('.news-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const link = card.querySelector('.card-link');
+                if (link) {
+                    window.open(link.href, '_blank');
+                }
+            });
+        });
+
+        // Initialize
+        filterCards();
+    </script>
+</body>
+</html>
