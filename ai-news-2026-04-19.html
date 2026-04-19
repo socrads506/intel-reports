@@ -1,505 +1,127 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI News Report — 19 Abril 2026</title>
+<title>AI News Report — April 19, 2026</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{background:#0d1117;color:#c9d1d9;font-family:'Segoe UI',system-ui,sans-serif;line-height:1.6}
-.header{background:linear-gradient(135deg,#161b22 0%,#1a1f2e 100%);border-bottom:1px solid #30363d;padding:2rem;text-align:center}
-.header h1{font-size:2rem;color:#58a6ff;margin-bottom:.25rem}
-.header p{color:#8b949e;font-size:1rem}
-.controls{display:flex;gap:1rem;padding:1.5rem 2rem;flex-wrap:wrap;align-items:center;justify-content:center}
-.controls input,.controls select{background:#161b22;border:1px solid #30363d;color:#c9d1d9;padding:.5rem 1rem;border-radius:6px;font-size:.9rem}
-.controls input{width:280px}
-.controls select{cursor:pointer}
-.section{padding:1.5rem 2rem}
-.section-title{font-size:1.3rem;color:#58a6ff;margin-bottom:1rem;padding-bottom:.5rem;border-bottom:1px solid #21262d;display:flex;align-items:center;gap:.5rem}
-.card{background:#161b22;border:1px solid #21262d;border-radius:8px;padding:1.25rem;margin-bottom:1rem;transition:border-color .2s}
-.card:hover{border-color:#58a6ff}
-.card h3{color:#f0f6fc;font-size:1.05rem;margin-bottom:.4rem}
-.card p{color:#8b949e;font-size:.9rem;margin-bottom:.5rem}
-.card .meta{display:flex;gap:1rem;flex-wrap:wrap;font-size:.8rem;color:#8b949e}
-.card .meta span{background:#21262d;padding:2px 8px;border-radius:4px}
-.source-link{color:#58a6ff;text-decoration:none;font-size:.8rem}
-.source-link:hover{text-decoration:underline}
-.badge{display:inline-block;padding:2px 8px;border-radius:4px;font-size:.75rem;font-weight:600}
-.badge-model{background:#1f3a5f;color:#58a6ff}
-.badge-tool{background:#1f3f2e;color:#3fb950}
-.badge-news{background:#3f2e1f;color:#d29922}
-.badge-funding{background:#3f1f2e;color:#f778ba}
-.badge-product{background:#2e1f3f;color:#bc8cff}
-#sources{padding:2rem;background:#0d1117;border-top:1px solid #21262d}
-#sources h2{color:#58a6ff;margin-bottom:1rem}
-#sources ol{padding-left:1.5rem}
-#sources li{margin-bottom:.5rem;font-size:.85rem}
-#sources a{color:#58a6ff}
-.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem;padding:0 2rem 1rem}
-.stat-card{background:#161b22;border:1px solid #21262d;border-radius:8px;padding:1rem;text-align:center}
-.stat-card .num{font-size:2rem;font-weight:700;color:#58a6ff}
-.stat-card .label{font-size:.8rem;color:#8b949e}
-.footer{text-align:center;padding:2rem;color:#484f58;font-size:.8rem;border-top:1px solid #21262d}
+  :root { --bg:#0d1117; --card:#161b22; --border:#30363d; --accent:#58a6ff; --green:#3fb950; --red:#f85149; --yellow:#d29922; --text:#c9d1d9; --dim:#8b949e; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { background:var(--bg); color:var(--text); font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif; line-height:1.6; padding:20px; max-width:1200px; margin:auto; }
+  h1 { color:var(--accent); font-size:1.8em; margin-bottom:4px; }
+  .subtitle { color:var(--dim); margin-bottom:24px; font-size:.95em; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(340px,1fr)); gap:16px; }
+  .card { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:20px; }
+  .card h2 { font-size:1.15em; margin-bottom:10px; display:flex; align-items:center; gap:8px; }
+  .card p { color:var(--dim); font-size:.92em; margin-bottom:8px; }
+  .tag { display:inline-block; padding:2px 8px; border-radius:9999px; font-size:.75em; font-weight:600; }
+  .tag-model { background:#1f6feb33; color:var(--accent); }
+  .tag-funding { background:#3fb95033; color:var(--green); }
+  .tag-robot { background:#d2992233; color:var(--yellow); }
+  .tag-policy { background:#f8514933; color:var(--red); }
+  .tag-open { background:#8b949e33; color:var(--dim); }
+  ul { padding-left:20px; }
+  li { margin-bottom:6px; font-size:.92em; color:var(--dim); }
+  li strong { color:var(--text); }
+  a { color:var(--accent); text-decoration:none; }
+  a:hover { text-decoration:underline; }
+  .stat-row { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:20px; }
+  .stat { background:var(--card); border:1px solid var(--border); border-radius:10px; padding:14px 20px; flex:1; min-width:140px; text-align:center; }
+  .stat .num { font-size:1.6em; font-weight:700; color:var(--accent); }
+  .stat .label { font-size:.8em; color:var(--dim); }
+  hr { border:none; border-top:1px solid var(--border); margin:20px 0; }
+  .footer { text-align:center; color:var(--dim); font-size:.8em; margin-top:30px; }
 </style>
 </head>
 <body>
 
-<div class="header">
-<h1>🤖 AI News Report</h1>
-<p>Domingo 19 de Abril, 2026 — Dashboard Semanal</p>
+<h1>🤖 AI Intelligence Report</h1>
+<p class="subtitle">Saturday, April 19, 2026 — Generated by Explorer (zai/glm-5.1)</p>
+
+<div class="stat-row">
+  <div class="stat"><div class="num">$242B</div><div class="label">AI VC in Q1 2026</div></div>
+  <div class="stat"><div class="num">10T</div><div class="label">Params (Mythos 5)</div></div>
+  <div class="stat"><div class="num">$250B</div><div class="label">SpaceX→xAI Merger</div></div>
+  <div class="stat"><div class="num">83%</div><div class="label">GPT-5.4 GDPval</div></div>
 </div>
 
-<div class="stats">
-<div class="stat-card"><div class="num">7</div><div class="label">Nuevos Modelos</div></div>
-<div class="stat-card"><div class="num">5</div><div class="label">Herramientas</div></div>
-<div class="stat-card"><div class="num">$297B</div><div class="label">VC Q1 2026</div></div>
-<div class="stat-card"><div class="num">5</div><div class="label">Productos</div></div>
-<div class="stat-card"><div class="num">$852B</div><div class="label">OpenAI Valuation</div></div>
+<div class="grid">
+
+<!-- MODELS -->
+<div class="card">
+  <h2>🧠 Frontier Models</h2>
+  <ul>
+    <li><strong>GPT-5.4</strong> — OpenAI's unified frontier model. 83% on GDPval (44 occupations), 91% BigLaw Bench, OSWorld 75% (beats human baseline). 1.05M context. <span class="tag tag-model">MODEL</span></li>
+    <li><strong>Claude Mythos 5</strong> — First 10T-parameter model (MoE, ~1T active). Withheld from public due to ASL-4 safety protocol. Cybersecurity capabilities trigger concern. <span class="tag tag-model">MODEL</span></li>
+    <li><strong>Gemini 3.1 Pro</strong> — Google's multimodal flagship. 77.1% ARC-AGI-2, 94.3% GPQA Diamond. Tied #1 on Artificial Analysis index. 1M context. <span class="tag tag-model">MODEL</span></li>
+    <li><strong>Meta Muse Spark</strong> — First model from Meta Superintelligence Labs (ex-Avocado). Proprietary, powers Meta AI app + WhatsApp/Instagram. Shopping mode included. <span class="tag tag-model">MODEL</span></li>
+    <li><strong>Microsoft MAI models</strong> — Three in-house models launched: MAI-Transcribe-1 (SOTA speech), MAI-Voice-1 ($22/M chars), MAI-Image-2 ($5/M input tokens). Competing directly with OpenAI/Google on cost. <span class="tag tag-model">MODEL</span></li>
+    <li><strong>Google Gemma 4</strong> — New open model family from Google. <span class="tag tag-open">OPEN</span></li>
+  </ul>
 </div>
 
-<div class="controls">
-<input type="text" id="search" placeholder="🔍 Buscar..." oninput="filterCards()">
-<select id="category" onchange="filterCards()">
-<option value="all">Todas las categorías</option>
-<option value="model">Nuevos Modelos</option>
-<option value="tool">Herramientas</option>
-<option value="news">News</option>
-<option value="funding">Funding</option>
-<option value="product">Productos</option>
-</select>
-</div>
-
-<!-- NUEVOS MODELOS -->
-<div class="section">
-<div class="section-title">🧠 Nuevos Modelos</div>
-
-<div class="card" data-cat="model">
-<h3>Claude Mythos Preview — Anthropic (10T parámetros)</h3>
-<p>Anthropic reveló Claude Mythos, un modelo de 10 billones de parámetros considerado el más poderoso hasta la fecha. GPQA: 0.9. Solo disponible en preview con acceso limitado.</p>
-<div class="meta">
-<span class="badge badge-model">Modelo</span>
-<span>Anthropic</span>
-<span>Abril 2026</span>
-</div>
-<br><a class="source-link" href="https://llm-stats.com/models/claude-mythos-preview" target="_blank">LLM Stats</a> ·
-<a class="source-link" href="https://kersai.com/anthropic-800-billion-valuation-claude-mythos-project-glasswing-complete-guide-2026/" target="_blank">KersAI</a>
-</div>
-
-<div class="card" data-cat="model">
-<h3>Claude Opus 4.7</h3>
-<p>Anthropic lanzó Claude Opus 4.7, la iteración más reciente de su línea Opus. GPQA: 0.9. Liberado hace ~3 días según LLM Stats.</p>
-<div class="meta">
-<span class="badge badge-model">Modelo</span>
-<span>Anthropic</span>
-<span>Abril 2026</span>
-</div>
-<br><a class="source-link" href="https://llm-stats.com/models/claude-opus-4-7" target="_blank">LLM Stats</a>
-</div>
-
-<div class="card" data-cat="model">
-<h3>Gemma 4 (Google) — E2B, E4B, 26B, 31B</h3>
-<p>Google lanzó Gemma 4, la familia de modelos abiertos más capaces hasta la fecha. Variantes desde E2B hasta 31B. Supera modelos 20x su tamaño. Optimizado para GPUs NVIDIA RTX y DGX Spark.</p>
-<div class="meta">
-<span class="badge badge-model">Modelo</span>
-<span>Google</span>
-<span>2 Abr 2026</span>
-</div>
-<br><a class="source-link" href="https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/" target="_blank">Google Blog</a> ·
-<a class="source-link" href="https://kersai.com/google-gemma-4-free-open-source-ai-beats-models-20x-its-size-complete-guide-2026/" target="_blank">KersAI</a> ·
-<a class="source-link" href="https://blogs.nvidia.com/blog/rtx-ai-garage-open-models-google-gemma-4/" target="_blank">NVIDIA Blog</a>
-</div>
-
-<div class="card" data-cat="model">
-<h3>Gemini 3.1 Flash TTS — Google</h3>
-<p>Google presentó Gemini 3.1 Flash TTS, la siguiente generación de voz AI expresiva, junto con Gemini 3.1 multimodal avanzado.</p>
-<div class="meta">
-<span class="badge badge-model">Modelo</span>
-<span>Google DeepMind</span>
-<span>15 Abr 2026</span>
-</div>
-<br><a class="source-link" href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-tts/" target="_blank">Google Blog</a>
-</div>
-
-<div class="card" data-cat="model">
-<h3>GLM-5.1 — Zhipu AI (MIT License)</h3>
-<p>Zhipu AI liberó GLM-5.1 bajo licencia MIT. Reclama superar a Claude Opus 4.6 y GPT-5.4 en SWE-Bench Pro. El modelo abierto más permisivo del mercado.</p>
-<div class="meta">
-<span class="badge badge-model">Modelo</span>
-<span>Zhipu AI</span>
-<span>7 Abr 2026</span>
-</div>
-<br><a class="source-link" href="https://medium.com/@sanjeevpatel3007/april-2026-ai-models-every-major-release-reviewed-6ea03d7bc0b7" target="_blank">Medium</a> ·
-<a class="source-link" href="https://llm-stats.com/models/glm-5.1" target="_blank">LLM Stats</a>
-</div>
-
-<div class="card" data-cat="model">
-<h3>Qwen3.6-35B-A3B — Alibaba Cloud</h3>
-<p>Alibaba Cloud liberó Qwen3.6-35B-A3B, modelo open source con GPQA: 0.9. Parte de la familia Qwen de modelos abiertos.</p>
-<div class="meta">
-<span class="badge badge-model">Modelo</span>
-<span>Alibaba / Qwen Team</span>
-<span>Abril 2026</span>
-</div>
-<br><a class="source-link" href="https://llm-stats.com/models/qwen3.6-35b-a3b" target="_blank">LLM Stats</a>
-</div>
-
-<div class="card" data-cat="model">
-<h3>Muse Spark — Meta</h3>
-<p>Meta debutó Muse Spark (ex "Avocado"), primer modelo de la serie Muse por Meta Superintelligence Labs. Propietario, con modo Shopping y agentes AI en paralelo. Competidor de GPT Pro y Gemini Deep Think.</p>
-<div class="meta">
-<span class="badge badge-model">Modelo</span>
-<span>Meta</span>
-<span>8 Abr 2026</span>
-</div>
-<br><a class="source-link" href="https://www.cnbc.com/2026/04/08/meta-debuts-first-major-ai-model-since-14-billion-deal-to-bring-in-alexandr-wang.html" target="_blank">CNBC</a>
-</div>
-</div>
-
-<!-- HERRAMIENTAS -->
-<div class="section">
-<div class="section-title">🔧 Nuevas Herramientas</div>
-
-<div class="card" data-cat="tool">
-<h3>Claude Code — Anthropic</h3>
-<p>Herramienta de coding agéntica para terminal. Entiende el proyecto completo y genera cambios de código autónomos. Considerada la mejor opción para devs en terminal.</p>
-<div class="meta">
-<span class="badge badge-tool">Herramienta</span>
-<span>Anthropic</span>
-<span>Abril 2026</span>
-</div>
-<br><a class="source-link" href="https://howdoiuseai.com/blog/2026-04-16-newest-ai-tools-2026" target="_blank">HowDoIUseAI</a>
-</div>
-
-<div class="card" data-cat="tool">
-<h3>Cursor 2.0</h3>
-<p>Editor AI con GUI para revisión visual de cambios generados por AI antes de deployar. Ideal para equipos que necesitan control sobre código AI-generado.</p>
-<div class="meta">
-<span class="badge badge-tool">Herramienta</span>
-<span>Anysphere</span>
-<span>Abril 2026</span>
-</div>
-<br><a class="source-link" href="https://howdoiuseai.com/blog/2026-04-16-newest-ai-tools-2026" target="_blank">HowDoIUseAI</a>
-</div>
-
-<div class="card" data-cat="tool">
-<h3>Perplexity Comet Browser</h3>
-<p>Navegador AI-first de Perplexity que integra búsqueda y razonamiento directamente en el browser. Cambio de workflow real según usuarios.</p>
-<div class="meta">
-<span class="badge badge-tool">Herramienta</span>
-<span>Perplexity</span>
-<span>Abril 2026</span>
-</div>
-<br><a class="source-link" href="https://howdoiuseai.com/blog/2026-04-16-newest-ai-tools-2026" target="_blank">HowDoIUseAI</a>
-</div>
-
-<div class="card" data-cat="tool">
-<h3>AI Mode in Chrome — Google</h3>
-<p>Google integró AI Mode directamente en Chrome, permitiendo explorar la web con asistencia de IA en tiempo real.</p>
-<div class="meta">
-<span class="badge badge-tool">Herramienta</span>
-<span>Google</span>
-<span>16 Abr 2026</span>
-</div>
-<br><a class="source-link" href="https://blog.google/products-and-platforms/products/search/ai-mode-chrome/" target="_blank">Google Blog</a>
-</div>
-
-<div class="card" data-cat="tool">
-<h3>Microsoft Copilot Cowork</h3>
-<p>AI que no solo ayuda a trabajar sino que ejecuta el trabajo de forma autónoma. Lanzado como parte de la suite Microsoft 365.</p>
-<div class="meta">
-<span class="badge badge-tool">Herramienta</span>
-<span>Microsoft</span>
-<span>1 Abr 2026</span>
-</div>
-<br><a class="source-link" href="https://kersai.com/microsoft-copilot-cowork-complete-guide-2026/" target="_blank">KersAI</a>
-</div>
-</div>
-
-<!-- NEWS -->
-<div class="section">
-<div class="section-title">📰 News & Industria</div>
-
-<div class="card" data-cat="news">
-<h3>Anthropic vale $800 mil millones</h3>
-<p>Anthropic alcanzó una valuación de $800B tras su última ronda. El roadmap filtrado (Project Glasswing, Kairos) revela planes ambiciosos para Claude.</p>
-<div class="meta">
-<span class="badge badge-news">News</span>
-<span>Anthropic</span>
-<span>Abril 2026</span>
-</div>
-<br><a class="source-link" href="https://kersai.com/anthropic-800-billion-valuation-claude-mythos-project-glasswing-complete-guide-2026/" target="_blank">KersAI</a>
-</div>
-
-<div class="card" data-cat="news">
-<h3>Anthropic superó a OpenAI en Enterprise AI en 10 semanas</h3>
-<p>Según análisis de KersAI, Anthropic tomó el liderazgo en adopción enterprise de AI en solo 10 semanas, desplazando a OpenAI.</p>
-<div class="meta">
-<span class="badge badge-news">News</span>
-<span>Anthropic</span>
-<span>Abril 2026</span>
-</div>
-<br><a class="source-link" href="https://kersai.com/anthropic-just-overtook-openai-in-enterprise-ai/" target="_blank">KersAI</a>
-</div>
-
-<div class="card" data-cat="news">
-<h3>OpenAI lanza modelo de AI para ciencias de la vida (rival de AlphaFold)</h3>
-<p>OpenAI presentó un modelo de IA diseñado para acelerar el descubrimiento de fármacos, compitiendo directamente con AlphaFold de Google DeepMind.</p>
-<div class="meta">
-<span class="badge badge-news">News</span>
-<span>OpenAI</span>
-<span>17 Abr 2026</span>
-</div>
-<br><a class="source-link" href="https://www.siliconrepublic.com/machines/openai-rival-google-alphafold-ai-model-life-sciences-research" target="_blank">Silicon Republic</a> ·
-<a class="source-link" href="https://www.latimes.com/business/story/2026-04-17/openai-takes-on-google-with-new-ai-designed-to-speed-drug-discovery" target="_blank">LA Times</a>
-</div>
-
-<div class="card" data-cat="news">
-<h3>Anthropic negocia diseño de chips propios con Google-Broadcom</h3>
-<p>Anthropic está en conversaciones para diseñar sus propios chips de AI, asociándose con Google y Broadcom para infraestructura dedicada.</p>
-<div class="meta">
-<span class="badge badge-news">News</span>
-<span>Anthropic / Broadcom</span>
-<span>13 Abr 2026</span>
-</div>
-<br><a class="source-link" href="https://futurumgroup.com/insights/anthropics-google-broadcom-deal-model-company-or-infrastructure-play/" target="_blank">Futurum Group</a>
-</div>
-
-<div class="card" data-cat="news">
-<h3>Microsoft lanza 3 modelos AI 100% propios (independencia de OpenAI)</h3>
-<p>Microsoft AI (MAI) lanzó tres modelos fundamentales construidos internamente: transcripción voz-texto, generación de audio y generación de imágenes. Señal de independencia de OpenAI.</p>
-<div class="meta">
-<span class="badge badge-news">News</span>
-<span>Microsoft</span>
-<span>2 Abr 2026</span>
-</div>
-<br><a class="source-link" href="https://techcrunch.com/2026/04/02/microsoft-takes-on-ai-rivals-with-three-new-foundational-models/" target="_blank">TechCrunch</a> ·
-<a class="source-link" href="https://kersai.com/microsoft-mai-models-2026-transcribe-voice-image-openai-independence/" target="_blank">KersAI</a>
-</div>
-
-<div class="card" data-cat="news">
-<h3>Yann LeCun recauda $1.03B para AMI Labs (World Models)</h3>
-<p>El "padrino de la AI" y Chief Scientist de Meta, Yann LeCun, levantó $1.03B para AMI Labs, argumentando que los LLMs son el camino equivocado y los "world models" son el futuro.</p>
-<div class="meta">
-<span class="badge badge-news">News</span>
-<span>AMI Labs / Yann LeCun</span>
-<span>8 Abr 2026</span>
-</div>
-<br><a class="source-link" href="https://kersai.com/yann-lecun-ami-labs-world-models-llms-wrong-complete-guide-2026/" target="_blank">KersAI</a>
-</div>
-
-<div class="card" data-cat="news">
-<h3>SpaceX-xAI Megadeal de $250B y el auge de AI Agéntica</h3>
-<p>La fusión SpaceX-xAI valued en $250B impulsa la era de la inteligencia agéntica. El arms race de modelos se acelera con GPT-5.4, Grok 4.20 y más.</p>
-<div class="meta">
-<span class="badge badge-news">News</span>
-<span>xAI / SpaceX</span>
-<span>16 Abr 2026</span>
-</div>
-<br><a class="source-link" href="https://kersai.com/ai-arms-race-2026-gpt-54-spacex-xai-agentic-ai/" target="_blank">KersAI</a>
-</div>
-
-<div class="card" data-cat="news">
-<h3>OpenAI drama amenaza IPO; Anthropic liderea en ciberseguridad</h3>
-<p>Fortune analiza si el drama interno de OpenAI afecta sus chances de IPO, mientras Anthropic gana terreno en seguridad y capacidades cyber.</p>
-<div class="meta">
-<span class="badge badge-news">News</span>
-<span>OpenAI / Anthropic</span>
-<span>7 Abr 2026</span>
-</div>
-<br><a class="source-link" href="https://fortune.com/2026/04/07/openai-drama-sam-altman-ipo-anthropic-cybersecurity-risks-eye-on-ai/" target="_blank">Fortune</a>
-</div>
+<!-- ROBOTICS -->
+<div class="card">
+  <h2>🏃 Robotics & Physical AI</h2>
+  <ul>
+    <li><strong>Beijing Humanoid Half-Marathon (Apr 19)</strong> — A humanoid robot completed the 21km race in ~50 minutes, beating the human world record. Over 70 teams competed. Some robots literally shattered during the race. Landmark event for embodied AI. <span class="tag tag-robot">ROBOTICS</span></li>
+    <li><strong>NVIDIA GTC 2026</strong> — Major sessions on agentic AI, inference optimization, and physical AI. On-demand sessions available. <span class="tag tag-robot">ROBOTICS</span></li>
+  </ul>
 </div>
 
 <!-- FUNDING -->
-<div class="section">
-<div class="section-title">💰 Funding & Inversión</div>
-
-<div class="card" data-cat="funding">
-<h3>Q1 2026 rompe todos los récords: $297B en VC global</h3>
-<p>El funding global en startups alcanzó $297B en Q1 2026, batiendo todos los récords. AI representa el 81% del total. Crunchbase confirma la cifra.</p>
-<div class="meta">
-<span class="badge badge-funding">Funding</span>
-<span>Global</span>
-<span>Q1 2026</span>
-</div>
-<br><a class="source-link" href="https://techcrunch.com/2026/04/01/startup-funding-shatters-all-records-in-q1/" target="_blank">TechCrunch</a> ·
-<a class="source-link" href="https://news.crunchbase.com/venture/record-breaking-funding-ai-global-q1-2026/" target="_blank">Crunchbase</a> ·
-<a class="source-link" href="https://www.trendingtopics.eu/vc-hits-297-billion-in-one-quarter-ai-swallows-81-of-funding/" target="_blank">Trending Topics</a>
+<div class="card">
+  <h2>💰 Funding & M&A</h2>
+  <ul>
+    <li><strong>SpaceX acquires xAI for $250B</strong> — Largest merger in corporate history. Vertically integrated entity valued at $1.25T. <span class="tag tag-funding">FUNDING</span></li>
+    <li><strong>Q1 2026 AI funding: $242B</strong> — 81% of all global VC. Top rounds: OpenAI $122B, Anthropic $30B, xAI $20B, Waymo $16B. <span class="tag tag-funding">FUNDING</span></li>
+    <li><strong>Cerebras files for US IPO</strong> — Nvidia rival goes public as AI chip demand surges. <span class="tag tag-funding">FUNDING</span></li>
+    <li><strong>Google in talks with Marvell</strong> — For new custom AI chip development. <span class="tag tag-funding">FUNDING</span></li>
+  </ul>
 </div>
 
-<div class="card" data-cat="funding">
-<h3>OpenAI: $122B raised, valuación $852B</h3>
-<p>OpenAI recaudó $122B (la ronda más grande de la historia), alcanzando una valuación de $852B. Supera su propio récord de $40B del año anterior.</p>
-<div class="meta">
-<span class="badge badge-funding">Funding</span>
-<span>OpenAI</span>
-<span>Q1 2026</span>
-</div>
-<br><a class="source-link" href="https://techcrunch.com/2026/04/01/startup-funding-shatters-all-records-in-q1/" target="_blank">TechCrunch</a>
-</div>
-
-<div class="card" data-cat="funding">
-<h3>Anthropic: $30B Series G, valuación $380B</h3>
-<p>Anthropic cerró una Series G de $30B a valuación de $380B en febrero 2026. Ahora estimada en $800B según análisis recientes.</p>
-<div class="meta">
-<span class="badge badge-funding">Funding</span>
-<span>Anthropic</span>
-<span>Feb 2026</span>
-</div>
-<br><a class="source-link" href="https://techcrunch.com/2026/04/01/startup-funding-shatters-all-records-in-q1/" target="_blank">TechCrunch</a>
+<!-- POLICY -->
+<div class="card">
+  <h2>📋 Policy & Governance</h2>
+  <ul>
+    <li><strong>OpenAI, Anthropic, Google unite vs China distillation</strong> — Sharing intel via Frontier Model Forum to detect adversarial distillation attempts by Chinese competitors (Bloomberg). <span class="tag tag-policy">POLICY</span></li>
+    <li><strong>White House engages Anthropic CEO on Mythos</strong> — Cybersecurity risk assessment of withheld model. Federal use governance discussions ongoing. <span class="tag tag-policy">POLICY</span></li>
+    <li><strong>Trump signs Executive Order (Apr 18)</strong> — Related to AI.Gov initiative. Details emerging. <span class="tag tag-policy">POLICY</span></li>
+    <li><strong>Anthropic expands Google + Broadcom partnership</strong> — For additional compute capacity. <span class="tag tag-policy">POLICY</span></li>
+  </ul>
 </div>
 
-<div class="card" data-cat="funding">
-<h3>xAI: $20B Series E</h3>
-<p>xAI (Elon Musk) levantó $20B en Series E, combinándose con SpaceX en el megadeal de $250B.</p>
-<div class="meta">
-<span class="badge badge-funding">Funding</span>
-<span>xAI</span>
-<span>Ene 2026</span>
-</div>
-<br><a class="source-link" href="https://techcrunch.com/2026/04/01/startup-funding-shatters-all-records-in-q1/" target="_blank">TechCrunch</a>
-</div>
-
-<div class="card" data-cat="funding">
-<h3>Sequoia levanta $7B para expandir bets en AI</h3>
-<p>Sequoia Capital recaudó $7B en su nuevo fondo, enfocado en expandir inversiones en AI. Nuevo liderazgo en la firma.</p>
-<div class="meta">
-<span class="badge badge-funding">Funding</span>
-<span>Sequoia Capital</span>
-<span>16 Abr 2026</span>
-</div>
-<br><a class="source-link" href="https://techcrunch.com/2026/04/16/new-leaders-new-fund-sequoia-has-raised-7b-to-expand-its-ai-bets/" target="_blank">TechCrunch</a>
+<!-- OPEN SOURCE -->
+<div class="card">
+  <h2>🔓 Open Source & Tools</h2>
+  <ul>
+    <li><strong>GitHub trending:</strong> MCP integration tools dominating (Open WebUI MCP, F/mcptools). Multi-agent frameworks (OWL). Voice synthesis (VoiceStar, Sesame CSM). <span class="tag tag-open">OPEN</span></li>
+    <li><strong>Crawl4AI</strong> — 26K+ stars, web crawling for AI agents. <span class="tag tag-open">OPEN</span></li>
+    <li><strong>Second-Me</strong> — Digital twin creation. <span class="tag tag-open">OPEN</span></li>
+    <li><strong>Self.so</strong> — AI-powered personal site builder in seconds. <span class="tag tag-open">OPEN</span></li>
+  </ul>
 </div>
 
-<div class="card" data-cat="funding">
-<h3>Waymo: $16B para escalar robotaxis</h3>
-<p>Waymo levantó $16B para expandir su flota de robotaxis a Londres y Tokio. Una de las mega-deals del trimestre.</p>
-<div class="meta">
-<span class="badge badge-funding">Funding</span>
-<span>Waymo / Alphabet</span>
-<span>Feb 2026</span>
-</div>
-<br><a class="source-link" href="https://techcrunch.com/2026/04/01/startup-funding-shatters-all-records-in-q1/" target="_blank">TechCrunch</a>
-</div>
-
-<div class="card" data-cat="funding">
-<h3>$258B destinados a AI Startups en 2026</h3>
-<p>Análisis de Whitepage Studio detalla cómo los $258B en funding de AI startups se distribuyen: Agentic AI (89 deals desde 2023), Healthcare AI (deal size +211% en 2 años), y más.</p>
-<div class="meta">
-<span class="badge badge-funding">Funding</span>
-<span>Análisis</span>
-<span>2026</span>
-</div>
-<br><a class="source-link" href="https://www.whitepage.studio/blog/ai-startup-funding-today" target="_blank">Whitepage Studio</a>
-</div>
+<!-- QUICK HITS -->
+<div class="card">
+  <h2>⚡ Quick Hits</h2>
+  <ul>
+    <li><strong>Anthropic 30x improvement</strong> reported in Claude efficiency (Apr 17 updates)</li>
+    <li><strong>AI-generated Iran war deepfakes</strong> spreading — experts sound alarm</li>
+    <li><strong>Panthalassa</strong> proposes ocean-powered data centers for AI energy needs</li>
+    <li><strong>AI job market</strong>: Proprietary enterprise AI use shrank from 80% → 44% as open models gain ground</li>
+    <li><strong>OpenAI leadership changes</strong> and product refocus reported (Apr 18)</li>
+    <li><strong>Anthropic pushes into government cybersecurity</strong> work post-Mythos</li>
+  </ul>
 </div>
 
-<!-- PRODUCTOS -->
-<div class="section">
-<div class="section-title">📦 Productos & Launches</div>
-
-<div class="card" data-cat="product">
-<h3>Claude Design — Anthropic Labs</h3>
-<p>Anthropic lanzó Claude Design, herramienta de diseño que genera sistemas de diseño desde brand guides, pitch decks, y soporta voice, video y 3D. Competidor de Figma y Lovable.</p>
-<div class="meta">
-<span class="badge badge-product">Producto</span>
-<span>Anthropic</span>
-<span>Abril 2026</span>
-</div>
-<br><a class="source-link" href="https://www.anthropic.com/news/claude-design-anthropic-labs" target="_blank">Anthropic</a> ·
-<a class="source-link" href="https://www.trendingtopics.eu/anthropic-claude-design/" target="_blank">Trending Topics</a>
 </div>
 
-<div class="card" data-cat="product">
-<h3>Gemini App para Mac</h3>
-<p>Google lanzó la app nativa de Gemini para macOS, expandiendo la presencia del asistente AI más allá del browser.</p>
-<div class="meta">
-<span class="badge badge-product">Producto</span>
-<span>Google</span>
-<span>Abril 2026</span>
-</div>
-<br><a class="source-link" href="https://blog.google/innovation-and-ai/products/gemini-app/gemini-app-now-on-mac-os/" target="_blank">Google Blog</a>
-</div>
-
-<div class="card" data-cat="product">
-<h3>Imágenes personalizadas en Gemini App (Personal Intelligence)</h3>
-<p>Nuevas capacidades de generación de imágenes personalizadas dentro de la app Gemini, con Nano Banana como nombre interno del proyecto.</p>
-<div class="meta">
-<span class="badge badge-product">Producto</span>
-<span>Google</span>
-<span>16 Abr 2026</span>
-</div>
-<br><a class="source-link" href="https://blog.google/innovation-and-ai/products/gemini-app/personal-intelligence-nano-banana/" target="_blank">Google Blog</a>
-</div>
-
-<div class="card" data-cat="product">
-<h3>Microsoft MAI: 3 modelos in-house (transcripción, audio, imagen)</h3>
-<p>Microsoft AI liberó tres modelos propios: transcripción voz-a-texto, generación de audio y generación de imágenes. Señal clara de independencia de OpenAI.</p>
-<div class="meta">
-<span class="badge badge-product">Producto</span>
-<span>Microsoft</span>
-<span>2 Abr 2026</span>
-</div>
-<br><a class="source-link" href="https://techcrunch.com/2026/04/02/microsoft-takes-on-ai-rivals-with-three-new-foundational-models/" target="_blank">TechCrunch</a>
-</div>
-
-<div class="card" data-cat="product">
-<h3>Kimi Code K2.6 Preview (Moonshot AI)</h3>
-<p>Moonshot AI lanzó el preview de Kimi Code K2.6, modelo de coding agéntico. Full API release esperado para finales de abril o principios de mayo.</p>
-<div class="meta">
-<span class="badge badge-product">Producto</span>
-<span>Moonshot AI</span>
-<span>13 Abr 2026</span>
-</div>
-<br><a class="source-link" href="https://medium.com/@sanjeevpatel3007/april-2026-ai-models-every-major-release-reviewed-6ea03d7bc0b7" target="_blank">Medium</a>
-</div>
-</div>
-
-<!-- FUENTES -->
-<div id="sources">
-<h2>📚 Fuentes Consultadas</h2>
-<ol>
-<li><a href="https://llm-stats.com/llm-updates" target="_blank">LLM Stats — AI Updates Tracker</a></li>
-<li><a href="https://kersai.com/ai-breakthroughs-april-2026-models-funding-shifts/" target="_blank">KersAI — AI Breakthroughs April 2026</a></li>
-<li><a href="https://techcrunch.com/2026/04/01/startup-funding-shatters-all-records-in-q1/" target="_blank">TechCrunch — Startup Funding Q1 2026</a></li>
-<li><a href="https://techcrunch.com/2026/04/02/microsoft-takes-on-ai-rivals-with-three-new-foundational-models/" target="_blank">TechCrunch — Microsoft 3 AI Models</a></li>
-<li><a href="https://techcrunch.com/2026/04/16/new-leaders-new-fund-sequoia-has-raised-7b-to-expand-its-ai-bets/" target="_blank">TechCrunch — Sequoia $7B Fund</a></li>
-<li><a href="https://news.crunchbase.com/venture/record-breaking-funding-ai-global-q1-2026/" target="_blank">Crunchbase — Q1 2026 Global VC</a></li>
-<li><a href="https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-march-2026/" target="_blank">Google Blog — AI Updates</a></li>
-<li><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-tts/" target="_blank">Google Blog — Gemini 3.1 Flash TTS</a></li>
-<li><a href="https://blog.google/products-and-platforms/products/search/ai-mode-chrome/" target="_blank">Google Blog — AI Mode in Chrome</a></li>
-<li><a href="https://blog.google/innovation-and-ai/products/gemini-app/personal-intelligence-nano-banana/" target="_blank">Google Blog — Gemini Personal Images</a></li>
-<li><a href="https://blogs.nvidia.com/blog/rtx-ai-garage-open-models-google-gemma-4/" target="_blank">NVIDIA Blog — Gemma 4 on RTX</a></li>
-<li><a href="https://www.cnbc.com/2026/04/08/meta-debuts-first-major-ai-model-since-14-billion-deal-to-bring-in-alexandr-wang.html" target="_blank">CNBC — Meta Muse Spark</a></li>
-<li><a href="https://howdoiuseai.com/blog/2026-04-16-newest-ai-tools-2026" target="_blank">HowDoIUseAI — 9 AI Tools 2026</a></li>
-<li><a href="https://fortune.com/2026/04/07/openai-drama-sam-altman-ipo-anthropic-cybersecurity-risks-eye-on-ai/" target="_blank">Fortune — OpenAI Drama & IPO</a></li>
-<li><a href="https://www.siliconrepublic.com/machines/openai-rival-google-alphafold-ai-model-life-sciences-research" target="_blank">Silicon Republic — OpenAI Life Sciences</a></li>
-<li><a href="https://www.latimes.com/business/story/2026-04-17/openai-takes-on-google-with-new-ai-designed-to-speed-drug-discovery" target="_blank">LA Times — OpenAI Drug Discovery</a></li>
-<li><a href="https://futurumgroup.com/insights/anthropics-google-broadcom-deal-model-company-or-infrastructure-play/" target="_blank">Futurum Group — Anthropic-Broadcom</a></li>
-<li><a href="https://www.trendingtopics.eu/vc-hits-297-billion-in-one-quarter-ai-swallows-81-of-funding/" target="_blank">Trending Topics — VC $297B</a></li>
-<li><a href="https://www.whitepage.studio/blog/ai-startup-funding-today" target="_blank">Whitepage Studio — AI Funding 2026</a></li>
-<li><a href="https://medium.com/@sanjeevpatel3007/april-2026-ai-models-every-major-release-reviewed-6ea03d7bc0b7" target="_blank">Medium — April 2026 AI Models Review</a></li>
-<li><a href="https://blog.mean.ceo/ai-startup-funding-news-april-2026/" target="_blank">Mean CEO — AI Startup Funding April 2026</a></li>
-<li><a href="https://www.anthropic.com/news/claude-design-anthropic-labs" target="_blank">Anthropic — Claude Design</a></li>
-</ol>
-</div>
-
+<hr>
 <div class="footer">
-Generado por Explorer 🔍 — OpenClaw AI Intelligence · 19 Abril 2026
+  <p>Sources: Reuters, Bloomberg, CNBC, NYT, VentureBeat, Forbes, TechCrunch, GitHub Blog, Google Blog, Anthropic, kersai.com</p>
+  <p>Explorer AI News Report — Auto-generated · v1.0</p>
 </div>
 
-<script>
-function filterCards(){
-const q=document.getElementById('search').value.toLowerCase();
-const cat=document.getElementById('category').value;
-document.querySelectorAll('.card').forEach(c=>{
-const text=c.textContent.toLowerCase();
-const cCat=c.dataset.cat;
-const matchSearch=!q||text.includes(q);
-const matchCat=cat==='all'||cCat===cat;
-c.style.display=(matchSearch&&matchCat)?'block':'none';
-});
-}
-</script>
 </body>
 </html>

@@ -1,349 +1,146 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tech Business Report — April 19, 2026</title>
+<title>Tech & Business Intel — 19 Abril 2026</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:#0d1117;color:#c9d1d9;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.6;padding:20px}
-.container{max-width:1100px;margin:0 auto}
-h1{text-align:center;font-size:1.8rem;color:#58a6ff;margin-bottom:5px}
-.date{text-align:center;color:#8b949e;font-size:.95rem;margin-bottom:30px}
-.section{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:20px;margin-bottom:20px}
-.section h2{color:#58a6ff;font-size:1.2rem;margin-bottom:15px;padding-bottom:8px;border-bottom:1px solid #30363d}
-.item{margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid #21262d}
+body{background:#0d1117;color:#c9d1d9;font-family:'Segoe UI',system-ui,sans-serif;padding:24px;max-width:1200px;margin:auto}
+h1{color:#58a6ff;font-size:1.8rem;margin-bottom:4px}
+.subtitle{color:#8b949e;font-size:.9rem;margin-bottom:24px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:20px;margin-bottom:24px}
+.card{background:#161b22;border:1px solid #30363d;border-radius:12px;padding:20px}
+.card h2{font-size:1.1rem;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.card h2 .icon{font-size:1.3rem}
+.tag{display:inline-block;background:#1f6feb33;color:#58a6ff;border-radius:999px;padding:2px 10px;font-size:.75rem;margin-bottom:8px}
+.item{margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid #21262d}
 .item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
-.item h3{color:#f0f6fc;font-size:1rem;margin-bottom:4px}
-.item p{color:#8b949e;font-size:.9rem;margin-bottom:6px}
-.item .meta{display:flex;gap:15px;flex-wrap:wrap;font-size:.8rem}
-.item .meta .tag{background:#1f6feb33;color:#58a6ff;padding:2px 8px;border-radius:12px}
-.item .meta .source a{color:#8b949e;text-decoration:none}
-.item .meta .source a:hover{color:#58a6ff;text-decoration:underline}
-.badge{display:inline-block;background:#238636;color:#fff;padding:2px 10px;border-radius:12px;font-size:.75rem;font-weight:600}
-.badge.warn{background:#d29922}
-.badge.alert{background:#da3633}
-.fuentes{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:20px}
-.fuentes h2{color:#58a6ff;font-size:1.1rem;margin-bottom:12px}
-.fuentes ul{list-style:none;columns:2;column-gap:20px}
-.fuentes li{margin-bottom:6px;font-size:.82rem}
-.futures li::before{content:'';margin-right:6px}
-.fuentes a{color:#8b949e;text-decoration:none}
-.fuentes a:hover{color:#58a6ff}
-@media(max-width:600px){.fuentes ul{columns:1}.container{padding:10px}}
-.kpi-row{display:flex;gap:15px;flex-wrap:wrap;margin-bottom:25px;justify-content:center}
-.kpi{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:15px 25px;text-align:center;min-width:150px}
-.kpi .val{font-size:1.6rem;font-weight:700;color:#58a6ff}
-.kpi .lbl{font-size:.78rem;color:#8b949e;margin-top:2px}
+.item h3{color:#e6edf3;font-size:.95rem;margin-bottom:4px}
+.item p{color:#8b949e;font-size:.85rem;line-height:1.5}
+.item a{color:#58a6ff;text-decoration:none;font-size:.8rem}
+.highlight{background:#2386361a;border-left:3px solid #238636;padding-left:12px}
+.danger{background:#da36341a;border-left:3px solid #da3633;padding-left:12px}
+.warn{background:#d299221a;border-left:3px solid #d29922;padding-left:12px}
+.kpi-row{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:24px}
+.kpi{background:#161b22;border:1px solid #30363d;border-radius:10px;padding:16px 20px;flex:1;min-width:150px;text-align:center}
+.kpi .value{font-size:1.6rem;font-weight:700;color:#58a6ff}
+.kpi .label{font-size:.75rem;color:#8b949e;margin-top:4px}
+footer{text-align:center;color:#484f58;font-size:.75rem;margin-top:32px}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>📡 Tech Business Intelligence Report</h1>
-<p class="date">Saturday, April 19, 2026 — Weekly Digest</p>
+<h1>📡 Tech & Business Intel Report</h1>
+<p class="subtitle">Domingo 19 de Abril, 2026 — Generado por Explorer (GLM-5.1)</p>
 
 <div class="kpi-row">
-<div class="kpi"><div class="val">$297B</div><div class="lbl">Q1 2026 Global VC Funding</div></div>
-<div class="kpi"><div class="val">$1.3T</div><div class="lbl">Projected Chip Revenue 2026</div></div>
-<div class="kpi"><div class="val">$852B</div><div class="lbl">OpenAI Valuation</div></div>
-<div class="kpi"><div class="val">$50B</div><div class="lbl">Cursor Target Valuation</div></div>
+<div class="kpi"><div class="value">$297B</div><div class="label">Startup Funding Q1 2026 (récord)</div></div>
+<div class="kpi"><div class="value">$68.1B</div><div class="label">Nvidia Q4 Revenue (+73% YoY)</div></div>
+<div class="kpi"><div class="value">$122B</div><div class="label">OpenAI Mega-Round (val: $852B)</div></div>
+<div class="kpi"><div class="value">$7B</div><div class="label">Sequoia New Fund</div></div>
 </div>
 
-<!-- FUNDING & ACQUISITIONS -->
-<div class="section">
-<h2>💰 Funding & Acquisitions</h2>
+<div class="grid">
 
+<div class="card">
+<h2><span class="icon">💰</span> Mega-Funding & VC</h2>
+<div class="item highlight">
+<div class="tag">Récord</div>
+<h3>Startup funding global: $297B en Q1 2026</h3>
+<p>Crunchbase reporta que la inversión global en startups batió todos los récords en Q1, impulsada casi enteramente por IA. Las 4 mega-rounds: OpenAI $122B, Anthropic $30B, xAI $20B, Waymo $16B.</p>
+<a href="https://techcrunch.com/2026/04/01/startup-funding-shatters-all-records-in-q1/" target="_blank">TechCrunch →</a>
+</div>
 <div class="item">
-<h3>Q1 2026 Startup Funding Shatters All Records at $297B</h3>
-<p>Global VC investment hit $297B in Q1 2026, breaking every previous record. AI continues to dominate with mega-rounds driving the bulk of capital deployed. OpenAI alone raised $122B at $852B valuation.</p>
-<div class="meta">
-<span class="tag">Record</span>
-<span class="source">TechCrunch — <a href="https://techcrunch.com/2026/04/01/startup-funding-shatters-all-records-in-q1/" target="_blank" rel="noopener">techcrunch.com</a></span>
+<div class="tag">VC</div>
+<h3>Sequoia Capital levanta $7B — nuevo fondo late-stage</h3>
+<p>Primer fondo bajo el nuevo liderazgo de Alfred Lin y Pat Grady. Duplica el fondo de 2022 ($3.4B). Enfoque: OpenAI, Anthropic, Physical Intelligence, Factory. Señal fuerte de confianza institucional en el ecosistema AI.</p>
+<a href="https://techcrunch.com/2026/04/16/new-leaders-new-fund-sequoia-has-raised-7b-to-expand-its-ai-bets/" target="_blank">TechCrunch →</a>
 </div>
-</div>
-
 <div class="item">
-<h3>Cursor Eyes $2B Round at $50B Valuation</h3>
-<p>AI coding startup Cursor (Anysphere) is targeting a $2B funding round that would value the company at $50B, positioning it among the most valuable private AI companies globally. The round reflects investor confidence in AI-powered developer tools.</p>
-<div class="meta">
-<span class="tag">Mega Round</span>
-<span class="source">Business20Channel — <a href="https://business20channel.tv/cursor-eyes-2b-funding-round-at-50b-valuation-in-2026-19-april-2026" target="_blank" rel="noopener">business20channel.tv</a></span>
+<div class="tag">IA / Robotics</div>
+<h3>Physical Intelligence & Factory: apuestas de Sequoia</h3>
+<p>Physical Intelligence (robótica, SF) levantó $400M. Factory (AI agents para engineering enterprise) alcanza valuación de $1.5B. Ambos respaldados por el nuevo fondo Sequoia.</p>
 </div>
 </div>
 
+<div class="card">
+<h2><span class="icon">🧠</span> Big Tech — AAPL / GOOG / META / MSFT</h2>
 <div class="item">
-<h3>Sequoia Raises $7B Fund to Expand AI Bets</h3>
-<p>Sequoia Capital raised a new $7B fund focused on AI investments, signaling continued institutional conviction in AI infrastructure and applications.</p>
-<div class="meta">
-<span class="tag">VC Fund</span>
-<span class="source">TechCrunch — <a href="https://techcrunch.com/2026/04/16/new-leaders-new-fund-sequoia-has-raised-7b-to-expand-its-ai-bets/" target="_blank" rel="noopener">techcrunch.com</a></span>
+<div class="tag">Microsoft</div>
+<h3>Microsoft anuncia $10B expansión AI & Cyber en Japón</h3>
+<p>Expansión masiva de infraestructura de IA y ciberseguridad en la región Asia-Pacífico, compitiendo directamente con Google y Amazon por dominio cloud en Japón.</p>
+<a href="https://www.linkedin.com/pulse/weekly-roundup-tech-09-april-2026-kstrategyand-zrxhe" target="_blank">LinkedIn KStrategy →</a>
 </div>
-</div>
-
 <div class="item">
-<h3>OpenAI Acquires Tech Podcast TBPN</h3>
-<p>OpenAI acquired TBPN, a popular daily tech podcast hosted by John Coogan and Jordi Hays that featured interviews with Zuckerberg, Nadella, and Altman. Terms undisclosed; TBPN moves into OpenAI's strategy org.</p>
-<div class="meta">
-<span class="tag">Acquisition</span>
-<span class="source">CNBC — <a href="https://www.cnbc.com/2026/04/02/openai-acquires-tech-podcast-tbpn.html" target="_blank" rel="noopener">cnbc.com</a></span>
+<div class="tag">Meta</div>
+<h3>Meta ve uptick por eficiencia AI en advertising</h3>
+<p>Meta experimenta un incremento bursátil significativo, impulsado en parte por su IA que está haciendo más eficiente el lado de advertising del negocio.</p>
+</div>
+<div class="item danger">
+<div class="tag">⚠️ Geopolítica</div>
+<h3>Irán amenaza a 17+ empresas tech estadounidenses</h3>
+<p>Los Guardias Revolucionarios de Irán declararon "objetivos legítimos" a Nvidia, Apple, Microsoft, Google, Meta, Oracle, IBM, Cisco, Intel, Dell, Palantir y más. Motivo: presunta colaboración en ataques EE.UU.-Israel. Trump anunció alto al fuego de 2 semanas.</p>
+<a href="https://www.cnbc.com/2026/04/01/iran-irgc-nvidia-appple-attack-threat.html" target="_blank">CNBC →</a>
 </div>
 </div>
 
+<div class="card">
+<h2><span class="icon">📈</span> IPOs & Mercado</h2>
 <div class="item">
-<h3>Lucid Motors Raises $750M from Uber + Saudi PIF</h3>
-<p>Lucid Motors secured $200M from Uber and $550M from the Saudi Arabian Public Investment Fund. Meanwhile, Orca Bio raised a $250M Series F (Life Sciences) and Endovascular Engineering closed $80M Series C.</p>
-<div class="meta">
-<span class="tag">EV / Mobility</span>
-<span class="source">Yutori Scouts — <a href="https://scouts.yutori.com/efbe0f63-c3f5-447b-a278-27219fb3e5d6" target="_blank" rel="noopener">scouts.yutori.com</a></span>
+<div class="tag">IPO Pipeline</div>
+<h3>Principales IPOs esperadas 2026</h3>
+<p><strong>SpaceX</strong> ($1.25–1.75T), <strong>Databricks</strong> ($134B), <strong>OpenAI</strong> (Q4 2026, val $852B), <strong>Anthropic</strong>, <strong>Discord</strong>, <strong>Plaid</strong>, <strong>Canva</strong> ($42B), <strong>Cerebras</strong>. Crunchbase predice 15 candidatas probables.</p>
+<a href="https://money.usnews.com/investing/articles/new-and-upcoming-ipos-in-2026" target="_blank">US News →</a>
 </div>
-</div>
-
 <div class="item">
-<h3>$155B in AI M&A Last Year — Half Went to Startups</h3>
-<p>Forbes reports nearly half of $155B in AI mergers and acquisitions in 2025 involved small and mid-sized startups, as Big Tech's appetite for AI talent and technology continues to accelerate in 2026.</p>
-<div class="meta">
-<span class="tag">M&A Trend</span>
-<span class="source">Forbes — <a href="https://www.forbes.com/sites/aliciapark/2026/04/06/meet-the-bankers-feeding-big-techs-insatiable-appetite-for-ai-startups/" target="_blank" rel="noopener">forbes.com</a></span>
-</div>
+<div class="tag">NVDA</div>
+<h3>Nvidia toca $200 de nuevo — rally de chips en April</h3>
+<p>NVDA volvió a los $200 tras 5 meses de pausa. Q4 FY2026: ingresos récord de $68.1B (+73% YoY), EPS $1.62 (beat +6.6%). S&P 500 y Nasdaq cerca de máximos históricos a pesar del conflicto en Medio Oriente.</p>
+<a href="https://www.investors.com/research/nvidia-nvda-stock-april-2026/" target="_blank">IBD →</a>
 </div>
 </div>
 
-<!-- BIG TECH -->
-<div class="section">
-<h2>🏢 Big Tech Moves</h2>
+<div class="card">
+<h2><span class="icon">🔬</span> Semiconductores</h2>
+<div class="item highlight">
+<div class="tag">TSMC</div>
+<h3>TSMC sube outlook 2026: demanda AI imparable</h3>
+<p>Beneficio Q1 +58% interanual. Chips de 3nm ahora = 25% de ventas (vs 6% hace un año). TSMC levanta forecast de ingresos y capex para 2026. La guerra en Medio Oriente no frenó la demanda AI.</p>
+<a href="https://www.bloomberg.com/news/articles/2026-04-16/tsmc-s-profit-beats-estimates-after-war-failed-to-dent-ai-demand" target="_blank">Bloomberg →</a>
+</div>
+<div class="item warn">
+<div class="tag">Precios</div>
+<h3>14 proveedores de chips suben precios — Abril 2026</h3>
+<p>MPS, Murata, NXP, onsemi, AOS, TI, Infineon anuncian incrementos en componentes de potencia, analógicos y pasivos. Motivos: costos de materiales + restricción de capacidad por demanda AI. Ciclo alcista de precios podría persistir todo 2026.</p>
+<a href="https://www.briocean.com/april-2026-price-hikes-across-14-chip-suppliers-market-impact-sourcing-insights/" target="_blank">Briocean →</a>
+</div>
+</div>
 
+<div class="card">
+<h2><span class="icon">🛡️</span> Cybersecurity</h2>
+<div class="item danger">
+<div class="tag">Zero-Day</div>
+<h3>Anthropic Claude Mythos descubre miles de zero-days autónomamente</h3>
+<p>El modelo Claude Mythos de Anthropic descubrió miles de vulnerabilidades zero-day en SOs y browsers principales de forma autónoma. Cambia el paradigma: ofensiva AI vs. defensiva AI.</p>
+<a href="https://diesec.com/2026/04/top-5-cybersecurity-news-stories-april-17-2026/" target="_blank">DIESEC →</a>
+</div>
 <div class="item">
-<h3>Microsoft Launches 3 In-House AI Models (MAI), Copilot Cowork</h3>
-<p>Microsoft debuted three proprietary AI models built entirely in-house — signaling accelerating independence from OpenAI. Also launched "Copilot Cowork," an AI agent that executes tasks autonomously, not just assists.</p>
-<div class="meta">
-<span class="tag">Microsoft</span>
-<span class="source">KersAI — <a href="https://kersai.com/microsoft-mai-models-2026-transcribe-voice-image-openai-independence/" target="_blank" rel="noopener">kersai.com</a></span>
+<div class="tag">Breaches</div>
+<h3>Oleada de brechas: Booking.com, Basic-Fit, Grinex (1060 escuelas)</h3>
+<p>Booking.com confirmó acceso a datos de clientes. Basic-Fit: datos bancarios de ~1M usuarios. Grinex: 1060 escuelas afectadas. Miles de emails gubernamentales con contraseñas en plaintext encontrados por Proton.</p>
+<a href="https://www.cybersecurity-review.com/news-april-2026/" target="_blank">Cyber Security Review →</a>
 </div>
-</div>
-
 <div class="item">
-<h3>Google Releases Gemma 4 — Free Open-Source AI Beating Models 20x Its Size</h3>
-<p>Google launched Gemma 4, a free open-source model that runs on laptops and reportedly outperforms models 20x its size. Also acquired Producer, a generative AI music agent startup.</p>
-<div class="meta">
-<span class="tag">Google</span>
-<span class="source">KersAI — <a href="https://kersai.com/google-gemma-4-free-open-source-ai-beats-models-20x-its-size-complete-guide-2026/" target="_blank" rel="noopener">kersai.com</a></span>
+<div class="tag">SAP / Enterprise</div>
+<h3>Vulnerabilidades en sistemas financieros enterprise</h3>
+<p>Múltiples vulns de Microsoft (una sin parchar desde hace 14 años) explotadas activamente. Sistemas SAP Finance identificados como objetivo de ataques que socavan la confianza en datos de reporting.</p>
 </div>
 </div>
 
-<div class="item">
-<h3>Anthropic Valued at $800B, Overtakes OpenAI in Enterprise AI</h3>
-<p>Anthropic's valuation reportedly hit $800B after raising $30B Series G at $380B earlier in Q1. The company has overtaken OpenAI in enterprise AI adoption in just 10 weeks, per industry tracking.</p>
-<div class="meta">
-<span class="tag">Anthropic</span>
-<span class="source">KersAI — <a href="https://kersai.com/anthropic-800-billion-valuation-claude-mythos-project-glasswing-complete-guide-2026/" target="_blank" rel="noopener">kersai.com</a></span>
-</div>
 </div>
 
-<div class="item">
-<h3>Yann LeCun Raises $1.03B for AMI Labs (World Models)</h3>
-<p>AI pioneer Yann LeCun raised $1.03B for AMI Labs, betting that "world models" will replace LLMs as the dominant AI paradigm. A direct challenge to the transformer-dominated industry.</p>
-<div class="meta">
-<span class="tag">AI Research</span>
-<span class="source">KersAI — <a href="https://kersai.com/yann-lecun-ami-labs-world-models-llms-wrong-complete-guide-2026/" target="_blank" rel="noopener">kersai.com</a></span>
-</div>
-</div>
-
-<div class="item">
-<h3>Iran Threatens Nvidia, Apple, Microsoft, Google, Meta Assets</h3>
-<p>Iran's Revolutionary Guard named 17+ US tech companies as "legitimate targets" for retaliation in the US-Iran conflict, including Nvidia, Apple, Microsoft, Google, Meta, IBM, Oracle, Cisco, and Palantir. Ceasefire negotiations ongoing.</p>
-<div class="meta">
-<span class="badge alert">Geopolitical Risk</span>
-<span class="source">CNBC — <a href="https://www.cnbc.com/2026/04/01/iran-irgc-nvidia-appple-attack-threat.html" target="_blank" rel="noopener">cnbc.com</a> · Time — <a href="https://time.com/article/2026/04/01/iran-revolutionary-guard-corps-tech-apple-google-meta-microsoft-nvidia/" target="_blank" rel="noopener">time.com</a></span>
-</div>
-</div>
-
-<div class="item">
-<h3>Privacy Study: Google, Meta, Microsoft Opt-Out Signals Largely Ignored</h3>
-<p>A California Privacy Audit found 55% of sites set ad cookies despite user opt-out. Google had an 87% failure rate, Meta 69%, Microsoft 50%. Google disputes the methodology.</p>
-<div class="meta">
-<span class="badge warn">Privacy</span>
-<span class="source">Yahoo Tech — <a href="https://tech.yahoo.com/cybersecurity/articles/doesnt-sound-opting-metas-googles-120758109.html" target="_blank" rel="noopener">tech.yahoo.com</a></span>
-</div>
-</div>
-</div>
-
-<!-- IPOs & EARNINGS -->
-<div class="section">
-<h2>📈 IPOs & Earnings</h2>
-
-<div class="item">
-<h3>Netflix Q1 2026: Revenue Soars, Stock Drops on Flat Guidance</h3>
-<p>Netflix reported Q1 revenue of $12.2B with 12-14% FY growth guidance maintained and 31.5% operating margin target. Stock dropped post-earnings as investors hoped for a guidance boost. World Baseball Classic drove 31.4M viewers in Japan — largest single sign-up day there.</p>
-<div class="meta">
-<span class="tag">NFLX</span>
-<span class="source">Hollywood Reporter — <a href="https://www.hollywoodreporter.com/business/business-news/netflix-stock-q1-2026-earnings-analysts-1236567345/" target="_blank" rel="noopener">hollywoodreporter.com</a> · Yahoo Finance — <a href="https://finance.yahoo.com/markets/stocks/articles/netflix-inc-q1-2026-earnings-001444599.html" target="_blank" rel="noopener">finance.yahoo.com</a></span>
-</div>
-</div>
-
-<div class="item">
-<h3>Tesla Q1 Earnings Looming (April 22) — Stock Volatile</h3>
-<p>TSLA swung between $352-$392 this week. AI5 chip milestone and a rare analyst upgrade drove an 8% rally on Apr 15. Analysts estimate 33% profit surge. SpaceX IPO uncertainty and EV demand fears adding pressure ahead of Apr 22 report.</p>
-<div class="meta">
-<span class="tag">TSLA</span>
-<span class="source">24/7 Wall St — <a href="https://247wallst.com/investing/2026/04/17/tesla-rallies-5-as-q1-earnings-loom-a-33-profit-surge-estimate-has-investors-watching-closely/" target="_blank" rel="noopener">247wallst.com</a></span>
-</div>
-</div>
-
-<div class="item">
-<h3>2026 IPO Pipeline: SpaceX ($1.25-1.75T), OpenAI ($852B), Databricks ($134B)</h3>
-<p>The 2026 IPO calendar is shaping up to be historic. SpaceX could debut at $1.25-1.75T (potentially largest IPO ever), OpenAI targeting Q4 2026, Databricks preparing after withdrawing its 2024 filing. Current IPO week includes X-Energy ($750M raise), Yesway ($300M).</p>
-<div class="meta">
-<span class="tag">IPO Pipeline</span>
-<span class="source">Forge Global — <a href="https://forgeglobal.com/tech-ipo-calendar-2026/" target="_blank" rel="noopener">forgeglobal.com</a> · US News — <a href="https://money.usnews.com/investing/articles/new-and-upcoming-ipos-in-2026" target="_blank" rel="noopener">money.usnews.com</a></span>
-</div>
-</div>
-</div>
-
-<!-- SEMICONDUCTORS -->
-<div class="section">
-<h2>🔧 Semiconductors</h2>
-
-<div class="item">
-<h3>14 Chip Suppliers Raise Prices in April 2026</h3>
-<p>A broad-based price upcycle is underway: MPS, Murata, NXP, onsemi, AOS, Texas Instruments, Infineon all announced price increases taking effect April 2026, driven by AI demand and rising material costs.</p>
-<div class="meta">
-<span class="badge warn">Price Hikes</span>
-<span class="source">Briocean — <a href="https://www.briocean.com/april-2026-price-hikes-across-14-chip-suppliers-market-impact-sourcing-insights/" target="_blank" rel="noopener">briocean.com</a></span>
-</div>
-</div>
-
-<div class="item">
-<h3>DRAM & NAND Prices Surge 50% in Q2; TI Analog Chips Up 85%</h3>
-<p>Memory prices are exploding: DRAM contract prices doubled, Q2 DRAM/NAND expected to surge another 50%. Spot prices up 260% in two months. TI launched a second major price hike with analog chips up 85%. Auto DRAM costs jumped 300%.</p>
-<div class="meta">
-<span class="tag">Memory</span>
-<span class="source">Amble MarketPulse (LinkedIn) — <a href="https://www.linkedin.com/pulse/amble-marketpulse-april-2026-semiconductor-dngqc" target="_blank" rel="noopener">linkedin.com</a></span>
-</div>
-</div>
-
-<div class="item">
-<h3>Global Semiconductor Revenue on Track for $1.3 Trillion in 2026</h3>
-<p>Global chip sales reached $88.8B in February 2026, up 61.8% YoY. The industry is projected to surpass $1T for the first time this year, with $1.3T now in sight. Samsung & Micron locking in 5-year deals with $10B prepayments.</p>
-<div class="meta">
-<span class="tag">Industry</span>
-<span class="source">Yahoo Finance — <a href="https://finance.yahoo.com/sectors/technology/article/semiconductor-industry-revenue-to-hit-13-trillion-in-2026-as-memory-crunch-hits-consumers-151202545.html" target="_blank" rel="noopener">finance.yahoo.com</a> · Bits&Chips — <a href="https://bits-chips.com/article/chip-market-on-track-for-1-trillion-in-2026/" target="_blank" rel="noopener">bits-chips.com</a></span>
-</div>
-</div>
-</div>
-
-<!-- CYBERSECURITY -->
-<div class="section">
-<h2>🔒 Cybersecurity & Data Breaches</h2>
-
-<div class="item">
-<h3>Chime Data Breach — Class Action Filed</h3>
-<p>Online banking platform Chime faces a class action lawsuit over an April 2026 data breach that potentially exposed sensitive customer information of thousands of users. Plaintiffs allege the breach was preventable.</p>
-<div class="meta">
-<span class="badge alert">Fintech</span>
-<span class="source">ClassAction.org — <a href="https://www.classaction.org/news/chime-data-breach-lawsuit-says-april-2026-incident-could-have-been-prevented" target="_blank" rel="noopener">classaction.org</a></span>
-</div>
-</div>
-
-<div class="item">
-<h3>McGraw Hill Confirms Data Breach via Misconfiguration</h3>
-<p>Global education publisher McGraw Hill confirmed a data breach after attackers exploited a misconfiguration, exposing user data. Details of scope still emerging.</p>
-<div class="meta">
-<span class="tag">Education</span>
-<span class="source">Vairav Technology — <a href="https://www.linkedin.com/pulse/cybersecurity-daily-digest-april-16-2026-vairavtechnology-sqioc" target="_blank" rel="noopener">linkedin.com</a></span>
-</div>
-</div>
-
-<div class="item">
-<h3>OneDigital / Salesforce Breach Exposes 28,414 Records</h3>
-<p>OneDigital disclosed that ~28,414 people had information compromised in a Salesforce CRM breach. Also this week: Erie Family Health Centers, Lansing College (757k SSNs), WestJet (1.2M passengers).</p>
-<div class="meta">
-<span class="tag">CRM / Healthcare</span>
-<span class="source">Applied Tech — <a href="https://www.appliedtech.us/resource-hub/this-week-in-cybersecurity-apr17-2026/" target="_blank" rel="noopener">appliedtech.us</a> · ForThePeople — <a href="https://www.forthepeople.com/blog/data-breach-brief-week-april-15th-2026/" target="_blank" rel="noopener">forthepeople.com</a></span>
-</div>
-</div>
-
-<div class="item">
-<h3>Experian 2026 Forecast: AI to Overtake Human Error as Top Breach Cause</h3>
-<p>Experian's 13th annual Data Breach Industry Forecast predicts AI will surpass human error as the #1 cause of breaches in 2026. Rising threats include synthetic identities, mutating malware, and quantum computing attacks.</p>
-<div class="meta">
-<span class="tag">Forecast</span>
-<span class="source">Experian — <a href="https://us-go.experian.com/13th-annual-data-breach-industry-forecast" target="_blank" rel="noopener">experian.com</a></span>
-</div>
-</div>
-</div>
-
-<!-- REGULACIÓN -->
-<div class="section">
-<h2>⚖️ Regulación & Policy</h2>
-
-<div class="item">
-<h3>EU AI Act Full Enforcement Begins August 2026</h3>
-<p>The EU AI Act applies from August 2, 2026, with high-risk AI obligations phasing in through August 2027. The European Commission published its second draft Code of Practice on transparent AI systems in March 2026.</p>
-<div class="meta">
-<span class="tag">EU</span>
-<span class="source">Lexology — <a href="https://www.lexology.com/library/detail.aspx?g=4f6339c5-ef5d-4eb1-a17e-266eec5e89dc" target="_blank" rel="noopener">lexology.com</a></span>
-</div>
-</div>
-
-<div class="item">
-<h3>EU Digital Markets Act: AI Services Scope Debate Intensifies</h3>
-<p>The European Commission is investigating whether AI services fall under existing DMA "core platform services" or require new standalone categories. Google under investigation for AI Overviews using publisher content without fair remuneration. WhatsApp's AI integration also under scrutiny.</p>
-<div class="meta">
-<span class="tag">Antitrust</span>
-<span class="source">Hausfeld — <a href="https://www.hausfeld.com/what-we-think/competition-bulletin/regulating-artificial-intelligence-between-the-eu-digital-markets-act-and-competition-law" target="_blank" rel="noopener">hausfeld.com</a> · TechPolicy.Press — <a href="https://techpolicy.press/reviewing-european-antitrust-activity-in-2025-and-what-it-all-means-for-2026" target="_blank" rel="noopener">techpolicy.press</a></span>
-</div>
-</div>
-
-<div class="item">
-<h3>European Parliament Adopts Position on AI & Copyright</h3>
-<p>The EP adopted a Resolution on copyright and generative AI (March 12) and a negotiation position on the proposed Digital Omnibus on AI (March 26). The UK government also published a report and impact assessment on copyright and AI.</p>
-<div class="meta">
-<span class="tag">Copyright</span>
-<span class="source">Kemp IT Law — <a href="https://kempitlaw.com/insights/tech-law-developments-april-2026/" target="_blank" rel="noopener">kempitlaw.com</a></span>
-</div>
-</div>
-
-<div class="item">
-<h3>US Moves Toward National AI Policy Framework</h3>
-<p>The US administration is advancing a national AI policy framework to limit state-level fragmentation, while individual states continue pushing their own AI transparency and safety legislation.</p>
-<div class="meta">
-<span class="tag">US Policy</span>
-<span class="source">Eversheds Sutherland — <a href="https://www.eversheds-sutherland.com/en/united-states/insights/gloabl-ai-bulletin-april-2026" target="_blank" rel="noopener">eversheds-sutherland.com</a></span>
-</div>
-</div>
-</div>
-
-<!-- FUENTES -->
-<div class="fuentes">
-<h2>📚 Fuentes</h2>
-<ul>
-<li><a href="https://techcrunch.com/2026/04/01/startup-funding-shatters-all-records-in-q1/" target="_blank" rel="noopener">TechCrunch — Q1 2026 Funding Record</a></li>
-<li><a href="https://news.crunchbase.com/venture/record-breaking-funding-ai-global-q1-2026/" target="_blank" rel="noopener">Crunchbase — Q1 2026 Global VC Data</a></li>
-<li><a href="https://business20channel.tv/cursor-eyes-2b-funding-round-at-50b-valuation-in-2026-19-april-2026" target="_blank" rel="noopener">Business20Channel — Cursor $50B Valuation</a></li>
-<li><a href="https://techcrunch.com/2026/04/16/new-leaders-new-fund-sequoia-has-raised-7b-to-expand-its-ai-bets/" target="_blank" rel="noopener">TechCrunch — Sequoia $7B Fund</a></li>
-<li><a href="https://www.cnbc.com/2026/04/02/openai-acquires-tech-podcast-tbpn.html" target="_blank" rel="noopener">CNBC — OpenAI Acquires TBPN</a></li>
-<li><a href="https://www.forbes.com/sites/aliciapark/2026/04/06/meet-the-bankers-feeding-big-techs-insatiable-appetite-for-ai-startups/" target="_blank" rel="noopener">Forbes — $155B AI M&A</a></li>
-<li><a href="https://kersai.com/microsoft-mai-models-2026-transcribe-voice-image-openai-independence/" target="_blank" rel="noopener">KersAI — Microsoft MAI Models</a></li>
-<li><a href="https://kersai.com/google-gemma-4-free-open-source-ai-beats-models-20x-its-size-complete-guide-2026/" target="_blank" rel="noopener">KersAI — Google Gemma 4</a></li>
-<li><a href="https://kersai.com/anthropic-800-billion-valuation-claude-mythos-project-glasswing-complete-guide-2026/" target="_blank" rel="noopener">KersAI — Anthropic $800B</a></li>
-<li><a href="https://kersai.com/yann-lecun-ami-labs-world-models-llms-wrong-complete-guide-2026/" target="_blank" rel="noopener">KersAI — LeCun AMI Labs</a></li>
-<li><a href="https://www.cnbc.com/2026/04/01/iran-irgc-nvidia-appple-attack-threat.html" target="_blank" rel="noopener">CNBC — Iran Threats</a></li>
-<li><a href="https://tech.yahoo.com/cybersecurity/articles/doesnt-sound-opting-metas-googles-120758109.html" target="_blank" rel="noopener">Yahoo — Privacy Opt-Out Failures</a></li>
-<li><a href="https://www.hollywoodreporter.com/business/business-news/netflix-stock-q1-2026-earnings-analysts-1236567345/" target="_blank" rel="noopener">Hollywood Reporter — Netflix Q1</a></li>
-<li><a href="https://247wallst.com/investing/2026/04/17/tesla-rallies-5-as-q1-earnings-loom-a-33-profit-surge-estimate-has-investors-watching-closely/" target="_blank" rel="noopener">24/7 Wall St — Tesla Earnings Preview</a></li>
-<li><a href="https://forgeglobal.com/tech-ipo-calendar-2026/" target="_blank" rel="noopener">Forge Global — IPO Calendar</a></li>
-<li><a href="https://www.briocean.com/april-2026-price-hikes-across-14-chip-suppliers-market-impact-sourcing-insights/" target="_blank" rel="noopener">Briocean — Chip Price Hikes</a></li>
-<li><a href="https://www.linkedin.com/pulse/amble-marketpulse-april-2026-semiconductor-dngqc" target="_blank" rel="noopener">Amble — DRAM/NAND Surge</a></li>
-<li><a href="https://bits-chips.com/article/chip-market-on-track-for-1-trillion-in-2026/" target="_blank" rel="noopener">Bits&Chips — $1T Chip Market</a></li>
-<li><a href="https://www.classaction.org/news/chime-data-breach-lawsuit-says-april-2026-incident-could-have-been-prevented" target="_blank" rel="noopener">ClassAction.org — Chime Breach</a></li>
-<li><a href="https://www.appliedtech.us/resource-hub/this-week-in-cybersecurity-apr17-2026/" target="_blank" rel="noopener">Applied Tech — Cyber Week Recap</a></li>
-<li><a href="https://us-go.experian.com/13th-annual-data-breach-industry-forecast" target="_blank" rel="noopener">Experian — 2026 Breach Forecast</a></li>
-<li><a href="https://kempitlaw.com/insights/tech-law-developments-april-2026/" target="_blank" rel="noopener">Kemp IT Law — Tech Law April 2026</a></li>
-<li><a href="https://www.eversheds-sutherland.com/en/united-states/insights/gloabl-ai-bulletin-april-2026" target="_blank" rel="noopener">Eversheds Sutherland — Global AI Reg</a></li>
-<li><a href="https://www.hausfeld.com/what-we-think/competition-bulletin/regulating-artificial-intelligence-between-the-eu-digital-markets-act-and-competition-law" target="_blank" rel="noopener">Hausfeld — DMA & AI</a></li>
-</ul>
-</div>
-
-</div>
+<footer>
+<p>Explorer Intel Report — Generado con GLM-5.1 + Tavily Web Search — Fuentes verificadas al 19/04/2026</p>
+</footer>
 </body>
 </html>
