@@ -5,283 +5,242 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>World News Report — 19 de Abril, 2026</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{background:#0d1117;color:#c9d1d9;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.6}
-.header{text-align:center;padding:2rem 1rem;background:linear-gradient(135deg,#161b22,#0d1117);border-bottom:1px solid #30363d}
-.header h1{font-size:1.8rem;color:#58a6ff;margin-bottom:.3rem}
-.header .date{color:#8b949e;font-size:1rem}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:1.5rem;padding:1.5rem;max-width:1400px;margin:0 auto}
-.section{background:#161b22;border:1px solid #30363d;border-radius:12px;overflow:hidden}
-.section-header{padding:.8rem 1.2rem;font-size:1.1rem;font-weight:700;border-bottom:1px solid #30363d;display:flex;align-items:center;gap:.5rem}
-.section-header.pol{background:linear-gradient(90deg,#1f1205,#161b22);color:#f0883e}
-.section-header.eco{background:linear-gradient(90deg,#0d1f0d,#161b22);color:#3fb950}
-.section-header.sci{background:linear-gradient(90deg,#0d1520,#161b22);color:#58a6ff}
-.section-header.cr{background:linear-gradient(90deg,#1f0505,#161b22);color:#f85149}
-.section-header.sport{background:linear-gradient(90deg,#1f1a05,#161b22);color:#d2a8ff}
-.item{padding:.9rem 1.2rem;border-bottom:1px solid #21262d}
-.item:last-child{border-bottom:none}
-.item h3{font-size:.95rem;color:#e6edf3;margin-bottom:.3rem}
-.item p{font-size:.85rem;color:#8b949e;margin-bottom:.3rem}
-.item .source{font-size:.75rem}
-.item .source a{color:#58a6ff;text-decoration:none}
-.item .source a:hover{text-decoration:underline}
-.tag{display:inline-block;font-size:.7rem;padding:2px 8px;border-radius:10px;margin-right:.4rem;margin-bottom:.2rem}
-.tag-urgent{background:#f8514933;color:#f85149}
-.tag-breaking{background:#f0883e33;color:#f0883e}
-.tag-update{background:#58a6ff33;color:#58a6ff}
-.footer{max-width:1400px;margin:1.5rem auto;padding:0 1.5rem 3rem}
-.sources-box{background:#161b22;border:1px solid #30363d;border-radius:12px;padding:1.2rem}
-.sources-box h2{font-size:1rem;color:#8b949e;margin-bottom:.8rem}
-.sources-box ul{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:.4rem}
-.sources-box li{font-size:.8rem}
-.sources-box a{color:#58a6ff;text-decoration:none}
-.sources-box a:hover{text-decoration:underline}
-@media(max-width:400px){.grid{grid-template-columns:1fr;padding:1rem}}
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: #0d1117; color: #c9d1d9; line-height: 1.6; }
+  .header { background: linear-gradient(135deg, #161b22 0%, #1a2332 100%); border-bottom: 2px solid #e94560; padding: 30px 40px; }
+  .header h1 { font-size: 2.2rem; color: #e94560; margin-bottom: 5px; }
+  .header .date { color: #8b949e; font-size: 1.1rem; }
+  .header .tagline { color: #58a6ff; font-size: 0.9rem; margin-top: 8px; }
+  .container { max-width: 1400px; margin: 0 auto; padding: 30px 40px; }
+  .section { margin-bottom: 40px; }
+  .section-title { font-size: 1.5rem; color: #58a6ff; border-left: 4px solid #e94560; padding-left: 15px; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+  .section-title .icon { font-size: 1.3rem; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 20px; }
+  .card { background: #161b22; border: 1px solid #30363d; border-radius: 12px; padding: 24px; transition: border-color 0.2s; }
+  .card:hover { border-color: #58a6ff; }
+  .card .badge { display: inline-block; background: #e94560; color: #fff; font-size: 0.7rem; padding: 3px 10px; border-radius: 20px; text-transform: uppercase; font-weight: 600; margin-bottom: 12px; }
+  .card .badge.blue { background: #1f6feb; }
+  .card .badge.green { background: #238636; }
+  .card .badge.purple { background: #8b5cf6; }
+  .card .badge.orange { background: #d97706; }
+  .card h3 { font-size: 1.15rem; color: #f0f6fc; margin-bottom: 10px; }
+  .card p { color: #8b949e; font-size: 0.92rem; margin-bottom: 12px; }
+  .card .source { font-size: 0.78rem; color: #484f58; }
+  .card .source a { color: #58a6ff; text-decoration: none; }
+  .card .source a:hover { text-decoration: underline; }
+  .highlight-box { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); border: 1px solid #e94560; border-radius: 12px; padding: 28px; margin-bottom: 30px; }
+  .highlight-box h2 { color: #e94560; font-size: 1.3rem; margin-bottom: 12px; }
+  .highlight-box p { color: #c9d1d9; font-size: 1rem; }
+  .footer { text-align: center; padding: 30px; color: #484f58; font-size: 0.8rem; border-top: 1px solid #21262d; margin-top: 40px; }
+  .stat-row { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 30px; }
+  .stat { background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 18px 24px; flex: 1; min-width: 180px; text-align: center; }
+  .stat .val { font-size: 1.8rem; font-weight: 700; color: #e94560; }
+  .stat .label { font-size: 0.8rem; color: #8b949e; margin-top: 4px; }
+  @media (max-width: 800px) {
+    .container { padding: 20px; }
+    .header { padding: 20px; }
+    .grid { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body>
+
 <div class="header">
-<h1>🌐 World News Report</h1>
-<div class="date">Sábado 19 de Abril, 2026</div>
+  <h1>🌍 World News Report</h1>
+  <div class="date">Domingo, 19 de Abril 2026 — 11:45 CST</div>
+  <div class="tagline">Investigación diaria por Explorer 🔍 | Geopolítica · Economía · Tecnología · Ciencia · Deportes · Costa Rica</div>
 </div>
 
-<div class="grid">
+<div class="container">
 
-<!-- POLÍTICA / GEOPOLÍTICA -->
-<div class="section">
-<div class="section-header pol">⚔️ Política & Geopolítica</div>
+  <!-- STATS -->
+  <div class="stat-row">
+    <div class="stat"><div class="val">5</div><div class="label">Semanas de Guerra EE.UU.-Irán</div></div>
+    <div class="stat"><div class="val">3.4%</div><div class="label">CPI EE.UU. (Marzo YoY)</div></div>
+    <div class="stat"><div class="val">50:26</div><div class="label">Robot Half-Marathon Record</div></div>
+    <div class="stat"><div class="val">8va</div><div class="label">Elección Bulgaria en 5 años</div></div>
+  </div>
 
-<div class="item">
-<span class="tag tag-breaking">BREAKING</span>
-<h3>Estrecho de Ormuz cerrado de nuevo por Irán</h3>
-<p>Irán volvió a cerrar el Estrecho de Ormuz apenas un día después de haberlo reabierto parcialmente. Se reportan ataques a embarcaciones comerciales. La MILF calificó la crisis energética como la mayor interrupción en la historia del mercado petrolero global. Brent superó los $100/barril en marzo.</p>
-<div class="source">Fuente: <a href="https://apnews.com/article/us-iran-war-israel-hormuz-19-april-2026-0a637f98d588930f195f61cffe07d4f3">AP News</a> · <a href="https://www.bbc.com/news/live/cqxdg17yr2wt">BBC News</a></div>
-</div>
+  <!-- GEOPOLITICA -->
+  <div class="section">
+    <div class="section-title"><span class="icon">⚔️</span> Geopolítica & Conflicto</div>
+    <div class="highlight-box">
+      <h2>Conflicto EE.UU.–Irán: Semana 5 — Alto al fuego condicional en el Estrecho de Hormuz</h2>
+      <p>Tras semanas de intensos bombardeos, EE.UU. e Irán acordaron un alto al fuego condicional de dos semanas y la reapertura del Estrecho de Hormuz. Trump amenazó con "destruir cada puente y planta de energía en Irán" si Teherán no acepta la propuesta de paz. EE.UU. inició operaciones de limpieza de minas en Hormuz. El nuevo líder supremo Mojtaba Khamenei advirtió sobre "nuevas derrotas amargas" para EE.UU. e Israel. Amb. Waltz afirma que Irán "no tiene las cartas" y buscará un nuevo acuerdo nuclear.</p>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <span class="badge">Medio Oriente</span>
+        <h3>Israel-Líbano: Alto al fuego de 10 días (excluyendo a Hezbollah)</h3>
+        <p>Israel y Líbano acordaron una tregua de 10 días que excluye explícitamente a Hezbollah. La medida busca reducir la tensión en la frontera norte israelí mientras continúan los enfrentamientos con fuerzas iraníes en otros frentes.</p>
+        <div class="source">Fuente: <a href="https://www.youtube.com/watch?v=37QuJMWmrmA">YouTube/Global News</a></div>
+      </div>
+      <div class="card">
+        <span class="badge">Medio Oriente</span>
+        <h3>Estrecho de Hormuz: Armadores cautelosos pese a reapertura</h3>
+        <p>Aunque Irán declaró el estrecho "completamente abierto", armadores navieros mantienen cautela. Se reportaron disparos contra un buque comercial y la marina iraní ordenó abortar el paso de un barco indio. La ONU urge transición a renovables ante la vulnerabilidad energética.</p>
+        <div class="source">Fuente: <a href="https://news.un.org/en/story/2026/04/1167243">UN News</a> · <a href="https://www.dw.com/en/irans-sudden-hormuz-reversal-what-it-signals-now/video-76845644">DW</a></div>
+      </div>
+      <div class="card">
+        <span class="badge">Europa</span>
+        <h3>Bulgaria: Elecciones parlamentarias hoy — 8va elección en 5 años</h3>
+        <p>Los búlgaros votan hoy en elecciones anticipadas tras la caída del gobierno Zhelyazkov. El ex presidente Rumen Radev lidera con su nuevo partido Progressive Bulgaria (~21%). Cinco partidos entrarían al parlamento. Preocupa un posible giro anti-UE y prorruso.</p>
+        <div class="source">Fuente: <a href="https://www.robert-schuman.eu/en/monitor/6765-bulgarians-are-heading-to-the-polls-for-the-eighth-general-election-since-2021">Fondation Robert Schuman</a> · <a href="https://www.dw.com/en/will-bulgarias-election-change-the-countrys-course/a-76814246">DW</a></div>
+      </div>
+      <div class="card">
+        <span class="badge">China</span>
+        <h3>China presionó a Irán para comprometerse con EE.UU.</h3>
+        <p>Según NYT, Beijing presionó diplomáticamente a Teherán para aceptar un cese al fuego. India reabrió parcialmente a inversión china. La diplomacia multipolar reconfigura las alianzas mientras el conflicto iraní redefine cadenas de suministro globales.</p>
+        <div class="source">Fuente: <a href="https://medium.com/@geopolitics_explained/this-week-in-geopolitics-12th-april-2026-7c264f45b41b">Geopolitics Explained/Medium</a></div>
+      </div>
+    </div>
+  </div>
 
-<div class="item">
-<span class="tag tag-breaking">CESE AL FUEGO</span>
-<h3>Alto al fuego frágil entre EE.UU. e Irán</h3>
-<p>Las negociaciones de paz avanzan con mediación de Pakistán, pero persiste la tensión. Trump anunció que JD Vance no participará en las charlas de paz del 20 de abril. El Pentágono envió 10,000 tropas adicionales al Medio Oriente en las últimas semanas.</p>
-<div class="source">Fuente: <a href="https://www.npr.org/2026/04/17/nx-s1-5788978/the-news-roundup-for-april-17-2026">NPR</a> · <a href="https://www.axios.com/2026/04/15/iran-war-negotiations-deal-pakistan">Axios</a></div>
-</div>
+  <!-- ECONOMIA -->
+  <div class="section">
+    <div class="section-title"><span class="icon">📈</span> Economía & Mercados</div>
+    <div class="grid">
+      <div class="card">
+        <span class="badge blue">Mercados</span>
+        <h3>S&P 500 y Nasdaq cierran en máximos históricos</h3>
+        <p>El Nasdaq Composite cerró en 24,102.70 (+0.4%). El S&P 500 también marcó récord pese a la cautela por precios del petróleo. Japón Nikkei +2.4%, Corea Kospi +2.2%, Hang Seng +1.7%. Los inversores esperan señales claras sobre Hormuz para la semana del 20-24 abril.</p>
+        <div class="source">Fuente: <a href="https://www.cnbc.com/2026/04/17/stock-market-next-week-outlook-for-april-20-24-2026.html">CNBC</a> · <a href="https://www.msn.com/en-us/money/markets/stock-market-news-for-apr-17-2026/ar-AA2184cU">MSN</a></div>
+      </div>
+      <div class="card">
+        <span class="badge blue">FMI</span>
+        <h3>FMI: "Global Economy in the Shadow of War" — Perspectivas Abril 2026</h3>
+        <p>El World Economic Outlook del FMI advierte que la economía global opera bajo la sombra de la guerra. El CPI estadounidense subió a 3.4% (desde 2.4% en febrero). La gasolina subió ~$0.60/galón en dos semanas. Los bancos centrales mantienen tasas altas.</p>
+        <div class="source">Fuente: <a href="https://www.imf.org/en/publications/weo/issues/2026/04/14/world-economic-outlook-april-2026">IMF WEO April 2026</a></div>
+      </div>
+      <div class="card">
+        <span class="badge blue">Energía</span>
+        <h3>OPEX+ acuerda aumentar producción en 206K barriles</h3>
+        <p>OPEX+ acordó incrementar la producción en 206,000 barriles diarios cuando Hormuz reabra completamente. El Secretario de Energía de EE.UU. Chris Wright indicó que los precios probablemente ya tocaron su pico, pero la gasolina podría no bajar de $3/galón hasta 2027.</p>
+        <div class="source">Fuente: <a href="https://www.reuters.com/business/energy/opec-debates-theoretical-oil-output-hike-amid-iran-war-paralysis-sources-say-2026-04-05/">Reuters</a></div>
+      </div>
+      <div class="card">
+        <span class="badge blue">Tech</span>
+        <h3>White House: Reunión con Anthropic "productiva y constructiva"</h3>
+        <p>La Casa Blanca calificó de productiva su reunión con Anthropic. Tesla reportó ventas por debajo de expectativas. Netflix cayó tras pronóstico decepcionante; Reed Hastings deja la co-presidencia del directorio.</p>
+        <div class="source">Fuente: <a href="https://www.cnbc.com/video/2026/04/18/the-look-ahead-april-17-2026.html">CNBC Look Ahead</a></div>
+      </div>
+    </div>
+  </div>
 
-<div class="item">
-<h3>Israel-Líbano: alto al fuego de 10 días excluyendo a Hezbollah</h3>
-<p>Israel y Líbano acordaron un cese al fuego temporal. Un peacekeeper francés fue asesinado en el sur del Líbano. El conflicto continúa en Gaza con víctimas civiles.</p>
-<div class="source">Fuente: <a href="https://apnews.com/article/lebanon-israel-france-peacekeepers-5856353ddea6c1654c38c8aadf803ed7">AP News</a></div>
-</div>
+  <!-- TECNOLOGIA & CIENCIA -->
+  <div class="section">
+    <div class="section-title"><span class="icon">🤖</span> Tecnología & Ciencia</div>
+    <div class="highlight-box">
+      <h2>Robot Humanoid "Lightning" (Honor) gana media maratón en Beijing en 50:26 — más rápido que el récord humano mundial</h2>
+      <p>Decenas de robots humanoides chinos compitieron junto a corredores humanos en la E-Town Half Marathon de Beijing. El robot "Lightning" de Honor/Monkey King lo ganó en 50 min 26 seg, superando el récord mundial de Jacob Kiplimo (set en Lisboa el mes pasado), aunque se chocó con la barrera metros antes de la meta y tuvo que ser ayudado a levantarse. El año anterior, el robot ganador tardó 2h40m. Un salto extraordinario en robótica en solo 12 meses.</p>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <span class="badge green">Ciencia</span>
+        <h3>EE.UU. enfrenta "brain drain" científico masivo</h3>
+        <p>Los recortes presupuestarios de Trump a la ciencia y ataques a la academia están abriendo puertas para que otros países recluten a científicos líderes estadounidenses. El NYT advierte de un costo potencial elevado en competitividad tecnológica.</p>
+        <div class="source">Fuente: <a href="https://www.nytimes.com/2026/04/04/business/dealbook/trump-brain-drain-academia.html">NYT</a></div>
+      </div>
+      <div class="card">
+        <span class="badge green">NASA</span>
+        <h3>NASA: Próxima fase de misión lunar en curso</h3>
+        <p>La NASA avanza en la siguiente etapa de su programa de retorno a la Luna. La carrera espacial se intensifica con contribuciones de múltiples agencias y actores privados.</p>
+        <div class="source">Fuente: <a href="https://www.youtube.com/watch?v=7M2OoTFMlBQ">Bloomberg Tech</a></div>
+      </div>
+    </div>
+  </div>
 
-<div class="item">
-<h3>🏆 Hungría: Orbán pierde tras 16 años en el poder</h3>
-<p>Peter Magyar (Tisza) derrotó a Viktor Orbán (Fidesz) con récord de participación. Los votantes rechazaron el populismo nacionalista por la economía deprimida y la corrupción. Orbán tenía el respaldo de Trump y del Kremlin.</p>
-<div class="source">Fuente: <a href="https://www.nytimes.com/2026/04/13/world/europe/hungary-election-results-orban-magyar.html">NYT</a> · <a href="https://www.aljazeera.com/news/2026/4/12/hungary-election-early-results-show-magyars-tisza-ahead-of-orbans-fidesz">Al Jazeera</a></div>
-</div>
+  <!-- PAPA -->
+  <div class="section">
+    <div class="section-title"><span class="icon">🕊️</span> Papa León XIV en África</div>
+    <div class="grid">
+      <div class="card">
+        <span class="badge purple">Vaticano</span>
+        <h3>Papa León XIV visita Angola — gira de 11 días por 4 países africanos</h3>
+        <p>El Papa León XIV llegó a Luanda, Angola (18-21 abril) en la tercera etapa de su gira pastoral por Argelia, Camerún, Angola y Guinea Ecuatorial. Es el viaje papal más largo hasta la fecha. Presidió misa dominical hoy y visitará un santuario católico vinculado al antiguo comercio de esclavos africanos.</p>
+        <div class="source">Fuente: <a href="https://www.vaticannews.va/en/pope/news/2026-04/pope-leo-xiv-africa-apostolic-journey-press-office.html">Vatican News</a></div>
+      </div>
+    </div>
+  </div>
 
-<div class="item">
-<h3>Bulgaria: elecciones parlamentarias hoy</h3>
-<p>Los búlgaros votan en las octavas elecciones desde 2021. Progressive Bulgaria lidera los sondeos con 21.1%, seguida por GERB con 18.5%. Cinco partidos se espera entren al parlamento.</p>
-<div class="source">Fuente: <a href="https://en.wikipedia.org/wiki/2026_Bulgarian_parliamentary_election">Wikipedia</a> · <a href="https://www.robert-schuman.eu/en/monitor/6765-bulgarians-are-heading-to-the-polls-for-the-eighth-general-election-since-2021">Fondation Robert Schuman</a></div>
-</div>
+  <!-- DEPORTES -->
+  <div class="section">
+    <div class="section-title"><span class="icon">🏆</span> Deportes</div>
+    <div class="grid">
+      <div class="card">
+        <span class="badge orange">Golf</span>
+        <h3>The Masters 2026 concluyó; LIV Golf en Ciudad de México este fin de semana</h3>
+        <p>El torneo más prestigioso del golf se jugó del 6-12 abril en Augusta. Este fin de semana continúa LIV Golf en Ciudad de México (19-22 abril).</p>
+        <div class="source">Fuente: <a href="https://apnews.com/article/april-2026-sports-calendar-c21fd2ec3be69047dbcaab7f0886702e">AP News</a></div>
+      </div>
+      <div class="card">
+        <span class="badge orange">NBA/NHL</span>
+        <h3>NBA Playoffs roster listos; NCAA Frozen Four concluyó</h3>
+        <p>Los rosters de NBA Playoffs se fijaron el 13 de abril. El NCAA Frozen Four de hockey se jugó en Las Vegas el 11 de abril. Temporada de playoffs plena en NHL y NBA.</p>
+        <div class="source">Fuente: <a href="https://www.sportbusy.com/calendar/2026/april/">SportBusy</a></div>
+      </div>
+      <div class="card">
+        <span class="badge orange">Fútbol</span>
+        <h3>MLS partido inaugural jugado; Thomas & Uber Cup en abril</h3>
+        <p>El partido inaugural de la MLS 2026 se jugó en Miami el 4 de abril. Las eliminatorias Thomas & Uber Cup (bádminton) arrancan el 24 de abril en Dinamarca.</p>
+        <div class="source">Fuente: <a href="https://en.wikipedia.org/wiki/2026_in_sports">Wikipedia</a></div>
+      </div>
+      <div class="card">
+        <span class="badge orange">MotoGP</span>
+        <h3>MotoGP MXGP de Trentino (Italia) hoy</h3>
+        <p>El campeonato mundial de motociclismo compite hoy en Trentino, Italia. Carrera número 19 del calendario.</p>
+        <div class="source">Fuente: <a href="https://apnews.com/article/april-2026-sports-calendar-c21fd2ec3be69047dbcaab7f0886702e">AP News</a></div>
+      </div>
+    </div>
+  </div>
 
-<div class="item">
-<h3>Ucrania: drones rusos siguen golpeando ciudades</h3>
-<p>Continúan los ataques con drones rusos sobre territorio ucraniano. Rusia enfrenta sanciones adicionales sobre exportaciones de petróleo que ahora cotizan con prima en India.</p>
-<div class="source">Fuente: <a href="https://apnews.com/article/russia-ukraine-war-drones-strike-attack-98aef722e0a2ae1911a3c3b4a43cd73a">AP News</a></div>
-</div>
-
-<div class="item">
-<h3>Papa León visita África; critica la guerra</h3>
-<p>El Papa visitó Angola y Camerún, pronunciándose sobre la esclavitud histórica. Previamente cruzó con Trump calificando a los que hacen la guerra como "manos llenas de sangre".</p>
-<div class="source">Fuente: <a href="https://apnews.com/article/pope-vatican-africa-race-082b240dc063e5e382a76bf278cb18e8">AP News</a></div>
-</div>
-</div>
-
-<!-- ECONOMÍA -->
-<div class="section">
-<div class="section-header eco">💰 Economía & Mercados</div>
-
-<div class="item">
-<span class="tag tag-urgent">IMPACTO GLOBAL</span>
-<h3>Shock energético: gasolina en EE.UU. sube $0.60 en dos semanas</h3>
-<p>El CPI de marzo se estimó en 3.4% interanual (vs 2.4% en febrero). El S&P 500 cayó -4.3% en Q1. Los bonos del Tesoro a 10 años subieron a 4.43%. Solo el sector energético ganó en marzo.</p>
-<div class="source">Fuente: <a href="https://www.crestwoodadvisors.com/april-2026-economic-and-market-update-geopolitics-at-the-forefront/">Crestwood Advisors</a></div>
-</div>
-
-<div class="item">
-<h3>FMI: Primavera 2026 — riesgos de escenarios adversos</h3>
-<p>El World Economic Outlook del FMI advierte que mayor disrupción energética podría elevar inflación y endurecer condiciones financieras globalmente. Crecimiento global ya fue resiliente antes del conflicto.</p>
-<div class="source">Fuente: <a href="https://www.imf.org/en/news/articles/2026/04/14/tr-04142026-press-briefing-transcript-world-economic-outlook-spring-meetings-2026">FMI</a></div>
-</div>
-
-<div class="item">
-<h3>Trump vs. Jerome Powell: tensión sobre la Fed</h3>
-<p>Trump presiona públicamente al Chairman de la Fed, generando volatilidad en los mercados. Los inversores reducen expectativas de recortes de tasas ante la inflación impulsada por la guerra.</p>
-<div class="source">Fuente: <a href="https://www.youtube.com/watch?v=4zs7LJemm2c">The Rest Is Politics</a></div>
-</div>
-
-<div class="item">
-<h3>McKinsey: geometría del comercio global en reconfiguración</h3>
-<p>Southeast Asia profundiza rol manufacturero; India gana terreno en sectores selectivos; Brasil expande exportaciones de commodities. La reconfiguración geopolítica redefine cadenas de suministro.</p>
-<div class="source">Fuente: <a href="https://www.mckinsey.com/mgi/our-research/geopolitics-and-the-geometry-of-global-trade-2026-update">McKinsey MGI</a></div>
-</div>
-
-<div class="item">
-<h3>Canadá: Mark Carney en lista TIME 100</h3>
-<p>El Primer Ministro canadiense fue incluido en la lista de las 100 personas más influyentes de TIME. Howard Lutnick criticó la relación comercial Canadá-China.</p>
-<div class="source">Fuente: <a href="https://www.ctvnews.ca/video/2026/04/19/ctv-national-news-us-iran-ceasefire-remains-fragile-after-strait-of-hormuz-closes-again/">CTV News</a></div>
-</div>
-</div>
-
-<!-- CIENCIA / TECNOLOGÍA -->
-<div class="section">
-<div class="section-header sci">🔬 Ciencia & Tecnología</div>
-
-<div class="item">
-<span class="tag tag-breaking">HISTÓRICO</span>
-<h3>🤖 Robot humanoide gana media maratón en Beijing — ¡más rápido que el récord humano!</h3>
-<p>"Lightning", robot de Honor (fabricante chino de smartphones), completó la media maratón en 50:26, superando el récord mundial de Jacob Kiplimo. Decenas de robots compitieron junto a humanos en pistas paralelas. El robot se cayó metros antes de la meta pero fue ayudado a levantarse.</p>
-<div class="source">Fuente: <a href="https://www.cnn.com/2026/04/19/world/video/humanoid-robot-beats-human-record-for-half-marathon-china-digvid-vrtc-hnk">CNN</a> · <a href="https://www.theguardian.com/sport/video/2026/apr/19/humanoid-robots-race-past-humans-in-beijing-half-marathon-video">The Guardian</a></div>
-</div>
-
-<div class="item">
-<span class="tag tag-breaking">HISTÓRICO</span>
-<h3>🚀 Artemis II: astronautas regresan tras volar alrededor de la Luna</h3>
-<p>NASA completó la misión Artemis II el 10 de abril, el primer vuelo tripulado lunar en 50+ años. Lanzamiento el 1 de abril desde Kennedy Space Center. La tripulación de 4 astronautas voló alrededor del lado oscuro de la Luna el 6 de abril. Imágenes icónicas de la Tierra desde el Orion.</p>
-<div class="source">Fuente: <a href="https://www.nasa.gov/news-release/liftoff-nasa-launches-astronauts-on-historic-artemis-moon-mission/">NASA</a></div>
-</div>
-
-<div class="item">
-<h3>Lluvia de meteoritos Líridas — abril 2026</h3>
-<p>La lluvia de meteoritos Líridas es visible este mes. AP publicó guía para observación.</p>
-<div class="source">Fuente: <a href="https://apnews.com/article/lyrid-meteor-shower-april-2026-6ee128bd19dabb929c49954d09195496">AP News</a></div>
-</div>
-
-<div class="item">
-<h3>Nuevos avances: IA, robótica y biomedicina</h3>
-<p>OpenAI Codex transforma desarrollo de software. Meta lanza Muse Spark (IA multimodal). Claude Mythos encuentra bug de 27 años en un día. Nuevo sensor flexible resiste 100,000+ dobleces. Investigadores de UCLA descubren delta antiguo en Marte.</p>
-<div class="source">Fuente: <a href="https://entechonline.com/category/news/science-technology-news-2026/technology-news-april-2026/">ENTECH Magazine</a></div>
-</div>
-
-<div class="item">
-<h3>Nancy Grace Roman Space Telescope completado</h3>
-<p>NASA finalizó el telescopio espacial Roman, que ampliará significativamente la capacidad de observación del universo profundo.</p>
-<div class="source">Fuente: <a href="https://www.youtube.com/watch?v=XX4f6dOoi08">NASA/YouTube</a></div>
-</div>
-
-<div class="item">
-<h3>Intel: 2026 año decisivo para manufactura de chips</h3>
-<p>Intel evalúa si continúa con proceso 14A o cede liderazgo a TSMC/Samsung. IEEE Spectrum destaca brain chips y misiones espaciales como las tecnologías definitorias de 2026.</p>
-<div class="source">Fuente: <a href="https://spectrum.ieee.org/new-technology-2026">IEEE Spectrum</a></div>
-</div>
-</div>
-
-<!-- COSTA RICA -->
-<div class="section">
-<div class="section-header cr">🇨🇷 Costa Rica</div>
-
-<div class="item">
-<span class="tag tag-update">ECONOMÍA</span>
-<h3>Economía costarricense: crecimiento de 3.5%–4% proyectado para 2026</h3>
-<p>El BCCR proyecta crecimiento promedio de 3.9% para 2026-2027. La UCR prevé 4.5%, la UNA 3.25-3.75%. Tipo de cambio estable entre 505-515 colones/dólar. Inflación baja pero costo de vida alto.</p>
-<div class="source">Fuente: <a href="https://ticoslandia.com/los-expertos-predicen-aguas-tranquilas-para-la-economia-costarricense-en-2026/">Ticos Landia</a> · <a href="https://crhoy.com/economia/bccr-crecimiento-economico-de-costa-rica-para-2026-sera-moderado/">CRHoy</a></div>
-</div>
-
-<div class="item">
-<h3>Costa Rica recibe segundo grupo de 30 deportados desde EE.UU.</h3>
-<p>El país recibió un segundo grupo de personas deportadas desde Estados Unidos, continúa la política migratoria bilateral.</p>
-<div class="source">Fuente: <a href="https://lanacioncostarica.pressreader.com/la-nacion-costa-rica">La Nación (PressReader)</a></div>
-</div>
-
-<div class="item">
-<h3>"Supercolón" y la fortaleza monetaria</h3>
-<p>Debate sobre las ventajas y riesgos de un colón fuerte. Repretel cubrió las implicaciones para la economía nacional.</p>
-<div class="source">Fuente: <a href="https://www.youtube.com/watch?v=TOwCnAjzN-M">Noticias Repretel</a></div>
-</div>
-
-<div class="item">
-<h3>Asamblea Legislativa: sesión #130 y control de gasto público</h3>
-<p>Actividad legislativa intensa con comisiones de control de ingreso y gasto público. Proyecto de ley con UCR en discusión. Encrucijada fiscal tras elecciones de febrero.</p>
-<div class="source">Fuente: <a href="https://www.youtube.com/watch?v=LLbPyOr0Mq8">Asamblea Legislativa CR</a> · <a href="https://www.unacomunica.una.ac.cr/index.php/criterios/6043-costa-rica-2026-encrucijada-fiscal-y-politica">UNA Comunica</a></div>
-</div>
-
-<div class="item">
-<h3>Selección de Costa Rica vence a Guatemala</h3>
-<p>La Selección derrotó a Guatemala en el Estadio Nacional, dando un paso más en las clasificatorias. El Torneo Clausura 2026 avanza en su jornada 16.</p>
-<div class="source">Fuente: <a href="https://www.nacion.com/">La Nación</a></div>
-</div>
-</div>
-
-<!-- DEPORTES / CULTURA -->
-<div class="section">
-<div class="section-header sport">🏟️ Deportes & Cultura</div>
-
-<div class="item">
-<h3>🏀 Fallece Oscar Schmidt, leyenda del baloncesto, a los 68</h3>
-<p>El "Santa Mano" brasileño murió el 17 de abril. Jugó en 5 Juegos Olímpicos (1980-1996), récord de puntos en Olimpiadas (1,093) y FIBA World Cup (906). En 1987 lideró la victoria de Brasil sobre EE.UU. con 46 puntos. Miembro del Hall of Fame desde 2013.</p>
-<div class="source">Fuente: <a href="https://www.cbssports.com/nba/news/oscar-schmidt-dies-at-68-brazilian-basketball-legend/">CBS Sports</a> · <a href="https://www.nba.com/news/oscar-schmidt-hall-of-famer-brazil-passes-away-at-68">NBA.com</a></div>
-</div>
-
-<div class="item">
-<h3>NBA Playoffs 2026 en pleno desarrollo</h3>
-<p>Los playoffs de la NBA 2026 arrancaron con storylines definitorias. Temporada con récord de 135 jugadores internacionales en rosters.</p>
-<div class="source">Fuente: <a href="https://www.nba.com/news/oscar-schmidt-hall-of-famer-brazil-passes-away-at-68">NBA.com</a></div>
-</div>
-
-<div class="item">
-<h3>Broadway: Don Cheadle y Ayo Edebiri en "Proof"</h3>
-<p>"Proof" abre en Broadway con Don Cheadle y Ayo Edebiri en los roles principales. CBS Sunday Morning cubrió el estreno.</p>
-<div class="source">Fuente: <a href="https://www.cbsnews.com/video/proof-don-cheadle-and-ayo-edebiri-make-their-broadway-bows/">CBS News</a></div>
-</div>
-
-<div class="item">
-<h3>Fallece Sid Krofft, creador de TV clásica</h3>
-<p>Sid Krofft, legendary TV producer, passed away. CBS lo recordó en su segmento "Passage: In Memoriam".</p>
-<div class="source">Fuente: <a href="https://www.cbsnews.com/video/passage-in-memoriam-4-19-2026/">CBS News</a></div>
-</div>
-
-<div class="item">
-<h3>India: Ley de Reserva de Mujeres avanza</h3>
-<p>Modi impulsa delimitación de circunscripciones para implementar la ley de reserva de mujeres. Debate sobre los asientos y límites electorales.</p>
-<div class="source">Fuente: <a href="https://apnews.com/article/india-women-reservation-bill-modi-seats-boundaries-e12e5dc09848d6bb94ad9b1ccd436a03">AP News</a></div>
-</div>
-</div>
+  <!-- COSTA RICA -->
+  <div class="section">
+    <div class="section-title"><span class="icon">🇨🇷</span> Costa Rica</div>
+    <div class="grid">
+      <div class="card">
+        <span class="badge green">Política</span>
+        <h3>Estafas en CCSS: Denuncias contra jefa por casas, carros y tratamientos de cáncer</h3>
+        <p>Denunciantes relatan presuntas estafas de una jefa de la Caja Costarricense de Seguro Social involucrando propiedades y tratamientos médicos oncológicos. El caso genera indignación pública.</p>
+        <div class="source">Fuente: <a href="https://lanacioncostarica.pressreader.com/la-nation-costa-rica">La Nación Costa Rica</a></div>
+      </div>
+      <div class="card">
+        <span class="badge green">Política</span>
+        <h3>Dos nuevos vicepresidentes bajo la lupa</h3>
+        <p>Los nombramientos de dos nuevos vicepresidentes generan escrutinio público y político. La conferencia de prensa semanal del Presidente de la República del 15 de abril abordó temas de gobernabilidad.</p>
+        <div class="source">Fuente: <a href="https://lanacioncostarica.pressreader.com/la-nation-costa-rica">La Nación Costa Rica</a></div>
+      </div>
+      <div class="card">
+        <span class="badge green">Fútbol</span>
+        <h3>Selección Costa Rica vence a Guatemala en el Nacional</h3>
+        <p>La Sele dio un paso más en su camino competitivo al derrotar a Guatemala en el Estadio Nacional. El Torneo Clausura 2026 entra en su jornada 16.</p>
+        <div class="source">Fuente: <a href="https://www.nacion.com/">La Nación</a></div>
+      </div>
+      <div class="card">
+        <span class="badge green">Economía</span>
+        <h3>Perspectivas económicas para Costa Rica 2026</h3>
+        <p>El informe de Perspectivas Económicas destaca proyecciones para Costa Rica en 2026. El clásico nacional de fútbol se juega hoy con todo listo para el encuentro.</p>
+        <div class="source">Fuente: <a href="https://www.larepublica.net/seccion/ultima-hora/">La República</a></div>
+      </div>
+      <div class="card">
+        <span class="badge green">Seguridad</span>
+        <h3>OIJ responde tras fallo constitucional a favor de Marta Esquivel; disparan contra instalaciones</h3>
+        <p>El OIJ emitió respuesta tras un fallo de la Sala Constitucional. Mientras tanto, desconocidos dispararon contra instalaciones del OIJ en San Pedro, generando preocupación por la seguridad institucional.</p>
+        <div class="source">Fuente: <a href="https://www.diarioextra.com/">Diario Extra</a></div>
+      </div>
+      <div class="card">
+        <span class="badge green">Salud</span>
+        <h3>Niveles elevados de bacterias alertan a especialistas</h3>
+        <p>Especialistas advierten que Costa Rica ya presenta niveles elevados de bacterias, generando preocupación en salud pública ambiental.</p>
+        <div class="source">Fuente: <a href="https://www.dailymotion.com/video/xa5pfn6">Telenoticias/Dailymotion</a></div>
+      </div>
+    </div>
+  </div>
 
 </div>
 
-<!-- FUENTES -->
 <div class="footer">
-<div class="sources-box">
-<h2>📚 Fuentes Consultadas</h2>
-<ul>
-<li><a href="https://apnews.com/world-news">AP News — World News</a></li>
-<li><a href="https://www.bbc.com/news">BBC News</a></li>
-<li><a href="https://www.cbsnews.com/">CBS News</a></li>
-<li><a href="https://www.ctvnews.ca/">CTV News</a></li>
-<li><a href="https://www.dw.com/en">DW (Deutsche Welle)</a></li>
-<li><a href="https://www.euronews.com/">Euronews</a></li>
-<li><a href="https://www.npr.org/">NPR</a></li>
-<li><a href="https://www.nytimes.com/">The New York Times</a></li>
-<li><a href="https://www.aljazeera.com/">Al Jazeera</a></li>
-<li><a href="https://www.theguardian.com/">The Guardian</a></li>
-<li><a href="https://www.cnn.com/">CNN</a></li>
-<li><a href="https://www.reuters.com/">Reuters</a></li>
-<li><a href="https://www.nbcnews.com/">NBC News</a></li>
-<li><a href="https://www.crestwoodadvisors.com/">Crestwood Advisors</a></li>
-<li><a href="https://www.imf.org/">FMI (IMF)</a></li>
-<li><a href="https://www.mckinsey.com/mgi">McKinsey Global Institute</a></li>
-<li><a href="https://spectrum.ieee.org/">IEEE Spectrum</a></li>
-<li><a href="https://scitechdaily.com/">SciTechDaily</a></li>
-<li><a href="https://www.sciencenews.org/">Science News</a></li>
-<li><a href="https://www.nasa.gov/">NASA</a></li>
-<li><a href="https://www.nacion.com/">La Nación (Costa Rica)</a></li>
-<li><a href="https://crhoy.com/">CRHoy</a></li>
-<li><a href="https://ticoslandia.com/">Ticos Landia</a></li>
-<li><a href="https://www.france24.com/es/">France 24 Español</a></li>
-<li><a href="https://news.sky.com/">Sky News</a></li>
-<li><a href="https://www.zerofox.com/intelligence/monthly-geopolitical-report-april-2026/">ZeroFox Intelligence</a></li>
-</ul>
-</div>
-<p style="text-align:center;margin-top:1.5rem;color:#484f58;font-size:.75rem">Generado por Explorer 🔍 — 19 abril 2026 · Reporte automatizado</p>
+  <p>World News Report · Generado por Explorer 🔍 · 19 de Abril 2026 · Fuentes: AP, Reuters, CNN, BBC, Al Jazeera, CNBC, IMF, DW, La Nación CR, Diario Extra, La República, Vatican News</p>
 </div>
 
 </body>
