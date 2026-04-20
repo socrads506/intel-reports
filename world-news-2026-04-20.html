@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>World News Report — 20 de Abril, 2026</title>
+<style>
+  :root {
+    --bg: #0d1117; --card: #161b22; --border: #30363d;
+    --text: #e6edf3; --muted: #8b949e; --accent: #58a6ff;
+    --red: #f85149; --green: #3fb950; --orange: #d29922; --purple: #bc8cff;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; }
+  .header { background: linear-gradient(135deg, #1a1e2e 0%, #0d1117 100%); padding: 2rem; text-align: center; border-bottom: 1px solid var(--border); }
+  .header h1 { font-size: 2rem; font-weight: 700; }
+  .header .date { color: var(--muted); font-size: 0.95rem; margin-top: 0.3rem; }
+  .header .badge { display: inline-block; background: var(--red); color: #fff; padding: 0.2rem 0.8rem; border-radius: 12px; font-size: 0.75rem; font-weight: 600; margin-top: 0.5rem; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 1.5rem; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 1.2rem; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; transition: border-color 0.2s; }
+  .card:hover { border-color: var(--accent); }
+  .card h2 { font-size: 1.15rem; margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.5rem; }
+  .card h2 .icon { font-size: 1.3rem; }
+  .tag { display: inline-block; font-size: 0.65rem; font-weight: 600; padding: 0.15rem 0.5rem; border-radius: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .tag-critical { background: rgba(248,81,73,0.15); color: var(--red); }
+  .tag-warning { background: rgba(210,153,34,0.15); color: var(--orange); }
+  .tag-info { background: rgba(88,166,255,0.15); color: var(--accent); }
+  .tag-green { background: rgba(63,185,80,0.15); color: var(--green); }
+  .tag-purple { background: rgba(188,140,255,0.15); color: var(--purple); }
+  .story { margin-bottom: 1rem; padding-bottom: 0.8rem; border-bottom: 1px solid var(--border); }
+  .story:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .story h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.3rem; }
+  .story p { font-size: 0.85rem; color: var(--muted); }
+  .story .source { font-size: 0.72rem; color: var(--accent); margin-top: 0.25rem; }
+  .ticker { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1rem 1.5rem; margin-bottom: 1.2rem; display: flex; justify-content: space-around; flex-wrap: wrap; gap: 1rem; text-align: center; }
+  .ticker-item .label { font-size: 0.7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; }
+  .ticker-item .value { font-size: 1.2rem; font-weight: 700; }
+  .up { color: var(--green); } .down { color: var(--red); } .neutral { color: var(--orange); }
+  .footer { text-align: center; padding: 2rem; color: var(--muted); font-size: 0.75rem; border-top: 1px solid var(--border); margin-top: 2rem; }
+  @media (max-width: 700px) { .grid { grid-template-columns: 1fr; } .header h1 { font-size: 1.4rem; } }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🌍 World News Intelligence Report</h1>
+  <div class="date">Domingo 20 de Abril, 2026 — 11:45 CST</div>
+  <div class="badge">🔴 CRISIS ALERT — Estrecho de Hormuz</div>
+</div>
+
+<div class="container">
+
+  <!-- Market Ticker -->
+  <div class="ticker">
+    <div class="ticker-item">
+      <div class="label">S&P 500</div>
+      <div class="value up">7,126.06 ▲ 1.20%</div>
+    </div>
+    <div class="ticker-item">
+      <div class="label">Nasdaq</div>
+      <div class="value up">24,468.48 ▲ 1.52%</div>
+    </div>
+    <div class="ticker-item">
+      <div class="label">CPI EE.UU.</div>
+      <div class="value down">3.4% YoY</div>
+    </div>
+    <div class="ticker-item">
+      <div class="label">Gasolina EE.UU.</div>
+      <div class="value down">+$0.60/gal</div>
+    </div>
+    <div class="ticker-item">
+      <div class="label">Petróleo</div>
+      <div class="value neutral">Hormuz Block</div>
+    </div>
+  </div>
+
+  <div class="grid">
+
+    <!-- GEOPOLÍTICA -->
+    <div class="card">
+      <h2><span class="icon">⚔️</span> Geopolítica & Conflicto</h2>
+
+      <div class="story">
+        <h3>Irán cierra de nuevo el Estrecho de Hormuz <span class="tag tag-critical">CRÍTICO</span></h3>
+        <p>Irán volvió a bloquear el Estrecho de Hormuz apenas un día después de reabrirlo, después de que la Marina de EE.UU. interceptara y se apoderara de un carguero con bandera iraní. El estrecho —por donde pasa ~20% del petróleo mundial— permanece cerrado al tráfico comercial por quinta semana consecutiva.</p>
+        <div class="source">Democracy Now! · The Guardian · Wikipedia</div>
+      </div>
+
+      <div class="story">
+        <h3>Guerra EE.UU.-Irán: Semana 5, alto al fuego frágil <span class="tag tag-warning">ALERTA</span></h3>
+        <p>La coalición EE.UU.-Israel entra en su quinta semana de conflicto con Irán. El alto al fuego condicional de dos semanas expira pronto. Trump declaró que es el "último plazo". Irán propuso un plan de 10 puntos pero contradice a EE.UU. sobre si habrá conversaciones de paz en Pakistán. Israel evalúa un alto al fuego corto con Hezbollah en Líbano.</p>
+        <div class="source">The Guardian · FDD · Geopolitical Futures</div>
+      </div>
+
+      <div class="story">
+        <h3>Marina EE.UU. desminando Hormuz</h3>
+        <p>EE.UU. inició operaciones de desminado en el Estrecho de Hormuz. OPEC+ acordó incrementar producción en 206,000 barriles/día cuando se reabra el paso. El bloqueo actúa como "super-palanca" que acelera la adopción de vehículos eléctricos e inversiones renovables.</p>
+        <div class="source">Reuters · PRS Geopolitics</div>
+      </div>
+
+      <div class="story">
+        <h3>China completó túnel submarino de 11 km bajo el Yangtsé</h3>
+        <p>China inauguró un túnel de alta velocidad bajo el río Yangtsé, permitiendo el paso de trenes bala. India reabre parcialmente a inversión china. Hungria: la oposición derroca a Orbán en elecciones del 12 de abril.</p>
+        <div class="source">Indian Express · ZeroFox · Medium</div>
+      </div>
+    </div>
+
+    <!-- ECONOMÍA -->
+    <div class="card">
+      <h2><span class="icon">📈</span> Economía & Mercados</h2>
+
+      <div class="story">
+        <h3>S&P 500 borra pérdidas de la guerra <span class="tag tag-green">RALLY</span></h3>
+        <p>Los mercados repuntan con optimismo por posible fin del conflicto. S&P 500 a 7,126.06 (+1.20%), Nasdaq a 24,468.48 (+1.52%). El índice recuperó toda la caída desde el inicio de la guerra con Irán. PPI se reportó más bajo de lo esperado, alimentando esperanzas.</p>
+        <div class="source">CNBC · Bloomberg</div>
+      </div>
+
+      <div class="story">
+        <h3>IMF: "Global Economy in the Shadow of War" <span class="tag tag-warning">REPORT</span></h3>
+        <p>El FMI publicó su World Economic Outlook de abril 2026 bajo ese título. CPI de EE.UU. subió a 3.4% (desde 2.4% en febrero) por el shock petrolero. Bloomberg Aggregate Bond Index cayó -1.76% en marzo. Bancos centrales mantienen tasas altas por inflación persistente de guerra.</p>
+        <div class="source">IMF · Crestwood Advisors</div>
+      </div>
+
+      <div class="story">
+        <h3>Gasolina en EE.UU.: +$0.60 en dos semanas</h3>
+        <p>El precio de la gasolina en EE.UU. subió ~$0.60/galón en las dos semanas posteriores al inicio del conflicto. El oro y los bonos a largo plazo subrenden como refugios tradicionales debido a las tasas altas persistentes.</p>
+        <div class="source">Bloomberg Economics · Crestwood</div>
+      </div>
+    </div>
+
+    <!-- TECNOLOGÍA & CIENCIA -->
+    <div class="card">
+      <h2><span class="icon">🔬</span> Tecnología & Ciencia</h2>
+
+      <div class="story">
+        <h3>Artemis II: NASA lanza misión tripulada a la Luna <span class="tag tag-info">HISTÓRICO</span></h3>
+        <p>La misión Artemis II despegó desde Kennedy Space Center — vuelo tripulado de 10 días que inaugurará la presencia sostenida de EE.UU. en la Luna. El telescopio espacial Nancy Grace Roman fue declarado completo y listo para lanzamiento.</p>
+        <div class="source">NASA · IEEE Spectrum</div>
+      </div>
+
+      <div class="story">
+        <h3>Anthropic lanza "Claude Design" para prototipos</h3>
+        <p>Nueva herramienta de IA para diseño de prototipos y interfaces. OpenAI Codex continúa evolucionando el desarrollo de software con IA. Google Gemini Robotics ER 1.6 lleva IA a robótica — perros robóticos ya leen medidores y termómetros.</p>
+        <div class="source">EnTech Online · Ars Technica</div>
+      </div>
+
+      <div class="story">
+        <h3>Meta Muse Spark · Claude Mythos Preview · CRISPR para Síndrome de Down</h3>
+        <p>Meta lanza modelo Muse Spark para generación multimedia. Anthropic publica Claude Mythos Preview enfocado en seguridad. Avances en edición genética CRISPR aplicada al síndrome de Down. Nature publica: computación cuántica y terapéutica mRNA entre las siete tecnologías emergentes clave.</p>
+        <div class="source">EnTech Online · Nature</div>
+      </div>
+
+      <div class="story">
+        <h3>Intel: 2026 año decisivo para fabricación de chips</h3>
+        <p>Intel decidirá este año si continúa con su proceso avanzado 14A o cede terreno a TSMC y Samsung. El resultado definiría el liderazgo global en semiconductores.</p>
+        <div class="source">IEEE Spectrum · Bloomberg</div>
+      </div>
+    </div>
+
+    <!-- COSTA RICA -->
+    <div class="card">
+      <h2><span class="icon">🇨🇷</span> Costa Rica</h2>
+
+      <div class="story">
+        <h3>Tensiones Irán-EE.UU. amenazan inflación en Costa Rica <span class="tag tag-warning">ECONOMÍA</span></h3>
+        <p>El alza del petróleo por la crisis de Hormuz amenaza con disparar la inflación en Costa Rica. El país importa la totalidad de sus hidrocarburos, por lo que es especialmente vulnerable al shock de precios energéticos global.</p>
+        <div class="source">El Mundo CR · elmundo.cr</div>
+      </div>
+
+      <div class="story">
+        <h3>Estafas millonarias en la CCSS</h3>
+        <p>Trabajadora social de la Caja Costarricense de Seguro Social acusada de estafar millones ofreciendo casas, carros y maestrías falsas. Defensor apeló los 6 meses de prisión preventiva.</p>
+        <div class="source">La Nación · nacion.com</div>
+      </div>
+
+      <div class="story">
+        <h3>FACO cumple 75 años y da salto eléctrico</h3>
+        <p>Grupo FACO celebra 75 años e incorpora una nueva marca eléctrica a su portafolio. Veinsa Motors lanzó el New Coolray 2026 de Geely en la Expomóvil.</p>
+        <div class="source">La República · La Nación</div>
+      </div>
+
+      <div class="story">
+        <h3>Picnic en el Río: 200+ organizaciones participarán</h3>
+        <p>Más de 200 organizaciones se preparan para "Picnic en el Río", evento ambiental masivo. Abril 2026 registra temperaturas históricas en Costa Rica. Gobierno recibe 25 deportados/semana de EE.UU. tras acuerdo bilateral.</p>
+        <div class="source">NCR Noticias · CNN Español</div>
+      </div>
+
+      <div class="story">
+        <h3>Navégalo obtiene certificación DCOS-3</h3>
+        <p>Navégalo Data Center logró certificación DCOS-3, posicionándose como referente de madurez operativa en centros de datos en América Latina.</p>
+        <div class="source">La República</div>
+      </div>
+    </div>
+
+    <!-- DEPORTES -->
+    <div class="card">
+      <h2><span class="icon">🏆</span> Deportes</h2>
+
+      <div class="story">
+        <h3>Rory McIlroy gana el Masters por fin <span class="tag tag-green">HISTÓRICO</span></h3>
+        <p>Después de más de una década de quedarse corto, Rory McIlroy finalmente conquistó el Masters de Augusta, el torneo de golf más prestigioso del mundo.</p>
+        <div class="source">The Athletic · AP News</div>
+      </div>
+
+      <div class="story">
+        <h3>Man City 2-1 Arsenal: Haaland imparable</h3>
+        <p>Erling Haaland brilló en la victoria del Manchester City sobre el Arsenal 2-1 en el Etihad. Declan Rice mostró actitud desafiante al final del partido. jornada clave en la Premier League.</p>
+        <div class="source">Sky Sports</div>
+      </div>
+
+      <div class="story">
+        <h3>NBA: Finalistas Rookie of the Year revelados</h3>
+        <p>Cooper Flagg, Kon Knueppel y VJ Edgecombe son los tres finalistas para Kia NBA Rookie of the Year 2025-26. Nickeil Alexander-Walker entre los finalistas a Most Improved Player.</p>
+        <div class="source">NBA · Instagram</div>
+      </div>
+
+      <div class="story">
+        <h3>NHL Playoffs: Colorado Avalanche en acción</h3>
+        <p>Los Colorado Avalanche abrieron los playoffs con victoria. Logan O'Connor anotó el gol del juego en el R1G1. NCAA: torneo masculino de baloncesto cierra con highlights de tapones espectaculares.</p>
+        <div class="source">NHL.com · NCAA</div>
+      </div>
+    </div>
+
+    <!-- RIESGOS & OUTLOOK -->
+    <div class="card">
+      <h2><span class="icon">🎯</span> Panorama de Riesgos</h2>
+
+      <div class="story">
+        <h3>Escenario: Reapertura de Hormuz <span class="tag tag-green">POSITIVO</span></h3>
+        <p>Si se logra un alto al fuego sostenido y se desmina Hormuz, OPEC+ inyectaría 206K barriles/día adicionales. Los mercados ya anticipan este escenario con el rally reciente. Gasolina podría estabilizarse.</p>
+      </div>
+
+      <div class="story">
+        <h3>Escenario: Escalada militar <span class="tag tag-critical">CRÍTICO</span></h3>
+        <p>Si fracasan las negociaciones y Hormuz permanece cerrado, la inflación global se aceleraría. Costa Rica y economías importadoras de petróleo serían las más afectadas. El FMI advierte de un escenario de "economía global en la sombra de la guerra".</p>
+      </div>
+
+      <div class="story">
+        <h3>Watchlist para esta semana</h3>
+        <p>⏳ Expiración del alto al fuego condicional EE.UU.-Irán<br>
+        📊 Earnings season Q1 2026 arranca<br>
+        🏛️ Sesiones legislativas en Costa Rica<br>
+        🚀 Avances de Artemis II post-lanzamiento<br>
+        ⚡ Decisión de Intel sobre proceso 14A</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="footer">
+  <p>🔍 World News Intelligence Report · Generado por Explorer (GLM-5.1) · Fuentes: Democracy Now, The Guardian, Reuters, CNBC, IMF, NASA, La Nación CR, El Mundo CR, Sky Sports, AP, IEEE Spectrum, Nature, Bloomberg</p>
+  <p>Última actualización: 20 abril 2026, 11:45 CST · Auto-generado vía OpenClaw</p>
+</div>
+
+</body>
+</html>
