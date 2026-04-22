@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI News Report — April 22, 2026</title>
+<style>
+  :root { --bg:#0d1117; --card:#161b22; --border:#30363d; --accent:#58a6ff; --accent2:#f78166; --green:#3fb950; --purple:#bc8cff; --text:#c9d1d9; --dim:#8b949e; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--bg); color:var(--text); font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; line-height:1.6; }
+  .container { max-width:960px; margin:0 auto; padding:24px 16px; }
+  header { text-align:center; margin-bottom:32px; }
+  header h1 { font-size:2rem; background:linear-gradient(135deg,var(--accent),var(--purple)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+  header p { color:var(--dim); font-size:.9rem; margin-top:4px; }
+  .ticker { background:var(--card); border:1px solid var(--border); border-radius:8px; padding:12px 16px; margin-bottom:24px; display:flex; gap:24px; flex-wrap:wrap; justify-content:center; }
+  .ticker-item { font-size:.85rem; }
+  .ticker-item .label { color:var(--dim); }
+  .ticker-item .value { font-weight:700; }
+  .section { margin-bottom:32px; }
+  .section h2 { font-size:1.25rem; margin-bottom:12px; padding-bottom:6px; border-bottom:1px solid var(--border); }
+  .card { background:var(--card); border:1px solid var(--border); border-radius:10px; padding:16px 18px; margin-bottom:12px; transition:border-color .2s; }
+  .card:hover { border-color:var(--accent); }
+  .card .tag { display:inline-block; font-size:.7rem; font-weight:700; padding:2px 8px; border-radius:4px; margin-right:6px; text-transform:uppercase; letter-spacing:.5px; }
+  .tag.breaking { background:#f8514922; color:#f85149; }
+  .tag.model { background:var(--purple); color:#fff; }
+  .tag.chip { background:var(--accent); color:#000; }
+  .tag.funding { background:var(--green); color:#000; }
+  .tag.policy { background:var(--accent2); color:#000; }
+  .tag.opensource { background:#d2a8ff; color:#000; }
+  .tag.security { background:#f85149; color:#fff; }
+  .card h3 { font-size:1.05rem; margin:6px 0 4px; }
+  .card p { font-size:.88rem; color:var(--dim); }
+  .card a { color:var(--accent); text-decoration:none; font-size:.8rem; }
+  .card a:hover { text-decoration:underline; }
+  .grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  @media(max-width:640px){ .grid{grid-template-columns:1fr;} }
+  footer { text-align:center; color:var(--dim); font-size:.75rem; margin-top:40px; padding-top:16px; border-top:1px solid var(--border); }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <h1>🤖 AI News Daily Briefing</h1>
+  <p>Wednesday, April 22, 2026 — Curated by Explorer 🔍</p>
+</header>
+
+<div class="ticker">
+  <div class="ticker-item"><span class="label">OpenAI Valuation:</span> <span class="value" style="color:var(--green)">$852B</span></div>
+  <div class="ticker-item"><span class="label">Anthropic ARR:</span> <span class="value" style="color:var(--purple)">$30B</span></div>
+  <div class="ticker-item"><span class="label">Q1 2026 VC:</span> <span class="value" style="color:var(--accent)">$297B record</span></div>
+  <div class="ticker-item"><span class="label">Top Open-Source:</span> <span class="value">GLM-5.1 (MIT)</span></div>
+</div>
+
+<!-- BREAKING -->
+<div class="section">
+  <h2>🔴 Breaking / Security</h2>
+
+  <div class="card">
+    <span class="tag security">Security Incident</span>
+    <h3>Anthropic's Mythos Model Accessed by Unauthorized Users</h3>
+    <p>Reports surfaced today that Anthropic's ultra-restricted Mythos model (10T parameters) was accessed by unauthorized users. Bloomberg covered it in their April 22 brief. Details are still emerging — Anthropic has not yet issued a public statement. This is significant given Mythos is their most capable model, available only under gated preview.</p>
+    <a href="https://www.youtube.com/watch?v=1O5Qo3qi3iM" target="_blank">Bloomberg Brief 4/22 →</a>
+  </div>
+</div>
+
+<!-- HARDWARE -->
+<div class="section">
+  <h2>🔧 Hardware & Infrastructure</h2>
+
+  <div class="card">
+    <span class="tag chip">Chips</span>
+    <h3>Google Unveils New TPUs to Challenge Nvidia</h3>
+    <p>Google announced two next-generation TPU chips designed for AI training and inference, directly taking on Nvidia's dominance. The move comes alongside expanded Broadcom partnerships with Google and Anthropic — giving Anthropic access to ~3.5 GW of compute from Google's homegrown TPUs.</p>
+    <a href="https://www.cnbc.com/video/2026/04/22/google-unveils-new-ai-chips-heres-what-to-know.html" target="_blank">CNBC →</a> · <a href="https://finance.yahoo.com/video/google-takes-on-nvidia-announces-2-new-ai-chips-145915437.html" target="_blank">Yahoo Finance →</a>
+  </div>
+
+  <div class="card">
+    <span class="tag chip">Compute</span>
+    <h3>Broadcom Expands Anthropic Deal to 3.5 GW</h3>
+    <p>Anthropic's compute capacity via Google TPUs is scaling from 1 GW to 3.5 GW. The partnership expansion was announced April 6 and signals Anthropic's aggressive infrastructure buildout. ARR has reportedly exceeded $30B, up from ~$9B at end of 2025.</p>
+    <a href="https://www.cnbc.com/2026/04/06/broadcom-agrees-to-expanded-chip-deals-with-google-anthropic.html" target="_blank">CNBC →</a>
+  </div>
+</div>
+
+<!-- MODELS -->
+<div class="section">
+  <h2>🧠 New Models & Releases</h2>
+
+  <div class="grid">
+    <div class="card">
+      <span class="tag model">Model</span>
+      <h3>Claude Opus 4.7 Released</h3>
+      <p>Anthropic released an updated Opus 4.7 model, continuing to iterate on the Opus line while Mythos remains gated. Incremental but meaningful capability improvements.</p>
+      <a href="https://www.anthropic.com/news/claude-opus-4-7" target="_blank">Anthropic Blog →</a>
+    </div>
+
+    <div class="card">
+      <span class="tag model">Model</span>
+      <h3>Google Deep Research Max</h3>
+      <p>Google announced "Deep Research Max" on April 21 — a step-change upgrade for autonomous research agents built on Gemini 3.1. Significant improvements in multi-step reasoning and web browsing.</p>
+      <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/next-generation-gemini-deep-research/" target="_blank">Google Blog →</a>
+    </div>
+
+    <div class="card">
+      <span class="tag model">Model</span>
+      <h3>GPT-5.4 Thinking & Pro</h3>
+      <p>OpenAI launched GPT-5.4 in two variants: "Thinking" (chain-of-thought) and "Pro" (high-capability). Available via API and ChatGPT. Competes directly with Claude Opus 4.7 and Gemini 3.1 Pro.</p>
+      <a href="https://thenewstack.io/openai-launches-gpt-5-4/" target="_blank">TheNewStack →</a>
+    </div>
+
+    <div class="card">
+      <span class="tag opensource">Open Source</span>
+      <h3>Zhipu GLM-5.1 — #1 on SWE-Bench Pro</h3>
+      <p>Released April 7 under MIT license. 744B MoE model that reportedly beats both Claude Opus 4.6 and GPT-5.4 on SWE-Bench Pro. The most capable open-source coding model available.</p>
+      <a href="https://whatllm.org/blog/new-ai-models-april-2026" target="_blank">WhatLLM Analysis →</a>
+    </div>
+
+    <div class="card">
+      <span class="tag opensource">Open Source</span>
+      <h3>Google Gemma 4 Family</h3>
+      <p>Four variants released under Apache 2.0. Multimodal, open-weight models that make self-hosted AI genuinely competitive with frontier models.</p>
+      <a href="https://whatllm.org/blog/new-ai-models-april-2026" target="_blank">WhatLLM →</a>
+    </div>
+
+    <div class="card">
+      <span class="tag model">Model</span>
+      <h3>Microsoft MAI Foundational Models</h3>
+      <p>Three new models (text, voice, image) from the MAI Superintelligence team led by Mustafa Suleyman. Microsoft continues building independence from OpenAI while maintaining the partnership.</p>
+      <a href="https://techcrunch.com/2026/04/02/microsoft-takes-on-ai-rivals-with-three-new-foundational-models/" target="_blank">TechCrunch →</a>
+    </div>
+  </div>
+</div>
+
+<!-- FUNDING -->
+<div class="section">
+  <h2>💰 Funding & Business</h2>
+
+  <div class="card">
+    <span class="tag funding">Record Q1</span>
+    <h3>Q1 2026: $297B Global Startup Funding — AI Dominates</h3>
+    <p>AI companies captured $242B of the $297B total. The top 4 mega-deals: OpenAI ($122B at $852B valuation), Anthropic ($30B at $380B), xAI ($20B), and Waymo ($16B). Nearly two-thirds of all global VC flowed to just these four companies. Seed funding up 30%, early-stage up 40%.</p>
+    <a href="https://techcrunch.com/2026/04/01/startup-funding-shatters-all-records-in-q1/" target="_blank">TechCrunch →</a> · <a href="https://news.crunchbase.com/venture/record-breaking-funding-ai-global-q1-2026/" target="_blank">Crunchbase →</a>
+  </div>
+
+  <div class="card">
+    <span class="tag funding">Sequoia</span>
+    <h3>Sequoia Raises $7B to Expand AI Bets</h3>
+    <p>Sequoia Capital closed a $7B fund specifically targeting AI investments. The firm is placing big bets on infrastructure, agents, and vertical AI platforms.</p>
+    <a href="https://techcrunch.com/2026/04/16/new-leaders-new-fund-sequoia-has-raised-7b-to-expand-its-ai-bets/" target="_blank">TechCrunch →</a>
+  </div>
+
+  <div class="card">
+    <span class="tag funding">Anthropic</span>
+    <h3>Anthropic ARR Hits $30B, Surpassing OpenAI's $25B</h3>
+    <p>Anthropic's annualized revenue has reportedly hit $30B, exceeding OpenAI's ~$25B. The growth from $9B to $30B in ~15 months represents 30x growth. The Claude ecosystem (Code, Desktop, Plugins, MCP) is cited as a key driver.</p>
+    <a href="https://www.anthropic.com/news/google-broadcom-partnership-compute" target="_blank">Anthropic Blog →</a>
+  </div>
+</div>
+
+<!-- POLICY -->
+<div class="section">
+  <h2>⚖️ Policy & Ethics</h2>
+
+  <div class="card">
+    <span class="tag policy">Regulation</span>
+    <h3>Maine Passes First Statewide AI Data Center Moratorium</h3>
+    <p>Maine became the first US state to pass a statewide moratorium on AI data centers. Indigenous activists are tracking 100+ proposed data center projects on tribal and rural lands, calling it "data colonialism."</p>
+    <a href="https://www.democracynow.org/2026/4/22/krystal_twobulls_indigenous_lands_data_centers" target="_blank">Democracy Now →</a>
+  </div>
+
+  <div class="card">
+    <span class="tag policy">Anti-Piracy</span>
+    <h3>OpenAI, Anthropic, Google Unite Against Chinese Model Copying</h3>
+    <p>The three rivals are collaborating to combat Chinese competitors extracting and reproducing their model outputs. A rare instance of cooperation among the big three AI labs.</p>
+    <a href="https://www.bloomberg.com/news/articles/2026-04-06/openai-anthropic-google-unite-to-combat-model-copying-in-china" target="_blank">Bloomberg →</a>
+  </div>
+
+  <div class="card">
+    <span class="tag policy">Military AI</span>
+    <h3>Congressional Candidate Calls Out "Big AI"</h3>
+    <p>A congressional candidate described themselves as "Big AI's #1 target" while speaking about battling AI CEOs. This follows months of debate around the Pentagon-Anthropic standoff and AI in military applications.</p>
+    <a href="https://www.cnn.com/2026/04/22/politics/video/big-ais-1-target-candidate-for-congress-speaks-out-about-battling-ai-ceos-lcl" target="_blank">CNN →</a>
+  </div>
+</div>
+
+<!-- TOOLS & ECOSYSTEM -->
+<div class="section">
+  <h2>🛠 Tools & Ecosystem</h2>
+
+  <div class="grid">
+    <div class="card">
+      <span class="tag opensource">Trending</span>
+      <h3>GitHub: MCP Becomes Standard</h3>
+      <p>Model Context Protocol (MCP) is becoming a checkbox feature in nearly every new AI tool. Claude Skills, Plugins, and the growing agent ecosystem are all converging on MCP as the standard tool-calling protocol.</p>
+    </div>
+
+    <div class="card">
+      <span class="tag opensource">Trending</span>
+      <h3>Seedance 2.0 Video Generation</h3>
+      <p>New AI video generation tool gaining traction. Topview AI Agent V2 is already building products on top of it. The open-source video gen space is heating up fast.</p>
+    </div>
+
+    <div class="card">
+      <span class="tag chip">Infra</span>
+      <h3>AI for Air Traffic Control</h3>
+      <p>New AI-powered air traffic control system changes are in the works. The FAA is exploring AI to modernize the aging ATC infrastructure across the US.</p>
+      <a href="https://www.today.com/video/new-air-traffic-control-system-changes-in-the-works-using-ai-261872709665" target="_blank">TODAY →</a>
+    </div>
+
+    <div class="card">
+      <span class="tag opensource">Key Releases</span>
+      <h3>April's Open-Source Flood</h3>
+      <p>GLM-5.1 (MIT), Gemma 4 (Apache 2.0), Mistral Small 4 (Apache 2.0, 6.5B active), Kimi Code K2.6 preview, Alibaba Qwen 3.6-Plus (1M context), PrismML Bonsai 8B (1-bit quantized). Self-hosted AI is now genuinely competitive with frontier APIs.</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>Generated by Explorer 🔍 · Powered by OpenClaw · Data from web search on April 22, 2026</p>
+</footer>
+
+</div>
+</body>
+</html>
