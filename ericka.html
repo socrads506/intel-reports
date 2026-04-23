@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Ericka — Aurea</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0f;
+            --card: #13131a;
+            --border: #1e1e2e;
+            --accent: #a78bfa;
+            --accent-dim: #7c3aed;
+            --text: #e2e8f0;
+            --text-muted: #64748b;
+            --success: #10b981;
+            --error: #ef4444;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+            background-image: 
+                radial-gradient(ellipse at 20% 50%, rgba(124, 58, 237, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(167, 139, 250, 0.05) 0%, transparent 40%);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 680px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(167, 139, 250, 0.1);
+            border: 1px solid rgba(167, 139, 250, 0.3);
+            color: var(--accent);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 0.4rem 1rem;
+            border-radius: 100px;
+            margin-bottom: 1.5rem;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            background: linear-gradient(135deg, #e2e8f0, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.6;
+            max-width: 480px;
+            margin: 0 auto;
+        }
+
+        .form-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .form-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(167, 139, 250, 0.5), transparent);
+        }
+
+        .form-group {
+            margin-bottom: 1.75rem;
+        }
+
+        .form-group:last-of-type {
+            margin-bottom: 0;
+        }
+
+        label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+
+        label .required {
+            color: var(--accent);
+        }
+
+        input, textarea, select {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 0.75rem 1rem;
+            font-size: 0.95rem;
+            font-family: inherit;
+            color: var(--text);
+            transition: border-color 0.2s, box-shadow 0.2s;
+            outline: none;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            border-color: var(--accent-dim);
+            box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15);
+        }
+
+        input::placeholder, textarea::placeholder {
+            color: var(--text-muted);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%2364748b' viewBox='0 0 16 16'%3E%3Cpath d='M4 6l4 4 4-4'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+        }
+
+        select option {
+            background: #1a1a24;
+            color: var(--text);
+        }
+
+        .row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        @media (max-width: 540px) {
+            .row { grid-template-columns: 1fr; }
+        }
+
+        .btn {
+            width: 100%;
+            background: linear-gradient(135deg, var(--accent-dim), #6d28d9);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            transition: transform 0.15s, box-shadow 0.15s, opacity 0.15s;
+            margin-top: 2rem;
+            letter-spacing: 0.02em;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(124, 58, 237, 0.35);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        .success-icon {
+            width: 64px;
+            height: 64px;
+            background: rgba(16, 185, 129, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+        }
+
+        .success-message h2 {
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: var(--success);
+        }
+
+        .success-message p {
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .form-section {
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 1.75rem;
+            margin-bottom: 1.75rem;
+        }
+
+        .section-title {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 1.25rem;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 2rem;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
+        .footer span {
+            color: var(--accent);
+        }
+
+        /* Progress indicator */
+        .progress-bar {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .progress-dot {
+            flex: 1;
+            height: 3px;
+            background: var(--border);
+            border-radius: 2px;
+            transition: background 0.3s;
+        }
+
+        .progress-dot.active {
+            background: var(--accent-dim);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="badge">Aurea</div>
+            <h1>Conozcámonos</h1>
+            <p class="subtitle">Complete este formulario para que podamos entender su negocio y encontrar la mejor manera de ayudarle.</p>
+        </div>
+
+        <div class="form-card">
+            <form id="form" action="https://formspree.io/f/xpwzgvlb" method="POST">
+                
+                <div class="form-section">
+                    <div class="section-title">Información Personal</div>
+                    
+                    <div class="form-group">
+                        <label>Nombre completo <span class="required">*</span></label>
+                        <input type="text" name="nombre" placeholder="¿Cómo se llama?" required>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group">
+                            <label>Email <span class="required">*</span></label>
+                            <input type="email" name="email" placeholder="su@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label>WhatsApp <span class="required">*</span></label>
+                            <input type="tel" name="whatsapp" placeholder="+506 8888 8888" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <div class="section-title">Su Negocio</div>
+
+                    <div class="form-group">
+                        <label>Empresa / Negocio</label>
+                        <input type="text" name="empresa" placeholder="¿A qué se dedica?">
+                    </div>
+
+                    <div class="form-group">
+                        <label>¿A qué se dedica? <span class="required">*</span></label>
+                        <textarea name="que_hace" rows="3" placeholder="Describa brevemente qué productos o servicios ofrece..." required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>¿Qué necesita resolver o mejorar? <span class="required">*</span></label>
+                        <textarea name="necesidad" rows="3" placeholder="Cuéntenos el problema principal que quiere resolver..." required></textarea>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <div class="section-title">Colaboración</div>
+
+                    <div class="form-group">
+                        <label>¿Tiene presupuesto definido?</label>
+                        <select name="presupuesto">
+                            <option value="" disabled selected>Seleccione una opción</option>
+                            <option value="menos_5k">Menos de $5,000/mes</option>
+                            <option value="5k_15k">$5,000 - $15,000/mes</option>
+                            <option value="15k_50k">$15,000 - $50,000/mes</option>
+                            <option value="mas_50k">Más de $50,000/mes</option>
+                            <option value="por_definir">Por definir</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>¿Cómo se enteró de Aurea?</label>
+                        <select name="como_se_entero">
+                            <option value="" disabled selected>Seleccione una opción</option>
+                            <option value="instagram">Instagram</option>
+                            <option value="facebook">Facebook</option>
+                            <option value="whatsapp">WhatsApp</option>
+                            <option value="referido">Recomendación personal</option>
+                            <option value="google">Búsqueda en Google</option>
+                            <option value="linkedin">LinkedIn</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>¿Tiene algo que compartirnos?</label>
+                        <textarea name="comentarios" rows="3" placeholder="Cualquier información adicional que considere importante..."></textarea>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn" id="btn">Enviar formulario</button>
+            </form>
+
+            <div class="success-message" id="success">
+                <div class="success-icon">✓</div>
+                <h2>¡Listo!</h2>
+                <p>Recibimos su información. Nos pondremos en contacto con usted muy pronto.</p>
+            </div>
+        </div>
+
+        <div class="footer">
+            Powered by <span>Aurea</span> · Respuesta en menos de 24h
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const btn = document.getElementById('btn');
+            btn.disabled = true;
+            btn.textContent = 'Enviando...';
+            
+            try {
+                const formData = new FormData(this);
+                const response = await fetch(this.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                });
+                
+                if (response.ok) {
+                    document.getElementById('form').style.display = 'none';
+                    document.getElementById('success').classList.add('show');
+                } else {
+                    btn.disabled = false;
+                    btn.textContent = 'Intentar de nuevo';
+                }
+            } catch (err) {
+                btn.disabled = false;
+                btn.textContent = 'Intentar de nuevo';
+            }
+        });
+    </script>
+</body>
+</html>
