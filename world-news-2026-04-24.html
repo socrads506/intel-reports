@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World News Report - 24 Abril 2026</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            background: #0d1117; 
+            color: #e6edf3; 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+        }
+        .header {
+            background: linear-gradient(135deg, #161b22 0%, #0d1117 100%);
+            border-bottom: 1px solid #30363d;
+            padding: 24px 32px;
+        }
+        .header h1 { 
+            font-size: 28px; 
+            font-weight: 600;
+            color: #58a6ff;
+            margin-bottom: 4px;
+        }
+        .header .subtitle { 
+            color: #8b949e; 
+            font-size: 14px;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 24px 32px; }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+            margin-bottom: 24px;
+        }
+        
+        .card {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 20px;
+        }
+        .card.wide { grid-column: span 2; }
+        
+        .card h2 {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #8b949e;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #30363d;
+        }
+        .card h2.geopolitics { color: #f85149; border-color: #f85149; }
+        .card h2.economy { color: #a371f7; }
+        .card h2.tech { color: #58a6ff; }
+        .card h2.science { color: #3fb950; }
+        .card h2.sports { color: #f0883e; }
+        .card h2.costarica { color: #79c0ff; }
+        
+        .news-item {
+            margin-bottom: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #21262d;
+        }
+        .news-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+        
+        .news-item h3 {
+            font-size: 15px;
+            font-weight: 500;
+            color: #e6edf3;
+            margin-bottom: 6px;
+        }
+        .news-item p {
+            font-size: 13px;
+            color: #8b949e;
+            line-height: 1.5;
+        }
+        .news-item .source {
+            font-size: 11px;
+            color: #6e7681;
+            margin-top: 6px;
+        }
+        
+        .breaking {
+            background: linear-gradient(135deg, #f8514920 0%, #0d1117 100%);
+            border: 1px solid #f8514960;
+        }
+        .breaking h2 { color: #f85149 !important; }
+        
+        .tag {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 500;
+            margin-right: 6px;
+        }
+        .tag.urgent { background: #f8514930; color: #f85149; }
+        .tag.alert { background: #f0883e30; color: #f0883e; }
+        
+        .footer {
+            text-align: center;
+            padding: 24px;
+            color: #6e7681;
+            font-size: 12px;
+            border-top: 1px solid #30363d;
+            margin-top: 32px;
+        }
+        
+        @media (max-width: 768px) {
+            .container { padding: 16px; }
+            .card.wide { grid-column: span 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🌍 World News Report</h1>
+        <div class="subtitle">Viernes 24 de Abril, 2026 • Actualizado 11:45 AM CST</div>
+    </div>
+    
+    <div class="container">
+        <!-- BREAJING NEWS -->
+        <div class="grid">
+            <div class="card wide breaking">
+                <h2>⚠️ Ultimo Momento</h2>
+                <div class="news-item">
+                    <h3><span class="tag urgent">URGENTE</span> Tercer portaaviones estadounidense desplegado en Medio Oriente por primera vez en 20 años</h3>
+                    <p>Estados Unidos ha desplegado un tercer portaaviones en el Medio Oriente, marcando la primera vez en dos décadas que se realiza tal movimiento. La medida ocurre en medio de las tensiones con Iran y la operación "Epic Fury" que ya entra en su segundo mes.</p>
+                    <div class="source">Fox News • Hace 1 hora</div>
+                </div>
+                <div class="news-item">
+                    <h3><span class="tag urgent">BREAKING</span> DOJ cierra investigación criminal contra Jerome Powell, presidente de la Fed</h3>
+                    <p>El Departamento de Justicia de Estados Unidos ha cerrado la investigación criminal contra Jerome Powell, presidente de la Reserva Federal. La decisión llega en un momento crítico para los mercados financieros.</p>
+                    <div class="source">MSNBC • Hace 2 horas</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- GEOPOLITICS -->
+        <div class="grid">
+            <div class="card">
+                <h2 class="geopolitics">🔥 Geopolítica</h2>
+                <div class="news-item">
+                    <h3>Guerra con Iran: EE.UU. cumple objetivos tácticos pero estratégicos permanecen sin cumplir</h3>
+                    <p>La operación "Epic Fury" contra Iran entra en su segundo mes. Aunque EE.UU. logra objetivos tácticos, los estratégicos siguen sin alcanzarse y cada vez divergen más de cómo el conflicto está transformando la región.</p>
+                    <div class="source">Middle East Institute • 14 Abr</div>
+                </div>
+                <div class="news-item">
+                    <h3>Estrecho de Ormuz: Barcos que entren necesitarán permiso</h3>
+                    <p>Irán announce que los vessels que entren al Estrecho de Ormuz necesitarán permiso. Malaysia está negociando con Iran para permitir que dos petroleros continúen después de salir del estrecho.</p>
+                    <div class="source">New Straits Times • Hoy</div>
+                </div>
+                <div class="news-item">
+                    <h3>Periodista libanesa Amal Khalil muerta en ataque israelí</h3>
+                    <p>La periodista libanesa Amal Khalil fue asesinada por fuerzas israelíes a pesar del alto el fuego entre Israel y Líbano. Es la novena periodista muerta por Israel en Líbano este año.</p>
+                    <div class="source">Democracy Now! • 24 Abr</div>
+                </div>
+                <div class="news-item">
+                    <h3>Príncipe Harry pronuncia mensaje sorpresa a Trump y Putin desde Ucrania</h3>
+                    <p>El Príncipe Harry entregó un mensaje surprise a Trump y Putin desde Ucrania en un discurso que generó gran atención internacional.</p>
+                    <div class="source">ITV News • Hace 1 día</div>
+                </div>
+            </div>
+            
+            <!-- ECONOMY & TECH -->
+            <div class="card">
+                <h2 class="economy">💰 Economía & Tecnología</h2>
+                <div class="news-item">
+                    <h3>La guerra con Iran expone los límites del neutralidad</h3>
+                    <p>La guerra ee.UU.-israelí contra Iran expuso los límites de la contención, dividió aliados y forzó al mundo a elegir entre diplomacia cautelosa y cambio de régimen arriesgado.</p>
+                    <div class="source">Al Jazeera • 17 Abr</div>
+                </div>
+                <div class="news-item">
+                    <h3>La Revolución de IA Agentica: 7 Avances que Redefinen Tech en Abril 2026</h3>
+                    <p>El ecosistema de inteligencia artificial agentica continúa expandiéndose con 7 avances significativos que están transformando la tecnología global.</p>
+                    <div class="source">Switas • Abril 2026</div>
+                </div>
+                <div class="news-item">
+                    <h3>Geoffrey Hinton: "Es hora de aplicar los frenos a la IA descontrolada"</h3>
+                    <p>El pionero de la IA Geoffrey Hinton advierte que los avances rápidos deben guiarse más cuidadosamente para servir a las sociedades, no undermininglas.</p>
+                    <div class="source">UN News • Abril 2026</div>
+                </div>
+                <div class="news-item">
+                    <h3>La guerra en Iran está cambiando la política exterior de EE.UU.</h3>
+                    <p>Analistas del Middle East Institute discuten el impacto a largo plazo de la guerra en Iran sobre las alianzas regionales y el debate interno sobre el papel de América en el mundo.</p>
+                    <div class="source">MEI • 14 Abr</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- SCIENCE & AI -->
+        <div class="grid">
+            <div class="card">
+                <h2 class="tech">🤖 Inteligencia Artificial</h2>
+                <div class="news-item">
+                    <h3>Investigadores demuestran matemáticamente que los despidos por IA colapsarán la economía</h3>
+                    <p>Un nuevo estudio matemático prova que los despidos causados por la inteligencia artificial provocarán un colapso económico, y cada CEO ya lo sabe.</p>
+                    <div class="source">AI Layoff Report • 15 Abr</div>
+                </div>
+                <div class="news-item">
+                    <h3>La Revolución de IA Agéntica: 7 Breakthroughs en Abril 2026</h3>
+                    <p>Siete avances principales están reconfigurando el panorama tecnológico global, desde automatización hasta sistemas de decisión autónoma.</p>
+                    <div class="source">Switas • Abril 2026</div>
+                </div>
+                <div class="news-item">
+                    <h3>Geoffrey Hinton en la ONU: "Aplicar los frenos a la IA runaway"</h3>
+                    <p>El "padrino de la IA" participó en la Conferencia Digital Mundial warniendo sobre los peligros de avances sin control adecuado.</p>
+                    <div class="source">UNRISD • Abril 2026</div>
+                </div>
+            </div>
+            
+            <!-- SPORTS -->
+            <div class="card">
+                <h2 class="sports">⚽ Deportes</h2>
+                <div class="news-item">
+                    <h3>NFL Draft 2026: Browns seleccionan a Spencer Fano y KC Concepcion</h3>
+                    <p>Los Cleveland Browns hicieron selections en la primera ronda del Draft 2026, eligiendo a Spencer Fano y KC Concepcion. Andrew Berry explicó las decisiones en conferencia de prensa.</p>
+                    <div class="source">92.3 The Fan • Hace 4 horas</div>
+                </div>
+                <div class="news-item">
+                    <h3>49ers y Bills: Posibles destinos para Denzel Boston</h3>
+                    <p>Los San Francisco 49ers y Buffalo Bills emergen como los destinos más probables para el prospecto Denzel Boston en el próximo Draft.</p>
+                    <div class="source">Yahoo Sports • Hoy</div>
+                </div>
+                <div class="news-item">
+                    <h3>MLB FastCast: Cam Schlittner domina a los Red Sox en Fenway</h3>
+                    <p>Spencer Torkelson jonronea para dar victoria a los Tigers en la jornada más destacada del béisbol universitario y profesional.</p>
+                    <div class="source">MLB.com • 24 Abr</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- COSTA RICA -->
+        <div class="grid">
+            <div class="card wide">
+                <h2 class="costarica">🇨🇷 Costa Rica</h2>
+                <div class="news-item">
+                    <h3>Turismo en Costa Rica alcanza nuevo récord con 653,959 visitantes en enero-febrero</h3>
+                    <p>El turismo en Costa Rica arrancó 2026 con su ritmo más fuerte. Los datos oficiales muestran 653,959 visitantes internacionales en enero y febrero combinados, un aumento del 10.4% respecto al mismo período de 2025. Europa se mantiene como mercado sólido.</p>
+                    <div class="source">Tico Times • 4 Abr</div>
+                </div>
+                <div class="news-item">
+                    <h3>EE.UU. eleva advertencia de viaje a Costa Rica: Homicidio, corrientes y baches</h3>
+                    <p>El Departamento de Estado de EE.UU. advise a los estadounidenses aumentar precauciones al viajar a Costa Rica, citando el crimen como preocupación principal. Los delitos más comunes incluyen robo de identidades y carterismo, aunque también ocurren crímenes más serios.</p>
+                    <div class="source">MassLive • Abril 2026</div>
+                </div>
+                <div class="news-item">
+                    <h3>El Colón fuerte se convierte en problema para la economía costarricense</h3>
+                    <p>Costa Rica cerró 2025 con inflación anual de -1.23%, el cuarto año consecutivo fuera del rango objetivo del BCCR (2%-4%). A principios de 2026, el país entró en una condición macroeconómica inhabitual: deflación sostenida.</p>
+                    <div class="source">Tico Times • 14 Abr</div>
+                </div>
+                <div class="news-item">
+                    <h3>Proyecto de ley busca garantizar acceso público a las playas de Costa Rica</h3>
+                    <p>Un proyecto de ley en la legislature Costarricense establecería estándares mínimos para puntos de acceso a playas, creando un registro oficial y exigiendo cumplimiento con las leyes de derechos de personas con discapacidad.</p>
+                    <div class="source">Tico Times • 10 Abr</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        World News Report • 24 de Abril, 2026 • Generado por Logos Intelligence System<br>
+        Fuentes: Tavily Search • Para uso interno
+    </div>
+</body>
+</html>
