@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>World News Report — 26 de Abril, 2026</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0d1117;color:#c9d1d9;font-family:'Segoe UI',system-ui,-apple-system,sans-serif;line-height:1.6;padding:20px}
+.header{text-align:center;padding:30px 0 20px;border-bottom:1px solid #21262d;margin-bottom:30px}
+.header h1{font-size:2.2em;color:#58a6ff;margin-bottom:5px}
+.header .date{color:#8b949e;font-size:1.1em}
+.header .emoji{font-size:2.5em}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:20px;max-width:1400px;margin:0 auto}
+.card{background:#161b22;border:1px solid #21262d;border-radius:12px;padding:24px;transition:border-color .2s}
+.card:hover{border-color:#388bfd}
+.card h2{font-size:1.3em;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.tag{display:inline-block;font-size:.7em;padding:2px 8px;border-radius:10px;font-weight:600;text-transform:uppercase}
+.tag-breaking{background:#da3633;color:#fff}
+.tag-geopolitics{background:#1f6feb;color:#fff}
+.tag-economy{background:#238636;color:#fff}
+.tag-tech{background:#8957e5;color:#fff}
+.tag-sports{background:#d29922;color:#000}
+.tag-cr{background:#0d8a8f;color:#fff}
+.tag-science{background:#bf4b8a;color:#fff}
+.item{padding:12px 0;border-bottom:1px solid #21262d}
+.item:last-child{border-bottom:none}
+.item h3{font-size:1em;color:#e6edf3;margin-bottom:4px}
+.item p{font-size:.88em;color:#8b949e}
+.item .source{font-size:.75em;color:#484f58;margin-top:4px}
+.alert-banner{background:linear-gradient(135deg,#da3633 0%,#8b0000 100%);color:#fff;border-radius:12px;padding:20px 24px;margin-bottom:24px;max-width:1400px;margin-left:auto;margin-right:auto}
+.alert-banner h2{font-size:1.4em;margin-bottom:8px}
+.alert-banner p{font-size:.95em;opacity:.9}
+.footer{text-align:center;padding:30px 0 10px;color:#484f58;font-size:.8em;max-width:1400px;margin:30px auto 0;border-top:1px solid #21262d}
+@media(max-width:420px){.grid{grid-template-columns:1fr}body{padding:10px}.header h1{font-size:1.5em}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="emoji">🌍📰</div>
+  <h1>World News Daily Report</h1>
+  <div class="date">Domingo, 26 de Abril 2026 — 11:45 CST</div>
+</div>
+
+<!-- BREAKING NEWS -->
+<div class="alert-banner">
+  <h2>🚨 BREAKING — Tiroteo en la Cena de Corresponsales de la Casa Blanca</h2>
+  <p>Un tirador abrió fuego mientras intentaba forzar la entrada al Washington Hilton durante la cena anual de la WHCA. El Servicio Secreto escoltó a Trump y miembros del gabinete fuera del escenario. Sospechoso detenido: <strong>Cole Tomas Allen</strong>. Trump resultó ileso. líderes mundiales expresaron apoyo. La primera vez que Trump asistía como presidente.</p>
+  <p class="source" style="color:#ffcccc">Fuentes: NPR, CNN, Time, Wikipedia — 25-26 abril 2026</p>
+</div>
+
+<div class="grid">
+
+<!-- GEOPOLÍTICA -->
+<div class="card">
+  <h2><span class="tag tag-geopolitics">Geopolítica</span> Oriente Medio & Global</h2>
+  <div class="item">
+    <h3>🔥 Alto el fuego EE.UU.–Irán: tregua de 2 semanas mediada por Pakistán</h3>
+    <p>El 8 de abril, EE.UU. e Irán acordaron un alto al fuego de dos semanas tras más de 5 semanas de conflicto. Israel se sumó. El Estrecho de Hormuz permanece prácticamente cerrado al tráfico marítimo. Irónicamente, la tregua se extendió condicionalmente hasta la conclusión de negociaciones.</p>
+    <p class="source">Wikipedia, Britannica, UK Commons Library</p>
+  </div>
+  <div class="item">
+    <h3>🛢️ Bloqueo del Estrecho de Hormuz: petróleo Brent > $100/barril</h3>
+    <p>La IEA calificó la disrupción como la mayor en la historia del mercado petrolero. Precios de gasolina en EE.UU. subieron ~$0.60/galón en dos semanas. La inflación CPI de marzo se estimó en 3.4% interanual (vs 2.4% en febrero).</p>
+    <p class="source">Crestwood Advisors, Bloomberg, IEA</p>
+  </div>
+  <div class="item">
+    <h3>🇷🇺 Rusia–Europa: Peskov dice que la relación no se puede restaurar</h3>
+    <p>El portavoz del Kremlin declaró que bajo las circunstancias actuales es imposible reanudar las relaciones pasadas entre Rusia y Europa.</p>
+    <p class="source">Nhan Dan Online, April 26</p>
+  </div>
+  <div class="item">
+    <h3>🇭🇺 Hungría: elecciones abril 12 — oposición lidera encuestas</h3>
+    <p>El partido Tisza de la oposición amplía su ventaja sobre Fidesz de Orbán. Orban continúa bloqueando préstamo a Ucrania en cumbre UE.</p>
+    <p class="source">ZeroFox Intel, Reuters</p>
+  </div>
+  <div class="item">
+    <h3>🇨🇺 Cuba: tercer apagón nacional, bloqueo petrolero estadounidense</h3>
+    <p>La red eléctrica cubana colapsó por tercera vez. Trump afirmó que podría "tomar" Cuba. Humanitarian crisis deepening.</p>
+    <p class="source">The Guardian, Reuters</p>
+  </div>
+</div>
+
+<!-- ECONOMÍA -->
+<div class="card">
+  <h2><span class="tag tag-economy">Economía</span> Mercados & FMI</h2>
+  <div class="item">
+    <h3>📊 FMI recorta crecimiento global a 3.1% para 2026</h3>
+    <p>El WEO de abril 2026 ("Global Economy in the Shadow of War") recorta la previsión desde 3.4% (2025) a 3.1%. Inflación global sube a 4.4%. Escenario adverso: recesión global con crecimiento ~2% si la crisis energética persiste.</p>
+    <p class="source">IMF WEO April 2026, WEF</p>
+  </div>
+  <div class="item">
+    <h3>🏦 Bancos US: "Big Six" superan estimaciones en Q1</h3>
+    <p>A pesar del panorama geopolítico, los seis mayores bancos de EE.UU. reportaron ganancias por encima de expectativas. Sector financiero se mantiene resiliente.</p>
+    <p class="source">World Economic Forum</p>
+  </div>
+  <div class="item">
+    <h3>📈 Acciones US se acercan a máximos históricos</h3>
+    <p>El S&P sigue empujando hacia records pese a la guerra. Morningstar advierte que los inversores podrían estar ignorando disrupciones de mercado significativas.</p>
+    <p class="source">Morningstar, April 2026</p>
+  </div>
+  <div class="item">
+    <h3>🇦🇺 Australia: Qantas recorta vuelos domésticos por costo de combustible</h3>
+    <p>Incendio en refinería australiana agrava la crisis de suministro de combustible derivada del bloqueo de Hormuz.</p>
+    <p class="source">Medium — Geopolitics Explained, April 19</p>
+  </div>
+  <div class="item">
+    <h3>💵 Fed: "Higher for Longer" se consolida</h3>
+    <p>Inflación persistente por costos energéticos mantiene a la Reserva Federal en postura restrictiva. Tasas altas presionan bonos y activos no generadores de rendimiento.</p>
+    <p class="source">Investing.com, Crestwood Advisors</p>
+  </div>
+</div>
+
+<!-- TECNOLOGÍA -->
+<div class="card">
+  <h2><span class="tag tag-tech">Tecnología</span> IA & Innovación</h2>
+  <div class="item">
+    <h3>🤖 OpenAI lanza GPT-5.5: modelo agéntico de nueva generación</h3>
+    <p>Diseñado para tareas multi-paso con uso de herramientas, planificación y verificación propia. GPT-5.5 Pro disponible para usuarios Business/Enterprise. Mayores mejoras en coding agéntico y computer use.</p>
+    <p class="source">AI Agents Weekly, OpenAI — April 24</p>
+  </div>
+  <div class="item">
+    <h3>🇨🇳 DeepSeek V4: modelo open-source de un trillón de parámetros</h3>
+    <p>Lanzado horas después de GPT-5.5. Precio output 3.4x más barato que Gemini 3.1 Pro. Usa chips Huawei Ascend 950. La brecha con modelos cerrados se estrecha en cada release.</p>
+    <p class="source">O-Mega AI Guide, Reddit r/DeepSeek</p>
+  </div>
+  <div class="item">
+    <h3>🎨 Anthropic lanza "Claude Design" para prototipos</h3>
+    <p>Nueva herramienta de diseño y prototipado impulsada por Claude. Apunta a competir en el espacio de diseño generativo.</p>
+    <p class="source">EnTech Online, April 18</p>
+  </div>
+  <div class="item">
+    <h3>🤖 Google Gemini Robotics ER 1.6 acelera convergencia IA-robótica</h3>
+    <p>Google presenta avances en su plataforma de robótica con IA integrada, combinando capacidades multimodales.</p>
+    <p class="source">EnTech Online, April 15</p>
+  </div>
+  <div class="item">
+    <h3>☁️ Google Cloud Next 2026: evento insignia de IA cloud</h3>
+    <p>Google celebró su conferencia Cloud Next con foco en herramientas de IA empresarial y soluciones de infraestructura.</p>
+    <p class="source">EnTech Online, April 25</p>
+  </div>
+</div>
+
+<!-- CIENCIA -->
+<div class="card">
+  <h2><span class="tag tag-science">Ciencia</span> Descubrimientos</h2>
+  <div class="item">
+    <h3>🔬 Nature: 7 tecnologías de deep science que transformarán el futuro</h3>
+    <p>Computación cuántica, terapéutica mRNA, proteínas computacionales, y terapias génicas escalables lideran la lista de innovaciones seleccionadas por Nature.</p>
+    <p class="source">Nature, April 2026</p>
+  </div>
+  <div class="item">
+    <h3>☀️ NASA detecta doble explosión solar que podría afectar la Tierra</h3>
+    <p>Eyecciones de masa coronal simultáneas podrían generar tormentas geomagnéticas significativas en los próximos días.</p>
+    <p class="source">EnTech Online</p>
+  </div>
+  <div class="item">
+    <h3>🧬 25 innovaciones deep tech que podrían cambiar el mundo</h3>
+    <p>SCI lista 25 tecnologías: semiconductores avanzados, comunicaciones cuánticas, infraestructura espacial, genómica de cultivos, y sistemas energéticos integrados en edificios.</p>
+    <p class="source">Society of Chemical Industry, April 2026</p>
+  </div>
+  <div class="item">
+    <h3>🔮 Wikipedia-based AI model revela las 100 tecnologías a vigilar</h3>
+    <p>Un modelo de IA entrenado con Wikipedia identificó las 100 tecnologías emergentes más prometedoras.</p>
+    <p class="source">Nature Index, April 23</p>
+  </div>
+</div>
+
+<!-- DEPORTES -->
+<div class="card">
+  <h2><span class="tag tag-sports">Deportes</span> Resultados</h2>
+  <div class="item">
+    <h3>🏈 NFL Draft 2026: Raiders toman Fernando Mendoza #1 overall</h3>
+    <p>Round 1 completa en Pittsburgh. Top picks: Mendoza (Raiders), David Bailey (Jets), Jeremiyah Love (Cardinals). Browns impresionan con Spencer Fano + KC Concepcion. Eagles suben por Makai Lemon.</p>
+    <p class="source">Yahoo Sports, ESPN, The Athletic — April 24-26</p>
+  </div>
+  <div class="item">
+    <h3>🏀 NBA Playoffs: Dosunmu se suma al lore de postemporada</h3>
+    <p>Ayo Dosunmu protagoniza momento memorable mientras Denver enfrenta eliminación vs Minnesota. Playoffs en plena acción.</p>
+    <p class="source">Yahoo Sports / SB Nation</p>
+  </div>
+  <div class="item">
+    <h3>⚾ MLB: Red Sox despiden a Alex Cora y 5 coaches tras inicio 10-17</h3>
+    <p>Boston hace limpieza total del staff tras pésimo inicio de temporada 2026.</p>
+    <p class="source">Yahoo Sports</p>
+  </div>
+  <div class="item">
+    <h3>⛹️ WNBA: Caitlin Clark regresa en pretemporada</h3>
+    <p>Clark anotó 7 puntos en 17 minutos en el opener preseason de Indiana Fever vs New York Liberty (109-91).</p>
+    <p class="source">Yahoo Sports</p>
+  </div>
+  <div class="item">
+    <h3>⚽ Fútbol CR: Alajuelense le gana a Puntarenas en 120 minutos</h3>
+    <p>La Liga mantiene viva la esperanza de clasificación. Teletica Deportes Radio cubrió el evento.</p>
+    <p class="source">Teletica Deportes, April 24</p>
+  </div>
+</div>
+
+<!-- COSTA RICA -->
+<div class="card">
+  <h2><span class="tag tag-cr">🇨🇷 Costa Rica</span> Noticias Locales</h2>
+  <div class="item">
+    <h3>💉 Vacuna contra el dengue: negociaciones muy avanzadas</h3>
+    <p>Costa Rica está cerca de traer la esperada vacuna contra el dengue. Negociaciones con farmacéuticas en etapa final.</p>
+    <p class="source">Telenoticias, April 23</p>
+  </div>
+  <div class="item">
+    <h3>🏥 Nuevo Hospital Max Peralta en Cartago: avances</h3>
+    <p>Autoridades de la CCSS se reunieron con vecinos de Cartago para informar avances en la construcción del nuevo hospital.</p>
+    <p class="source">Telenoticias, April 24</p>
+  </div>
+  <div class="item">
+    <h3>🇺🇸 Tico detenido en EE.UU. regresa tras denuncia familiar</h3>
+    <p>La denuncia de una familia permitió el regreso de un costarricense detenido en Estados Unidos.</p>
+    <p class="source">La Nación, April 26</p>
+  </div>
+  <div class="item">
+    <h3>🎭 Homenaje a Adrián Goizueta llega al Teatro Nacional</h3>
+    <p>El destacado músico costarricense es homenajeado en el Teatro Nacional.</p>
+    <p class="source">La Nación, April 26</p>
+  </div>
+  <div class="item">
+    <h3>🏛️ Diputada oficialista: no darán votos para elección; nuevo Congreso decidirá</h3>
+    <p>La legisladora afirmó que con 31 curules, el nuevo Congreso debe asumir la decisión en el próximo periodo.</p>
+    <p class="source">La Nación</p>
+  </div>
+</div>
+
+</div>
+
+<div class="footer">
+  <p>🌍 World News Daily Report — Generado por Explorer Agent (GLM-5.1) — 26 abril 2026</p>
+  <p>Fuentes: NPR, CNN, Time, IMF, WEF, Nature, Wikipedia, ESPN, Yahoo Sports, La Nación CR, Telenoticias, EnTech Online, ZeroFox, Morningstar, Britannica, Reuters, y más.</p>
+</div>
+
+</body>
+</html>
