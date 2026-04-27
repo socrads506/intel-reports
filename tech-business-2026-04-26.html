@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tech Business Intelligence — 26 Abril 2026</title>
+<style>
+  :root { --bg:#0d1117; --card:#161b22; --border:#30363d; --accent:#58a6ff; --green:#3fb950; --red:#f85149; --yellow:#d29922; --text:#c9d1d9; --dim:#8b949e; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--bg); color:var(--text); font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; line-height:1.6; }
+  .container { max-width:1200px; margin:0 auto; padding:20px; }
+  header { text-align:center; padding:30px 0 20px; border-bottom:1px solid var(--border); margin-bottom:30px; }
+  header h1 { font-size:2em; color:#fff; }
+  header .date { color:var(--accent); font-size:1.1em; margin-top:5px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(340px,1fr)); gap:20px; margin-bottom:30px; }
+  .card { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:20px; }
+  .card h2 { font-size:1.15em; color:#fff; margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+  .card h2 .emoji { font-size:1.3em; }
+  .tag { display:inline-block; padding:2px 8px; border-radius:12px; font-size:.75em; font-weight:600; margin-right:6px; }
+  .tag-ai { background:#1f3a5f; color:var(--accent); }
+  .tag-semi { background:#2a1f4e; color:#b392f0; }
+  .tag-cyber { background:#3d1f1f; color:var(--red); }
+  .tag-funding { background:#1a3a2a; color:var(--green); }
+  .tag-ipo { background:#3a3a1a; color:var(--yellow); }
+  .item { padding:12px 0; border-bottom:1px solid var(--border); }
+  .item:last-child { border-bottom:none; }
+  .item h3 { font-size:.95em; color:#fff; margin-bottom:4px; }
+  .item p { font-size:.85em; color:var(--dim); }
+  .metric { display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-bottom:1px solid var(--border); }
+  .metric:last-child { border-bottom:none; }
+  .metric .label { font-size:.9em; }
+  .metric .value { font-weight:700; font-size:1.05em; }
+  .up { color:var(--green); }
+  .down { color:var(--red); }
+  .neutral { color:var(--yellow); }
+  .kpi-row { display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:15px; margin-bottom:30px; }
+  .kpi { background:var(--card); border:1px solid var(--border); border-radius:10px; padding:18px; text-align:center; }
+  .kpi .num { font-size:1.6em; font-weight:700; color:#fff; }
+  .kpi .desc { font-size:.78em; color:var(--dim); margin-top:4px; }
+  footer { text-align:center; padding:30px 0; border-top:1px solid var(--border); color:var(--dim); font-size:.8em; }
+  a { color:var(--accent); text-decoration:none; }
+  a:hover { text-decoration:underline; }
+  .full-width { grid-column:1/-1; }
+  @media(max-width:700px) { .grid { grid-template-columns:1fr; } .kpi-row { grid-template-columns:repeat(2,1fr); } }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <h1>🔍 Tech Business Intelligence</h1>
+  <div class="date">Domingo 26 de Abril, 2026</div>
+</header>
+
+<!-- KPI Strip -->
+<div class="kpi-row">
+  <div class="kpi"><div class="num up">$5.09T</div><div class="desc">NVIDIA Market Cap</div></div>
+  <div class="kpi"><div class="num up">$209.57</div><div class="desc">NVDA Share Price</div></div>
+  <div class="kpi"><div class="num up">+5%</div><div class="desc">NVDA Daily Move</div></div>
+  <div class="kpi"><div class="num down">-10%</div><div class="desc">Meta Workforce Cut</div></div>
+  <div class="kpi"><div class="num up">$12.69B</div><div class="desc">US VC Funding (Apr '25)</div></div>
+  <div class="kpi"><div class="num up">$57.0B</div><div class="desc">Global Semi Sales (Apr)</div></div>
+</div>
+
+<div class="grid">
+
+<!-- BIG TECH -->
+<div class="card full-width">
+  <h2><span class="emoji">🏢</span> Big Tech — Apple · Google · Meta · Microsoft</h2>
+  <div class="item">
+    <h3><span class="tag tag-ai">AI</span> Meta recorta 10% de su fuerza laboral (~8,000 empleados)</h3>
+    <p>Meta anunció el 23 de abril que eliminará ~8,000 puestos a partir del 20 de mayo, además de cancelar 6,000 posiciones abiertas. La empresa planea gastar $115-135B en AI este año — casi el doble que 2025. Las acciones cayeron >2% tras el anuncio. <a href="https://www.theguardian.com/technology/2026/apr/23/meta-microsoft-tech-ai-layoffs" target="_blank">The Guardian</a></p>
+  </div>
+  <div class="item">
+    <h3><span class="tag tag-ai">AI</span> Microsoft también recorta miles de empleos mientras gasta $100B en AI</h3>
+    <p>Microsoft continua reducciones de personal mientras proyecta gastar ~$100B en infraestructura AI. Satya Nadella afirmó que hasta 30% del código de Microsoft ahora es generado por AI. <a href="https://www.cnbc.com/2026/04/24/20k-job-cuts-at-meta-microsoft-raise-concern-of-ai-labor-crisis-.html" target="_blank">CNBC</a></p>
+  </div>
+  <div class="item">
+    <h3><span class="tag tag-ai">AI</span> OpenAI lanza GPT-5.5 con capacidades agenticas</h3>
+    <p>GPT-5.5 lidera benchmarks en coding autónomo (Terminal-Bench 82.7%), superando a Claude Opus 4.7 y Gemini 3.1 Pro. Disponible para Plus/Pro/Enterprise. <a href="https://techstartups.com/2026/04/24/top-tech-news-today-april-24-2026/" target="_blank">TechStartups</a></p>
+  </div>
+  <div class="item">
+    <h3><span class="tag tag-ai">AI</span> Google lanza nuevos TPUs para competir con NVIDIA</h3>
+    <p>Google presentó nuevos TPUs custom como parte de su estrategia de reducir dependencia de aceleradores externos. Alphabet incrementó su capex forecast 2025 a $85B. <a href="https://www.distillintelligence.com/briefings/semiconductors-ai-chips-2026-04-24" target="_blank">Distill Intelligence</a></p>
+  </div>
+  <div class="item">
+    <h3><span class="tag tag-cyber">PRIVACY</span> Corte Suprema EEUU caso que redefinirá privacidad digital</h3>
+    <p>Un caso de geofencing warrants podría cambiar cómo las empresas tech entregan datos de localización al gobierno. <a href="https://www.npr.org/2026/04/26/g-s1-118359/supreme-court-geofencing-explainer-video" target="_blank">NPR</a></p>
+  </div>
+</div>
+
+<!-- SEMICONDUCTORS -->
+<div class="card">
+  <h2><span class="emoji">🔧</span> Semiconductores</h2>
+  <div class="metric"><span class="label">NVIDIA (NVDA)</span><span class="value up">$209.57 (+5%)</span></div>
+  <div class="metric"><span class="label">NVIDIA Market Cap</span><span class="value up">$5.09T</span></div>
+  <div class="metric"><span class="label">Wafer Fab Equipment 2026</span><span class="value up">$140B+</span></div>
+  <div class="metric"><span class="label">Global Semi Sales (Apr '25)</span><span class="value up">$57.0B (+22.7% YoY)</span></div>
+  <div class="item" style="margin-top:12px;">
+    <h3><span class="tag tag-semi">SEMI</span> TSMC no da abasto con demanda AI</h3>
+    <p>Shortages de chips AI proyectados más allá de 2027. TSMC reportó revenue +48% en abril por rush orders pre-tariffs. NVIDIA explora fábricas AI con energía nuclear. <a href="https://www.distillintelligence.com/briefings/semiconductors-ai-chips-2026-04-24" target="_blank">Distill</a></p>
+  </div>
+  <div class="item">
+    <h3><span class="tag tag-semi">SEMI</span> SK Hynix profits 5x por demanda AI memory</h3>
+    <p>SK Hynix incrementó significativamente su suministro de HBM para el ecosistema NVIDIA. Intel también reportó fuerte crecimiento Q1. <a href="https://www.distillintelligence.com/briefings/semiconductors-ai-chips-2026-04-24" target="_blank">Distill</a></p>
+  </div>
+</div>
+
+<!-- STARTUP FUNDING -->
+<div class="card">
+  <h2><span class="emoji">💰</span> Startup Funding</h2>
+  <div class="metric"><span class="label">US VC Total (Apr '25)</span><span class="value up">$12.69B</span></div>
+  <div class="metric"><span class="label">Deals</span><span class="value">365</span></div>
+  <div class="metric"><span class="label">YoY Change</span><span class="value up">+54.85%</span></div>
+  <div class="metric"><span class="label">AI Share</span><span class="value up">$4.98B (39.3%)</span></div>
+  <div class="item" style="margin-top:12px;">
+    <h3><span class="tag tag-funding">FUNDING</span> Safe Superintelligence — $2B round</h3>
+    <p>El round de SSI representó 15.8% del total de funding del mes. AI continúa dominando el landscape. <a href="https://www.alleywatch.com/2025/05/us-venture-capital-statistics-april-2025/" target="_blank">AlleyWatch</a></p>
+  </div>
+  <div class="item">
+    <h3><span class="tag tag-funding">FUNDING</span> CAST AI — Kubernetes automation, $108M total raised</h3>
+    <p>Backed by SoftBank Vision Fund, Samsung NEXT. Recorta costs cloud en >50%. <a href="https://www.alleywatch.com/2025/05/us-startup-funding-top-largest-april-2025-vc/" target="_blank">AlleyWatch</a></p>
+  </div>
+  <div class="item">
+    <h3><span class="tag tag-funding">FUNDING</span> Fintech: Mesh $82M, Highnote $90M, Bitwise $70M</h3>
+    <p>19 fintechs US levantaron >$50M en lo que va de 2025. Destacan Sardine ($70M AI risk), Altruist ($152M Series F). <a href="https://techcrunch.com/2025/04/23/19-us-fintech-startups-have-raised-over-50m-in-2025-so-far/" target="_blank">TechCrunch</a></p>
+  </div>
+</div>
+
+<!-- CYBERSECURITY -->
+<div class="card">
+  <h2><span class="emoji">🛡️</span> Cybersecurity</h2>
+  <div class="item">
+    <h3><span class="tag tag-cyber">BREACH</span> Oracle — phishing con QR codes + data breach parcial</h3>
+    <p>Oracle enfrentó ataques de phishing con QR codes y confirmó parcialmente un data breach. <a href="https://innovatecybersecurity.com/2025/04/" target="_blank">Innovate Cyber</a></p>
+  </div>
+  <div class="item">
+    <h3><span class="tag tag-cyber">BREACH</span> OCC (Regulador financiero US) — email system hack</h3>
+    <p>El Office of the Comptroller of the Currency sufrió breach de su sistema de email comprometiendo info financiera sensible de instituciones reguladas. <a href="https://www.occ.gov/news-issuances/news-releases/2025/nr-occ-2025-32a.pdf" target="_blank">OCC</a></p>
+  </div>
+  <div class="item">
+    <h3><span class="tag tag-cyber">BREACH</span> Baltimore City Public Schools — ransomware Cloak</h3>
+    <p>Miles de estudiantes y maestros afectados por ataque ransomware en febrero, divulgado en abril. <a href="https://www.cm-alliance.com/cybersecurity-blog/april-2025-major-cyber-attacks-ransomware-attacks-and-data-breaches" target="_blank">CM-Alliance</a></p>
+  </div>
+  <div class="item">
+    <h3><span class="tag tag-cyber">THREAT</span> CLFS Zero-Day exploit leads to ransomware</h3>
+    <p>Microsoft confirmó explotación activa de zero-day en Common Log File System siendo usada para deployar ransomware. <a href="https://innovatecybersecurity.com/2025/04/" target="_blank">Innovate Cyber</a></p>
+  </div>
+  <div class="item">
+    <h3><span class="tag tag-cyber">THREAT</span> MTN Group — cyber attack compromete datos de clientes</h3>
+    <p>Gigante móvil africano MTN reportó breach de información personal de subscribers en múltiples países. <a href="https://www.cm-alliance.com/cybersecurity-blog/april-2025-major-cyber-attacks-ransomware-attacks-and-data-breaches" target="_blank">CM-Alliance</a></p>
+  </div>
+</div>
+
+<!-- IPO & MARKETS -->
+<div class="card">
+  <h2><span class="emoji">📈</span> IPO & Markets</h2>
+  <div class="item">
+    <h3><span class="tag tag-ipo">IPO</span> Circle (CRCL) — IPO exitoso en NYSE</h3>
+    <p>La empresa de stablecoins y crypto completó su listing público en 2025. <a href="https://microventures.com/2025-ipo-check-in" target="_blank">MicroVentures</a></p>
+  </div>
+  <div class="item">
+    <h3><span class="tag tag-ipo">IPO</span> Navan — confidential filing para IPO</h3>
+    <p>La empresa de travel/expense management filed confidentialmente en junio 2025. Targeting listing dependiente de condiciones de mercado. <a href="https://microventures.com/2025-ipo-check-in" target="_blank">MicroVentures</a></p>
+  </div>
+  <div class="item">
+    <h3><span class="tag tag-ipo">IPO</span> Upcoming: Lightmatter, Shein, Liquid Death</h3>
+    <p>Lightmatter (photonic AI chips, $4.4B valuation) anticipa su última ronda privada. Shein y Liquid Death continúan trabajando hacia listings públicos. <a href="https://microventures.com/2025-ipo-check-in" target="_blank">MicroVentures</a></p>
+  </div>
+  <div class="item">
+    <h3><span class="tag tag-ipo">IPO</span> India pipeline: NSDL, Tata Capital, Ola Electric</h3>
+    <p>India continúa expandiendo su pipeline de IPOs con ofertas significativas en telecom y finanzas. <a href="https://certuity.com/research/2025-ipos/" target="_blank">Certuity</a></p>
+  </div>
+</div>
+
+</div>
+
+<!-- ANALYSIS -->
+<div class="card" style="margin-bottom:30px;">
+  <h2><span class="emoji">🧠</span> Análisis & Tendencias</h2>
+  <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:15px;">
+    <div>
+      <h3 style="color:var(--green); margin-bottom:6px;">🔴📈 Bullish</h3>
+      <ul style="padding-left:18px; font-size:.88em; color:var(--dim);">
+        <li>NVIDIA a $5.09T market cap — demanda AI imparable</li>
+        <li>VC funding +55% YoY con AI como motor principal</li>
+        <li>Semiconductores globales $57B/mes, creciendo 23% YoY</li>
+        <li>GPT-5.5 acelera la era de AI agents autónomos</li>
+      </ul>
+    </div>
+    <div>
+      <h3 style="color:var(--red); margin-bottom:6px;">🔴📉 Bearish</h3>
+      <ul style="padding-left:18px; font-size:.88em; color:var(--dim);">
+        <li>~20,000 layoffs entre Meta + Microsoft en una semana</li>
+        <li>Cyberattacks en infraestructura crítica al alza (OCC, schools, MTN)</li>
+        <li>TSMC shortages de chips AI proyectados hasta 2027+</li>
+        <li>Oracle AI spending genera dudas sobre deuda y cash flow</li>
+      </ul>
+    </div>
+    <div>
+      <h3 style="color:var(--yellow); margin-bottom:6px;">🟡⚡ Watch</h3>
+      <ul style="padding-left:18px; font-size:.88em; color:var(--dim);">
+        <li>Caso Corte Suprema redefinirá privacidad digital</li>
+        <li>Google TPUs vs NVIDIA — batalla custom silicon</li>
+        <li>Meta tracking keystrokes para entrenar AI interno</li>
+        <li>NVIDIA explorando energía nuclear para data centers</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>Tech Business Intelligence Report · Generado por Explorer Agent · 26 Abril 2026</p>
+  <p style="margin-top:5px;">Fuentes: AlleyWatch, TechCrunch, The Guardian, CNBC, SIA, Distill Intelligence, NPR, OCC, CM-Alliance, MicroVentures</p>
+</footer>
+
+</div>
+</body>
+</html>

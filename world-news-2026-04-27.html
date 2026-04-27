@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>World News Report — April 27, 2026</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: #0d1117; color: #c9d1d9; line-height: 1.6; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+  header { text-align: center; padding: 30px 0; border-bottom: 1px solid #21262d; margin-bottom: 30px; }
+  header h1 { font-size: 2.2em; color: #58a6ff; }
+  header .date { color: #8b949e; font-size: 1.1em; margin-top: 5px; }
+  header .emoji { font-size: 2.5em; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 20px; margin-bottom: 30px; }
+  .card { background: #161b22; border: 1px solid #21262d; border-radius: 12px; padding: 20px; transition: border-color 0.2s; }
+  .card:hover { border-color: #58a6ff; }
+  .card h2 { font-size: 1.3em; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid #21262d; }
+  .card ul { list-style: none; }
+  .card li { padding: 8px 0; border-bottom: 1px solid #0d1117; }
+  .card li:last-child { border-bottom: none; }
+  .card li strong { color: #58a6ff; }
+  .tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.75em; font-weight: 600; margin-right: 6px; }
+  .tag-red { background: #3d1f1f; color: #f85149; }
+  .tag-orange { background: #3d2e1f; color: #d29922; }
+  .tag-blue { background: #1f2d3d; color: #58a6ff; }
+  .tag-green { background: #1f3d1f; color: #3fb950; }
+  .tag-purple { background: #2d1f3d; color: #bc8cff; }
+  .alert { background: #1a0a0a; border: 1px solid #f8514933; border-radius: 12px; padding: 20px; margin-bottom: 30px; }
+  .alert h2 { color: #f85149; }
+  .cr-section { background: #161b22; border: 1px solid #21262d; border-radius: 12px; padding: 20px; margin-bottom: 30px; }
+  .cr-section h2 { color: #3fb950; font-size: 1.4em; margin-bottom: 12px; }
+  footer { text-align: center; padding: 20px 0; border-top: 1px solid #21262d; color: #484f58; font-size: 0.85em; }
+  @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } .container { padding: 10px; } }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <div class="emoji">🌍</div>
+  <h1>World News Daily Brief</h1>
+  <div class="date">Lunes 27 de Abril, 2026 — 11:45 CST</div>
+</header>
+
+<!-- BREAKING -->
+<div class="alert">
+  <h2>🔴 BREAKING — Tiroteo en White House Correspondents' Dinner</h2>
+  <p>Un tirador, <strong>Cole Tomas Allen</strong> (31, Torrance, CA), atacó un checkpoint de seguridad en el Washington Hilton durante la cena anual de corresponsales de la Casa Blanca. El presidente Trump y altos funcionarios fueron evacuados. Allen dejó un manifesto político y será formalmente acusado hoy. Trump usó el incidente para promover la construcción de un salón de baile de $400M en la Casa Blanca. 9 personas heridas en tiroteo masivo cerca de Indiana University el domingo.</p>
+</div>
+
+<div class="grid">
+
+<!-- GEOPOLITICS -->
+<div class="card">
+  <h2>🌐 Geopolítica & Conflicto</h2>
+  <ul>
+    <li><span class="tag tag-red">IRÁN</span> <strong>Colapso de negociaciones EE.UU.-Irán:</strong> Trump canceló viaje de Witkoff/Kushner a Pakistán. Irán propuso reabrir el Estrecho de Ormuz; canciller Araghchi viajó a Moscú a reunirse con Putin.</li>
+    <li><span class="tag tag-red">MEDIO ORIENTE</span> <strong>Guerra Irán-EE.UU.:</strong> 500M+ barriles de crudo fuera del mercado — la mayor disrupción energética de la historia moderna. Brent sobre $100/barril.</li>
+    <li><span class="tag tag-red">ISRAEL</span> <strong>Fuerzas israelíes matan al menos 14 personas en Gaza.</strong> Soldado de IDF muerto en ataque drone de Hezbollah. Escalada Israel-Hezbollah continua.</li>
+    <li><span class="tag tag-orange">OTAN</span> <strong>Pentágono evalúa sancionar aliados OTAN</strong> por no apoyar operaciones en Irán, incluyendo suspender a España de la alianza.</li>
+    <li><span class="tag tag-red">LIBANO</span> <strong>Fuerzas israelíes matan al menos 12 palestinos en Gaza.</strong> Escalada continua en múltiples frentes.</li>
+  </ul>
+</div>
+
+<!-- ECONOMY -->
+<div class="card">
+  <h2>💰 Economía & Mercados</h2>
+  <ul>
+    <li><span class="tag tag-orange">PETRÓLEO</span> Brent cerró sobre <strong>$100/barril</strong> — primero desde agosto 2022. Gasolina en EE.UU. subió ~$0.60/galón en dos semanas.</li>
+    <li><span class="tag tag-orange">INFLACIÓN</span> CPI estimado en <strong>3.4% YoY</strong> (arriba de 2.4% en febrero). Mercado de bonos sufre: Bloomberg Agg -1.76% en marzo.</li>
+    <li><span class="tag tag-blue">S&P 500</span> Alcanzó <strong>6,611</strong> antes de retroceder. Nasdaq tuvo su peor día en un mes el jueves por falta de progreso en negociaciones con Irán.</li>
+    <li><span class="tag tag-purple">BANK OF ENGLAND</span> advierte que la crisis energética hace un crash financiero más probable, citando crédito privado y deuda soberana.</li>
+    <li><span class="tag tag-green">INDIA</span> Economía estimada en expansión de <strong>7.6%</strong>.</li>
+  </ul>
+</div>
+
+<!-- TECHNOLOGY -->
+<div class="card">
+  <h2>💻 Tecnología & Ciencia</h2>
+  <ul>
+    <li><span class="tag tag-blue">OPENAI</span> <strong>GPT-5.5 lanzado</strong> — nuevo modelo next-gen de OpenAI (24 abril).</li>
+    <li><span class="tag tag-blue">GOOGLE</span> <strong>Google Cloud Next 2026</strong> — evento masivo de AI/cloud la semana pasada. Gemini Robotics ER 1.6 presentado.</li>
+    <li><span class="tag tag-purple">ANTHROPIC</span> <strong>Claude Design</strong> — nueva herramienta de prototipado y diseño con IA.</li>
+    <li><span class="tag tag-blue">OPENAI</span> <strong>Codex</strong> — nuevo sistema de desarrollo de software con IA.</li>
+    <li><span class="tag tag-orange">GEOPOLÍTICA AI</span> EE.UU. acusa a China de robo de IA a "escala industrial".</li>
+    <li><span class="tag tag-purple">ESPACIO</span> NASA detecta <strong>erupción solar doble</strong> que podría afectar la Tierra. SpaceX avanza en nuevas misiones.</li>
+    <li><span class="tag tag-green">CIENCIA</span> Descubrimiento: plantas "gritan" (emisiones ultrasónicas). Nuevo meteor shower descubierto de asteroide desmoronándose. Estudio de 25 años revela señales tempranas de cáncer sanguíneo.</li>
+  </ul>
+</div>
+
+<!-- SPORTS -->
+<div class="card">
+  <h2>⚽ Deportes</h2>
+  <ul>
+    <li><span class="tag tag-green">FÚTBOL</span> <strong>Champions League semifinales</strong> esta semana — cobertura en vivo de The Athletic.</li>
+    <li><span class="tag tag-blue">NFL</span> <strong>Draft 2026</strong> finalizado. Chicago Bears completan selecciones y firman UDFAs.</li>
+    <li><span class="tag tag-blue">NBA</span> <strong>Playoffs en pleno desarrollo</strong> — múltiples juegos el 27 de abril.</li>
+    <li><span class="tag tag-blue">MLB</span> Temporada regular continua — Top 10 Plays of the Week publicados.</li>
+    <li><span class="tag tag-green">F1</span> <strong>Retorno de la temporada F1</strong> — GP de Miami en el horizonte.</li>
+    <li><span class="tag tag-green">GOLF</span> <strong>PGA Professional Championship</strong> — segunda ronda en Bandon Dunes.</li>
+    <li><span class="tag tag-blue">HOCKEY</span> <strong>IIHF Men's World Championship</strong> en curso.</li>
+    <li><span class="tag tag-green">HÍPICA</span> <strong>Kentucky Derby</strong> esta semana.</li>
+  </ul>
+</div>
+
+</div>
+
+<!-- COSTA RICA -->
+<div class="cr-section">
+  <h2>🇨🇷 Costa Rica</h2>
+  <ul>
+    <li>🏛️ <strong>Laura Fernández electada presidenta #50 de Costa Rica</strong> — toma posesión tras elecciones 2026 ("Costa Rica Decide 2026").</li>
+    <li>💉 <strong>Vacuna contra el dengue:</strong> Negociaciones muy avanzadas para traer la esperada vacuna al país.</li>
+    <li>🛣️ <strong>Ruta 27:</strong> Ampliación se reduciría al trayecto Escazú–Atenas según La Nación.</li>
+    <li>🎓 <strong>UCR:</strong> Estudiantes y docentes salen a las calles para defender el FES 2027.</li>
+    <li>⚽ <strong>Fútbol local:</strong> Definidos los clasificados en torneo costarricense (TSR/Tigo Sports).</li>
+  </ul>
+</div>
+
+<footer>
+  <p>🔍 Explorer Research Report — Auto-generado por OpenClaw Agent System</p>
+  <p>Fuentes: Democracy Now, Reuters, Bloomberg, Euronews, La Nación CR, SciTechDaily, MLB, The Athletic, Crestwood Advisors</p>
+</footer>
+
+</div>
+</body>
+</html>
