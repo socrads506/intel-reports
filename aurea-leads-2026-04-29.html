@@ -1,558 +1,281 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aurea — Lead Research: Restaurantes Costa Rica | 29 Abr 2026</title>
-  <style>
-    :root {
-      --bg: #0d0f14;
-      --card: #161a23;
-      --card-hover: #1c2130;
-      --border: #252a38;
-      --accent: #f5a623;
-      --accent-dim: rgba(245,166,35,0.12);
-      --text-primary: #e8eaf0;
-      --text-secondary: #8891a4;
-      --text-muted: #555d73;
-      --green: #4ade80;
-      --blue: #60a5fa;
-      --red: #f87171;
-      --badge-bg: #1e2435;
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      background: var(--bg);
-      color: var(--text-primary);
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-      line-height: 1.6;
-      min-height: 100vh;
-    }
-
-    .container {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 48px 24px;
-    }
-
-    /* HEADER */
-    header {
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 32px;
-      margin-bottom: 48px;
-    }
-    .badge {
-      display: inline-block;
-      background: var(--accent-dim);
-      color: var(--accent);
-      border: 1px solid rgba(245,166,35,0.3);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      padding: 4px 12px;
-      border-radius: 20px;
-      margin-bottom: 16px;
-    }
-    h1 {
-      font-size: 2rem;
-      font-weight: 800;
-      letter-spacing: -0.5px;
-      margin-bottom: 8px;
-      color: var(--text-primary);
-    }
-    .subtitle {
-      color: var(--text-secondary);
-      font-size: 1rem;
-    }
-    .meta {
-      display: flex;
-      gap: 24px;
-      margin-top: 16px;
-      flex-wrap: wrap;
-    }
-    .meta-item {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 13px;
-      color: var(--text-muted);
-    }
-    .meta-item strong { color: var(--text-secondary); }
-
-    /* SECTION */
-    section { margin-bottom: 48px; }
-    .section-title {
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 20px;
-      padding-bottom: 8px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    /* CARDS */
-    .company-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 24px;
-      margin-bottom: 16px;
-      transition: border-color 0.2s, background 0.2s;
-    }
-    .company-card:hover {
-      border-color: rgba(245,166,35,0.4);
-      background: var(--card-hover);
-    }
-    .card-header {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      margin-bottom: 16px;
-      gap: 16px;
-    }
-    .company-name {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--text-primary);
-    }
-    .company-type {
-      font-size: 12px;
-      color: var(--text-muted);
-      margin-top: 2px;
-    }
-    .contact-block {
-      background: var(--badge-bg);
-      border-radius: 8px;
-      padding: 12px 16px;
-    }
-    .contact-name {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--text-primary);
-    }
-    .contact-role {
-      font-size: 12px;
-      color: var(--accent);
-      margin-bottom: 6px;
-    }
-    .contact-detail {
-      font-size: 12px;
-      color: var(--text-secondary);
-      display: flex;
-      gap: 4px;
-    }
-    .tags {
-      display: flex;
-      gap: 6px;
-      flex-wrap: wrap;
-      margin-top: 12px;
-    }
-    .tag {
-      background: var(--accent-dim);
-      color: var(--accent);
-      border: 1px solid rgba(245,166,35,0.2);
-      font-size: 11px;
-      font-weight: 600;
-      padding: 3px 10px;
-      border-radius: 20px;
-    }
-    .tag.blue { background: rgba(96,165,250,0.1); color: var(--blue); border-color: rgba(96,165,250,0.2); }
-    .tag.green { background: rgba(74,222,128,0.1); color: var(--green); border-color: rgba(74,222,128,0.2); }
-
-    /* TRENDS GRID */
-    .trends-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 16px;
-    }
-    .trend-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 20px;
-    }
-    .trend-icon {
-      font-size: 24px;
-      margin-bottom: 12px;
-    }
-    .trend-title {
-      font-size: 14px;
-      font-weight: 700;
-      margin-bottom: 8px;
-      color: var(--text-primary);
-    }
-    .trend-desc {
-      font-size: 13px;
-      color: var(--text-secondary);
-      line-height: 1.5;
-    }
-
-    /* STRATEGIES */
-    .strategy-item {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 20px 24px;
-      margin-bottom: 12px;
-      display: flex;
-      gap: 20px;
-      align-items: flex-start;
-    }
-    .strategy-num {
-      width: 36px;
-      height: 36px;
-      min-width: 36px;
-      background: var(--accent-dim);
-      color: var(--accent);
-      border: 1px solid rgba(245,166,35,0.3);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
-      font-size: 14px;
-    }
-    .strategy-content h3 {
-      font-size: 15px;
-      font-weight: 700;
-      margin-bottom: 6px;
-      color: var(--text-primary);
-    }
-    .strategy-content p {
-      font-size: 13px;
-      color: var(--text-secondary);
-      line-height: 1.6;
-    }
-
-    /* STATS BAR */
-    .stats-bar {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-      margin-bottom: 40px;
-    }
-    .stat-box {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 20px 16px;
-      text-align: center;
-    }
-    .stat-num {
-      font-size: 1.8rem;
-      font-weight: 800;
-      color: var(--accent);
-      line-height: 1;
-      margin-bottom: 6px;
-    }
-    .stat-label {
-      font-size: 12px;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    /* FOOTER */
-    footer {
-      border-top: 1px solid var(--border);
-      padding-top: 24px;
-      font-size: 12px;
-      color: var(--text-muted);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    @media (max-width: 600px) {
-      .stats-bar { grid-template-columns: repeat(2, 1fr); }
-      .card-header { flex-direction: column; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aurea Lead Report — Clínicas Costa Rica | 29 Abr 2026</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --card: #161b22;
+    --border: #30363d;
+    --accent: #58a6ff;
+    --accent2: #3fb950;
+    --accent3: #f0883e;
+    --text: #c9d1d9;
+    --muted: #8b949e;
+    --tag-bg: #1f2937;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; padding: 2rem; max-width: 1100px; margin: 0 auto; }
+  header { border-bottom: 1px solid var(--border); padding-bottom: 1.5rem; margin-bottom: 2rem; }
+  .badge { display: inline-block; background: var(--accent); color: #000; font-weight: 700; font-size: 0.75rem; padding: 2px 10px; border-radius: 12px; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem; }
+  h1 { font-size: 1.8rem; color: #fff; margin-bottom: 0.3rem; }
+  .subtitle { color: var(--muted); font-size: 0.9rem; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1.25rem; margin-bottom: 1.5rem; }
+  .card h2 { color: #fff; font-size: 1.1rem; margin-bottom: 1rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
+  .company { background: var(--tag-bg); border-radius: 6px; padding: 0.9rem 1rem; margin-bottom: 0.75rem; border-left: 3px solid var(--accent); }
+  .company:last-child { margin-bottom: 0; }
+  .company-name { color: #fff; font-weight: 600; font-size: 0.95rem; margin-bottom: 0.2rem; }
+  .company-detail { color: var(--muted); font-size: 0.82rem; }
+  .company-tags { margin-top: 0.4rem; }
+  .tag { display: inline-block; font-size: 0.7rem; padding: 1px 7px; border-radius: 4px; margin-right: 4px; font-weight: 600; }
+  .tag-medio { background: rgba(88,166,255,0.15); color: var(--accent); }
+  .tag-grande { background: rgba(63,185,80,0.15); color: var(--accent2); }
+  .tag-especialidad { background: rgba(240,136,62,0.15); color: var(--accent3); }
+  .contact-strategy { background: var(--tag-bg); border-radius: 6px; padding: 0.85rem 1rem; margin-bottom: 0.65rem; border-left: 3px solid var(--accent2); }
+  .contact-strategy:last-child { margin-bottom: 0; }
+  .strategy-title { color: #fff; font-weight: 600; font-size: 0.9rem; margin-bottom: 0.15rem; }
+  .strategy-desc { color: var(--muted); font-size: 0.8rem; }
+  .trend { display: flex; gap: 1rem; margin-bottom: 0.8rem; align-items: flex-start; }
+  .trend-icon { font-size: 1.4rem; flex-shrink: 0; }
+  .trend-text { font-size: 0.85rem; color: var(--text); }
+  .trend-title { color: #fff; font-weight: 600; font-size: 0.88rem; margin-bottom: 0.1rem; }
+  .meta { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 1.5rem; }
+  .meta-box { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; text-align: center; }
+  .meta-value { color: var(--accent); font-size: 1.6rem; font-weight: 700; }
+  .meta-label { color: var(--muted); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 0.2rem; }
+  .note { background: rgba(88,166,255,0.08); border: 1px solid rgba(88,166,255,0.2); border-radius: 6px; padding: 0.85rem 1rem; font-size: 0.82rem; color: var(--muted); margin-top: 1rem; }
+  .note strong { color: var(--accent); }
+  footer { margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.78rem; text-align: center; }
+</style>
 </head>
 <body>
-<div class="container">
 
-  <!-- HEADER -->
-  <header>
-    <div class="badge">Aurea Advertising · Lead Research</div>
-    <h1>Lead Report: Restaurantes Costa Rica</h1>
-    <p class="subtitle">Investigación horaria — oportunidades de marketing y publicidad en el sector gastronómico costarricense.</p>
-    <div class="meta">
-      <div class="meta-item"><strong>Fecha:</strong> Miércoles 29 de Abril, 2026</div>
-      <div class="meta-item"><strong>Nicho:</strong> Restaurantes y Cadenas de Comida</div>
-      <div class="meta-item"><strong>Hora:</strong> 17:06 UTC</div>
-      <div class="meta-item"><strong>Fuente:</strong> Tavily Web Search</div>
-    </div>
-  </header>
+<header>
+  <span class="badge">Reporte de Leads</span>
+  <h1>🎯 Clínicas y Hospitales Privados — Costa Rica</h1>
+  <p class="subtitle">Investigación de oportunidades de marketing digital para Aurea. Nicho: Salud / Clínicas. Fecha: 29 de abril de 2026, 12:00 CST.</p>
+</header>
 
-  <!-- STATS -->
-  <div class="stats-bar">
-    <div class="stat-box">
-      <div class="stat-num">7</div>
-      <div class="stat-label">Empresas identificadas</div>
-    </div>
-    <div class="stat-box">
-      <div class="stat-num">221</div>
-      <div class="stat-label">Franquicias en CR</div>
-    </div>
-    <div class="stat-box">
-      <div class="stat-num">577</div>
-      <div class="stat-label">Locales totales</div>
-    </div>
-    <div class="stat-box">
-      <div class="stat-num">400</div>
-      <div class="stat-label">Empleos 2026</div>
+<div class="meta">
+  <div class="meta-box">
+    <div class="meta-value">10</div>
+    <div class="meta-label">Empresas Identificadas</div>
+  </div>
+  <div class="meta-box">
+    <div class="meta-value">5</div>
+    <div class="meta-label">Estrategias de Contacto</div>
+  </div>
+  <div class="meta-box">
+    <div class="meta-value">6</div>
+    <div class="meta-label">Tendencias Clave</div>
+  </div>
+</div>
+
+<div class="grid">
+  <div>
+    <div class="card">
+      <h2>🏥 Empresas Identificadas</h2>
+
+      <div class="company">
+        <div class="company-name">Hospital Clínica Bíblica</div>
+        <div class="company-detail">📍 Santa Ana, San José &nbsp;|&nbsp; 📞 +506 4040 0808 &nbsp;|&nbsp; clinicabiblica.com</div>
+        <div class="company-detail">🏆 Mayor hospital privado de Costa Rica. Acreditación JCI. +90 años. Enfoque en turismo médico internacional.</div>
+        <div class="company-tags">
+          <span class="tag tag-grande">Hospital Grande</span>
+          <span class="tag tag-especialidad">JCI</span>
+          <span class="tag tag-medio">Marketing Activo</span>
+        </div>
+      </div>
+
+      <div class="company">
+        <div class="company-name">Hospital CIMA San José</div>
+        <div class="company-detail">📍 San José &nbsp;|&nbsp; hospitalcima.com</div>
+        <div class="company-detail">🏥 Más de 60 especialidades. JCI acreditado. Parte del grupo Clínica Bíblica/Hospital CIMA.</div>
+        <div class="company-tags">
+          <span class="tag tag-grande">Hospital Grande</span>
+          <span class="tag tag-especialidad">JCI</span>
+        </div>
+      </div>
+
+      <div class="company">
+        <div class="company-name">Hospital Internacional La Católica</div>
+        <div class="company-detail">📍 Costa Rica &nbsp;|&nbsp; hilc.cr</div>
+        <div class="company-detail">🏥 Red de clínicas con atención integral. Medicina empresarial.</div>
+        <div class="company-tags">
+          <span class="tag tag-grande">Hospital Grande</span>
+          <span class="tag tag-especialidad">Multi-sede</span>
+        </div>
+      </div>
+
+      <div class="company">
+        <div class="company-name">Hospital Metropolitano San José</div>
+        <div class="company-detail">📍 San José &nbsp;|&nbsp; Red de clínicas y consultorios asociados.</div>
+        <div class="company-detail">🏥 Clínica Obygin, Especialidades Santa Mónica y otros consultorios integrados.</div>
+        <div class="company-tags">
+          <span class="tag tag-medio">Clínica Mediana</span>
+          <span class="tag tag-especialidad">Multi-especialidad</span>
+        </div>
+      </div>
+
+      <div class="company">
+        <div class="company-name">Centro de Especialidades Médicas Alpha</div>
+        <div class="company-detail">📍 Costa Rica &nbsp;|&nbsp; Especialidades médicas integradas.</div>
+        <div class="company-tags">
+          <span class="tag tag-medio">Clínica Mediana</span>
+          <span class="tag tag-especialidad">Especialidades</span>
+        </div>
+      </div>
+
+      <div class="company">
+        <div class="company-name">Centro Médico DaLuz</div>
+        <div class="company-detail">📍 Costa Rica &nbsp;|&nbsp; Centro de Especialidades Médicas DaLuz.</div>
+        <div class="company-tags">
+          <span class="tag tag-medio">Clínica Mediana</span>
+        </div>
+      </div>
+
+      <div class="company">
+        <div class="company-name">Centro Dermatológico Estético Dr. Gamboa</div>
+        <div class="company-detail">📍 Costa Rica &nbsp;|&nbsp; Dermatología y estética.</div>
+        <div class="company-tags">
+          <span class="tag tag-especialidad">Especialidad</span>
+          <span class="tag tag-especialidad">Estética</span>
+        </div>
+      </div>
+
+      <div class="company">
+        <div class="company-name">Centro Digestivo Drs. Con — San Ramón</div>
+        <div class="company-detail">📍 San Ramón, Alajuela &nbsp;|&nbsp; Gastroenterología y digestivo.</div>
+        <div class="company-tags">
+          <span class="tag tag-especialidad">Especialidad</span>
+          <span class="tag tag-especialidad">Gastro</span>
+        </div>
+      </div>
+
+      <div class="company">
+        <div class="company-name">Centro Médico Atenas, Dra. Jeimy Mejías Castro</div>
+        <div class="company-detail">📍 Atenas, Alajuela &nbsp;|&nbsp; Atención médica integral.</div>
+        <div class="company-tags">
+          <span class="tag tag-medio">Clínica Pequeña</span>
+          <span class="tag tag-especialidad">Medicina General</span>
+        </div>
+      </div>
+
+      <div class="company">
+        <div class="company-name">Clínica de Rehabilitación Oral Pacheco</div>
+        <div class="company-detail">📍 Alajuela &nbsp;|&nbsp; Odontología y rehabilitación oral.</div>
+        <div class="company-tags">
+          <span class="tag tag-especialidad">Dental</span>
+          <span class="tag tag-especialidad">Estética Dental</span>
+        </div>
+      </div>
+
     </div>
   </div>
 
-  <!-- COMPANIES FOUND -->
-  <section>
-    <div class="section-title">🏢 Empresas Identificadas</div>
+  <div>
+    <div class="card">
+      <h2>📋 Estrategias de Contacto</h2>
 
-    <div class="company-card">
-      <div class="card-header">
-        <div>
-          <div class="company-name">KFC Costa Rica</div>
-          <div class="company-type">Cadena de comida rápida — Franquicia internacional</div>
-        </div>
+      <div class="contact-strategy">
+        <div class="strategy-title">1. Contacto vía LinkedIn — Eugenia Rodríguez (Neurobrand)</div>
+        <div class="strategy-desc">Neurobrand se especializa en marketing del sector médico en CR. Contactar a erodriguez@neurobrand.net o vía LinkedIn para propuesta de co-marketing o derivación.</div>
       </div>
-      <div class="contact-block">
-        <div class="contact-name">Isidro Perera</div>
-        <div class="contact-role">General Manager — cr.linkedin.com/in/isidro-perera-017207a</div>
-        <div class="contact-name" style="margin-top:10px">Carlos Álvarez Córdoba</div>
-        <div class="contact-role">Marketing Manager</div>
-        <div class="contact-name" style="margin-top:10px">Karla Artavia</div>
-        <div class="contact-role">Gerente de Marketing Digital</div>
+
+      <div class="contact-strategy">
+        <div class="strategy-title">2. Milthon Gutiérrez — Especialista en Publicidad Digital Clínicas</div>
+        <div class="strategy-desc">4 años manejando Meta y Google Ads exclusivamente para médicos y dentistas en Costa Rica. Potencial socio o referente para conocer el mercado desde adentro. LinkedIn.</div>
       </div>
-      <div class="tags">
-        <span class="tag">Expansión activa</span>
-        <span class="tag blue">7 nuevos restaurantes 2026</span>
-        <span class="tag green">Marketing digital</span>
+
+      <div class="contact-strategy">
+        <div class="strategy-title">3. Outreach directo a Hospital Clínica Bíblica</div>
+        <div class="strategy-desc">Abordar al departamento de mercadeo/corporativo. Enfoque: turismo médico internacional, posicionamiento en redes, contenido para pacientes internacionales. Site: clinicabiblica.com — Tel: +506 4040 0808.</div>
+      </div>
+
+      <div class="contact-strategy">
+        <div class="strategy-title">4. Agencias que ya sirven al sector salud (presentar diferenciación)</div>
+        <div class="strategy-desc">Blue Media, Caribamarketing, Coco Creativo, Estrategia Digital CR y Evox ya tienen presencia en el nicho. Aurea debe posicionar diferenciación clara (ROI, datos, creatividad) para robar share.</div>
+      </div>
+
+      <div class="contact-strategy">
+        <div class="strategy-title">5. Médico/Director de clínica pequeña vía directorio HuliHealth</div>
+        <div class="strategy-desc">Usar el directorio de HuliHealth (hulihealth.com) para identificar clínicas independientes. Contactar directamente al director médico o administrador. Enfoque: "primera consulta gratis" o "auditoría digital gratuita".</div>
       </div>
     </div>
 
-    <div class="company-card">
-      <div class="card-header">
+    <div class="card">
+      <h2>📈 Tendencias de Marketing en Salud 2026</h2>
+
+      <div class="trend">
+        <div class="trend-icon">🤖</div>
         <div>
-          <div class="company-name">Domino's Pizza Costa Rica</div>
-          <div class="company-type">Cadena de pizza — Franquicia internacional</div>
+          <div class="trend-title">Chatbots y Asistentes Virtuales en Salud</div>
+          <div class="trend-text">Respuesta inmediata 24/7 para agendar citas, resolver dudas previas a la consulta y derivar especialidades. Reduce carga operativa del personal.</div>
         </div>
       </div>
-      <div class="contact-block">
-        <div class="contact-name">Daniela Jiménez</div>
-        <div class="contact-role">Gerente de Operaciones</div>
-        <div class="contact-name" style="margin-top:10px">Gerencia de Mercadeo</div>
-        <div class="contact-role">13 restaurantes activos — nuevo local Food Mall Liberia y San Sebastián</div>
-      </div>
-      <div class="tags">
-        <span class="tag">Expansión confirmada 2026</span>
-        <span class="tag blue">20 puestos nuevos</span>
-        <span class="tag green">Delivery / digital</span>
-      </div>
-    </div>
 
-    <div class="company-card">
-      <div class="card-header">
+      <div class="trend">
+        <div class="trend-icon">🎥</div>
         <div>
-          <div class="company-name">Burger King Costa Rica</div>
-          <div class="company-type">Cadena de comida rápida — Franquicia internacional</div>
+          <div class="trend-title">Contenido de Vídeo para Salud</div>
+          <div class="trend-text">El vídeo demostrativo (procedimientos, testimonios de pacientes, tours de instalaciones) es el formato dominante en Instagram y TikTok médico en 2026.</div>
         </div>
       </div>
-      <div class="contact-block">
-        <div class="contact-name">Mario Jiménez</div>
-        <div class="contact-role">Gerente General</div>
-        <div class="contact-name" style="margin-top:10px">Vladimir Monestel</div>
-        <div class="contact-role">Director de Marketing — 45 restaurantes en el país</div>
-      </div>
-      <div class="tags">
-        <span class="tag">Nuevas aperturas 2026</span>
-        <span class="tag blue">Puntarenas + más zonas</span>
-        <span class="tag green">Branding</span>
-      </div>
-    </div>
 
-    <div class="company-card">
-      <div class="card-header">
+      <div class="trend">
+        <div class="trend-icon">🎯</div>
         <div>
-          <div class="company-name">Juan Valdez Café Costa Rica</div>
-          <div class="company-type">Cafetería — Franquicia colombiana</div>
+          <div class="trend-title">Audiencias Sintéticas / Testeo Pre-Campaña</div>
+          <div class="trend-text">Se usan audiencias simuladas para testear mensajes sensibles de salud antes de lanzamiento. Permite optimizar sin arriesgar reputacionalmente.</div>
         </div>
       </div>
-      <div class="contact-block">
-        <div class="contact-name">Alejandro Herrera</div>
-        <div class="contact-role">Gerente de Operaciones — 14 años en la marca</div>
-        <div class="contact-name" style="margin-top:10px">Eduardo Fonseca</div>
-        <div class="contact-role">Líder regional — 20 años experiencia</div>
-      </div>
-      <div class="tags">
-        <span class="tag">Expansión 2026</span>
-        <span class="tag green">200 nuevos colaboradores</span>
-        <span class="tag blue">Café / experiencia</span>
-      </div>
-    </div>
 
-    <div class="company-card">
-      <div class="card-header">
+      <div class="trend">
+        <div class="trend-icon">🩺</div>
         <div>
-          <div class="company-name">Restaurante Silvestre</div>
-          <div class="company-type">Fine dining costarricense — Mejor restaurante Costa Rica (Latin America's 50 Best)</div>
+          <div class="trend-title">Experiencia del Paciente como Eje Central</div>
+          <div class="trend-text">Las clínicas que invierten en experiencia del paciente (UX digital, reservas online, seguimiento post-consulta) tienen mejor retención y referrals. La tecnología al servicio de la cercanía.</div>
         </div>
       </div>
-      <div class="contact-block">
-        <div class="contact-name">Santiago Fernández Benedetto</div>
-        <div class="contact-role">Chef y Owner — cr.linkedin.com/in/santiago-fernandez-102b04151</div>
-        <div class="contact-detail">📍 Ave. 11 Calle 3A #955, Barrio Amón, San José</div>
-        <div class="contact-detail">🌐 restaurantesilvestre.com</div>
-      </div>
-      <div class="tags">
-        <span class="tag green">Premium / identidad</span>
-        <span class="tag blue">Gastro experiencias</span>
-        <span class="tag">Turismo gastronómico</span>
-      </div>
-    </div>
 
-    <div class="company-card">
-      <div class="card-header">
+      <div class="trend">
+        <div class="trend-icon">🌐</div>
         <div>
-          <div class="company-name">Hotel Grano de Oro — Restaurante</div>
-          <div class="company-type">Hotel boutique con restaurante fine dining</div>
+          <div class="trend-title">SEO Conversacional y Búsqueda por Voz</div>
+          <div class="trend-text">Los pacientes buscan con frases naturales ("mejor clínica dermatológica en San José"). Optimizar para intención de búsqueda local es crítico en 2026.</div>
         </div>
       </div>
-      <div class="contact-block">
-        <div class="contact-name">Francis Canal</div>
-        <div class="contact-role">Chef Ejecutivo</div>
-        <div class="contact-detail">📍 Calle 30, Avenida 2 y 4, San José</div>
-        <div class="contact-detail">📞 (506) 2255-3322 · info@hotelgranodeoro.com</div>
-      </div>
-      <div class="tags">
-        <span class="tag green">Fusión CR - Francesa</span>
-        <span class="tag blue">Cliente hotelero</span>
-      </div>
-    </div>
 
-    <div class="company-card">
-      <div class="card-header">
-        <div>
-          <div class="company-name">Olive Garden, IHOP, Applebee's Costa Rica</div>
-          <div class="company-type">Franquicias internacionales nuevas en el mercado costarricense</div>
-        </div>
-      </div>
-      <div class="contact-block">
-        <div class="contact-role">Aperturas durante 2025 — 1 local cada una. Fase de posicionamiento de marca.</div>
-      </div>
-      <div class="tags">
-        <span class="tag">Nuevas en CR</span>
-        <span class="tag blue">Alto potencial marketing</span>
-        <span class="tag green">Público familiar</span>
-      </div>
-    </div>
-
-  </section>
-
-  <!-- MARKET TRENDS -->
-  <section>
-    <div class="section-title">📊 Tendencias del Mercado 2026</div>
-    <div class="trends-grid">
-      <div class="trend-card">
-        <div class="trend-icon">🚀</div>
-        <div class="trend-title">Expansión masiva de franquicias</div>
-        <div class="trend-desc">KFC, Domino's, Burger King, Popeyes y Juan Valdez planean ~400 nuevos empleos y múltiples aperturas en 2026. Demanda alta de servicios de branding y marketing de aperturas.</div>
-      </div>
-      <div class="trend-card">
-        <div class="trend-icon">🍽️</div>
-        <div class="trend-title">Fine dining local en auge</div>
-        <div class="trend-desc">Restaurantes como Silvestre (Top 50 América Latina) impulsan la escena gastronomey local. El mercado busca experiencias auténticas costarricenses con técnica internacional.</div>
-      </div>
-      <div class="trend-card">
-        <div class="trend-icon">📱</div>
-        <div class="trend-title">Delivery y digital first</div>
-        <div class="trend-desc">Domino's y otras cadenas priorizan canales digitales. La inversión en advertising en redes sociales, Google Ads y campañas de delivery es prioridad para 2026.</div>
-      </div>
-      <div class="trend-card">
-        <div class="trend-icon">🌿</div>
-        <div class="trend-title">Sostenibilidad como diferenciador</div>
-        <div class="trend-desc">Silvestre y Grano de Oro lideran con ingredientes locales, orgánicos y prácticas sostenibles. Los restaurantes premium usan esto como eje de su comunicación de marca.</div>
-      </div>
-      <div class="trend-card">
-        <div class="trend-icon">🎨</div>
-        <div class="trend-title">Nuevas marcas internacionales</div>
-        <div class="trend-desc">Olive Garden, IHOP y Applebee's acaban de entrar a Costa Rica (2025). Están en fase de posicionamiento y buscan agencias para construir awareness local.</div>
-      </div>
-      <div class="trend-card">
+      <div class="trend">
         <div class="trend-icon">👥</div>
-        <div class="trend-title">Turismo gastronómico en crecimiento</div>
-        <div class="trend-desc">Costa Rica es destino cada vez más atractivo para foodies. Los restaurantes fine dining tienen público internacional y necesitan marketing dirigido a turistas y residentes extranjeros.</div>
+        <div>
+          <div class="trend-title">Marketing B2B + B2C para Clínicas</div>
+          <div class="trend-text">Doble estrategia: atraer pacientes finales (B2C) y simultáneamente posicionarse ante empresas que ofrecen seguros de salud (B2B). Medicina empresarial como nuevo canal.</div>
+        </div>
       </div>
+
     </div>
-  </section>
-
-  <!-- CONTACT STRATEGIES -->
-  <section>
-    <div class="section-title">🎯 Estrategias de Contacto</div>
-
-    <div class="strategy-item">
-      <div class="strategy-num">1</div>
-      <div class="strategy-content">
-        <h3>LinkedIn InMail a decision makers de franquicias</h3>
-        <p>Isidro Perera (KFC), Mario Jiménez (BK), Daniela Jiménez (Domino's) y Vladimir Monestel (BK Mkt) tienen perfiles activos. InMail personalizado mencionando sus planes de expansión 2026 y cómo Aurea puede apoyar su crecimiento.</p>
-      </div>
-    </div>
-
-    <div class="strategy-item">
-      <div class="strategy-num">2</div>
-      <div class="strategy-content">
-        <h3>Pitch de apertura de restaurantes para cadenas</h3>
-        <p>Todas las cadenas tienen aperturas nuevas confirmadas. Ofrecer servicios de launch marketing: campañas de apertura, community management local, Google Maps optimization para los nuevos puntos de venta.</p>
-      </div>
-    </div>
-
-    <div class="strategy-item">
-      <div class="strategy-num">3</div>
-      <div class="strategy-content">
-        <h3>Contacto directo a Silvestre y Grano de Oro</h3>
-        <p>Chef Santiago Fernández Benedetto tiene LinkedIn activo y restaurant website con formulario de contacto. Pitch enfocado en posicionamiento internacional, turismo gastronómico y experiencias para redes sociales.</p>
-      </div>
-    </div>
-
-    <div class="strategy-item">
-      <div class="strategy-num">4</div>
-      <div class="strategy-content">
-        <h3>Pitch a nuevas franquicias (Olive Garden, IHOP, Applebee's)</h3>
-        <p>Marcas nuevas en Costa Rica que no tienen agencia local consolidada. Oportunidad de presentar propuesta integral de marketing desde cero antes de que firmen con competencia.</p>
-      </div>
-    </div>
-
-    <div class="strategy-item">
-      <div class="strategy-num">5</div>
-      <div class="strategy-content">
-        <h3>Evento / desayuno de networking gastronómico</h3>
-        <p>Organizar un evento en San José para propietarios y gerentes de restaurantes locales (no franquicias). Invitar a Chef Santiago y otros actores clave del ecosistema fine dining. Usar el evento como lead magnet para contactos directos.</p>
-      </div>
-    </div>
-
-    <div class="strategy-item">
-      <div class="strategy-num">6</div>
-      <div class="strategy-content">
-        <h3>Email marketing sectorial</h3>
-        <p>Construir una base de datos con info@hotelgranodeoro.com y cuentas de contacto de los restaurantes identificados. Enviar contenido de valor (benchmark de marketing gastronómico en LATAM) como primer touchpoint.</p>
-      </div>
-    </div>
-
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <span>Reporte generado automáticamente por agente AUREA · 29/04/2026 · 17:06 UTC</span>
-    <span>Próx. nicho rotación: Clínicas</span>
-  </footer>
-
+  </div>
 </div>
+
+<div class="card">
+  <h2>🎯 Próximos Pasos Sugeridos para Aurea</h2>
+  <div class="note">
+    <strong>1.</strong> Priorizar contacto con Hospital Clínica Bíblica y Hospital CIMA — mayor presupuesto disponible y necesidad de diferenciación ante turismo médico.<br>
+    <strong>2.</strong> Explorar alianza con Neurobrand para acceder a su cartera de clientes del sector salud en CR.<br>
+    <strong>3.</strong> Desarrollar caso de estudio / auditoría digital gratuita dirigida a una especialidad médica específica (ej: dental o dermatología) para generar evidencia de valor.<br>
+    <strong>4.</strong> Rotación de nicho recomendada para próxima semana: <strong>Ecommerce</strong>.
+  </div>
+</div>
+
+<footer>
+  Reporte generado automáticamente por Aurea Lead Research Agent · Logos (MiniMax M2.7-highspeed) · 29/abr/2026 12:00 CST<br>
+  Repo: intel-reports · Archivo: aurea-leads-2026-04-29.html
+</footer>
+
 </body>
 </html>
