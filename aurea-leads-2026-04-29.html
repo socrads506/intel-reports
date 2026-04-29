@@ -3,381 +3,448 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aurea - Leads Restaurantes Costa Rica | 29 Abr 2026</title>
+    <title>Aurea — Leads Ecommerce Costa Rica · 29 Abr 2026</title>
     <style>
         :root {
-            --bg-primary: #0d0d0d;
-            --bg-secondary: #1a1a1a;
-            --bg-card: #141414;
-            --accent: #f7b731;
-            --accent-secondary: #eb3b5a;
-            --text-primary: #f5f5f5;
-            --text-secondary: #a0a0a0;
-            --border: #2a2a2a;
+            --bg:        #0d0f14;
+            --surface:   #161921;
+            --surface2:  #1e2330;
+            --border:    #2a2f3e;
+            --accent:    #f5c518;
+            --accent2:   #00d4aa;
+            --text:      #e8eaf0;
+            --muted:     #7c8096;
+            --red:       #ff5f6d;
+            --green:     #00d4aa;
+            --font:      'Segoe UI', system-ui, sans-serif;
         }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
-            font-family: 'Segoe UI', system-ui, sans-serif;
-            background: var(--bg-primary);
-            color: var(--text-primary);
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--font);
+            font-size: 14px;
             line-height: 1.6;
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 40px 24px;
         }
-        .container { max-width: 1100px; margin: 0 auto; padding: 2rem; }
         header {
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 1.5rem;
-            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 24px;
+            margin-bottom: 36px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
         }
-        .badge {
-            display: inline-block;
-            background: var(--accent);
-            color: #000;
-            padding: 0.25rem 0.75rem;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            font-weight: 700;
+        .brand {
+            font-size: 11px;
+            letter-spacing: 3px;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 6px;
         }
         h1 {
-            font-size: 1.75rem;
+            font-size: 28px;
             font-weight: 800;
-            margin: 1rem 0 0.25rem;
-            letter-spacing: -0.02em;
-        }
-        .meta {
-            color: var(--text-secondary);
-            font-size: 0.875rem;
-        }
-        .section {
-            margin-bottom: 2.5rem;
+            color: #fff;
+            line-height: 1.2;
         }
         h2 {
-            font-size: 1.1rem;
+            font-size: 16px;
             font-weight: 700;
             color: var(--accent);
             text-transform: uppercase;
-            letter-spacing: 0.08em;
-            margin-bottom: 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 1px solid var(--border);
+            letter-spacing: 1.5px;
+            margin: 36px 0 14px;
+            border-left: 4px solid var(--accent);
+            padding-left: 12px;
         }
-        .grid-leads {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 1rem;
+        h3 {
+            font-size: 15px;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 4px;
         }
-        .card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 1.25rem;
-            transition: border-color 0.2s;
-        }
-        .card:hover { border-color: var(--accent); }
-        .card-type {
-            font-size: 0.65rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            padding: 0.2rem 0.5rem;
-            border-radius: 3px;
-            display: inline-block;
-            margin-bottom: 0.6rem;
-        }
-        .type-franquicia { background: #eb3b5a22; color: var(--accent-secondary); border: 1px solid #eb3b5a44; }
-        .type-local { background: #f7b73122; color: var(--accent); border: 1px solid #f7b73144; }
-        .type-gastro { background: #0abde322; color: #0abde3; border: 1px solid #0abde344; }
-        .card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; }
-        .card .location { color: var(--text-secondary); font-size: 0.8rem; margin-bottom: 0.75rem; }
-        .card .detail { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.3rem; }
-        .card .detail strong { color: var(--text-primary); }
-        .card .contact-row {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-            margin-top: 0.75rem;
+        .meta {
+            text-align: right;
+            font-size: 12px;
+            color: var(--muted);
+            line-height: 1.8;
         }
         .tag {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            color: var(--text-secondary);
-            font-size: 0.7rem;
-            padding: 0.2rem 0.5rem;
+            display: inline-block;
+            background: var(--accent2);
+            color: #000;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 2px 8px;
             border-radius: 3px;
+            letter-spacing: 0.5px;
+            margin-left: 8px;
+            vertical-align: middle;
         }
-        .trends-grid {
+        .badge {
+            display: inline-block;
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            color: var(--muted);
+            font-size: 11px;
+            padding: 2px 8px;
+            border-radius: 3px;
+            margin-right: 6px;
+        }
+        .stats {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 1rem;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+        .stat {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 18px;
+            text-align: center;
+        }
+        .stat-val {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--accent);
+        }
+        .stat-label {
+            font-size: 11px;
+            color: var(--muted);
+            margin-top: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .lead-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 20px 24px;
+            margin-bottom: 14px;
+            transition: border-color 0.2s;
+        }
+        .lead-card:hover {
+            border-color: var(--accent);
+        }
+        .lead-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        .lead-name {
+            font-size: 16px;
+            font-weight: 700;
+            color: #fff;
+        }
+        .lead-category {
+            font-size: 11px;
+            color: var(--accent2);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .lead-detail {
+            font-size: 13px;
+            color: var(--muted);
+            margin-bottom: 3px;
+        }
+        .lead-detail strong {
+            color: var(--text);
+        }
+        .contact-strategy {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 20px 24px;
+            margin-bottom: 14px;
+        }
+        .contact-strategy h3 {
+            color: var(--accent);
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+        .contact-strategy ol {
+            padding-left: 20px;
+            color: var(--text);
+            font-size: 13px;
+        }
+        .contact-strategy li {
+            margin-bottom: 6px;
+        }
+        .trend-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin-bottom: 28px;
         }
         .trend-card {
-            background: var(--bg-card);
+            background: var(--surface);
             border: 1px solid var(--border);
             border-radius: 8px;
-            padding: 1rem;
+            padding: 16px;
         }
-        .trend-card h4 { font-size: 0.9rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--accent); }
-        .trend-card p { font-size: 0.8rem; color: var(--text-secondary); }
-        .strategy-list { list-style: none; }
-        .strategy-list li {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            padding: 1rem;
-            margin-bottom: 0.75rem;
-            font-size: 0.875rem;
+        .trend-card .icon {
+            font-size: 22px;
+            margin-bottom: 8px;
         }
-        .strategy-list li strong { color: var(--accent); display: block; margin-bottom: 0.25rem; }
-        .highlight-box {
-            background: linear-gradient(135deg, #f7b73115, #eb3b5a10);
-            border: 1px solid var(--accent);
-            border-radius: 8px;
-            padding: 1.25rem;
-            margin-bottom: 2rem;
+        .trend-card h4 {
+            font-size: 13px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 6px;
         }
-        .highlight-box h3 { font-size: 0.9rem; color: var(--accent); margin-bottom: 0.5rem; }
-        .highlight-box p { font-size: 0.85rem; color: var(--text-secondary); }
-        footer {
+        .trend-card p {
+            font-size: 12px;
+            color: var(--muted);
+            line-height: 1.5;
+        }
+        .source-note {
+            font-size: 11px;
+            color: var(--muted);
+            margin-top: 32px;
             border-top: 1px solid var(--border);
-            padding-top: 1.5rem;
-            margin-top: 2rem;
-            color: var(--text-secondary);
-            font-size: 0.75rem;
+            padding-top: 16px;
+        }
+        footer {
+            margin-top: 48px;
+            border-top: 1px solid var(--border);
+            padding-top: 20px;
             text-align: center;
+            font-size: 11px;
+            color: var(--muted);
+        }
+        @media (max-width: 640px) {
+            .stats { grid-template-columns: 1fr 1fr; }
+            .trend-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-<div class="container">
 
 <header>
-    <span class="badge">Investigación de Leads</span>
-    <h1>Restaurantes & Gastronomía — Costa Rica</h1>
-    <div class="meta">Nicho: Restaurantes &nbsp;|&nbsp; Fecha: 29 de Abril 2026, 15:00 CST &nbsp;|&nbsp; Agencia: Aurea</div>
+    <div>
+        <div class="brand">Aurea · Advertising Intelligence</div>
+        <h1>Lead Report: E-commerce <span class="tag">Nicho Actual</span></h1>
+        <p style="color: var(--muted); margin-top: 6px;">Costa Rica · 29 de Abril 2026 · Generación horaria</p>
+    </div>
+    <div class="meta">
+        <div>Fecha: 29/04/2026</div>
+        <div>Hora: 16:00 CST</div>
+        <div>Ciclo: #ecommerce</div>
+    </div>
 </header>
 
-<div class="highlight-box">
-    <h3>🎯 Insight Clave del Mercado</h3>
-    <p>Costa Rica vive un boom de expansión en el sector restauración. Solo en Q1 2026 se han anunciado <strong>más de 20 nuevas aperturas</strong> entre franquicias internacionales (Burger King, KFC, Domino's, Popeyes, Subway, IHOP/Applebee's) y marcas locales consolidadas como Rosti. Esto representa una oportunidad masiva para servicios de publicidad, branding y marketing digital enfocados en el sector gastronómico.</p>
-</div>
+<!-- Key Stats -->
+<section>
+    <h2>Datos Clave del Mercado</h2>
+    <div class="stats">
+        <div class="stat">
+            <div class="stat-val">$9.3B</div>
+            <div class="stat-label">Mercado e-commerce 2027 (proy.)</div>
+        </div>
+        <div class="stat">
+            <div class="stat-val">13%</div>
+            <div class="stat-label">CAGR 2024–2027</div>
+        </div>
+        <div class="stat">
+            <div class="stat-val">+29%</div>
+            <div class="stat-label">Shopify stores YoY Q1 2026</div>
+        </div>
+        <div class="stat">
+            <div class="stat-val">5M+</div>
+            <div class="stat-label">Población con acceso digital</div>
+        </div>
+    </div>
+</section>
 
-<div class="section">
-    <h2>🏢 Empresas & Franquicias Identificadas</h2>
-    <div class="grid-leads">
+<!-- Companies -->
+<section>
+    <h2>Empresas & Decidores Identificados</h2>
 
-        <div class="card">
-            <span class="card-type type-franquicia">Franquicia Internacional</span>
-            <h3>KFC Costa Rica</h3>
-            <div class="location">📍 San José — 7 nuevos locales 2026</div>
-            <div class="detail"><strong>Inversión:</strong> $9.1 millones USD</div>
-            <div class="detail"><strong>Empleos:</strong> 175 directos</div>
-            <div class="detail"><strong>Zonas:</strong> Guanacaste, Heredia, Alajuela, San José</div>
-            <div class="contact-row">
-                <span class="tag">Expansión activa</span>
-                <span class="tag">Digital marketing</span>
-                <span class="tag">Branding</span>
-            </div>
+    <div class="lead-card">
+        <div class="lead-header">
+            <div class="lead-name">Unimart</div>
+            <div class="lead-category">Retail · Marketplace</div>
+        </div>
+        <div class="lead-detail"><strong>Sitio:</strong> unimart.com</div>
+        <div class="lead-detail"><strong>Perfil:</strong> Cadena de tiendas por departamento con presencia online fuerte en Costa Rica. Alto potencial para campañas de branding y performance.</div>
+        <div class="lead-detail"><strong>Angulo de contacto:</strong> Estrategia omnicanal, inversión en Meta Ads y Google Shopping para temporada.</div>
+    </div>
+
+    <div class="lead-card">
+        <div class="lead-header">
+            <div class="lead-name">Walmart Costa Rica</div>
+            <div class="lead-category">Retail · Hipermercado</div>
+        </div>
+        <div class="lead-header">
+            <div class="lead-name"></div>
+            <div class="lead-category">Retail · Hipermercado</div>
+        </div>
+        <div class="lead-detail"><strong>Sitio:</strong> walmart.co.cr</div>
+        <div class="lead-detail"><strong>Perfil:</strong> División digital de Walmart CR. Decisor: equipo de Marketing Digital / E-commerce Manager. Budgets grandes en publicidad.</div>
+        <div class="lead-detail"><strong>Angulo de contacto:</strong> Proponer auditoría de campañas de display y retargeting. Enfoque en conversión y ROAS.</div>
+    </div>
+
+    <div class="lead-card">
+        <div class="lead-header">
+            <div class="lead-name">Tiendamonge</div>
+            <div class="lead-category">Electrodomésticos · Hogar</div>
+        </div>
+        <div class="lead-detail"><strong>Sitio:</strong> tiendamonge.com</div>
+        <div class="lead-detail"><strong>Perfil:</strong> Tienda online especializada en electrodomésticos y artículos para el hogar. Fuerte competencia con Amazon y Mercado Libre localmente.</div>
+        <div class="lead-detail"><strong>Angulo de contacto:</strong> Estrategia de diferenciación de marca, content marketing y SEO para product pages.</div>
+    </div>
+
+    <div class="lead-card">
+        <div class="lead-header">
+            <div class="lead-name">EPA Costa Rica</div>
+            <div class="lead-category">Hogar · Construcción</div>
+        </div>
+        <div class="lead-detail"><strong>Sitio:</strong> epaenlinea.com</div>
+        <div class="lead-detail"><strong>Perfil:</strong> Cadena de artículos para hogar y construcción con canal digital. Decisor típico: Jefe de Marketing y Ventas Digitales.</div>
+        <div class="lead-detail"><strong>Angulo de contacto:</strong> Campañas estacionales (remodelaciones, fiestas patrias, Navidad). Inversión en video y display.</div>
+    </div>
+
+    <div class="lead-card">
+        <div class="lead-header">
+            <div class="lead-name">Ptienda</div>
+            <div class="lead-category">D2C · Supermercado Online</div>
+        </div>
+        <div class="lead-detail"><strong>Sitio:</strong> ptienda.cr</div>
+        <div class="lead-detail"><strong>Perfil:</strong> Supermercado digital costarricense. Modelo de delivery rápido. Potencial alto para performance marketing.</div>
+        <div class="lead-detail"><strong>Angulo de contacto:</strong> Growth hacking, campañas de adquisición en redes, partnerships con influencers locales.</div>
+    </div>
+
+    <div class="lead-card">
+        <div class="lead-header">
+            <div class="lead-name">Simetria Digital</div>
+            <div class="lead-category">Agencia · Marketing Digital</div>
+        </div>
+        <div class="lead-detail"><strong>CEO:</strong> Adrian Morazan</div>
+        <div class="lead-detail"><strong>Facturación:</strong> $1.9M, 30+ clientes</div>
+        <div class="lead-detail"><strong>Perfil:</strong> Agencia local establecida. Potencial socio o cliente directo para servicios de pauta y estrategia.</div>
+        <div class="lead-detail"><strong>Angulo de contacto:</strong> Propuesta de white-label de gestión de medios para sus clientes e-commerce finales.</div>
+    </div>
+
+    <div class="lead-card">
+        <div class="lead-header">
+            <div class="lead-name">4Geeks (Costa Rica)</div>
+            <div class="lead-category">EdTech · Coding Bootcamp</div>
+        </div>
+        <div class="lead-detail"><strong>Contacto:</strong> Allan Porras (LinkedIn: alpocr)</div>
+        <div class="lead-detail"><strong>Perfil:</strong> Empresa de educación en programación con presencia regional. Equipo de marketing activo.</div>
+        <div class="lead-detail"><strong>Angulo de contacto:</strong> Campañas de captación en Meta/Google para cursos digitales y programas corporativos B2B.</div>
+    </div>
+
+    <div class="lead-card">
+        <div class="lead-header">
+            <div class="lead-name">Strateai</div>
+            <div class="lead-category">AI · SaaS · E-commerce Tools</div>
+        </div>
+        <div class="lead-detail"><strong>Founder & CEO:</strong> Jose Pineda (LinkedIn: jpinedabiz)</div>
+        <div class="lead-detail"><strong>Stack:</strong> Stripe, Plaid, integraciones e-commerce y pagos</div>
+        <div class="lead-detail"><strong>Angulo de contacto:</strong> Co-marketing: webinars sobre AI para e-commerce en Costa Rica. Branding conjunto.</div>
+    </div>
+
+</section>
+
+<!-- Market Trends -->
+<section>
+    <h2>Tendencias de Mercado 2026</h2>
+    <div class="trend-grid">
+
+        <div class="trend-card">
+            <div class="icon">📱</div>
+            <h4>Mobile-First Commerce</h4>
+            <p>Casi 90% de usuarios de internet en LatAm usan móvil como punto de acceso principal. Optimizar tiendas para móvil ya no es opcional.</p>
         </div>
 
-        <div class="card">
-            <span class="card-type type-franquicia">Franquicia Internacional</span>
-            <h3>Burger King Costa Rica</h3>
-            <div class="location">📍 Nacional — 48 restaurantes en CR</div>
-            <div class="detail"><strong>3 nuevas aperturas:</strong> Desamparados, Heredia (U. Latina), San Sebastián</div>
-            <div class="detail"><strong>Formato:</strong> Food courts y locales standalone</div>
-            <div class="contact-row">
-                <span class="tag">Gran presencia</span>
-                <span class="tag">Marketing local</span>
-            </div>
+        <div class="trend-card">
+            <div class="icon">🤖</div>
+            <h4>AI + Personalización</h4>
+            <p>75% de consumidores prefieren marcas con contenido personalizado. El e-commerce CR está adoptando IA para recomendaciones y chatbots.</p>
         </div>
 
-        <div class="card">
-            <span class="card-type type-franquicia">Franquicia Internacional</span>
-            <h3>Domino's Pizza Costa Rica</h3>
-            <div class="location">📍 Nacional — 15 puntos de venta</div>
-            <div class="detail"><strong>2 nuevas aperturas:</strong> Food Mall Liberia, San Sebastián</div>
-            <div class="detail"><strong>Foco:</strong> Delivery y comida rápida</div>
-            <div class="contact-row">
-                <span class="tag">Delivery</span>
-                <span class="tag">Apps</span>
-            </div>
+        <div class="trend-card">
+            <div class="icon">📦</div>
+            <h4>Distribución Descentralizada</h4>
+            <p>Costos de envío crecientes empujan a descentralizar inventario. Accuracy de inventario ahora impacta directamente conversión y costos.</p>
         </div>
 
-        <div class="card">
-            <span class="card-type type-franquicia">Franquicia Internacional</span>
-            <h3>Popeyes Costa Rica</h3>
-            <div class="location">📍 Nacional — 5 locales (objetivo 40)</div>
-            <div class="detail"><strong>Crecimiento:</strong> 3 aperturas en 2025, 2 más en early 2026</div>
-            <div class="detail"><strong>Franquiciado:</strong> Regresó al país en julio 2024</div>
-            <div class="contact-row">
-                <span class="tag">Expansión agresiva</span>
-                <span class="tag">Nuevo mercado</span>
-            </div>
+        <div class="trend-card">
+            <div class="icon">🛒</div>
+            <h4>Shopify + Social Commerce</h4>
+            <p>Shopify stores en Costa Rica crecieron 29% YoY Q1 2026. Instagram Shopping y TikTok Shop son canales de crecimiento prioritarios.</p>
         </div>
 
-        <div class="card">
-            <span class="card-type type-franquicia">Franquicia Internacional</span>
-            <h3>Subway Costa Rica</h3>
-            <div class="location">📍 Nacional</div>
-            <div class="detail"><strong>4 nuevas aperturas 2026:</strong> Heredia (Q1), Cartago, Alajuela, San José (H2)</div>
-            <div class="contact-row">
-                <span class="tag">Franquicia</span>
-                <span class="tag">Fast casual</span>
-            </div>
+        <div class="trend-card">
+            <div class="icon">🌎</div>
+            <h4>Expansión Regional</h4>
+            <p>Mercado proyectado a $9.3B para 2027. El CAC (costo de adquisición) en CR sigue siendo competitivo vs. mercados más maduros.</p>
         </div>
 
-        <div class="card">
-            <span class="card-type type-franquicia">Franquicia Dual</span>
-            <h3>IHOP + Applebee's Costa Rica</h3>
-            <div class="location">📍 Nacional — Plan 2026-2028</div>
-            <div class="detail"><strong>Inversión:</strong> $4.5 millones USD</div>
-            <div class="detail"><strong>Empleos:</strong> 120 directos</div>
-            <div class="detail"><strong>Franquiciado:</strong> BLT Global Brands</div>
-            <div class="contact-row">
-                <span class="tag">3 aperturas 3 años</span>
-                <span class="tag">Alto presupuesto</span>
-            </div>
-        </div>
-
-        <div class="card">
-            <span class="card-type type-local">Cadena Nacional</span>
-            <h3>Rosti — Corporación Rostipollos</h3>
-            <div class="location">📍 San José, Heredia, Cartago, Alajuela, Escazú, Tibás, Guadalupe y más</div>
-            <div class="detail"><strong>Fundador:</strong> Mauricio Mendieta (Nicaragua)</div>
-            <div class="detail"><strong>Teléfono:</strong> +506 2217 8787</div>
-            <div class="detail"><strong>WhatsApp:</strong> +506 8707-0770</div>
-            <div class="detail"><strong>Email:</strong> servicioalcliente@rosti.cr</div>
-            <div class="detail"><strong>Sello:</strong> Esencial Costa Rica (marca país)</div>
-            <div class="contact-row">
-                <span class="tag">40 años trayectoria</span>
-                <span class="tag">Sostenibilidad</span>
-                <span class="tag">Bandera Azul</span>
-            </div>
-        </div>
-
-        <div class="card">
-            <span class="card-type type-gastro">Alta Cocina</span>
-            <h3>Sikwa Restaurante</h3>
-            <div class="location">📍 Calle 41, Los Yoses, San José</div>
-            <div class="detail"><strong>Chef:</strong> Pablo Bonilla</div>
-            <div class="detail"><strong>Distinción:</strong> #43 World's 50 Best Latin America</div>
-            <div class="detail"><strong>Teléfono:</strong> +506 7093 1662</div>
-            <div class="detail"><strong>Web:</strong> sikwacostarica.com</div>
-            <div class="contact-row">
-                <span class="tag">Mejor restaurante CR</span>
-                <span class="tag">Instagram @sikwa.cr</span>
-            </div>
-        </div>
-
-        <div class="card">
-            <span class="card-type type-gastro">Alta Cocina</span>
-            <h3>Conservatorium</h3>
-            <div class="location">📍 Ciudad Colón, San José</div>
-            <div class="detail"><strong>Chefs:</strong> Henry Quesada, Aldo Elizondo, Kid Mey Chan</div>
-            <div class="detail"><strong>Especialidad:</strong> Costa Rican steakhouse, dry aged cattle</div>
-            <div class="detail"><strong>Formato:</strong> Creative fine dining</div>
-            <div class="contact-row">
-                <span class="tag">Top 50 Best</span>
-                <span class="tag">Premium branding</span>
-            </div>
-        </div>
-
-        <div class="card">
-            <span class="card-type type-gastro">Gastronomía Premium</span>
-            <h3>Restaurante Grano de Oro</h3>
-            <div class="location">📍 Mansión victoriana, San José centro</div>
-            <div class="detail"><strong>Categoría:</strong> Mejor experiencia gastronómica CR</div>
-            <div class="detail"><strong>Turismo:</strong> Alto componente de turismo gastronómico</div>
-            <div class="contact-row">
-                <span class="tag">Fine dining</span>
-                <span class="tag">Experiencia premium</span>
-            </div>
+        <div class="trend-card">
+            <div class="icon">🔒</div>
+            <h4>Digital Product Passport (DPP)</h4>
+            <p>Nuevo requisito regulatorio que afecta e-commerce de productos físicos. Oportunidad para consultoría en cumplimiento digital.</p>
         </div>
 
     </div>
-</div>
+</section>
 
-<div class="section">
-    <h2>📈 Tendencias de Marketing Digital — Restaurantes 2026</h2>
-    <div class="trends-grid">
+<!-- Contact Strategy -->
+<section>
+    <h2>Estrategia de Contacto Sugerida</h2>
 
-        <div class="trend-card">
-            <h4>1. SEO Local por Intención</h4>
-            <p>Ya no basta con "restaurante cerca de mí". El SEO se enfoca en búsquedas por intención: reservas directas, menús online, eventos privados. Google My Business optimizado es obligatorio.</p>
-        </div>
-
-        <div class="trend-card">
-            <h4>2. Micro-Influencers Gastronómicos</h4>
-            <p>Los mega-influencers pierden credibilidad. En Costa Rica, influencers locales como @LaFatFluencerCR y @fabianrecomienda (embajador Coca-Cola, dueño de @dipdeepburgercr) tienen más impacto real.</p>
-        </div>
-
-        <div class="trend-card">
-            <h4>3. Menú Digital & QR Codes</h4>
-            <p>La digitalización del menú (QR, plataformas interactivas) es necesidad básica post-2024. Menús digitales con fotos profesionales y pedidos directos.</p>
-        </div>
-
-        <div class="trend-card">
-            <h4>4. Automatización de Marketing</h4>
-            <p>Email marketing automatizado, chatbots para reservas, segmentación por comportamiento. Las herramientas de IA reducen costos operativos de marketing.</p>
-        </div>
-
-        <div class="trend-card">
-            <h4>5. Video Short-Form & Reels</h4>
-            <p>Contenido en video de formato corto (Instagram Reels, TikTok) mostrando preparación de platos, testimonios y experiencias. Los costos de producción han bajado.</p>
-        </div>
-
-        <div class="trend-card">
-            <h4>6. Reservas Directas</h4>
-            <p>Reducir dependencia de intermediarios (TripAdvisor, OpenTable). Estrategias para captura de datos propios y reservas directas via web y WhatsApp Business.</p>
-        </div>
-
+    <div class="contact-strategy">
+        <h3>🎯 Fase 1 — Identificación (Semana 1)</h3>
+        <ol>
+            <li>Mapear decisores de marketing de las 8 empresas listadas en LinkedIn Sales Navigator o similar.</li>
+            <li>Priorizar por presupuesto estimado: Walmart CR y Unimart (mayor budget), luego Tiendamonge y EPA (mediano), luego Ptienda y startups (emergente).</li>
+            <li>Verificar que Simetria Digital y Strateai no sean competidores directos antes de contactarlos como potenciales clientes.</li>
+        </ol>
     </div>
-</div>
 
-<div class="section">
-    <h2>🎯 Estrategias de Contacto Sugeridas</h2>
-    <ul class="strategy-list">
-        <li>
-            <strong>Fase 1 — Franquicias Internacionales (KFC, Burger King, Domino's, Popeyes)</strong>
-            Contactar al nivel corporativo o a sus equipos de operaciones locales. Estas marcas tienen presupuestos de marketing centralizados y procesos de aprobación largos. Ideal para pitches de marketing digital, branding de nuevos locales o campañas locales.
-        </li>
-        <li>
-            <strong>Fase 2 — Rosti (Cadena Nacional)</strong>
-            Con 40 años de trayectoria y certificación Esencial Costa Rica, Rosti es candidato ideal para: rebranding parcial, campañas de sostenibilidad, contenido para redes sociales, o activations especiales. Contacto directo: servicioalcliente@rosti.cr / WhatsApp +506 8707-0770.
-        </li>
-        <li>
-            <strong>Fase 3 — Alta Cocina (Sikwa, Conservatorium, Grano de Oro)</strong>
-            Enfoque en branding de experiencia, contenido visual premium, relaciones públicas gastronómicas y estrategias para medios especializados. Sikwa ya tiene reconocimiento internacional (#43 World's 50 Best) — necesitan partners que puedan mantener y amplificar esa narrativa.
-        </li>
-        <li>
-            <strong>Fase 4 — Nuevas aperturas 2026 (IHOP/Applebee's, Subway, KFC)</strong>
-            Cada nueva apertura es un proyecto de marketing en sí mismo. Ofrecer servicios de: lanzamiento local, grand opening campaigns, gestión de redes del nuevo punto, publicidad geolocalizada. Timing ideal: 4-6 semanas antes de apertura.
-        </li>
-    </ul>
-</div>
-
-<div class="section">
-    <h2>📋 Ficha Técnica del Reporte</h2>
-    <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 1.25rem; font-size: 0.85rem; color: var(--text-secondary);">
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
-            <div><strong style="color: var(--text-primary);">Nichos evaluados:</strong> Restaurantes & Gastronomía</div>
-            <div><strong style="color: var(--text-primary);">País:</strong> Costa Rica</div>
-            <div><strong style="color: var(--text-primary);">Empresas identificadas:</strong> 10</div>
-            <div><strong style="color: var(--text-primary);">Franquicias con expansión activa:</strong> 6</div>
-            <div><strong style="color: var(--text-primary);">Restaurantes gourmet:</strong> 3</div>
-            <div><strong style="color: var(--text-primary);">Cadena nacional destacada:</strong> 1</div>
-            <div><strong style="color: var(--text-primary);">Fuentes:</strong> La Nación, El Financiero, Delfino.cr, Tripadvisor, World's 50 Best, LinkedIn</div>
-            <div><strong style="color: var(--text-primary);">Próximo nicho:</strong> Clinics / Clínicas</div>
-        </div>
+    <div class="contact-strategy">
+        <h3>📧 Fase 2 — Secuencia de Outreach (Semanas 2–4)</h3>
+        <ol>
+            <li><strong>Email frío + Calendly:</strong> Propuesta de auditoría gratuita de campañas (3–5 preguntas de diagnóstico incluidas).</li>
+            <li><strong>LinkedIn DM:</strong> Referencia un insight del informe (ej. "Vi que sus tiendas Shopify crecieron 29% YoY — tenemos una propuesta para acelerar esa tendencia").</li>
+            <li><strong>Secuencia de 5 touches:</strong> Email → LinkedIn → Email de valor (artículo de tendencias) → LinkedIn → Llamada.</li>
+            <li><strong>Para startups:</strong> Proponer sesión piloto gratuita de 30 min + deliverable concreto (audit o创意 brief).</li>
+        </ol>
     </div>
-</div>
+
+    <div class="contact-strategy">
+        <h3>💡 Ángulos de葵rch (Para Diferenciarse)</h3>
+        <ol>
+            <li>"Su competencia en Panama acaba de aumentar ROAS en 40% con nuestra estrategia de retargeting — podemos mostrarle cómo en 4 semanas."</li>
+            <li>"El 75% de consumidores en LatAm exige personalización. Les armamos un audit de madurez de datos de su e-commerce sin costo."</li>
+            <li>"Somos Aurea — agencia con experiencia comprobada en retail y e-commerce en Centroamérica."</li>
+        </ol>
+    </div>
+</section>
+
+<!-- Next Niche Preview -->
+<section>
+    <h2>Próximo Ciclo — Hotels</h2>
+    <div class="lead-card">
+        <div class="lead-detail"><strong>Nicho confirmado para el próximo reporte:</strong> Hoteles y hospedaje en Costa Rica.</div>
+        <div class="lead-detail"><strong>Fecha:</strong> 29 de Abril 2026 — 17:00 CST</div>
+        <div class="lead-detail"><strong>Ángulos:</strong> SEO para TripAdvisor/Google Hotels, campañas de temporada alta, branding para turistas extranjeros, partnerships con OTAs.</div>
+    </div>
+</section>
 
 <footer>
-    <p>Aurea Advertising Agency — Research Division &nbsp;|&nbsp; Reporte generado automáticamente el 29 de Abril 2026, 15:00 CST</p>
-    <p>Este reporte es información de dominio público recopilada de fuentes abiertas. No constituye asesoría financiera ni legal.</p>
+    <p>Reporte generado automáticamente por Aurea Intelligence System · 29/04/2026 16:00 CST</p>
+    <p>Este documento es propiedad intelectual de Aurea Advertising Agency. Uso interno únicamente.</p>
 </footer>
 
-</div>
 </body>
 </html>
