@@ -1,629 +1,474 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aurea Leads — Hoteles Costa Rica | 30 Abr 2026</title>
-    <style>
-        :root {
-            --bg-primary: #0d1117;
-            --bg-secondary: #161b22;
-            --bg-card: #1c2128;
-            --border: #30363d;
-            --text-primary: #e6edf3;
-            --text-secondary: #8b949e;
-            --accent: #f0a500;
-            --accent-hover: #ffb800;
-            --tag-bg: #1f3a1f;
-            --tag-text: #7ee787;
-            --danger: #f85149;
-            --info: #58a6ff;
-        }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            line-height: 1.6;
-            min-height: 100vh;
-        }
-        .container { max-width: 960px; margin: 0 auto; padding: 2rem 1.5rem; }
-        header {
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 1.5rem;
-            margin-bottom: 2rem;
-        }
-        .badge {
-            display: inline-block;
-            background: var(--accent);
-            color: #000;
-            font-weight: 700;
-            font-size: 0.75rem;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            padding: 0.2rem 0.7rem;
-            border-radius: 3px;
-            margin-bottom: 0.75rem;
-        }
-        h1 {
-            font-size: 1.75rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 0.4rem;
-        }
-        .subtitle {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-        }
-        .meta {
-            display: flex;
-            gap: 1.5rem;
-            margin-top: 0.75rem;
-            flex-wrap: wrap;
-        }
-        .meta-item {
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-            color: var(--text-secondary);
-            font-size: 0.85rem;
-        }
-        .meta-item span { color: var(--accent); font-weight: 600; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aurea — Lead Report: Clínicas Costa Rica | 30 Abr 2026</title>
+<style>
+  :root {
+    --bg: #0d0d0d;
+    --surface: #161616;
+    --surface2: #1e1e1e;
+    --border: #2a2a2a;
+    --accent: #f0a500;
+    --accent2: #e05a00;
+    --text: #e8e8e8;
+    --muted: #888;
+    --green: #4caf50;
+    --red: #ef5350;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Segoe UI', -apple-system, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    padding: 32px 24px;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  header {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 20px;
+    margin-bottom: 28px;
+  }
+  .badge {
+    display: inline-block;
+    background: var(--accent);
+    color: #000;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 3px;
+    margin-bottom: 10px;
+  }
+  h1 { font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 6px; }
+  .meta { color: var(--muted); font-size: 12px; }
+  .meta span { margin-right: 16px; }
 
-        .summary-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-        .summary-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 1.1rem 1.25rem;
-        }
-        .summary-card .label {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            color: var(--text-secondary);
-            margin-bottom: 0.3rem;
-        }
-        .summary-card .value {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--accent);
-        }
+  h2 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--accent);
+    margin: 28px 0 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-left: 3px solid var(--accent);
+    padding-left: 10px;
+  }
+  h3 { font-size: 14px; font-weight: 600; color: #fff; margin: 16px 0 8px; }
 
-        section { margin-bottom: 2.5rem; }
-        h2 {
-            font-size: 1.15rem;
-            font-weight: 600;
-            border-left: 3px solid var(--accent);
-            padding-left: 0.75rem;
-            margin-bottom: 1rem;
-            color: var(--text-primary);
-        }
-        .trend-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 1rem 1.25rem;
-            margin-bottom: 0.75rem;
-        }
-        .trend-card h3 {
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 0.3rem;
-        }
-        .trend-card p { color: var(--text-secondary); font-size: 0.88rem; }
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .stat-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 14px 16px;
+  }
+  .stat-card .value {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--accent);
+    display: block;
+  }
+  .stat-card .label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; margin-top: 4px; }
 
-        .company-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 1.25rem;
-            margin-bottom: 1rem;
-            transition: border-color 0.2s;
-        }
-        .company-card:hover { border-color: var(--accent); }
-        .company-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 1rem;
-            margin-bottom: 0.75rem;
-        }
-        .company-name {
-            font-size: 1.05rem;
-            font-weight: 700;
-            color: var(--text-primary);
-        }
-        .company-location {
-            font-size: 0.82rem;
-            color: var(--text-secondary);
-            margin-top: 0.15rem;
-        }
-        .tier {
-            font-size: 0.7rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.07em;
-            padding: 0.2rem 0.6rem;
-            border-radius: 3px;
-            white-space: nowrap;
-        }
-        .tier-luxury { background: #2d1f00; color: var(--accent); border: 1px solid var(--accent); }
-        .tier-boutique { background: #0f2d1f; color: var(--tag-text); border: 1px solid var(--tag-text); }
-        .tier-new { background: #1f1f2d; color: var(--info); border: 1px solid var(--info); }
-        .tags { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 0.75rem; }
-        .tag {
-            background: var(--bg-secondary);
-            color: var(--text-secondary);
-            font-size: 0.72rem;
-            padding: 0.15rem 0.55rem;
-            border-radius: 3px;
-            border: 1px solid var(--border);
-        }
-        .contact-row {
-            display: flex;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-            margin-top: 0.75rem;
-            padding-top: 0.75rem;
-            border-top: 1px solid var(--border);
-        }
-        .contact-item {
-            font-size: 0.82rem;
-            color: var(--text-secondary);
-        }
-        .contact-item strong { color: var(--text-primary); }
-        .contact-item a { color: var(--info); text-decoration: none; }
-        .contact-item a:hover { text-decoration: underline; }
-        .contact-item.phone { color: var(--tag-text); }
-        .contact-item.phone strong { color: var(--tag-text); }
+  .company-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 16px;
+    margin-bottom: 10px;
+  }
+  .company-card .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 8px;
+  }
+  .company-card .name { font-size: 15px; font-weight: 700; color: #fff; }
+  .company-card .location { font-size: 12px; color: var(--muted); margin-top: 2px; }
+  .company-card .tag {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 2px 8px;
+    border-radius: 3px;
+    background: var(--surface2);
+    color: var(--accent);
+    border: 1px solid var(--accent);
+  }
+  .company-card .details { font-size: 12px; color: var(--muted); margin-bottom: 8px; }
+  .company-card .contacts { font-size: 12px; color: var(--text); }
+  .company-card .contacts strong { color: var(--accent); }
 
-        .strategy-card {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 1rem 1.25rem;
-            margin-bottom: 0.75rem;
-        }
-        .strategy-card h3 {
-            font-size: 0.92rem;
-            font-weight: 600;
-            color: var(--accent);
-            margin-bottom: 0.4rem;
-        }
-        .strategy-card p { color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 0.5rem; }
-        .strategy-card ul {
-            list-style: none;
-            padding: 0;
-            margin-top: 0.5rem;
-        }
-        .strategy-card ul li {
-            padding: 0.2rem 0;
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            padding-left: 1rem;
-            position: relative;
-        }
-        .strategy-card ul li::before {
-            content: "→";
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-        }
+  .trend-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .trend-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 12px 14px;
+  }
+  .trend-item .icon { font-size: 18px; margin-bottom: 6px; }
+  .trend-item .title { font-size: 13px; font-weight: 600; color: #fff; margin-bottom: 4px; }
+  .trend-item .desc { font-size: 11px; color: var(--muted); }
 
-        .highlight-box {
-            background: linear-gradient(135deg, #1a1200 0%, #0d1117 100%);
-            border: 1px solid var(--accent);
-            border-radius: 8px;
-            padding: 1.25rem;
-            margin: 1.5rem 0;
-        }
-        .highlight-box h3 {
-            font-size: 0.95rem;
-            color: var(--accent);
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-        .highlight-box p { color: var(--text-secondary); font-size: 0.88rem; }
+  .strategy-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 14px;
+    margin-bottom: 8px;
+  }
+  .strategy-card .num {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background: var(--accent);
+    color: #000;
+    font-weight: 700;
+    font-size: 12px;
+    text-align: center;
+    line-height: 24px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  .strategy-card .title { font-size: 13px; font-weight: 600; color: #fff; display: inline; }
+  .strategy-card .desc { font-size: 12px; color: var(--muted); margin-top: 6px; margin-left: 34px; }
 
-        footer {
-            border-top: 1px solid var(--border);
-            padding-top: 1.25rem;
-            text-align: center;
-            color: var(--text-secondary);
-            font-size: 0.8rem;
-            margin-top: 3rem;
-        }
-        footer a { color: var(--info); text-decoration: none; }
-        @media (max-width: 600px) {
-            .company-header { flex-direction: column; }
-            .summary-grid { grid-template-columns: 1fr 1fr; }
-            .contact-row { flex-direction: column; gap: 0.5rem; }
-        }
-    </style>
+  footer {
+    margin-top: 36px;
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
+    font-size: 11px;
+    color: var(--muted);
+    text-align: center;
+  }
+
+  @media (max-width: 600px) {
+    .summary-grid { grid-template-columns: 1fr; }
+    .trend-grid { grid-template-columns: 1fr; }
+  }
+</style>
 </head>
 <body>
-<div class="container">
 
-    <header>
-        <div class="badge">Reporte de Leads — Aurea Advertising</div>
-        <h1>Hoteles & Resorts de Costa Rica</h1>
-        <p class="subtitle">Oportunidades de publicidad y marketing digital para agencias en el nicho hotelero</p>
-        <div class="meta">
-            <div class="meta-item">📅 <span>30 Abril 2026</span></div>
-            <div class="meta-item">🏷️ <span>Hoteles & Resorts</span></div>
-            <div class="meta-item">🌎 <span>Costa Rica</span></div>
-            <div class="meta-item">🔄 <span>Run #5 de 8</span></div>
-        </div>
-    </header>
+<header>
+  <span class="badge">Aurea Advertising Agency</span>
+  <h1>Lead Report: Clínicas en Costa Rica</h1>
+  <div class="meta">
+    <span>📅 30 de Abril 2026 — 08:00 CST</span>
+    <span>🎯 Nicho: Clínicas Privadas y Centros Médicos</span>
+    <span>📡 Fuente: Web Research (Tavily)</span>
+  </div>
+</header>
 
-    <div class="summary-grid">
-        <div class="summary-card">
-            <div class="label">Empresas identificadas</div>
-            <div class="value">8</div>
-        </div>
-        <div class="summary-card">
-            <div class="label">Nuevos/open 2025-26</div>
-            <div class="value">3</div>
-        </div>
-        <div class="summary-card">
-            <div class="label">Crecimiento turismo CR 2025-2030</div>
-            <div class="value">8.1% CAGR</div>
-        </div>
-        <div class="summary-card">
-            <div class="label">Proyección nuevos proyectos</div>
-            <div class="value">$391.8M / 1,493 habitaciones</div>
-        </div>
-    </div>
-
-    <!-- ============================================================ -->
-    <section>
-        <h2>📊 Tendencias del Mercado Hotelero — Costa Rica 2026</h2>
-
-        <div class="trend-card">
-            <h3>🚀 Boom de nuevos proyectos turísticos</h3>
-            <p>Costa Rica anunció 17 nuevos proyectos turísticos para 2026-2027 con inversión de $391.8 millones, agregando 1,493 habitaciones. Esto representa una oportunidad masiva para agencias de publicidad que buscan clientes en expansión.</p>
-        </div>
-
-        <div class="trend-card">
-            <h3>🌟 Reconocimientos internacionales en ascenso</h3>
-            <p>Dos propiedades costarricenses —Hotel Fermata (Santa Teresa) y Origins Astral Lodge (Bijagua)— fueron incluidas en la Travel + Leisure It List 2026 de los mejores hoteles nuevos del mundo. El Four Seasons Peninsula Papagayo ostenta 10 años consecutivos de Forbes Five-Star.</p>
-        </div>
-
-        <div class="trend-card">
-            <h3>📈 Turismo con crecimiento sostenido</h3>
-            <p>El mercado turístico de Costa Rica proyecta un crecimiento de USD 2.23 mil millones durante 2025-2030, con una tasa compuesta anual del 8.1%. El mercado se segmenta en internacional y doméstico, con sol y playa y aventura como servicios líderes.</p>
-        </div>
-
-        <div class="trend-card">
-            <h3>🖥️ Marketing digital como prioridad</h3>
-            <p>Las búsquedas muestran 27 puestos activos de Director de Marketing en Costa Rica. Nayara Resorts tiene un Digital Marketing Lead dedicado (Albert Ghitis). Los hoteles boutique buscan activamente servicios de branding, social media y SEO para competir con cadenas globales.</p>
-        </div>
-
-        <div class="highlight-box">
-            <h3>💡 Insight clave para Aurea</h3>
-            <p>Los hoteles independientes y boutique de Costa Rica están en plena fase de crecimiento y profesionalización. A diferencia de las grandes cadenas con equipos internos de marketing, estos propiedades buscan agencias externas para construir presencia digital, gestionar reseñas y generar contenido visual para mercados internacionales (EE.UU., Europa).</p>
-        </div>
-    </section>
-
-    <!-- ============================================================ -->
-    <section>
-        <h2>🏨 Empresas Identificadas — Hoteles & Resorts</h2>
-
-        <!-- Lead 1 -->
-        <div class="company-card">
-            <div class="company-header">
-                <div>
-                    <div class="company-name">Nayara Resorts (Gardens, Springs, Tented Camp)</div>
-                    <div class="company-location">La Fortuna, San Carlos — Noroeste de Costa Rica</div>
-                </div>
-                <span class="tier tier-luxury">Lujo | Leading Hotels of the World</span>
-            </div>
-            <div class="tags">
-                <span class="tag">Luxury Resort</span>
-                <span class="tag">Eco-tourism</span>
-                <span class="tag">Arenal Volcano</span>
-                <span class="tag">Relais & Chateaux</span>
-                <span class="tag">3 propiedades</span>
-            </div>
-            <p style="color: var(--text-secondary); font-size: 0.88rem; margin-bottom: 0.75rem;">
-                Grupo de resorts de lujo reconocido globalmente con 3 propiedades en La Fortuna. Nayara Springs es Relais & Chateaux; Nayara Gardens es Leading Hotels of the World. Amplio equipo de marketing con Digital Marketing Lead dedicado.
-            </p>
-            <div class="contact-row">
-                <div class="contact-item"><strong>Owner/CEO:</strong> Leo Ghitis</div>
-                <div class="contact-item"><strong>Digital Marketing Lead:</strong> Albert Ghitis (LinkedIn)</div>
-                <div class="contact-item phone"><strong>Tel:</strong> +506 2479-1600</div>
-                <div class="contact-item"><a href="https://nayaragardens.com" target="_blank">nayaragardens.com</a></div>
-            </div>
-        </div>
-
-        <!-- Lead 2 -->
-        <div class="company-card">
-            <div class="company-header">
-                <div>
-                    <div class="company-name">Hotel Fermata</div>
-                    <div class="company-location">Santa Teresa, Puntarenas — Pacífico Sur</div>
-                </div>
-                <span class="tier tier-new">Nuevo | Travel + Leisure 2026 It List</span>
-            </div>
-            <div class="tags">
-                <span class="tag">Beachfront</span>
-                <span class="tag">Surf Hotel</span>
-                <span class="tag">35 habitaciones</span>
-                <span class="tag">NuevoDic 2025</span>
-                <span class="tag">Santa Teresa</span>
-            </div>
-            <p style="color: var(--text-secondary); font-size: 0.88rem; margin-bottom: 0.75rem;">
-                Propiedad de Rivella Group, abrió diciembre 2025 con 35 habitaciones frente al famous break La Lora. Acaba de ser incluido en la T+L It List 2026. En fase de posicionamiento de marca y construcción de presencia digital.
-            </p>
-            <div class="contact-row">
-                <div class="contact-item"><strong>Owner:</strong> Rivella Group</div>
-                <div class="contact-item"><strong>Email:</strong> <a href="mailto:info@hotelfermata.com">info@hotelfermata.com</a></div>
-                <div class="contact-item phone"><strong>WhatsApp:</strong> +506 6222 2937</div>
-                <div class="contact-item"><a href="https://hotelfermata.com" target="_blank">hotelfermata.com</a></div>
-            </div>
-        </div>
-
-        <!-- Lead 3 -->
-        <div class="company-card">
-            <div class="company-header">
-                <div>
-                    <div class="company-name">Origins Astral Lodge</div>
-                    <div class="company-location">Bijagua, Alajuela — Norte de Costa Rica</div>
-                </div>
-                <span class="tier tier-new">Nuevo | T+L 2026 It List</span>
-            </div>
-            <div class="tags">
-                <span class="tag">Ecolodge</span>
-                <span class="tag">7 villas</span>
-                <span class="tag">Entre volcanes</span>
-                <span class="tag">Cosmos/stargazing</span>
-                <span class="tag">Familias y grupos</span>
-            </div>
-            <p style="color: var(--text-secondary); font-size: 0.88rem; margin-bottom: 0.75rem;">
-                Propiedad hermana de Origins Lodge (abierto 2018). 7 villas aéreas de 2-4 habitaciones. Ubicado a 2,600 pies de elevación entre volcanes Tenorio y Miravalles. También en T+L 2026 It List. Propiedad hermana: Origins Floral.
-            </p>
-            <div class="contact-row">
-                <div class="contact-item"><strong>Concierge/Reservas:</strong> +506 4001 5356</div>
-                <div class="contact-item"><strong>Email:</strong> <a href="mailto:contact@originslodge.com">contact@originslodge.com</a></div>
-                <div class="contact-item"><a href="https://originslodge.com/astral/" target="_blank">originslodge.com/astral</a></div>
-            </div>
-        </div>
-
-        <!-- Lead 4 -->
-        <div class="company-card">
-            <div class="company-header">
-                <div>
-                    <div class="company-name">Four Seasons Resort Peninsula Papagayo</div>
-                    <div class="company-location">Peninsula Papagayo, Guanacaste — Pacífico Norte</div>
-                </div>
-                <span class="tier tier-luxury">Lujo | Forbes Five-Star x10</span>
-            </div>
-            <div class="tags">
-                <span class="tag">5 estrellas</span>
-                <span class="tag">Forbes</span>
-                <span class="tag">Family destination</span>
-                <span class="tag">Dueño: Gencom + Mohari</span>
-                <span class="tag">Peninsula</span>
-            </div>
-            <p style="color: var(--text-secondary); font-size: 0.88rem; margin-bottom: 0.75rem;">
-                Resort de lujo insignia de Costa Rica, reconocido 10 años consecutivos con Forbes Five-Star. Gestionado por Gencom y Mohari Hospitality. Nuevo General Manager: Brent J. Martin. Marketing Director: Mark Ley.
-            </p>
-            <div class="contact-row">
-                <div class="contact-item"><strong>GM:</strong> Brent J. Martin</div>
-                <div class="contact-item"><strong>Marketing Director:</strong> Mark Ley</div>
-                <div class="contact-item"><a href="https://press.fourseasons.com/costarica/hotel-team/" target="_blank">Press/Media Kit</a></div>
-            </div>
-        </div>
-
-        <!-- Lead 5 -->
-        <div class="company-card">
-            <div class="company-header">
-                <div>
-                    <div class="company-name">Casa Chameleon at Las Catalinas</div>
-                    <div class="company-location">Playa Danta, Las Catalinas, Guanacaste</div>
-                </div>
-                <span class="tier tier-boutique">Boutique | Adults-only</span>
-            </div>
-            <div class="tags">
-                <span class="tag">Cliffside</span>
-                <span class="tag">Adults-only</span>
-                <span class="tag">Forbes Travel Guide</span>
-                <span class="tag">Guanacaste</span>
-                <span class="tag">Catalinas</span>
-            </div>
-            <p style="color: var(--text-secondary); font-size: 0.88rem; margin-bottom: 0.75rem;">
-                Resort boutique de lujo en el pueblo costero planificado de Las Catalinas. Recognizado por Forbes Travel Guide. General Manager: Marcela Romero. Reservations office en San José. Enfocado en parejas y viajantes adultos.
-            </p>
-            <div class="contact-row">
-                <div class="contact-item"><strong>GM:</strong> Marcela Romero</div>
-                <div class="contact-item phone"><strong>Tel:</strong> +506 2103-1212</div>
-                <div class="contact-item"><strong>Email:</strong> <a href="mailto:info@casachameleonhotels.com">info@casachameleonhotels.com</a></div>
-                <div class="contact-item"><a href="https://www.casachameleonhotels.com/las-catalinas/" target="_blank">casachameleonhotels.com</a></div>
-            </div>
-        </div>
-
-        <!-- Lead 6 -->
-        <div class="company-card">
-            <div class="company-header">
-                <div>
-                    <div class="company-name">Andaz Peninsula Papagayo</div>
-                    <div class="company-location">Peninsula Papagayo, Guanacaste</div>
-                </div>
-                <span class="tier tier-luxury">Lujo | Hyatt / Andaz</span>
-            </div>
-            <div class="tags">
-                <span class="tag">Hyatt</span>
-                <span class="tag">Design hotel</span>
-                <span class="tag">Pacific coast</span>
-                <span class="tag">Papagayo</span>
-            </div>
-            <p style="color: var(--text-secondary); font-size: 0.88rem; margin-bottom: 0.75rem;">
-                Parte de la marca lifestyle de Hyatt. Ubicado en Peninsula Papagayo junto al Four Seasons. Director of Sales & Marketing: Dale N. Smith (LinkedIn). Alternativa de precio medio-alto en el corredor Papagayo.
-            </p>
-            <div class="contact-row">
-                <div class="contact-item"><strong>Dir. Sales & Marketing:</strong> Dale N. Smith (LinkedIn)</div>
-                <div class="contact-item"><a href="https://www.hyatt.com/andaz/" target="_blank">hyatt.com/andaz</a></div>
-            </div>
-        </div>
-
-        <!-- Lead 7 -->
-        <div class="company-card">
-            <div class="company-header">
-                <div>
-                    <div class="company-name">Nekajui, a Ritz-Carlton Reserve</div>
-                    <div class="company-location">Guanacaste, Costa Rica</div>
-                </div>
-                <span class="tier tier-luxury">Ultra-lujo | Ritz-Carlton</span>
-            </div>
-            <div class="tags">
-                <span class="tag">Ritz-Carlton</span>
-                <span class="tag">Ultra-lujo</span>
-                <span class="tag">Guanacaste</span>
-                <span class="tag">Wellness</span>
-            </div>
-            <p style="color: var(--text-secondary); font-size: 0.88rem; margin-bottom: 0.75rem;">
-                Propiedad de la marca ultra-lujo de Ritz-Carlton en Costa Rica. Integración de wellness tipo Blue Zone. Nivel de marca global con presupuestos de marketing significativos para fotografía, contenido y partnerships.
-            </p>
-            <div class="contact-row">
-                <div class="contact-item"><strong>Brand:</strong> Ritz-Carlton Reserve</div>
-                <div class="contact-item"><a href="https://www.ritzcarlton.com/" target="_blank">ritzcarlton.com</a></div>
-            </div>
-        </div>
-
-        <!-- Lead 8 -->
-        <div class="company-card">
-            <div class="company-header">
-                <div>
-                    <div class="company-name">Chayote Lodge / Rolando Campos</div>
-                    <div class="company-location">Costa Rica — Ubicación no especificada</div>
-                </div>
-                <span class="tier tier-boutique">Veterano | Thought Leader</span>
-            </div>
-            <div class="tags">
-                <span class="tag">Veteran hotelier</span>
-                <span class="tag">Podcast guest</span>
-                <span class="tag">Tourism outlook</span>
-                <span class="tag">Influencer</span>
-            </div>
-            <p style="color: var(--text-secondary); font-size: 0.88rem; margin-bottom: 0.75rem;">
-                Hotelero veterano con perspectiva privilegiada del mercado. Participa en podcasts de inversión turística. Su perfil de thought leader lo convierte en potencial ambassador o referente para estrategias de marketing de destino.
-            </p>
-            <div class="contact-row">
-                <div class="contact-item"><strong>Contacto:</strong> Rolando Campos</div>
-                <div class="contact-item"><a href="https://www.investingcostarica.com/podcast/" target="_blank">Investing Costa Rica Podcast</a></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================================ -->
-    <section>
-        <h2>🎯 Estrategias de Contacto Recomendadas</h2>
-
-        <div class="strategy-card">
-            <h3>1. Hoteles Nuevos (Hotel Fermata, Origins Astral)</h3>
-            <p>En fase de posicionamiento, buscando construcción activa de marca. Mayor receptividad a servicios de marketing externo.</p>
-            <ul>
-                <li>Presentá servicios de launch digital: branding, social media setup, photographer partnerships</li>
-                <li>Ofrecé auditoría gratuita de presencia digital en Google y OTAs (Booking, Expedia, TripAdvisor)</li>
-                <li>Proponé packages de contenido para mercados de EE.UU. (Instagram, TikTok para surf/lifestyle)</li>
-            </ul>
-        </div>
-
-        <div class="strategy-card">
-            <h3>2. Resorts de Lujo (Four Seasons, Andaz, Ritz-Carlton, Nayara)</h3>
-            <p>Tienen equipos de marketing internos pero pueden necesitar apoyo en creatividad, campañas específicas de mercado o producción de contenido.</p>
-            <ul>
-                <li>Contactar al Director de Marketing o Director of Digital directamente vía LinkedIn</li>
-                <li>Propuestas de influencer marketing campaigns y fotografía de producción</li>
-                <li>Servicios de SEO para rankings en Travel + Leisure, Condé Nast Traveler</li>
-                <li>Email outreach personalizado referencing sus recientes reconocimientos</li>
-            </ul>
-        </div>
-
-        <div class="strategy-card">
-            <h3>3. Boutique Hoteles Independientes (Casa Chameleon)</h3>
-            <p>Sin equipos internos grandes. Buscan partners creativos con experiencia en hospitality. Mayoreflexión sobre inversión.</p>
-            <ul>
-                <li>Proponé paquetes de redes sociales + gestión de reseñas (especialmente T+L y Forbes)</li>
-                <li>Ofrecé estrategia de email marketing para guest retention post-estancia</li>
-                <li>Proposals visuales tipo moodboard para demostrar comprensión de su marca</li>
-            </ul>
-        </div>
-
-        <div class="strategy-card">
-            <h3>4. Thought Leaders & Veteranos (Rolando Campos)</h3>
-            <p>Perfil de influencia en el ecosistema turístico. pueden ser ambassadors o referral sources para otros contactos.</p>
-            <ul>
-                <li>Conectar vía podcast appearances o collaborative content</li>
-                <li>Proponé series de contenido "Costa Rica Hidden Gems" para redes del influencer</li>
-                <li>Usar como puerta de entrada a la red de hoteles independientes en Costa Rica</li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- ============================================================ -->
-    <section>
-        <h2>📬 Prioridad de Contacto para Esta Semana</h2>
-
-        <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem;">
-            <table style="width: 100%; border-collapse: collapse; font-size: 0.88rem;">
-                <thead>
-                    <tr style="border-bottom: 1px solid var(--border);">
-                        <th style="text-align: left; padding: 0.5rem 0; color: var(--text-secondary); font-weight: 600; text-transform: uppercase; font-size: 0.72rem; letter-spacing: 0.06em;">#</th>
-                        <th style="text-align: left; padding: 0.5rem 0; color: var(--text-secondary); font-weight: 600; text-transform: uppercase; font-size: 0.72rem; letter-spacing: 0.06em;">Hotel</th>
-                        <th style="text-align: left; padding: 0.5rem 0; color: var(--text-secondary); font-weight: 600; text-transform: uppercase; font-size: 0.72rem; letter-spacing: 0.06em;">Contacto</th>
-                        <th style="text-align: left; padding: 0.5rem 0; color: var(--text-secondary); font-weight: 600; text-transform: uppercase; font-size: 0.72rem; letter-spacing: 0.06em;">Razón</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr style="border-bottom: 1px solid var(--border);">
-                        <td style="padding: 0.6rem 0; color: var(--accent); font-weight: 700;">1</td>
-                        <td style="padding: 0.6rem 0;">Hotel Fermata</td>
-                        <td style="padding: 0.6rem 0;"><a href="mailto:info@hotelfermata.com" style="color: var(--info);">info@hotelfermata.com</a></td>
-                        <td style="padding: 0.6rem 0; color: var(--tag-text);">Nuevo, necesita marca</td>
-                    </tr>
-                    <tr style="border-bottom: 1px solid var(--border);">
-                        <td style="padding: 0.6rem 0; color: var(--accent); font-weight: 700;">2</td>
-                        <td style="padding: 0.6rem 0;">Origins Astral Lodge</td>
-                        <td style="padding: 0.6rem 0;"><a href="mailto:contact@originslodge.com" style="color: var(--info);">contact@originslodge.com</a></td>
-                        <td style="padding: 0.6rem 0; color: var(--tag-text);">Nuevo + T+L coverage</td>
-                    </tr>
-                    <tr style="border-bottom: 1px solid var(--border);">
-                        <td style="padding: 0.6rem 0; color: var(--accent); font-weight: 700;">3</td>
-                        <td style="padding: 0.6rem 0;">Nayara Resorts</td>
-                        <td style="padding: 0.6rem 0;"><a href="https://www.linkedin.com/in/albert-ghitis-38245440" target="_blank" style="color: var(--info);">Albert Ghitis (LinkedIn)</a></td>
-                        <td style="padding: 0.6rem 0; color: var(--text-secondary);">Digital lead dedicado</td>
-                    </tr>
-                    <tr style="border-bottom: 1px solid var(--border);">
-                        <td style="padding: 0.6rem 0; color: var(--accent); font-weight: 700;">4</td>
-                        <td style="padding: 0.6rem 0;">Casa Chameleon</td>
-                        <td style="padding: 0.6rem 0;"><a href="mailto:info@casachameleonhotels.com" style="color: var(--info);">info@casachameleonhotels.com</a></td>
-                        <td style="padding: 0.6rem 0; color: var(--text-secondary);">Boutique, sin equipo grande</td>
-                    </tr>
-                    <tr>
-                        <td style="padding: 0.6rem 0; color: var(--accent); font-weight: 700;">5</td>
-                        <td style="padding: 0.6rem 0;">Chayote Lodge</td>
-                        <td style="padding: 0.6rem 0; color: var(--text-secondary);">Via podcast/web</td>
-                        <td style="padding: 0.6rem 0; color: var(--text-secondary);">Thought leader + red</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </section>
-
-    <footer>
-        <p>Reporte generado automáticamente por <strong>Logos</strong> para <strong>Aurea Advertising Agency</strong></p>
-        <p style="margin-top: 0.4rem;">Nicho: Hoteles & Resorts — Costa Rica — 30 Abril 2026</p>
-        <p style="margin-top: 0.3rem;"><a href="https://api.telegram.org/bot8187347342:AAEQ4gD3Kv6dx_qSP0lLbN0aWmtqN8hCW0g/sendMessage" target="_blank">Telegram Bot</a> | Intel Reports</p>
-    </footer>
-
+<div class="summary-grid">
+  <div class="stat-card">
+    <span class="value">8</span>
+    <div class="label">Empresas Identificadas</div>
+  </div>
+  <div class="stat-card">
+    <span class="value">4</span>
+    <div class="label">Decisores con Nombre</div>
+  </div>
+  <div class="stat-card">
+    <span class="value">5</span>
+    <div class="label">Estrategias de Contacto</div>
+  </div>
 </div>
+
+<h2>🏥 Empresas Identificadas</h2>
+
+<div class="company-card">
+  <div class="header">
+    <div>
+      <div class="name">Hospital CIMA</div>
+      <div class="location">📍 San Rafael, Escazú, San José</div>
+    </div>
+    <span class="tag">Hospital Privado</span>
+  </div>
+  <div class="details">+60 especialidades médicas. Uno de los hospitales privados más reconocidos del país. Sitio web activo con directorio médico completo.</div>
+  <div class="contacts">
+    <strong>Teléfono:</strong> +506 2208-1000 &nbsp;|&nbsp;
+    <strong>Web:</strong> hospitalcima.com &nbsp;|&nbsp;
+    <strong>Directorio:</strong> directorio.hospitalcima.com
+  </div>
+</div>
+
+<div class="company-card">
+  <div class="header">
+    <div>
+      <div class="name">Blue Medical Costa Rica</div>
+      <div class="location">📍 Escazú, Heredia, Alajuela (múltiples sedes)</div>
+    </div>
+    <span class="tag">Cadena de Clínicas</span>
+  </div>
+  <div class="details">Empresa consolidada desde 1999. +201 empleados. +13 especialidades. Modelo dual: servicios médicos privados y soluciones empresariales (médicos de empresa, chequeos, Wellness). Ingresos estimados: $27.3M.</div>
+  <div class="contacts">
+    <strong>Web:</strong> cr.mibluemedical.com &nbsp;|&nbsp;
+    <strong>LinkedIn:</strong> linkedin.com/company/blue-medical-costa-rica &nbsp;|&nbsp;
+    <strong>Contacto clave:</strong> Gwendolyne Arce — Gerente Comercial (LinkedIn)
+  </div>
+</div>
+
+<div class="company-card">
+  <div class="header">
+    <div>
+      <div class="name">Centro Médico MD</div>
+      <div class="location">📍 San José Centro — 50m oeste de Junta Protección Social</div>
+    </div>
+    <span class="tag">Centro Médico</span>
+  </div>
+  <div class="details">Centro médico con presencia en HuliHealth para agenda en línea. Especializado en atención ambulatoria.</div>
+  <div class="contacts">
+    <strong>Teléfono:</strong> +506 4040 0808 &nbsp;|&nbsp;
+    <strong>Web:</strong> hulihealth.com (perfil) &nbsp;|&nbsp;
+    <strong>Servicio:</strong> Citas en línea disponibles
+  </div>
+</div>
+
+<div class="company-card">
+  <div class="header">
+    <div>
+      <div class="name">Centro Médico San José</div>
+      <div class="location">📍 San José, Costa Rica</div>
+    </div>
+    <span class="tag">Centro Médico</span>
+  </div>
+  <div class="details">Centro médico activo en Instagram (@centromedico_sanjose_). Contenido sobre cuidado integral de salud. Perfil con engagement activo.</div>
+  <div class="contacts">
+    <strong>Instagram:</strong> @centromedico_sanjose_ &nbsp;|&nbsp;
+    <strong>Web:</strong> centromedico.com
+  </div>
+</div>
+
+<div class="company-card">
+  <div class="header">
+    <div>
+      <div class="name">Centro Médico Integral</div>
+      <div class="location">📍 Oeste de Entrada Admisión, Hospital Calderón Guardia, San José</div>
+    </div>
+    <span class="tag">Centro Médico</span>
+  </div>
+  <div class="details">Centro médico con foco en accesibilidad. Ubicación estratégica dentro del GAM.</div>
+  <div class="contacts">
+    <strong>Teléfono:</strong> 2222-0057
+  </div>
+</div>
+
+<div class="company-card">
+  <div class="header">
+    <div>
+      <div class="name">Clínica Americana Costa Rica</div>
+      <div class="location">📍 San José, Costa Rica</div>
+    </div>
+    <span class="tag">Clínica Privada</span>
+  </div>
+  <div class="details">Clínica privada con directorio médico activo en HuliHealth. doctors. Perfil de médicos con especialidades diversas.</div>
+  <div class="contacts">
+    <strong>Web:</strong> clinicaamericana.hulilabs.com &nbsp;|&nbsp;
+    <strong>Plataforma:</strong> HuliHealth
+  </div>
+</div>
+
+<div class="company-card">
+  <div class="header">
+    <div>
+      <div class="name">Torre Médica Alajuela</div>
+      <div class="location">📍 Alajuela, Costa Rica</div>
+    </div>
+    <span class="tag">Complejo Médico</span>
+  </div>
+  <div class="details">Espacio digital diseñado para facilitar acceso a salud en la zona de Alajuela. Web moderna con especialidades, citas y noticias del sector.</div>
+  <div class="contacts">
+    <strong>Web:</strong>zewssweb.com/proyecto/torre-medica/ (desarrollo web por agencia)
+  </div>
+</div>
+
+<div class="company-card">
+  <div class="header">
+    <div>
+      <div class="name">Arvesalud</div>
+      <div class="location">📍 Costa Rica (cobertura empresarial)</div>
+    </div>
+    <span class="tag">Salud Empresarial</span>
+  </div>
+  <div class="details">PYME de salud empresarial fundada en 2007. Servicios: medicina general, laboral, enfermería, terapia física, psicología, nutrición. Enfoque B2B directo a RRHH y Salud Ocupacional.</div>
+  <div class="contacts">
+    <strong>Web:</strong> arvesalud.com &nbsp;|&nbsp;
+    <strong>Contacto:</strong> Equipo de Recursos Humanos y Salud Ocupacional
+  </div>
+</div>
+
+<h2>👤 Decisores Clave Identificados</h2>
+
+<div class="company-card">
+  <div class="header">
+    <div>
+      <div class="name">Gwendolyne Arce</div>
+      <div class="location">Gerente Comercial — Clínicas Blue Medical Costa Rica</div>
+    </div>
+    <span class="tag">Marketing/Comercial</span>
+  </div>
+  <div class="details">Maneja la estrategia comercial y de expansión de Blue Medical. Perfil activo en LinkedIn con 787 seguidores.Trayectoria de 4+ años en la empresa.</div>
+  <div class="contacts">
+    <strong>LinkedIn:</strong> linkedin.com/in/gwendolyne-arce-4258474b &nbsp;|&nbsp;
+    <strong>Área:</strong> Comercial y Marketing
+  </div>
+</div>
+
+<div class="company-card">
+  <div class="header">
+    <div>
+      <div class="name">Luis Lavarreda</div>
+      <div class="location">Key Account Manager — Blue Medical Costa Rica</div>
+    </div>
+    <span class="tag">Ventas Corp.</span>
+  </div>
+  <div class="details">Gestión de cuentas clave empresariales. Punto de contacto para soluciones B2B y paquetes corporativos.</div>
+  <div class="contacts">
+    <strong>Fuente:</strong> RocketReach / LinkedIn
+  </div>
+</div>
+
+<div class="company-card">
+  <div class="header">
+    <div>
+      <div class="name">Paula Lainfiesta</div>
+      <div class="location">Regional Manager — Blue Medical Costa Rica</div>
+    </div>
+    <span class="tag">Dirección</span>
+  </div>
+  <div class="details">Gestión regional de operaciones. Alto nivel de decisión en la cadena.</div>
+  <div class="contacts">
+    <strong>Fuente:</strong> RocketReach / LinkedIn
+  </div>
+</div>
+
+<div class="company-card">
+  <div class="header">
+    <div>
+      <div class="name">Carolina Fernández Ramírez</div>
+      <div class="location">Blue Medical Costa Rica — Servicios Empresariales</div>
+    </div>
+    <span class="tag">Salud Corp.</span>
+  </div>
+  <div class="details">Especialista en servicios empresariales: médicos de empresa, jornadas médicas, chequeos, nutrición y Wellness.</div>
+  <div class="contacts">
+    <strong>LinkedIn:</strong> linkedin.com/in/carolina-fern%C3%A1ndez-ramirez-aa4577180
+  </div>
+</div>
+
+<h2>📊 Tendencias del Mercado 2025–2026</h2>
+
+<div class="trend-grid">
+  <div class="trend-item">
+    <div class="icon">🤖</div>
+    <div class="title">IA y Automatización en Salud</div>
+    <div class="desc">Chatbots inteligentes para agendar citas, análisis predictivo de pacientes y contenido personalizado con IA. Diferenciador clave para clínicas que buscan escalar.</div>
+  </div>
+  <div class="trend-item">
+    <div class="icon">🎥</div>
+    <div class="title">Video Marketing Educativo</div>
+    <div class="desc">TikTok, Instagram Reels y YouTube Shorts con consejos de salud. Humaniza la marca médica y genera confianza. Alta demanda de producción de contenido short-form.</div>
+  </div>
+  <div class="trend-item">
+    <div class="icon">🔍</div>
+    <div class="title">SEO Local y Búsqueda por Voz</div>
+    <div class="desc">Pacientes buscan clínicas con frases conversacionales y por voz. Google Business Profile optimizado es crítico. Preguntas frecuentes y reseñas pesan en el ranking local.</div>
+  </div>
+  <div class="trend-item">
+    <div class="icon">📱</div>
+    <div class="title">Agenda Digital y Telemedicina</div>
+    <div class="desc">Plataformas como HuliHealth normalizaron la cita en línea. Clínicas sin agenda digital pierden pacientes. Integración con WhatsApp Business como canal de comunicación.</div>
+  </div>
+  <div class="trend-item">
+    <div class="icon">🏢</div>
+    <div class="title">Salud Corporativa en Expansión</div>
+    <div class="desc">Blue Medical y Arvesalud prueban la demanda creciente de Chequeos médicos empresariales, Wellness y médicos de empresa. Oportunidad para paquetes B2B con presupuestos significativos.</div>
+  </div>
+  <div class="trend-item">
+    <div class="icon">⭐</div>
+    <div class="title">Reputación Online y Reseñas</div>
+    <div class="desc">Testimonios de pacientes y ratings en Google son decisive en la elección de clínica. Gestión proactiva de reseñas se convirtió en prioridad de marketing.</div>
+  </div>
+</div>
+
+<h2>📋 Estrategias de Contacto</h2>
+
+<div class="strategy-card">
+  <span class="num">1</span>
+  <span class="title">LinkedIn InMail a Gwendolyne Arce / Luis Lavarreda</span>
+  <div class="desc">
+    Blue Medical es el target prime: empresa con +$27M revenue, sin estrategia digital visible y con decisores de marketing claramente identificados. Pitch: caso de éxito en clínicas similares en LATAM con +40% increase en citas vía SEO + Google Ads.
+    <br><strong>Timing:</strong> Lunes o Martes, 8–10am CR time.
+  </div>
+</div>
+
+<div class="strategy-card">
+  <span class="num">2</span>
+  <span class="title">Secuencia de Email + WhatsApp para Centro Médico MD y San José</span>
+  <div class="desc">
+    Clínicas medianas con teléfono de contacto público pero sin presencia digital clara. Secuencia: email introductorio → follow-up por WhatsApp Business con propuesta de agenda digital + SEO local.
+    <br><strong>Herramienta sugerida:</strong> Mailjet o Brevo para email sequences, WhatsApp Business API para follow-up.
+  </div>
+</div>
+
+<div class="strategy-card">
+  <span class="num">3</span>
+  <span class="title"> Propuesta de Salud Corporativa para Arvesalud / Blue Medical</span>
+  <div class="desc">
+    Enfoque B2B directo a RRHH. Paquete: "Programa de Bienestar Empresarial" con landing page, email marketing B2B, y gestión de redes para atraer empresas clientas.
+    <br><strong>Argumento:</strong> Blue Medical ya tiene la infraestructura; necesitan promoción para expandir su libro de clientes corporativos.
+  </div>
+</div>
+
+<div class="strategy-card">
+  <span class="num">4</span>
+  <span class="title"> cold outreach vía Instagram a Centro Médico San José</span>
+  <div class="desc">
+    Perfil activo en Instagram pero sin estrategia de contenido clara. DM con propuesta de manejo de redes + reels educativos + estrategia de citas por WhatsApp.
+    <br><strong>Hook:</strong> "Vimos que tienen @centromedico_sanjose_ y creemos que podrían triplicar engagement con reels de salud. Les compartimos un diagnóstico gratis."
+  </div>
+</div>
+
+<div class="strategy-card">
+  <span class="num">5</span>
+  <span class="title">Caso de éxito "Torre Médica Alajuela" como prueba social</span>
+  <div class="desc">
+    Usar el proyecto de Torre Médica Alajuela (ya trabajado por otra agencia) como palanca para clínicas similares. Mostrar que el sector salud en CR responde bien a inversión digital.
+    <br><strong>Para:</strong> Clínicas que aún no tienen web moderna o están en fase de rediseño.
+  </div>
+</div>
+
+<h2>🎯 Recomendaciones para Aurea</h2>
+
+<ul style="font-size: 13px; color: var(--muted); padding-left: 20px; line-height: 2; margin-top: 8px;">
+  <li><strong>Prioridad alta:</strong> Blue Medical Costa Rica — empresa grande, sin marketing digital sofisticado visible, y con decisores accesibles en LinkedIn.</li>
+  <li><strong>Prioridad media:</strong> Centro Médico San José — perfil de Instagram activo sugiere openness a digitalización pero sin partner estratégico.</li>
+  <li><strong>Prioridad media:</strong> Arvesalud — enfoque B2B, oportunidad de paquete integral (web + email + redes).</li>
+  <li><strong>Watch:</strong> Hospital CIMA — demasiado grande para outreach inicial, mejor como referencia de caso cuando haya pruebas de concepto.</li>
+  <li><strong>Tecnología sugerida:</strong> Implementar CRM con pipeline de leads médicos (HubSpot free o Brevo), seguimiento de conversaciones de Instagram y WhatsApp en un solo lugar.</li>
+</ul>
+
+<footer>
+  Reporte generado automáticamente por AUREA Lead Research Agent · 30 de Abril 2026, 08:00 CST · Logos AI
+</footer>
+
 </body>
 </html>
