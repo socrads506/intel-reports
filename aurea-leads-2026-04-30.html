@@ -1,331 +1,572 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aurea — Lead Report: Real Estate Costa Rica | 2026-04-30</title>
-<style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    background: #0d0d0d;
-    color: #e0e0e0;
-    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
-    font-size: 15px;
-    line-height: 1.6;
-    min-height: 100vh;
-  }
-  .container { max-width: 960px; margin: 0 auto; padding: 40px 24px; }
-  header {
-    border-bottom: 2px solid #d4af37;
-    padding-bottom: 20px;
-    margin-bottom: 36px;
-  }
-  .badge {
-    display: inline-block;
-    background: #d4af37;
-    color: #0d0d0d;
-    font-weight: 700;
-    font-size: 11px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    padding: 4px 12px;
-    border-radius: 3px;
-    margin-bottom: 12px;
-  }
-  h1 { font-size: 26px; color: #ffffff; font-weight: 700; }
-  h2 { font-size: 18px; color: #d4af37; margin: 32px 0 14px; border-left: 4px solid #d4af37; padding-left: 12px; }
-  h3 { font-size: 15px; color: #ffffff; margin: 14px 0 6px; }
-  .meta { color: #888; font-size: 13px; margin-top: 8px; }
-  table { width: 100%; border-collapse: collapse; margin-bottom: 28px; font-size: 14px; }
-  th { background: #1a1a1a; color: #d4af37; padding: 10px 14px; text-align: left; border-bottom: 1px solid #333; }
-  td { padding: 10px 14px; border-bottom: 1px solid #1f1f1f; vertical-align: top; }
-  tr:hover td { background: #161616; }
-  .tag {
-    display: inline-block;
-    background: #1c1c1c;
-    border: 1px solid #333;
-    color: #aaa;
-    font-size: 11px;
-    padding: 2px 8px;
-    border-radius: 20px;
-    margin: 2px;
-  }
-  .tag.high { border-color: #d4af37; color: #d4af37; }
-  .tag.medium { border-color: #5a8a5a; color: #7ab87a; }
-  .card {
-    background: #141414;
-    border: 1px solid #222;
-    border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 16px;
-  }
-  .card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 28px; }
-  .stat-box { background: #141414; border: 1px solid #222; border-radius: 8px; padding: 20px; text-align: center; }
-  .stat-box .num { font-size: 28px; font-weight: 700; color: #d4af37; }
-  .stat-box .label { font-size: 12px; color: #888; text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
-  .trend-item { background: #111; border-left: 3px solid #d4af37; padding: 12px 16px; margin-bottom: 10px; border-radius: 0 4px 4px 0; }
-  .contact-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 6px; }
-  .contact-chip { background: #1a1a1a; border: 1px solid #333; color: #ccc; font-size: 12px; padding: 4px 10px; border-radius: 4px; }
-  .footer { margin-top: 48px; padding-top: 20px; border-top: 1px solid #222; text-align: center; color: #555; font-size: 12px; }
-  @media (max-width: 640px) { .card-grid { grid-template-columns: 1fr; } table { font-size: 13px; } }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurea - Lead Research: E-commerce Costa Rica | Abril 2026</title>
+    <style>
+        :root {
+            --bg-primary: #0d1117;
+            --bg-secondary: #161b22;
+            --bg-card: #21262d;
+            --text-primary: #e6edf3;
+            --text-secondary: #8b949e;
+            --accent: #58a6ff;
+            --accent-secondary: #3fb950;
+            --border: #30363d;
+            --highlight: #f0883e;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        header {
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #58a6ff 0%, #3fb950 100%);
+            color: var(--bg-primary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(90deg, var(--text-primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .meta {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        .section {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        h2::before {
+            content: '';
+            display: block;
+            width: 4px;
+            height: 20px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .company-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin-bottom: 1rem;
+            transition: border-color 0.2s ease;
+        }
+
+        .company-card:hover {
+            border-color: var(--accent);
+        }
+
+        .company-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.75rem;
+        }
+
+        .company-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .company-type {
+            font-size: 0.7rem;
+            background: var(--bg-secondary);
+            color: var(--accent-secondary);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        .company-website {
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.875rem;
+        }
+
+        .company-website:hover {
+            text-decoration: underline;
+        }
+
+        .company-description {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .company-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            font-size: 0.7rem;
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            border: 1px solid var(--border);
+        }
+
+        .tag.priority {
+            background: rgba(240, 136, 62, 0.15);
+            color: var(--highlight);
+            border-color: var(--highlight);
+        }
+
+        .trend-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .trend-item:last-child {
+            border-bottom: none;
+        }
+
+        .trend-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .trend-content h4 {
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .trend-content p {
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+        }
+
+        .strategy-item {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--bg-card);
+            border-radius: 8px;
+            margin-bottom: 0.75rem;
+        }
+
+        .strategy-number {
+            background: var(--accent);
+            color: var(--bg-primary);
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.875rem;
+            flex-shrink: 0;
+        }
+
+        .strategy-text h4 {
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .strategy-text p {
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+        }
+
+        footer {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.75rem;
+        }
+
+        .footer-logo {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+    </style>
 </head>
 <body>
-<div class="container">
+    <div class="container">
+        <header>
+            <div class="badge">Investigación de Leads</div>
+            <h1>E-commerce en Costa Rica</h1>
+            <p class="meta">Reporte generado: Miércoles 30 de Abril, 2026 • 03:00 UTC</p>
+        </header>
 
-<header>
-  <div class="badge">Aurea Advertising — Lead Intelligence</div>
-  <h1>Real Estate Costa Rica</h1>
-  <div class="meta">Nicho: Real Estate &nbsp;|&nbsp; Fecha: 30 de abril 2026, 01:00 UTC &nbsp;|&nbsp;Run #4 de 8 (Real Estate)</div>
-</header>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value">11</div>
+                <div class="stat-label">Empresas Identificadas</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">7</div>
+                <div class="stat-label">Alta Prioridad</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">5</div>
+                <div class="stat-label">Estrategias Clave</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">4</div>
+                <div class="stat-label">Tendencias 2026</div>
+            </div>
+        </div>
 
-<!-- KEY STATS -->
-<div class="card-grid">
-  <div class="stat-box">
-    <div class="num">10</div>
-    <div class="label">Empresas identificadas</div>
-  </div>
-  <div class="stat-box">
-    <div class="num">5</div>
-    <div class="label">Decisores clave</div>
-  </div>
-  <div class="stat-box">
-    <div class="num">$92.4M</div>
-    <div class="label">Revenue líder del sector</div>
-  </div>
-  <div class="stat-box">
-    <div class="num">2026</div>
-    <div class="label">Año del mercado GAM</div>
-  </div>
-</div>
+        <section class="section">
+            <h2>Empresas Identificadas</h2>
 
-<!-- EMPRESAS -->
-<h2>1. Empresas Objetivo</h2>
+            <div class="company-card">
+                <div class="company-header">
+                    <div class="company-name">AO Stores</div>
+                    <span class="company-type">Marketplace B2C</span>
+                </div>
+                <a href="https://www.aostores.com" class="company-website" target="_blank">aostores.com</a>
+                <p class="company-description">Marketplace multi-categoría con fuerte posicionamiento en tecnología y electrónica. Reconocida como "mejor tienda online de Costa Rica" en 2026. Amplio catálogo con envío nacional.</p>
+                <div class="company-tags">
+                    <span class="tag priority">Alta Prioridad</span>
+                    <span class="tag">Marketplace</span>
+                    <span class="tag">Tecnología</span>
+                    <span class="tag">Moda</span>
+                </div>
+            </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Empresa</th>
-      <th>Especialidad</th>
-      <th>Revenue / Tamaño</th>
-      <th>Ubicación</th>
-      <th>Prioridad</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>Capris</strong></td>
-      <td>Brokerage residencial, comercial y de lujo</td>
-      <td>$92.4M (la más grande de CR)</td>
-      <td>San José</td>
-      <td><span class="tag high">Alta</span></td>
-    </tr>
-    <tr>
-      <td><strong>Rocca Development Group</strong></td>
-      <td>Desarrolladora inmobiliaria, proyectos residenciales</td>
-      <td>$38.7M</td>
-      <td>Santa Ana, San José</td>
-      <td><span class="tag high">Alta</span></td>
-    </tr>
-    <tr>
-      <td><strong>Volio & Trejos Asociados</strong></td>
-      <td>Construcción y desarrollo inmobiliario, 40 años</td>
-      <td>$29.4M</td>
-      <td>San José</td>
-      <td><span class="tag high">Alta</span></td>
-    </tr>
-    <tr>
-      <td><strong>KRAIN Costa Rica</strong></td>
-      <td>Residential, luxury & commercial — affiliations globales</td>
-      <td>Grande (global brand)</td>
-      <td>Todo el país</td>
-      <td><span class="tag high">Alta</span></td>
-    </tr>
-    <tr>
-      <td><strong>Coldwell Banker Costa Rica</strong></td>
-      <td>Brokerage con 8M+ visitas anuales en red local</td>
-      <td>Franchise global</td>
-      <td>Cobertura nacional</td>
-      <td><span class="tag high">Alta</span></td>
-    </tr>
-    <tr>
-      <td><strong>Blue Water Properties</strong></td>
-      <td>Expansión GAM 2026, líder North Pacific, boutique</td>
-      <td>Mediana-Alta</td>
-      <td>San José / GAM</td>
-      <td><span class="tag medium">Media</span></td>
-    </tr>
-    <tr>
-      <td><strong>Cushman & Wakefield | AB Advisory</strong></td>
-      <td>Commercial real estate — líder regional Centroamérica</td>
-      <td>Grande (multinacional)</td>
-      <td>San José</td>
-      <td><span class="tag high">Alta</span></td>
-    </tr>
-    <tr>
-      <td><strong>Exclusive Homes Costa Rica</strong></td>
-      <td>Lujo, reventa, inversionistas internacionales</td>
-      <td>Mediana-Alta</td>
-      <td>San José, Pacífico</td>
-      <td><span class="tag medium">Media</span></td>
-    </tr>
-    <tr>
-      <td><strong>Osa Tropical Properties</strong></td>
-      <td>Zona Sur, Costa Ballena, properties de nicho</td>
-      <td>Pequeña-Mediana</td>
-      <td>Ojochal / Costa Ballena</td>
-      <td><span class="tag medium">Media</span></td>
-    </tr>
-    <tr>
-      <td><strong>Blue House Costa Rica</strong></td>
-      <td>Brokerage, construcción y consultoría</td>
-      <td>Pequeña-Mediana</td>
-      <td>San José</td>
-      <td><span class="tag medium">Media</span></td>
-    </tr>
-  </tbody>
-</table>
+            <div class="company-card">
+                <div class="company-header">
+                    <div class="company-name">Unimart</div>
+                    <span class="company-type">Retail E-commerce</span>
+                </div>
+                <a href="https://www.unimart.com" class="company-website" target="_blank">unimart.com</a>
+                <p class="company-description">Cadena de tiendas por departamento con presencia online fuerte. Categorías: tecnología, electrodomésticos, moda, hogar. Envíos rápidos en Costa Rica.</p>
+                <div class="company-tags">
+                    <span class="tag priority">Alta Prioridad</span>
+                    <span class="tag">Retail</span>
+                    <span class="tag">Multi-categoría</span>
+                    <span class="tag">Envío Rápido</span>
+                </div>
+            </div>
 
-<!-- DECISORES -->
-<h2>2. Decisores Clave</h2>
+            <div class="company-card">
+                <div class="company-header">
+                    <div class="company-name">Tiendamia</div>
+                    <span class="company-type">Cross-border</span>
+                </div>
+                <a href="https://www.tiendamia.cr" class="company-website" target="_blank">tiendamia.cr</a>
+                <p class="company-description">Plataforma de compras desde USA hacia Costa Rica. Modelo de consolidación de paquetes. Crecimiento acelerado en 2025-2026.</p>
+                <div class="company-tags">
+                    <span class="tag priority">Alta Prioridad</span>
+                    <span class="tag">Cross-border</span>
+                    <span class="tag">USA→CR</span>
+                    <span class="tag">Logística</span>
+                </div>
+            </div>
 
-<div class="card-grid">
-  <div class="card">
-    <h3>Byron Vargas</h3>
-    <p>Consultor — Luxury Properties Costa Rica<br>
-    <em>Ex Director de Ventas para developers de top-tier.<br>
-    Ventas anuales +$27M USD, clientes UHNWI.</em></p>
-    <div class="contact-row">
-      <span class="contact-chip">LinkedIn: Byron Vargas</span>
-      <span class="contact-chip">Sector: Lujo / High-ticket</span>
+            <div class="company-card">
+                <div class="company-header">
+                    <div class="company-name">Walmart Costa Rica</div>
+                    <span class="company-type">Retail Major</span>
+                </div>
+                <a href="https://www.walmart.co.cr" class="company-website" target="_blank">walmart.co.cr</a>
+                <p class="company-description">División e-commerce del gigante Walmart. Tercer sitio retail más visitado en Costa Rica (marzo 2026). Inversión creciente en canales digitales.</p>
+                <div class="company-tags">
+                    <span class="tag priority">Alta Prioridad</span>
+                    <span class="tag">Retail Major</span>
+                    <span class="tag">Omnicanal</span>
+                    <span class="tag">Alto Budget</span>
+                </div>
+            </div>
+
+            <div class="company-card">
+                <div class="company-header">
+                    <div class="company-name">TicoMarket</div>
+                    <span class="company-type">E-commerce Local</span>
+                </div>
+                <a href="https://www.ticomarket.com" class="company-website" target="_blank">ticomarket.com</a>
+                <p class="company-description">Marketplace enfocado en productos y marcas locales costarricenses. Moda artesanal y accesorios de diseñadores ticos. Posicionamiento en productos "Hechos en Costa Rica".</p>
+                <div class="company-tags">
+                    <span class="tag">E-commerce Local</span>
+                    <span class="tag">Moda</span>
+                    <span class="tag">Artesanal</span>
+                    <span class="tag">B2C</span>
+                </div>
+            </div>
+
+            <div class="company-card">
+                <div class="company-header">
+                    <div class="company-name">Dropi Costa Rica</div>
+                    <span class="company-type">Plataforma E-commerce</span>
+                </div>
+                <a href="https://www.dropi.io" class="company-website" target="_blank">dropi.io</a>
+                <p class="company-description">Plataforma de e-commerce diseñada para el mercado latinoamericano. Expansión reciente a Costa Rica. Enfoque en facilidad de setup para vendedores.</p>
+                <div class="company-tags">
+                    <span class="tag priority">Alta Prioridad</span>
+                    <span class="tag">SaaS</span>
+                    <span class="tag">Plataforma</span>
+                    <span class="tag">Expansión 2026</span>
+                </div>
+            </div>
+
+            <div class="company-card">
+                <div class="company-header">
+                    <div class="company-name">Pacifiko</div>
+                    <span class="company-type">Tienda Online</span>
+                </div>
+                <a href="https://www.pacifiko.com" class="company-website" target="_blank">pacifiko.com</a>
+                <p class="company-description">Tienda en línea con enfoque en tecnología yelectronics. Creciendo en participación de mercado. Reconocida positivamente por clientes en Reddit.</p>
+                <div class="company-tags">
+                    <span class="tag">Tecnología</span>
+                    <span class="tag">Retail</span>
+                    <span class="tag">E-commerce</span>
+                </div>
+            </div>
+
+            <div class="company-card">
+                <div class="company-header">
+                    <div class="company-name">Siman Costa Rica</div>
+                    <span class="company-type">Retail Department Store</span>
+                </div>
+                <a href="https://cr.siman.com" class="company-website" target="_blank">cr.siman.com</a>
+                <p class="company-description">Cadena de almacenes departamentales con plataforma e-commerce integrada. Categorías: moda, hogar, tecnología, belleza. Presencia física + digital.</p>
+                <div class="company-tags">
+                    <span class="tag">Retail</span>
+                    <span class="tag">Moda</span>
+                    <span class="tag">Omnicanal</span>
+                    <span class="tag">Belleza</span>
+                </div>
+            </div>
+
+            <div class="company-card">
+                <div class="company-header">
+                    <div class="company-name">Hola Compras</div>
+                    <span class="company-type">Compras Consolidado</span>
+                </div>
+                <p class="company-description">Servicio de compras y consolidación desde USA. Mentionada positivamente por usuarios costarricenses. Enfoque en ease-of-use.</p>
+                <div class="company-tags">
+                    <span class="tag">Cross-border</span>
+                    <span class="tag">USA→CR</span>
+                    <span class="tag">Consolidación</span>
+                </div>
+            </div>
+
+            <div class="company-card">
+                <div class="company-header">
+                    <div class="company-name">Ubuy Costa Rica</div>
+                    <span class="company-type">Global Marketplace</span>
+                </div>
+                <a href="https://www.ubuy.cr" class="company-website" target="_blank">ubuy.cr</a>
+                <p class="company-description">Marketplace internacional con presencia en Costa Rica. Enfoque en marcas de lujo y productos premium. Posicionamiento diferenciado.</p>
+                <div class="company-tags">
+                    <span class="tag">Premium</span>
+                    <span class="tag">Lujo</span>
+                    <span class="tag">Cross-border</span>
+                    <span class="tag">Global</span>
+                </div>
+            </div>
+
+            <div class="company-card">
+                <div class="company-header">
+                    <div class="company-name">E-Fast CR</div>
+                    <span class="company-type">Tienda Online</span>
+                </div>
+                <p class="company-description">Tienda en línea de crecimiento acelerado en el mercado costarricense. Categorías diversas. Servicio al cliente destacado.</p>
+                <div class="company-tags">
+                    <span class="tag">E-commerce</span>
+                    <span class="tag">Crecimiento</span>
+                    <span class="tag">Retail</span>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="section">
+            <h2>Tendencias del Mercado E-commerce Costa Rica 2026</h2>
+
+            <div class="trend-item">
+                <div class="trend-icon">💳</div>
+                <div class="trend-content">
+                    <h4>Liderazgo en Pagos Digitales</h4>
+                    <p>Costa Rica se ha consolidado como referente en adopción de pagos digitales en Centroamérica. Se proyecta eliminación de entrada manual de datos y contraseñas para 2030. Alto potencial para soluciones de pago integradas con marketing.</p>
+                </div>
+            </div>
+
+            <div class="trend-item">
+                <div class="trend-icon">📱</div>
+                <div class="trend-content">
+                    <h4>Mobile-First como Estándar</h4>
+                    <p>SYJLeathers.com lidera con 97.61% de tráfico mobile. El e-commerce exitoso en Costa Rica debe optimizar para móvil primero. Publicidad digital debe considerar formatos verticales y stories.</p>
+                </div>
+            </div>
+
+            <div class="trend-item">
+                <div class="trend-icon">👗</div>
+                <div class="trend-content">
+                    <h4>Moda Dominando el E-commerce</h4>
+                    <p>Ropa deportiva, vestidos casuales y accesorios (bolsos, joyería artesanal) son las categorías top. Marcas locales que destacan su origen tico tienen ventaja competitiva diferenciada.</p>
+                </div>
+            </div>
+
+            <div class="trend-item">
+                <div class="trend-icon">🌎</div>
+                <div class="trend-content">
+                    <h4>Cross-border en Auge</h4>
+                    <p>Plataformas como Tiendamia, Dropi y Ubuy crecen aceleradamente. El consumidor costarricense busca productos USA/global. Oportunidad para agencias que dominen estrategias de importación y logística internacional.</p>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="section">
+            <h2>Estrategias de Contacto</h2>
+
+            <div class="strategy-item">
+                <div class="strategy-number">1</div>
+                <div class="strategy-text">
+                    <h4>LinkedIn Outreach Masivo</h4>
+                    <p>Buscar: "E-commerce Manager", "Digital Marketing Director", "CMO" + nombres de empresas. Usar InMail con propuesta de valor clara sobre resultados en retail digital. Personalizar según empresa.</p>
+                </div>
+            </div>
+
+            <div class="strategy-item">
+                <div class="strategy-number">2</div>
+                <div class="strategy-text">
+                    <h4>Cold Email con Case Study</h4>
+                    <p>Preparar 2-3 case studies de e-commerce exitoso en LatAm. Enfocar en ROAS (Return on Ad Spend) y conversión. Email directo a directors/gerentes de marketing con propuesta de auditoría gratuita.</p>
+                </div>
+            </div>
+
+            <div class="strategy-item">
+                <div class="strategy-number">3</div>
+                <div class="strategy-text">
+                    <h4>WhatsApp Business + CRM</h4>
+                    <p>Integrar WhatsApp Business con CRM para seguimiento. Mensajes personalizados con contenido de valor. Responder rápido a leads B2B. Tono profesional pero cercano.</p>
+                </div>
+            </div>
+
+            <div class="strategy-item">
+                <div class="strategy-number">4</div>
+                <div class="strategy-text">
+                    <h4>Contenido de Valor en Instagram</h4>
+                    <p>Crear contenido sobre e-commerce trends en Costa Rica. Posicionarse como expertos. DM a cuentas empresariales de las empresas objetivo. Seguir, comentar, luego ofrecer consulta.</p>
+                </div>
+            </div>
+
+            <div class="strategy-item">
+                <div class="strategy-number">5</div>
+                <div class="strategy-text">
+                    <h4>Webinars y Eventos Digitales</h4>
+                    <p>Organizar webinar sobre "Cómo multiplicar ventas online en Costa Rica 2026". Invitar a decision makers de las empresas objetivo. Follow-up personalizado post-evento.</p>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="section">
+            <h2>Insight Competitivo</h2>
+
+            <p style="color: var(--text-secondary); margin-bottom: 1rem;">Según datos de Semrush (marzo 2026), los sitios retail más visitados en Costa Rica son:</p>
+            <ol style="color: var(--text-secondary); padding-left: 1.5rem; font-size: 0.875rem;">
+                <li style="margin-bottom: 0.5rem;"><strong style="color: var(--text-primary);">eBay</strong> - 497.65K visitas</li>
+                <li style="margin-bottom: 0.5rem;"><strong style="color: var(--text-primary);">AliExpress</strong> - 381.2K visitas</li>
+                <li style="margin-bottom: 0.5rem;"><strong style="color: var(--text-primary);">Walmart Costa Rica</strong> - 300.05K visitas</li>
+                <li style="margin-bottom: 0.5rem;"><strong style="color: var(--text-primary);">EPA En Línea</strong> - (construcción/hogar)</li>
+            </ol>
+            <p style="color: var(--text-secondary); font-size: 0.875rem; margin-top: 1rem;">Las empresas locales deben competir no solo entre sí, sino con gigantes globales. Esto crea oportunidad para agencias que puedan demostrar ventaja competitiva clara.</p>
+        </section>
+
+        <footer>
+            <div class="footer-logo">AUREA</div>
+            <p>Reporte de Investigación de Leads • Agencia de Publicidad</p>
+            <p>Confidencial - Uso interno únicamente</p>
+        </footer>
     </div>
-  </div>
-  <div class="card">
-    <h3>Steven López</h3>
-    <p>Founder & Business Developer<br>
-    <em>Blue House Costa Rica.<br>
-    Broker + Construction Advisor.</em></p>
-    <div class="contact-row">
-      <span class="contact-chip">LinkedIn: Steven López</span>
-      <span class="contact-chip">cr.linkedin.com</span>
-    </div>
-  </div>
-  <div class="card">
-    <h3>Dave & Annie Corredor</h3>
-    <p>Fundadores<br>
-    <em>Corredor Realty — desde 2016.<br>
-    Enfoque en diseño y construcción.</em></p>
-    <div class="contact-row">
-      <span class="contact-chip">Web: Corredor Realty</span>
-      <span class="contact-chip">San José</span>
-    </div>
-  </div>
-  <div class="card">
-    <h3>Alvaro "Tito" Azofeifa</h3>
-    <p>Broker & Property Manager<br>
-    <em>Coldwell Banker / Ballena Properties.<br>
-    +20 años de experiencia, 7 idiomas.</em></p>
-    <div class="contact-row">
-      <span class="contact-chip">C21 Ballena Properties</span>
-      <span class="contact-chip">+20 años exp.</span>
-    </div>
-  </div>
-  <div class="card">
-    <h3>Jose Alpizar</h3>
-    <p>Associate — Colliers International<br>
-    <em>Civil Engineer, real estate appraisal<br>
-    y desarrollo de proyectos.</em></p>
-    <div class="contact-row">
-      <span class="contact-chip">Colliers Costa Rica</span>
-      <span class="contact-chip">Commercial</span>
-    </div>
-  </div>
-</div>
-
-<!-- ESTRATEGIAS DE CONTACTO -->
-<h2>3. Estrategias de Contacto</h2>
-
-<div class="card">
-  <h3>Enfoque para Grandes Developer/Agencias (Capris, Rocca, Volio & Trejos, KRAIN)</h3>
-  <ul style="margin-left: 20px; margin-top: 8px; color: #bbb;">
-    <li>Enfoque: <strong>branding y posicionamiento premium</strong> — estos players ya tienen estructura pero necesitan diferenciarse en un mercado saturado de brokers.</li>
-    <li>LinkedIn outreach al CMO/Director de Marketing o al fundador (en empresas familiares).</li>
-    <li>Propuesta: contenido de video para YouTube, SEO para keywords en inglés (su buyer principal es extranjero).</li>
-    <li>Tono: profesional, datos de mercado, ROI de advertising.</li>
-  </ul>
-</div>
-
-<div class="card">
-  <h3>Enfoque para Boutique Brokers (Blue Water, Osa Tropical, Blue House)</h3>
-  <ul style="margin-left: 20px; margin-top: 8px; color: #bbb;">
-    <li>Enfoque: <strong>presencia digital accesible</strong> — muchas boutique no tienen estrategia de contenido consistente.</li>
-    <li>Instagram y Facebook como canales principales (visual, aspiracional).</li>
-    <li>WhatsApp Business + ads locales.</li>
-    <li>Propuesta: paquetes de contenido mensual + gestión de ads por geolocalización.</li>
-  </ul>
-</div>
-
-<div class="card">
-  <h3>Enfoque para Commercial (Cushman & Wakefield, Colliers)</h3>
-  <ul style="margin-left: 20px; margin-top: 8px; color: #bbb;">
-    <li>Enfoque B2B: <strong>reportes de mercado y thought leadership digital.</strong></li>
-    <li>Webinars, infografías de datos, podcasts de inversión.</li>
-    <li>Contacto: Director de Marketing o Partner.</li>
-  </ul>
-</div>
-
-<!-- TENDENCIAS -->
-<h2>4. Tendencias del Mercado — 2026</h2>
-
-<div class="trend-item">
-  <strong>🏙️ GAM (Greater Metropolitan Area) como nuevo epicentro</strong><br>
-  <span style="color:#888; font-size:13px;">San José y la GAM están emergiendo como el mercado más dinámico de CR. Blue Water Properties está expandiéndose oficialmente al GAM en 2026. Los proyectos mixtos y torres residenciales van en aumento. Mayor oportunidad para advertising focalizado en compradores urbanos.</span>
-</div>
-
-<div class="trend-item">
-  <strong>🌿 Sostenibilidad como requerimiento, no como diferenciador</strong><br>
-  <span style="color:#888; font-size:13px;">Statista confirma que la demanda de propiedades eco-friendly y sustentables es una tendencia clave en CR. Los buyers internacionales (especialmente norteamericanos y europeos) esperan certificaciones verdes. Para agencies: el messaging de sustainability ya no es opcional.</span>
-</div>
-
-<div class="trend-item">
-  <strong>💻 Marketing digital-first para real estate de lujo</strong><br>
-  <span style="color:#888; font-size:13px;">El buyer de lujo en CR es extranjero. Las agencies que ganan están en YouTube, Instagram, SEO en inglés y alemán. El video 4K de propiedades es estándar. Sin presencia digital internacional, el reach se limita al mercado local.</span>
-</div>
-
-<div class="trend-item">
-  <strong>🏖️ Short-term rentals y Airbnb en zonas costeras</strong><br>
-  <span style="color:#888; font-size:13px;">Mercados como Santa Teresa, Tamarindo, Ojochal siguen mostrando retornos prometedores para short-term rentals. El impuesto a Airbnb en Costa Rica ya es parte del panorama regulatorio. Los propietarios necesitan estrategia de pricing dinámico y fotografía profesional.</span>
-</div>
-
-<div class="trend-item">
-  <strong>👴 Senior living y retirement communities</strong><br>
-  <span style="color:#888; font-size:13px;">Costa Rica es destino de retiro creciente para norteamericanos. El segmento senior living está en expansión. Nicho con alto ticket y necesidad de marketing especializado (seguridad, servicios médicos cercanos, comunidad).</span>
-</div>
-
-<div class="trend-item">
-  <strong>📊 Data y transparencia: el nuevo estándar</strong><br>
-  <span style="color:#888; font-size:13px;">Los compradores en 2026 quieren datos: precios históricos, yields, vacancia. Las agencies que ofrecen dashboards o reportes periódicamente a sus clientes fidelizan más. Oportunidad para productos de reporting digital automatizado.</span>
-</div>
-
-<!-- RECOMENDACIONES -->
-<h2>5. Recomendaciones para Aurea</h2>
-
-<div class="card">
-  <ol style="margin-left: 20px; margin-top: 8px; color: #bbb;">
-    <li style="margin-bottom:8px;"><strong>Priorizar Capris, Rocca Development y KRAIN</strong> — revenue alto, presupuesto de marketing existente, ciclo de venta largo (necesitan nurturing constante).</li>
-    <li style="margin-bottom:8px;"><strong>Paquete "International Lead Gen" para boutiques:</strong> SEO en inglés + Google Ads targeting USA/Canadá + Instagram. Muchas agencias pequeñas no tienen la capacidad interna.</li>
-    <li style="margin-bottom:8px;"><strong>Video content como puerta de entrada:</strong> Offer de video 3D/virtual tour para propiedades de lujo. Baja barrera de entrada, alto valor percibido.</li>
-    <li style="margin-bottom:8px;"><strong>Data reports como lead magnet:</strong> Crear un "Costa Rica Real Estate Market Report" trimestral con branding Aurea. Posiciona como autoridad y genera contactos.</li>
-    <li><strong>Siguiente run:</strong> Rotar a <em>Hoteles</em> — nicho relacionado (vacation rentals, hospitality) que comparte decisores con real estate de lujo.</li>
-  </ol>
-</div>
-
-<div class="footer">
-  AUREA Advertising Agency — Lead Intelligence Report<br>
-  Generado automáticamente | 2026-04-30 01:00 UTC<br>
-  Fuente: Web search (Tavily) | Proprietary & Confidential
-</div>
-
-</div>
 </body>
 </html>
