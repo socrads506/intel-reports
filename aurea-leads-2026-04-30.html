@@ -1,560 +1,327 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aurea — Lead Research Report | 30 Abr 2026</title>
-<style>
-  :root {
-    --bg: #0d0d0d;
-    --card: #161616;
-    --border: #2a2a2a;
-    --accent: #f5a623;
-    --accent2: #e040fb;
-    --text: #e0e0e0;
-    --muted: #888;
-    --green: #00e676;
-    --red: #ff5252;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'Segoe UI', system-ui, sans-serif;
-    font-size: 14px;
-    line-height: 1.6;
-    padding: 40px 20px;
-  }
-  .container { max-width: 900px; margin: 0 auto; }
-  .header {
-    border-bottom: 1px solid var(--border);
-    padding-bottom: 24px;
-    margin-bottom: 32px;
-  }
-  .badge {
-    display: inline-block;
-    background: var(--accent);
-    color: #000;
-    font-weight: 700;
-    font-size: 11px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    padding: 4px 12px;
-    border-radius: 20px;
-    margin-bottom: 12px;
-  }
-  h1 {
-    font-size: 28px;
-    font-weight: 800;
-    color: #fff;
-    margin-bottom: 6px;
-  }
-  .subtitle {
-    color: var(--muted);
-    font-size: 13px;
-  }
-  h2 {
-    font-size: 18px;
-    font-weight: 700;
-    color: #fff;
-    margin: 32px 0 16px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid var(--border);
-  }
-  h3 {
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--accent);
-    margin: 16px 0 8px;
-  }
-  .lead-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 20px;
-    margin-bottom: 16px;
-    transition: border-color 0.2s;
-  }
-  .lead-card:hover { border-color: var(--accent); }
-  .lead-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 10px;
-  }
-  .lead-name {
-    font-size: 16px;
-    font-weight: 700;
-    color: #fff;
-  }
-  .lead-type {
-    font-size: 11px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    padding: 3px 10px;
-    border-radius: 20px;
-    background: rgba(245,166,35,0.15);
-    color: var(--accent);
-  }
-  .lead-meta {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
-    margin-top: 8px;
-  }
-  .meta-item { font-size: 13px; }
-  .meta-label { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; }
-  .meta-value { color: var(--text); }
-  .tag {
-    display: inline-block;
-    background: rgba(255,255,255,0.06);
-    border: 1px solid var(--border);
-    color: var(--muted);
-    font-size: 11px;
-    padding: 2px 8px;
-    border-radius: 4px;
-    margin-right: 4px;
-    margin-top: 4px;
-  }
-  .trend-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    margin-top: 16px;
-  }
-  .trend-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 16px;
-  }
-  .trend-title {
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--accent);
-    margin-bottom: 6px;
-  }
-  .trend-desc { font-size: 13px; color: var(--muted); }
-  .contact-strategy {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 20px;
-    margin-top: 16px;
-  }
-  .contact-strategy li {
-    margin-bottom: 8px;
-    padding-left: 16px;
-    position: relative;
-    font-size: 13px;
-    color: var(--text);
-  }
-  .contact-strategy li::before {
-    content: '→';
-    position: absolute;
-    left: 0;
-    color: var(--accent);
-  }
-  .stats-row {
-    display: flex;
-    gap: 16px;
-    margin: 16px 0;
-    flex-wrap: wrap;
-  }
-  .stat-box {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 16px 20px;
-    flex: 1;
-    min-width: 140px;
-    text-align: center;
-  }
-  .stat-num {
-    font-size: 28px;
-    font-weight: 800;
-    color: var(--accent);
-  }
-  .stat-label {
-    font-size: 11px;
-    color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-top: 4px;
-  }
-  .footer {
-    margin-top: 40px;
-    padding-top: 20px;
-    border-top: 1px solid var(--border);
-    color: var(--muted);
-    font-size: 12px;
-    text-align: center;
-  }
-  .pulse {
-    display: inline-block;
-    width: 8px;
-    height: 8px;
-    background: var(--green);
-    border-radius: 50%;
-    margin-right: 6px;
-    animation: pulse 2s infinite;
-  }
-  @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.3; }
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurea - Leads Manufacturers Costa Rica | 30 Abr 2026</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0d1117;
+            color: #c9d1d9;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 2px solid #238636;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        .badge {
+            display: inline-block;
+            background: #238636;
+            color: #fff;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        h1 {
+            font-size: 2.2em;
+            color: #f0f6fc;
+            margin: 15px 0 5px;
+        }
+        .subtitle {
+            color: #8b949e;
+            font-size: 1.1em;
+        }
+        h2 {
+            color: #f0f6fc;
+            border-left: 4px solid #238636;
+            padding-left: 15px;
+            margin: 35px 0 20px;
+            font-size: 1.5em;
+        }
+        .company-card {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 15px;
+            transition: border-color 0.3s;
+        }
+        .company-card:hover {
+            border-color: #238636;
+        }
+        .company-name {
+            font-size: 1.3em;
+            color: #58a6ff;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .company-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 10px;
+        }
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.9em;
+            color: #8b949e;
+        }
+        .meta-item strong {
+            color: #c9d1d9;
+        }
+        .contact-strategies {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+        .strategy-item {
+            padding: 12px 0;
+            border-bottom: 1px solid #30363d;
+        }
+        .strategy-item:last-child {
+            border-bottom: none;
+        }
+        .strategy-title {
+            color: #238636;
+            font-weight: 600;
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+        .trend-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .trend-card {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 20px;
+        }
+        .trend-title {
+            color: #58a6ff;
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        .footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #30363d;
+            text-align: center;
+            color: #8b949e;
+            font-size: 0.85em;
+        }
+        .highlight {
+            background: #238636;
+            color: #fff;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.85em;
+        }
+        ul {
+            margin-left: 20px;
+            margin-top: 8px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+    </style>
 </head>
 <body>
-<div class="container">
+    <div class="container">
+        <header>
+            <span class="badge">Lead Research</span>
+            <h1>Manufacturers Costa Rica</h1>
+            <p class="subtitle">Jueves 30 de Abril, 2026 | Aurea Advertising Agency</p>
+        </header>
 
-  <div class="header">
-    <div class="badge">Agencia Aurea — Research Report</div>
-    <h1>Lead Generation: Restaurantes en Costa Rica</h1>
-    <div class="subtitle"><span class="pulse"></span> 30 de Abril 2026 · 12:00 CST · Nicho: Restaurantes</div>
-  </div>
+        <section>
+            <h2>Resumen Ejecutivo</h2>
+            <p>Costa Rica se posiciona como hub de manufactura avanzada en América Latina, con un enfoque en dispositivos médicos, semiconductores y producción de alta complejidad. El sector está experimentando transformación digital acelerada y busca activamente partners de marketing para fortalecer su presencia de marca y generar demanda B2B.</p>
+        </section>
 
-  <div class="stats-row">
-    <div class="stat-box">
-      <div class="stat-num">8</div>
-      <div class="stat-label">Empresas identificadas</div>
-    </div>
-    <div class="stat-box">
-      <div class="stat-num">25+</div>
-      <div class="stat-label">Startups en sector</div>
-    </div>
-    <div class="stat-box">
-      <div class="stat-num">171</div>
-      <div class="stat-label">Franquicias foráneas CR</div>
-    </div>
-    <div class="stat-box">
-      <div class="stat-num">65%</div>
-      <div class="stat-label">Sin estrategia digital</div>
-    </div>
-  </div>
+        <section>
+            <h2>Empresas Identificadas</h2>
 
-  <!-- Companies Found -->
-  <h2>🏷️ Empresas Identificadas</h2>
+            <div class="company-card">
+                <div class="company-name">ITEK Nearshoring</div>
+                <p>Empresa de servicios de manufactura nearshoring con enfoque en dispositivos médicos y manufactura avanzada. Alliance estratégica con TMA para fortalecer ecosistema regional.</p>
+                <div class="company-meta">
+                    <div class="meta-item"><strong>Sector:</strong> Medical Devices & Advanced Manufacturing</div>
+                    <div class="meta-item"><strong>CEO:</strong> Bernal (Founder & CEO)</div>
+                    <div class="meta-item"><strong>Ubicación:</strong> Costa Rica</div>
+                </div>
+            </div>
 
-  <div class="lead-card">
-    <div class="lead-header">
-      <div class="lead-name">Café Rey S.A.</div>
-      <div class="lead-type">Cafetería / Restaurante</div>
-    </div>
-    <div class="lead-meta">
-      <div class="meta-item">
-        <div class="meta-label">Contacto</div>
-        <div class="meta-value">Rodolfo Mora — Propietario</div>
-      </div>
-      <div class="meta-item">
-        <div class="meta-label">Email</div>
-        <div class="meta-value">contacto@caferey.co.cr</div>
-      </div>
-      <div class="meta-item">
-        <div class="meta-label">Ubicación</div>
-        <div class="meta-value">Curridabat, San José</div>
-      </div>
-      <div class="meta-item">
-        <div class="meta-label">Historia</div>
-        <div class="meta-value">Tradición desde 1957, adquirida por BIA Foods 2023</div>
-      </div>
-    </div>
-    <div style="margin-top:12px">
-      <span class="tag">#marca-local</span>
-      <span class="tag">#comunidad-tica</span>
-      <span class="tag">#redes-sociales</span>
-      <span class="tag">#rebranding</span>
-    </div>
-  </div>
+            <div class="company-card">
+                <div class="company-name">Conforpie</div>
+                <p>Empresa líder en el sector manufacturero de Costa Rica con $450.7M en ingresos. Enfoque en producción industrial de consumo.</p>
+                <div class="company-meta">
+                    <div class="meta-item"><strong>Revenue:</strong> $450.7M</div>
+                    <div class="meta-item"><strong>Sector:</strong> Manufacturing</div>
+                </div>
+            </div>
 
-  <div class="lead-card">
-    <div class="lead-header">
-      <div class="lead-name">Restaurante La Criollita</div>
-      <div class="lead-type">Familiar / Comida típica</div>
-    </div>
-    <div class="lead-meta">
-      <div class="meta-item">
-        <div class="meta-label">Presencia</div>
-        <div class="meta-value">San José, Costa Rica</div>
-      </div>
-      <div class="meta-item">
-        <div class="meta-label">Historia</div>
-        <div class="meta-value">Desde 1974 · +50 años en el mercado</div>
-      </div>
-      <div class="meta-item">
-        <div class="meta-label">Segmento</div>
-        <div class="meta-value">Familiar, tradiciones ticas</div>
-      </div>
-      <div class="meta-item">
-        <div class="meta-label">Instagram</div>
-        <div class="meta-value">@restlacriollita</div>
-      </div>
-    </div>
-    <div style="margin-top:12px">
-      <span class="tag">#marca-herencia</span>
-      <span class="tag">#familiar</span>
-      <span class="tag">#turismo-local</span>
-      <span class="tag">#reactivacion-post-covid</span>
-    </div>
-  </div>
+            <div class="company-card">
+                <div class="company-name">Leaho Refrigeracion Industrial S.A.</div>
+                <p>Empresa de maquinaria industrial con presencia en Atenas, Alajuela. Enfoque en soluciones de refrigeración para el sector industrial.</p>
+                <div class="company-meta">
+                    <div class="meta-item"><strong>Revenue:</strong> $34.48M</div>
+                    <div class="meta-item"><strong>Sector:</strong> Industrial Machinery</div>
+                    <div class="meta-item"><strong>Ubicación:</strong> Atenas, Alajuela</div>
+                </div>
+            </div>
 
-  <div class="lead-card">
-    <div class="lead-header">
-      <div class="lead-name">Sikwa</div>
-      <div class="lead-type">Alta cocina / Gastro</div>
-    </div>
-    <div class="lead-meta">
-      <div class="meta-item">
-        <div class="meta-label">Chef</div>
-        <div class="meta-value">Pablo Bonilla</div>
-      </div>
-      <div class="meta-item">
-        <div class="meta-label">Concepto</div>
-        <div class="meta-value">Cocina indígena, jungle-to-table</div>
-      </div>
-      <div class="meta-item">
-        <div class="meta-label">Ubicación</div>
-        <div class="meta-value">San José, Costa Rica</div>
-      </div>
-      <div class="meta-item">
-        <div class="meta-label">Perfil</div>
-        <div class="meta-value">Alta cocina, medios gastronómicos</div>
-      </div>
-    </div>
-    <div style="margin-top:12px">
-      <span class="tag">#premium</span>
-      <span class="tag">#contenido-visual</span>
-      <span class="tag">#influencer-marketing</span>
-      <span class="tag">#branding</span>
-    </div>
-  </div>
+            <div class="company-card">
+                <div class="company-name">Corporacion Pedregal</div>
+                <p>Corporación industrial diversificada con operaciones en Costa Rica.</p>
+                <div class="company-meta">
+                    <div class="meta-item"><strong>Sector:</strong> Manufacturing</div>
+                </div>
+            </div>
 
-  <div class="lead-card">
-    <div class="lead-header">
-      <div class="lead-name">Conservatorium</div>
-      <div class="lead-type">Grill / Alta cocina</div>
-    </div>
-    <div class="lead-meta">
-      <div class="meta-item">
-        <div class="meta-label">Concepto</div>
-        <div class="meta-value">Dry aged cattle, Ciudad Colón</div>
-      </div>
-      <div class="meta-item">
-        <div class="meta-label">Ubicación</div>
-        <div class="meta-value">Santa Ana / Ciudad Colón</div>
-      </div>
-      <div class="meta-item">
-        <div class="meta-label">Perfil</div>
-        <div class="meta-value">Considerado el mejor restaurante fine dining CR</div>
-      </div>
-    </div>
-    <div style="margin-top:12px">
-      <span class="tag">#premium</span>
-      <span class="tag">#fotografia-gastronomica</span>
-      <span class="tag">#experiencias</span>
-      <span class="tag">#branding-lujo</span>
-    </div>
-  </div>
+            <div class="company-card">
+                <div class="company-name">CRAISA</div>
+                <p>Empresa de equipos y componentes industriales. Enfoque en soluciones de manufactura y distribución de equipos.</p>
+                <div class="company-meta">
+                    <div class="meta-item"><strong>Sector:</strong> Industrial Machinery</div>
+                </div>
+            </div>
 
-  <div class="lead-card">
-    <div class="lead-header">
-      <div class="lead-name">Canton</div>
-      <div class="lead-type">Cadena comida asiática</div>
-    </div>
-    <div class="lead-meta">
-      <div class="meta-item">
-        <div class="meta-label">Concepto</div>
-        <div class="meta-value">Asiático estilo chino-americano, casual food</div>
-      </div>
-      <div class="meta-item">
-        <div class="meta-label">Origen</div>
-        <div class="meta-value">Empresa costarricense joven</div>
-      </div>
-      <div class="meta-item">
-        <div class="meta-label">Oportunidad</div>
-        <div class="meta-value">Expansión de cadena → necesita marketing</div>
-      </div>
-    </div>
-    <div style="margin-top:12px">
-      <span class="tag">#cadena-en-crecimiento</span>
-      <span class="tag">#multi-ubicacion</span>
-      <span class="tag">#digital-marketing</span>
-      <span class="tag">#geolocal</span>
-    </div>
-  </div>
+            <div class="company-card">
+                <div class="company-name">Dansar Industries</div>
+                <p>Empresa de manufactura industrial con enfoque en producción especializada.</p>
+                <div class="company-meta">
+                    <div class="meta-item"><strong>Sector:</strong> Manufacturing</div>
+                </div>
+            </div>
 
-  <div class="lead-card">
-    <div class="lead-header">
-      <div class="lead-name">Búlali Artesanal</div>
-      <div class="lead-type">Café / Bakery artesanal</div>
-    </div>
-    <div class="lead-meta">
-      <div class="meta-item">
-        <div class="meta-label">Ubicación</div>
-        <div class="meta-value">San José, Costa Rica</div>
-      </div>
-      <div class="meta-item">
-        <div class="meta-label">Desde</div>
-        <div class="meta-value">2013</div>
-      </div>
-      <div class="meta-item">
-        <div class="meta-label">Inversión</div>
-        <div class="meta-value">Ha recibido financiamiento</div>
-      </div>
-      <div class="meta-item">
-        <div class="meta-label">Perfil</div>
-        <div class="meta-value">Orgánico, saludable, nicho diferenciado</div>
-      </div>
-    </div>
-    <div style="margin-top:12px">
-      <span class="tag">#organic</span>
-      <span class="tag">#wellness</span>
-      <span class="tag">#specialty-coffee</span>
-      <span class="tag">#posicionamiento</span>
-    </div>
-  </div>
+            <div class="company-card">
+                <div class="company-name">3Designers CAD Studio</div>
+                <p>Estudio de diseño CAD especializado en soluciones de ingeniería y prototipado para el sector manufacturero.</p>
+                <div class="company-meta">
+                    <div class="meta-item"><strong>Sector:</strong> Industrial Design & Engineering</div>
+                </div>
+            </div>
 
-  <div class="lead-card">
-    <div class="lead-header">
-      <div class="lead-name">AUTÓKTONO</div>
-      <div class="lead-type">Gastronomía sostenible</div>
-    </div>
-    <div class="lead-meta">
-      <div class="meta-item">
-        <div class="meta-label">Concepto</div>
-        <div class="meta-value">Productores locales, soberanía alimentaria</div>
-      </div>
-      <div class="meta-item">
-        <div class="meta-label">Desde</div>
-        <div class="meta-value">2019</div>
-      </div>
-      <div class="meta-item">
-        <div class="meta-label">Perfil</div>
-        <div class="meta-value">Impacto social, storytelling, sostenible</div>
-      </div>
-    </div>
-    <div style="margin-top:12px">
-      <span class="tag">#sostenibilidad</span>
-      <span class="tag">#storytelling</span>
-      <span class="tag">#impacto</span>
-      <span class="tag">#nicho-premium</span>
-    </div>
-  </div>
+            <div class="company-card">
+                <div class="company-name">AQUAPURA Costa Rica</div>
+                <p>Empresa de equipos industriales y soluciones de tratamiento de agua.</p>
+                <div class="company-meta">
+                    <div class="meta-item"><strong>Sector:</strong> Industrial Equipment</div>
+                </div>
+            </div>
 
-  <div class="lead-card">
-    <div class="lead-header">
-      <div class="lead-name">Franquicias en expansión (BK, Domino's, Juan Valdez, Popeyes)</div>
-      <div class="lead-type">QSR / Franquicias</div>
-    </div>
-    <div class="lead-meta">
-      <div class="meta-item">
-        <div class="meta-label">Oportunidad</div>
-        <div class="meta-value">+200 contrataciones en 2026 · 5 cadenas</div>
-      </div>
-      <div class="meta-item">
-        <div class="meta-label">Contacto GM</div>
-        <div class="meta-value">Mónica Bianchini — Gerente General Starbucks CR</div>
-      </div>
-      <div class="meta-item">
-        <div class="meta-label">Nota</div>
-        <div class="meta-value">Franchises buscan agencia para campañas locales</div>
-      </div>
-    </div>
-    <div style="margin-top:12px">
-      <span class="tag">#franquicia</span>
-      <span class="tag">#qsr</span>
-      <span class="tag">#campanas-locales</span>
-      <span class="tag">#performance-marketing</span>
-    </div>
-  </div>
+            <div class="company-card">
+                <div class="company-name">Aditel Costa Rica / ADITEC JCB</div>
+                <p>Representante de equipos de construcción y maquinaria pesada. Enfoque en sector construcción e infraestructura.</p>
+                <div class="company-meta">
+                    <div class="meta-item"><strong>Sector:</strong> Heavy Machinery</div>
+                </div>
+            </div>
 
-  <!-- Market Trends -->
-  <h2>📊 Tendencias del Mercado Gastronómico CR 2026</h2>
+            <div class="company-card">
+                <div class="company-name">Cargotecnia Costa Rica</div>
+                <p>Soluciones de maquinaria para logística y transporte interno.</p>
+                <div class="company-meta">
+                    <div class="meta-item"><strong>Sector:</strong> Logistics & Materials Handling</div>
+                </div>
+            </div>
 
-  <div class="trend-grid">
-    <div class="trend-card">
-      <div class="trend-title">📱 Social media como motor de ventas</div>
-      <div class="trend-desc">65% de restaurantes CR no tiene estrategia digital activa. Quienes la implementan duplican reservas en 6 meses.</div>
+        </section>
+
+        <section>
+            <h2>Estrategias de Contacto</h2>
+            <div class="contact-strategies">
+                <div class="strategy-item">
+                    <div class="strategy-title">LinkedIn Outreach Masivo</div>
+                    <p>Conectar con decisores de manufacturing, operations y marketing en empresas identificadas. Usar InMail con propuesta de valor enfocada en casos de éxito en sector industrial B2B.</p>
+                </div>
+                <div class="strategy-item">
+                    <div class="strategy-title">CINDE como Portal de Entrada</div>
+                    <p>CINDE (Costa Rica Investment Promotion Agency) conecta con empresas del sector manufacturing. Solicitar contacto con empresas en su directorio de smart manufacturing.</p>
+                </div>
+                <div class="strategy-item">
+                    <div class="strategy-title">PROCOMER Trade Network</div>
+                    <p>PROCOMER tiene directorio de 400+ exportadores costarricenses. Ideal para manufacturers con operaciones de exportación y necesidades de posicionamiento internacional.</p>
+                </div>
+                <div class="strategy-item">
+                    <div class="strategy-title">Eventos Sectoriales</div>
+                    <p>MD&M West 2026 y similares. PROCOMER lidera delegaciones. Opportunidad de networking directo con decisores de medical devices manufacturing.</p>
+                </div>
+                <div class="strategy-item">
+                    <div class="strategy-title">Pitch: Digital Transformation narrativa</div>
+                    <p>Manufacturers en Costa Rica están en plena transformación digital. Posicionar servicios de Aurea como socios para comunicar innovación, sostenibilidad y modernidad en campañas B2B.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Tendencias del Mercado</h2>
+            <div class="trend-grid">
+                <div class="trend-card">
+                    <div class="trend-title">Nearshoring Acelerado</div>
+                    <p>Costa Rica se consolida como destino de nearshoring para operaciones de manufactura, especialmente medical devices y semiconductores. Empresas buscan resiliencia operativa y cercanía a mercados.</p>
+                </div>
+                <div class="trend-card">
+                    <div class="trend-title">Digital Transformation Mandatory</div>
+                    <p>Manufacturers están invirtiendo en transformación digital. Según Deloitte, el gasto en transformación digital alcanzará $1 billón para 2031. Las marcas necesitan comunicar esta evolución.</p>
+                </div>
+                <div class="trend-card">
+                    <div class="trend-title">Sostenibilidad como Diferencial</div>
+                    <p>Costa Rica tiene posicionamiento eco-turístico. Manufacturers locales pueden leverage este branding para campañas sustainability-focused. Tendencia global de supply chain verde.</p>
+                </div>
+                <div class="trend-card">
+                    <div class="trend-title">Advertising Market en Crecimiento</div>
+                    <p>El mercado publicitario costarricense está en crecimiento moderado, con shift hacia plataformas digitales. 100% del gasto digital proyectado. Brands necesitan presencia omnicanal.</p>
+                </div>
+                <div class="trend-card">
+                    <div class="trend-title">Semiconductor Industry Expansion</div>
+                    <p>Costa Rica está desarrollando certificación en semiconductores. Universidad Latina y CRUSA entrenando próxima generación de técnicos. Industry en crecimiento.</p>
+                </div>
+                <div class="trend-card">
+                    <div class="trend-title">Personalization como Key Trend</div>
+                    <p>75% de consumidores prefieren marcas que entregan contenido personalizado. Manufacturers necesitan estrategias de marketing con enfoque en personalización B2B.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Próximos Pasos Recomendados</h2>
+            <ul>
+                <li>Priorizar ITEK, Conforpie y Leaho por tamaño y enfoque en innovación</li>
+                <li>Desarrollar case study deck enfocado en sector manufacturing B2B</li>
+                <li>LinkedIn Sales Navigator para mapping de decision makers por empresa</li>
+                <li>Crear contenido educativo sobre digital transformation para manufacturers</li>
+                <li>Siguiente nicho en rotación: <span class="highlight">Startups</span></li>
+            </ul>
+        </section>
+
+        <div class="footer">
+            <p>Reporte generado automáticamente para Aurea Advertising Agency</p>
+            <p>Logos AI Agent | 30 de Abril, 2026</p>
+        </div>
     </div>
-    <div class="trend-card">
-      <div class="trend-title">🍽️ Fine dining en auge</div>
-      <div class="trend-desc">San José vive boom de alta cocina con chefs locales (Sikwa, Conservatorium). El contenido visual es clave para atraer turistas y locales.</div>
-    </div>
-    <div class="trend-card">
-      <div class="trend-title">🌱 Sostenibilidad como diferenciador</div>
-      <div class="trend-desc">Comensales CR priorizan marcas con prácticas sostenibles. AUTÓKTONO y Búlali representan esta tendencia.</div>
-    </div>
-    <div class="trend-card">
-      <div class="trend-title">⚡ Experiencia omnicanal</div>
-      <div class="trend-desc">Restaurantes que integran pedido por WhatsApp, Instagram y Google Maps crecen 40% más rápido que los que no.</div>
-    </div>
-    <div class="trend-card">
-      <div class="trend-title">🎥 Video y reels dominante</div>
-      <div class="trend-desc">TikTok e Instagram Reels son el canal #1 para descubrimiento de restaurantes en Costa Rica.</div>
-    </div>
-    <div class="trend-card">
-      <div class="trend-title">🏷️ Marcas locales vs franquicias</div>
-      <div class="trend-desc">171 franquicias extranjeras vs restaurantes independientes. Los locales buscan diferenciarse con identidad de marca propia.</div>
-    </div>
-  </div>
-
-  <!-- Contact Strategy -->
-  <h2>🎯 Estrategias de Contacto</h2>
-
-  <div class="contact-strategy">
-    <h3>Para marcas de nicho (Sikwa, Conservatorium, Búlali, AUTÓKTONO)</h3>
-    <ul>
-      <li>Presentar提案 de contenido visual premium: fotografía gastronónimica + reels</li>
-      <li>Ofrecer auditoría gratuita de Instagram (sin costo, 15 min): descubrir engagement perdido</li>
-      <li>Invitar a collaboración con influencers gastronómicos locales ( @$5K-$15K reach)</li>
-      <li>Pitch: "Su cliente promedio no los está encontrando en Google Maps con reseñas completas"</li>
-    </ul>
-  </div>
-
-  <div class="contact-strategy">
-    <h3>Para marcas establecidas (Café Rey, La Criollita)</h3>
-    <ul>
-      <li>Proponer plan de contenidos 30-60-90 días para festividades ticas (F Día de la Hispanidad, Independencia CR, Navidad)</li>
-      <li>Ofrecer gestión de redes sociales + Google Business Profile optimizado</li>
-      <li>Pitch: "Tienen 50 años de historia pero su presencia digital parece de 2005"</li>
-    </ul>
-  </div>
-
-  <div class="contact-strategy">
-    <h3>Para cadenas en expansión (Canton, franquicias)</h3>
-    <ul>
-      <li>Presentar caso de estudio: cómo una cadena QSR en CR creció 30% en pedidos con ads geolocalizados</li>
-      <li>Ofrecer estrategia de ads Facebook/Instagram geolocalizados por ubicación de locales</li>
-      <li>Pitch: "Con 5 ubicaciones nuevas abriendo, necesitan un sistema de marketing replicable"</li>
-    </ul>
-  </div>
-
-  <div class="contact-strategy">
-    <h3>Secuencia de outreach recomendada</h3>
-    <ul>
-      <li><strong>Semana 1:</strong> Contactar Canton, La Criollita, Búlali Artesanal — brands con alta capacidad de decisión</li>
-      <li><strong>Semana 2:</strong> Sikwa y Conservatorium — alto ticket potencial, ciclo largo</li>
-      <li><strong>Semana 3:</strong> Café Rey / BIA Foods — decisión corporativa, más lento</li>
-      <li><strong>Semana 4:</strong> Revisión de métricas y ajuste de pitch por respuesta</li>
-    </ul>
-  </div>
-
-  <!-- Next Niche -->
-  <h2>📅 Próximo Reporte</h2>
-  <div class="lead-card">
-    <div class="lead-name">Nicho próximo: Clínicas en Costa Rica</div>
-    <div style="margin-top:8px; color: var(--muted); font-size: 13px;">
-      Clínicas privadas, laboratorios clínicos, centros médicos. 
-      Oportunidad en marketing de salud digital, patient acquisition y branding médico.
-    </div>
-  </div>
-
-  <div class="footer">
-    Reporte generado automáticamente por Agencia Aurea · Logos AI Agent<br>
-    Thursday, April 30th, 2026 · 12:00 CST · intel-reports/aurea-leads-2026-04-30.html
-  </div>
-
-</div>
 </body>
 </html>
