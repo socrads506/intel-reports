@@ -1,377 +1,453 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aurea — Lead Research: Clínicas Privadas Costa Rica | 29 Abr 2026</title>
-<style>
-  :root {
-    --bg: #0b0e14;
-    --surface: #13171f;
-    --surface2: #1a1f2e;
-    --border: #252b3d;
-    --accent: #f5a623;
-    --accent2: #4fc3f7;
-    --text: #e8eaf0;
-    --text-dim: #8892a4;
-    --green: #4ade80;
-    --red: #f87171;
-    --tag-bg: #1e2d45;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', 'Inter', -apple-system, sans-serif; font-size: 14px; line-height: 1.6; }
-  .wrap { max-width: 1100px; margin: 0 auto; padding: 40px 24px; }
-
-  .header { border-bottom: 1px solid var(--border); padding-bottom: 32px; margin-bottom: 40px; }
-  .header-top { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px; }
-  .logo { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); font-weight: 700; margin-bottom: 8px; }
-  h1 { font-size: 26px; font-weight: 700; color: var(--text); line-height: 1.2; }
-  .subtitle { color: var(--text-dim); margin-top: 6px; font-size: 13px; }
-  .badge-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
-  .badge { background: var(--tag-bg); color: var(--accent2); font-size: 11px; padding: 4px 10px; border-radius: 20px; border: 1px solid var(--border); }
-  .badge.green { color: var(--green); border-color: #1a3d2a; background: #0d1f14; }
-  .meta { text-align: right; font-size: 12px; color: var(--text-dim); }
-  .meta strong { display: block; color: var(--text); font-size: 13px; }
-
-  .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 40px; }
-  .summary-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 20px; }
-  .summary-card .label { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-dim); margin-bottom: 6px; }
-  .summary-card .value { font-size: 22px; font-weight: 700; color: var(--accent); }
-  .summary-card .sub { font-size: 12px; color: var(--text-dim); margin-top: 4px; }
-
-  h2 { font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
-  h2::before { content: '// '; color: var(--accent); }
-
-  .section { margin-bottom: 48px; }
-
-  /* Company cards */
-  .company-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 16px; }
-  .company-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 20px; transition: border-color 0.2s; }
-  .company-card:hover { border-color: var(--accent); }
-  .company-card .type { font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent2); margin-bottom: 6px; }
-  .company-card h3 { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 6px; }
-  .company-card .location { font-size: 12px; color: var(--text-dim); margin-bottom: 10px; }
-  .company-card .detail { font-size: 12px; color: var(--text-dim); margin-bottom: 4px; }
-  .company-card .detail strong { color: var(--text); }
-  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
-  .tag { background: var(--tag-bg); color: var(--text-dim); font-size: 10px; padding: 3px 8px; border-radius: 4px; border: 1px solid var(--border); }
-
-  /* Strategies */
-  .strategy-list { display: flex; flex-direction: column; gap: 12px; }
-  .strategy-item { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; display: flex; gap: 16px; align-items: flex-start; }
-  .strategy-num { background: var(--accent); color: var(--bg); width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; flex-shrink: 0; }
-  .strategy-body h3 { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
-  .strategy-body p { font-size: 12px; color: var(--text-dim); }
-
-  /* Trends */
-  .trend-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
-  .trend-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px; }
-  .trend-card h3 { font-size: 13px; font-weight: 600; color: var(--accent); margin-bottom: 6px; }
-  .trend-card p { font-size: 12px; color: var(--text-dim); line-height: 1.5; }
-
-  .footer { border-top: 1px solid var(--border); padding-top: 24px; margin-top: 48px; font-size: 11px; color: var(--text-dim); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurea - Leads E-commerce Costa Rica | 29 Abril 2026</title>
+    <style>
+        :root {
+            --bg-primary: #0d1117;
+            --bg-secondary: #161b22;
+            --bg-card: #1c2128;
+            --border: #30363d;
+            --text-primary: #e6edf3;
+            --text-secondary: #8b949e;
+            --accent: #58a6ff;
+            --accent-gold: #d4a574;
+            --success: #3fb950;
+            --warning: #d29922;
+            --danger: #f85149;
+        }
+        
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+        
+        header {
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--bg-primary);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        h1 { font-size: 2.2rem; margin: 15px 0 5px; color: var(--text-primary); }
+        h2 { font-size: 1.4rem; margin: 30px 0 15px; color: var(--accent-gold); border-bottom: 1px solid var(--border); padding-bottom: 10px; }
+        h3 { font-size: 1.1rem; color: var(--accent); margin-bottom: 8px; }
+        
+        .meta { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 20px; }
+        
+        .summary {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 35px;
+        }
+        
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .stat-box {
+            background: var(--bg-card);
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .stat-number { font-size: 1.8rem; font-weight: 700; color: var(--accent); }
+        .stat-label { font-size: 0.8rem; color: var(--text-secondary); text-transform: uppercase; }
+        
+        .company-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+            transition: border-color 0.2s;
+        }
+        
+        .company-card:hover { border-color: var(--accent); }
+        
+        .company-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+        
+        .company-name { font-size: 1.1rem; font-weight: 600; color: var(--text-primary); }
+        .company-category { font-size: 0.75rem; background: var(--bg-secondary); padding: 3px 10px; border-radius: 12px; color: var(--accent); }
+        
+        .company-desc { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 15px; }
+        
+        .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+        .tag {
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            border-radius: 6px;
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
+            border: 1px solid var(--border);
+        }
+        
+        .tag.hot { background: rgba(248, 81, 73, 0.15); color: var(--danger); border-color: rgba(248, 81, 73, 0.3); }
+        .tag.opportunity { background: rgba(88, 166, 255, 0.15); color: var(--accent); border-color: rgba(88, 166, 255, 0.3); }
+        
+        .trend-section {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .trend-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .trend-item:last-child { border-bottom: none; }
+        
+        .trend-icon { font-size: 1.4rem; }
+        .trend-content h4 { font-size: 0.95rem; color: var(--text-primary); margin-bottom: 4px; }
+        .trend-content p { font-size: 0.85rem; color: var(--text-secondary); }
+        
+        .contact-strategy {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .strategy-step {
+            display: flex;
+            gap: 15px;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .strategy-step:last-child { border-bottom: none; }
+        
+        .step-num {
+            width: 28px;
+            height: 28px;
+            background: var(--accent);
+            color: var(--bg-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+        
+        .step-content h4 { font-size: 0.95rem; color: var(--text-primary); margin-bottom: 4px; }
+        .step-content p { font-size: 0.85rem; color: var(--text-secondary); }
+        
+        footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+        }
+        
+        .priority-high { border-left: 3px solid var(--danger); }
+        .priority-medium { border-left: 3px solid var(--warning); }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 1.6rem; }
+            .container { padding: 20px 15px; }
+            .summary-grid { grid-template-columns: 1fr 1fr; }
+        }
+    </style>
 </head>
 <body>
-<div class="wrap">
-
-  <!-- HEADER -->
-  <div class="header">
-    <div class="header-top">
-      <div>
-        <div class="logo">Aurea — Advertising Intelligence</div>
-        <h1>Lead Research: Clínicas Privadas en Costa Rica</h1>
-        <div class="subtitle">Oportunidades de marketing digital para agencias de publicidad en el sector salud privado</div>
-        <div class="badge-row">
-          <span class="badge">NICHO: Clínicas Privadas</span>
-          <span class="badge">MERcado: Costa Rica</span>
-          <span class="badge green">📍 HOT LEADS</span>
-          <span class="badge">CICLO: Q2 2026</span>
+    <div class="container">
+        <header>
+            <span class="badge">Aurea Advertising</span>
+            <h1>Lead Research: E-commerce Costa Rica</h1>
+            <p class="meta">Miércoles 29 de Abril, 2026 | 20:00 CST | Run #12</p>
+        </header>
+        
+        <div class="summary">
+            <h2>Resumen Ejecutivo</h2>
+            <p>El sector e-commerce en Costa Rica continúa su expansión acelerada con un crecimiento proyectado del 9.3% para 2025-2026. Este informe identifica empresas y marcas con potencial de demanda de servicios publicitarios, identificando actores clave y estrategias de contacto específicas para el nicho de comercio electrónico.</p>
+            
+            <div class="summary-grid">
+                <div class="stat-box">
+                    <div class="stat-number">8</div>
+                    <div class="stat-label">Empresas Identificadas</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">6</div>
+                    <div class="stat-label">Estrategias de Contacto</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">5</div>
+                    <div class="stat-label">Tendencias Clave</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">Alto</div>
+                    <div class="stat-label">Potencial de Mercado</div>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="meta">
-        <strong>29 Abril 2026</strong>
-        <span>18:00 CST</span><br>
-        <span>Reporte automático hourly</span>
-      </div>
+        
+        <h2>Empresas y Oportunidades</h2>
+        
+        <div class="company-card priority-high">
+            <div class="company-header">
+                <span class="company-name">Gaba Store Costa Rica</span>
+                <span class="company-category">Tienda Online</span>
+            </div>
+            <p class="company-desc">Tienda de moda y accesorios con presencia digital activa. Desarrollada por MCW Digital. Necesitan estrategia de posicionamiento en redes sociales y Google Ads para competir con actores establecidos.</p>
+            <div class="tags">
+                <span class="tag hot">Alta prioridad</span>
+                <span class="tag opportunity">Fashion/Lifestyle</span>
+                <span class="tag">Google Ads</span>
+                <span class="tag">Instagram Ads</span>
+            </div>
+        </div>
+        
+        <div class="company-card priority-high">
+            <div class="company-header">
+                <span class="company-name">Academia del Café</span>
+                <span class="company-category">E-commerce Niche</span>
+            </div>
+            <p class="company-desc">Plataforma de cursos especializados en café premium costarricense. Combina e-commerce con educación. Potencial para contenido de video marketing y estrategias de email automation para nurturing.</p>
+            <div class="tags">
+                <span class="tag hot">Alta prioridad</span>
+                <span class="tag opportunity">EdTech/B2C</span>
+                <span class="tag">Video Marketing</span>
+                <span class="tag">Email Automation</span>
+            </div>
+        </div>
+        
+        <div class="company-card priority-medium">
+            <div class="company-header">
+                <span class="company-name">Sanipro</span>
+                <span class="company-category">Salud/Bienestar</span>
+            </div>
+            <p class="company-desc">Tienda online de productos de salud y bienestar. Mercado en crecimiento con alta competencia. Necesitan diferenciación clara y estrategias de contenido para educar al consumidor.</p>
+            <div class="tags">
+                <span class="tag opportunity">E-commerce Salud</span>
+                <span class="tag">Content Marketing</span>
+                <span class="tag">SEO</span>
+            </div>
+        </div>
+        
+        <div class="company-card priority-medium">
+            <div class="company-header">
+                <span class="company-name">Polyacril</span>
+                <span class="company-category">B2B/Industrial</span>
+            </div>
+            <p class="company-desc">E-commerce B2B de productos industriales/químicos. Modelo de venta corporativa que requiere estrategias de lead generation y LinkedIn Ads para decision makers.</p>
+            <div class="tags">
+                <span class="tag opportunity">B2B E-commerce</span>
+                <span class="tag">LinkedIn Ads</span>
+                <span class="tag">Lead Gen</span>
+            </div>
+        </div>
+        
+        <div class="company-card">
+            <div class="company-header">
+                <span class="company-name">iDigitalise.net</span>
+                <span class="company-category">Agencia/E-commerce</span>
+            </div>
+            <p class="company-desc">Agencia digital en Tamarindo especializada en e-commerce para clientes locales e internacionales. Posible socio o referente para estrategias de nicho turístico.</p>
+            <div class="tags">
+                <span class="tag">Agencia Partner</span>
+                <span class="tag">Turismo Digital</span>
+                <span class="tag">Shopify Experts</span>
+            </div>
+        </div>
+        
+        <div class="company-card">
+            <div class="company-header">
+                <span class="company-name">Tico Manager</span>
+                <span class="company-category">Agencia/E-commerce</span>
+            </div>
+            <p class="company-desc">Agencia en Grecia ofreciendo servicios de e-commerce y gestión digital. Enfoque en PYMES locales que buscan digitalizarse. Oportunidad para paquetes de servicios捆绑.</p>
+            <div class="tags">
+                <span class="tag">PYMEs</span>
+                <span class="tag">Gestión Digital</span>
+                <span class="tag">Paquetes</span>
+            </div>
+        </div>
+        
+        <div class="company-card">
+            <div class="company-header">
+                <span class="company-name">GLOB Costa Rica</span>
+                <span class="company-category">Desarrollo Web</span>
+            </div>
+            <p class="company-desc">Desarrollador de sitios web e-commerce en Costa Rica. Enfoque en soluciones accesibles para negocios locales. Potencial de co-marketing o referidos.</p>
+            <div class="tags">
+                <span class="tag">Web Development</span>
+                <span class="tag">Woocommerce</span>
+                <span class="tag">Referidos</span>
+            </div>
+        </div>
+        
+        <div class="company-card">
+            <div class="company-header">
+                <span class="company-name">Gulupa Digital</span>
+                <span class="company-category">Agencia/E-commerce</span>
+            </div>
+            <p class="company-desc">Más de 100 tiendas virtuales desarrolladas con WordPress/WooCommerce. Expertos locales en e-commerce. Posible alianza estratégica para cliente nuevo.</p>
+            <div class="tags">
+                <span class="tag">WooCommerce</span>
+                <span class="tag">WordPress</span>
+                <span class="tag">Alianza</span>
+            </div>
+        </div>
+        
+        <h2>Tendencias de Mercado 2026</h2>
+        
+        <div class="trend-section">
+            <div class="trend-item">
+                <span class="trend-icon">🤖</span>
+                <div class="trend-content">
+                    <h4>IA en el E-commerce</h4>
+                    <p>La inteligencia artificial transforma la búsqueda y descubrimiento de productos. Chatbots avanzados, personalización de experiencias y recomendaciones predictivas son ahora expectativas mínimas del consumidor.</p>
+                </div>
+            </div>
+            <div class="trend-item">
+                <span class="trend-icon">📱</span>
+                <div class="trend-content">
+                    <h4>Video Corto como Herramienta de Venta</h4>
+                    <p>El video corto se consolida como herramienta de conversión, no solo entretenimiento. Tiendas online que integran video en páginas de producto y redes sociales ven mayores tasas de conversión.</p>
+                </div>
+            </div>
+            <div class="trend-item">
+                <span class="trend-icon">🌱</span>
+                <div class="trend-content">
+                    <h4>Autenticidad y Humanización</h4>
+                    <p>Las marcas que mantienen comunicación humana, auténtica y lo "imperfecto" destacan sobre las corporativas. El consumidor costarricense valora la conexión genuina con marcas locales.</p>
+                </div>
+            </div>
+            <div class="trend-item">
+                <span class="trend-icon">📊</span>
+                <div class="trend-content">
+                    <h4>Economía de Datos y Personalización</h4>
+                    <p>El uso estratégico de datos para personalización de experiencias se vuelve central. Empresas deben "ofrecer valor a cambio de datos" mediante contenido útil y experiencias exclusivas.</p>
+                </div>
+            </div>
+            <div class="trend-item">
+                <span class="trend-icon">🔗</span>
+                <div class="trend-content">
+                    <h4>E-commerce B2B en Aceleración</h4>
+                    <p>El comercio B2B digital continúa su transformación. Plataformas ERP conectadas con e-commerce y automatización de pedidos son la nueva normalidad empresarial.</p>
+                </div>
+            </div>
+        </div>
+        
+        <h2>Estrategias de Contacto</h2>
+        
+        <div class="contact-strategy">
+            <div class="strategy-step">
+                <span class="step-num">1</span>
+                <div class="step-content">
+                    <h4>Investigación Previa en LinkedIn</h4>
+                    <p>Identificar al fundador o director de marketing de cada empresa. Revisar su actividad reciente para personalizar el mensaje de contacto inicial.</p>
+                </div>
+            </div>
+            <div class="strategy-step">
+                <span class="step-num">2</span>
+                <div class="step-content">
+                    <h4>Outreach por Email con Caso de Éxito</h4>
+                    <p>Enviar caso de éxito relevante de Aurea en e-commerce (preferiblemente del sector centroamericano). Incluir métricas concretas de resultados obtenidos.</p>
+                </div>
+            </div>
+            <div class="strategy-step">
+                <span class="step-num">3</span>
+                <div class="step-content">
+                    <h4>Invitación a Audit Gratuito</h4>
+                    <p>Ofrecer un audit gratuito de su presencia digital actual como gancho. Enfocarse en 3-5 oportunidades de mejora rápidas con impacto medible.</p>
+                </div>
+            </div>
+            <div class="strategy-step">
+                <span class="step-num">4</span>
+                <div class="step-content">
+                    <h4>Propuesta de Pilot con ROI Garantizado</h4>
+                    <p>Para empresas con budget limitado, proponer un pilot de 30 días con métricas de éxito predefinidas. Si no hay resultados, garantía de devolución.</p>
+                </div>
+            </div>
+            <div class="strategy-step">
+                <span class="step-num">5</span>
+                <div class="step-content">
+                    <h4>Seguimiento por WhatsApp Business</h4>
+                    <p>En Costa Rica, WhatsApp es canal primario de comunicación comercial. Usar para seguimiento personalizado 48h después del email inicial.</p>
+                </div>
+            </div>
+            <div class="strategy-step">
+                <span class="step-num">6</span>
+                <div class="step-content">
+                    <h4>Contenido de Valor Pre-venta</h4>
+                    <p>Compartir un reporte o guía sobre tendencias de e-commerce en Costa Rica 2026 como "regalo" antes de la reunión de descubrimiento. Posiciona a Aurea como experto.</p>
+                </div>
+            </div>
+        </div>
+        
+        <h2>Próximos Pasos Recomendados</h2>
+        
+        <div class="trend-section">
+            <div class="trend-item">
+                <span class="trend-icon">✅</span>
+                <div class="trend-content">
+                    <h4>Prioridad Alta: Gaba Store y Academia del Café</h4>
+                    <p>Iniciar outreach esta semana con estas dos empresas. Tienen sitios activos, productos definidos y necesidad clara de estrategia digital.</p>
+                </div>
+            </div>
+            <div class="trend-item">
+                <span class="trend-icon">🤝</span>
+                <div class="trend-content">
+                    <h4>Alianza con Gulupa Digital e iDigitalise</h4>
+                    <p>Explorar relaciones de referidos con agencias locales que ya tienen base de clientes e-commerce. pueden ser fuente continua de leads.</p>
+                </div>
+            </div>
+            <div class="trend-item">
+                <span class="trend-icon">📋</span>
+                <div class="trend-content">
+                    <h4>Preparar Caso de Éxito en E-commerce</h4>
+                    <p>Desarrollar un case study específico para el nicho con métricas de ROAS, reducción de CPC y crecimiento de ventas para usarlo en todas las propuestas.</p>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Aurea Advertising Agency | Lead Research Report | Generado automáticamente</p>
+            <p>Para consultas: Anthony | https://aurea.agency</p>
+        </footer>
     </div>
-  </div>
-
-  <!-- KPI SUMMARY -->
-  <div class="summary-grid">
-    <div class="summary-card">
-      <div class="label">Empresas identificadas</div>
-      <div class="value">10</div>
-      <div class="sub">Clínicas dentales, hospitals y spas médicos</div>
-    </div>
-    <div class="summary-card">
-      <div class="label">Sector</div>
-      <div class="value">Salud Privada</div>
-      <div class="sub">Dental, dermatología, medicina general</div>
-    </div>
-    <div class="summary-card">
-      <div class="label">Mercado objetivo</div>
-      <div class="value">Medical Tourism</div>
-      <div class="sub">Turismo dental y wellness USA/Canadá</div>
-    </div>
-    <div class="summary-card">
-      <div class="label">Tendencia clave</div>
-      <div class="value">Digital-First</div>
-      <div class="sub">IA, redes sociales, SEO, reputation mgmt</div>
-    </div>
-  </div>
-
-  <!-- COMPANIES -->
-  <div class="section">
-    <h2>Empresas identificadas</h2>
-    <div class="company-grid">
-
-      <div class="company-card">
-        <div class="type">🦷 Dental / Medical Tourism</div>
-        <h3>Goodness Dental</h3>
-        <div class="location">📍 San José, Costa Rica</div>
-        <div class="detail"><strong>Descripción:</strong> #1 clínica dental en Costa Rica según Costa Rica Dental Guide y Global Clinic Rating. Líder en turismo dental para pacientes de USA y Canadá. Especialistas en implantes y rehabilitaciones completas.</div>
-        <div class="detail"><strong>Servicios clave:</strong> Implantes dentales, prostodoncia, cirugía oral</div>
-        <div class="detail"><strong>Presencia digital:</strong> website activo, SEO fuerte para "dental tourism Costa Rica"</div>
-        <div class="detail"><strong>Potencial marketing:</strong> Alta — necesita posicionamiento en nuevos mercados, contenido en inglés, funnels de conversión USA</div>
-        <div class="tags">
-          <span class="tag">Turismo dental</span>
-          <span class="tag">Implantes</span>
-          <span class="tag">USA market</span>
-          <span class="tag">Alto ticket</span>
-        </div>
-      </div>
-
-      <div class="company-card">
-        <div class="type">🏥 Hospital Privado</div>
-        <h3>Hospital CIMA</h3>
-        <div class="location">📍 Escazú, San José</div>
-        <div class="detail"><strong>Descripción:</strong> Hospital privado full-service con +60 especialidades. Primer hospital en Latinomérica con acreditación JCI bajo nuevos estándares de seguridad del paciente. Referente en salud privada.</div>
-        <div class="detail"><strong>Servicios clave:</strong> Cardiología, neurocirugía, ortopedia, trasplantes, emergencias 24/7</div>
-        <div class="detail"><strong>Contacto:</strong> +506 4040 0808 | info@hospitalcima.com</div>
-        <div class="detail"><strong>Potencial marketing:</strong> Muy alto — volumen corporativo, seguro médico internacional, programas de Veterans (USA)</div>
-        <div class="tags">
-          <span class="tag">B2B</span>
-          <span class="tag">Corporativo</span>
-          <span class="tag">Veterans USA</span>
-          <span class="tag">Seguro internacional</span>
-        </div>
-      </div>
-
-      <div class="company-card">
-        <div class="type">🦷 Dental Clinic</div>
-        <h3>Advance Dental Costa Rica</h3>
-        <div class="location">📍 Hospital CIMA, Escazú, San José</div>
-        <div class="detail"><strong>Descripción:</strong> Clínica dental especializada en procedimientos dentales diversos. Ubicada dentro de Hospital CIMA, aprovechando la infraestructura hospitalaria de primer nivel.</div>
-        <div class="detail"><strong>Servicios:</strong> Odontología general, cosmética, implantes</div>
-        <div class="detail"><strong>Potencial marketing:</strong> Alto — pacientes del hospital + turismo médico, necesita branding diferenciado</div>
-        <div class="tags">
-          <span class="tag">Dental</span>
-          <span class="tag">Turismo médico</span>
-          <span class="tag">Ubicación premium</span>
-        </div>
-      </div>
-
-      <div class="company-card">
-        <div class="type">🦷 Dental Tourism</div>
-        <h3>Costa Rica Dental Team</h3>
-        <div class="location">📍 San José, Costa Rica</div>
-        <div class="detail"><strong>Descripción:</strong> Clínica dental enfocada en turismo médico con ahorros del 50-70% vs precios USA. Posicionamiento directo al mercado estadounidense y canadiense.</div>
-        <div class="detail"><strong>Servicios:</strong> Implantes dentales, odontología cosmética, restauraciones completas</div>
-        <div class="detail"><strong>Potencial marketing:</strong> Muy alto — mensaje ya orientado a USA, necesita ejecutar estrategia digital multicanal</div>
-        <div class="tags">
-          <span class="tag">Turismo dental</span>
-          <span class="tag">USA target</span>
-          <span class="tag">Ahorro 50-70%</span>
-        </div>
-      </div>
-
-      <div class="company-card">
-        <div class="type">🦷 Dental Clinic</div>
-        <h3>Arco Dental</h3>
-        <div class="location">📍 Guadalupe, Goicoechea, San José</div>
-        <div class="detail"><strong>Descripción:</strong> Clínica dental con especialización en blanqueamiento, implantes, prostodoncia y ortodoncia. Mercado local fuerte con presencia en redes.</div>
-        <div class="detail"><strong>Servicios:</strong> Blanqueamiento, implantes, prótesis, ortodoncia (frenillos)</div>
-        <div class="detail"><strong>Contacto:</strong> info@arcodental.com | +506 2229-0000</div>
-        <div class="detail"><strong>Potencial marketing:</strong> Medio-alto — clínica local con espacio para crecer en digital y captar mercado Costarricense premium</div>
-        <div class="tags">
-          <span class="tag">Dental local</span>
-          <span class="tag">Blanqueamiento</span>
-          <span class="tag">Ortodoncia</span>
-        </div>
-      </div>
-
-      <div class="company-card">
-        <div class="type">🏥 Hospital Privado</div>
-        <h3>Hospital Clínica Bíblica</h3>
-        <div class="location">📍 San José, Costa Rica</div>
-        <div class="detail"><strong>Descripción:</strong> Uno de los hospitales privados más reconocidos de Costa Rica. Gran volumen de pacientes, servicios múltiples especialidades. Referencia en atención médica privada.</div>
-        <div class="detail"><strong>Servicios:</strong> +40 especialidades médicas y quirúrgicas, emergencias, laboratorio clínico</div>
-        <div class="detail"><strong>Potencial marketing:</strong> Alto — segmento corporativo y de seguros, servicios especializados con alta demanda</div>
-        <div class="tags">
-          <span class="tag">Hospital</span>
-          <span class="tag">Corporativo</span>
-          <span class="tag">Seguro</span>
-          <span class="tag">Multi-especialidad</span>
-        </div>
-      </div>
-
-      <div class="company-card">
-        <div class="type">🧖‍♀️ Medical Spa / Dermatología</div>
-        <h3>Face and Body Care Center</h3>
-        <div class="location">📍 Costa Rica</div>
-        <div class="detail"><strong>Descripción:</strong> Centro médico especializado en cuidado corporal y facial. Medicina estética, dermatología y antienvejecimiento con enfoque en resultados y tecnología.</div>
-        <div class="detail"><strong>Servicios:</strong> Medicina estética, dermatología, antienvejecimiento</div>
-        <div class="detail"><strong>Potencial marketing:</strong> Medio-alto — nicho aspiracional, ideal para Instagram/TikTok, contenido before/after, influencer marketing</div>
-        <div class="tags">
-          <span class="tag">Medical spa</span>
-          <span class="tag">Estética</span>
-          <span class="tag">Social media</span>
-          <span class="tag">Before/after</span>
-        </div>
-      </div>
-
-      <div class="company-card">
-        <div class="type">🧴 Dermatología</div>
-        <h3>Skin Factory</h3>
-        <div class="location">📍 Escazú, San José</div>
-        <div class="detail"><strong>Descripción:</strong> Clínica dermatológica con enfoque en láser y skincare. Equipo médico joven con presencia activa en Instagram. Tres doctores: Dr. Alex Rivera, Dr. Manfred Morr, Dra. Salas.</div>
-        <div class="detail"><strong>Servicios:</strong> Láser, skincare, tratamientos dermatológicos</div>
-        <div class="detail"><strong>Presencia digital:</strong> Instagram activo @skin_factorycr</div>
-        <div class="detail"><strong>Potencial marketing:</strong> Medio — ya tiene redes, necesita estrategia de contenido más estructurada y paid media</div>
-        <div class="tags">
-          <span class="tag">Dermatología</span>
-          <span class="tag">Láser</span>
-          <span class="tag">Instagram</span>
-          <span class="tag">Escazú</span>
-        </div>
-      </div>
-
-      <div class="company-card">
-        <div class="type">🧴 Dermatología</div>
-        <h3>Derma-Clinique (Dr. Hani Farhat)</h3>
-        <div class="location">📍 Hospital CIMA, San José</div>
-        <div class="detail"><strong>Descripción:</strong> Dermatólogo general y cosmético con formación internacional. Ubicado en Hospital CIMA, ofreciendo dermatología especializada de alto nivel.</div>
-        <div class="detail"><strong>Servicios:</strong> Dermatología general, cosmética, treatments</div>
-        <div class="detail"><strong>Presencia digital:</strong> Website derma-clinique.com</div>
-        <div class="detail"><strong>Potencial marketing:</strong> Medio — profesional con credentials internacionales, ideal para posicionamiento de autoridad y contenido educativo</div>
-        <div class="tags">
-          <span class="tag">Dermatología</span>
-          <span class="tag">Hospital CIMA</span>
-          <span class="tag">Credentials intl</span>
-        </div>
-      </div>
-
-      <div class="company-card">
-        <div class="type">🦷 Dental / Implants</div>
-        <h3>Implantec</h3>
-        <div class="location">📍 San José, Costa Rica</div>
-        <div class="detail"><strong>Descripción:</strong> Empresa de implantes dentales con Programa de Educación Continua 2026. Fuerte enfoque en formación y excelencia clínica. Presencia en Facebook.</div>
-        <div class="detail"><strong>Servicios:</strong> Implantes dentales, formación continua para dentistas</div>
-        <div class="detail"><strong>Presencia digital:</strong> Facebook @implantecsa</div>
-        <div class="detail"><strong>Potencial marketing:</strong> Medio — doble audiencia: pacientes finales y dentistas. Oportunidad de contenido B2B y B2C diferenciado</div>
-        <div class="tags">
-          <span class="tag">Implantes</span>
-          <span class="tag">B2B dental</span>
-          <span class="tag">Educación</span>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- CONTACT STRATEGIES -->
-  <div class="section">
-    <h2>Estrategias de Contacto</h2>
-    <div class="strategy-list">
-
-      <div class="strategy-item">
-        <div class="strategy-num">1</div>
-        <div class="strategy-body">
-          <h3>Outreach para Hospital CIMA y Clínica Bíblica — Nivel Corporativo</h3>
-          <p>Target: Dirección de Marketing o Gerencia General. Propuesta: paquete de Corporate Medicine marketing (folletos digitales, presencia web para el segmento de expatriados y corporaciones con seguros internacionales). Formato: email formal con caso de estudio de hospital similar en LATAM. LinkedIn + email directo.</p>
-        </div>
-      </div>
-
-      <div class="strategy-item">
-        <div class="strategy-num">2</div>
-        <div class="strategy-body">
-          <h3>Paquete Dental Tourism para Goodness Dental y Costa Rica Dental Team</h3>
-          <p>Target: Directores / propietarios. Agencias como Aurea pueden ofrecer: contenido SEO en inglés para USA, funnels de leads desde Google Ads targeting términos como "affordable dental implants Costa Rica", landing pages optimizadas para conversión. Mensaje clave: reducir costo de adquisición por paciente internacional.</p>
-        </div>
-      </div>
-
-      <div class="strategy-item">
-        <div class="strategy-num">3</div>
-        <div class="strategy-body">
-          <h3>Social Media & Content para Skin Factory y Face and Body</h3>
-          <p>Target: Dermatólogos / dueños de clínicas estéticas. Proposal: gestión de Instagram/TikTok con contenido before/after (con consentimiento), reels educativos, influencer marketing local. Ánfo: clinics are visual-first businesses — el contenido lo es todo. Tarifa mensual fija por gestión de redes.</p>
-        </div>
-      </div>
-
-      <div class="strategy-item">
-        <div class="strategy-num">4</div>
-        <div class="strategy-body">
-          <h3>Cold Outreach a través de LinkedIn a Directores Médicos</h3>
-          <p>Buscar: "Director Médico", "Gerente General", "Marketing Manager" de Hospital CIMA, Clínica Bíblica, Advance Dental. Herramienta: LinkedIn Sales Navigator o手动 outreach. Valor agregado: informe de benchmarking de marketing digital en healthcare de Costa Rica vs. LATAM. Secuencia de 5 pasos: email → LinkedIn → llamada → propuesta → seguimiento.</p>
-        </div>
-      </div>
-
-      <div class="strategy-item">
-        <div class="strategy-num">5</div>
-        <div class="strategy-body">
-          <h3> webinar / workshop: "Cómo atraer pacientes internacionales en 2026"</h3>
-          <p>Organizado por Aurea como agencia. Invitar a 8-12 clínicas dentales y médicas de Costa Rica. Temario: SEO para USA, reputación online (Google Business + reviews), chatbots con IA para WhatsApp, paid media en Meta y Google. Objetivo: generar 3-5 clientes de paquete integral. Formato: online, 90 min, en español.</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- MARKET TRENDS -->
-  <div class="section">
-    <h2>Tendencias del Mercado — Salud Privada Costa Rica 2026</h2>
-    <div class="trend-grid">
-
-      <div class="trend-card">
-        <h3>📈 Turismo Médico en Auge</h3>
-        <p>Costa Rica es el hub #1 de turismo dental y médico en Centroamérica. Pacientes de USA y Canadá buscan ahorros del 50-70% en procedimientos. Las clínicas que invierten en presencia digital en inglés captan pacientes que de otra forma irían a México o Colombia.</p>
-      </div>
-
-      <div class="trend-card">
-        <h3>🤖 IA en Atención al Paciente</h3>
-        <p>En 2026, los chatbots con IA para WhatsApp son标配 para clínicas privadas. Los leads que llegan por WhatsApp tienen 3x más probabilidad de convertir. Las clínicas que no tienen chatbot pierden frente a las que sí lo tienen.</p>
-      </div>
-
-      <div class="trend-card">
-        <h3>⏱️ Listas de Espera CCSS — Oportunidad Private</h3>
-        <p>CCSS (seguro público) tiene ~1.25-1.3 millones de pacientes en espera para cirugías, consultas especializadas y diagnósticos. Costa Rica evalúa pagar doctores privados para reducir el backlog. Esto amplía el mercado private para todas las clínicas.</p>
-      </div>
-
-      <div class="trend-card">
-        <h3>🌐 Google Business Profile = Primera Impresión</h3>
-        <p>Las clínicas que dominan Google Business con fotos, reseñas y respuestas rápidas reciben 5x más llamadas. La gestión de reputación online (reviews) es el canal #1 de adquisición para clínicas locales en Costa Rica.</p>
-      </div>
-
-      <div class="trend-card">
-        <h3>💰 MedTech como Motor Económico</h3>
-        <p>Costa Rica exportó más de US$10 mil millones en dispositivos médicos en 2025. Es un hub global de MedTech. Esto atrae profesionales de salud y pacientes de alto nivel, subiendo el estándar del mercado private.</p>
-      </div>
-
-      <div class="trend-card">
-        <h3>📱 Video y Reels para Clínicas</h3>
-        <p>Los reels de "antes y después" (con consentimiento), tours de instalaciones y testimonios de pacientes son los contenidos con mayor engagement para clínicas estéticas y dentales en Costa Rica. El video corto es el formato dominante en 2026.</p>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- FOOTER -->
-  <div class="footer">
-    <span>Aurea Advertising Intelligence — Reporte generado automáticamente</span>
-    <span>29 Abril 2026 18:00 CST | Próxima actualización: 19:00 CST</span>
-  </div>
-
-</div>
 </body>
 </html>
