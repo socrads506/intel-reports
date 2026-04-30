@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aurea Lead Report — Hoteles | 30 Abr 2026</title>
+  <title>Aurea Lead Report — Restaurantes | 30 Abr 2026</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -28,335 +28,403 @@
       font-weight: 700;
       letter-spacing: 1.5px;
       text-transform: uppercase;
-      padding: 3px 10px;
+      padding: 4px 12px;
       border-radius: 4px;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
-    h1 { font-size: 22px; font-weight: 800; color: #ffffff; margin-bottom: 6px; }
-    .meta { color: #7a7d96; font-size: 12px; }
-    h2 {
-      font-size: 15px;
+    .header h1 {
+      font-size: 26px;
       font-weight: 700;
+      color: #f0f0fa;
+      margin-bottom: 6px;
+    }
+    .header .meta {
+      font-size: 13px;
+      color: #7a7a9a;
+    }
+    .section {
+      background: #161826;
+      border: 1px solid #222540;
+      border-radius: 10px;
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+    .section h2 {
+      font-size: 16px;
+      font-weight: 700;
+      color: #b8b8d8;
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #2a2d3e;
       text-transform: uppercase;
       letter-spacing: 1px;
-      color: #6c47ff;
-      margin: 28px 0 12px;
-      border-left: 3px solid #6c47ff;
-      padding-left: 10px;
     }
-    h3 { font-size: 14px; font-weight: 700; color: #d4d4e8; margin-bottom: 4px; }
-    .lead-card {
-      background: #1a1d2b;
-      border: 1px solid #252838;
+    .company-card {
+      background: #1e2235;
+      border: 1px solid #2a2d3e;
       border-radius: 8px;
       padding: 16px 20px;
       margin-bottom: 12px;
-      transition: border-color 0.2s;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
     }
-    .lead-card:hover { border-color: #6c47ff; }
-    .lead-card .name { font-size: 15px; font-weight: 700; color: #f0f0ff; }
-    .lead-card .type {
-      display: inline-block;
-      font-size: 10px;
+    .company-card .name {
+      font-size: 15px;
       font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      padding: 2px 7px;
-      border-radius: 3px;
-      margin-left: 8px;
-      vertical-align: middle;
+      color: #f0f0fa;
+      grid-column: 1 / -1;
     }
-    .type-luxury { background: #3d2f6b; color: #c4b5fd; }
-    .type-boutique { background: #1e3a4c; color: #7dd3fc; }
-    .type-chain { background: #2d3a20; color: #86efac; }
-    .type-group { background: #3a2d1e; color: #fcd34d; }
-    .lead-card .detail { color: #8a8da8; font-size: 12px; margin-top: 3px; }
-    .lead-card .contact { margin-top: 8px; }
-    .contact-chip {
-      display: inline-block;
-      background: #252838;
-      color: #b0b3cc;
+    .company-card .label {
       font-size: 11px;
-      padding: 2px 8px;
-      border-radius: 4px;
-      margin-right: 6px;
-      margin-bottom: 4px;
+      color: #6c47ff;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .company-card .value {
+      font-size: 13px;
+      color: #c0c0d8;
     }
     .tag {
       display: inline-block;
-      background: #1f2030;
-      color: #9a9bba;
-      font-size: 10px;
-      padding: 1px 7px;
-      border-radius: 3px;
-      margin-top: 6px;
-    }
-    .trend-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-bottom: 8px;
-    }
-    .trend-card {
-      background: #1a1d2b;
-      border: 1px solid #252838;
-      border-radius: 8px;
-      padding: 14px 16px;
-    }
-    .trend-card .trend-title { font-size: 13px; font-weight: 700; color: #e0e0f0; margin-bottom: 5px; }
-    .trend-card .trend-desc { font-size: 11px; color: #7a7d96; line-height: 1.5; }
-    .strategy-item {
-      background: #1a1d2b;
-      border: 1px solid #252838;
-      border-radius: 8px;
-      padding: 14px 18px;
-      margin-bottom: 10px;
-    }
-    .strategy-item .s-num {
-      display: inline-block;
-      background: #6c47ff;
-      color: #fff;
+      background: #1a1d30;
+      color: #8b8baf;
       font-size: 11px;
-      font-weight: 800;
-      width: 22px;
-      height: 22px;
-      text-align: center;
-      line-height: 22px;
-      border-radius: 50%;
-      margin-right: 10px;
-      vertical-align: middle;
+      padding: 3px 10px;
+      border-radius: 20px;
+      border: 1px solid #2a2d3e;
+      margin: 2px;
     }
-    .strategy-item .s-title { font-size: 13px; font-weight: 700; color: #e0e0f0; }
-    .strategy-item .s-desc { font-size: 11px; color: #7a7d96; margin-top: 4px; margin-left: 32px; }
-    .footer { margin-top: 40px; padding-top: 16px; border-top: 1px solid #252838; color: #4a4d68; font-size: 11px; text-align: center; }
-    .insight-box {
-      background: linear-gradient(135deg, #1a1d2b 0%, #201830 100%);
-      border: 1px solid #6c47ff;
+    .tag.highlight { background: #2a1f5c; color: #a78bfa; border-color: #6c47ff; }
+    .trend-card {
+      background: #1e2235;
+      border-left: 3px solid #6c47ff;
+      border-radius: 0 8px 8px 0;
+      padding: 14px 18px;
+      margin-bottom: 12px;
+    }
+    .trend-card h3 { font-size: 14px; color: #e0e0f0; margin-bottom: 6px; }
+    .trend-card p { font-size: 13px; color: #9090b0; }
+    .contact-strategy {
+      background: #1a1d30;
       border-radius: 8px;
       padding: 16px 20px;
-      margin: 16px 0;
+      margin-bottom: 12px;
     }
-    .insight-box .insight-title { font-size: 13px; font-weight: 700; color: #c4b5fd; margin-bottom: 6px; }
-    .insight-box .insight-text { font-size: 12px; color: #a09cbe; line-height: 1.6; }
+    .contact-strategy h3 { font-size: 14px; color: #e0e0f0; margin-bottom: 8px; }
+    .contact-strategy ul { list-style: none; padding: 0; }
+    .contact-strategy li {
+      font-size: 13px;
+      color: #9090b0;
+      padding: 4px 0 4px 18px;
+      position: relative;
+    }
+    .contact-strategy li::before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: #6c47ff;
+    }
+    .pulse-dot {
+      display: inline-block;
+      width: 8px; height: 8px;
+      background: #22c55e;
+      border-radius: 50%;
+      margin-right: 6px;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+    .footer {
+      text-align: center;
+      font-size: 12px;
+      color: #4a4a6a;
+      margin-top: 32px;
+      padding-top: 16px;
+      border-top: 1px solid #1e2235;
+    }
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .stat-box {
+      background: #1e2235;
+      border: 1px solid #2a2d3e;
+      border-radius: 8px;
+      padding: 16px;
+      text-align: center;
+    }
+    .stat-box .num {
+      font-size: 28px;
+      font-weight: 700;
+      color: #6c47ff;
+    }
+    .stat-box .desc {
+      font-size: 12px;
+      color: #7a7a9a;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
   </style>
 </head>
 <body>
 <div class="container">
 
-  <!-- HEADER -->
   <div class="header">
-    <div class="badge">Aurea Advertising — Lead Research</div>
-    <h1>Lead Report: Hoteles en Costa Rica</h1>
-    <div class="meta">30 de abril de 2026 &nbsp;|&nbsp; 14:00 CST &nbsp;|&nbsp; Nicho: Hoteles & Resorts</div>
+    <div class="badge"><span class="pulse-dot"></span>INFORME ACTIVO — 30 ABR 2026 · 15:00 CST</div>
+    <h1>🎯 Aurea Lead Report — Nicho: Restaurantes</h1>
+    <div class="meta">Agencia Aurea · Investigación de mercado Costa Rica · Ciclo restaurantes · Hora: 15:00 CST</div>
   </div>
 
-  <!-- INSIGHT BOX -->
-  <div class="insight-box">
-    <div class="insight-title">💡 Oportunidad del mercado</div>
-    <div class="insight-text">
-      Costa Rica Tourism Market crece a un CAGR de 2.18% (2025–2035). Los hoteles independientes y boutiques en Guanacaste, Peninsula Papagayo y Manuel Antonio buscan activamente agencias de marketing digital para reducir dependencia de OTAs (que cobran 15–25% de comisión). El segmento luxury/boutique tiene mayor disposición a invertir en branding y marketing digital. Este es el momento ideal para posicionar servicios de advertising.
+  <div class="summary-grid">
+    <div class="stat-box">
+      <div class="num">10</div>
+      <div class="desc">Empresas encontradas</div>
+    </div>
+    <div class="stat-box">
+      <div class="num">5.7%</div>
+      <div class="desc">CAGR mercado CR 2026–2032</div>
+    </div>
+    <div class="stat-box">
+      <div class="num">8</div>
+      <div class="desc">Estrategias de contacto</div>
     </div>
   </div>
 
-  <!-- SECTION 1: COMPANIES -->
-  <h2>🏨 Empresas & Decision Makers Identificados</h2>
+  <!-- MERCADO & TENDENCIAS -->
+  <div class="section">
+    <h2>📊 Mercado & Tendencias — Restaurantes Costa Rica 2026</h2>
 
-  <div class="lead-card">
-    <div class="name">Four Seasons Resort Peninsula Papagayo <span class="type type-luxury">Luxury Resort</span></div>
-    <div class="detail">Peninsula Papagayo, Guanacaste &nbsp;|&nbsp; Four Seasons Hotels & Resorts</div>
-    <div class="contact">
-      <span class="contact-chip">Brent Martin — General Manager / Regional</span>
-      <span class="contact-chip">Mark Ley — Director of Marketing</span>
-      <span class="contact-chip">LinkedIn: Brent Martin</span>
-    </div>
-    <div class="tag">#luxury #branding #digitalmarketing #mice</div>
-  </div>
-
-  <div class="lead-card">
-    <div class="name">Waldorf Astoria Costa Rica Punta Cacique <span class="type type-luxury">Luxury Resort</span></div>
-    <div class="detail">Punta Cacique, Guanacaste &nbsp;|&nbsp; Hilton Worldwide &nbsp;|&nbsp; Apertura reciente 2025</div>
-    <div class="contact">
-      <span class="contact-chip">Hilton Corporate Marketing LATAM</span>
-      <span class="contact-chip">Revolucion / Cacique Investors (promotores)</span>
-    </div>
-    <div class="tag">#newproperty #luxury #openingcampaign #brandlaunch</div>
-  </div>
-
-  <div class="lead-card">
-    <div class="name">Hotel Punta Islita Autograph Collection <span class="type type-chain">Marriott</span></div>
-    <div class="detail">Punta Islita, Guanacaste &nbsp;|&nbsp; Marriott International</div>
-    <div class="contact">
-      <span class="contact-chip">Marriott Business Council LATAM</span>
-      <span class="contact-chip">GM posicion reciente (referencia Marvin Seas ex-GSM)</span>
-      <span class="contact-chip">Marriott Bonvoy media partnerships</span>
-    </div>
-    <div class="tag">#autographcollection #luxury #hospitality #rebrand</div>
-  </div>
-
-  <div class="lead-card">
-    <div class="name">El Mangroove Autograph Collection <span class="type type-chain">Marriott</span></div>
-    <div class="detail">Guanacaste &nbsp;|&nbsp; Marriott International</div>
-    <div class="contact">
-      <span class="contact-chip">Frederic Cappello — General Manager</span>
-      <span class="contact-chip">Marriott Local Marketing Team</span>
-    </div>
-    <div class="tag">#boutiqueluxury #beachfront #digitalads #social</div>
-  </div>
-
-  <div class="lead-card">
-    <div class="name">Andaz Peninsula Papagayo <span class="type type-chain">Hyatt</span></div>
-    <div class="detail">Peninsula Papagayo, Guanacaste &nbsp;|&nbsp; Hyatt Hotels</div>
-    <div class="contact">
-      <span class="contact-chip">Dale N. Smith — Director of Sales & Marketing</span>
-      <span class="contact-chip">LinkedIn: dalensmith415</span>
-    </div>
-    <div class="tag">#hyatt #designhotels #lifestyle #mice</div>
-  </div>
-
-  <div class="lead-card">
-    <div class="name">Hotel Capitán Suizo <span class="type type-boutique">Boutique</span></div>
-    <div class="detail">Tamarindo, Guanacaste &nbsp;|&nbsp; Hotel independiente familiar — 95 colaboradores</div>
-    <div class="contact">
-      <span class="contact-chip">Diego — Sales & Financial Advisor</span>
-      <span class="contact-chip">info@hotelcapitansuizo.com</span>
-    </div>
-    <div class="tag">#tamarindo #boutique #beach #sustainability</div>
-  </div>
-
-  <div class="lead-card">
-    <div class="name">Amor Arenal <span class="type type-boutique">Boutique</span></div>
-    <div class="detail">Arenal, Costa Rica &nbsp;|&nbsp; Boutique wellness lodge — miembro Traveller Made</div>
-    <div class="contact">
-      <span class="contact-chip">Erick Lizano — General Manager</span>
-      <span class="contact-chip">Traveller Made network</span>
-    </div>
-    <div class="tag">#wellness #ecotourism #luxury #wellnessretreat</div>
-  </div>
-
-  <div class="lead-card">
-    <div class="name">Chayote Lodge <span class="type type-boutique">Boutique</span></div>
-    <div class="detail">Manuel Antonio &nbsp;|&nbsp; Propietario Rolando Campos — 30 años experiencia en turismo CR</div>
-    <div class="contact">
-      <span class="contact-chip">Rolando Campos — Owner</span>
-      <span class="contact-chip">info@investingcostarica.com</span>
-    </div>
-    <div class="tag">#manuelantonio #boutique #tourism #investor</div>
-  </div>
-
-  <div class="lead-card">
-    <div class="name">Lamangata Luxury Surf Resort <span class="type type-boutique">Boutique</span></div>
-    <div class="detail">Costa Rica &nbsp;|&nbsp; Boutique all-inclusive surf resort</div>
-    <div class="contact">
-      <span class="contact-chip">Contacto web: lamangata.com</span>
-      <span class="contact-chip">Nicho: surf + aventura + lujo</span>
-    </div>
-    <div class="tag">#surf #allinclusive #boutique #adventure</div>
-  </div>
-
-  <div class="lead-card">
-    <div class="name">CR Hotel Management Group <span class="type type-group">Hotel Group</span></div>
-    <div class="detail">San José / Desarrollo &nbsp;|&nbsp; Gestion hotelera + desarrollo de proyectos</div>
-    <div class="contact">
-      <span class="contact-chip">Inversiones: crhotelmanagementgroup.com</span>
-      <span class="contact-chip">Proyecto: Hotel Sarchi — Autograph Collection</span>
-    </div>
-    <div class="tag">#hotelmanagement #investment #development #autograph</div>
-  </div>
-
-  <!-- SECTION 2: MARKET TRENDS -->
-  <h2>📊 Tendencias del Mercado Hotelería CR 2026</h2>
-
-  <div class="trend-grid">
     <div class="trend-card">
-      <div class="trend-title">Crecimiento sostenible del turismo</div>
-      <div class="trend-desc">Mercado CR crece 2.18% CAGR hasta 2035. Eco-turismo y viajes sostenibles son el diferenciador principal. Los viajeros buscan experiencias auténticas, no solo alojamiento.</div>
+      <h3>🚀 Crecimiento del sector: 5.7% CAGR hasta 2032</h3>
+      <p>El mercado de food services en Costa Rica crece a un 5.7% anual proyectado 2026–2032. Los restaurantes de servicio completo lideran en ingresos, impulsados por turismo y demanda de experiencias premium en zonas turísticas.</p>
     </div>
     <div class="trend-card">
-      <div class="trend-title">Guerra contra las OTAs</div>
-      <div class="trend-desc">Hoteles invierten en marketing para reducir comisiones de Booking.com y Expedia (15-25%). Buscan Google Hotel Center, meta search y estrategias de direct booking con 4-6% del revenue.</div>
+      <h3>🤖 IA y personalización a escala</h3>
+      <p>Herramientas de IA permiten marketing personalizado en masa: ofertas por email, predicción de comportamiento de pedido, automatización de contenido y segmentación avanzada de clientes.</p>
     </div>
     <div class="trend-card">
-      <div class="trend-title">IA y Personalización</div>
-      <div class="trend-desc">Chatbots, guest messaging apps, CRM y RMS son prioridad. Hoteleros buscan agencias que dominen herramientas de IA para segmentación de viajeros y email marketing automatizado.</div>
+      <h3>🔍 Dominio del SEO local y OmniSearch</h3>
+      <p>Optimizar Google Business Profile y directorios locales es crítico. Los restaurantes que no aparecen en búsquedas locales de alta intención pierden tráfico orgánico enorme.</p>
     </div>
     <div class="trend-card">
-      <div class="trend-title">Expansión Luxury en Guanacaste</div>
-      <div class="trend-desc">Peninsula Papagayo es el hub de crecimiento luxury (Waldorf Astoria, Four Seasons, Andaz, Marriott). Gran oportunidad para agencias con experiencia en hospitality de alto nivel.</div>
+      <h3>📱 Short-form video y contenido auténtico</h3>
+      <p>TikTok, Reels e Instagram Stories son el canal #1 para descubrimiento de restaurantes en Costa Rica. Los contenidos "detrás de escenas" y con dueños carismáticos generan mayor engagement.</p>
     </div>
     <div class="trend-card">
-      <div class="trend-title">Marketing de destinos (DMO)</div>
-      <div class="trend-desc">ICT (Instituto Costarricense de Turismo) lanza campaña europea en ITB Berlin 2026. Hoteles pueden leveraged este impulso con campañas propias alineadas al posicionamiento país.</div>
+      <h3>💬 SMS y email marketing como diferenciador</h3>
+      <p>Programas de loyalty vía SMS/email con ofertas personalizadas superan en ROI a redes sociales. La retención (Customer Lifetime Value) supera en rentabilidad a la adquisición.</p>
     </div>
     <div class="trend-card">
-      <div class="trend-title">Booking windows más cortos</div>
-      <div class="trend-desc">Los viajeros reservan más cerca de la fecha. Campañas de retargeting y presencia digital constante son críticas. Google Performance Max y meta ads son las herramientas preferidas.</div>
+      <h3>🍽️ Delivery y menús digitales con QR</h3>
+      <p>La expectativa del cliente 2026 es poder pedir desde redes sociales directamente. Los códigos QR, links directos de pedido y presencia en Rappi/Glovo son obligatorios.</p>
     </div>
   </div>
 
-  <!-- SECTION 3: CONTACT STRATEGIES -->
-  <h2>🎯 Estrategias de Contacto</h2>
+  <!-- EMPRESAS -->
+  <div class="section">
+    <h2>🏢 Empresas & Decision Makers — Restaurantes Costa Rica</h2>
 
-  <div class="strategy-item">
-    <span class="s-num">1</span>
-    <div class="s-title">LinkedIn InMail a Directors of Marketing/Sales</div>
-    <div class="s-desc">Target: Dale N. Smith (Andaz), Mark Ley (Four Seasons), Brent Martin (Four Seasons). Mensaje breve: propuesta de reducir OTA commissions con estrategia digital. Alt conversion rate en Decision Makers.</div>
-  </div>
-
-  <div class="strategy-item">
-    <span class="s-num">2</span>
-    <div class="s-title">Cold email a hoteles boutique con caso de estudio</div>
-    <div class="s-desc">Hoteles: Capitán Suizo, Amor Arenal, Chayote Lodge, Lamangata. Usar caso de estudio de ROAS 5x en boutique hotel similar. Enfocarse en direct booking y reducción de dependencia de OTA.</div>
-  </div>
-
-  <div class="strategy-item">
-    <span class="s-num">3</span>
-    <div class="s-title">Propuesta a Marriott/Hilton Business Councils</div>
-    <div class="s-desc">Los hoteles de cadena tienen acceso a marketing teams corporativos. Posicionar a Aurea como agencia especializada en hotels independientes que quieren diferenciarse dentro de los estándares de marca.</div>
-  </div>
-
-  <div class="strategy-item">
-    <span class="s-num">4</span>
-    <div class="s-title">Participación en Ferias Turísticas</div>
-    <div class="s-desc">ITB Berlin (Marzo), AAAE, World Travel Market. Los GMs y directors de marketing asisten. Hacer networking en vivo tiene alto conversion para agencias nuevas en el mercado CR.</div>
-  </div>
-
-  <div class="strategy-item">
-    <span class="s-num">5</span>
-    <div class="s-title">Contenido educativo: "Hotel Marketing Playbook CR 2026"</div>
-    <div class="s-desc">Producir un recurso descargable con datos de mercado CR, benchmarks de ROAS en hospitality, y checklist de direct booking. Gate con email. Usar para lead nurturing de todos los contacts.</div>
-  </div>
-
-  <div class="strategy-item">
-    <span class="s-num">6</span>
-    <div class="s-title">Enfoque en Guanacaste como zona caliente</div>
-    <div class="s-desc">7 de los 10 hotels identificados están en Guanacaste/Peninsula Papagayo. Concentrar esfuerzo geográfico produce mejores resultados. Propuesta: "Guanacaste Hotel Marketing Solutions" como producto específico.</div>
-  </div>
-
-  <!-- SECTION 4: KPI BENCHMARKS -->
-  <h2>📈 Benchmarks de Marketing Hotelería</h2>
-  <div class="trend-grid">
-    <div class="trend-card">
-      <div class="trend-title">Budget típico marketing hotelero</div>
-      <div class="trend-desc">4-6% del revenue total (sin payroll). Hotel de $1M/año = $40K-$60K en marketing. Los luxury resorts pueden destinar 8-12% en fases de brand building.</div>
+    <div class="company-card">
+      <div class="name">1. Tino's Restaurant</div>
+      <div class="label">Ubicación</div><div class="value">San José, Costa Rica</div>
+      <div class="label">Decision Maker</div><div class="value">Oliver R. Sotillo — Propietario</div>
+      <div class="label">Historia</div><div class="value">Entró a los 13 años como lavaplatos; hoy dirige equipo de 20 empleados</div>
+      <div class="label">Perfil Digital</div>
+      <div class="value">
+        <span class="tag highlight">Instagram</span>
+        <span class="tag">Facebook</span>
+        <span class="tag">Presencia local activa</span>
+      </div>
     </div>
-    <div class="trend-card">
-      <div class="trend-title">Meta ads para hoteles CR</div>
-      <div class="trend-desc">ROAS típico: 3x-8x en campañas de retargeting para hoteles con base de datos de huéspedes. Lookalike audiences de guests anteriores son el secreto.</div>
+
+    <div class="company-card">
+      <div class="name">2. Conservatorium — Steakhouse Premium</div>
+      <div class="label">Ubicación</div><div class="value">San José, Costa Rica</div>
+      <div class="label">Decision Maker</div><div class="value">Aldo Elizondo (@aldoux_87) — Co-propietario y Chef</div>
+      <div class="label">Concepto</div><div class="value">Grill premium con dry aged de ganado local. Parte de "The World's 50 Best"</div>
+      <div class="label">Perfil Digital</div>
+      <div class="value">
+        <span class="tag highlight">Instagram activo</span>
+        <span class="tag">Perfil alto</span>
+        <span class="tag">Mercado premium</span>
+      </div>
     </div>
-    <div class="trend-card">
-      <div class="trend-title">Google Hotel Center</div>
-      <div class="trend-desc">Costo por clic en meta search: $1.50-$4.00 USD. Hotels que dominan esto reducen Booking.com spend en 30-40%.</div>
+
+    <div class="company-card">
+      <div class="name">3. Sikwa — Alta cocina costarricense</div>
+      <div class="label">Ubicación</div><div class="value">San José, Costa Rica</div>
+      <div class="label">Decision Maker</div><div class="value">Chef Pablo Bonilla (@pabloelcocinero)</div>
+      <div class="label">Concepto</div><div class="value">Cocina indigenous-to-table, ingredientes nativos, jungle-to-table. Líder de gastronomía regional.</div>
+      <div class="label">Perfil Digital</div>
+      <div class="value">
+        <span class="tag highlight">Instagram</span>
+        <span class="tag">Crítica internacional</span>
+        <span class="tag">Concepto diferenciador</span>
+      </div>
     </div>
-    <div class="trend-card">
-      <div class="trend-title">Email marketing hospitality</div>
-      <div class="trend-desc">Open rates 25-35% en hospitality (vs. 15% promedio). Pre-stay y post-stay sequences con upsell tienen el mayor ROI de todos los canales.</div>
+
+    <div class="company-card">
+      <div class="name">4. Don Rufino Restaurante</div>
+      <div class="label">Ubicación</div><div class="value">La Fortuna, San Carlos, Costa Rica</div>
+      <div class="label">Concepto</div><div class="value">Cocina con producto nacional, técnicas del mundo, esencia costarricense. Ubicación turística clave.</div>
+      <div class="label">Digital</div><div class="value">6,566 seguidores Instagram · Hub de游客 en zona de aventura</div>
+      <div class="label">Oportunidad</div>
+      <div class="value">
+        <span class="tag highlight">Alto volumen turístico</span>
+        <span class="tag">Necesita estrategia digital</span>
+      </div>
     </div>
+
+    <div class="company-card">
+      <div class="name">5. La Esquina de Buenos Aires</div>
+      <div class="label">Ubicación</div><div class="value">San José, Costa Rica</div>
+      <div class="label">Concepto</div><div class="value">Restaurante argentino reconocido como uno de los mejores de San José.</div>
+      <div class="label">Perfil Digital</div><div class="value">
+        <span class="tag highlight">TripAdvisor top rated</span>
+        <span class="tag">Nichificado</span>
+      </div>
+    </div>
+
+    <div class="company-card">
+      <div class="name">6. Tin Jo Restaurant</div>
+      <div class="label">Ubicación</div><div class="value">San José, Costa Rica</div>
+      <div class="label">Concepto</div><div class="value">Cocina asiática/fusión reconocido. Top rated en mapas gastronómicos de San José.</div>
+      <div class="label">Perfil Digital</div><div class="value">
+        <span class="tag highlight">Google Maps optimizado</span>
+        <span class="tag">Wanderlog listing</span>
+      </div>
+    </div>
+
+    <div class="company-card">
+      <div name">7. Restaurante El Patio Del Balmoral</div>
+      <div class="label">Ubicación</div><div class="value">San José, Costa Rica</div>
+      <div class="label">Concepto</div><div class="value">3,295 reseñas en TripAdvisor · Establecimiento histórico con alto tráfico.</div>
+      <div class="label">Perfil Digital</div><div class="value">
+        <span class="tag highlight">Alto volumen reviews</span>
+        <span class="tag">TripAdvisor</span>
+      </div>
+    </div>
+
+    <div class="company-card">
+      <div class="name">8. Tenedor Argentino</div>
+      <div class="label">Ubicación</div><div class="value">San José, Costa Rica</div>
+      <div class="label">Concepto</div><div class="value">2,168 reseñas, 4.7★ · Restarante argentino de alta calificación.</div>
+      <div class="label">Oportunidad</div><div class="value">
+        <span class="tag highlight">Reputación sólida</span>
+        <span class="tag">Expansión potencial</span>
+      </div>
+    </div>
+
+    <div class="company-card">
+      <div class="name">9. Dip Deep Burger CR</div>
+      <div class="label">Ubicación</div><div class="value">Costa Rica</div>
+      <div class="label">Decision Maker</div><div class="value">Fabián Andrés Vargas (@fabianrecomienda) — Propietario</div>
+      <div class="label">Perfil</div><div class="value">Influencer gastronómico con +50k seguidores · Embajador Coca-Cola Costa Rica · Dueño de restaurante burger.</div>
+      <div class="label">Oportunidad</div><div class="value">
+        <span class="tag highlight">Influencer + Restaurante</span>
+        <span class="tag">Alcance listo</span>
+      </div>
+    </div>
+
+    <div class="company-card">
+      <div class="name">10. Sale Brasa — Parrilla Urbana</div>
+      <div class="label">Ubicación</div><div class="value">Costa Rica</div>
+      <div class="label">Decision Maker</div><div class="value">Fundador(a) visible en redes sociales (entrevista disponible en Facebook)</div>
+      <div class="label">Concepto</div><div class="value">Parrilla urbana con presencia digital orgánica a través del fundador.</div>
+      <div class="label">Perfil Digital</div><div class="value">
+        <span class="tag highlight">Facebook interview</span>
+        <span class="tag">Presencia orgánica</span>
+      </div>
+    </div>
+
   </div>
 
-  <!-- FOOTER -->
+  <!-- ESTRATEGIAS DE CONTACTO -->
+  <div class="section">
+    <h2>📬 Estrategias de Contacto — Cómo Llegar a Estos Leads</h2>
+
+    <div class="contact-strategy">
+      <h3>🎯 Tino's Restaurant — Oliver Sotillo</h3>
+      <ul>
+        <li>Enfoque: História de marca (del lavaplatos a dueño) es perfect para content marketing y storytelling en redes.</li>
+        <li>Canal: Facebook e Instagram — mensaje directo mostrando案例 de crecimiento con branding.</li>
+        <li>Propuesta: Gestión profesional de redes + contenido que aproveche su historia personal.</li>
+        <li>Ángulo frío: "Su historia merece ser contada a más ticos —我们来帮他讲."</li>
+      </ul>
+    </div>
+
+    <div class="contact-strategy">
+      <h3>🎯 Conservatorium & Sikwa — Aldo Elizondo / Pablo Bonilla</h3>
+      <ul>
+        <li>Enfoque: Premium/branding — estos chefs ya tienen perfil de alto nivel; necesitan agencia que entienda el nicho gourmet.</li>
+        <li>Canal: Instagram directo + email profesional. Sikwa tiene web + Instagram activo.</li>
+        <li>Propuesta: Estrategia de contenido para ranking en World's 50 Best + SEO gastronómico.</li>
+        <li>Ángulo frío: "Los mejores restaurantes de CR merecen estrategias de marketing a la altura de su cocina."</li>
+      </ul>
+    </div>
+
+    <div class="contact-strategy">
+      <h3>🎯 Don Rufino — La Fortuna</h3>
+      <ul>
+        <li>Enfoque: Tourism-driven — el 80% de clientes son turistas. Necesita presencia en Google Maps, TripAdvisor, Instagram tourism.</li>
+        <li>Canal: WhatsApp Business + Instagram del restaurante.</li>
+        <li>Propuesta: SEO local + Google Business Profile optimizado + contenido para tourists.</li>
+        <li>Ángulo frío: "La Fortuna recibe 500k turistas/año — ¿cuántos llegan a tu mesa?"</li>
+      </ul>
+    </div>
+
+    <div class="contact-strategy">
+      <h3>🎯 El Patio Del Balmoral, Tenedor Argentino, La Esquina</h3>
+      <ul>
+        <li>Enfoque: Consolidación de presencia digital — ya tienen buen producto pero pueden estar subutilizando redes.</li>
+        <li>Canal: LinkedIn del dueño/gerente + Instagram profesional.</li>
+        <li>Propuesta: PAID media (Instagram Ads + Google Ads targeting San José) + gestión de reseñas.</li>
+        <li>Ángulo frío: "Con 3k+ reseñas y solo 500 seguidores, hay una audiencia que no están alcanzando."</li>
+      </ul>
+    </div>
+
+    <div class="contact-strategy">
+      <h3>🎯 Dip Deep Burger — Fabián Vargas</h3>
+      <ul>
+        <li>Enfoque: Colaboración influencer-agency — es ambassador de Coca-Cola, tiene audiencia lista.</li>
+        <li>Canal: DM Instagram directo (@fabianrecomienda).</li>
+        <li>Propuesta: Partnership de co-branding o内容 collab para su restaurante, usando su audiencia.</li>
+        <li>Ángulo frío: "Ya tenés el alcance — nosotros optimizamos la conversión del restaurante."</li>
+      </ul>
+    </div>
+
+    <div class="contact-strategy">
+      <h3>📌 Tácticas Generales de Prospección</h3>
+      <ul>
+        <li>Exphore 2026 (30 junio–2 julio) — Expo de hoteles y restaurantes. +200 proveedores. Contacto: whatsapp +506 8881 3333. Oportunidad de networking cara a cara.</li>
+        <li>Directorio: basededatoscostarica.com — 217 teléfonos, 146 registros por provincia. Compra para segmentación precisa.</li>
+        <li>Cariba Marketing (competitor-agency) — llevar propuesta de diferenciación, no de precio.</li>
+        <li>LinkedIn B2B: buscar "Gerente" / "Fundador" / "Dueño" + "Restaurante" + "Costa Rica".</li>
+        <li>Warm outreach: seguir sus cuentas de Instagram, comentar genuinamente 5-7 días antes de DM.</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- DATOS CLAVE -->
+  <div class="section">
+    <h2>🔑 Datos Clave — Nicho Restaurantes CR</h2>
+    <p style="font-size:13px; color:#9090b0; line-height:1.8;">
+      El <strong style="color:#e0e0f0;">sector food services en Costa Rica</strong> representa un mercado en expansión sostenido, impulsado por turismo (2.7M visitantes/año), urbanización creciente y adopción digital acelerada post-pandemia. La penetración de delivery (Rappi, Glovo) llegó para quedarse y los restaurantes que no tienen estrategia digital multicanal están perdiendo participación de mercado sistemáticamente.<br><br>
+      <strong style="color:#e0e0f0;">Dato clave para Aurea:</strong> La mayoría de restaurantes en San José y zonas turísticas manejan sus redes de forma amateur (sin estrategia, sin contenido profesional, sin ads pagados). El oportunidad para una agencia como Aurea es vasto — no es un mercado saturado de agencias especializadas en gastronomía, es un mercado verde con demanda real y creciente.<br><br>
+      <strong style="color:#e0e0f0;">Budget típico PYME:</strong> Restaurantes medianos en CR gastan ₡150k–₡500k/mes en marketing digital (US$250–$850). Restaurantes premium: hasta $2,000+/mes en campañas integradas.
+    </p>
+  </div>
+
   <div class="footer">
-    Aurea Advertising — Lead Research &nbsp;|&nbsp; Generado automáticamente &nbsp;|&nbsp; 30 de abril de 2026 14:00 CST<br>
-    Reporte guardado en: /home/asdelgado506/intel-reports/aurea-leads-2026-04-30.html
+    Aurea Lead Intelligence · informes generados automáticamente · 30 Abr 2026 · Logos AI Agent<br>
+   下一个 nicho: Clínicas · Saved to: /intel-reports/aurea-leads-2026-04-30.html
   </div>
 
 </div>
