@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>World News Report — 30 Abr 2026</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0d0d0d;
+    color: #e0e0e0;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .header {
+    background: linear-gradient(135deg, #0f1628 0%, #1a1f35 100%);
+    border-bottom: 2px solid #c41230;
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .header h1 {
+    font-size: 22px;
+    color: #ffffff;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  .header .date {
+    color: #c41230;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 16px;
+  }
+  .card {
+    background: #161b22;
+    border: 1px solid #21262d;
+    border-radius: 10px;
+    padding: 18px;
+  }
+  .card.red { border-left: 4px solid #c41230; }
+  .card.blue { border-left: 4px solid #1d6fa5; }
+  .card.green { border-left: 4px solid #2ea043; }
+  .card.purple { border-left: 4px solid #8b5cf6; }
+  .card.orange { border-left: 4px solid #d97706; }
+  .card.cyan { border-left: 4px solid #06b6d4; }
+  .card-title {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #888;
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+  .card h2 {
+    font-size: 15px;
+    color: #ffffff;
+    margin-bottom: 8px;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+  .card p {
+    color: #8b949e;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  .tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+  .tag.red { background: rgba(196,18,48,0.2); color: #ff6b6b; }
+  .tag.blue { background: rgba(29,111,165,0.2); color: #60a5fa; }
+  .tag.green { background: rgba(46,160,67,0.2); color: #56d364; }
+  .tag.orange { background: rgba(217,119,6,0.2); color: #fbbf24; }
+  .tag.purple { background: rgba(139,92,246,0.2); color: #a78bfa; }
+  .tag.cyan { background: rgba(6,182,212,0.2); color: #22d3ee; }
+  .breaking {
+    background: rgba(196,18,48,0.15);
+    border: 1px solid #c41230;
+    border-radius: 8px;
+    padding: 14px;
+    margin-bottom: 16px;
+  }
+  .breaking h2 {
+    color: #ff6b6b;
+    font-size: 16px;
+    margin-bottom: 4px;
+  }
+  .breaking p { color: #f0a0a0; }
+  .grid-2 { grid-column: span 2; }
+  .footer {
+    text-align: center;
+    padding: 20px;
+    color: #555;
+    font-size: 11px;
+    border-top: 1px solid #21262d;
+    margin-top: 20px;
+  }
+  @media (max-width: 768px) {
+    .grid-2 { grid-column: span 1; }
+    .container { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🌐 WORLD NEWS DASHBOARD</h1>
+  <span class="date">Jueves 30 de Abril, 2026 — 17:45 UTC</span>
+</div>
+
+<div class="container">
+
+  <!-- BREAKING NEWS -->
+  <div class="breaking grid-2">
+    <h2>🚨 GUERRA EE.UU.-IRÁN — ESTRECHO DE HORMUZ CERRADO</h2>
+    <p>El conflicto entre EE.UU. e Israel contra Irán continúa escalando. Más de 10,000 tropas estadounidenses y una docena de buques de guerra vigilan el bloqueo. El Pentágono ha enviado miles de tropas adicionales a Medio Oriente. 399 militares estadounidenses han resultado heridos. Trump indicó que el viaje de Witkoff y Kushner a Pakistán para negociaciones de cese al fuego fue cancelado. Los precios del petróleo alcanzaron su nivel más alto en 4 años con el Brent superando los $100/barril. El cierre del Estrecho de Hormuz genera la mayor disrupción en la historia del mercado petrolero global.</p>
+  </div>
+
+  <!-- GEOPOLÍTICA -->
+  <div class="card red">
+    <div class="card-title">🌍 Geopolítica</div>
+    <span class="tag red">Medio Oriente</span>
+    <h2>Trump da plazo corto a Irán para aceptar propuesta de paz</h2>
+    <p>El presidente Trump ofreció a Irán una ventana reducida para unificar fuerzas detrás de una propuesta de paz, luego de que las negociaciones con Tehran y Washington se rompieran. El cese al fuego fue extendido, pero las tensiones siguen altas.</p>
+  </div>
+
+  <div class="card red">
+    <div class="card-title">🌍 Geopolítica</div>
+    <span class="tag red">Medio Oriente</span>
+    <h2>Israel ataca Beirut matando 14 personas pese a cese al fuego</h2>
+    <p>Israeli strikes mataron a 14 personas en Líbano pese al cese al fuego negociado por EE.UU. La periodista libanesa Amal Khalil también fue asesinada en un ataque israelí mientras los equipos médicos eran bloqueados para rescatarla.</p>
+  </div>
+
+  <div class="card red">
+    <div class="card-title">🌍 Geopolítica</div>
+    <span class="tag red">UCRANIA</span>
+    <h2>Ataques rusos con drones y misiles matan 16 personas en Ucrania</h2>
+    <p>俄罗斯无人机和导弹袭击在乌克兰各地造成16人死亡。Dnipro fue una de las ciudades afectadas con edificios residenciales dañados.</p>
+  </div>
+
+  <div class="card blue">
+    <div class="card-title">🏛️ Política EE.UU.</div>
+    <span class="tag blue">SUPREMA CORTE</span>
+    <h2>Suprema Corte debilita Voting Rights Act en caso de Louisiana</h2>
+    <p>La Corte Suprema debilitó una disposición clave del Voting Rights Act al fallar a favor de un mapa congressional de Louisiana. 6 justices votaran para strike down la ley que requería maximizar representación minoritaria.</p>
+  </div>
+
+  <div class="card blue">
+    <div class="card-title">🏛️ Política EE.UU.</div>
+    <span class="tag blue">INMIGRACIÓN</span>
+    <h2>DOJ facilita deportación de beneficiarios DACA</h2>
+    <p>El Departamento de Justicia emitió nuevas guías que facilitan la deportación de personas con estatus DACA.同时，一家 ICE 家庭在法院命令释放后不到两天再次被拘留。</p>
+  </div>
+
+  <div class="card blue">
+    <div class="card-title">🏛️ Política EE.UU.</div>
+    <span class="tag blue">ÓRGANO</span>
+    <h2>Tiroteo en Cena de Corresponsales de la Casa Blanca</h2>
+    <p>El sospechoso del tiroteo en la cena de corresponsales de la Casa Blanca fue llevado a tribunales para cargos formales. El incidente generó condena generalizada en Washington.</p>
+  </div>
+
+  <div class="card orange">
+    <div class="card-title">💰 Economía</div>
+    <span class="tag orange">PETRÓLEO</span>
+    <h2>Petróleo alcanza máximo de 4 años — Brent sobre $100</h2>
+    <p>Los precios del petróleo subieron a su nivel más alto en 4 años. El Brent superó los $100 por barril por primera vez desde agosto 2022 tras el cierre del Estrecho de Hormuz. Geopolítica domina los mercados.</p>
+  </div>
+
+  <div class="card orange">
+    <div class="card-title">💰 Economía</div>
+    <span class="tag orange">EE.UU. PIB</span>
+    <h2>Economía de EE.UU. creció 2% en Q1 2026 pese a la guerra</h2>
+    <p>La economía estadounidense extendió su racha de resiliencia y se expandió a una tasa anual de 2% en los primeros tres meses del año, resistiendo las presiones del conflicto en Medio Oriente.</p>
+  </div>
+
+  <div class="card orange">
+    <div class="card-title">💰 Economía</div>
+    <span class="tag orange">INFLACIÓN</span>
+    <h2>Inflación sube a 3.4% tras impacto del conflicto en petróleo</h2>
+    <p>El CPI de marzo alcanzó 3.4% año contra año, subiendo desde 2.4% en febrero. Precios de gasolina en EE.UU. subieron ~$0.60/galón en dos semanas. FMI y Bloomberg warn sobre "supply cliff".</p>
+  </div>
+
+  <div class="card orange">
+    <div class="card-title">💰 Economía</div>
+    <span class="tag orange">ISRael</span>
+    <h2>Economía de Israel florece pese a la guerra con Irán</h2>
+    <p>Contrariamente a lo esperado, los mercados financieros y la economía de Israel están en auge. El PIB crece y la bolsa de Tel Aviv muestra Rally apesar del conflicto. El Banco de Israel había recortado proyecciones de crecimiento.</p>
+  </div>
+
+  <div class="card green">
+    <div class="card-title">🤖 Tecnología</div>
+    <span class="tag green">IA / TECH</span>
+    <h2>AI sigue dominando mercados — Cramer "preocupado" por gigante tech</h2>
+    <p>Jim Cramer expresó preocupación por un gigante tecnológico a pesar de "increíbles" números de publicidad. La IA continúa siendo el motor principal de movimientos en mercados. Chip-based quantum memory con "light cages" nanoprintadas promete revolucionar computación cuántica.</p>
+  </div>
+
+  <div class="card green">
+    <div class="card-title">🔬 Ciencia</div>
+    <span class="tag green">QUÍMICA</span>
+    <h2>Científicos de Cambridge: reacción química con luz para modificar drogas complejas</h2>
+    <p>Investigadores de Cambridge descubrieron una reacción química controlada por luz que permite modificar moléculas complejas de drogas en etapas finales de síntesis — avance significativo en farmacología.</p>
+  </div>
+
+  <div class="card purple">
+    <div class="card-title">⚽ Deportes</div>
+    <span class="tag purple">NBA</span>
+    <h2>Olivier Rioux — Jugador de baloncesto más alto del mundo (2.36m) firma con UC Irvine</h2>
+    <p>Olivier Rioux, el jugador de baloncesto más alto del mundo con 7 pies 9 pulgadas (2.36m), firmó con UC Irvine. Con apenas 16 años, ya representa un fenómeno físico sin precedentes.</p>
+  </div>
+
+  <div class="card purple">
+    <div class="card-title">🏐 Sports</div>
+    <span class="tag purple">SCIENCE BOWL</span>
+    <h2>Equipo Bonham Robotics gana estatal y avanza a National Science Bowl</h2>
+    <p>El equipo de robótica de Bonham High School ganó el campeonato estatal y aseguran su lugar en el National Science Bowl nacional.</p>
+  </div>
+
+  <!-- COSTA RICA -->
+  <div class="card cyan grid-2">
+    <div class="card-title">🇨🇷 Costa Rica</div>
+    <span class="tag cyan">POLÍTICA</span>
+    <h2>CR recibe 25 deportados por semana tras acuerdo con EE.UU. — Cierra embajada en Cuba</h2>
+    <p>El gobierno de Costa Rica aceptó recibir a 25 personas deportadas semanalmente como parte del acuerdo migratorio con Washington. Además, Costa Rica cerró su embajada en La Habana. En lo económico, el país comenzó 2026 con buenas noticias: membresía OECD, primer lugar en crecimiento económico en Latinoamérica, más de 700 centros educativos construido, 20,000 plazas en propiedad adjudicadas, duplicación de turistas y auge en inversión extranjera directa. Gasolina y productos abaratados mejoran calidad de vida.</p>
+  </div>
+
+  <!-- RESUMEN DE MERCADO -->
+  <div class="card orange grid-2">
+    <div class="card-title">📊 Resumen de Mercados</div>
+    <p>
+      <strong>Petróleo:</strong> Brent $100+/barril (máx. 4 años) &nbsp;|&nbsp;
+      <strong>QE.UU.:</strong> PIB +2% Q1 &nbsp;|&nbsp;
+      <strong>Inflación EE.UU.:</strong> CPI 3.4% &nbsp;|&nbsp;
+      <strong>Bonos:</strong> Bloomberg Agg -1.76% marzo &nbsp;|&nbsp;
+      <strong>Straito de Hormuz:</strong> Cerrado — mayor disrupción histórica del mercado petrolero
+    </p>
+  </div>
+
+</div>
+
+<div class="footer">
+  World News Report — 30 de Abril, 2026 — Logos Intelligence Dashboard<br>
+  Fuentes: Democracy Now, NPR, CNBC, ABC Australia, Euronews, CNN en Español, Havana Times, Global Issues, Crestwood Advisors
+</div>
+
+</body>
+</html>
