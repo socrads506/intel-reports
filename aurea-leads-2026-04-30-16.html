@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurea Leads — Manufacturers Costa Rica | 30 Abr 2026 16:00</title>
+    <style>
+        :root {
+            --bg-primary: #0d0d12;
+            --bg-secondary: #14141c;
+            --bg-card: #1a1a26;
+            --bg-card-hover: #22222f;
+            --accent: #f59e0b;
+            --accent-dim: #b97708;
+            --accent-glow: rgba(245, 158, 11, 0.15);
+            --text-primary: #f1f1f4;
+            --text-secondary: #9999aa;
+            --text-muted: #55556a;
+            --border: #2a2a3a;
+            --green: #10b981;
+            --blue: #3b82f6;
+            --red: #ef4444;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+        .header {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, #1e1e2e 100%);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 40px 48px;
+            margin-bottom: 32px;
+            position: relative;
+            overflow: hidden;
+        }
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 3px;
+            background: linear-gradient(90deg, var(--accent), #fb923c, var(--accent));
+        }
+        .header::after {
+            content: '';
+            position: absolute;
+            top: -50%; right: -10%;
+            width: 400px; height: 400px;
+            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .badge {
+            display: inline-block;
+            background: var(--accent);
+            color: #000;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+        .header h1 {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+        .header .subtitle {
+            color: var(--text-secondary);
+            font-size: 16px;
+            margin-bottom: 24px;
+        }
+        .meta {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--text-muted);
+            font-size: 13px;
+        }
+        .meta-item span { color: var(--text-secondary); font-weight: 600; }
+        .section {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 28px 32px;
+            margin-bottom: 20px;
+        }
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: var(--text-primary);
+        }
+        .section-desc {
+            color: var(--text-muted);
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .company-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 20px;
+            transition: all 0.2s ease;
+        }
+        .company-card:hover {
+            border-color: var(--accent);
+            background: var(--bg-card-hover);
+            transform: translateY(-2px);
+        }
+        .company-name {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 4px;
+            color: var(--text-primary);
+        }
+        .company-sector {
+            font-size: 12px;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .company-detail {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            margin-bottom: 6px;
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+        .company-detail .icon { color: var(--text-muted); flex-shrink: 0; margin-top: 2px; }
+        .tag {
+            display: inline-block;
+            font-size: 11px;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+        .tag-hq { background: rgba(59,130,246,0.15); color: var(--blue); }
+        .tag-mnc { background: rgba(245,158,11,0.15); color: var(--accent); }
+        .tag-local { background: rgba(16,185,129,0.15); color: var(--green); }
+        .tag-new { background: rgba(239,68,68,0.15); color: var(--red); }
+        .trend-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 14px;
+        }
+        .trend-item {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 16px 20px;
+            border-left: 3px solid var(--accent);
+        }
+        .trend-item .trend-title {
+            font-weight: 700;
+            font-size: 14px;
+            margin-bottom: 6px;
+            color: var(--text-primary);
+        }
+        .trend-item .trend-desc {
+            font-size: 12px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+        .strategy-item {
+            display: flex;
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .strategy-item:last-child { border-bottom: none; }
+        .strategy-num {
+            width: 32px;
+            height: 32px;
+            background: var(--accent);
+            color: #000;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+        .strategy-content h4 { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+        .strategy-content p { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
+        .contact-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 16px 20px;
+            margin-bottom: 10px;
+        }
+        .contact-card .name { font-weight: 700; font-size: 14px; margin-bottom: 2px; }
+        .contact-card .role { font-size: 12px; color: var(--accent); margin-bottom: 6px; }
+        .contact-card .detail { font-size: 12px; color: var(--text-muted); }
+        .pillar-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            margin-top: 16px;
+        }
+        .pillar {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+        .pillar .num {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 4px;
+        }
+        .pillar .label {
+            font-size: 12px;
+            color: var(--text-muted);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .pillar .desc {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-top: 8px;
+            line-height: 1.5;
+        }
+        .rotating-schedule {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+        }
+        .rotating-schedule .day-item {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 10px 12px;
+            font-size: 12px;
+        }
+        .rotating-schedule .day-item.active {
+            border-color: var(--accent);
+            background: rgba(245,158,11,0.08);
+        }
+        .rotating-schedule .day-item .niche {
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 2px;
+        }
+        .rotating-schedule .day-item .date {
+            color: var(--text-muted);
+            font-size: 11px;
+        }
+        .rotating-schedule .day-item.active .niche { color: var(--accent); }
+        .footer {
+            text-align: center;
+            padding: 24px;
+            color: var(--text-muted);
+            font-size: 12px;
+        }
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(245,158,11,0.08), rgba(251,146,60,0.05));
+            border: 1px solid rgba(245,158,11,0.3);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .highlight-box h3 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--accent);
+        }
+        .highlight-box p {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        .stats-bar {
+            display: flex;
+            gap: 0;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        .stat-item {
+            flex: 1;
+            padding: 20px;
+            text-align: center;
+            border-right: 1px solid var(--border);
+        }
+        .stat-item:last-child { border-right: none; }
+        .stat-item .value {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--accent);
+        }
+        .stat-item .label {
+            font-size: 11px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 4px;
+        }
+        @media (max-width: 768px) {
+            .grid-2, .pillar-grid, .rotating-schedule { grid-template-columns: 1fr; }
+            .stats-bar { flex-direction: column; }
+            .stat-item { border-right: none; border-bottom: 1px solid var(--border); }
+            .header { padding: 28px 24px; }
+            .section { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- HEADER -->
+    <div class="header">
+        <div class="badge">Investigación de Leads — Aurea</div>
+        <h1>Manufacturas en Costa Rica</h1>
+        <p class="subtitle">Oportunidades de publicidad y marketing para agencias en el sector manufacturero costarricense</p>
+        <div class="meta">
+            <div class="meta-item">📅 <span>30 Abril 2026</span> — 16:00 UTC</div>
+            <div class="meta-item">🏷️ <span>Nicho:</span> Manufacturers (Fabricantes)</div>
+            <div class="meta-item">🌎 <span>País:</span> Costa Rica</div>
+            <div class="meta-item">📊 <span>Fuentes:</span> CINDE, PROCOMER, Coyol Free Zone, D&B, Glassdoor</div>
+        </div>
+    </div>
+
+    <!-- STATS -->
+    <div class="stats-bar">
+        <div class="stat-item">
+            <div class="value">34</div>
+            <div class="label">Empresas en Coyol FZ</div>
+        </div>
+        <div class="stat-item">
+            <div class="value">100+</div>
+            <div class="label">MNCs Manufactureras en CR</div>
+        </div>
+        <div class="stat-item">
+            <div class="value">$8.6B</div>
+            <div class="label">Exportación Dispositivos Médicos 2024</div>
+        </div>
+        <div class="stat-item">
+            <div class="value">22%</div>
+            <div class="label">Crecimiento Anual Exportaciones</div>
+        </div>
+    </div>
+
+    <!-- MARKET OVERVIEW -->
+    <div class="section">
+        <div class="section-title">📈 Panorama del Sector Manufacturero</div>
+        <p class="section-desc">Costa Rica se ha consolidado como un hub de manufactura avanzada en Centroamérica, liderando en sofisticación de procesos según el Foro Económico Mundial. El país atrae más de 100 empresas multinacionales de dispositivos médicos, con crecimiento del 22% anual en exportaciones del sector salud entre 2020-2024. Para agencias de publicidad como Aurea, el sector presenta oportunidades únicas: empresas que necesitan posicionar marcas B2B, atraer talento, lanzar productos y consolidar presencia en mercados centroamericanos.</p>
+
+        <div class="highlight-box">
+            <h3>💡 Insight Clave para Ventas</h3>
+            <p>La mayoría de las empresas manufactureras en Costa Rica son multinacionales enfocadas en exportación. Su necesidad de marketing es diferente a las locales: posicionamiento de marca corporativa, recruitment marketing, thought leadership, y marketing de canales B2B. Las empresas locales (PYMES manufactureras) en cambio buscan más presencia digital, leads locales y branding de producto. <strong>El pitch debe adaptarse según el tipo de cliente.</strong></p>
+        </div>
+    </div>
+
+    <!-- COMPANIES -->
+    <div class="section">
+        <div class="section-title">🏭 Empresas Objetivo — Fabricantes en Costa Rica</div>
+        <p class="section-desc">Compañías identificadas con potencial para servicios de publicidad/marketing. Incluye multinacionales con operaciones locales y fabricantes nacionales.</p>
+
+        <div class="grid-2">
+
+            <div class="company-card">
+                <div class="company-name">Medtronic Costa Rica <span class="tag tag-mnc">MNC</span></div>
+                <div class="company-sector">Dispositivos Médicos — Implantes</div>
+                <div class="company-detail"><span class="icon">🌐</span> medtronic.com</div>
+                <div class="company-detail"><span class="icon">📞</span> +506 2482-8520</div>
+                <div class="company-detail"><span class="icon">📍</span> Coyol Free Zone, Alajuela — B7.6</div>
+                <div class="company-detail"><span class="icon">👤</span> Decision maker: Gerente de Operaciones / Marketing local</div>
+                <div class="company-detail"><span class="icon">💡</span> <em>Fabricante #1 global de dispositivos médicos. Necesita employer branding y marketing B2B.</em></div>
+            </div>
+
+            <div class="company-card">
+                <div class="company-name">Hologic Costa Rica <span class="tag tag-mnc">MNC</span></div>
+                <div class="company-sector">Diagnóstico y Cirugía — Salud de la Mujer</div>
+                <div class="company-detail"><span class="icon">🌐</span> hologic.com</div>
+                <div class="company-detail"><span class="icon">📞</span> +506 2436-2600</div>
+                <div class="company-detail"><span class="icon">📍</span> Coyol Free Zone — B24</div>
+                <div class="company-detail"><span class="icon">👤</span> Decision maker: Dirección de Sitio / Marketing</div>
+                <div class="company-detail"><span class="icon">💡</span> <em>Líder en diagnóstico y cirugía. Posible necesidad de campañas de conciencia médica.</em></div>
+            </div>
+
+            <div class="company-card">
+                <div class="company-name">CooperVision Costa Rica <span class="tag tag-mnc">MNC</span></div>
+                <div class="company-sector">Lentes de Contacto</div>
+                <div class="company-detail"><span class="icon">🌐</span> coopervision.com</div>
+                <div class="company-detail"><span class="icon">📞</span> +506 2436-4400</div>
+                <div class="company-detail"><span class="icon">📍</span> Coyol Free Zone — B52</div>
+                <div class="company-detail"><span class="icon">👤</span> Decision maker: Gerente de Planta / Marketing</div>
+                <div class="company-detail"><span class="icon">💡</span> <em>Diseño y fabricación de lentes de contacto. Brand marketing para consumidor final.</em></div>
+            </div>
+
+            <div class="company-card">
+                <div class="company-name">Terumo Neuro <span class="tag tag-mnc">MNC</span></div>
+                <div class="company-sector">Dispositivos Neuroendovasculares</div>
+                <div class="company-detail"><span class="icon">🌐</span> terumoneuro.com</div>
+                <div class="company-detail"><span class="icon">📞</span> +506 4052-8602</div>
+                <div class="company-detail"><span class="icon">📍</span> Coyol Free Zone — B13</div>
+                <div class="company-detail"><span class="icon">👤</span> Decision maker: Dirección de Sitio</div>
+                <div class="company-detail"><span class="icon">💡</span> <em>Fabricante de dispositivos neuroendovasculares. Nicho altamente especializado.</em></div>
+            </div>
+
+            <div class="company-card">
+                <div class="company-name">Forj Medical <span class="tag tag-mnc tag-new">NUEVA</span></div>
+                <div class="company-sector">CDMO — Dispositivos Médicos</div>
+                <div class="company-detail"><span class="icon">🌐</span> forjmedical.com</div>
+                <div class="company-detail"><span class="icon">📍</span> Evolution Free Zone, Tacares de Grecia</div>
+                <div class="company-detail"><span class="icon">👤</span> Decision maker: Equipo Directivo (fusión Intricon + Minnetronix)</div>
+                <div class="company-detail"><span class="icon">💡</span> <em>CDMO nuevo (53,000 pies²). Oportunidad de branding desde cero y marketing de lanzamiento.</em></div>
+            </div>
+
+            <div class="company-card">
+                <div class="company-name">Establecimiento Labs <span class="tag tag-local">Local</span></div>
+                <div class="company-sector">Implantes Mamarios y Dispositivos Médicos</div>
+                <div class="company-detail"><span class="icon">🌐</span> establecimiento.ec</div>
+                <div class="company-detail"><span class="icon">📍</span> Costa Rica (exporta a nivel global)</div>
+                <div class="company-detail"><span class="icon">👤</span> CEO / Dirección de Marketing</div>
+                <div class="company-detail"><span class="icon">💡</span> <em>Empresa costarricense con presencia global. Brand marketing y PR internacional.</em></div>
+            </div>
+
+            <div class="company-card">
+                <div class="company-name">Dos Pinos <span class="tag tag-local">Local</span></div>
+                <div class="company-sector">Lácteos y Alimentos</div>
+                <div class="company-detail"><span class="icon">🌐</span> dospinos.com</div>
+                <div class="company-detail"><span class="icon">📞</span> (506) 2275-0100</div>
+                <div class="company-detail"><span class="icon">📍</span> San José, Costa Rica</div>
+                <div class="company-detail"><span class="icon">👤</span> Director de Marketing y Ventas</div>
+                <div class="company-detail"><span class="icon">💡</span> <em>Marca #1 en compras en Costa Rica (46M compras/año). Necesita branding de producto y digital.</em></div>
+            </div>
+
+            <div class="company-card">
+                <div class="company-name">Café Britt <span class="tag tag-local">Local</span></div>
+                <div class="company-sector">Café Premium y Confitería</div>
+                <div class="company-detail"><span class="icon">🌐</span> cafebritt.com</div>
+                <div class="company-detail"><span class="icon">📞</span> (506) 2277-0707</div>
+                <div class="company-detail"><span class="icon">📍</span> San José / Heredia</div>
+                <div class="company-detail"><span class="icon">👤</span> Gerente de Marca y Comunicaciones</div>
+                <div class="company-detail"><span class="icon">💡</span> <em>Exportador y marca premium. Marketing de experiencia y marca país.</em></div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- TRENDS -->
+    <div class="section">
+        <div class="section-title">📊 Tendencias del Mercado de Manufactura en Costa Rica</div>
+        <p class="section-desc">Factores que están transformando el sector y abriendo oportunidades de marketing.</p>
+        <div class="trend-grid">
+
+            <div class="trend-item">
+                <div class="trend-title">🏥 Nearshoring Médico en Aceleración</div>
+                <div class="trend-desc">Costa Rica atrae cada vez más empresas médicas que relocalizan operaciones desde Asia. PROCOMER lidera misiones comerciales a MD&M West 2026 para atraer inversión adicional. Más empresas = más necesidad de marketing.</div>
+            </div>
+
+            <div class="trend-item">
+                <div class="trend-title">🤖 Transformación a Smart Manufacturing</div>
+                <div class="trend-desc">El Foro Económico Mundial reconoce a Costa Rica como líder en sofisticación de procesos en Latinoamérica. La convergencia de IoT, automatización y datos genera necesidad de comunicación sobre innovación.</div>
+            </div>
+
+            <div class="trend-item">
+                <div class="trend-title">🌱 ESG y Sostenibilidad como Diferencial</div>
+                <div class="trend-desc"> multinacionales manufactureras reportan ESG activamente. Existe demanda creciente por comunicación corporativa sostenibilidad,吸引 investors y talento joven.</div>
+            </div>
+
+            <div class="trend-item">
+                <div class="trend-title">👷 Escasez de Talento Especializado</div>
+                <div class="trend-desc">El sector busca perfiles técnicos especializados. Las empresas manufactureras necesitan recruitment marketing agresivo para atraer y retener talento en un mercado laboral ajustado.</div>
+            </div>
+
+            <div class="trend-item">
+                <div class="trend-title">🌐 Marketing B2B Digital en Expansión</div>
+                <div class="trend-desc">Las multinacionales manufactureras están aumentando presupuestos para LinkedIn marketing, thought leadership, y campaigns dirigidas a decision makers en el ecosistema healthtech.</div>
+            </div>
+
+            <div class="trend-item">
+                <div class="trend-title">💊 Exportación Farmacéutica en Crecimiento</div>
+                <div class="trend-desc">Empresas como Gutis ($75M ingresos) y MD Pharma lideran el sector farmacéutico. Buscan expandirse regionalmente y necesitan marketing que soporte distribución en Centroamérica.</div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- CONTACT STRATEGIES -->
+    <div class="section">
+        <div class="section-title">🎯 Estrategias de Contacto para Aurea</div>
+        <p class="section-desc">Enfoques específicos para abordar fabricantes en Costa Rica según su tipo.</p>
+
+        <div class="strategy-item">
+            <div class="strategy-num">1</div>
+            <div class="strategy-content">
+                <h4>LinkedIn Outbound para MNCS</h4>
+                <p>Las multinacionales (Medtronic, Hologic, CooperVision) tienen equipos de marketing globales. Contactar al Country Manager o Marketing Manager local vía LinkedIn con propuestas de employer branding, local content marketing, y recruitment campaigns. Personalizar referencing la operación Costa Rica, no el global brand.</p>
+            </div>
+        </div>
+
+        <div class="strategy-item">
+            <div class="strategy-num">2</div>
+            <div class="strategy-content">
+                <h4>Value Proposition: Employer Branding</h4>
+                <p>Con la escasez de talento técnico, las empresas manufactureras necesitan desesperadamente posicionarse como empleadores atractivo. Ofrecer audits de marca empleadora, video recruiting, y campañas en redes sociales orientadas a talento STEM. Empresas como Smith & Nephew y Terumo ya tienen operaciones grandes y pueden ser prospectos inmediatos.</p>
+            </div>
+        </div>
+
+        <div class="strategy-item">
+            <div class="strategy-num">3</div>
+            <div class="strategy-content">
+                <h4>Event Marketing — Ferias y Congresos</h4>
+                <p>CINDE organiza eventos del sector manufacturing. Estar presente en foros de medicina/dispositivos médicos (PROCOMER, Azofras) como sponsor o expositor crea visibilidad inmediata con docenas de decision makers simultáneamente.报价: paquetes de sponsorship para eventos B2B.</p>
+            </div>
+        </div>
+
+        <div class="strategy-item">
+            <div class="strategy-num">4</div>
+            <div class="strategy-content">
+                <h4>Fabricantes Locales: Digital Ads + SEO</h4>
+                <p>Para empresas como Dos Pinos, Café Britt, y Establishment Labs: campaigns de Google Ads ( keywords en español), Instagram/TikTok para consumidor final, y SEO para exportar. Son más ágiles en decisiones que las multinacionales y pueden cerrar más rápido.</p>
+            </div>
+        </div>
+
+        <div class="strategy-item">
+            <div class="strategy-num">5</div>
+            <div class="strategy-content">
+                <h4>Cold Email con Data de PROCOMER/CINDE</h4>
+                <p>Ambas organizaciones tienen registros de empresas exportadoras. Conseguir presentaciones en eventos de CINDE (shingo awards, cumbres de manufactura), luego hacer follow-up con contenido de valor. La warm approach (event → email) tiene tasas de respuesta significativamente mayores.</p>
+            </div>
+        </div>
+
+        <div class="strategy-item">
+            <div class="strategy-num">6</div>
+            <div class="strategy-content">
+                <h4>Proposición: Content Marketing de Industria</h4>
+                <p>Crear un reporte anual o newsletter trimestral: "El Estado del Marketing Manufacturer en Costa Rica". Incluir data de CINDE/PROCOMER, casos de éxito de marcas locales, tendencias. Distribución gratuita por email a decisores. Genera leads entrantes y establece autoridad.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- PILLARS -->
+    <div class="section">
+        <div class="section-title">📐 Pilares de Marketing para Manufacturers</div>
+        <p class="section-desc">Servicios con mayor demanda y potencial de venta en este sector.</p>
+        <div class="pillar-grid">
+            <div class="pillar">
+                <div class="num">01</div>
+                <div class="label">Employer Branding</div>
+                <div class="desc">Video recruiting, marca empleadora, campañas de retención, presencia en universidades técnicas</div>
+            </div>
+            <div class="pillar">
+                <div class="num">02</div>
+                <div class="label">B2B Content</div>
+                <div class="desc">Whitepapers, case studies, LinkedIn thought leadership, newsletters sectoriales</div>
+            </div>
+            <div class="pillar">
+                <div class="num">03</div>
+                <div class="label">Event & PR</div>
+                <div class="desc">Organización de desayunos de industria, sponsorship de cumbres médicas, relaciones con prensa</div>
+            </div>
+            <div class="pillar">
+                <div class="num">04</div>
+                <div class="label">Digital Ads B2B</div>
+                <div class="desc">LinkedIn Ads targeting decisores manufacturing, Google Ads keywords técnicas</div>
+            </div>
+            <div class="pillar">
+                <div class="num">05</div>
+                <div class="label">Website & SEO</div>
+                <div class="desc">Sitios corporativos, micrositios de producto, SEO multilingual para exportación</div>
+            </div>
+            <div class="pillar">
+                <div class="num">06</div>
+                <div class="label">ESG Comms</div>
+                <div class="desc">Reportes de sostenibilidad, campañas internas, comunicación de impacto comunitario</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ROTATION SCHEDULE -->
+    <div class="section">
+        <div class="section-title">🔄 Rotación Semanal — Nichos de Investigación</div>
+        <p class="section-desc">Este reporte corresponde al nicho "Manufacturers". Agenda de rotación para las próximas horas/días.</p>
+        <div class="rotating-schedule">
+            <div class="day-item active">
+                <div class="niche">🏭 Manufacturers</div>
+                <div class="date">30 Abr 16:00 ✅</div>
+            </div>
+            <div class="day-item">
+                <div class="niche">🏫 Schools</div>
+                <div class="date">30 Abr 17:00 →</div>
+            </div>
+            <div class="day-item">
+                <div class="niche">🍽️ Restaurants</div>
+                <div class="date">30 Abr 18:00 →</div>
+            </div>
+            <div class="day-item">
+                <div class="niche">🏥 Clinics</div>
+                <div class="date">30 Abr 19:00 →</div>
+            </div>
+            <div class="day-item">
+                <div class="niche">🛒 Ecommerce</div>
+                <div class="date">30 Abr 20:00 →</div>
+            </div>
+            <div class="day-item">
+                <div class="niche">🏢 Real Estate</div>
+                <div class="date">30 Abr 21:00 →</div>
+            </div>
+            <div class="day-item">
+                <div class="niche">🏨 Hotels</div>
+                <div class="date">30 Abr 22:00 →</div>
+            </div>
+            <div class="day-item">
+                <div class="niche">🚀 Startups</div>
+                <div class="date">30 Abr 23:00 →</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <p>Reporte generado automáticamente por Aurea Lead Research Agent | Logo:s = MiniMax M2.7-highspeed</p>
+        <p>Fuentes: CINDE, PROCOMER, Coyol Free Zone, D&B, Glassdoor, Lusha, Tracxn, PROCOMER, Tavily Search | 30 Abril 2026 — 16:00 UTC</p>
+    </div>
+
+</div>
+</body>
+</html>
