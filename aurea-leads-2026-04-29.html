@@ -1,277 +1,376 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aurea — Leads: Restaurantes Costa Rica | 29 Abr 2026</title>
-    <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aurea — Lead Research: Clínicas Privadas Costa Rica | 29 Abr 2026</title>
+<style>
+  :root {
+    --bg: #0b0e14;
+    --surface: #13171f;
+    --surface2: #1a1f2e;
+    --border: #252b3d;
+    --accent: #f5a623;
+    --accent2: #4fc3f7;
+    --text: #e8eaf0;
+    --text-dim: #8892a4;
+    --green: #4ade80;
+    --red: #f87171;
+    --tag-bg: #1e2d45;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', 'Inter', -apple-system, sans-serif; font-size: 14px; line-height: 1.6; }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 40px 24px; }
 
-        body {
-            background: #0d0d0d;
-            color: #e0e0e0;
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            font-size: 14px;
-            line-height: 1.6;
-        }
+  .header { border-bottom: 1px solid var(--border); padding-bottom: 32px; margin-bottom: 40px; }
+  .header-top { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px; }
+  .logo { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); font-weight: 700; margin-bottom: 8px; }
+  h1 { font-size: 26px; font-weight: 700; color: var(--text); line-height: 1.2; }
+  .subtitle { color: var(--text-dim); margin-top: 6px; font-size: 13px; }
+  .badge-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+  .badge { background: var(--tag-bg); color: var(--accent2); font-size: 11px; padding: 4px 10px; border-radius: 20px; border: 1px solid var(--border); }
+  .badge.green { color: var(--green); border-color: #1a3d2a; background: #0d1f14; }
+  .meta { text-align: right; font-size: 12px; color: var(--text-dim); }
+  .meta strong { display: block; color: var(--text); font-size: 13px; }
 
-        .container { max-width: 960px; margin: 0 auto; padding: 40px 20px; }
+  .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 40px; }
+  .summary-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 20px; }
+  .summary-card .label { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-dim); margin-bottom: 6px; }
+  .summary-card .value { font-size: 22px; font-weight: 700; color: var(--accent); }
+  .summary-card .sub { font-size: 12px; color: var(--text-dim); margin-top: 4px; }
 
-        header {
-            border-bottom: 2px solid #c9a84c;
-            padding-bottom: 20px;
-            margin-bottom: 36px;
-        }
+  h2 { font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+  h2::before { content: '// '; color: var(--accent); }
 
-        .badge {
-            display: inline-block;
-            background: #c9a84c;
-            color: #0d0d0d;
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            padding: 4px 12px;
-            border-radius: 3px;
-            margin-bottom: 12px;
-        }
+  .section { margin-bottom: 48px; }
 
-        h1 { font-size: 28px; font-weight: 700; color: #ffffff; margin-bottom: 6px; }
-        h2 { font-size: 18px; color: #c9a84c; margin-bottom: 16px; margin-top: 36px; border-left: 3px solid #c9a84c; padding-left: 12px; }
-        h3 { font-size: 15px; color: #ffffff; margin-bottom: 8px; margin-top: 20px; }
+  /* Company cards */
+  .company-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 16px; }
+  .company-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 20px; transition: border-color 0.2s; }
+  .company-card:hover { border-color: var(--accent); }
+  .company-card .type { font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent2); margin-bottom: 6px; }
+  .company-card h3 { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 6px; }
+  .company-card .location { font-size: 12px; color: var(--text-dim); margin-bottom: 10px; }
+  .company-card .detail { font-size: 12px; color: var(--text-dim); margin-bottom: 4px; }
+  .company-card .detail strong { color: var(--text); }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+  .tag { background: var(--tag-bg); color: var(--text-dim); font-size: 10px; padding: 3px 8px; border-radius: 4px; border: 1px solid var(--border); }
 
-        .meta { color: #888; font-size: 13px; margin-bottom: 4px; }
+  /* Strategies */
+  .strategy-list { display: flex; flex-direction: column; gap: 12px; }
+  .strategy-item { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; display: flex; gap: 16px; align-items: flex-start; }
+  .strategy-num { background: var(--accent); color: var(--bg); width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; flex-shrink: 0; }
+  .strategy-body h3 { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+  .strategy-body p { font-size: 12px; color: var(--text-dim); }
 
-        .summary {
-            background: #161616;
-            border: 1px solid #2a2a2a;
-            border-radius: 8px;
-            padding: 24px;
-            margin-bottom: 36px;
-        }
+  /* Trends */
+  .trend-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+  .trend-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px; }
+  .trend-card h3 { font-size: 13px; font-weight: 600; color: var(--accent); margin-bottom: 6px; }
+  .trend-card p { font-size: 12px; color: var(--text-dim); line-height: 1.5; }
 
-        .summary p { color: #b0b0b0; }
-
-        .companies-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-            margin-top: 16px;
-        }
-
-        .company-card {
-            background: #161616;
-            border: 1px solid #2a2a2a;
-            border-radius: 8px;
-            padding: 20px;
-        }
-
-        .company-card .name { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 4px; }
-        .company-card .type { font-size: 11px; color: #c9a84c; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
-        .company-card .detail { font-size: 13px; color: #999; margin-bottom: 4px; }
-        .company-card .detail span { color: #ccc; }
-        .company-card .contact-hint { font-size: 12px; color: #666; margin-top: 8px; font-style: italic; }
-
-        .trends { margin-top: 16px; }
-        .trend-item {
-            background: #161616;
-            border: 1px solid #2a2a2a;
-            border-radius: 6px;
-            padding: 16px;
-            margin-bottom: 10px;
-            display: flex;
-            gap: 14px;
-            align-items: flex-start;
-        }
-
-        .trend-icon { font-size: 20px; flex-shrink: 0; }
-        .trend-content h4 { font-size: 14px; color: #fff; margin-bottom: 4px; }
-        .trend-content p { font-size: 13px; color: #999; }
-
-        .strategy-list { list-style: none; margin-top: 12px; }
-        .strategy-list li {
-            background: #161616;
-            border: 1px solid #2a2a2a;
-            border-radius: 6px;
-            padding: 14px 16px;
-            margin-bottom: 8px;
-            font-size: 13px;
-            color: #ccc;
-        }
-        .strategy-list li strong { color: #c9a84c; }
-        .strategy-list li::before { content: "→ "; color: #c9a84c; }
-
-        .footer { margin-top: 48px; border-top: 1px solid #2a2a2a; padding-top: 20px; color: #555; font-size: 12px; text-align: center; }
-
-        @media (max-width: 600px) {
-            .companies-grid { grid-template-columns: 1fr; }
-        }
-    </style>
+  .footer { border-top: 1px solid var(--border); padding-top: 24px; margin-top: 48px; font-size: 11px; color: var(--text-dim); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+</style>
 </head>
 <body>
-<div class="container">
+<div class="wrap">
 
-<header>
-    <div class="badge">Aurea Advertising — Research Unit</div>
-    <h1>Lead Generation Report</h1>
-    <div class="meta">Nich — Restaurantes &amp; Gastronomía &bull; Costa Rica</div>
-    <div class="meta">29 de Abril, 2026 &bull; 17:00 CST &bull; #9 del ciclo</div>
-</header>
-
-<div class="summary">
-    <h2>Resumen Ejecutivo</h2>
-    <p>El sector gastronómico de Costa Rica sigue en expansión con un CAGR proyectado del <strong>5.7% hasta 2032</strong>. La entrada de marcas internacionales como <strong>Yard House, Applebee's e IHOP</strong> en 2026 confirma el dinamismo del mercado. Los restaurantes locales están acelerando su adopción de canales digitales y buscan diferenciación a través de redes sociales y marketing de experiencia. Esta semana identificamos <strong>8 restaurantes con Decision Makers claros</strong> listos para conversaciones comerciales sobre publicidad, branding y estrategia digital.</p>
-</div>
-
-<h2>Empresas Identificadas</h2>
-<div class="companies-grid">
-
-    <div class="company-card">
-        <div class="name">Yard House Costa Rica</div>
-        <div class="type">Restaurante Estadounidense — Primera Ubicación Internacional</div>
-        <div class="detail">Contacto: <span>Miguel Ramírez — VP de Operaciones, AR Holdings</span></div>
-        <div class="detail">Ubicación: <span>San José, Costa Rica</span></div>
-        <div class="detail">Franquicia: <span>Darden Restaurants (EE.UU.)</span></div>
-        <div class="contact-hint">Enfocar: branding, marketing de apertura, redes sociales para expansión</div>
-    </div>
-
-    <div class="company-card">
-        <div class="name">Café Rey S.A.</div>
-        <div class="type">Cafetería / Restaurante — 50+ años de trayectoria</div>
-        <div class="detail">Contacto: <span>Miguel Sánchez — Owner</span></div>
-        <div class="detail">Contacto: <span>Marvin Mora — Director</span></div>
-        <div class="detail">Teléfono: <span>+506 2217 5300</span></div>
-        <div class="contact-hint">Enfocar: reposicionamiento de marca, estrategia digital, expansión de menú</div>
-    </div>
-
-    <div class="company-card">
-        <div class="name">Restaurante Silvestre</div>
-        <div class="type">Fine Dining — Cocina Costarricense Contemporánea</div>
-        <div class="detail">Contacto: <span>Chef Santiago Fernández Benedetto — Fundador</span></div>
-        <div class="detail">Ubicación: <span>Barrio Amón, San José</span></div>
-        <div class="detail">Web: <span>restaurantesilvestre.com</span></div>
-        <div class="contact-hint">Enfocar: branding de experiencia premium, fotografía, contenido para turistas</div>
-    </div>
-
-    <div class="company-card">
-        <div class="name">Grano de Oro Hotel & Restaurant</div>
-        <div class="type">Fine Dining en Hotel — Clásico de San José</div>
-        <div class="detail">Ubicación: <span>San José centro</span></div>
-        <div class="detail">Categoría: <span>Restaurante de hotel premium</span></div>
-        <div class="contact-hint">Enfocar: marketing hotelero, paquetes gastronómicos, influencer marketing</div>
-    </div>
-
-    <div class="company-card">
-        <div class="name">Furca</div>
-        <div class="type">Restaurante — Alta Gastronomía</div>
-        <div class="detail">Ubicación: <span>San José</span></div>
-        <div class="detail">TripAdvisor: <span>#32 de 729 restaurantes en San José</span></div>
-        <div class="detail">Rating: <span>4.5 / 5 (674 reseñas)</span></div>
-        <div class="contact-hint">Enfocar: estrategias de reseñas, contenido visual, colaboraciones con influencers</div>
-    </div>
-
-    <div class="company-card">
-        <div class="name">Sikwa</div>
-        <div class="type">Cocina Innovadora — Inspiración Indígena</div>
-        <div class="detail">Ubicación: <span>San José</span></div>
-        <div class="detail">Especialidad: <span>Cocina costarricense con identidad cultural</span></div>
-        <div class="contact-hint">Enfocar: storytelling cultural, posicionamiento de marca identity-driven</div>
-    </div>
-
-    <div class="company-card">
-        <div class="name">Wong's Restaurant</div>
-        <div class="type">Casual Dining — Gastronómico en Barrio Escalante</div>
-        <div class="detail">Ubicación: <span>Barrio Escalante, San José</span></div>
-        <div class="detail">Zona: <span>Centro gastronómico de la ciudad</span></div>
-        <div class="contact-hint">Enfocar: marketing local, gestión de reputación online, redes sociales</div>
-    </div>
-
-    <div class="company-card">
-        <div class="name">Dip Deep Burger CR</div>
-        <div class="type">Burger Restaurant — Emprendimiento Local con Influencer</div>
-        <div class="detail">Contacto: <span>Fabián Vargas (@fabianrecomienda)</span></div>
-        <div class="detail">Redes: <span>@dipdeepburgercr</span></div>
-        <div class="contact-hint">Enfocar: co-branding con influencer, marketing de comunidad, UGC campaigns</div>
-    </div>
-
-</div>
-
-<h2>Tendencias del Mercado — 2026</h2>
-<div class="trends">
-
-    <div class="trend-item">
-        <div class="trend-icon">🤖</div>
-        <div class="trend-content">
-            <h4>IA en Operaciones y Marketing Gastronómico</h4>
-            <p>Restaurantes usan herramientas de IA para gestión de pedidos, optimización de menú y marketing personalizado. La inversión en tecnología restaurant business intelligence crece un 23% YoY en el sector.</p>
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-top">
+      <div>
+        <div class="logo">Aurea — Advertising Intelligence</div>
+        <h1>Lead Research: Clínicas Privadas en Costa Rica</h1>
+        <div class="subtitle">Oportunidades de marketing digital para agencias de publicidad en el sector salud privado</div>
+        <div class="badge-row">
+          <span class="badge">NICHO: Clínicas Privadas</span>
+          <span class="badge">MERcado: Costa Rica</span>
+          <span class="badge green">📍 HOT LEADS</span>
+          <span class="badge">CICLO: Q2 2026</span>
         </div>
+      </div>
+      <div class="meta">
+        <strong>29 Abril 2026</strong>
+        <span>18:00 CST</span><br>
+        <span>Reporte automático hourly</span>
+      </div>
     </div>
+  </div>
 
-    <div class="trend-item">
-        <div class="trend-icon">📱</div>
-        <div class="trend-content">
-            <h4>Delivery y Food Tech en Aceleración</h4>
-            <p>El mercado de online food delivery en Costa Rica crece impulsado por la demanda de conveniencia. Los restaurantes sin estrategia de delivery están perdiendo participación de mercado.</p>
+  <!-- KPI SUMMARY -->
+  <div class="summary-grid">
+    <div class="summary-card">
+      <div class="label">Empresas identificadas</div>
+      <div class="value">10</div>
+      <div class="sub">Clínicas dentales, hospitals y spas médicos</div>
+    </div>
+    <div class="summary-card">
+      <div class="label">Sector</div>
+      <div class="value">Salud Privada</div>
+      <div class="sub">Dental, dermatología, medicina general</div>
+    </div>
+    <div class="summary-card">
+      <div class="label">Mercado objetivo</div>
+      <div class="value">Medical Tourism</div>
+      <div class="sub">Turismo dental y wellness USA/Canadá</div>
+    </div>
+    <div class="summary-card">
+      <div class="label">Tendencia clave</div>
+      <div class="value">Digital-First</div>
+      <div class="sub">IA, redes sociales, SEO, reputation mgmt</div>
+    </div>
+  </div>
+
+  <!-- COMPANIES -->
+  <div class="section">
+    <h2>Empresas identificadas</h2>
+    <div class="company-grid">
+
+      <div class="company-card">
+        <div class="type">🦷 Dental / Medical Tourism</div>
+        <h3>Goodness Dental</h3>
+        <div class="location">📍 San José, Costa Rica</div>
+        <div class="detail"><strong>Descripción:</strong> #1 clínica dental en Costa Rica según Costa Rica Dental Guide y Global Clinic Rating. Líder en turismo dental para pacientes de USA y Canadá. Especialistas en implantes y rehabilitaciones completas.</div>
+        <div class="detail"><strong>Servicios clave:</strong> Implantes dentales, prostodoncia, cirugía oral</div>
+        <div class="detail"><strong>Presencia digital:</strong> website activo, SEO fuerte para "dental tourism Costa Rica"</div>
+        <div class="detail"><strong>Potencial marketing:</strong> Alta — necesita posicionamiento en nuevos mercados, contenido en inglés, funnels de conversión USA</div>
+        <div class="tags">
+          <span class="tag">Turismo dental</span>
+          <span class="tag">Implantes</span>
+          <span class="tag">USA market</span>
+          <span class="tag">Alto ticket</span>
         </div>
-    </div>
+      </div>
 
-    <div class="trend-item">
-        <div class="trend-icon">🌱</div>
-        <div class="trend-content">
-            <h4>Sostenibilidad como Diferenciador</h4>
-            <p>Restaurantes como Silvestre lideran el posicionamiento con ingredientes locales, prácticas sostenibles y trazabilidad. Los consumidores costarricenses e internacionales premian la autenticidad ecológica.</p>
+      <div class="company-card">
+        <div class="type">🏥 Hospital Privado</div>
+        <h3>Hospital CIMA</h3>
+        <div class="location">📍 Escazú, San José</div>
+        <div class="detail"><strong>Descripción:</strong> Hospital privado full-service con +60 especialidades. Primer hospital en Latinomérica con acreditación JCI bajo nuevos estándares de seguridad del paciente. Referente en salud privada.</div>
+        <div class="detail"><strong>Servicios clave:</strong> Cardiología, neurocirugía, ortopedia, trasplantes, emergencias 24/7</div>
+        <div class="detail"><strong>Contacto:</strong> +506 4040 0808 | info@hospitalcima.com</div>
+        <div class="detail"><strong>Potencial marketing:</strong> Muy alto — volumen corporativo, seguro médico internacional, programas de Veterans (USA)</div>
+        <div class="tags">
+          <span class="tag">B2B</span>
+          <span class="tag">Corporativo</span>
+          <span class="tag">Veterans USA</span>
+          <span class="tag">Seguro internacional</span>
         </div>
-    </div>
+      </div>
 
-    <div class="trend-item">
-        <div class="trend-icon">🎨</div>
-        <div class="trend-content">
-            <h4>Experiencia como Producto</h4>
-            <p>La tendencia en 2026: restaurantes que venden experiencias memorables, no solo comida. Storytelling, ambientación y narrativa de marca son inversiones prioritarias para sobrevivir la competencia.</p>
+      <div class="company-card">
+        <div class="type">🦷 Dental Clinic</div>
+        <h3>Advance Dental Costa Rica</h3>
+        <div class="location">📍 Hospital CIMA, Escazú, San José</div>
+        <div class="detail"><strong>Descripción:</strong> Clínica dental especializada en procedimientos dentales diversos. Ubicada dentro de Hospital CIMA, aprovechando la infraestructura hospitalaria de primer nivel.</div>
+        <div class="detail"><strong>Servicios:</strong> Odontología general, cosmética, implantes</div>
+        <div class="detail"><strong>Potencial marketing:</strong> Alto — pacientes del hospital + turismo médico, necesita branding diferenciado</div>
+        <div class="tags">
+          <span class="tag">Dental</span>
+          <span class="tag">Turismo médico</span>
+          <span class="tag">Ubicación premium</span>
         </div>
-    </div>
+      </div>
 
-    <div class="trend-item">
-        <div class="trend-icon">✈️</div>
-        <div class="trend-content">
-            <h4>Turismo Gastronómico en Expansión</h4>
-            <p>Con 2.7M de llegadas internacionales y $5.4B de gasto turístico en 2024, el turismo gastronómico es un segmento de alto crecimiento. Restaurantes en San José son puerta de entrada para la experiencia costarricense.</p>
+      <div class="company-card">
+        <div class="type">🦷 Dental Tourism</div>
+        <h3>Costa Rica Dental Team</h3>
+        <div class="location">📍 San José, Costa Rica</div>
+        <div class="detail"><strong>Descripción:</strong> Clínica dental enfocada en turismo médico con ahorros del 50-70% vs precios USA. Posicionamiento directo al mercado estadounidense y canadiense.</div>
+        <div class="detail"><strong>Servicios:</strong> Implantes dentales, odontología cosmética, restauraciones completas</div>
+        <div class="detail"><strong>Potencial marketing:</strong> Muy alto — mensaje ya orientado a USA, necesita ejecutar estrategia digital multicanal</div>
+        <div class="tags">
+          <span class="tag">Turismo dental</span>
+          <span class="tag">USA target</span>
+          <span class="tag">Ahorro 50-70%</span>
         </div>
+      </div>
+
+      <div class="company-card">
+        <div class="type">🦷 Dental Clinic</div>
+        <h3>Arco Dental</h3>
+        <div class="location">📍 Guadalupe, Goicoechea, San José</div>
+        <div class="detail"><strong>Descripción:</strong> Clínica dental con especialización en blanqueamiento, implantes, prostodoncia y ortodoncia. Mercado local fuerte con presencia en redes.</div>
+        <div class="detail"><strong>Servicios:</strong> Blanqueamiento, implantes, prótesis, ortodoncia (frenillos)</div>
+        <div class="detail"><strong>Contacto:</strong> info@arcodental.com | +506 2229-0000</div>
+        <div class="detail"><strong>Potencial marketing:</strong> Medio-alto — clínica local con espacio para crecer en digital y captar mercado Costarricense premium</div>
+        <div class="tags">
+          <span class="tag">Dental local</span>
+          <span class="tag">Blanqueamiento</span>
+          <span class="tag">Ortodoncia</span>
+        </div>
+      </div>
+
+      <div class="company-card">
+        <div class="type">🏥 Hospital Privado</div>
+        <h3>Hospital Clínica Bíblica</h3>
+        <div class="location">📍 San José, Costa Rica</div>
+        <div class="detail"><strong>Descripción:</strong> Uno de los hospitales privados más reconocidos de Costa Rica. Gran volumen de pacientes, servicios múltiples especialidades. Referencia en atención médica privada.</div>
+        <div class="detail"><strong>Servicios:</strong> +40 especialidades médicas y quirúrgicas, emergencias, laboratorio clínico</div>
+        <div class="detail"><strong>Potencial marketing:</strong> Alto — segmento corporativo y de seguros, servicios especializados con alta demanda</div>
+        <div class="tags">
+          <span class="tag">Hospital</span>
+          <span class="tag">Corporativo</span>
+          <span class="tag">Seguro</span>
+          <span class="tag">Multi-especialidad</span>
+        </div>
+      </div>
+
+      <div class="company-card">
+        <div class="type">🧖‍♀️ Medical Spa / Dermatología</div>
+        <h3>Face and Body Care Center</h3>
+        <div class="location">📍 Costa Rica</div>
+        <div class="detail"><strong>Descripción:</strong> Centro médico especializado en cuidado corporal y facial. Medicina estética, dermatología y antienvejecimiento con enfoque en resultados y tecnología.</div>
+        <div class="detail"><strong>Servicios:</strong> Medicina estética, dermatología, antienvejecimiento</div>
+        <div class="detail"><strong>Potencial marketing:</strong> Medio-alto — nicho aspiracional, ideal para Instagram/TikTok, contenido before/after, influencer marketing</div>
+        <div class="tags">
+          <span class="tag">Medical spa</span>
+          <span class="tag">Estética</span>
+          <span class="tag">Social media</span>
+          <span class="tag">Before/after</span>
+        </div>
+      </div>
+
+      <div class="company-card">
+        <div class="type">🧴 Dermatología</div>
+        <h3>Skin Factory</h3>
+        <div class="location">📍 Escazú, San José</div>
+        <div class="detail"><strong>Descripción:</strong> Clínica dermatológica con enfoque en láser y skincare. Equipo médico joven con presencia activa en Instagram. Tres doctores: Dr. Alex Rivera, Dr. Manfred Morr, Dra. Salas.</div>
+        <div class="detail"><strong>Servicios:</strong> Láser, skincare, tratamientos dermatológicos</div>
+        <div class="detail"><strong>Presencia digital:</strong> Instagram activo @skin_factorycr</div>
+        <div class="detail"><strong>Potencial marketing:</strong> Medio — ya tiene redes, necesita estrategia de contenido más estructurada y paid media</div>
+        <div class="tags">
+          <span class="tag">Dermatología</span>
+          <span class="tag">Láser</span>
+          <span class="tag">Instagram</span>
+          <span class="tag">Escazú</span>
+        </div>
+      </div>
+
+      <div class="company-card">
+        <div class="type">🧴 Dermatología</div>
+        <h3>Derma-Clinique (Dr. Hani Farhat)</h3>
+        <div class="location">📍 Hospital CIMA, San José</div>
+        <div class="detail"><strong>Descripción:</strong> Dermatólogo general y cosmético con formación internacional. Ubicado en Hospital CIMA, ofreciendo dermatología especializada de alto nivel.</div>
+        <div class="detail"><strong>Servicios:</strong> Dermatología general, cosmética, treatments</div>
+        <div class="detail"><strong>Presencia digital:</strong> Website derma-clinique.com</div>
+        <div class="detail"><strong>Potencial marketing:</strong> Medio — profesional con credentials internacionales, ideal para posicionamiento de autoridad y contenido educativo</div>
+        <div class="tags">
+          <span class="tag">Dermatología</span>
+          <span class="tag">Hospital CIMA</span>
+          <span class="tag">Credentials intl</span>
+        </div>
+      </div>
+
+      <div class="company-card">
+        <div class="type">🦷 Dental / Implants</div>
+        <h3>Implantec</h3>
+        <div class="location">📍 San José, Costa Rica</div>
+        <div class="detail"><strong>Descripción:</strong> Empresa de implantes dentales con Programa de Educación Continua 2026. Fuerte enfoque en formación y excelencia clínica. Presencia en Facebook.</div>
+        <div class="detail"><strong>Servicios:</strong> Implantes dentales, formación continua para dentistas</div>
+        <div class="detail"><strong>Presencia digital:</strong> Facebook @implantecsa</div>
+        <div class="detail"><strong>Potencial marketing:</strong> Medio — doble audiencia: pacientes finales y dentistas. Oportunidad de contenido B2B y B2C diferenciado</div>
+        <div class="tags">
+          <span class="tag">Implantes</span>
+          <span class="tag">B2B dental</span>
+          <span class="tag">Educación</span>
+        </div>
+      </div>
+
     </div>
+  </div>
 
-</div>
+  <!-- CONTACT STRATEGIES -->
+  <div class="section">
+    <h2>Estrategias de Contacto</h2>
+    <div class="strategy-list">
 
-<h2>Estrategias de Contacto Recomendadas</h2>
-<ul class="strategy-list">
-    <li><strong>Yard House / AR Holdings:</strong> Presentar propuesta de marketing de apertura y posicionamiento en mercado costarricense. Contactar a Miguel Ramírez vía LinkedIn con caso de éxito en aperturas de franquicia.</li>
-    <li><strong>Café Rey S.A.:</strong> Proponer auditoría de marca y estrategia digital para reposicionamiento. Email directo a dirección known via RocketReach. Enfatizar experiencia en café costarricense.</li>
-    <li><strong>Restaurante Silvestre:</strong> Pitch de contenido visual premium y estrategia para capturar turismo gastronómico. Contactar vía web o LinkedIn del Chef Santiago. Presentar portfolio de branding fine dining.</li>
-    <li><strong>Furca / Sikwa / Wong's:</strong> Enfoque en reputación online y gestión de reseñas. Proponer estrategia de redes sociales con fotografía profesional de platos.</li>
-    <li><strong>Grano de Oro:</strong> Propuesta de marketing hotelero integrado, bundles gastronómicos y contenido para medios de viaje internacionales.</li>
-    <li><strong>Dip Deep Burger CR:</strong> Explorar co-branding con Fabián Vargas (@fabianrecomienda) — influencer gastronómica con audiencia activa. Proponer campaign de UGC.</li>
-</ul>
+      <div class="strategy-item">
+        <div class="strategy-num">1</div>
+        <div class="strategy-body">
+          <h3>Outreach para Hospital CIMA y Clínica Bíblica — Nivel Corporativo</h3>
+          <p>Target: Dirección de Marketing o Gerencia General. Propuesta: paquete de Corporate Medicine marketing (folletos digitales, presencia web para el segmento de expatriados y corporaciones con seguros internacionales). Formato: email formal con caso de estudio de hospital similar en LATAM. LinkedIn + email directo.</p>
+        </div>
+      </div>
 
-<h2>Datos Clave del Sector</h2>
-<div class="companies-grid">
-    <div class="company-card">
-        <div class="name">Crecimiento del Sector</div>
-        <div class="type">Food Services Market — Costa Rica</div>
-        <div class="detail">CAGR: <span>5.7% (2026–2032)</span></div>
-        <div class="detail">Segmento en auge: <span>Online Food Delivery</span></div>
+      <div class="strategy-item">
+        <div class="strategy-num">2</div>
+        <div class="strategy-body">
+          <h3>Paquete Dental Tourism para Goodness Dental y Costa Rica Dental Team</h3>
+          <p>Target: Directores / propietarios. Agencias como Aurea pueden ofrecer: contenido SEO en inglés para USA, funnels de leads desde Google Ads targeting términos como "affordable dental implants Costa Rica", landing pages optimizadas para conversión. Mensaje clave: reducir costo de adquisición por paciente internacional.</p>
+        </div>
+      </div>
+
+      <div class="strategy-item">
+        <div class="strategy-num">3</div>
+        <div class="strategy-body">
+          <h3>Social Media & Content para Skin Factory y Face and Body</h3>
+          <p>Target: Dermatólogos / dueños de clínicas estéticas. Proposal: gestión de Instagram/TikTok con contenido before/after (con consentimiento), reels educativos, influencer marketing local. Ánfo: clinics are visual-first businesses — el contenido lo es todo. Tarifa mensual fija por gestión de redes.</p>
+        </div>
+      </div>
+
+      <div class="strategy-item">
+        <div class="strategy-num">4</div>
+        <div class="strategy-body">
+          <h3>Cold Outreach a través de LinkedIn a Directores Médicos</h3>
+          <p>Buscar: "Director Médico", "Gerente General", "Marketing Manager" de Hospital CIMA, Clínica Bíblica, Advance Dental. Herramienta: LinkedIn Sales Navigator o手动 outreach. Valor agregado: informe de benchmarking de marketing digital en healthcare de Costa Rica vs. LATAM. Secuencia de 5 pasos: email → LinkedIn → llamada → propuesta → seguimiento.</p>
+        </div>
+      </div>
+
+      <div class="strategy-item">
+        <div class="strategy-num">5</div>
+        <div class="strategy-body">
+          <h3> webinar / workshop: "Cómo atraer pacientes internacionales en 2026"</h3>
+          <p>Organizado por Aurea como agencia. Invitar a 8-12 clínicas dentales y médicas de Costa Rica. Temario: SEO para USA, reputación online (Google Business + reviews), chatbots con IA para WhatsApp, paid media en Meta y Google. Objetivo: generar 3-5 clientes de paquete integral. Formato: online, 90 min, en español.</p>
+        </div>
+      </div>
+
     </div>
-    <div class="company-card">
-        <div class="name">Turismo & Gastronomía</div>
-        <div class="type">Turismo como Motor</div>
-        <div class="detail">Llegadas internacionales: <span>2.7M (2024)</span></div>
-        <div class="detail">Gasto turístico: <span>$5.4B USD</span></div>
-        <div class="detail">Turismo como % PIB: <span>8.2%</span></div>
-    </div>
-</div>
+  </div>
 
-<div class="footer">
-    <p>Aurea Advertising Agency — Research Division &bull; Reporte automático cada hora</p>
-    <p>Fuente: Tavily Web Search, USDA, Statista, Tracxn, LinkedIn, TripAdvisor &bull; 29/04/2026</p>
-</div>
+  <!-- MARKET TRENDS -->
+  <div class="section">
+    <h2>Tendencias del Mercado — Salud Privada Costa Rica 2026</h2>
+    <div class="trend-grid">
+
+      <div class="trend-card">
+        <h3>📈 Turismo Médico en Auge</h3>
+        <p>Costa Rica es el hub #1 de turismo dental y médico en Centroamérica. Pacientes de USA y Canadá buscan ahorros del 50-70% en procedimientos. Las clínicas que invierten en presencia digital en inglés captan pacientes que de otra forma irían a México o Colombia.</p>
+      </div>
+
+      <div class="trend-card">
+        <h3>🤖 IA en Atención al Paciente</h3>
+        <p>En 2026, los chatbots con IA para WhatsApp son标配 para clínicas privadas. Los leads que llegan por WhatsApp tienen 3x más probabilidad de convertir. Las clínicas que no tienen chatbot pierden frente a las que sí lo tienen.</p>
+      </div>
+
+      <div class="trend-card">
+        <h3>⏱️ Listas de Espera CCSS — Oportunidad Private</h3>
+        <p>CCSS (seguro público) tiene ~1.25-1.3 millones de pacientes en espera para cirugías, consultas especializadas y diagnósticos. Costa Rica evalúa pagar doctores privados para reducir el backlog. Esto amplía el mercado private para todas las clínicas.</p>
+      </div>
+
+      <div class="trend-card">
+        <h3>🌐 Google Business Profile = Primera Impresión</h3>
+        <p>Las clínicas que dominan Google Business con fotos, reseñas y respuestas rápidas reciben 5x más llamadas. La gestión de reputación online (reviews) es el canal #1 de adquisición para clínicas locales en Costa Rica.</p>
+      </div>
+
+      <div class="trend-card">
+        <h3>💰 MedTech como Motor Económico</h3>
+        <p>Costa Rica exportó más de US$10 mil millones en dispositivos médicos en 2025. Es un hub global de MedTech. Esto atrae profesionales de salud y pacientes de alto nivel, subiendo el estándar del mercado private.</p>
+      </div>
+
+      <div class="trend-card">
+        <h3>📱 Video y Reels para Clínicas</h3>
+        <p>Los reels de "antes y después" (con consentimiento), tours de instalaciones y testimonios de pacientes son los contenidos con mayor engagement para clínicas estéticas y dentales en Costa Rica. El video corto es el formato dominante en 2026.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <span>Aurea Advertising Intelligence — Reporte generado automáticamente</span>
+    <span>29 Abril 2026 18:00 CST | Próxima actualización: 19:00 CST</span>
+  </div>
 
 </div>
 </body>
