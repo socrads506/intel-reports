@@ -1,473 +1,428 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aurea — Lead Report: Clínicas Costa Rica | 30 Abr 2026</title>
-<style>
-  :root {
-    --bg: #0d0d0d;
-    --surface: #161616;
-    --surface2: #1e1e1e;
-    --border: #2a2a2a;
-    --accent: #f0a500;
-    --accent2: #e05a00;
-    --text: #e8e8e8;
-    --muted: #888;
-    --green: #4caf50;
-    --red: #ef5350;
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'Segoe UI', -apple-system, sans-serif;
-    font-size: 14px;
-    line-height: 1.6;
-    padding: 32px 24px;
-    max-width: 960px;
-    margin: 0 auto;
-  }
-  header {
-    border-bottom: 1px solid var(--border);
-    padding-bottom: 20px;
-    margin-bottom: 28px;
-  }
-  .badge {
-    display: inline-block;
-    background: var(--accent);
-    color: #000;
-    font-weight: 700;
-    font-size: 11px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    padding: 3px 10px;
-    border-radius: 3px;
-    margin-bottom: 10px;
-  }
-  h1 { font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 6px; }
-  .meta { color: var(--muted); font-size: 12px; }
-  .meta span { margin-right: 16px; }
-
-  h2 {
-    font-size: 16px;
-    font-weight: 700;
-    color: var(--accent);
-    margin: 28px 0 12px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    border-left: 3px solid var(--accent);
-    padding-left: 10px;
-  }
-  h3 { font-size: 14px; font-weight: 600; color: #fff; margin: 16px 0 8px; }
-
-  .summary-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-    margin-bottom: 24px;
-  }
-  .stat-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 14px 16px;
-  }
-  .stat-card .value {
-    font-size: 24px;
-    font-weight: 700;
-    color: var(--accent);
-    display: block;
-  }
-  .stat-card .label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; margin-top: 4px; }
-
-  .company-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 16px;
-    margin-bottom: 10px;
-  }
-  .company-card .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 8px;
-  }
-  .company-card .name { font-size: 15px; font-weight: 700; color: #fff; }
-  .company-card .location { font-size: 12px; color: var(--muted); margin-top: 2px; }
-  .company-card .tag {
-    font-size: 10px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    padding: 2px 8px;
-    border-radius: 3px;
-    background: var(--surface2);
-    color: var(--accent);
-    border: 1px solid var(--accent);
-  }
-  .company-card .details { font-size: 12px; color: var(--muted); margin-bottom: 8px; }
-  .company-card .contacts { font-size: 12px; color: var(--text); }
-  .company-card .contacts strong { color: var(--accent); }
-
-  .trend-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    margin-bottom: 16px;
-  }
-  .trend-item {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 12px 14px;
-  }
-  .trend-item .icon { font-size: 18px; margin-bottom: 6px; }
-  .trend-item .title { font-size: 13px; font-weight: 600; color: #fff; margin-bottom: 4px; }
-  .trend-item .desc { font-size: 11px; color: var(--muted); }
-
-  .strategy-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 14px;
-    margin-bottom: 8px;
-  }
-  .strategy-card .num {
-    display: inline-block;
-    width: 24px;
-    height: 24px;
-    background: var(--accent);
-    color: #000;
-    font-weight: 700;
-    font-size: 12px;
-    text-align: center;
-    line-height: 24px;
-    border-radius: 50%;
-    margin-right: 10px;
-  }
-  .strategy-card .title { font-size: 13px; font-weight: 600; color: #fff; display: inline; }
-  .strategy-card .desc { font-size: 12px; color: var(--muted); margin-top: 6px; margin-left: 34px; }
-
-  footer {
-    margin-top: 36px;
-    border-top: 1px solid var(--border);
-    padding-top: 16px;
-    font-size: 11px;
-    color: var(--muted);
-    text-align: center;
-  }
-
-  @media (max-width: 600px) {
-    .summary-grid { grid-template-columns: 1fr; }
-    .trend-grid { grid-template-columns: 1fr; }
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurea Leads - Restaurantes Costa Rica | 30 Abril 2026</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #0d0d0d;
+            color: #e0e0e0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        .container { max-width: 1100px; margin: 0 auto; padding: 40px 24px; }
+        header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            border-bottom: 3px solid #e94560;
+            padding: 50px 24px;
+            text-align: center;
+        }
+        .badge {
+            display: inline-block;
+            background: #e94560;
+            color: #fff;
+            padding: 4px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+        h1 {
+            font-size: 2.4rem;
+            color: #ffffff;
+            margin-bottom: 8px;
+            font-weight: 800;
+        }
+        .subtitle {
+            color: #94a3b8;
+            font-size: 1.05rem;
+            margin-bottom: 20px;
+        }
+        .meta-row {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+        .meta-row span { display: flex; align-items: center; gap: 6px; }
+        .section { margin: 40px 0; }
+        .section-title {
+            font-size: 1.3rem;
+            color: #e94560;
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #1e293b;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .section-title .icon { font-size: 1.4rem; }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+        .stat-card {
+            background: #161b22;
+            border: 1px solid #21262d;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+        .stat-card .value {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #e94560;
+        }
+        .stat-card .label {
+            color: #94a3b8;
+            font-size: 0.85rem;
+            margin-top: 4px;
+        }
+        .leads-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+        }
+        .lead-card {
+            background: #161b22;
+            border: 1px solid #21262d;
+            border-radius: 14px;
+            padding: 24px;
+            transition: border-color 0.2s, transform 0.2s;
+        }
+        .lead-card:hover {
+            border-color: #e94560;
+            transform: translateY(-2px);
+        }
+        .lead-card .name {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 4px;
+        }
+        .lead-card .type {
+            font-size: 0.75rem;
+            color: #e94560;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .lead-card .detail {
+            font-size: 0.88rem;
+            color: #94a3b8;
+            margin-bottom: 6px;
+        }
+        .lead-card .detail strong { color: #e0e0e0; }
+        .lead-card .contact-strategy {
+            margin-top: 14px;
+            padding-top: 14px;
+            border-top: 1px solid #21262d;
+            font-size: 0.82rem;
+            color: #64748b;
+        }
+        .lead-card .contact-strategy strong { color: #38bdf8; }
+        .trend-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+        }
+        .trend-card {
+            background: #161b22;
+            border: 1px solid #21262d;
+            border-radius: 12px;
+            padding: 20px;
+        }
+        .trend-card h3 {
+            color: #38bdf8;
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+        }
+        .trend-card p {
+            font-size: 0.85rem;
+            color: #94a3b8;
+        }
+        .approach-list {
+            list-style: none;
+            display: grid;
+            gap: 12px;
+        }
+        .approach-list li {
+            background: #161b22;
+            border: 1px solid #21262d;
+            border-radius: 10px;
+            padding: 16px 20px;
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+        }
+        .approach-list .num {
+            background: #e94560;
+            color: #fff;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        .approach-list .text { font-size: 0.9rem; color: #cbd5e1; }
+        .approach-list .text strong { color: #fff; }
+        footer {
+            margin-top: 60px;
+            padding: 24px;
+            text-align: center;
+            color: #475569;
+            font-size: 0.8rem;
+            border-top: 1px solid #1e293b;
+        }
+        .highlight { color: #e94560; font-weight: 700; }
+        .blue { color: #38bdf8; }
+    </style>
 </head>
 <body>
 
 <header>
-  <span class="badge">Aurea Advertising Agency</span>
-  <h1>Lead Report: Clínicas en Costa Rica</h1>
-  <div class="meta">
-    <span>📅 30 de Abril 2026 — 08:00 CST</span>
-    <span>🎯 Nicho: Clínicas Privadas y Centros Médicos</span>
-    <span>📡 Fuente: Web Research (Tavily)</span>
-  </div>
+    <div class="badge">Informe de Leads</div>
+    <h1>AUREA — Restaurantes Costa Rica</h1>
+    <p class="subtitle">Oportunidades de publicidad y marketing digital para agencias en Costa Rica</p>
+    <div class="meta-row">
+        <span>📅 30 Abril 2026</span>
+        <span>🌎 San José & Escazú</span>
+        <span>🏷️ Nicho: Restaurantes</span>
+        <span>🔄 Ronda 4 de 8</span>
+    </div>
 </header>
 
-<div class="summary-grid">
-  <div class="stat-card">
-    <span class="value">8</span>
-    <div class="label">Empresas Identificadas</div>
-  </div>
-  <div class="stat-card">
-    <span class="value">4</span>
-    <div class="label">Decisores con Nombre</div>
-  </div>
-  <div class="stat-card">
-    <span class="value">5</span>
-    <div class="label">Estrategias de Contacto</div>
-  </div>
-</div>
+<div class="container">
 
-<h2>🏥 Empresas Identificadas</h2>
-
-<div class="company-card">
-  <div class="header">
-    <div>
-      <div class="name">Hospital CIMA</div>
-      <div class="location">📍 San Rafael, Escazú, San José</div>
+    <!-- Stats -->
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="value">323</div>
+            <div class="label">Restaurantes en Costa Rica</div>
+        </div>
+        <div class="stat-card">
+            <div class="value">+6.6%</div>
+            <div class="label">Crecimiento anual (2023-2026)</div>
+        </div>
+        <div class="stat-card">
+            <div class="value">65%</div>
+            <div class="label">Auge de franquicias US (10 años)</div>
+        </div>
+        <div class="stat-card">
+            <div class="value">26,500</div>
+            <div class="label">Empleos en sector dining</div>
+        </div>
     </div>
-    <span class="tag">Hospital Privado</span>
-  </div>
-  <div class="details">+60 especialidades médicas. Uno de los hospitales privados más reconocidos del país. Sitio web activo con directorio médico completo.</div>
-  <div class="contacts">
-    <strong>Teléfono:</strong> +506 2208-1000 &nbsp;|&nbsp;
-    <strong>Web:</strong> hospitalcima.com &nbsp;|&nbsp;
-    <strong>Directorio:</strong> directorio.hospitalcima.com
-  </div>
-</div>
 
-<div class="company-card">
-  <div class="header">
-    <div>
-      <div class="name">Blue Medical Costa Rica</div>
-      <div class="location">📍 Escazú, Heredia, Alajuela (múltiples sedes)</div>
+    <!-- Leads -->
+    <div class="section">
+        <h2 class="section-title"><span class="icon">🎯</span> Leads Identificados</h2>
+        <div class="leads-grid">
+
+            <div class="lead-card">
+                <div class="type">Fine Dining · Escazú</div>
+                <div class="name">Mirador Tiquicia</div>
+                <div class="detail"><strong>Ubicación:</strong> San Antonio de Escazú</div>
+                <div class="detail"><strong>Especialidad:</strong> Cocina tradicional costarricense con show folclórico</div>
+                <div class="detail"><strong> Trayectoria:</strong> +38 años, referente turístico y cultural</div>
+                <div class="detail"><strong>Público:</strong> Turistas, empresas, eventos corporativos</div>
+                <div class="contact-strategy">
+                    <strong>Estrategia:</strong> Instagram, Google Business, influencers de viaje. Enfoque en branding de experiencia cultural. Contactar vía web o LinkedIn con propuesta de contenido visual y gestión de reseñas.
+                </div>
+            </div>
+
+            <div class="lead-card">
+                <div class="type">Gastronómico · Escazú</div>
+                <div class="name">Conservatorium</div>
+                <div class="detail"><strong>Ubicación:</strong> San José</div>
+                <div class="detail"><strong>Concepto:</strong> Grill de alta gama con carne local seca aged</div>
+                <div class="detail"><strong>Tendencia:</strong> Destino gastronómico reconocido por The World's 50 Best</div>
+                <div class="detail"><strong>Público:</strong> Foodies, expatriados, turismo gastronómico premium</div>
+                <div class="contact-strategy">
+                    <strong>Estrategia:</strong> Fotografía de producto, storytelling de marca, SEO culinario. Propuesta de video reels y collaborations con food bloggers locales.
+                </div>
+            </div>
+
+            <div class="lead-card">
+                <div class="type">Alta Cocina · San José</div>
+                <div class="name">Sikwa</div>
+                <div class="detail"><strong>Chef:</strong> Pablo Bonilla</div>
+                <div class="detail"><strong>Concepto:</strong> Cocina indígena y jungle-to-table</div>
+                <div class="detail"><strong>Posicionamiento:</strong> Vanguardia gastronómica costarricense</div>
+                <div class="detail"><strong>Público:</strong> Gourmets, crítica gastronómica internacional</div>
+                <div class="contact-strategy">
+                    <strong>Estrategia:</strong> Contenido editorial, PR gastronómico, partnerships con medios especializados. Propuesta de identidad visual y contenido para redes.
+                </div>
+            </div>
+
+            <div class="lead-card">
+                <div class="type">Fusión · San José</div>
+                <div class="name">Gallo Rojo</div>
+                <div class="detail"><strong>Chef:</strong> Andrés Sandoval Tsao</div>
+                <div class="detail"><strong>Concepto:</strong> Fusión costarricense-taiwanesa</div>
+                <div class="detail"><strong>Especialidad:</strong> Chef con herencia dual, propuestas únicas</div>
+                <div class="detail"><strong>Potencial:</strong> Interesante para marketing multicultural</div>
+                <div class="contact-strategy">
+                    <strong>Estrategia:</strong> Storytelling bi-cultural, campañas en redes para comunidad asiática-latina. Contactar directamente vía Instagram del chef.
+                </div>
+            </div>
+
+            <div class="lead-card">
+                <div class="type">Mediterráneo · Escazú</div>
+                <div class="name">La Cava / Alta Fiori</div>
+                <div class="detail"><strong>Ubicación:</strong> Escazú</div>
+                <div class="detail"><strong>Especialidad:</strong> Mediterraneo, bodega de vinos, bodas y eventos</div>
+                <div class="detail"><strong>Segmento:</strong> Celebraciones, corporativos, parejas</div>
+                <div class="contact-strategy">
+                    <strong>Estrategia:</strong> Facebook e Instagram para bodas y eventos. Google Ads para búsquedas locales de venues para bodas. Presencia en WeddingWire/Lovefully.
+                </div>
+            </div>
+
+            <div class="lead-card">
+                <div class="type">Italiano · Multi-ubicación</div>
+                <div class="name">L'Olivo & L'Incontro</div>
+                <div class="detail"><strong>Propietario:</strong> Bruno Pezzuolo</div>
+                <div class="detail"><strong>Ubicaciones:</strong> Sabana Norte y Escazú Village</div>
+                <div class="detail"><strong>Concepto:</strong> Restaurante italiano auténtica mesa</div>
+                <div class="detail"><strong>Potencial:</strong> Multi-sucursal → necesita estrategia unificada</div>
+                <div class="contact-strategy">
+                    <strong>Estrategia:</strong> Gestionar presencia digital unificada. Facebook e Instagram para marca personal. Contactar directamente vía WhatsApp Business.
+                </div>
+            </div>
+
+            <div class="lead-card">
+                <div class="type">Gastronómico · Escazú</div>
+                <div class="name">Feroz Restaurante</div>
+                <div class="detail"><strong>Ubicación:</strong> San Antonio de Escazú</div>
+                <div class="detail"><strong>Contacto:</strong> 8961-4141 (WhatsApp)</div>
+                <div class="detail"><strong>Concepto:</strong> Gastrobar contemporáneo</div>
+                <div class="detail"><strong>Web:</strong> ferozrestaurante.com</div>
+                <div class="contact-strategy">
+                    <strong>Estrategia:</strong> WhatsApp Business, Instagram. Propuesta de content calendar y gestión de reservas online. Contactar directamente vía WA.
+                </div>
+            </div>
+
+            <div class="lead-card">
+                <div class="type">Franquicias USA · Expansión</div>
+                <div class="name">Applebee's & IHOP (BLT Global)</div>
+                <div class="detail"><strong>Inversión:</strong> $4.5M USD en 3 nuevas unidades dual-brand</div>
+                <div class="detail"><strong>Propietario:</strong> BLT Global Brands</div>
+                <div class="detail"><strong>Tendencia:</strong> Auge de franquicias US +65% en 10 años</div>
+                <div class="detail"><strong>Decisores:</strong> Dirección regional o corporativa en San José</div>
+                <div class="contact-strategy">
+                    <strong>Estrategia:</strong> Alto presupuesto → LinkedIn outreach a decision makers corporativos. Pitches de servicios premium: medios, branding, campagne digitales.
+                </div>
+            </div>
+
+        </div>
     </div>
-    <span class="tag">Cadena de Clínicas</span>
-  </div>
-  <div class="details">Empresa consolidada desde 1999. +201 empleados. +13 especialidades. Modelo dual: servicios médicos privados y soluciones empresariales (médicos de empresa, chequeos, Wellness). Ingresos estimados: $27.3M.</div>
-  <div class="contacts">
-    <strong>Web:</strong> cr.mibluemedical.com &nbsp;|&nbsp;
-    <strong>LinkedIn:</strong> linkedin.com/company/blue-medical-costa-rica &nbsp;|&nbsp;
-    <strong>Contacto clave:</strong> Gwendolyne Arce — Gerente Comercial (LinkedIn)
-  </div>
-</div>
 
-<div class="company-card">
-  <div class="header">
-    <div>
-      <div class="name">Centro Médico MD</div>
-      <div class="location">📍 San José Centro — 50m oeste de Junta Protección Social</div>
+    <!-- Trends -->
+    <div class="section">
+        <h2 class="section-title"><span class="icon">📊</span> Tendencias del Mercado 2026</h2>
+        <div class="trend-grid">
+
+            <div class="trend-card">
+                <h3>🛒 Delivery y Ordering Online</h3>
+                <p>En 2026 el ordering digital dejó de ser opcional. Los restaurantes que no tienen integración fluida con plataformas de delivery pierden visibilidad. Opportunity:設置 online ordering, gestión de reseñas y optimización en Google Maps.</p>
+            </div>
+
+            <div class="trend-card">
+                <h3>📱 Video y Reels</h3>
+                <p>El contenido de video corto (Instagram Reels, TikTok) es el principal driver de descubrimiento para restaurantes en Costa Rica. food influencers locales tienen alto engagement. Opportunity: producción de contenido y gestión de influencers.</p>
+            </div>
+
+            <div class="trend-card">
+                <h3>🌿 Sostenibilidad y Origen Local</h3>
+                <p>Los consumidores ticos priorizan ingredientes locales y prácticas sostenibles. Restaurantes como Sikwa y Conservatorium ya capitalizan esto. Opportunity: storytelling de marca basado en trazabilidad y origen.</p>
+            </div>
+
+            <div class="trend-card">
+                <h3>💳 Pagos Digitales y Fidelización</h3>
+                <p>Adopción acelerada de wallets digitales y programas de lealtad. Los restaurantes que ofrecen CRM y programas de puntos tienen mayor retention. Opportunity: estrategias de loyalty y email marketing.</p>
+            </div>
+
+            <div class="trend-card">
+                <h3>🏨 Experiencias más allá del plato</h3>
+                <p>La diferenciación viene por experiencias: shows en vivo (Tiquicia), catas de vino (La Cava), menús secretos. Opportunity: posicionar restaurantes como destinos, no solo lugares para comer.</p>
+            </div>
+
+            <div class="trend-card">
+                <h3>🤖 IA para Personalización</h3>
+                <p>Las cadenas de franquicias están implementando IA para recomendaciones personalizadas y predictive analytics. Los independientes todavía van rezagados. Opportunity: servicios de automation y chatbots para reservas.</p>
+            </div>
+
+        </div>
     </div>
-    <span class="tag">Centro Médico</span>
-  </div>
-  <div class="details">Centro médico con presencia en HuliHealth para agenda en línea. Especializado en atención ambulatoria.</div>
-  <div class="contacts">
-    <strong>Teléfono:</strong> +506 4040 0808 &nbsp;|&nbsp;
-    <strong>Web:</strong> hulihealth.com (perfil) &nbsp;|&nbsp;
-    <strong>Servicio:</strong> Citas en línea disponibles
-  </div>
-</div>
 
-<div class="company-card">
-  <div class="header">
-    <div>
-      <div class="name">Centro Médico San José</div>
-      <div class="location">📍 San José, Costa Rica</div>
+    <!-- Contact Strategy -->
+    <div class="section">
+        <h2 class="section-title"><span class="icon">📧</span> Estrategias de Contacto</h2>
+        <ul class="approach-list">
+            <li>
+                <span class="num">1</span>
+                <span class="text"><strong>Instagram DM / WhatsApp directo:</strong> Para restaurantes independientes (Feroz, Tiquicia, Gallo Rojo) el contacto es vía dueño/chef. Mensajes personalizados mentioning su contenido actual y proponiendo ideas concretas.</span>
+            </li>
+            <li>
+                <span class="num">2</span>
+                <span class="text"><strong>LinkedIn para multi-sucursales y franquicias:</strong> Restaurantes con 2+ ubicaciones (L'Olivo, L'Incontro, BLT Global) tienen decision makersreachable via LinkedIn. Formato: caso de éxito similar + propuesta de valor.</span>
+            </li>
+            <li>
+                <span class="num">3</span>
+                <span class="text"><strong>Email cold outreach con portfolio:</strong> Para conceptos fine dining (Sikwa, Conservatorium, Alta Fiori) que valoran estética y reputación. Enviar deck visual de trabajos previos y propuesta de branding.</span>
+            </li>
+            <li>
+                <span class="num">4</span>
+                <span class="text"><strong>Google Business Profile optimization:</strong> Todos los restaurantes listed en TripAdvisor y Google Maps necesitan optimización de fotos, respuestas a reseñas y posts. Offering gratuito como foot-in-the-door.</span>
+            </li>
+            <li>
+                <span class="num">5</span>
+                <span class="text"><strong>Propuesta de contenido + analytics:</strong>带走El gancho para todos: mostrar que su "competitor X" tiene 3x más engagement y cómo lo lograron. Data-driven, sin venta agresiva.</span>
+            </li>
+        </ul>
     </div>
-    <span class="tag">Centro Médico</span>
-  </div>
-  <div class="details">Centro médico activo en Instagram (@centromedico_sanjose_). Contenido sobre cuidado integral de salud. Perfil con engagement activo.</div>
-  <div class="contacts">
-    <strong>Instagram:</strong> @centromedico_sanjose_ &nbsp;|&nbsp;
-    <strong>Web:</strong> centromedico.com
-  </div>
-</div>
 
-<div class="company-card">
-  <div class="header">
-    <div>
-      <div class="name">Centro Médico Integral</div>
-      <div class="location">📍 Oeste de Entrada Admisión, Hospital Calderón Guardia, San José</div>
+    <!-- Priority -->
+    <div class="section">
+        <h2 class="section-title"><span class="icon">⭐</span> Prioridad de Contacto</h2>
+        <div class="leads-grid">
+            <div class="lead-card" style="border-left: 4px solid #e94560;">
+                <div class="type" style="color:#22c55e;">ALTA PRIORIDAD</div>
+                <div class="name">BLT Global Brands (Applebee's/IHOP)</div>
+                <div class="detail">Presupuesto grande, necesidad de servicios unificados para 3 nuevas aperturas. LinkedIn outreach a dirección corporativa.</div>
+            </div>
+            <div class="lead-card" style="border-left: 4px solid #38bdf8;">
+                <div class="type" style="color:#38bdf8;">MEDIA-ALTA</div>
+                <div class="name">L'Olivo & L'Incontro (Bruno Pezzuolo)</div>
+                <div class="detail">Multi-sucursal con necesidad de estrategia unificada. WhatsApp directo al propietario. Potencial de contrato recurrente.</div>
+            </div>
+            <div class="lead-card" style="border-left: 4px solid #f59e0b;">
+                <div class="type" style="color:#f59e0b;">MEDIA</div>
+                <div class="name">Feroz Restaurante</div>
+                <div class="detail">Contacto directo vía WhatsApp (8961-4141). Gastrobar activo en redes, necesita专业化 content strategy. Escalera rápida.</div>
+            </div>
+        </div>
     </div>
-    <span class="tag">Centro Médico</span>
-  </div>
-  <div class="details">Centro médico con foco en accesibilidad. Ubicación estratégica dentro del GAM.</div>
-  <div class="contacts">
-    <strong>Teléfono:</strong> 2222-0057
-  </div>
+
 </div>
-
-<div class="company-card">
-  <div class="header">
-    <div>
-      <div class="name">Clínica Americana Costa Rica</div>
-      <div class="location">📍 San José, Costa Rica</div>
-    </div>
-    <span class="tag">Clínica Privada</span>
-  </div>
-  <div class="details">Clínica privada con directorio médico activo en HuliHealth. doctors. Perfil de médicos con especialidades diversas.</div>
-  <div class="contacts">
-    <strong>Web:</strong> clinicaamericana.hulilabs.com &nbsp;|&nbsp;
-    <strong>Plataforma:</strong> HuliHealth
-  </div>
-</div>
-
-<div class="company-card">
-  <div class="header">
-    <div>
-      <div class="name">Torre Médica Alajuela</div>
-      <div class="location">📍 Alajuela, Costa Rica</div>
-    </div>
-    <span class="tag">Complejo Médico</span>
-  </div>
-  <div class="details">Espacio digital diseñado para facilitar acceso a salud en la zona de Alajuela. Web moderna con especialidades, citas y noticias del sector.</div>
-  <div class="contacts">
-    <strong>Web:</strong>zewssweb.com/proyecto/torre-medica/ (desarrollo web por agencia)
-  </div>
-</div>
-
-<div class="company-card">
-  <div class="header">
-    <div>
-      <div class="name">Arvesalud</div>
-      <div class="location">📍 Costa Rica (cobertura empresarial)</div>
-    </div>
-    <span class="tag">Salud Empresarial</span>
-  </div>
-  <div class="details">PYME de salud empresarial fundada en 2007. Servicios: medicina general, laboral, enfermería, terapia física, psicología, nutrición. Enfoque B2B directo a RRHH y Salud Ocupacional.</div>
-  <div class="contacts">
-    <strong>Web:</strong> arvesalud.com &nbsp;|&nbsp;
-    <strong>Contacto:</strong> Equipo de Recursos Humanos y Salud Ocupacional
-  </div>
-</div>
-
-<h2>👤 Decisores Clave Identificados</h2>
-
-<div class="company-card">
-  <div class="header">
-    <div>
-      <div class="name">Gwendolyne Arce</div>
-      <div class="location">Gerente Comercial — Clínicas Blue Medical Costa Rica</div>
-    </div>
-    <span class="tag">Marketing/Comercial</span>
-  </div>
-  <div class="details">Maneja la estrategia comercial y de expansión de Blue Medical. Perfil activo en LinkedIn con 787 seguidores.Trayectoria de 4+ años en la empresa.</div>
-  <div class="contacts">
-    <strong>LinkedIn:</strong> linkedin.com/in/gwendolyne-arce-4258474b &nbsp;|&nbsp;
-    <strong>Área:</strong> Comercial y Marketing
-  </div>
-</div>
-
-<div class="company-card">
-  <div class="header">
-    <div>
-      <div class="name">Luis Lavarreda</div>
-      <div class="location">Key Account Manager — Blue Medical Costa Rica</div>
-    </div>
-    <span class="tag">Ventas Corp.</span>
-  </div>
-  <div class="details">Gestión de cuentas clave empresariales. Punto de contacto para soluciones B2B y paquetes corporativos.</div>
-  <div class="contacts">
-    <strong>Fuente:</strong> RocketReach / LinkedIn
-  </div>
-</div>
-
-<div class="company-card">
-  <div class="header">
-    <div>
-      <div class="name">Paula Lainfiesta</div>
-      <div class="location">Regional Manager — Blue Medical Costa Rica</div>
-    </div>
-    <span class="tag">Dirección</span>
-  </div>
-  <div class="details">Gestión regional de operaciones. Alto nivel de decisión en la cadena.</div>
-  <div class="contacts">
-    <strong>Fuente:</strong> RocketReach / LinkedIn
-  </div>
-</div>
-
-<div class="company-card">
-  <div class="header">
-    <div>
-      <div class="name">Carolina Fernández Ramírez</div>
-      <div class="location">Blue Medical Costa Rica — Servicios Empresariales</div>
-    </div>
-    <span class="tag">Salud Corp.</span>
-  </div>
-  <div class="details">Especialista en servicios empresariales: médicos de empresa, jornadas médicas, chequeos, nutrición y Wellness.</div>
-  <div class="contacts">
-    <strong>LinkedIn:</strong> linkedin.com/in/carolina-fern%C3%A1ndez-ramirez-aa4577180
-  </div>
-</div>
-
-<h2>📊 Tendencias del Mercado 2025–2026</h2>
-
-<div class="trend-grid">
-  <div class="trend-item">
-    <div class="icon">🤖</div>
-    <div class="title">IA y Automatización en Salud</div>
-    <div class="desc">Chatbots inteligentes para agendar citas, análisis predictivo de pacientes y contenido personalizado con IA. Diferenciador clave para clínicas que buscan escalar.</div>
-  </div>
-  <div class="trend-item">
-    <div class="icon">🎥</div>
-    <div class="title">Video Marketing Educativo</div>
-    <div class="desc">TikTok, Instagram Reels y YouTube Shorts con consejos de salud. Humaniza la marca médica y genera confianza. Alta demanda de producción de contenido short-form.</div>
-  </div>
-  <div class="trend-item">
-    <div class="icon">🔍</div>
-    <div class="title">SEO Local y Búsqueda por Voz</div>
-    <div class="desc">Pacientes buscan clínicas con frases conversacionales y por voz. Google Business Profile optimizado es crítico. Preguntas frecuentes y reseñas pesan en el ranking local.</div>
-  </div>
-  <div class="trend-item">
-    <div class="icon">📱</div>
-    <div class="title">Agenda Digital y Telemedicina</div>
-    <div class="desc">Plataformas como HuliHealth normalizaron la cita en línea. Clínicas sin agenda digital pierden pacientes. Integración con WhatsApp Business como canal de comunicación.</div>
-  </div>
-  <div class="trend-item">
-    <div class="icon">🏢</div>
-    <div class="title">Salud Corporativa en Expansión</div>
-    <div class="desc">Blue Medical y Arvesalud prueban la demanda creciente de Chequeos médicos empresariales, Wellness y médicos de empresa. Oportunidad para paquetes B2B con presupuestos significativos.</div>
-  </div>
-  <div class="trend-item">
-    <div class="icon">⭐</div>
-    <div class="title">Reputación Online y Reseñas</div>
-    <div class="desc">Testimonios de pacientes y ratings en Google son decisive en la elección de clínica. Gestión proactiva de reseñas se convirtió en prioridad de marketing.</div>
-  </div>
-</div>
-
-<h2>📋 Estrategias de Contacto</h2>
-
-<div class="strategy-card">
-  <span class="num">1</span>
-  <span class="title">LinkedIn InMail a Gwendolyne Arce / Luis Lavarreda</span>
-  <div class="desc">
-    Blue Medical es el target prime: empresa con +$27M revenue, sin estrategia digital visible y con decisores de marketing claramente identificados. Pitch: caso de éxito en clínicas similares en LATAM con +40% increase en citas vía SEO + Google Ads.
-    <br><strong>Timing:</strong> Lunes o Martes, 8–10am CR time.
-  </div>
-</div>
-
-<div class="strategy-card">
-  <span class="num">2</span>
-  <span class="title">Secuencia de Email + WhatsApp para Centro Médico MD y San José</span>
-  <div class="desc">
-    Clínicas medianas con teléfono de contacto público pero sin presencia digital clara. Secuencia: email introductorio → follow-up por WhatsApp Business con propuesta de agenda digital + SEO local.
-    <br><strong>Herramienta sugerida:</strong> Mailjet o Brevo para email sequences, WhatsApp Business API para follow-up.
-  </div>
-</div>
-
-<div class="strategy-card">
-  <span class="num">3</span>
-  <span class="title"> Propuesta de Salud Corporativa para Arvesalud / Blue Medical</span>
-  <div class="desc">
-    Enfoque B2B directo a RRHH. Paquete: "Programa de Bienestar Empresarial" con landing page, email marketing B2B, y gestión de redes para atraer empresas clientas.
-    <br><strong>Argumento:</strong> Blue Medical ya tiene la infraestructura; necesitan promoción para expandir su libro de clientes corporativos.
-  </div>
-</div>
-
-<div class="strategy-card">
-  <span class="num">4</span>
-  <span class="title"> cold outreach vía Instagram a Centro Médico San José</span>
-  <div class="desc">
-    Perfil activo en Instagram pero sin estrategia de contenido clara. DM con propuesta de manejo de redes + reels educativos + estrategia de citas por WhatsApp.
-    <br><strong>Hook:</strong> "Vimos que tienen @centromedico_sanjose_ y creemos que podrían triplicar engagement con reels de salud. Les compartimos un diagnóstico gratis."
-  </div>
-</div>
-
-<div class="strategy-card">
-  <span class="num">5</span>
-  <span class="title">Caso de éxito "Torre Médica Alajuela" como prueba social</span>
-  <div class="desc">
-    Usar el proyecto de Torre Médica Alajuela (ya trabajado por otra agencia) como palanca para clínicas similares. Mostrar que el sector salud en CR responde bien a inversión digital.
-    <br><strong>Para:</strong> Clínicas que aún no tienen web moderna o están en fase de rediseño.
-  </div>
-</div>
-
-<h2>🎯 Recomendaciones para Aurea</h2>
-
-<ul style="font-size: 13px; color: var(--muted); padding-left: 20px; line-height: 2; margin-top: 8px;">
-  <li><strong>Prioridad alta:</strong> Blue Medical Costa Rica — empresa grande, sin marketing digital sofisticado visible, y con decisores accesibles en LinkedIn.</li>
-  <li><strong>Prioridad media:</strong> Centro Médico San José — perfil de Instagram activo sugiere openness a digitalización pero sin partner estratégico.</li>
-  <li><strong>Prioridad media:</strong> Arvesalud — enfoque B2B, oportunidad de paquete integral (web + email + redes).</li>
-  <li><strong>Watch:</strong> Hospital CIMA — demasiado grande para outreach inicial, mejor como referencia de caso cuando haya pruebas de concepto.</li>
-  <li><strong>Tecnología sugerida:</strong> Implementar CRM con pipeline de leads médicos (HubSpot free o Brevo), seguimiento de conversaciones de Instagram y WhatsApp en un solo lugar.</li>
-</ul>
 
 <footer>
-  Reporte generado automáticamente por AUREA Lead Research Agent · 30 de Abril 2026, 08:00 CST · Logos AI
+    <p>Informe generado automáticamente por <strong>Aurea Research Agent</strong> · 30 Abril 2026</p>
+    <p style="margin-top:4px;">Nichos rotativos: Restaurantes → Clinics → Ecommerce → Real Estate → Hotels → Startups → Manufacturers → Schools</p>
 </footer>
 
 </body>
