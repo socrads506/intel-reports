@@ -3,226 +3,204 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aurea Leads — Restaurantes Costa Rica | 30 Abr 2026</title>
+    <title>Aurea — Lead Report: Clínicas Privadas Costa Rica | 30 Abr 2026</title>
     <style>
         :root {
-            --bg-primary: #0d0d0d;
-            --bg-card: #161616;
-            --bg-card-hover: #1e1e1e;
-            --border: #2a2a2a;
-            --text-primary: #f0f0f0;
-            --text-secondary: #a0a0a0;
-            --text-muted: #666;
+            --bg-primary: #0f1117;
+            --bg-secondary: #161b27;
+            --bg-card: #1e2436;
             --accent: #f5a623;
-            --accent-dim: rgba(245, 166, 35, 0.15);
-            --accent-green: #4ade80;
-            --accent-blue: #60a5fa;
-            --accent-red: #f87171;
-            --tag-bg: #1f1f1f;
+            --accent-hover: #f7bc4a;
+            --text-primary: #e8eaf0;
+            --text-secondary: #8b92a8;
+            --text-muted: #5a6078;
+            --border: #2a3147;
+            --green: #3dd68c;
+            --blue: #4a9eff;
+            --red: #ff6b6b;
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
             background: var(--bg-primary);
             color: var(--text-primary);
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
             line-height: 1.6;
-            min-height: 100vh;
         }
 
-        .container {
-            max-width: 960px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
+        .container { max-width: 1100px; margin: 0 auto; padding: 40px 24px; }
 
-        /* HEADER */
-        header {
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 32px;
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, #1a2040 100%);
+            border-bottom: 2px solid var(--accent);
+            padding: 40px 0 32px;
             margin-bottom: 40px;
         }
 
-        .badge {
-            display: inline-block;
-            background: var(--accent-dim);
-            color: var(--accent);
+        .header-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .brand {
             font-size: 11px;
             font-weight: 700;
-            letter-spacing: 1.5px;
+            letter-spacing: 4px;
             text-transform: uppercase;
-            padding: 4px 12px;
-            border-radius: 4px;
+            color: var(--accent);
             margin-bottom: 16px;
         }
 
-        h1 {
+        .header h1 {
             font-size: 28px;
-            font-weight: 800;
+            font-weight: 700;
             color: var(--text-primary);
-            margin-bottom: 8px;
-            letter-spacing: -0.5px;
+            margin-bottom: 6px;
         }
 
-        .subtitle {
-            color: var(--text-secondary);
+        .header .subtitle {
             font-size: 15px;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
         }
 
-        .meta {
+        .meta-pillars {
             display: flex;
-            gap: 24px;
-            margin-top: 16px;
+            gap: 10px;
             flex-wrap: wrap;
         }
 
-        .meta-item {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            color: var(--text-muted);
-            font-size: 13px;
-        }
-
-        .meta-item span {
-            color: var(--text-secondary);
+        .pillar {
+            background: rgba(245, 166, 35, 0.12);
+            border: 1px solid rgba(245, 166, 35, 0.25);
+            color: var(--accent);
+            font-size: 11px;
             font-weight: 600;
+            padding: 5px 12px;
+            border-radius: 20px;
+            letter-spacing: 0.3px;
         }
 
-        /* SECTION */
+        /* Report meta */
+        .report-meta {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+
+        .meta-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 18px 20px;
+        }
+
+        .meta-label {
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+        }
+
+        .meta-value {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        /* Sections */
         .section {
-            margin-bottom: 48px;
+            margin-bottom: 44px;
         }
 
         .section-title {
             font-size: 13px;
             font-weight: 700;
-            letter-spacing: 1.2px;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            color: var(--text-muted);
+            color: var(--accent);
             margin-bottom: 20px;
-            padding-bottom: 8px;
+            padding-bottom: 10px;
             border-bottom: 1px solid var(--border);
         }
 
-        /* CARDS */
+        /* Company cards */
+        .company-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 16px;
+        }
+
         .company-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 24px;
-            margin-bottom: 16px;
-            transition: border-color 0.2s, background 0.2s;
+            border-radius: 12px;
+            padding: 22px;
+            transition: border-color 0.2s;
         }
 
         .company-card:hover {
             border-color: var(--accent);
-            background: var(--bg-card-hover);
-        }
-
-        .company-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 12px;
-            gap: 12px;
         }
 
         .company-name {
-            font-size: 17px;
+            font-size: 16px;
             font-weight: 700;
             color: var(--text-primary);
+            margin-bottom: 6px;
         }
 
-        .company-location {
-            font-size: 12px;
-            color: var(--text-muted);
-            margin-top: 2px;
-        }
-
-        .priority-badge {
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: 0.8px;
+        .company-type {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1px;
             text-transform: uppercase;
-            padding: 3px 10px;
-            border-radius: 20px;
-            white-space: nowrap;
+            color: var(--accent);
+            margin-bottom: 12px;
         }
 
-        .priority-high {
-            background: rgba(245, 166, 35, 0.2);
+        .company-detail {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-bottom: 5px;
+            display: flex;
+            gap: 6px;
+        }
+
+        .company-detail strong { color: var(--text-primary); }
+
+        .contact-list {
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid var(--border);
+        }
+
+        .contact-item {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-bottom: 4px;
+            padding-left: 14px;
+            position: relative;
+        }
+
+        .contact-item::before {
+            content: '→';
+            position: absolute;
+            left: 0;
             color: var(--accent);
         }
 
-        .priority-medium {
-            background: rgba(96, 165, 250, 0.15);
-            color: var(--accent-blue);
-        }
-
-        .company-description {
-            color: var(--text-secondary);
-            font-size: 14px;
-            margin-bottom: 16px;
-            line-height: 1.55;
-        }
-
-        .contact-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 14px;
-        }
-
-        .contact-tag {
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            background: var(--tag-bg);
-            color: var(--text-secondary);
-            font-size: 12px;
-            padding: 4px 10px;
-            border-radius: 6px;
-            border: 1px solid var(--border);
-        }
-
-        .contact-tag a {
-            color: var(--accent-blue);
-            text-decoration: none;
-        }
-
-        .contact-tag a:hover {
-            text-decoration: underline;
-        }
-
-        .strategy-box {
-            background: rgba(74, 222, 128, 0.06);
-            border-left: 3px solid var(--accent-green);
-            padding: 12px 16px;
-            border-radius: 0 6px 6px 0;
-        }
-
-        .strategy-label {
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 0.8px;
-            text-transform: uppercase;
-            color: var(--accent-green);
-            margin-bottom: 4px;
-        }
-
-        .strategy-text {
-            color: var(--text-secondary);
-            font-size: 13px;
-            line-height: 1.5;
-        }
-
-        /* TRENDS */
-        .trend-grid {
+        /* Trends */
+        .trends-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 16px;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 14px;
         }
 
         .trend-card {
@@ -230,86 +208,130 @@
             border: 1px solid var(--border);
             border-radius: 10px;
             padding: 20px;
+            position: relative;
+            overflow: hidden;
         }
+
+        .trend-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .trend-card.high::before { background: var(--green); }
+        .trend-card.medium::before { background: var(--blue); }
+        .trend-card.info::before { background: var(--accent); }
 
         .trend-title {
             font-size: 14px;
             font-weight: 700;
-            color: var(--accent);
+            color: var(--text-primary);
             margin-bottom: 8px;
         }
 
         .trend-desc {
+            font-size: 12px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .trend-tag {
+            display: inline-block;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 3px 9px;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+
+        .trend-tag.high { background: rgba(61,214,140,0.15); color: var(--green); }
+        .trend-tag.medium { background: rgba(74,158,255,0.15); color: var(--blue); }
+        .trend-tag.info { background: rgba(245,166,35,0.15); color: var(--accent); }
+
+        /* Strategies */
+        .strategy-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .strategy-table th {
+            background: var(--bg-card);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .strategy-table td {
             font-size: 13px;
             color: var(--text-secondary);
-            line-height: 1.55;
+            padding: 14px 16px;
+            border-bottom: 1px solid rgba(42,49,71,0.5);
+            vertical-align: top;
         }
 
-        /* STATS BAR */
-        .stats-bar {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 12px;
-            margin-bottom: 40px;
-        }
+        .strategy-table tr:last-child td { border-bottom: none; }
 
-        .stat-item {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 16px;
-            text-align: center;
-        }
-
-        .stat-value {
-            font-size: 26px;
-            font-weight: 800;
-            color: var(--accent);
-            margin-bottom: 4px;
-        }
-
-        .stat-label {
-            font-size: 11px;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-        }
-
-        /* PITCH TEMPLATE */
-        .pitch-box {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 24px;
-        }
-
-        .pitch-box h3 {
-            font-size: 14px;
-            font-weight: 700;
-            color: var(--accent);
-            margin-bottom: 12px;
-            letter-spacing: 0.3px;
-        }
-
-        .pitch-box p {
-            color: var(--text-secondary);
-            font-size: 13.5px;
-            line-height: 1.6;
-            margin-bottom: 10px;
-        }
-
-        .pitch-box .highlight {
-            color: var(--accent);
+        .strategy-table td:first-child {
+            color: var(--text-primary);
             font-weight: 600;
         }
 
-        /* FOOTER */
-        footer {
+        .channel-tag {
+            display: inline-block;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            padding: 3px 8px;
+            border-radius: 4px;
+            margin: 2px;
+        }
+
+        .channel-tag.linkedin { background: rgba(10,102,194,0.2); color: #6b9fd4; }
+        .channel-tag.email { background: rgba(61,214,140,0.15); color: var(--green); }
+        .channel-tag.whatsapp { background: rgba(37,211,102,0.15); color: #5dde77; }
+        .channel-tag.phone { background: rgba(245,166,35,0.15); color: var(--accent); }
+        .channel-tag.web { background: rgba(74,158,255,0.15); color: var(--blue); }
+
+        /* CTA block */
+        .cta-block {
+            background: linear-gradient(135deg, #1a2040, var(--bg-card));
+            border: 1px solid var(--accent);
+            border-radius: 12px;
+            padding: 28px 32px;
+            margin-top: 40px;
+        }
+
+        .cta-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+
+        .cta-desc {
+            font-size: 13px;
+            color: var(--text-secondary);
+            max-width: 600px;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 50px;
+            padding-top: 20px;
             border-top: 1px solid var(--border);
-            padding-top: 24px;
-            margin-top: 48px;
+            font-size: 11px;
             color: var(--text-muted);
-            font-size: 12px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -317,337 +339,337 @@
             gap: 8px;
         }
 
-        @media (max-width: 600px) {
-            .stats-bar { grid-template-columns: repeat(2, 1fr); }
-            .company-header { flex-direction: column; }
+        .disclaimer {
+            background: rgba(255,107,107,0.08);
+            border: 1px solid rgba(255,107,107,0.2);
+            border-radius: 8px;
+            padding: 14px 18px;
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+            line-height: 1.7;
         }
     </style>
 </head>
 <body>
-<div class="container">
 
-    <!-- HEADER -->
-    <header>
-        <div class="badge">🔍 Lead Research — Hora 05:00 UTC</div>
-        <h1>Restaurantes en Costa Rica</h1>
-        <p class="subtitle">Oportunidades de marketing digital y advertising para agencias en el nicho gastronómico</p>
-        <div class="meta">
-            <div class="meta-item">📅 <span>30 Abril 2026</span></div>
-            <div class="meta-item">🏷️ <span>Restaurantes / Gastronomía</span></div>
-            <div class="meta-item">🌎 <span>San José, Costa Rica</span></div>
-            <div class="meta-item">📊 <span>8 empresas analizadas</span></div>
-        </div>
-    </header>
-
-    <!-- STATS -->
-    <div class="stats-bar">
-        <div class="stat-item">
-            <div class="stat-value">8</div>
-            <div class="stat-label">Empresas</div>
-        </div>
-        <div class="stat-item">
-            <div class="stat-value">4</div>
-            <div class="stat-label">Alta Prioridad</div>
-        </div>
-        <div class="stat-item">
-            <div class="stat-value">3</div>
-            <div class="stat-label">Tendencias Clave</div>
-        </div>
-        <div class="stat-item">
-            <div class="stat-value">6</div>
-            <div class="stat-label">Estrategias</div>
-        </div>
-    </div>
-
-    <!-- COMPANIES -->
-    <div class="section">
-        <div class="section-title">🍽️ Empresas Objetivo — Restaurantes Costa Rica</div>
-
-        <!-- Sikwa -->
-        <div class="company-card">
-            <div class="company-header">
-                <div>
-                    <div class="company-name">Sikwa Restaurante</div>
-                    <div class="company-location">Los Yoses, San José — @sikwacostarica</div>
-                </div>
-                <span class="priority-badge priority-high">⭐ Alta Prioridad</span>
-            </div>
-            <p class="company-description">
-                Fine dining que reimagina la cocina indigenous costarricense. Fundado por el chef <strong>Pablo Bonilla</strong>, reconocimiento internacional (50 Best Discovery). Alto potencial para branding de lujo, contenido visual premium y campañas en redes sociales de alto impacto.
-            </p>
-            <div class="contact-row">
-                <span class="contact-tag">👨‍🍳 Chef/Fundador: Pablo Bonilla</span>
-                <span class="contact-tag">📷 Instagram: @sikwacostarica</span>
-                <span class="contact-tag">🌐 <a href="https://www.sikwacostarica.com" target="_blank">sikwacostarica.com</a></span>
-                <span class="contact-tag">📍 Los Yoses, San José</span>
-            </div>
-            <div class="strategy-box">
-                <div class="strategy-label">Estrategia de Contacto</div>
-                <div class="strategy-text">
-                    Enfoque en <strong>branding de lujo y storytelling cultural</strong>. Propuesta: producción de contenido de video para redes, partnerships con influencers gastronómicos, y campañas de posicionamiento de marca en tourism & lifestyle. Contactar vía Instagram DM o email directo desde su web.
-                </div>
-            </div>
-        </div>
-
-        <!-- Conservatorium -->
-        <div class="company-card">
-            <div class="company-header">
-                <div>
-                    <div class="company-name">Conservatorium Restaurante</div>
-                    <div class="company-location">Ciudad Colón, San José — @ConservatoriumCR</div>
-                </div>
-                <span class="priority-badge priority-high">⭐ Alta Prioridad</span>
-            </div>
-            <p class="company-description">
-                Top 70 Latin America's 50 Best Restaurants 2024. Concepto de asador creativo con chefs-Le Cordon Bleu. Tres socios fundadores: <strong>Henry Quesada, Aldo Elizondo y Kid Mey Chan</strong>. Potencial fuerte para marketing experiencial, branding de alta gama y estrategias de PR gastronómico.
-            </p>
-            <div class="contact-row">
-                <span class="contact-tag">👨‍🍳 Co-Fundador: Chef Henry Quesada</span>
-                <span class="contact-tag">📞 Tel: 4081-2451</span>
-                <span class="contact-tag">📧 conservatoriumcr@gmail.com</span>
-                <span class="contact-tag">📷 Facebook: @ConservatoriumCR</span>
-            </div>
-            <div class="strategy-box">
-                <div class="strategy-label">Estrategia de Contacto</div>
-                <div class="strategy-text">
-                    Contactar directamente por email con propuesta de <strong>gestion de redes sociales premium y estrategia de contenido visual</strong>. Tienen presencia digital pero espacio para optimizar engagement. Ofrecer caso de éxito en restaurantes similares en LATAM.
-                </div>
-            </div>
-        </div>
-
-        <!-- El Patio del Balmoral -->
-        <div class="company-card">
-            <div class="company-header">
-                <div>
-                    <div class="company-name">El Patio del Balmoral</div>
-                    <div class="company-location">Hotel Balmoral, Centro Histórico San José — @ElPatioDelBalmoral</div>
-                </div>
-                <span class="priority-badge priority-high">⭐ Alta Prioridad</span>
-            </div>
-            <p class="company-description">
-                Restaurante icónico del Hotel Balmoral en Avenida Central. 35,000+ likes en Facebook, 3,200+ reviews en TripAdvisor. Dueño: Diseño Balmoral. Enfoque en comida costarricense auténtica para turistas y locales. Potencial para campaigns de temporada, promociones y gestión de reputación online.
-            </p>
-            <div class="contact-row">
-                <span class="contact-tag">🏨 Ubicado en: Hotel Balmoral</span>
-                <span class="contact-tag">👤 Owner: Diseño Balmoral</span>
-                <span class="contact-tag">📷 Facebook: @ElPatioDelBalmoral</span>
-                <span class="contact-tag">🌐 <a href="https://www.balmoral.co.cr" target="_blank">balmoral.co.cr</a></span>
-            </div>
-            <div class="strategy-box">
-                <div class="strategy-label">Estrategia de Contacto</div>
-                <div class="strategy-text">
-                    <strong>Gestión profesional de Facebook e Instagram + estrategia de saison</strong>. Propuesta de contenido estacional (fiestas ticas, turismo, eventos corporativos). Linkedin approach al equipo directivo del hotel. Alta frecuencia de游客 potential.
-                </div>
-            </div>
-        </div>
-
-        <!-- Tin Jo -->
-        <div class="company-card">
-            <div class="company-header">
-                <div>
-                    <div class="company-name">Tin Jo Asian Restaurant</div>
-                    <div class="company-location">San José — Cocina asiática / latinoamericana</div>
-                </div>
-                <span class="priority-badge priority-medium">Alta Prioridad</span>
-            </div>
-            <p class="company-description">
-                Restaurante histórico de cocina asiática en San José, reconocido en listas de mejores restaurantes. Mencionado en Eater y guías internacionales. Enfoque en comida tradicional asiática con toque costarricense. Potencial para estrategias de branding y visibilidad en guías internacionales.
-            </p>
-            <div class="contact-row">
-                <span class="contact-tag">🍜 Tipo: Cocina Asiática / Fusión</span>
-                <span class="contact-tag">📍 San José, Costa Rica</span>
-                <span class="contact-tag">🌐 Mencionado en Eater, TripAdvisor</span>
-            </div>
-            <div class="strategy-box">
-                <div class="strategy-label">Estrategia de Contacto</div>
-                <div class="strategy-text">
-                    Propuesta de <strong>SEO local y presencia en guías internacionales</strong> (The World's 50 Best, Eater, Timeout). Gestión de reseñas y reputation management. Enfoque en attracting tourists y expatriados.
-                </div>
-            </div>
-        </div>
-
-        <!-- Grano de Oro -->
-        <div class="company-card">
-            <div class="company-header">
-                <div>
-                    <div class="company-name">Restaurante Grano de Oro</div>
-                    <div class="company-location">San José — Fine Dining / Contemporáneo</div>
-                </div>
-                <span class="priority-badge priority-medium">Alta Prioridad</span>
-            </div>
-            <p class="company-description">
-                Restaurante refinado en el corazón de San José, conocido por su ambiente elegante y cocina contemporánea. Destacado en guías de viaje como TimeOut y Costa Rica Travel Life. Potencial para campañas de branding de lujo y acciones de PR gastronómico.
-            </p>
-            <div class="contact-row">
-                <span class="contact-tag">🍽️ Estilo: Fine Dining / Contemporáneo</span>
-                <span class="contact-tag">📍 San José, Costa Rica</span>
-                <span class="contact-tag">🌐 TimeOut, TripAdvisor, Costa Rica Travel Life</span>
-            </div>
-            <div class="strategy-box">
-                <div class="strategy-label">Estrategia de Contacto</div>
-                <div class="strategy-text">
-                    <strong>Branding de lujo + gestión de redes sociales</strong>. Proponer contenido de video estilo "behind the scenes", collaborations con hotels de lujo cercanos, y packages de marketing para turismo gastronómico.
-                </div>
-            </div>
-        </div>
-
-        <!-- Restaurante Silvestre -->
-        <div class="company-card">
-            <div class="company-header">
-                <div>
-                    <div class="company-name">Restaurante Silvestre</div>
-                    <div class="company-location">San José — Cocina Tradicional Costarricense</div>
-                </div>
-                <span class="priority-badge priority-medium">Media Prioridad</span>
-            </div>
-            <p class="company-description">
-                Restaurante que celebra la herencia culinaria costarricense bajo el Chef Santiago. Ubicado en zona Pacífico Central. "The Taste of Memories" — enfoque en tradición y memoria. Mencionado en Casago y guías de viaje especializadas.
-            </p>
-            <div class="contact-row">
-                <span class="contact-tag">👨‍🍳 Chef: Santiago</span>
-                <span class="contact-tag">📍 San José / Pacífico Central</span>
-                <span class="contact-tag">🌐 casago.com</span>
-            </div>
-            <div class="strategy-box">
-                <div class="strategy-label">Estrategia de Contacto</div>
-                <div class="strategy-text">
-                    <strong>Contenido storytelling centrado en tradición y cultura tica</strong>. Propuesta de blog SEO, video de marca, y colaboración con influencers de viaje/foodie en Instagram y TikTok Costa Rica.
-                </div>
-            </div>
-        </div>
-
-        <!-- Café Rey -->
-        <div class="company-card">
-            <div class="company-header">
-                <div>
-                    <div class="company-name">Café Rey (Restaurante/Café)</div>
-                    <div class="company-location">Costa Rica — Cadena / concepto local</div>
-                </div>
-                <span class="priority-badge priority-medium">Media Prioridad</span>
-            </div>
-            <p class="company-description">
-                Top restaurant company en Costa Rica según Tracxn Score. Modelo de expansión tipo cadena. Mayor potencial para <strong>contratos de retainer de marketing digital a largo plazo</strong> o estrategias de expansión de marca. multiple locations = mayor budget potencial.
-            </p>
-            <div class="contact-row">
-                <span class="contact-tag">🏢 Tipo: Cadena / Expansión</span>
-                <span class="contact-tag">📊 Top Company Costa Rica (Tracxn)</span>
-                <span class="contact-tag">📈 Potencial: Contrato retainer</span>
-            </div>
-            <div class="strategy-box">
-                <div class="strategy-label">Estrategia de Contacto</div>
-                <div class="strategy-text">
-                    Enfoque <strong>B2B corporativo</strong>: presentar caso de estudio de campañas para cadenas de restaurantes en LATAM. Propuesta integral de digital marketing con métricas ROI. Contactar vía LinkedIn al equipo directivo.
-                </div>
-            </div>
-        </div>
-
-        <!-- La Casona Tipica -->
-        <div class="company-card">
-            <div class="company-header">
-                <div>
-                    <div class="company-name">La Casona Tipica</div>
-                    <div class="company-location">San José — Cocina Tradicional Costarricense</div>
-                </div>
-                <span class="priority-badge priority-medium">Media Prioridad</span>
-            </div>
-            <p class="company-description">
-                Restaurante de comida tradicional costarricense mencionado por viajeros y locales como experiencia auténtica. Frecuente en listas de "best soda" y restaurantes típicos de San José. Potencial para branding de autenticidad y campañas de turismo gastronómico.
-            </p>
-            <div class="contact-row">
-                <span class="contact-tag">🥘 Estilo: Soda / Comida Tica Tradicional</span>
-                <span class="contact-tag">📍 San José Centro</span>
-                <span class="contact-tag">📍 Recomendado por guías de viaje</span>
-            </div>
-            <div class="strategy-box">
-                <div class="strategy-label">Estrategia de Contacto</div>
-                <div class="strategy-text">
-                    <strong>Marketing de contenido + SEO para turismo</strong>. Propuesta de Google Business Profile optimization, contenido para TripAdvisor y Lonely Planet, y video storytelling para redes sociales enfocadas en turismo.
-                </div>
+    <div class="header">
+        <div class="header-inner">
+            <div class="brand">Aurea · Advertising Agency</div>
+            <h1>Lead Intelligence Report</h1>
+            <p class="subtitle">Clínicas Privadas en Costa Rica — Oportunidades de Publicidad y Marketing Digital</p>
+            <div class="meta-pillars">
+                <span class="pillar">Nicho: Clínicas Privadas</span>
+                <span class="pillar">Mercado: Costa Rica</span>
+                <span class="pillar">Fecha: 30 Abril 2026</span>
+                <span class="pillar">Ciclo: #2 — Clínicas</span>
             </div>
         </div>
     </div>
 
-    <!-- MARKET TRENDS -->
-    <div class="section">
-        <div class="section-title">📈 Tendencias del Mercado Gastronómico Costa Rica 2026</div>
-        <div class="trend-grid">
+    <div class="container">
 
-            <div class="trend-card">
-                <div class="trend-title">🌿厨房-to-Table & Cocina Indigenous</div>
-                <p class="trend-desc">
-                    Restaurantes como Sikwa lideran la tendencia de reconnectar con ingredientes y técnicas indígenas. Los consumidores buscan <strong>experiencias auténticas</strong> que cuenten historias locales. Oportunidad para agencies de branding y content marketing.
-                </p>
+        <!-- Report meta -->
+        <div class="report-meta">
+            <div class="meta-card">
+                <div class="meta-label">Empresas identificadas</div>
+                <div class="meta-value">9 clínicas y hospitales</div>
             </div>
-
-            <div class="trend-card">
-                <div class="trend-title">📱Social Media como Canal de Venta</div>
-                <p class="trend-desc">
-                    Según Cariba Marketing, el 73% de restaurantes en CR reportan que Instagram es su principal canal de adquisición de clientes. <strong>Gestión profesional de redes</strong> es el servicio más demandado. El manejo de redes sociales pasó de opcional a necesidad crítica.
-                </p>
+            <div class="meta-card">
+                <div class="meta-label">Decisores mapeados</div>
+                <div class="meta-value">14+ contactos clave</div>
             </div>
-
-            <div class="trend-card">
-                <div class="trend-title">🏨 Turismo Gastronómico en Expansión</div>
-                <p class="trend-desc">
-                    Costa Rica como destino de turismo gastronómico crece un 18% anual. ICT lanzó campaña con UNWTO y CNN. Los restaurantes en San José y zonas turísticas buscan <strong>agencias que entiendan el mercado turístico internacional</strong>.
-                </p>
+            <div class="meta-card">
+                <div class="meta-label">Inversión sector (est.)</div>
+                <div class="meta-value">$20M+ en 2 años</div>
             </div>
-
-            <div class="trend-card">
-                <div class="trend-title">🤖 IA & Personalización Digital</div>
-                <p class="trend-desc">
-                    Adoptación creciente de menús digitales con QR, reservas automatizadas y marketing automation para restaurantes. Agencias que ofrecen <strong>stack tecnológico + creatividad</strong> tienen ventaja competitiva. Chatbots y email marketing para fidelización.
-                </p>
+            <div class="meta-card">
+                <div class="meta-label">Tendencia general</div>
+                <div class="meta-value" style="color: var(--green);">Expansión activa ↑</div>
             </div>
-
         </div>
+
+        <!-- Companies Found -->
+        <div class="section">
+            <div class="section-title">1. Clínicas y Hospitales Identificados</div>
+
+            <div class="company-grid">
+
+                <div class="company-card">
+                    <div class="company-type">Hospital Privado · San José</div>
+                    <div class="company-name">Hospital Clínica Bíblica</div>
+                    <div class="company-detail"><strong>Fundación:</strong> 1930 (95 años)</div>
+                    <div class="company-detail"><strong>Empleados:</strong> ~978</div>
+                    <div class="company-detail"><strong>Teléfono:</strong> +506 2522-1000</div>
+                    <div class="company-detail"><strong>Web:</strong> clinicabiblica.com</div>
+                    <div class="contact-list">
+                        <div class="contact-item"><strong>Gerardo Sánchez Cordero</strong> — Director General</div>
+                        <div class="contact-item"><strong>Ariana Corrales</strong> — Gestor de Comunicación</div>
+                        <div class="contact-item"><strong>Ana Yancy Castro Masís</strong> — Asist. Dirección General</div>
+                        <div class="contact-item"><strong>Alejandro Mora Vargas</strong> — Director Financiero</div>
+                    </div>
+                </div>
+
+                <div class="company-card">
+                    <div class="company-type">Hospital Privado · San José</div>
+                    <div class="company-name">Hospital CIMA</div>
+                    <div class="company-detail"><strong>Fundación:</strong> 2000</div>
+                    <div class="company-detail"><strong>Empleados:</strong> 201-500</div>
+                    <div class="company-detail"><strong>Sedes:</strong> San José (Santa Ana)</div>
+                    <div class="company-detail"><strong>Web:</strong> hospitalcima.com</div>
+                    <div class="contact-list">
+                        <div class="contact-item"><strong>Dr. Alejandro Ayón Lacayo</strong> — Director General</div>
+                        <div class="contact-item"><strong>Dr. Orlando Urroz</strong> — Dirección Médica</div>
+                        <div class="contact-item"><strong>Jhonny Berdugo</strong> — Dirección Comercial</div>
+                        <div class="contact-item"><strong>Randall Alfaro</strong> — Gerente de Operaciones</div>
+                        <div class="contact-item"><strong>David Burgos Gamboa</strong> — Regional Commercial Executive</div>
+                    </div>
+                </div>
+
+                <div class="company-card">
+                    <div class="company-type">Hospital Privado · San José / Lindora</div>
+                    <div class="company-name">Hospital Metropolitano</div>
+                    <div class="company-detail"><strong>Sedes:</strong> San José, Lindora, Lincoln Plaza, Quepos, Cabo Velas, Liberia</div>
+                    <div class="company-detail"><strong>Inversión reciente:</strong> $13.2M (2016-2017)</div>
+                    <div class="company-detail"><strong>Web:</strong> metropolitanocr</div>
+                    <div class="contact-list">
+                        <div class="contact-item"><strong>Andres Wiernik Rodriguez</strong> — CEO</div>
+                        <div class="contact-item"><strong>Steven Vargas Jimenez</strong> — Manager Sales</div>
+                        <div class="contact-item"><strong>Kenneth Rojas Calderón</strong> — Director Servicios de Salud (vínculo con INS)</div>
+                    </div>
+                </div>
+
+                <div class="company-card">
+                    <div class="company-type">Clínica → Hospital (2024) · Tibás</div>
+                    <div class="company-name">Clínica UNIBE</div>
+                    <div class="company-detail"><strong>Evolución:</strong> Clínica → Hospital (oct 2024)</div>
+                    <div class="company-detail"><strong>Inversión:</strong> $8 millones USD</div>
+                    <div class="company-detail"><strong>Capacidad:</strong> UCI, cuidados intermedios, emergencias 24/7</div>
+                    <div class="company-detail"><strong>Web:</strong> unibe.ac.cr</div>
+                    <div class="contact-list">
+                        <div class="contact-item"><strong>Dirección General</strong> — Vínculo con Universidad Iberoamericana</div>
+                        <div class="contact-item"><strong>Ana Yancy Corrales Castro</strong> — Médica, Clínica UNIBE</div>
+                    </div>
+                </div>
+
+                <div class="company-card">
+                    <div class="company-type">Hospital Privado · Calle Blancos, SJ</div>
+                    <div class="company-name">Hospital Internacional La Católica</div>
+                    <div class="company-detail"><strong>Particularidad:</strong> Modelo híbrido hospital-hotel (desde 2008)</div>
+                    <div class="company-detail"><strong>Camas:</strong> 60</div>
+                    <div class="company-detail"><strong>Teléfono:</strong> +506 2246-3000</div>
+                    <div class="company-detail"><strong>Email:</strong> servicioalcliente@hilc.cr</div>
+                    <div class="contact-list">
+                        <div class="contact-item"><strong>Javier Herrera</strong> — Director General</div>
+                        <div class="contact-item"><strong>Melissa Sánchez Villalobos</strong> — MBA, Marketing (LinkedIn)</div>
+                        <div class="contact-item"><strong>Andrés C.</strong> — Director Financiero</div>
+                    </div>
+                </div>
+
+                <div class="company-card">
+                    <div class="company-type">Hospital público con gestión mixta · La Uruca</div>
+                    <div class="company-name">Hospital del Trauma (INS)</div>
+                    <div class="company-detail"><strong>Dependencia:</strong> Instituto Nacional de Seguros</div>
+                    <div class="company-detail"><strong>Servicios:</strong> Accidentes laborales y automotores</div>
+                    <div class="company-detail"><strong>Web:</strong> grupoins.com</div>
+                    <div class="contact-list">
+                        <div class="contact-item"><strong>Luis Fernando Campos Montes</strong> — Gerente General</div>
+                        <div class="contact-item"><strong>Kenneth Rojas Calderón</strong> — Director General Servicios de Salud</div>
+                        <div class="contact-item"><strong>Alejandro Esquivel</strong> — Gerente General (LinkedIn)</div>
+                        <div class="contact-item">Tel: 4035-6568 · info@asohtrauma.co.cr</div>
+                    </div>
+                </div>
+
+                <div class="company-card">
+                    <div class="company-type">Hospital público · La Uruca, SJ</div>
+                    <div class="company-name">Hospital México (CCSS)</div>
+                    <div class="company-detail"><strong>Dependencia:</strong> Caja Costarricense de Seguro Social</div>
+                    <div class="company-detail"><strong>Especialidad:</strong> Oncología, referencia nacional</div>
+                    <div class="company-detail"><strong>Teléfono:</strong> +506 2242-6700</div>
+                    <div class="company-detail"><strong>Web:</strong> Facebook/Instagram: hospitalmexicocr</div>
+                    <div class="contact-list">
+                        <div class="contact-item"><strong>Douglas Montero Chacón</strong> — Director del Hospital México</div>
+                        <div class="contact-item"><strong>Denis Landaverde</strong> — Chief Medical Oncology</div>
+                    </div>
+                </div>
+
+                <div class="company-card">
+                    <div class="company-type">Clínica estética · Expansión 2025</div>
+                    <div class="company-name">Clínica FORM</div>
+                    <div class="company-detail"><strong>Especialidad:</strong> Medicina estética</div>
+                    <div class="company-detail"><strong>Inversión apertura:</strong> US$60,000</div>
+                    <div class="company-detail"><strong>Primer sede en Costa Rica:</strong> 2025</div>
+                    <div class="contact-list">
+                        <div class="contact-item">Contacto vía: rumboeconomico.net</div>
+                        <div class="contact-item"><strong>Sector objetivo:</strong> Pacientes de medicina estética y bienestar</div>
+                    </div>
+                </div>
+
+                <div class="company-card">
+                    <div class="company-type">Clínica dermatológica · Expansión 2025</div>
+                    <div class="company-name">Clínica dermatológica (3ra sede)</div>
+                    <div class="company-detail"><strong>Servicios:</strong> Dermatología clínica y estética</div>
+                    <div class="company-detail"><strong>Expansión:</strong> Tercera sede abierta en 2025</div>
+                    <div class="company-detail"><strong>Tecnología:</strong> Incorporación de equipos de depilación láser</div>
+                    <div class="contact-list">
+                        <div class="contact-item"><strong>Dra. Natalia Arroyo</strong> — Consulta de medicina estética</div>
+                        <div class="contact-item"><strong>Sector:</strong> Dermatología, láser, wellness</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Market Trends -->
+        <div class="section">
+            <div class="section-title">2. Tendencias del Mercado de Salud Privada en Costa Rica</div>
+
+            <div class="trends-grid">
+
+                <div class="trend-card high">
+                    <div class="trend-title">Apertura del mercado de seguros de salud</div>
+                    <div class="trend-desc">La liberalización del sector seguros (Sugese) disparó las primas de $106.7M (2015) a $144.6M (2017), un crecimiento del 35%. Este dinamismo sigue beneficiando a hospitales privados con mayor capacidad de inversión en marketing.</div>
+                    <span class="trend-tag high">Alto impacto</span>
+                </div>
+
+                <div class="trend-card high">
+                    <div class="trend-title">Onda de inversiones y expansiones</div>
+                    <div class="trend-desc">Clínica UNIBE invirtió $8M para convertirse en hospital. Hospital Metropolitano inyectó $13.2M en renovaciones. CCSS aprobó 40 proyectos 2025-2026. Se proyecta apertura de nuevas sedes en el GAM y Guanacaste.</div>
+                    <span class="trend-tag high">Alto impacto</span>
+                </div>
+
+                <div class="trend-card high">
+                    <div class="trend-title">Turismo médico en crecimiento</div>
+                    <div class="trend-desc">Costa Rica es referente regional en turismo de salud (Ley 10320). Hospital CIMA y Clínica Bíblica están acreditados por JCI. El mercado global de turismo médico se proyecta en $316.7B para 2033.</div>
+                    <span class="trend-tag high">Alto impacto</span>
+                </div>
+
+                <div class="trend-card medium">
+                    <div class="trend-title">Demanda de marketing digital especializado en salud</div>
+                    <div class="trend-desc">Agencias como Coco Creativo y Neurobrand ya ofrecen marketing médico especializado en CR. Las clínicas buscan gestores de comunicación, campañas en Meta Ads y Google Ads orientadas a atraer pacientes.</div>
+                    <span class="trend-tag medium">Oportunidad media</span>
+                </div>
+
+                <div class="trend-card medium">
+                    <div class="trend-title">Cultura preventiva y bienestar</div>
+                    <div class="trend-desc">Crece la demanda de chequeos preventivos, medicina estética y wellness. Esto amplía el espectro de target para clínicas que antes solo ofrecían servicios agudos, generando necesidad de comunicación diferente.</div>
+                    <span class="trend-tag medium">Oportunidad media</span>
+                </div>
+
+                <div class="trend-card info">
+                    <div class="trend-title">Escasez de personal especializado en marketing salud</div>
+                    <div class="trend-desc">Hay una brecha notable: las clínicas están invirtiendo en infraestructura pero carecen de equipos de marketing digital robustos. Esto representa una ventana para propuestas de agencia externa.</div>
+                    <span class="trend-tag info">Dato clave</span>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Contact Strategies -->
+        <div class="section">
+            <div class="section-title">3. Estrategias de Contacto Recomendadas</div>
+
+            <table class="strategy-table">
+                <thead>
+                    <tr>
+                        <th>Empresa / Perfil</th>
+                        <th>Ángulo de aproximación</th>
+                        <th>Canales</th>
+                        <th>Timing</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Hospital Clínica Bíblica</td>
+                        <td>Proponer estrategia de contenido para redes sociales médicas y campañas de turismo médico internacional (pacientes extranjeros)</td>
+                        <td>
+                            <span class="channel-tag linkedin">LinkedIn: Ariana Corrales</span>
+                            <span class="channel-tag email">Email</span>
+                            <span class="channel-tag web">Web</span>
+                        </td>
+                        <td>Semana 1</td>
+                    </tr>
+                    <tr>
+                        <td>Hospital CIMA</td>
+                        <td>Presentar propuesta de publicidad digital para atraer pacientes internacionales; mostrar casos de éxito en turismo médico</td>
+                        <td>
+                            <span class="channel-tag linkedin">LinkedIn: David Burgos Gamboa</span>
+                            <span class="channel-tag email">Email comercial</span>
+                            <span class="channel-tag phone">Teléfono</span>
+                        </td>
+                        <td>Semana 1</td>
+                    </tr>
+                    <tr>
+                        <td>Hospital Metropolitano</td>
+                        <td>Enfatizar expansión de sedes y necesidad de posicionamiento local por zona geográfica; propuesta multisede</td>
+                        <td>
+                            <span class="channel-tag linkedin">LinkedIn: Steven Vargas</span>
+                            <span class="channel-tag email">Email</span>
+                            <span class="channel-tag phone">Teléfono</span>
+                        </td>
+                        <td>Semana 2</td>
+                    </tr>
+                    <tr>
+                        <td>Clínica UNIBE (Hospital)</td>
+                        <td>Nuevo hospital necesita posicionamiento desde cero; excelente momento para propuesta integral de marca y apertura</td>
+                        <td>
+                            <span class="channel-tag linkedin">LinkedIn</span>
+                            <span class="channel-tag email">Email institucional</span>
+                            <span class="channel-tag whatsapp">WhatsApp</span>
+                        </td>
+                        <td>Semana 1</td>
+                    </tr>
+                    <tr>
+                        <td>Hospital La Católica</td>
+                        <td>Enfatizar su modelo único hotel-hospital; propuesta de contenido para redes y branding de diferenciación</td>
+                        <td>
+                            <span class="channel-tag linkedin">LinkedIn: Melissa Sánchez Villalobos</span>
+                            <span class="channel-tag email">Email</span>
+                        </td>
+                        <td>Semana 2</td>
+                    </tr>
+                    <tr>
+                        <td>Hospital del Trauma (INS)</td>
+                        <td>Institución grande con procesos más lentos; enfocar en comunicación corporativa y campaigns de prevención</td>
+                        <td>
+                            <span class="channel-tag linkedin">LinkedIn: Kenneth Rojas</span>
+                            <span class="channel-tag email">Email institucional</span>
+                        </td>
+                        <td>Semana 3</td>
+                    </tr>
+                    <tr>
+                        <td>Clínica FORM / Dermatológica</td>
+                        <td>Clínicas en crecimiento rápido buscan diferenciación; propuestas de branding, web y Meta Ads para estética y belleza</td>
+                        <td>
+                            <span class="channel-tag instagram">Instagram</span>
+                            <span class="channel-tag whatsapp">WhatsApp</span>
+                            <span class="channel-tag email">Email</span>
+                        </td>
+                        <td>Semana 1</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- CTA -->
+        <div class="cta-block">
+            <div class="cta-title">Próximo paso recomendado</div>
+            <p class="cta-desc">
+                Iniciar con Clínica UNIBE (recién nombrada hospital, necesita posicionamiento), Hospital CIMA (turismo médico internacional, mayor presupuesto potencial) y Clínica FORM (fase de crecimiento, receptiva a propuestas). Priorizar LinkedIn para aproximación inicial a los equipos comerciales ya identificados.
+            </p>
+        </div>
+
+        <div class="disclaimer">
+            <strong>Aviso:</strong> Este reporte es para uso interno de Aurea. Los datos de contacto fueron obtenidos de fuentes públicas (LinkedIn, páginas web corporativas, artículos de prensa). Verificar información antes de cualquier contacto comercial. No enviar mensajes no solicitados a números personales.
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <span>Reporte generado automáticamente — Aurea Advertising Agency · Intelligence Division</span>
+            <span>30 Abril 2026 · Confidencial</span>
+        </div>
+
     </div>
 
-    <!-- CONTACT STRATEGIES -->
-    <div class="section">
-        <div class="section-title">🎯 Estrategias de Contacto Recomendadas</div>
-
-        <div class="pitch-box" style="margin-bottom: 16px;">
-            <h3>📧 Email Prospectivo — cold email template</h3>
-            <p>
-                <span class="highlight">Asunto:</span> Propuesta de estrategia digital para [Nombre Restaurant]<br><br>
-                Hola [Nombre],<br><br>
-                Somos Aurea, agencia de marketing y advertising con enfoque en el sector gastronómico. Notamos el trabajo increíble que hacen en [Restaurant] — especialmente [mencionar algo específico sobre su marca o cocina].<br><br>
-                Trabajamos con restaurantes en LATAM ayudándolos a [aumentar reservas / posicionarse en guías internacionales / escalar su presencia en redes].<br><br>
-                ¿Podemos agendar 15 minutos esta semana para compartir algunas ideas específicas para [Restaurant]? No hay compromiso — solo conversación.<br><br>
-                ¡Saludos!<br>
-                <span class="highlight">Equipo Aurea</span>
-            </p>
-        </div>
-
-        <div class="pitch-box" style="margin-bottom: 16px;">
-            <h3>🔍 Canales de Prospección Prioritarios</h3>
-            <p>
-                <strong>1. LinkedIn:</strong> Chefs y founders de restaurantes de alta gama (Henry Quesada, Pablo Bonilla) son activos en LinkedIn. InMail con propuesta de valor.<br><br>
-                <strong>2. Instagram DM:</strong> El canal más efectivo para restaurantes. Contenido visual + propuesta de gestión de redes.<br><br>
-                <strong>3. Email directo:</strong> Conservatorium tiene email público (conservatoriumcr@gmail.com). Sikwa tiene formulario en web.<br><br>
-                <strong>4. Facebook Page:</strong> El Patio del Balmoral responde por Messenger. Approach amigable y casual funciona.<br><br>
-                <strong>5. TripAdvisor:</strong> Responder a reviews de forma estratégica —有机会contactar al restaurante via TripAdvisor.
-            </p>
-        </div>
-
-        <div class="pitch-box">
-            <h3>💡 Paquetes de Servicios Recomendados para Este Nicho</h3>
-            <p>
-                <span class="highlight">Starter:</span> Gestión de 2 redes sociales (Instagram + Facebook) + 12 posts/mes + 2 ads campaigns = $800-1,500/mes<br><br>
-                <span class="highlight">Growth:</span> Starter + SEO local + Google Business + email marketing + 4 videos/mes = $1,500-3,000/mes<br><br>
-                <span class="highlight">Premium:</span> Estrategia integral + branded content + PR gastronómico + partnerships + analytics = $3,000-6,000/mes<br><br>
-                <span class="highlight">Project-based:</span> Branding completo o campaign específica = $5,000-15,000 por proyecto
-            </p>
-        </div>
-    </div>
-
-    <!-- FOOTER -->
-    <footer>
-        <span>🔍 Aurea Advertising — Reporte de Leads | 30 Abril 2026</span>
-        <span>Creado automáticamente por Logos AI Agent</span>
-    </footer>
-
-</div>
 </body>
 </html>
