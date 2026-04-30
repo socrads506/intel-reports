@@ -3,508 +3,582 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aurea Lead Research - Startups Costa Rica | 30 Abril 2026</title>
+    <title>Aurea Lead Report - Restaurantes Costa Rica | 30 Abril 2026</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+        
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #0d1117 0%, #161b22 100%);
-            color: #c9d1d9;
-            min-height: 100vh;
-            padding: 20px;
+            background-color: #0d1117;
+            color: #e6edf3;
             line-height: 1.6;
+            min-height: 100vh;
         }
+        
         .container {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
+            padding: 40px 20px;
         }
+        
         header {
-            background: linear-gradient(90deg, #238636 0%, #2ea043 100%);
-            color: white;
-            padding: 40px;
-            border-radius: 12px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 20px rgba(35, 134, 54, 0.3);
+            border-bottom: 2px solid #238636;
+            padding-bottom: 30px;
+            margin-bottom: 40px;
         }
-        header h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-        }
-        header .subtitle {
-            font-size: 1.2em;
-            opacity: 0.9;
-        }
-        header .meta {
-            margin-top: 15px;
-            font-size: 0.9em;
-            opacity: 0.8;
-        }
+        
         .badge {
             display: inline-block;
-            background: rgba(255,255,255,0.2);
-            padding: 5px 15px;
+            background: linear-gradient(135deg, #238636 0%, #2ea043 100%);
+            color: #fff;
+            padding: 6px 16px;
             border-radius: 20px;
-            margin-right: 10px;
-            margin-top: 10px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
         }
+        
+        h1 {
+            font-size: 2.5em;
+            color: #f0f6fc;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            color: #8b949e;
+            font-size: 1.1em;
+        }
+        
+        .meta-info {
+            display: flex;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #8b949e;
+            font-size: 14px;
+        }
+        
+        .meta-item span {
+            color: #58a6ff;
+            font-weight: 600;
+        }
+        
         .section {
-            background: #0d1117;
+            background: #161b22;
             border: 1px solid #30363d;
             border-radius: 12px;
             padding: 30px;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
         }
-        .section h2 {
-            color: #58a6ff;
-            font-size: 1.8em;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #238636;
-        }
-        .section h3 {
-            color: #8b949e;
-            font-size: 1.2em;
-            margin: 20px 0 10px 0;
-        }
-        .company-card {
-            background: #161b22;
-            border: 1px solid #30363d;
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 15px;
-            transition: all 0.3s ease;
-        }
-        .company-card:hover {
-            border-color: #58a6ff;
-            box-shadow: 0 0 20px rgba(88, 166, 255, 0.1);
-        }
-        .company-name {
-            color: #f0f6fc;
+        
+        .section-title {
             font-size: 1.4em;
-            font-weight: bold;
-            margin-bottom: 8px;
-        }
-        .company-category {
-            display: inline-block;
-            background: #238636;
-            color: white;
-            padding: 3px 12px;
-            border-radius: 15px;
-            font-size: 0.8em;
-            margin-bottom: 10px;
-        }
-        .company-description {
-            color: #8b949e;
-            margin: 10px 0;
-        }
-        .contact-info {
-            background: #0d1117;
-            padding: 10px;
-            border-radius: 5px;
-            margin-top: 10px;
-        }
-        .contact-info span {
-            color: #58a6ff;
-            font-family: monospace;
-        }
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            color: #f0f6fc;
             margin-bottom: 20px;
-        }
-        .stat-card {
-            background: linear-gradient(135deg, #161b22 0%, #21262d 100%);
-            border: 1px solid #30363d;
-            border-radius: 10px;
-            padding: 25px;
-            text-align: center;
-        }
-        .stat-card .number {
-            font-size: 2.5em;
-            font-weight: bold;
-            color: #58a6ff;
-        }
-        .stat-card .label {
-            color: #8b949e;
-            margin-top: 5px;
-        }
-        .trend-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 15px;
-            padding: 15px;
-            background: #161b22;
-            border-radius: 8px;
-        }
-        .trend-icon {
-            font-size: 2em;
-            margin-right: 15px;
-        }
-        .strategy-step {
             display: flex;
             align-items: center;
-            margin-bottom: 15px;
-            padding: 15px;
-            background: #161b22;
-            border-radius: 8px;
-            border-left: 4px solid #238636;
+            gap: 12px;
         }
-        .step-number {
-            background: #238636;
-            color: white;
-            width: 30px;
-            height: 30px;
+        
+        .section-title::before {
+            content: '';
+            width: 4px;
+            height: 24px;
+            background: linear-gradient(180deg, #238636 0%, #2ea043 100%);
+            border-radius: 2px;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .stat-card {
+            background: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 2.2em;
+            font-weight: 700;
+            color: #58a6ff;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            color: #8b949e;
+            font-size: 14px;
+        }
+        
+        .company-card {
+            background: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 10px;
+            padding: 24px;
+            margin-bottom: 16px;
+            transition: border-color 0.2s;
+        }
+        
+        .company-card:hover {
+            border-color: #238636;
+        }
+        
+        .company-name {
+            font-size: 1.2em;
+            color: #f0f6fc;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .company-description {
+            color: #8b949e;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        
+        .company-tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .tag {
+            background: rgba(35, 134, 54, 0.2);
+            color: #3fb950;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        .tag.secondary {
+            background: rgba(88, 166, 255, 0.15);
+            color: #58a6ff;
+        }
+        
+        .trend-list {
+            list-style: none;
+        }
+        
+        .trend-item {
+            padding: 16px 0;
+            border-bottom: 1px solid #21262d;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+        
+        .trend-item:last-child {
+            border-bottom: none;
+        }
+        
+        .trend-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(35, 134, 54, 0.2);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+        
+        .trend-content h4 {
+            color: #f0f6fc;
+            margin-bottom: 4px;
+        }
+        
+        .trend-content p {
+            color: #8b949e;
+            font-size: 14px;
+        }
+        
+        .strategy-list {
+            display: grid;
+            gap: 16px;
+        }
+        
+        .strategy-item {
+            display: flex;
+            gap: 16px;
+            padding: 20px;
+            background: #0d1117;
+            border-radius: 10px;
+            border: 1px solid #30363d;
+        }
+        
+        .strategy-number {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, #238636 0%, #2ea043 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: bold;
-            margin-right: 15px;
+            font-weight: 700;
+            font-size: 14px;
+            flex-shrink: 0;
         }
-        .tag {
-            display: inline-block;
-            background: #21262d;
+        
+        .strategy-content h4 {
+            color: #f0f6fc;
+            margin-bottom: 6px;
+        }
+        
+        .strategy-content p {
             color: #8b949e;
-            padding: 3px 10px;
-            border-radius: 5px;
-            font-size: 0.85em;
-            margin-right: 5px;
-            margin-top: 5px;
-            border: 1px solid #30363d;
+            font-size: 14px;
         }
-        .footer {
+        
+        .cta-box {
+            background: linear-gradient(135deg, rgba(35, 134, 54, 0.15) 0%, rgba(46, 160, 67, 0.1) 100%);
+            border: 1px solid #238636;
+            border-radius: 12px;
+            padding: 30px;
             text-align: center;
-            padding: 20px;
+        }
+        
+        .cta-box h3 {
+            color: #f0f6fc;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+        
+        .cta-box p {
             color: #8b949e;
-            font-size: 0.9em;
+            margin-bottom: 20px;
         }
-        a {
-            color: #58a6ff;
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #238636 0%, #2ea043 100%);
+            color: #fff;
+            padding: 14px 32px;
+            border-radius: 8px;
             text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s;
         }
-        a:hover {
-            text-decoration: underline;
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: #8b949e;
+            font-size: 14px;
+            border-top: 1px solid #21262d;
+            margin-top: 40px;
+        }
+        
+        .niche-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #f78166 0%, #db6d28 100%);
+            color: #fff;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>🚀 Aurea Lead Research</h1>
-            <div class="subtitle">Oportunidades de Negocio para Agencies de Publicidad en Costa Rica</div>
-            <div class="meta">
-                <span class="badge">📅 30 Abril 2026</span>
-                <span class="badge">🎯 Nicho: Startups & Tech</span>
-                <span class="badge">⏰ 04:00 UTC</span>
+            <div class="badge">Reporte de Leads</div>
+            <h1>Investigación de Mercado: Restaurantes en Costa Rica</h1>
+            <p class="subtitle">Oportunidades de publicidad y marketing digital para Aurea Advertising Agency</p>
+            
+            <div class="meta-info">
+                <div class="meta-item">
+                    📅 Fecha: <span>30 Abril 2026</span>
+                </div>
+                <div class="meta-item">
+                    🕐 Hora: <span>05:00 UTC</span>
+                </div>
+                <div class="meta-item">
+                    📍 Nicho: <span>Restaurantes</span>
+                </div>
+                <div class="meta-item">
+                    🏷️ Ciclo: <span>Restaurantes (1/8)</span>
+                </div>
             </div>
         </header>
-
-        <div class="section">
-            <h2>📊 Panorama del Ecosistema Startup en Costa Rica</h2>
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="number">2,454</div>
-                    <div class="label">Startups Totales</div>
-                </div>
-                <div class="stat-card">
-                    <div class="number">$937M</div>
-                    <div class="label">Fondos VC Totales</div>
-                </div>
-                <div class="stat-card">
-                    <div class="number">+16.8%</div>
-                    <div class="label">Crecimiento 2025</div>
-                </div>
-                <div class="stat-card">
-                    <div class="number">#73</div>
-                    <div class="label">Ranking Global</div>
-                </div>
-            </div>
-            <p>Costa Rica se consolida como el hub tecnológico #2 de Centroamérica. La combinación de talento capacitado, infraestructura desarrollada y políticas de open banking ha impulsado un ecosistema startup vibrante con 195 empresas financiadas y 132 inversionistas activos.</p>
+        
+        <div class="niche-badge">
+            🍽️ NICHO DEL DÍA: Restaurantes & Food Service
         </div>
-
+        
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value">5.7%</div>
+                <div class="stat-label">Crecimiento CAGR 2026-2032</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">$5.4B</div>
+                <div class="stat-label">Gasto turístico anual</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">2.7M</div>
+                <div class="stat-label">Llegadas turísticas 2024</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">24%</div>
+                <div class="stat-label">Franquicias de comida en CR</div>
+            </div>
+        </div>
+        
         <div class="section">
-            <h2>🏢 Startups Destacadas para Prospección</h2>
-
+            <h2 class="section-title">Empresas Identificadas en Costa Rica</h2>
+            
             <div class="company-card">
-                <div class="company-name">IMPESA</div>
-                <span class="company-category">FinTech</span>
-                <p class="company-description">Innovador de pagos electrónicos con sede en San José. Líder en soluciones de pago para la región centroamericana.</p>
-                <div class="contact-info">
-                    <strong>Contacto Clave:</strong> <span>Mario Hernandez</span> — Founder & CEO<br>
-                    <strong>Enfoque:</strong> Pagos electrónicos, banking APIs, fintech
+                <div class="company-name">Enjoy Group</div>
+                <div class="company-description">
+                    Grupo Hospitality en operación desde 1973, gestionando proyectos en Costa Rica y Centroamérica. 
+                    Desarrollo hotetero y restaurantero de lujo. Proyecto actual: Bahía Papagayo en conjunto con Grupo Laguna.
                 </div>
-                <div>
-                    <span class="tag">Pagos Digitales</span>
-                    <span class="tag">Banking API</span>
-                    <span class="tag">Expansión Regional</span>
+                <div class="company-tags">
+                    <span class="tag">Hospitality</span>
+                    <span class="tag">Hoteles</span>
+                    <span class="tag secondary">Restaurantes</span>
+                    <span class="tag">Marriott Partner</span>
                 </div>
             </div>
-
+            
             <div class="company-card">
-                <div class="company-name">HuliHealth</div>
-                <span class="company-category">HealthTech</span>
-                <p class="company-description">Plataforma de citas médicas online líder en Costa Rica. Conecta pacientes con profesionales de salud de manera digital.</p>
-                <div class="contact-info">
-                    <strong>Enfoque:</strong> Citas médicas online, telemedicina, healthtech<br>
-                    <strong>Potencial:</strong> Marketing digital, app promotion, patient acquisition
+                <div class="company-name">Café Rey</div>
+                <div class="company-description">
+                    Principal restaurante de Costa Rica según ranking Tracxn. Cadena tradicional costarricense 
+                    con presencia establecida en el mercado local. Potencial para servicios de branding y marketing digital.
                 </div>
-                <div>
-                    <span class="tag">Telemedicina</span>
-                    <span class="tag">Salud Digital</span>
-                    <span class="tag">Patient Acquisition</span>
+                <div class="company-tags">
+                    <span class="tag">Cadena Local</span>
+                    <span class="tag">Tradición</span>
+                    <span class="tag secondary">Expansión</span>
                 </div>
             </div>
-
+            
             <div class="company-card">
-                <div class="company-name">Mutuum Finance (MUTM)</div>
-                <span class="company-category">DeFi / Crypto</span>
-                <p class="company-description">Plataforma de finanzas descentralizadas basada en Costa Rica. Impulsando la adopción crypto en Latinoamérica.</p>
-                <div class="contact-info">
-                    <strong>Enfoque:</strong> DeFi, trading de crypto assets, blockchain<br>
-                    <strong>Ubicación:</strong> San José, Costa Rica | Fundada 2018
+                <div class="company-name">Manzú Restaurant</div>
+                <div class="company-description">
+                    Mejor Restaurant de Hotel en Costa Rica 2025 según World Culinary Awards. Ubicado en complejo hotelero 
+                    de lujo. Enfoque en gastronomía premium con ingredientes locales.
                 </div>
-                <div>
-                    <span class="tag">Blockchain</span>
-                    <span class="tag">DeFi</span>
-                    <span class="tag">Crypto Trading</span>
+                <div class="company-tags">
+                    <span class="tag">Alta Gama</span>
+                    <span class="tag">Gastronomía Premium</span>
+                    <span class="tag secondary">Instagram Marketing</span>
                 </div>
             </div>
-
+            
             <div class="company-card">
-                <div class="company-name">Snap Compliance</div>
-                <span class="company-category">RegTech</span>
-                <p class="company-description">Soluciones de cumplimiento regulatorio para empresas fintech y financieras en Latinoamérica.</p>
-                <div class="contact-info">
-                    <strong>Enfoque:</strong> Compliance, KYC/AML, regtech<br>
-                    <strong>Potencial:</strong> Branding, thought leadership, B2B marketing
+                <div class="company-name">Sikwa Restaurant</div>
+                <div class="company-description">
+                    Restaurante de alta cocina en San José con chef Pablo Bonilla. Cocina indigenous y jungle-to-table. 
+                    Tendencia creciente en experiencias culinarias auténticas.
                 </div>
-                <div>
-                    <span class="tag">RegTech</span>
-                    <span class="tag">KYC/AML</span>
-                    <span class="tag">B2B SaaS</span>
+                <div class="company-tags">
+                    <span class="tag">Alta Cocina</span>
+                    <span class="tag">Chef Reconocido</span>
+                    <span class="tag secondary">Content Marketing</span>
                 </div>
             </div>
-
+            
             <div class="company-card">
-                <div class="company-name">Healz Latam</div>
-                <span class="company-category">HealthTech</span>
-                <p class="company-description">Tecnología aplicada a la salud en toda Latinoamérica. Soluciones innovadoras para el sector médico.</p>
-                <div class="contact-info">
-                    <strong>Enfoque:</strong> Health tech, medical devices, Latam expansion<br>
-                    <strong>Potencial:</strong> Marketing para healthcare, digital campaigns
+                <div class="company-name">Conservatorium</div>
+                <div class="company-description">
+                    Concepto de grill basado en carne local seca madurada. Parte de la tendencia de cocina regional 
+                    costarricense en San José. Enfoque en ingredientes locales premium.
                 </div>
-                <div>
-                    <span class="tag">MedTech</span>
-                    <span class="tag">Health Innovation</span>
-                    <span class="tag">LatAm</span>
+                <div class="company-tags">
+                    <span class="tag">Grill Premium</span>
+                    <span class="tag">Carne Local</span>
+                    <span class="tag secondary">Influencer Marketing</span>
                 </div>
             </div>
-
+            
             <div class="company-card">
-                <div class="company-name">Bluelight Consulting</div>
-                <span class="company-category">IT Consulting</span>
-                <p class="company-description">Consultoría tecnológica en el top 1% en tiempo de respuesta. 423 empleos activos, fuerte crecimiento.</p>
-                <div class="contact-info">
-                    <strong>Enfoque:</strong> Software development, IT consulting, nearshoring<br>
-                    <strong>Potencial:</strong> Employer branding, recruitment marketing
+                <div class="company-name">The Retreat Costa Rica</div>
+                <div class="company-description">
+                    Resort boutique de wellness con 3 nuevos restaurantes: Mystique, La Diosa y Richard's Kitchen. 
+                    Chef ejecutivo: Michelin-starred Richard Neat. Apertura Junio 2025.
                 </div>
-                <div>
-                    <span class="tag">Nearshoring</span>
-                    <span class="tag">Tech Talent</span>
-                    <span class="tag">Consultoría</span>
+                <div class="company-tags">
+                    <span class="tag">Wellness Resort</span>
+                    <span class="tag">3 Restaurantes</span>
+                    <span class="tag secondary">Brand Strategy</span>
                 </div>
             </div>
-
+            
             <div class="company-card">
-                <div class="company-name">Socialdesk</div>
-                <span class="company-category">Social Media Tech</span>
-                <p class="company-description">Plataforma de gestión de redes sociales para empresas latinoamericanas.</p>
-                <div class="contact-info">
-                    <strong>Enfoque:</strong> Social media management, marketing digital<br>
-                    <strong>Potencial:</strong> Co-marketing, partnerships con agencies
+                <div class="company-name">Restaurantes en Jacó, Nosara, Tamarindo</div>
+                <div class="company-description">
+                    Zona costera en expansión turística. Mejores restaurantes: La Malacrianza, La Luna, Horny. 
+                    Mercado en crecimiento con necesidades de marketing digital para turistas extranjeros.
                 </div>
-                <div>
-                    <span class="tag">Social Media</span>
-                    <span class="tag">Marketing Digital</span>
-                    <span class="tag">SaaS</span>
+                <div class="company-tags">
+                    <span class="tag">Turismo Playa</span>
+                    <span class="tag">Expatriados</span>
+                    <span class="tag secondary">Social Media</span>
                 </div>
             </div>
-
+            
             <div class="company-card">
-                <div class="company-name">tobipets.com</div>
-                <span class="company-category">PetTech</span>
-                <p class="company-description">Plataforma tech para el cuidado de mascotas. Mercado en crecimiento en Costa Rica.</p>
-                <div class="contact-info">
-                    <strong>Enfoque:</strong> Pet care, e-commerce, digital services<br>
-                    <strong>Potencial:</strong> E-commerce marketing, app promotion
+                <div class="company-name">Arcos Dorados (McDonald's LAC)</div>
+                <div class="company-description">
+                    Operador maestro de McDonald's en Latinoamérica y Caribe. Presencia en Costa Rica con múltiples 
+                    unidades. Potencial para marketing de frnaquicia y publicidad estacional.
                 </div>
-                <div>
-                    <span class="tag">PetTech</span>
-                    <span class="tag">E-commerce</span>
-                    <span class="tag">Mobile App</span>
-                </div>
-            </div>
-
-            <div class="company-card">
-                <div class="company-name">Calix</div>
-                <span class="company-category">Top Ranked Startup</span>
-                <p class="company-description">Una de las startups mejor posicionadas en Costa Rica según StartupBlink. Alto potencial de scaling.</p>
-                <div class="contact-info">
-                    <strong>Enfoque:</strong> Tech solutions, scalable business<br>
-                    <strong>Relevancia:</strong> #1 en ranking StartupBlink Costa Rica
-                </div>
-                <div>
-                    <span class="tag">High Growth</span>
-                    <span class="tag">Tech</span>
-                    <span class="tag">Scalable</span>
-                </div>
-            </div>
-
-            <div class="company-card">
-                <div class="company-name">Tilopay</div>
-                <span class="company-category">FinTech / Payments</span>
-                <p class="company-description">Plataforma de pagos que facilita transacciones digitales para comercios en Latinoamérica.</p>
-                <div class="contact-info">
-                    <strong>Enfoque:</strong> Payment processing, merchant services<br>
-                    <strong>Potencial:</strong> B2B marketing, fintech partnerships
-                </div>
-                <div>
-                    <span class="tag">Payments</span>
-                    <span class="tag">Merchant Services</span>
-                    <span class="tag">FinTech</span>
+                <div class="company-tags">
+                    <span class="tag">Franquicia</span>
+                    <span class="tag">QSR</span>
+                    <span class="tag secondary">Regional</span>
                 </div>
             </div>
         </div>
-
+        
         <div class="section">
-            <h2>📈 Tendencias del Mercado 2026</h2>
-
-            <div class="trend-item">
-                <div class="trend-icon">💳</div>
-                <div>
-                    <h3>Open Banking & FinTech</h3>
-                    <p>Costa Rica está implementando regulaciones de open banking que crean oportunidades para fintechs. 106 empresas fintech activas con $50.1M en VC. El país es pionero en la región.</p>
-                </div>
-            </div>
-
-            <div class="trend-item">
-                <div class="trend-icon">🏥</div>
-                <div>
-                    <h3>HealthTech en Auge</h3>
-                    <p>La telemedicina y digital health han acelerado post-pandemia. HuliHealth lidera el segmento de citas médicas online, con Healz Latam expandiendo soluciones médicas tecnológicas.</p>
-                </div>
-            </div>
-
-            <div class="trend-item">
-                <div class="trend-icon">🌱</div>
-                <div>
-                    <h3>AgTech & Sostenibilidad</h3>
-                    <p>Impulsado por la herencia agrícola del país, el AgTech está creciendo con herramientas digitales para monitoreo remoto y productividad agrícola. Oportunidad para brands sustainability-focused.</p>
-                </div>
-            </div>
-
-            <div class="trend-item">
-                <div class="trend-icon">🔐</div>
-                <div>
-                    <h3>RegTech & Compliance</h3>
-                    <p>Con más regulaciones financieras, empresas como Snap Compliance están en demanda. Las agencies pueden posicionarse como expertas en compliance marketing.</p>
-                </div>
-            </div>
-
-            <div class="trend-item">
-                <div class="trend-icon">🌎</div>
-                <div>
-                    <h3>Nearshoring & Tech Talent</h3>
-                    <p>Costa Rica hosts 16 of top 100 IT companies globally. Microsoft, Amazon, y otras big tech tienen presencia. Esto impulsa demanda de employer branding y tech recruitment marketing.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="section">
-            <h2>🎯 Estrategias de Contacto Recomendadas</h2>
-
-            <div class="strategy-step">
-                <div class="step-number">1</div>
-                <div>
-                    <h3>LinkedIn Outreach Masivo</h3>
-                    <p>Conectar con founders y CMOs de las startups listadas. Personalizar mensaje mencionando su empresa específica y cómo han ayudado a startups similares.</p>
-                </div>
-            </div>
-
-            <div class="strategy-step">
-                <div class="step-number">2</div>
-                <div>
-                    <h3>Contenido de Valor para Founders</h3>
-                    <p>Crear case studies de campaigns exitosas en fintech/healthtech. Los founders de startups valoran evidencia de ROI y casos de crecimiento rápido.</p>
-                </div>
-            </div>
-
-            <div class="strategy-step">
-                <div class="step-number">3</div>
-                <div>
-                    <h3>Eventos y Comunidades</h3>
-                    <p>Participar en eventos como <strong>Techarena 2026</strong>, <strong>LondonTechWeek Costa Rica pavilion</strong>, y meetups de Startup Costa Rica. Networking presencial es clave.</p>
-                </div>
-            </div>
-
-            <div class="strategy-step">
-                <div class="step-number">4</div>
-                <div>
-                    <h3>Paquetes para Startups</h3>
-                    <p>Ofrecer servicios de marketing con pricing accesible para early-stage. Many startups have limited budgets but high growth potential. Considerar revenue-share o fixed retainer bajo con equity opcional.</p>
-                </div>
-            </div>
-
-            <div class="strategy-step">
-                <div class="step-number">5</div>
-                <div>
-                    <h3>Co-Marketing con Accelerators</h3>
-                    <p>Establecer partnerships con programas como <strong>Upseed</strong>, <strong>DEEP Accelerator</strong>, y organizaciones como <strong>CINDE</strong> para acceder a pipeline de startups.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="section">
-            <h2>🎯 Quick Wins - Prioridad Alta</h2>
-            <ul style="list-style: none;">
+            <h2 class="section-title">Tendencias del Mercado 2026</h2>
+            
+            <ul class="trend-list">
                 <li class="trend-item">
-                    <div class="trend-icon">⭐</div>
-                    <div>
-                        <h3>IMPESA - Mario Hernandez</h3>
-                        <p>Fintech establecida con potencial de expansión regional. Buscan partners para marketing de pago y brand awareness.</p>
+                    <div class="trend-icon">📱</div>
+                    <div class="trend-content">
+                        <h4>Social Media como Canal Principal</h4>
+                        <p>90% de restaurantes consideran social media muy o extremadamente importante para su estrategia digital. 41% de consumidores siguen marcas de restaurantes en redes sociales.</p>
                     </div>
                 </li>
                 <li class="trend-item">
-                    <div class="trend-icon">⭐</div>
-                    <div>
-                        <h3>HuliHealth</h3>
-                        <p>Healthtech establecida buscando scaling. Oportunidad para campaigns de patient acquisition y telemedicina awareness.</p>
+                    <div class="trend-icon">🎨</div>
+                    <div class="trend-content">
+                        <h4>Influencer Marketing en Ascenso</h4>
+                        <p>46% de restaurantes reportan alto ROI con marketing de creadores de contenido. Trabajo con influencers es la segunda estrategia de mayor retorno después de programas de lealtad.</p>
                     </div>
                 </li>
                 <li class="trend-item">
-                    <div class="trend-icon">⭐</div>
-                    <div>
-                        <h3>Calix & Tilopay</h3>
-                        <p>Top-ranked startups con funding. Alta probabilidad de tener budget para marketing y buscar agencies partners.</p>
+                    <div class="trend-icon">📍</div>
+                    <div class="trend-content">
+                        <h4>Full-Service Restaurants Dominan</h4>
+                        <p>Los restaurantes de servicio completo lideran el mercado CR, impulsados por demanda de experiencias premium de dining, especialmente en áreas turísticas.</p>
+                    </div>
+                </li>
+                <li class="trend-item">
+                    <div class="trend-icon">🌿</div>
+                    <div class="trend-content">
+                        <h4>Cocina Regional Costarricense</h4>
+                        <p>Shift hacia cocina regional auténtica: ingredientes locales, tradiciones indígenas, y experiencias jungle-to-table están en tendencia.</p>
+                    </div>
+                </li>
+                <li class="trend-item">
+                    <div class="trend-icon">🏖️</div>
+                    <div class="trend-content">
+                        <h4>Turismo Gastronómico en Expansión</h4>
+                        <p>2.7M llegadas turísticas y $5.4B de gasto. Los restaurantes en zonas turísticas (Jacó, Nosara, Tamarindo, Papagayo) tienen alta demanda de servicios de marketing para extranjeros.</p>
+                    </div>
+                </li>
+                <li class="trend-item">
+                    <div class="trend-icon">🍔</div>
+                    <div class="trend-content">
+                        <h4>Franquicias en Crecimiento</h4>
+                        <p>Sector de franquicias creció 6% anual en última década, 4% adicional esperado en 2025. Food representa 24% del mercado de franquicias en Costa Rica.</p>
                     </div>
                 </li>
             </ul>
         </div>
-
-        <div class="footer">
-            <p>Reporte generado automáticamente por <strong>Aurea Lead Research Agent</strong></p>
-            <p>📅 30 Abril 2026 | 🌐 Datos de Tavily Web Search | 🤖 AI-powered research</p>
-            <p style="margin-top: 10px;">
-                <a href="https://www.startupblink.com/top-startups/costa-rica">StartupBlink Costa Rica</a> |
-                <a href="https://tracxn.com/d/geographies/costa-rica">Tracxn Costa Rica</a> |
-                <a href="https://www.cinde.org/en/sectors/knowledge-intensive-services/digital-technologies">CINDE Tech Sector</a>
-            </p>
+        
+        <div class="section">
+            <h2 class="section-title">Estrategias de Contacto Sugeridas</h2>
+            
+            <div class="strategy-list">
+                <div class="strategy-item">
+                    <div class="strategy-number">1</div>
+                    <div class="strategy-content">
+                        <h4>Enfoque en Franquicias y Grupos Hospitality</h4>
+                        <p>Priorizar Contacto con Enjoy Group, Arcos Dorados y grupos hoteleros. Tienen presupuestos de marketing establecidos y necesitan partners para campañas regionales. Buscar Directors of Marketing o Marketing Managers.</p>
+                    </div>
+                </div>
+                
+                <div class="strategy-item">
+                    <div class="strategy-number">2</div>
+                    <div class="strategy-content">
+                        <h4>Propuesta de Valor: Social Media + Influencers</h4>
+                        <p>Ofrecer paquetes de social media management + influencer marketing específicamente diseñados para restaurantes. Highlight casos de éxito en tourism-driven restaurants. Incluir Instagram, Facebook y TikTok.</p>
+                    </div>
+                </div>
+                
+                <div class="strategy-item">
+                    <div class="strategy-number">3</div>
+                    <div class="strategy-content">
+                        <h4>Target: Restaurantes de Alta Cocina Premium</h4>
+                        <p>Manzú, Sikwa, Conservatorium, The Retreat - chefs reconocidos y experiencias premium. Adecuados para branding de lujo, content marketing y PR gastronómico. Contactar via LinkedIn o email directo.</p>
+                    </div>
+                </div>
+                
+                <div class="strategy-item">
+                    <div class="strategy-number">4</div>
+                    <div class="strategy-content">
+                        <h4>Zonas Turísticas: Pitch de Marketing Bilingüe</h4>
+                        <p>Restaurantes en Jacó, Nosara, Tamarindo atienden turistas angloparlantes. Ofrecer servicios de marketing bilingual (español/inglés) con enfoque en Google My Business, TripAdvisor y redes sociales.</p>
+                    </div>
+                </div>
+                
+                <div class="strategy-item">
+                    <div class="strategy-number">5</div>
+                    <div class="strategy-content">
+                        <h4>Eventos y Promociones en Redes</h4>
+                        <p>51% de restaurantes dicen que promover eventos presenciales en redes es lo más efectivo para drive visits. Ofrecer contenido para eventos especiales, happy hours, colaboraciones con otros negocios locales.</p>
+                    </div>
+                </div>
+            </div>
         </div>
+        
+        <div class="section">
+            <h2 class="section-title">Próximos Nichos en Rotación</h2>
+            <div class="company-tags" style="gap: 12px;">
+                <span class="tag" style="background: rgba(247, 129, 102, 0.2); color: #f78166;">✓ Restaurantes (HOY)</span>
+                <span class="tag secondary">Clinics (Próx)</span>
+                <span class="tag secondary">Ecommerce</span>
+                <span class="tag secondary">Real Estate</span>
+                <span class="tag secondary">Hotels</span>
+                <span class="tag secondary">Startups</span>
+                <span class="tag secondary">Manufacturers</span>
+                <span class="tag secondary">Schools</span>
+            </div>
+        </div>
+        
+        <div class="cta-box">
+            <h3>¿Listo para prospectar?</h3>
+            <p>Este reporte fue generado automáticamente. Revisar las empresas identificadas y comenzar outreach estratégico.</p>
+            <a href="https://api.telegram.org/bot8187347342:AAEQ4gD3Kv6dx_qSP0lLbN0aWmtqN8hCW0g/sendMessage" class="cta-button">
+                📤 Compartir por Telegram
+            </a>
+        </div>
+        
+        <footer>
+            <p>Aurea Advertising Agency - Lead Research Report | Generado por Logos Agent</p>
+            <p style="margin-top: 8px; font-size: 12px;">30 Abril 2026 - 05:00 UTC | Nicho: Restaurantes</p>
+        </footer>
     </div>
 </body>
 </html>
