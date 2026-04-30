@@ -1,327 +1,364 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aurea - Leads Manufacturers Costa Rica | 30 Abr 2026</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #0d1117;
-            color: #c9d1d9;
-            line-height: 1.6;
-        }
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-        header {
-            border-bottom: 2px solid #238636;
-            padding-bottom: 20px;
-            margin-bottom: 30px;
-        }
-        .badge {
-            display: inline-block;
-            background: #238636;
-            color: #fff;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        h1 {
-            font-size: 2.2em;
-            color: #f0f6fc;
-            margin: 15px 0 5px;
-        }
-        .subtitle {
-            color: #8b949e;
-            font-size: 1.1em;
-        }
-        h2 {
-            color: #f0f6fc;
-            border-left: 4px solid #238636;
-            padding-left: 15px;
-            margin: 35px 0 20px;
-            font-size: 1.5em;
-        }
-        .company-card {
-            background: #161b22;
-            border: 1px solid #30363d;
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 15px;
-            transition: border-color 0.3s;
-        }
-        .company-card:hover {
-            border-color: #238636;
-        }
-        .company-name {
-            font-size: 1.3em;
-            color: #58a6ff;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-        .company-meta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin-top: 10px;
-        }
-        .meta-item {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 0.9em;
-            color: #8b949e;
-        }
-        .meta-item strong {
-            color: #c9d1d9;
-        }
-        .contact-strategies {
-            background: #161b22;
-            border: 1px solid #30363d;
-            border-radius: 8px;
-            padding: 25px;
-            margin: 30px 0;
-        }
-        .strategy-item {
-            padding: 12px 0;
-            border-bottom: 1px solid #30363d;
-        }
-        .strategy-item:last-child {
-            border-bottom: none;
-        }
-        .strategy-title {
-            color: #238636;
-            font-weight: 600;
-            font-size: 1.1em;
-            margin-bottom: 5px;
-        }
-        .trend-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin: 20px 0;
-        }
-        .trend-card {
-            background: #161b22;
-            border: 1px solid #30363d;
-            border-radius: 8px;
-            padding: 20px;
-        }
-        .trend-title {
-            color: #58a6ff;
-            font-weight: 600;
-            margin-bottom: 10px;
-            font-size: 1.1em;
-        }
-        .footer {
-            margin-top: 50px;
-            padding-top: 20px;
-            border-top: 1px solid #30363d;
-            text-align: center;
-            color: #8b949e;
-            font-size: 0.85em;
-        }
-        .highlight {
-            background: #238636;
-            color: #fff;
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 0.85em;
-        }
-        ul {
-            margin-left: 20px;
-            margin-top: 8px;
-        }
-        li {
-            margin-bottom: 5px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aurea Lead Report — Hoteles | 30 Abr 2026</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #0f1117;
+      color: #e8e8f0;
+      font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+      padding: 32px 24px;
+    }
+    .container { max-width: 860px; margin: 0 auto; }
+    .header {
+      border-bottom: 2px solid #2a2d3e;
+      padding-bottom: 20px;
+      margin-bottom: 28px;
+    }
+    .badge {
+      display: inline-block;
+      background: #6c47ff;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+    h1 { font-size: 22px; font-weight: 800; color: #ffffff; margin-bottom: 6px; }
+    .meta { color: #7a7d96; font-size: 12px; }
+    h2 {
+      font-size: 15px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #6c47ff;
+      margin: 28px 0 12px;
+      border-left: 3px solid #6c47ff;
+      padding-left: 10px;
+    }
+    h3 { font-size: 14px; font-weight: 700; color: #d4d4e8; margin-bottom: 4px; }
+    .lead-card {
+      background: #1a1d2b;
+      border: 1px solid #252838;
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-bottom: 12px;
+      transition: border-color 0.2s;
+    }
+    .lead-card:hover { border-color: #6c47ff; }
+    .lead-card .name { font-size: 15px; font-weight: 700; color: #f0f0ff; }
+    .lead-card .type {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 3px;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+    .type-luxury { background: #3d2f6b; color: #c4b5fd; }
+    .type-boutique { background: #1e3a4c; color: #7dd3fc; }
+    .type-chain { background: #2d3a20; color: #86efac; }
+    .type-group { background: #3a2d1e; color: #fcd34d; }
+    .lead-card .detail { color: #8a8da8; font-size: 12px; margin-top: 3px; }
+    .lead-card .contact { margin-top: 8px; }
+    .contact-chip {
+      display: inline-block;
+      background: #252838;
+      color: #b0b3cc;
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-right: 6px;
+      margin-bottom: 4px;
+    }
+    .tag {
+      display: inline-block;
+      background: #1f2030;
+      color: #9a9bba;
+      font-size: 10px;
+      padding: 1px 7px;
+      border-radius: 3px;
+      margin-top: 6px;
+    }
+    .trend-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+    .trend-card {
+      background: #1a1d2b;
+      border: 1px solid #252838;
+      border-radius: 8px;
+      padding: 14px 16px;
+    }
+    .trend-card .trend-title { font-size: 13px; font-weight: 700; color: #e0e0f0; margin-bottom: 5px; }
+    .trend-card .trend-desc { font-size: 11px; color: #7a7d96; line-height: 1.5; }
+    .strategy-item {
+      background: #1a1d2b;
+      border: 1px solid #252838;
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin-bottom: 10px;
+    }
+    .strategy-item .s-num {
+      display: inline-block;
+      background: #6c47ff;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 800;
+      width: 22px;
+      height: 22px;
+      text-align: center;
+      line-height: 22px;
+      border-radius: 50%;
+      margin-right: 10px;
+      vertical-align: middle;
+    }
+    .strategy-item .s-title { font-size: 13px; font-weight: 700; color: #e0e0f0; }
+    .strategy-item .s-desc { font-size: 11px; color: #7a7d96; margin-top: 4px; margin-left: 32px; }
+    .footer { margin-top: 40px; padding-top: 16px; border-top: 1px solid #252838; color: #4a4d68; font-size: 11px; text-align: center; }
+    .insight-box {
+      background: linear-gradient(135deg, #1a1d2b 0%, #201830 100%);
+      border: 1px solid #6c47ff;
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin: 16px 0;
+    }
+    .insight-box .insight-title { font-size: 13px; font-weight: 700; color: #c4b5fd; margin-bottom: 6px; }
+    .insight-box .insight-text { font-size: 12px; color: #a09cbe; line-height: 1.6; }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <span class="badge">Lead Research</span>
-            <h1>Manufacturers Costa Rica</h1>
-            <p class="subtitle">Jueves 30 de Abril, 2026 | Aurea Advertising Agency</p>
-        </header>
+<div class="container">
 
-        <section>
-            <h2>Resumen Ejecutivo</h2>
-            <p>Costa Rica se posiciona como hub de manufactura avanzada en América Latina, con un enfoque en dispositivos médicos, semiconductores y producción de alta complejidad. El sector está experimentando transformación digital acelerada y busca activamente partners de marketing para fortalecer su presencia de marca y generar demanda B2B.</p>
-        </section>
+  <!-- HEADER -->
+  <div class="header">
+    <div class="badge">Aurea Advertising — Lead Research</div>
+    <h1>Lead Report: Hoteles en Costa Rica</h1>
+    <div class="meta">30 de abril de 2026 &nbsp;|&nbsp; 14:00 CST &nbsp;|&nbsp; Nicho: Hoteles & Resorts</div>
+  </div>
 
-        <section>
-            <h2>Empresas Identificadas</h2>
-
-            <div class="company-card">
-                <div class="company-name">ITEK Nearshoring</div>
-                <p>Empresa de servicios de manufactura nearshoring con enfoque en dispositivos médicos y manufactura avanzada. Alliance estratégica con TMA para fortalecer ecosistema regional.</p>
-                <div class="company-meta">
-                    <div class="meta-item"><strong>Sector:</strong> Medical Devices & Advanced Manufacturing</div>
-                    <div class="meta-item"><strong>CEO:</strong> Bernal (Founder & CEO)</div>
-                    <div class="meta-item"><strong>Ubicación:</strong> Costa Rica</div>
-                </div>
-            </div>
-
-            <div class="company-card">
-                <div class="company-name">Conforpie</div>
-                <p>Empresa líder en el sector manufacturero de Costa Rica con $450.7M en ingresos. Enfoque en producción industrial de consumo.</p>
-                <div class="company-meta">
-                    <div class="meta-item"><strong>Revenue:</strong> $450.7M</div>
-                    <div class="meta-item"><strong>Sector:</strong> Manufacturing</div>
-                </div>
-            </div>
-
-            <div class="company-card">
-                <div class="company-name">Leaho Refrigeracion Industrial S.A.</div>
-                <p>Empresa de maquinaria industrial con presencia en Atenas, Alajuela. Enfoque en soluciones de refrigeración para el sector industrial.</p>
-                <div class="company-meta">
-                    <div class="meta-item"><strong>Revenue:</strong> $34.48M</div>
-                    <div class="meta-item"><strong>Sector:</strong> Industrial Machinery</div>
-                    <div class="meta-item"><strong>Ubicación:</strong> Atenas, Alajuela</div>
-                </div>
-            </div>
-
-            <div class="company-card">
-                <div class="company-name">Corporacion Pedregal</div>
-                <p>Corporación industrial diversificada con operaciones en Costa Rica.</p>
-                <div class="company-meta">
-                    <div class="meta-item"><strong>Sector:</strong> Manufacturing</div>
-                </div>
-            </div>
-
-            <div class="company-card">
-                <div class="company-name">CRAISA</div>
-                <p>Empresa de equipos y componentes industriales. Enfoque en soluciones de manufactura y distribución de equipos.</p>
-                <div class="company-meta">
-                    <div class="meta-item"><strong>Sector:</strong> Industrial Machinery</div>
-                </div>
-            </div>
-
-            <div class="company-card">
-                <div class="company-name">Dansar Industries</div>
-                <p>Empresa de manufactura industrial con enfoque en producción especializada.</p>
-                <div class="company-meta">
-                    <div class="meta-item"><strong>Sector:</strong> Manufacturing</div>
-                </div>
-            </div>
-
-            <div class="company-card">
-                <div class="company-name">3Designers CAD Studio</div>
-                <p>Estudio de diseño CAD especializado en soluciones de ingeniería y prototipado para el sector manufacturero.</p>
-                <div class="company-meta">
-                    <div class="meta-item"><strong>Sector:</strong> Industrial Design & Engineering</div>
-                </div>
-            </div>
-
-            <div class="company-card">
-                <div class="company-name">AQUAPURA Costa Rica</div>
-                <p>Empresa de equipos industriales y soluciones de tratamiento de agua.</p>
-                <div class="company-meta">
-                    <div class="meta-item"><strong>Sector:</strong> Industrial Equipment</div>
-                </div>
-            </div>
-
-            <div class="company-card">
-                <div class="company-name">Aditel Costa Rica / ADITEC JCB</div>
-                <p>Representante de equipos de construcción y maquinaria pesada. Enfoque en sector construcción e infraestructura.</p>
-                <div class="company-meta">
-                    <div class="meta-item"><strong>Sector:</strong> Heavy Machinery</div>
-                </div>
-            </div>
-
-            <div class="company-card">
-                <div class="company-name">Cargotecnia Costa Rica</div>
-                <p>Soluciones de maquinaria para logística y transporte interno.</p>
-                <div class="company-meta">
-                    <div class="meta-item"><strong>Sector:</strong> Logistics & Materials Handling</div>
-                </div>
-            </div>
-
-        </section>
-
-        <section>
-            <h2>Estrategias de Contacto</h2>
-            <div class="contact-strategies">
-                <div class="strategy-item">
-                    <div class="strategy-title">LinkedIn Outreach Masivo</div>
-                    <p>Conectar con decisores de manufacturing, operations y marketing en empresas identificadas. Usar InMail con propuesta de valor enfocada en casos de éxito en sector industrial B2B.</p>
-                </div>
-                <div class="strategy-item">
-                    <div class="strategy-title">CINDE como Portal de Entrada</div>
-                    <p>CINDE (Costa Rica Investment Promotion Agency) conecta con empresas del sector manufacturing. Solicitar contacto con empresas en su directorio de smart manufacturing.</p>
-                </div>
-                <div class="strategy-item">
-                    <div class="strategy-title">PROCOMER Trade Network</div>
-                    <p>PROCOMER tiene directorio de 400+ exportadores costarricenses. Ideal para manufacturers con operaciones de exportación y necesidades de posicionamiento internacional.</p>
-                </div>
-                <div class="strategy-item">
-                    <div class="strategy-title">Eventos Sectoriales</div>
-                    <p>MD&M West 2026 y similares. PROCOMER lidera delegaciones. Opportunidad de networking directo con decisores de medical devices manufacturing.</p>
-                </div>
-                <div class="strategy-item">
-                    <div class="strategy-title">Pitch: Digital Transformation narrativa</div>
-                    <p>Manufacturers en Costa Rica están en plena transformación digital. Posicionar servicios de Aurea como socios para comunicar innovación, sostenibilidad y modernidad en campañas B2B.</p>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <h2>Tendencias del Mercado</h2>
-            <div class="trend-grid">
-                <div class="trend-card">
-                    <div class="trend-title">Nearshoring Acelerado</div>
-                    <p>Costa Rica se consolida como destino de nearshoring para operaciones de manufactura, especialmente medical devices y semiconductores. Empresas buscan resiliencia operativa y cercanía a mercados.</p>
-                </div>
-                <div class="trend-card">
-                    <div class="trend-title">Digital Transformation Mandatory</div>
-                    <p>Manufacturers están invirtiendo en transformación digital. Según Deloitte, el gasto en transformación digital alcanzará $1 billón para 2031. Las marcas necesitan comunicar esta evolución.</p>
-                </div>
-                <div class="trend-card">
-                    <div class="trend-title">Sostenibilidad como Diferencial</div>
-                    <p>Costa Rica tiene posicionamiento eco-turístico. Manufacturers locales pueden leverage este branding para campañas sustainability-focused. Tendencia global de supply chain verde.</p>
-                </div>
-                <div class="trend-card">
-                    <div class="trend-title">Advertising Market en Crecimiento</div>
-                    <p>El mercado publicitario costarricense está en crecimiento moderado, con shift hacia plataformas digitales. 100% del gasto digital proyectado. Brands necesitan presencia omnicanal.</p>
-                </div>
-                <div class="trend-card">
-                    <div class="trend-title">Semiconductor Industry Expansion</div>
-                    <p>Costa Rica está desarrollando certificación en semiconductores. Universidad Latina y CRUSA entrenando próxima generación de técnicos. Industry en crecimiento.</p>
-                </div>
-                <div class="trend-card">
-                    <div class="trend-title">Personalization como Key Trend</div>
-                    <p>75% de consumidores prefieren marcas que entregan contenido personalizado. Manufacturers necesitan estrategias de marketing con enfoque en personalización B2B.</p>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <h2>Próximos Pasos Recomendados</h2>
-            <ul>
-                <li>Priorizar ITEK, Conforpie y Leaho por tamaño y enfoque en innovación</li>
-                <li>Desarrollar case study deck enfocado en sector manufacturing B2B</li>
-                <li>LinkedIn Sales Navigator para mapping de decision makers por empresa</li>
-                <li>Crear contenido educativo sobre digital transformation para manufacturers</li>
-                <li>Siguiente nicho en rotación: <span class="highlight">Startups</span></li>
-            </ul>
-        </section>
-
-        <div class="footer">
-            <p>Reporte generado automáticamente para Aurea Advertising Agency</p>
-            <p>Logos AI Agent | 30 de Abril, 2026</p>
-        </div>
+  <!-- INSIGHT BOX -->
+  <div class="insight-box">
+    <div class="insight-title">💡 Oportunidad del mercado</div>
+    <div class="insight-text">
+      Costa Rica Tourism Market crece a un CAGR de 2.18% (2025–2035). Los hoteles independientes y boutiques en Guanacaste, Peninsula Papagayo y Manuel Antonio buscan activamente agencias de marketing digital para reducir dependencia de OTAs (que cobran 15–25% de comisión). El segmento luxury/boutique tiene mayor disposición a invertir en branding y marketing digital. Este es el momento ideal para posicionar servicios de advertising.
     </div>
+  </div>
+
+  <!-- SECTION 1: COMPANIES -->
+  <h2>🏨 Empresas & Decision Makers Identificados</h2>
+
+  <div class="lead-card">
+    <div class="name">Four Seasons Resort Peninsula Papagayo <span class="type type-luxury">Luxury Resort</span></div>
+    <div class="detail">Peninsula Papagayo, Guanacaste &nbsp;|&nbsp; Four Seasons Hotels & Resorts</div>
+    <div class="contact">
+      <span class="contact-chip">Brent Martin — General Manager / Regional</span>
+      <span class="contact-chip">Mark Ley — Director of Marketing</span>
+      <span class="contact-chip">LinkedIn: Brent Martin</span>
+    </div>
+    <div class="tag">#luxury #branding #digitalmarketing #mice</div>
+  </div>
+
+  <div class="lead-card">
+    <div class="name">Waldorf Astoria Costa Rica Punta Cacique <span class="type type-luxury">Luxury Resort</span></div>
+    <div class="detail">Punta Cacique, Guanacaste &nbsp;|&nbsp; Hilton Worldwide &nbsp;|&nbsp; Apertura reciente 2025</div>
+    <div class="contact">
+      <span class="contact-chip">Hilton Corporate Marketing LATAM</span>
+      <span class="contact-chip">Revolucion / Cacique Investors (promotores)</span>
+    </div>
+    <div class="tag">#newproperty #luxury #openingcampaign #brandlaunch</div>
+  </div>
+
+  <div class="lead-card">
+    <div class="name">Hotel Punta Islita Autograph Collection <span class="type type-chain">Marriott</span></div>
+    <div class="detail">Punta Islita, Guanacaste &nbsp;|&nbsp; Marriott International</div>
+    <div class="contact">
+      <span class="contact-chip">Marriott Business Council LATAM</span>
+      <span class="contact-chip">GM posicion reciente (referencia Marvin Seas ex-GSM)</span>
+      <span class="contact-chip">Marriott Bonvoy media partnerships</span>
+    </div>
+    <div class="tag">#autographcollection #luxury #hospitality #rebrand</div>
+  </div>
+
+  <div class="lead-card">
+    <div class="name">El Mangroove Autograph Collection <span class="type type-chain">Marriott</span></div>
+    <div class="detail">Guanacaste &nbsp;|&nbsp; Marriott International</div>
+    <div class="contact">
+      <span class="contact-chip">Frederic Cappello — General Manager</span>
+      <span class="contact-chip">Marriott Local Marketing Team</span>
+    </div>
+    <div class="tag">#boutiqueluxury #beachfront #digitalads #social</div>
+  </div>
+
+  <div class="lead-card">
+    <div class="name">Andaz Peninsula Papagayo <span class="type type-chain">Hyatt</span></div>
+    <div class="detail">Peninsula Papagayo, Guanacaste &nbsp;|&nbsp; Hyatt Hotels</div>
+    <div class="contact">
+      <span class="contact-chip">Dale N. Smith — Director of Sales & Marketing</span>
+      <span class="contact-chip">LinkedIn: dalensmith415</span>
+    </div>
+    <div class="tag">#hyatt #designhotels #lifestyle #mice</div>
+  </div>
+
+  <div class="lead-card">
+    <div class="name">Hotel Capitán Suizo <span class="type type-boutique">Boutique</span></div>
+    <div class="detail">Tamarindo, Guanacaste &nbsp;|&nbsp; Hotel independiente familiar — 95 colaboradores</div>
+    <div class="contact">
+      <span class="contact-chip">Diego — Sales & Financial Advisor</span>
+      <span class="contact-chip">info@hotelcapitansuizo.com</span>
+    </div>
+    <div class="tag">#tamarindo #boutique #beach #sustainability</div>
+  </div>
+
+  <div class="lead-card">
+    <div class="name">Amor Arenal <span class="type type-boutique">Boutique</span></div>
+    <div class="detail">Arenal, Costa Rica &nbsp;|&nbsp; Boutique wellness lodge — miembro Traveller Made</div>
+    <div class="contact">
+      <span class="contact-chip">Erick Lizano — General Manager</span>
+      <span class="contact-chip">Traveller Made network</span>
+    </div>
+    <div class="tag">#wellness #ecotourism #luxury #wellnessretreat</div>
+  </div>
+
+  <div class="lead-card">
+    <div class="name">Chayote Lodge <span class="type type-boutique">Boutique</span></div>
+    <div class="detail">Manuel Antonio &nbsp;|&nbsp; Propietario Rolando Campos — 30 años experiencia en turismo CR</div>
+    <div class="contact">
+      <span class="contact-chip">Rolando Campos — Owner</span>
+      <span class="contact-chip">info@investingcostarica.com</span>
+    </div>
+    <div class="tag">#manuelantonio #boutique #tourism #investor</div>
+  </div>
+
+  <div class="lead-card">
+    <div class="name">Lamangata Luxury Surf Resort <span class="type type-boutique">Boutique</span></div>
+    <div class="detail">Costa Rica &nbsp;|&nbsp; Boutique all-inclusive surf resort</div>
+    <div class="contact">
+      <span class="contact-chip">Contacto web: lamangata.com</span>
+      <span class="contact-chip">Nicho: surf + aventura + lujo</span>
+    </div>
+    <div class="tag">#surf #allinclusive #boutique #adventure</div>
+  </div>
+
+  <div class="lead-card">
+    <div class="name">CR Hotel Management Group <span class="type type-group">Hotel Group</span></div>
+    <div class="detail">San José / Desarrollo &nbsp;|&nbsp; Gestion hotelera + desarrollo de proyectos</div>
+    <div class="contact">
+      <span class="contact-chip">Inversiones: crhotelmanagementgroup.com</span>
+      <span class="contact-chip">Proyecto: Hotel Sarchi — Autograph Collection</span>
+    </div>
+    <div class="tag">#hotelmanagement #investment #development #autograph</div>
+  </div>
+
+  <!-- SECTION 2: MARKET TRENDS -->
+  <h2>📊 Tendencias del Mercado Hotelería CR 2026</h2>
+
+  <div class="trend-grid">
+    <div class="trend-card">
+      <div class="trend-title">Crecimiento sostenible del turismo</div>
+      <div class="trend-desc">Mercado CR crece 2.18% CAGR hasta 2035. Eco-turismo y viajes sostenibles son el diferenciador principal. Los viajeros buscan experiencias auténticas, no solo alojamiento.</div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-title">Guerra contra las OTAs</div>
+      <div class="trend-desc">Hoteles invierten en marketing para reducir comisiones de Booking.com y Expedia (15-25%). Buscan Google Hotel Center, meta search y estrategias de direct booking con 4-6% del revenue.</div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-title">IA y Personalización</div>
+      <div class="trend-desc">Chatbots, guest messaging apps, CRM y RMS son prioridad. Hoteleros buscan agencias que dominen herramientas de IA para segmentación de viajeros y email marketing automatizado.</div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-title">Expansión Luxury en Guanacaste</div>
+      <div class="trend-desc">Peninsula Papagayo es el hub de crecimiento luxury (Waldorf Astoria, Four Seasons, Andaz, Marriott). Gran oportunidad para agencias con experiencia en hospitality de alto nivel.</div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-title">Marketing de destinos (DMO)</div>
+      <div class="trend-desc">ICT (Instituto Costarricense de Turismo) lanza campaña europea en ITB Berlin 2026. Hoteles pueden leveraged este impulso con campañas propias alineadas al posicionamiento país.</div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-title">Booking windows más cortos</div>
+      <div class="trend-desc">Los viajeros reservan más cerca de la fecha. Campañas de retargeting y presencia digital constante son críticas. Google Performance Max y meta ads son las herramientas preferidas.</div>
+    </div>
+  </div>
+
+  <!-- SECTION 3: CONTACT STRATEGIES -->
+  <h2>🎯 Estrategias de Contacto</h2>
+
+  <div class="strategy-item">
+    <span class="s-num">1</span>
+    <div class="s-title">LinkedIn InMail a Directors of Marketing/Sales</div>
+    <div class="s-desc">Target: Dale N. Smith (Andaz), Mark Ley (Four Seasons), Brent Martin (Four Seasons). Mensaje breve: propuesta de reducir OTA commissions con estrategia digital. Alt conversion rate en Decision Makers.</div>
+  </div>
+
+  <div class="strategy-item">
+    <span class="s-num">2</span>
+    <div class="s-title">Cold email a hoteles boutique con caso de estudio</div>
+    <div class="s-desc">Hoteles: Capitán Suizo, Amor Arenal, Chayote Lodge, Lamangata. Usar caso de estudio de ROAS 5x en boutique hotel similar. Enfocarse en direct booking y reducción de dependencia de OTA.</div>
+  </div>
+
+  <div class="strategy-item">
+    <span class="s-num">3</span>
+    <div class="s-title">Propuesta a Marriott/Hilton Business Councils</div>
+    <div class="s-desc">Los hoteles de cadena tienen acceso a marketing teams corporativos. Posicionar a Aurea como agencia especializada en hotels independientes que quieren diferenciarse dentro de los estándares de marca.</div>
+  </div>
+
+  <div class="strategy-item">
+    <span class="s-num">4</span>
+    <div class="s-title">Participación en Ferias Turísticas</div>
+    <div class="s-desc">ITB Berlin (Marzo), AAAE, World Travel Market. Los GMs y directors de marketing asisten. Hacer networking en vivo tiene alto conversion para agencias nuevas en el mercado CR.</div>
+  </div>
+
+  <div class="strategy-item">
+    <span class="s-num">5</span>
+    <div class="s-title">Contenido educativo: "Hotel Marketing Playbook CR 2026"</div>
+    <div class="s-desc">Producir un recurso descargable con datos de mercado CR, benchmarks de ROAS en hospitality, y checklist de direct booking. Gate con email. Usar para lead nurturing de todos los contacts.</div>
+  </div>
+
+  <div class="strategy-item">
+    <span class="s-num">6</span>
+    <div class="s-title">Enfoque en Guanacaste como zona caliente</div>
+    <div class="s-desc">7 de los 10 hotels identificados están en Guanacaste/Peninsula Papagayo. Concentrar esfuerzo geográfico produce mejores resultados. Propuesta: "Guanacaste Hotel Marketing Solutions" como producto específico.</div>
+  </div>
+
+  <!-- SECTION 4: KPI BENCHMARKS -->
+  <h2>📈 Benchmarks de Marketing Hotelería</h2>
+  <div class="trend-grid">
+    <div class="trend-card">
+      <div class="trend-title">Budget típico marketing hotelero</div>
+      <div class="trend-desc">4-6% del revenue total (sin payroll). Hotel de $1M/año = $40K-$60K en marketing. Los luxury resorts pueden destinar 8-12% en fases de brand building.</div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-title">Meta ads para hoteles CR</div>
+      <div class="trend-desc">ROAS típico: 3x-8x en campañas de retargeting para hoteles con base de datos de huéspedes. Lookalike audiences de guests anteriores son el secreto.</div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-title">Google Hotel Center</div>
+      <div class="trend-desc">Costo por clic en meta search: $1.50-$4.00 USD. Hotels que dominan esto reducen Booking.com spend en 30-40%.</div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-title">Email marketing hospitality</div>
+      <div class="trend-desc">Open rates 25-35% en hospitality (vs. 15% promedio). Pre-stay y post-stay sequences con upsell tienen el mayor ROI de todos los canales.</div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    Aurea Advertising — Lead Research &nbsp;|&nbsp; Generado automáticamente &nbsp;|&nbsp; 30 de abril de 2026 14:00 CST<br>
+    Reporte guardado en: /home/asdelgado506/intel-reports/aurea-leads-2026-04-30.html
+  </div>
+
+</div>
 </body>
 </html>
