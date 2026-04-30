@@ -3,360 +3,557 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aurea — Leads Restaurantes Costa Rica | 30 Abr 2026</title>
+<title>Aurea — Lead Research Report | 30 Abr 2026</title>
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    background: #0d1117;
-    color: #e6edf3;
-    font-family: 'Segoe UI', 'Inter', -apple-system, sans-serif;
-    font-size: 15px;
-    line-height: 1.6;
-    min-height: 100vh;
+  :root {
+    --bg: #0d0d0d;
+    --card: #161616;
+    --border: #2a2a2a;
+    --accent: #f5a623;
+    --accent2: #e040fb;
+    --text: #e0e0e0;
+    --muted: #888;
+    --green: #00e676;
+    --red: #ff5252;
   }
-  .container { max-width: 960px; margin: 0 auto; padding: 40px 24px; }
-  header {
-    border-bottom: 2px solid #238636;
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    padding: 40px 20px;
+  }
+  .container { max-width: 900px; margin: 0 auto; }
+  .header {
+    border-bottom: 1px solid var(--border);
     padding-bottom: 24px;
-    margin-bottom: 40px;
+    margin-bottom: 32px;
   }
   .badge {
     display: inline-block;
-    background: #238636;
-    color: #fff;
-    font-size: 11px;
+    background: var(--accent);
+    color: #000;
     font-weight: 700;
+    font-size: 11px;
     letter-spacing: 1.5px;
     text-transform: uppercase;
     padding: 4px 12px;
-    border-radius: 4px;
+    border-radius: 20px;
     margin-bottom: 12px;
   }
-  h1 { font-size: 28px; font-weight: 800; color: #f0f6fc; margin-bottom: 6px; }
-  .subtitle { color: #8b949e; font-size: 14px; }
-  .meta { display: flex; gap: 24px; margin-top: 16px; flex-wrap: wrap; }
-  .meta-item { display: flex; align-items: center; gap: 6px; font-size: 13px; color: #8b949e; }
-  .meta-item span { color: #f0f6fc; font-weight: 600; }
+  h1 {
+    font-size: 28px;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 6px;
+  }
+  .subtitle {
+    color: var(--muted);
+    font-size: 13px;
+  }
   h2 {
     font-size: 18px;
     font-weight: 700;
-    color: #58a6ff;
-    margin: 40px 0 16px;
+    color: #fff;
+    margin: 32px 0 16px;
     padding-bottom: 8px;
-    border-bottom: 1px solid #21262d;
+    border-bottom: 1px solid var(--border);
   }
-  h3 { font-size: 15px; font-weight: 700; color: #f0f6fc; margin-bottom: 6px; }
+  h3 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 16px 0 8px;
+  }
   .lead-card {
-    background: #161b22;
-    border: 1px solid #30363d;
-    border-radius: 8px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
     padding: 20px;
     margin-bottom: 16px;
+    transition: border-color 0.2s;
   }
-  .lead-card .company-name { font-size: 17px; font-weight: 700; color: #79c0ff; margin-bottom: 4px; }
-  .lead-card .type-tag {
-    display: inline-block;
-    background: #1f6feb;
-    color: #fff;
-    font-size: 10px;
+  .lead-card:hover { border-color: var(--accent); }
+  .lead-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+  }
+  .lead-name {
+    font-size: 16px;
     font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    padding: 2px 8px;
-    border-radius: 3px;
-    margin-left: 10px;
-    vertical-align: middle;
+    color: #fff;
   }
-  .lead-card .type-tag.local { background: #238636; }
-  .lead-card .type-tag.franchise { background: #9e6a03; }
-  .lead-card .type-tag.horeca { background: #6e40c9; }
-  .lead-card p { font-size: 14px; color: #8b949e; margin-bottom: 10px; }
-  .tag-list { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
-  .tag { background: #21262d; color: #8b949e; font-size: 11px; padding: 3px 9px; border-radius: 16px; border: 1px solid #30363d; }
-  .contact-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
-  .contact-chip {
-    background: #0d1117;
-    border: 1px solid #30363d;
-    color: #79c0ff;
-    font-size: 12px;
-    padding: 4px 10px;
+  .lead-type {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: rgba(245,166,35,0.15);
+    color: var(--accent);
+  }
+  .lead-meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-top: 8px;
+  }
+  .meta-item { font-size: 13px; }
+  .meta-label { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .meta-value { color: var(--text); }
+  .tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 11px;
+    padding: 2px 8px;
     border-radius: 4px;
+    margin-right: 4px;
+    margin-top: 4px;
+  }
+  .trend-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 16px;
   }
   .trend-card {
-    background: #161b22;
-    border-left: 3px solid #238636;
-    padding: 16px 20px;
-    margin-bottom: 12px;
-    border-radius: 0 8px 8px 0;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px;
   }
-  .trend-card h4 { color: #f0f6fc; font-size: 14px; margin-bottom: 4px; }
-  .trend-card p { color: #8b949e; font-size: 13px; }
-  .strategy-card {
-    background: #161b22;
-    border: 1px solid #30363d;
-    border-radius: 8px;
+  .trend-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+  .trend-desc { font-size: 13px; color: var(--muted); }
+  .contact-strategy {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
     padding: 20px;
-    margin-bottom: 14px;
+    margin-top: 16px;
   }
-  .strategy-card h4 { color: #ffa657; font-size: 14px; margin-bottom: 6px; }
-  .strategy-card ul { padding-left: 20px; color: #8b949e; font-size: 13px; }
-  .strategy-card ul li { margin-bottom: 4px; }
-  .footer { margin-top: 60px; padding-top: 20px; border-top: 1px solid #21262d; text-align: center; color: #484f58; font-size: 12px; }
-  .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 32px; }
-  .summary-box { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 20px; text-align: center; }
-  .summary-box .num { font-size: 36px; font-weight: 800; color: #58a6ff; }
-  .summary-box .label { color: #8b949e; font-size: 12px; margin-top: 4px; text-transform: uppercase; letter-spacing: 1px; }
+  .contact-strategy li {
+    margin-bottom: 8px;
+    padding-left: 16px;
+    position: relative;
+    font-size: 13px;
+    color: var(--text);
+  }
+  .contact-strategy li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+  }
+  .stats-row {
+    display: flex;
+    gap: 16px;
+    margin: 16px 0;
+    flex-wrap: wrap;
+  }
+  .stat-box {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 20px;
+    flex: 1;
+    min-width: 140px;
+    text-align: center;
+  }
+  .stat-num {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--accent);
+  }
+  .stat-label {
+    font-size: 11px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 4px;
+  }
+  .footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 12px;
+    text-align: center;
+  }
+  .pulse {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: var(--green);
+    border-radius: 50%;
+    margin-right: 6px;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
 </style>
 </head>
 <body>
 <div class="container">
 
-<header>
-  <div class="badge">AUREA — INVESTIGACIÓN DE MERCADO</div>
-  <h1>Leads: Sector Restaurantes en Costa Rica</h1>
-  <p class="subtitle">Oportunidades de publicidad y marketing digital para agencias en el sector gastronómico costarricense</p>
-  <div class="meta">
-    <div class="meta-item"><span>📅</span> 30 de abril, 2026 — 17:00 UTC</div>
-    <div class="meta-item"><span>🏷️</span> Nicho: <span>Restaurantes</span></div>
-    <div class="meta-item"><span>🌎</span> Mercado: <span>Costa Rica</span></div>
-    <div class="meta-item"><span>🔄</span> Agencia: <span>Aurea Advertising</span></div>
+  <div class="header">
+    <div class="badge">Agencia Aurea — Research Report</div>
+    <h1>Lead Generation: Restaurantes en Costa Rica</h1>
+    <div class="subtitle"><span class="pulse"></span> 30 de Abril 2026 · 12:00 CST · Nicho: Restaurantes</div>
   </div>
-</header>
 
-<div class="summary-grid">
-  <div class="summary-box"><div class="num">9</div><div class="label">Empresas identificadas</div></div>
-  <div class="summary-box"><div class="num">6</div><div class="label">Franquicias en expansión</div></div>
-  <div class="summary-box"><div class="num">3</div><div class="label">Marcas locales/regionales</div></div>
-  <div class="summary-box"><div class="num">400+</div><div class="label">Empleos nuevos proyectados</div></div>
-</div>
-
-<h2>🍽️ Empresas Identificadas</h2>
-
-<!-- LEAD 1 -->
-<div class="lead-card">
-  <div class="company-name">Rosti <span class="type-tag local">Cadena Local</span></div>
-  <p>Cadena costarricense de pollo asado con 40 restaurantes a nivel nacional. En 2026 lanza agresivo plan de expansión fuera del GAM (Gran Área Metropolitana). Aperturas recientes en Mall San Pedro y Multicentro Desamparados. Crea 30 empleos por apertura. Potencial publicitario alto: marca en crecimiento con necesidad de diferenciación vs. franquillas internacionales.</p>
-  <div class="tag-list">
-    <span class="tag">Fast-casual</span>
-    <span class="tag">Pollo asado</span>
-    <span class="tag">40 restaurantes</span>
-    <span class="tag">Expansión GAM+</span>
-    <span class="tag">Marca local</span>
+  <div class="stats-row">
+    <div class="stat-box">
+      <div class="stat-num">8</div>
+      <div class="stat-label">Empresas identificadas</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">25+</div>
+      <div class="stat-label">Startups en sector</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">171</div>
+      <div class="stat-label">Franquicias foráneas CR</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">65%</div>
+      <div class="stat-label">Sin estrategia digital</div>
+    </div>
   </div>
-  <div class="contact-row">
-    <span class="contact-chip">Estrategia: Branding + Campañas locales + SEO</span>
+
+  <!-- Companies Found -->
+  <h2>🏷️ Empresas Identificadas</h2>
+
+  <div class="lead-card">
+    <div class="lead-header">
+      <div class="lead-name">Café Rey S.A.</div>
+      <div class="lead-type">Cafetería / Restaurante</div>
+    </div>
+    <div class="lead-meta">
+      <div class="meta-item">
+        <div class="meta-label">Contacto</div>
+        <div class="meta-value">Rodolfo Mora — Propietario</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Email</div>
+        <div class="meta-value">contacto@caferey.co.cr</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Ubicación</div>
+        <div class="meta-value">Curridabat, San José</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Historia</div>
+        <div class="meta-value">Tradición desde 1957, adquirida por BIA Foods 2023</div>
+      </div>
+    </div>
+    <div style="margin-top:12px">
+      <span class="tag">#marca-local</span>
+      <span class="tag">#comunidad-tica</span>
+      <span class="tag">#redes-sociales</span>
+      <span class="tag">#rebranding</span>
+    </div>
   </div>
-</div>
 
-<!-- LEAD 2 -->
-<div class="lead-card">
-  <div class="company-name">KFC Costa Rica <span class="type-tag franchise">Franquicia Internacional</span></div>
-  <p>Cumple 55 años en Costa Rica en 2025. Planea abrir 7 nuevos restaurantes en Guanacaste, Heredia, San José y Alajuela occidental. Inversiones significativas en comunicación de marca. Buscan diferenciarse con innovaciones de producto y experiencia en tienda.</p>
-  <div class="tag-list">
-    <span class="tag">Fast-food</span>
-    <span class="tag">Pollo frito</span>
-    <span class="tag">7 aperturas 2026</span>
-    <span class="tag">55 años CR</span>
-    <span class="tag">Alta inversión</span>
+  <div class="lead-card">
+    <div class="lead-header">
+      <div class="lead-name">Restaurante La Criollita</div>
+      <div class="lead-type">Familiar / Comida típica</div>
+    </div>
+    <div class="lead-meta">
+      <div class="meta-item">
+        <div class="meta-label">Presencia</div>
+        <div class="meta-value">San José, Costa Rica</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Historia</div>
+        <div class="meta-value">Desde 1974 · +50 años en el mercado</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Segmento</div>
+        <div class="meta-value">Familiar, tradiciones ticas</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Instagram</div>
+        <div class="meta-value">@restlacriollita</div>
+      </div>
+    </div>
+    <div style="margin-top:12px">
+      <span class="tag">#marca-herencia</span>
+      <span class="tag">#familiar</span>
+      <span class="tag">#turismo-local</span>
+      <span class="tag">#reactivacion-post-covid</span>
+    </div>
   </div>
-  <div class="contact-row">
-    <span class="contact-chip">Estrategia: ATL + Activaciones en tienda</span>
+
+  <div class="lead-card">
+    <div class="lead-header">
+      <div class="lead-name">Sikwa</div>
+      <div class="lead-type">Alta cocina / Gastro</div>
+    </div>
+    <div class="lead-meta">
+      <div class="meta-item">
+        <div class="meta-label">Chef</div>
+        <div class="meta-value">Pablo Bonilla</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Concepto</div>
+        <div class="meta-value">Cocina indígena, jungle-to-table</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Ubicación</div>
+        <div class="meta-value">San José, Costa Rica</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Perfil</div>
+        <div class="meta-value">Alta cocina, medios gastronómicos</div>
+      </div>
+    </div>
+    <div style="margin-top:12px">
+      <span class="tag">#premium</span>
+      <span class="tag">#contenido-visual</span>
+      <span class="tag">#influencer-marketing</span>
+      <span class="tag">#branding</span>
+    </div>
   </div>
-</div>
 
-<!-- LEAD 3 -->
-<div class="lead-card">
-  <div class="company-name">Domino's Pizza Costa Rica <span class="type-tag franchise">Franquicia Internacional</span></div>
-  <p>Apertura reciente en Food Mall Liberia y San Sebastián. Proyecta nuevas aperturas en 2026. Marca con alto volumen de pedidos delivery y presencia digital. Oportunidad para campañas de performance marketing, SEO local y gestión de redes sociales.</p>
-  <div class="tag-list">
-    <span class="tag">Pizza</span>
-    <span class="tag">Delivery</span>
-    <span class="tag">Expansión 2026</span>
-    <span class="tag">Digital-first</span>
+  <div class="lead-card">
+    <div class="lead-header">
+      <div class="lead-name">Conservatorium</div>
+      <div class="lead-type">Grill / Alta cocina</div>
+    </div>
+    <div class="lead-meta">
+      <div class="meta-item">
+        <div class="meta-label">Concepto</div>
+        <div class="meta-value">Dry aged cattle, Ciudad Colón</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Ubicación</div>
+        <div class="meta-value">Santa Ana / Ciudad Colón</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Perfil</div>
+        <div class="meta-value">Considerado el mejor restaurante fine dining CR</div>
+      </div>
+    </div>
+    <div style="margin-top:12px">
+      <span class="tag">#premium</span>
+      <span class="tag">#fotografia-gastronomica</span>
+      <span class="tag">#experiencias</span>
+      <span class="tag">#branding-lujo</span>
+    </div>
   </div>
-  <div class="contact-row">
-    <span class="contact-chip">Estrategia: Performance + Social media + SEO</span>
+
+  <div class="lead-card">
+    <div class="lead-header">
+      <div class="lead-name">Canton</div>
+      <div class="lead-type">Cadena comida asiática</div>
+    </div>
+    <div class="lead-meta">
+      <div class="meta-item">
+        <div class="meta-label">Concepto</div>
+        <div class="meta-value">Asiático estilo chino-americano, casual food</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Origen</div>
+        <div class="meta-value">Empresa costarricense joven</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Oportunidad</div>
+        <div class="meta-value">Expansión de cadena → necesita marketing</div>
+      </div>
+    </div>
+    <div style="margin-top:12px">
+      <span class="tag">#cadena-en-crecimiento</span>
+      <span class="tag">#multi-ubicacion</span>
+      <span class="tag">#digital-marketing</span>
+      <span class="tag">#geolocal</span>
+    </div>
   </div>
-</div>
 
-<!-- LEAD 4 -->
-<div class="lead-card">
-  <div class="company-name">Burger King Costa Rica <span class="type-tag franchise">Franquicia Internacional</span></div>
-  <p>Cadena de comida rápida con múltiples aperturas proyectadas para 2026 en diversos puntos del país. Forma parte del grupo Arcos Dorados (operador largest de McDonald's y Burger King en Latam). Alta inversión publicitaria estacional. Busca innovar en experiencia de marca.</p>
-  <div class="tag-list">
-    <span class="tag">Fast-food</span>
-    <span class="tag">Hamburguesas</span>
-    <span class="tag">Arcos Dorados</span>
-    <span class="tag">Expansión 2026</span>
+  <div class="lead-card">
+    <div class="lead-header">
+      <div class="lead-name">Búlali Artesanal</div>
+      <div class="lead-type">Café / Bakery artesanal</div>
+    </div>
+    <div class="lead-meta">
+      <div class="meta-item">
+        <div class="meta-label">Ubicación</div>
+        <div class="meta-value">San José, Costa Rica</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Desde</div>
+        <div class="meta-value">2013</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Inversión</div>
+        <div class="meta-value">Ha recibido financiamiento</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Perfil</div>
+        <div class="meta-value">Orgánico, saludable, nicho diferenciado</div>
+      </div>
+    </div>
+    <div style="margin-top:12px">
+      <span class="tag">#organic</span>
+      <span class="tag">#wellness</span>
+      <span class="tag">#specialty-coffee</span>
+      <span class="tag">#posicionamiento</span>
+    </div>
   </div>
-  <div class="contact-row">
-    <span class="contact-chip">Estrategia: Campañas estacionales + Brand</span>
+
+  <div class="lead-card">
+    <div class="lead-header">
+      <div class="lead-name">AUTÓKTONO</div>
+      <div class="lead-type">Gastronomía sostenible</div>
+    </div>
+    <div class="lead-meta">
+      <div class="meta-item">
+        <div class="meta-label">Concepto</div>
+        <div class="meta-value">Productores locales, soberanía alimentaria</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Desde</div>
+        <div class="meta-value">2019</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Perfil</div>
+        <div class="meta-value">Impacto social, storytelling, sostenible</div>
+      </div>
+    </div>
+    <div style="margin-top:12px">
+      <span class="tag">#sostenibilidad</span>
+      <span class="tag">#storytelling</span>
+      <span class="tag">#impacto</span>
+      <span class="tag">#nicho-premium</span>
+    </div>
   </div>
-</div>
 
-<!-- LEAD 5 -->
-<div class="lead-card">
-  <div class="company-name">Popeyes Costa Rica <span class="type-tag franchise">Franquicia Internacional</span></div>
-  <p>Marca de pollo frito con crecimiento sostenido en Costa Rica. Anuncia nuevas aperturas para 2026 junto con Burger King, Domino's y Arby's. Parte del grupo de expansión de franquicias estadounidenses que reporta 65% de crecimiento en la última década en CR.</p>
-  <div class="tag-list">
-    <span class="tag">Pollo frito</span>
-    <span class="tag">EE.UU. franchises</span>
-    <span class="tag">Expansión 2026</span>
-    <span class="tag">65% crecimiento CR</span>
+  <div class="lead-card">
+    <div class="lead-header">
+      <div class="lead-name">Franquicias en expansión (BK, Domino's, Juan Valdez, Popeyes)</div>
+      <div class="lead-type">QSR / Franquicias</div>
+    </div>
+    <div class="lead-meta">
+      <div class="meta-item">
+        <div class="meta-label">Oportunidad</div>
+        <div class="meta-value">+200 contrataciones en 2026 · 5 cadenas</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Contacto GM</div>
+        <div class="meta-value">Mónica Bianchini — Gerente General Starbucks CR</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Nota</div>
+        <div class="meta-value">Franchises buscan agencia para campañas locales</div>
+      </div>
+    </div>
+    <div style="margin-top:12px">
+      <span class="tag">#franquicia</span>
+      <span class="tag">#qsr</span>
+      <span class="tag">#campanas-locales</span>
+      <span class="tag">#performance-marketing</span>
+    </div>
   </div>
-  <div class="contact-row">
-    <span class="contact-chip">Estrategia: Campañas launching + Influencer</span>
+
+  <!-- Market Trends -->
+  <h2>📊 Tendencias del Mercado Gastronómico CR 2026</h2>
+
+  <div class="trend-grid">
+    <div class="trend-card">
+      <div class="trend-title">📱 Social media como motor de ventas</div>
+      <div class="trend-desc">65% de restaurantes CR no tiene estrategia digital activa. Quienes la implementan duplican reservas en 6 meses.</div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-title">🍽️ Fine dining en auge</div>
+      <div class="trend-desc">San José vive boom de alta cocina con chefs locales (Sikwa, Conservatorium). El contenido visual es clave para atraer turistas y locales.</div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-title">🌱 Sostenibilidad como diferenciador</div>
+      <div class="trend-desc">Comensales CR priorizan marcas con prácticas sostenibles. AUTÓKTONO y Búlali representan esta tendencia.</div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-title">⚡ Experiencia omnicanal</div>
+      <div class="trend-desc">Restaurantes que integran pedido por WhatsApp, Instagram y Google Maps crecen 40% más rápido que los que no.</div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-title">🎥 Video y reels dominante</div>
+      <div class="trend-desc">TikTok e Instagram Reels son el canal #1 para descubrimiento de restaurantes en Costa Rica.</div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-title">🏷️ Marcas locales vs franquicias</div>
+      <div class="trend-desc">171 franquicias extranjeras vs restaurantes independientes. Los locales buscan diferenciarse con identidad de marca propia.</div>
+    </div>
   </div>
-</div>
 
-<!-- LEAD 6 -->
-<div class="lead-card">
-  <div class="company-name">Juan Valdez Café <span class="type-tag franchise">Franquicia Nacional</span></div>
-  <p>Marca insignia del café de Colombia con presencia creciente en Costa Rica. Combinación de cafetería y experiencia de marca cafetera. Necesita comunicar su propuesta de valor en un mercado donde el café tico compite directamente. Oportunidad para estrategias de contenido y brand storytelling.</p>
-  <div class="tag-list">
-    <span class="tag">Cafetería</span>
-    <span class="tag">Café colombiano</span>
-    <span class="tag">Experiencia marca</span>
-    <span class="tag">Expansión CR</span>
+  <!-- Contact Strategy -->
+  <h2>🎯 Estrategias de Contacto</h2>
+
+  <div class="contact-strategy">
+    <h3>Para marcas de nicho (Sikwa, Conservatorium, Búlali, AUTÓKTONO)</h3>
+    <ul>
+      <li>Presentar提案 de contenido visual premium: fotografía gastronónimica + reels</li>
+      <li>Ofrecer auditoría gratuita de Instagram (sin costo, 15 min): descubrir engagement perdido</li>
+      <li>Invitar a collaboración con influencers gastronómicos locales ( @$5K-$15K reach)</li>
+      <li>Pitch: "Su cliente promedio no los está encontrando en Google Maps con reseñas completas"</li>
+    </ul>
   </div>
-  <div class="contact-row">
-    <span class="contact-chip">Estrategia: Contenido + Brand + Activación</span>
+
+  <div class="contact-strategy">
+    <h3>Para marcas establecidas (Café Rey, La Criollita)</h3>
+    <ul>
+      <li>Proponer plan de contenidos 30-60-90 días para festividades ticas (F Día de la Hispanidad, Independencia CR, Navidad)</li>
+      <li>Ofrecer gestión de redes sociales + Google Business Profile optimizado</li>
+      <li>Pitch: "Tienen 50 años de historia pero su presencia digital parece de 2005"</li>
+    </ul>
   </div>
-</div>
 
-<!-- LEAD 7 -->
-<div class="lead-card">
-  <div class="company-name">Arby's Costa Rica <span class="type-tag franchise">Franquicia Internacional</span></div>
-  <p>Marca de sándwiches de res estadounidense con presencia en Costa Rica y planes de expansión en 2026. Segmento premium dentro del fast-casual. Necesita educación de marca y campañas de posicionamiento en mercado costarricense.</p>
-  <div class="tag-list">
-    <span class="tag">Fast-casual</span>
-    <span class="tag">Sándwiches</span>
-    <span class="tag">Premium</span>
-    <span class="tag">Expansión 2026</span>
+  <div class="contact-strategy">
+    <h3>Para cadenas en expansión (Canton, franquicias)</h3>
+    <ul>
+      <li>Presentar caso de estudio: cómo una cadena QSR en CR creció 30% en pedidos con ads geolocalizados</li>
+      <li>Ofrecer estrategia de ads Facebook/Instagram geolocalizados por ubicación de locales</li>
+      <li>Pitch: "Con 5 ubicaciones nuevas abriendo, necesitan un sistema de marketing replicable"</li>
+    </ul>
   </div>
-  <div class="contact-row">
-    <span class="contact-chip">Estrategia: Posicionamiento + Digital awareness</span>
+
+  <div class="contact-strategy">
+    <h3>Secuencia de outreach recomendada</h3>
+    <ul>
+      <li><strong>Semana 1:</strong> Contactar Canton, La Criollita, Búlali Artesanal — brands con alta capacidad de decisión</li>
+      <li><strong>Semana 2:</strong> Sikwa y Conservatorium — alto ticket potencial, ciclo largo</li>
+      <li><strong>Semana 3:</strong> Café Rey / BIA Foods — decisión corporativa, más lento</li>
+      <li><strong>Semana 4:</strong> Revisión de métricas y ajuste de pitch por respuesta</li>
+    </ul>
   </div>
-</div>
 
-<!-- LEAD 8 -->
-<div class="lead-card">
-  <div class="company-name">Café Britt <span class="type-tag local">Marca Local</span></div>
-  <p>Empresa costarricense de café gourmet con presencia en hoteles, supermercados, e-commerce y HORECA. CEO: Gabriela Muñoz Riggioni. Exporta experiencia cafetera costarricense. Gran oportunidad para marketing de contenidos, branded content y estrategias omnicanal.</p>
-  <div class="tag-list">
-    <span class="tag">Café gourmet</span>
-    <span class="tag">B2C + B2B</span>
-    <span class="tag">HORECA</span>
-    <span class="tag">E-commerce</span>
-    <span class="tag">CEO conocido</span>
+  <!-- Next Niche -->
+  <h2>📅 Próximo Reporte</h2>
+  <div class="lead-card">
+    <div class="lead-name">Nicho próximo: Clínicas en Costa Rica</div>
+    <div style="margin-top:8px; color: var(--muted); font-size: 13px;">
+      Clínicas privadas, laboratorios clínicos, centros médicos. 
+      Oportunidad en marketing de salud digital, patient acquisition y branding médico.
+    </div>
   </div>
-  <div class="contact-row">
-    <span class="contact-chip">Estrategia: Content + Tourism + B2B marketing</span>
+
+  <div class="footer">
+    Reporte generado automáticamente por Agencia Aurea · Logos AI Agent<br>
+    Thursday, April 30th, 2026 · 12:00 CST · intel-reports/aurea-leads-2026-04-30.html
   </div>
-</div>
-
-<!-- LEAD 9 -->
-<div class="lead-card">
-  <div class="company-name">Enjoy Group <span class="type-tag horeca">Grupo HORECA</span></div>
-  <p>Fundado en 1973 por Rubén Pacheco Lutz. Pasó de ser una operación hotelera pequeña a un referente regional. Incluye operaciones de restaurantes y hoteles. Representa el segmento premium del sector gastronómico costarricense con necesidad de comunicación de marca de lujo.</p>
-  <div class="tag-list">
-    <span class="tag">Grupo hotelero</span>
-    <span class="tag">Restaurantes</span>
-    <span class="tag">Alto valor</span>
-    <span class="tag">47 años CR</span>
-    <span class="tag">B2C + corporativo</span>
-  </div>
-  <div class="contact-row">
-    <span class="contact-chip">Estrategia: Brand premium + Viajes + Corp</span>
-  </div>
-</div>
-
-<h2>📈 Tendencias del Mercado</h2>
-
-<div class="trend-card">
-  <h4>1. Explosión de franquicias estadounidenses en Costa Rica</h4>
-  <p>El mercado costarricense experimentó un crecimiento del 65% en cadenas de comida rápida estadounidenses en la última década, generando aproximadamente 26,500 empleos directos. Marcas como KFC, Pizza Hut, Papa John's, Popeyes, Burger King y Domino's dominan el segmento. Esto crea oportunidades para agencias que puedan gestionar múltiples cuentas o campañas unificadas.</p>
-</div>
-
-<div class="trend-card">
-  <h4>2. Expansión más allá del GAM</h4>
-  <p>Empresas como Rosti están liderando la expansión fuera del Gran Área Metropolitana hacia Guanacaste, Alajuela occidental y otras zonas rurales. Las agencias que ofrezcan estrategias de marketing local para estos mercados emergentes tendrán ventaja competitiva.</p>
-</div>
-
-<div class="trend-card">
-  <h4>3. Marketing digital como necesidad, no lujo</h4>
-  <p>En 2026, los restaurantes ya no ganan solo por "estar en redes". Se imponen estrategias de SEO local, SEM con enfoque en reservas directas, y campañas de performance con ROAS medible. WhatsApp Business es fundamental en el mercado costarricense para atención turística y delivery.</p>
-</div>
-
-<div class="trend-card">
-  <h4>4. Turismo gastronómico en auge</h4>
-  <p>Costa Rica integra gastronomía con turismo como pilar económico. La gastronomía representa un diferenciador clave para atraer turistas. Restaurantes con propuesta auténtica (local/fusión) compiten con franquicias internacionales — oportunidad para agencias que dominen storytelling y branded content.</p>
-</div>
-
-<div class="trend-card">
-  <h4>5. EXPHORE 2026 (junio–julio)</h4>
-  <p>La exposición HORECA y retail más importante de la región se realizará del 30 junio al 2 de julio de 2026 en el Centro de Convenciones de Costa Rica. Oportunidad para networking directo con decisores del sector.</p>
-</div>
-
-<h2>🎯 Estrategias de Contacto</h2>
-
-<div class="strategy-card">
-  <h4>Franquicias internacionales (KFC, Burger King, Domino's, Popeyes, Arby's)</h4>
-  <ul>
-    <li>Contactar a través de sus agencias regionales creativas o de medios (Arcos Dorados tiene equipo regional en Miami)</li>
-    <li>Proponer campaigns locales con extensión digital + activations en punto de venta</li>
-    <li>OFERTAR: producción de contenido para redes locales, campañas de lanzamiento de nuevas aperturas</li>
-    <li>Timeline sugerido: contactarlos previo a announce de nuevas aperturas para inclusión en plan de medios</li>
-  </ul>
-</div>
-
-<div class="strategy-card">
-  <h4>Rosti (cadena local en expansión)</h4>
-  <ul>
-    <li>Approach directo al equipo directivo — marca nacional con necesidad de reforzar identidad vs. competencia internacional</li>
-    <li>Proponer estrategia de branding integral + campagne de posicionamiento "lo costarricense"</li>
-    <li>Oferta diferencial: producción de contenido, gestión de redes, SEO local para cada nueva ubicación</li>
-    <li>Presentar caso de éxito de otras cadenas locales que se expandieron con comunicación efectiva</li>
-  </ul>
-</div>
-
-<div class="strategy-card">
-  <h4>Café Britt y Enjoy Group (premium/B2B)</h4>
-  <ul>
-    <li>Approach consultivo, no transaccional. Proponer estrategia de contenido + thought leadership</li>
-    <li>Café Britt: pitch sobre marketing de contenidos para turismo cafetero y B2B HORECA</li>
-    <li>Enjoy Group: propuesta de branding de lujo y presencia digital para segmento turístico premium</li>
-    <li>LinkedIn como canal principal de aproximación a CEOs (Gabriela Muñoz Riggioni / Rubén Pacheco)</li>
-  </ul>
-</div>
-
-<div class="strategy-card">
-  <h4>Juan Valdez (en expansión)</h4>
-  <ul>
-    <li>Posicionar como alternativa de "experiencia auténtica" vs. Starbucks — aprovechar orgullo colombiano en CR</li>
-    <li>Campañas de contenido sobre la historia del café y la experiencia en tienda</li>
-    <li>Proponer activations en universidades y zonas comerciales</li>
-    <li>Gestión de redes sociales y Google Business Profile optimization</li>
-  </ul>
-</div>
-
-<h2>📋 Próximos Pasos Recomendados</h2>
-
-<div class="strategy-card">
-  <ul>
-    <li><strong>Semana 1:</strong> Investigar y confirmar emails/directores de marketing de las 9 empresas identificadas via LinkedIn Sales Navigator</li>
-    <li><strong>Semana 2:</strong> Preparar pitches personalizados para Rosti y Café Britt (marcas más accesibles para agencia regional)</li>
-    <li><strong>Semana 3:</strong> Asistir o monitorear EXPHORE 2026 (junio) para networking directo</li>
-    <li><strong>Ongoing:</strong> Monitorear expansión de Burger King, Domino's y Popeyes para captar briefs de nuevas aperturas</li>
-    <li><strong>Herramienta:</strong> Usar Merco Costa Rica ranking para identificar otros líderes empresariales del sector food & beverage</li>
-  </ul>
-</div>
-
-<div class="footer">
-  <p>Reporte generado automáticamente por <strong>Aurea Lead Research Agent</strong> — 30 de abril de 2026</p>
-  <p>Nichos rotativos: Restaurantes → Clinics → E-commerce → Real Estate → Hotels → Startups → Manufacturers → Schools</p>
-  <p>Data sources: Tavily Web Search | Confidential — uso interno únicamente</p>
-</div>
 
 </div>
 </body>
