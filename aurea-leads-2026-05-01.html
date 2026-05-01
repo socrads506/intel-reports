@@ -3,330 +3,459 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aurea Lead Report - Hoteles Costa Rica | Mayo 2026</title>
+    <title>Aurea - Lead Research | Restaurantes Costa Rica | Mayo 2026</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: #0d1117;
             color: #c9d1d9;
             line-height: 1.6;
+            min-height: 100vh;
         }
-        .container { max-width: 1100px; margin: 0 auto; padding: 2rem; }
-        header {
-            background: linear-gradient(135deg, #161b22 0%, #1c2128 100%);
-            border-bottom: 1px solid #30363d;
-            padding: 2.5rem 2rem;
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .header {
             text-align: center;
-            margin-bottom: 2rem;
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid #21262d;
         }
         .badge {
             display: inline-block;
-            background: #238636;
-            color: #fff;
-            padding: 0.25rem 0.75rem;
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: #000;
+            padding: 6px 16px;
             border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
+            font-size: 12px;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 1rem;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
         }
-        h1 { color: #f0f6fc; font-size: 2rem; margin-bottom: 0.5rem; }
-        .subtitle { color: #8b949e; font-size: 1rem; }
-        .meta-bar {
+        h1 {
+            font-size: 2.5rem;
+            color: #f0f6fc;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            color: #8b949e;
+            font-size: 1.1rem;
+        }
+        .meta-info {
             display: flex;
             justify-content: center;
-            gap: 2rem;
-            margin-top: 1.5rem;
+            gap: 30px;
+            margin-top: 20px;
             flex-wrap: wrap;
         }
         .meta-item {
-            text-align: center;
-            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #8b949e;
+            font-size: 14px;
         }
-        .meta-item span { color: #58a6ff; font-weight: 600; }
-        section {
-            background: #161b22;
-            border: 1px solid #30363d;
-            border-radius: 12px;
-            padding: 1.75rem;
-            margin-bottom: 1.5rem;
-        }
-        h2 {
-            color: #f0f6fc;
-            font-size: 1.25rem;
-            margin-bottom: 1.25rem;
-            padding-bottom: 0.75rem;
-            border-bottom: 2px solid #238636;
-            display: inline-block;
-        }
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-bottom: 1rem;
-        }
-        .stat-card {
-            background: #0d1117;
-            border: 1px solid #30363d;
-            border-radius: 8px;
-            padding: 1.25rem;
-            text-align: center;
-        }
-        .stat-card .number {
-            font-size: 2rem;
-            font-weight: 700;
+        .meta-item span {
             color: #58a6ff;
         }
-        .stat-card .label {
-            font-size: 0.8rem;
-            color: #8b949e;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+        .section {
+            background: #161b22;
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid #21262d;
         }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 1rem;
-        }
-        th {
-            background: #0d1117;
+        .section-title {
+            font-size: 1.4rem;
             color: #f0f6fc;
-            padding: 0.85rem;
-            text-align: left;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .section-title::before {
+            content: '';
+            width: 4px;
+            height: 24px;
+            background: linear-gradient(180deg, #f59e0b, #d97706);
+            border-radius: 2px;
+        }
+        .company-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 20px;
+        }
+        .company-card {
+            background: #0d1117;
+            border: 1px solid #21262d;
+            border-radius: 12px;
+            padding: 24px;
+            transition: all 0.3s ease;
+        }
+        .company-card:hover {
+            border-color: #f59e0b;
+            transform: translateY(-2px);
+        }
+        .company-name {
+            font-size: 1.1rem;
             font-weight: 600;
-            font-size: 0.85rem;
+            color: #f0f6fc;
+            margin-bottom: 8px;
+        }
+        .company-type {
+            display: inline-block;
+            background: #21262d;
+            color: #8b949e;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 11px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            border-bottom: 2px solid #238636;
+            margin-bottom: 12px;
         }
-        td {
-            padding: 0.85rem;
-            border-bottom: 1px solid #21262d;
-            font-size: 0.9rem;
+        .company-type.franchise {
+            background: rgba(245, 158, 11, 0.15);
+            color: #f59e0b;
         }
-        tr:hover { background: #1c2128; }
-        .hotel-name { color: #58a6ff; font-weight: 600; }
-        .location { color: #8b949e; }
-        .contact { font-family: monospace; font-size: 0.85rem; color: #a5d6ff; }
-        .trend-tag {
-            display: inline-block;
-            background: #1f6feb;
-            color: #fff;
-            padding: 0.2rem 0.6rem;
-            border-radius: 12px;
-            font-size: 0.7rem;
-            margin: 0.15rem;
+        .company-type.local {
+            background: rgba(88, 166, 255, 0.15);
+            color: #58a6ff;
         }
-        .strategy-card {
-            background: #0d1117;
-            border: 1px solid #30363d;
-            border-radius: 8px;
-            padding: 1.25rem;
-            margin-bottom: 1rem;
-        }
-        .strategy-card h3 { color: #58a6ff; margin-bottom: 0.5rem; font-size: 1rem; }
-        .strategy-card p { color: #c9d1d9; font-size: 0.9rem; }
-        footer {
-            text-align: center;
-            padding: 2rem;
+        .company-location {
             color: #8b949e;
-            font-size: 0.8rem;
-            border-top: 1px solid #30363d;
-            margin-top: 2rem;
+            font-size: 14px;
+            margin-bottom: 10px;
         }
-        .highlight { color: #f0883e; font-weight: 600; }
+        .company-contact {
+            color: #8b949e;
+            font-size: 13px;
+        }
+        .company-contact a {
+            color: #58a6ff;
+            text-decoration: none;
+        }
+        .company-contact a:hover {
+            text-decoration: underline;
+        }
+        .trends-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .trend-card {
+            background: #0d1117;
+            border: 1px solid #21262d;
+            border-radius: 12px;
+            padding: 20px;
+        }
+        .trend-card h4 {
+            color: #f0f6fc;
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+        .trend-card p {
+            color: #8b949e;
+            font-size: 14px;
+        }
+        .strategy-list {
+            list-style: none;
+        }
+        .strategy-list li {
+            background: #0d1117;
+            border: 1px solid #21262d;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+        }
+        .strategy-list h4 {
+            color: #f59e0b;
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+        .strategy-list p {
+            color: #8b949e;
+            font-size: 14px;
+        }
+        .insights-box {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(217, 119, 6, 0.05));
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            border-radius: 12px;
+            padding: 25px;
+        }
+        .insights-box h4 {
+            color: #f59e0b;
+            margin-bottom: 15px;
+        }
+        .insights-box ul {
+            list-style: none;
+        }
+        .insights-box li {
+            color: #c9d1d9;
+            padding: 8px 0;
+            padding-left: 20px;
+            position: relative;
+            font-size: 14px;
+        }
+        .insights-box li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #f59e0b;
+        }
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .stat-card {
+            background: #161b22;
+            border: 1px solid #21262d;
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #f59e0b;
+            margin-bottom: 5px;
+        }
+        .stat-label {
+            color: #8b949e;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 2px solid #21262d;
+            color: #8b949e;
+            font-size: 14px;
+        }
+        .next-run {
+            background: rgba(88, 166, 255, 0.1);
+            border: 1px solid rgba(88, 166, 255, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .next-run span {
+            color: #58a6ff;
+        }
     </style>
 </head>
 <body>
-    <header>
-        <span class="badge">Reporte de Leads</span>
-        <h1>Hoteles & Resorts de Costa Rica</h1>
-        <p class="subtitle">Oportunidades de publicidad para Aurea — Nicho: Hoteles</p>
-        <div class="meta-bar">
-            <div class="meta-item"><span>Mayo 2026</span><br>Mes del nicho</div>
-            <div class="meta-item"><span>8-10 Hotels</span><br>Empresas identificadas</div>
-            <div class="meta-item"><span>Cron #001</span><br>Ejecutado</div>
-        </div>
-    </header>
-
     <div class="container">
-        <!-- Market Overview -->
-        <section>
-            <h2>📊 Panorama del Mercado</h2>
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="number">+10.4%</div>
-                    <div class="label">Crecimiento Arrivals (Ene-Feb 2026)</div>
+        <div class="header">
+            <div class="badge">AUREA Advertising Agency</div>
+            <h1>Lead Research Report</h1>
+            <p class="subtitle">Nichos de Restaurantes en Costa Rica - Oportunidades de Publicidad</p>
+            <div class="meta-info">
+                <div class="meta-item">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/><path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/></svg>
+                    <span>Mayo 1, 2026</span>
                 </div>
-                <div class="stat-card">
-                    <div class="number">653,959</div>
-                    <div class="label">Visitantes (Ene-Feb 2026)</div>
+                <div class="meta-item">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383-4.758 2.855L15 11.114v-5.73zm-.034 6.878L9.271 8.82 8 9.583 6.728 8.82l-5.694 3.44A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.739zM1 11.114l4.758-2.876L1 5.383v5.73z"/></svg>
+                    <span>14:00 UTC</span>
                 </div>
-                <div class="stat-card">
-                    <div class="number">$391.8M</div>
-                    <div class="label">Inversión hotelera proyectada</div>
-                </div>
-                <div class="stat-card">
-                    <div class="number">1,500</div>
-                    <div class="label">Nuevas habitaciones en desarrollo</div>
-                </div>
-                <div class="stat-card">
-                    <div class="number">8.1%</div>
-                    <div class="label">CAGR del turismo 2025-2030</div>
-                </div>
-                <div class="stat-card">
-                    <div class="number">337,027</div>
-                    <div class="label">Visitantes USA (Ene-Feb 2026)</div>
+                <div class="meta-item">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/><path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/></svg>
+                    <span>Cron Job #272739b3</span>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <!-- Hoteles Identificados -->
-        <section>
-            <h2>🏨 Hoteles Identificados</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Hotel / Resort</th>
-                        <th>Ubicación</th>
-                        <th>Tipo</th>
-                        <th>Contacto / Notas</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="hotel-name">Hotel Fermata</td>
-                        <td class="location">Santa Teresa, Puntarenas</td>
-                        <td>Boutique, T+L 2026 Best New</td>
-                        <td class="contact">hotelfermatacr.com</td>
-                    </tr>
-                    <tr>
-                        <td class="hotel-name">Origins Astral Lodge</td>
-                        <td class="location">Bijagua de Upala, Alajuela</td>
-                        <td>Boutique, T+L 2026 Best New</td>
-                        <td class="contact">Sister: Origins Floral (2018)</td>
-                    </tr>
-                    <tr>
-                        <td class="hotel-name">Waldorf Astoria Costa Rica</td>
-                        <td class="location">Punta Cacique, Guanacaste</td>
-                        <td>Luxury, Steve Case / Exclusive Resorts</td>
-                        <td class="contact">Abrió Abril 2025, brand launch</td>
-                    </tr>
-                    <tr>
-                        <td class="hotel-name">Nekajui, a Ritz-Carlton Reserve</td>
-                        <td class="location">Peninsula Papagayo, Guanacaste</td>
-                        <td>Ultra-Luxury, 50th Marriott luxury property</td>
-                        <td class="contact">Feb 2025 opening</td>
-                    </tr>
-                    <tr>
-                        <td class="hotel-name">JW Marriott All-Inclusive Costa Elena</td>
-                        <td class="location">Guanacaste</td>
-                        <td>All-Inclusive, 415 rooms</td>
-                        <td class="contact">Opening Mayo 2027, Marriott Bonvoy</td>
-                    </tr>
-                    <tr>
-                        <td class="hotel-name">Drake Bay Getaway Resort</td>
-                        <td class="location">Drake Bay, Osa Peninsula</td>
-                        <td>Eco-Luxury Boutique</td>
-                        <td class="contact">manager@drakebaygetaway.com | +506 6438 2854</td>
-                    </tr>
-                    <tr>
-                        <td class="hotel-name">Chayote Lodge</td>
-                        <td class="location">Costa Rica (Mountain region)</td>
-                        <td>Boutique, Owner-operated</td>
-                        <td class="contact">Owner: Rolando Campos (30yr tourism veteran)</td>
-                    </tr>
-                    <tr>
-                        <td class="hotel-name">Santarena Hotel</td>
-                        <td class="location">Las Catalinas, Guanacaste</td>
-                        <td>Boutique, Design Hotel</td>
-                        <td class="contact">Mr & Mrs Smith collection</td>
-                    </tr>
-                    <tr>
-                        <td class="hotel-name">Capitán Suizo Beachfront</td>
-                        <td class="location">Tamarindo, Guanacaste</td>
-                        <td>Boutique Beachfront</td>
-                        <td class="contact">TripAdvisor top rated, Adults-friendly</td>
-                    </tr>
-                    <tr>
-                        <td class="hotel-name">Si Como No Resort</td>
-                        <td class="location">Manuel Antonio, Puntarenas</td>
-                        <td>Resort, 54 rooms, Sustainable</td>
-                        <td class="contact">sicomono.com — Adults area + Family</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
+        <div class="stats-row">
+            <div class="stat-card">
+                <div class="stat-number">8</div>
+                <div class="stat-label">Empresas Identificadas</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">6</div>
+                <div class="stat-label">Franquicias</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">2</div>
+                <div class="stat-label">Cadenas Locales</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">$3.05B</div>
+                <div class="stat-label">Mercado Bebidas 2026</div>
+            </div>
+        </div>
 
-        <!-- Tendencias del Mercado -->
-        <section>
-            <h2>📈 Tendencias 2026</h2>
-            <div style="margin-bottom: 1rem;">
-                <span class="trend-tag">Wellness Tourism</span>
-                <span class="trend-tag">Eco-Luxury</span>
-                <span class="trend-tag">Experiential Travel</span>
-                <span class="trend-tag">Sostenibilidad Verificada</span>
-                <span class="trend-tag">MICE Tourism</span>
-                <span class="trend-tag">All-Inclusive Premium</span>
-                <span class="trend-tag">US Market Dominance</span>
-                <span class="trend-tag">North America 32% Luxury Share</span>
+        <div class="section">
+            <h2 class="section-title">Empresas Identificadas</h2>
+            <div class="company-grid">
+                <div class="company-card">
+                    <div class="company-name">King Food Corporation</div>
+                    <span class="company-type franchise">Franquicia</span>
+                    <div class="company-location">📍 San José, Costa Rica</div>
+                    <div class="company-contact">
+                        <strong>Marcas:</strong> Burger King, Papa John's, Church's Chicken<br>
+                        <strong>Contacto:</strong> Stephanie Charpentier<br>
+                        <strong>Estrategia:</strong> LinkedIn B2B, contacto directo corporativo
+                    </div>
+                </div>
+                <div class="company-card">
+                    <div class="company-name">Comidas Centroamericanas S.A.</div>
+                    <span class="company-type franchise">Franquicia</span>
+                    <div class="company-location">📍 Costa Rica</div>
+                    <div class="company-contact">
+                        <strong>Marca:</strong> Pizza Hut Costa Rica<br>
+                        <strong>Contacto:</strong> Javier Gutierrez C (Board Director)<br>
+                        <strong>Estrategia:</strong> Contacto via RocketReach, LinkedIn
+                    </div>
+                </div>
+                <div class="company-card">
+                    <div class="company-name">Don Rufino</div>
+                    <span class="company-type local">Cadena Local</span>
+                    <div class="company-location">📍 La Fortuna, San Carlos</div>
+                    <div class="company-contact">
+                        <strong>Tel:</strong> +506 2479 9997<br>
+                        <strong>Web:</strong> donrufino.com<br>
+                        <strong>Estrategia:</strong> Email marketing, Instagram, TripAdvisor ads
+                    </div>
+                </div>
+                <div class="company-card">
+                    <div class="company-name">McDonald's Costa Rica</div>
+                    <span class="company-type franchise">Franquicia</span>
+                    <div class="company-location">📍 San José y todo el país</div>
+                    <div class="company-contact">
+                        <strong>Historia:</strong> Primera ubicación en 1970 (1ra fuera de NA)<br>
+                        <strong>Estrategia:</strong> Contacto corporativo regional,Pitch servicios digitales
+                    </div>
+                </div>
+                <div class="company-card">
+                    <div class="company-name">Pollo Tropical Costa Rica</div>
+                    <span class="company-type franchise">Franquicia</span>
+                    <div class="company-location">📍 San José (Curridabat)</div>
+                    <div class="company-contact">
+                        <strong>Marca:</strong> US Fast Food Chain<br>
+                        <strong>Estrategia:</strong> Expansión activa - oportunidad para servicios de marketing local
+                    </div>
+                </div>
+                <div class="company-card">
+                    <div class="company-name">Popeyes Costa Rica</div>
+                    <span class="company-type franchise">Franquicia</span>
+                    <div class="company-location">📍 Curridabat, San José</div>
+                    <div class="company-contact">
+                        <strong>Inversión inicial:</strong> $1.5M primera ubicación<br>
+                        <strong>Estrategia:</strong> Enfoque en redes sociales y Google Ads
+                    </div>
+                </div>
+                <div class="company-card">
+                    <div class="company-name">Johnny Rockets Costa Rica</div>
+                    <span class="company-type franchise">Franquicia</span>
+                    <div class="company-location">📍 Múltiples ubicaciones</div>
+                    <div class="company-contact">
+                        <strong>Expansión:</strong> 3ra ubicación abierta<br>
+                        <strong>Estrategia:</strong> Marketing de experiencia, contenido visual
+                    </div>
+                </div>
+                <div class="company-card">
+                    <div class="company-name">Café Rey</div>
+                    <span class="company-type local">Cadena Local</span>
+                    <div class="company-location">📍 Costa Rica</div>
+                    <div class="company-contact">
+                        <strong>Posición:</strong> #1 Restaurants company Costa Rica (Tracxn)<br>
+                        <strong>Estrategia:</strong> Propuesta de branding y redes sociales
+                    </div>
+                </div>
             </div>
-            <p style="color: #c9d1d9; margin-top: 1rem;">
-                Costa Rica se consolida como destino de <span class="highlight">turismo de lujo premium</span> en Latinoamérica. 
-                Los viajeros de alto perfil buscan experiencias <span class="highlight">holísticas, bienestar y privacidad significativa</span>. 
-                El mercado norteamericano representa el <span class="highlight">69.6%</span> de las llegadas internacionales (454,889 visitantes 
-                de Norteamérica en Ene-Feb 2026). La región Guanacaste concentra el 50% de las nuevas habitaciones en desarrollo.
-            </p>
-            <p style="color: #c9d1d9; margin-top: 0.75rem;">
-                La expansión de aviación hacia Liberia (aviación handling upgrades) beneficia el segmento premium y MICE. 
-                Los operadores que combinen <span class="highlight">sostenibilidad verificada + wellness depth + logística confiable</span> 
-                estarán mejor posicionados para capturar market share.
-            </p>
-        </section>
+        </div>
 
-        <!-- Estrategias de Contacto -->
-        <section>
-            <h2>📧 Estrategias de Contacto</h2>
-            <div class="strategy-card">
-                <h3>1. cold outreach via Email Directo</h3>
-                <p>Contactar gerentes generales y directors de marketing de cada hotel con propuesta de 值 servicios de branding y campaigns digitales. Emphasis en track record con turismo de lujo.</p>
+        <div class="section">
+            <h2 class="section-title">Tendencias del Mercado 2026</h2>
+            <div class="trends-grid">
+                <div class="trend-card">
+                    <h4>📱 Social Media</h4>
+                    <p>Restaurantes que publican 5-7 veces por semana en Instagram ven 2.4x más conversiones. Reels y contenido corto son esenciales.</p>
+                </div>
+                <div class="trend-card">
+                    <h4>🎯 Google Business Profile</h4>
+                    <p>Las publicaciones de Google Business Profile son el formato de mayor ROI que la mayoría de restaurantes ignoran.</p>
+                </div>
+                <div class="trend-card">
+                    <h4>🤖 IA en Contenido</h4>
+                    <p>La creación de contenido con IA se ha convertido en flujo estándar. Producción con valor auténtico supera producción de alta calidad.</p>
+                </div>
+                <div class="trend-card">
+                    <h4>📊 Datos Costa Rica</h4>
+                    <p>Ventas de bebidas en Costa Rica alcanzarán $3.05B para 2026 (0.9% crecimiento anual). Mercado en recuperación post-pandemia.</p>
+                </div>
+                <div class="trend-card">
+                    <h4>🎬 Video Short-form</h4>
+                    <p>Videos verticales cortos (Reels/TikTok) de preparación de alimentos, plating y behind-the-scenes generan mayor engagement.</p>
+                </div>
+                <div class="trend-card">
+                    <h4>🔍 Social Search</h4>
+                    <p>Los consumidores descubren restaurantes a través de búsqueda social, no solo Google o sitios de reseñas tradicionales.</p>
+                </div>
             </div>
-            <div class="strategy-card">
-                <h3>2. LinkedIn Outreach</h3>
-                <p>Buscar: "Director de Marketing", "Gerente General", "Director de Ventas" + nombres de propiedades. Usar InMail para establecer contacto inicial.</p>
-            </div>
-            <div class="strategy-card">
-                <h3>3. Attending Travel/Tourism Events</h3>
-                <p>Buscar ferias como "FITT 2026" o "EXPOGRAM", o visitar properties en Guanacaste para contacto in-person. Rolando Campos (Chayote Lodge) es vocal en podcasts — oportunidad de networking.</p>
-            </div>
-            <div class="strategy-card">
-                <h3>4. Propuesta de Valor para Hoteles</h3>
-                <p>Highlight: 337k+ visitantes USA anuales, target audience de travelers conscientes con sostenibilidad, eco-conscious luxury travelers, digital marketing para booking directo y OTAs.</p>
-            </div>
-            <div class="strategy-card">
-                <h3>5. follow-up con Nuevos Proyectos</h3>
-                <p>JW Marriott All-Inclusive Costa Elena (Mayo 2027) y Moxy Hotel Alajuela (Abril 2027) son targets quentes. Contactar equipos de pre-apertura para servicios de branding desde day one.</p>
-            </div>
-        </section>
+        </div>
 
-        <!-- Stats Summary -->
-        <section>
-            <h2>🎯 Prioridades para Outreach Inmediato</h2>
-            <ol style="color: #c9d1d9; padding-left: 1.5rem; line-height: 2;">
-                <li><span class="highlight">Drake Bay Getaway Resort</span> — Email directo disponible (manager@drakebaygetaway.com)</li>
-                <li><span class="highlight">Hotel Fermata</span> — T+L recognition reciente, alto perfil, buscando expandir</li>
-                <li><span class="highlight">Origins Astral Lodge</span> — Propiedad nueva con momentum mediático</li>
-                <li><span class="highlight">Chayote Lodge / Rolando Campos</span> — Veteran del industry, bien conectado, podcast guest frecuente</li>
-                <li><span class="highlight">Waldorf Astoria Costa Rica</span> — Brand de lujo, Steve Case connection, presupuesto alto para marketing</li>
-            </ol>
-        </section>
+        <div class="section">
+            <h2 class="section-title">Estrategias de Contacto</h2>
+            <ul class="strategy-list">
+                <li>
+                    <h4>1. LinkedIn Outreach Corporativo</h4>
+                    <p>Para franquicias como King Food Corporation y Pizza Hut, usar LinkedIn para contactar tomadores de decisiones (CMOs, Directors of Marketing). Mensajes personalizados mencionando sus marcas específicas y propuesta de valor en digital marketing.</p>
+                </li>
+                <li>
+                    <h4>2. Email Marketing Dirigido</h4>
+                    <p>Para restaurantes locales como Don Rufino, recopilar emails de contacto de sus sitios web y enviar propuestas de servicios de social media management, Instagram ads y Google Business optimization.</p>
+                </li>
+                <li>
+                    <h4>3. Google Ads Locales</h4>
+                    <p>Ofrecer servicios de Google Ads geolocalizados para restaurantes en zonas turísticas (La Fortuna, Manuel Antonio). Budget-friendly para negocios pequeños medianos.</p>
+                </li>
+                <li>
+                    <h4>4. Pitch de Rebranding</h4>
+                    <p>Enfocarse en cadenas locales con potencial de crecimiento como Café Rey que podrían necesitar servicios de branding completo, identity y expansión digital.</p>
+                </li>
+                <li>
+                    <h4>5. Paquetes Instagram para Turismo</h4>
+                    <p>Crear paquetes de servicios específicos para restaurantes turísticos: photography, reels, Instagram ads targeting游客, TripAdvisor management.</p>
+                </li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Insights Clave</h2>
+            <div class="insights-box">
+                <h4>💡 Oportunidades Prioritarias para Aurea</h4>
+                <ul>
+                    <li><strong>Fase 1:</strong> Enfocarse en franquicias (King Food, Pizza Hut) con propuestas corporativas de marketing digital integral</li>
+                    <li><strong>Fase 2:</strong> Capturar restaurantes turísticos de alta visibilidad (Don Rufino) con paquetes de social media</li>
+                    <li><strong>Fase 3:</strong> Desarrollar caso de éxito con restaurante local y usar como referencia para nuevos clientes</li>
+                    <li><strong>Diferenciador:</strong> Especialización en hospitality + turismo + понимание del mercado tico</li>
+                    <li><strong>Tamaño promedio de ticket:</strong> $500-$2000/mes para social media management; $3000-$10000+ para campañas integrales</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="next-run">
+            <strong>Próximo Reporte:</strong> <span>Junio 2026 - Nicho: Clínicas</span>
+        </div>
+
+        <div class="footer">
+            <p>Aurea Lead Research © 2026 | Generado automáticamente por Logos AI Agent</p>
+            <p>Intel Reports Repo | github.com/asdelgado506/intel-reports</p>
+        </div>
     </div>
-
-    <footer>
-        <p>Aurea Advertising Agency — Lead Research Report | Generado: Mayo 1, 2026 12:00 CST</p>
-        <p>Archivo: <code>aurea-leads-2026-05-01.html</code> | Nicho: Hoteles | Fuentes: Tavily Search, Tourism Boards</p>
-    </footer>
 </body>
 </html>
