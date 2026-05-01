@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aurea — Leads Startups Costa Rica | Mayo 2026</title>
+<style>
+  :root {
+    --bg: #0d0d0d;
+    --surface: #161616;
+    --surface2: #1e1e1e;
+    --border: #2a2a2a;
+    --accent: #f59e0b;
+    --accent2: #10b981;
+    --text: #e5e5e5;
+    --text-muted: #888;
+    --green: #22c55e;
+    --blue: #3b82f6;
+    --purple: #a78bfa;
+    --red: #ef4444;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 2.5rem 1.5rem; }
+
+  header { border-bottom: 2px solid var(--accent); padding-bottom: 1.5rem; margin-bottom: 2rem; }
+  .badge { display: inline-block; background: var(--accent); color: #000; font-weight: 700; font-size: 0.7rem; padding: 3px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 0.75rem; }
+  h1 { font-size: 2rem; color: #fff; margin-bottom: 0.3rem; }
+  .subtitle { color: var(--text-muted); font-size: 0.9rem; }
+  .meta { margin-top: 1rem; display: flex; gap: 1.5rem; font-size: 0.8rem; color: var(--text-muted); flex-wrap: wrap; }
+  .meta-item { display: flex; align-items: center; gap: 0.4rem; }
+  .meta-item .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+
+  .summary { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem 2rem; margin-bottom: 2rem; }
+  .summary h2 { color: var(--accent); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 0.75rem; }
+  .summary p { color: var(--text); font-size: 0.95rem; }
+  .summary strong { color: var(--green); }
+  .summary em { color: var(--text-muted); font-style: normal; }
+
+  h2 { color: #fff; font-size: 1.2rem; margin: 2.5rem 0 1rem; border-left: 4px solid var(--accent); padding-left: 0.8rem; }
+  h3 { font-size: 1rem; color: #fff; margin: 1.2rem 0 0.5rem; }
+
+  .companies-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem; }
+  @media (max-width: 700px) { .companies-grid { grid-template-columns: 1fr; } }
+
+  .company-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.2rem 1.4rem; transition: border-color 0.2s; }
+  .company-card:hover { border-color: var(--accent); }
+  .company-card .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem; }
+  .company-card .name { font-size: 1.05rem; font-weight: 700; color: #fff; }
+  .company-card .sector { font-size: 0.7rem; font-weight: 600; padding: 2px 8px; border-radius: 20px; background: rgba(245,158,11,0.15); color: var(--accent); border: 1px solid rgba(245,158,11,0.3); margin-left: 0.5rem; white-space: nowrap; }
+  .company-card .location { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.5rem; }
+  .company-card .description { font-size: 0.83rem; color: var(--text-muted); margin-bottom: 0.75rem; line-height: 1.5; }
+  .company-card .contact-row { display: flex; gap: 1rem; flex-wrap: wrap; font-size: 0.78rem; }
+  .contact-item { display: flex; align-items: center; gap: 0.3rem; }
+  .contact-label { color: var(--text-muted); }
+  .contact-value { color: var(--accent2); }
+
+  .trends-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem; }
+  @media (max-width: 700px) { .trends-grid { grid-template-columns: 1fr; } }
+  .trend-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.2rem 1.4rem; }
+  .trend-card .trend-title { font-size: 0.9rem; font-weight: 700; color: #fff; margin-bottom: 0.4rem; display: flex; align-items: center; gap: 0.5rem; }
+  .trend-card .trend-title .emoji { font-size: 1.1rem; }
+  .trend-card .trend-text { font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; }
+  .trend-card .trend-impact { display: inline-block; margin-top: 0.5rem; font-size: 0.7rem; font-weight: 700; padding: 2px 8px; border-radius: 20px; }
+  .impact-high { background: rgba(34,197,94,0.15); color: var(--green); border: 1px solid rgba(34,197,94,0.3); }
+  .impact-med { background: rgba(59,130,246,0.15); color: var(--blue); border: 1px solid rgba(59,130,246,0.3); }
+
+  .strategy-list { list-style: none; margin-top: 0.5rem; }
+  .strategy-list li { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 0.9rem 1.2rem; margin-bottom: 0.6rem; font-size: 0.88rem; display: flex; gap: 0.8rem; align-items: flex-start; }
+  .strategy-list li .num { background: var(--accent); color: #000; font-weight: 800; font-size: 0.75rem; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .strategy-list li .strat-content strong { color: #fff; display: block; margin-bottom: 0.2rem; }
+  .strategy-list li .strat-content span { color: var(--text-muted); }
+
+  .investor-section { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.2rem 1.4rem; margin-top: 1rem; }
+  .investor-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 0.8rem; margin-top: 0.8rem; }
+  .investor-card { background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; padding: 0.9rem 1rem; }
+  .investor-card .inv-name { font-size: 0.88rem; font-weight: 700; color: #fff; margin-bottom: 0.2rem; }
+  .investor-card .inv-type { font-size: 0.72rem; color: var(--accent); }
+  .investor-card .inv-note { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.3rem; }
+
+  .footer { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border); text-align: center; color: var(--text-muted); font-size: 0.75rem; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <div class="badge">🔍 Aurea Intelligence — Lead Research</div>
+  <h1>Startups en Costa Rica</h1>
+  <p class="subtitle">Oportunidades de publicidad digital y marketing para agencias en el ecosistema startup costarricense</p>
+  <div class="meta">
+    <div class="meta-item"><span class="dot"></span> Viernes 1 de Mayo, 2026 — 10:00 AM CST</div>
+    <div class="meta-item">📍 San José, Costa Rica</div>
+    <div class="meta-item">🏷️ Nicho: Startups / Tech</div>
+    <div class="meta-item">📊 8 empresas analizadas</div>
+  </div>
+</header>
+
+<div class="summary">
+  <h2>Resumen Ejecutivo</h2>
+  <p>
+    Costa Rica se posiciona como el hub tecnológico #2 de Centroamérica con un ecosistema de <strong>+2,142 startups</strong>,
+    de las cuales <strong>172 han levantado más de $900M en venture capital</strong>.
+    El ecosistema de San José creció <strong>+29.1% en 2025</strong>, ranking global #73 (StartupBlink).
+    <em>Este reporte identifica 8 startups de alto potencial con necesidades activas de marketing digital,
+    branding y posicionamiento para su próxima ronda de financiamiento o expansión regional.</em>
+  </p>
+</div>
+
+<h2>🏢 Empresas Identificadas</h2>
+<div class="companies-grid">
+
+<!-- Huli -->
+<div class="company-card">
+  <div class="card-header">
+    <div class="name">Huli</div>
+    <div class="sector">HealthTech</div>
+  </div>
+  <div class="location">📍 San José, Costa Rica</div>
+  <div class="description">
+    Plataforma integral de salud conectando pacientes, proveedores y socios. Incluye agenda de citas, historia clínica electrónica y telemedicina en Latinoamérica.
+  </div>
+  <div class="contact-row">
+    <div class="contact-item"><span class="contact-label">Web:</span> <span class="contact-value">huli.io</span></div>
+    <div class="contact-item"><span class="contact-label">LinkedIn:</span> <span class="contact-value">/company/hulihealth</span></div>
+  </div>
+</div>
+
+<!-- Avify -->
+<div class="company-card">
+  <div class="card-header">
+    <div class="name">Avify</div>
+    <div class="sector">E-commerce SaaS</div>
+  </div>
+  <div class="location">📍 San José, Costa Rica</div>
+  <div class="description">
+    Plataforma SaaS de comercio omnicanal con inventario y logística sincronizados. Reconocida en Top 20 de Centroamérica (Caricaco Summit 2026).
+  </div>
+  <div class="contact-row">
+    <div class="contact-item"><span class="contact-label">Web:</span> <span class="contact-value">avify.com</span></div>
+    <div class="contact-item"><span class="contact-label">LinkedIn:</span> <span class="contact-value">/company/avify</span></div>
+  </div>
+</div>
+
+<!-- TobiPets -->
+<div class="company-card">
+  <div class="card-header">
+    <div class="name">TobiPets</div>
+    <div class="sector">E-commerce / PetTech</div>
+  </div>
+  <div class="location">📍 San José, Costa Rica</div>
+  <div class="description">
+    Plataforma líder de e-commerce para cuidado de mascotas con productos y servicios veterinarios, recomendaciones personalizadas. Top 20 Caricaco 2026.
+  </div>
+  <div class="contact-row">
+    <div class="contact-item"><span class="contact-label">Web:</span> <span class="contact-value">tobipets.com</span></div>
+    <div class="contact-item"><span class="contact-label">LinkedIn:</span> <span class="contact-value">/company/tobipets</span></div>
+  </div>
+</div>
+
+<!-- Mission Inbox -->
+<div class="company-card">
+  <div class="card-header">
+    <div class="name">Mission Inbox</div>
+    <div class="sector">Email Infrastructure</div>
+  </div>
+  <div class="location">📍 San José, Costa Rica</div>
+  <div class="description">
+    Plataforma de infraestructura de email con alta entregabilidad para equipos de ventas y marketing. Top 20 Caricaco Summit 2026.
+  </div>
+  <div class="contact-row">
+    <div class="contact-item"><span class="contact-label">Web:</span> <span class="contact-value">missioninbox.com</span></div>
+    <div class="contact-item"><span class="contact-label">LinkedIn:</span> <span class="contact-value">/company/missioninbox</span></div>
+  </div>
+</div>
+
+<!-- Snap Compliance -->
+<div class="company-card">
+  <div class="card-header">
+    <div class="name">Snap Compliance</div>
+    <div class="sector">RegTech SaaS</div>
+  </div>
+  <div class="location">📍 San José, Costa Rica</div>
+  <div class="description">
+    Plataforma SaaS de cumplimiento regulatorio, gestión de riesgos y procesos anti-lavado de dinero (AML). Top 20 Caricaco 2026.
+  </div>
+  <div class="contact-row">
+    <div class="contact-item"><span class="contact-label">Web:</span> <span class="contact-value">snap-compliance.com</span></div>
+    <div class="contact-item"><span class="contact-label">LinkedIn:</span> <span class="contact-value">/company/snapcompliance</span></div>
+  </div>
+</div>
+
+<!-- Ari -->
+<div class="company-card">
+  <div class="card-header">
+    <div class="name">Ari</div>
+    <div class="sector">Fintech / FX</div>
+  </div>
+  <div class="location">📍 San José, Costa Rica</div>
+  <div class="description">
+    Fintech especializada en FX y pagos transfronterizos. Seleccionada Top 20 de Centroamérica y Caribe 2026.
+  </div>
+  <div class="contact-row">
+    <div class="contact-item"><span class="contact-label">Web:</span> <span class="contact-value">ariari.com</span></div>
+    <div class="contact-item"><span class="contact-label">LinkedIn:</span> <span class="contact-value">/company/ari-fx</span></div>
+  </div>
+</div>
+
+<!-- Calix -->
+<div class="company-card">
+  <div class="card-header">
+    <div class="name">Calix</div>
+    <div class="sector">Tech / SaaS</div>
+  </div>
+  <div class="location">📍 San José, Costa Rica</div>
+  <div class="description">
+    Top 3 startup de Costa Rica según StartupBlink. Impulsada por inversión significativa y alto tráfico web trimestral. Sector tech/SaaS.
+  </div>
+  <div class="contact-row">
+    <div class="contact-item"><span class="contact-label">Web:</span> <span class="contact-value">calix.io</span></div>
+    <div class="contact-item"><span class="contact-label">LinkedIn:</span> <span class="contact-value">/company/calixcr</span></div>
+  </div>
+</div>
+
+<!-- Tilopay -->
+<div class="company-card">
+  <div class="card-header">
+    <div class="name">Tilopay</div>
+    <div class="sector">Fintech / Payments</div>
+  </div>
+  <div class="location">📍 San José, Costa Rica</div>
+  <div class="description">
+    Entre las top 3 startups de Costa Rica. Soluciones de pagos digitales con presencia creciente en el ecosistema fintech centroamericano.
+  </div>
+  <div class="contact-row">
+    <div class="contact-item"><span class="contact-label">Web:</span> <span class="contact-value">tilopay.com</span></div>
+    <div class="contact-item"><span class="contact-label">LinkedIn:</span> <span class="contact-value">/company/tilopay</span></div>
+  </div>
+</div>
+
+</div>
+
+<h2>📈 Tendencias del Mercado</h2>
+<div class="trends-grid">
+
+<div class="trend-card">
+  <div class="trend-title"><span class="emoji">🚀</span> Expansión Regional</div>
+  <div class="trend-text">Las startups CR están escalando más allá del mercado local hacia LATAM y mercados globales. 9 startups captaron funding early-stage en 2025. Esto requiere branding y posicionamiento pan-regional.</div>
+  <div class="trend-impact impact-high">Alta oportunidad</div>
+</div>
+
+<div class="trend-card">
+  <div class="trend-title"><span class="emoji">🤖</span> AI como diferenciador</div>
+  <div class="trend-text">SaaS con IA (Snap Compliance, Sento AI) lideran la nueva ola. Las startups que integran AI messaging captan más atención de VCs y clientes B2B.</div>
+  <div class="trend-impact impact-high">Alta oportunidad</div>
+</div>
+
+<div class="trend-card">
+  <div class="trend-title"><span class="emoji">💳</span> Fintech en auge</div>
+  <div class="trend-text">Costa Rica tiene 40+ fintechs activas. Ari, Tilopay y Ginih están reconfigurando pagos transfronterizos. El marketing B2B para fintech requiere narrativa de confianza y cumplimiento.</div>
+  <div class="trend-impact impact-med">Media-alta</div>
+</div>
+
+<div class="trend-card">
+  <div class="trend-title"><span class="emoji">🩺</span> HealthTech post-pandemia</div>
+  <div class="trend-text">Huli lidera telemedicina en CR con expansión LATAM. La competencia internacional (EasyMD de Nicaragua) impulsa necesidad de diferenciación de marca y contenido educativo.</div>
+  <div class="trend-impact impact-med">Media-alta</div>
+</div>
+
+<div class="trend-card">
+  <div class="trend-title"><span class="emoji">📦</span> E-commerce acceleration</div>
+  <div class="trend-text">TobiPets y Avify captan el crecimiento del e-commerce B2B y D2C en la región. Campañas de performance marketing y SEO son necesidades inmediatas.</div>
+  <div class="trend-impact impact-high">Alta oportunidad</div>
+</div>
+
+<div class="trend-card">
+  <div class="trend-title"><span class="emoji">🏗️</span> VCs activos en CR</div>
+  <div class="trend-text">124 inversores participated en 174 rondas en CR. Fondos como Caricaco Ventures, Carao Ventures están desplegando capital activamente en 2026, lo que presiona a startups a mejorar su posicionamiento.</div>
+  <div class="trend-impact impact-med">Media</div>
+</div>
+
+</div>
+
+<h2>🎯 Estrategias de Contacto</h2>
+<ul class="strategy-list">
+  <li>
+    <div class="num">1</div>
+    <div class="strat-content">
+      <strong>LinkedIn Outreach directo a founders</strong>
+      <span>Buscar CEOs y founders en LinkedIn con mensaje personalizado referencing su última ronda o expansión. Tono de "colaboración estratégica", no vendor pitch. Ideal: Inmessaging vía Sales Navigator o equivalente.</span>
+    </div>
+  </li>
+  <li>
+    <div class="num">2</div>
+    <div class="strat-content">
+      <strong>Participación en eventos del ecosistema</strong>
+      <span>Caricaco Summit 2026, Pitch sessions de Startuplinks, meetups de Costa Rica Tech Meetup. Networking en persona con founders es la vía más efectiva para estas empresas.</span>
+    </div>
+  </li>
+  <li>
+    <div class="num">3</div>
+    <div class="strat-content">
+      <strong>Contenido de valor sobre growth para startups</strong>
+      <span>Publicar case study o whitepaper sobre "Cómo startups CR pueden escalar su marca antes de su Serie A". Distribuir por email y LinkedIn. Genera inbound de founders que buscan ese conocimiento.</span>
+    </div>
+  </li>
+  <li>
+    <div class="num">4</div>
+    <div class="strat-content">
+      <strong>Cold email con insight específico del sector</strong>
+      <span>Para fintechs (Ari, Tilopay): proponer contenido sobre branding para fintech regulados. Para e-commerce (TobiPets, Avify): pitch de performance marketing. Personalizar según verticales.</span>
+    </div>
+  </li>
+  <li>
+    <div class="num">5</div>
+    <div class="strat-content">
+      <strong>Partners de aceleración como canal</strong>
+      <span>Contactar programas de aceleración CR como CRInnova, AEPAM, y CENTRO. Pueden facilitar intro a founders. Ofrecer workshop gratuito de marketing digital como lead magnet.</span>
+    </div>
+  </li>
+</ul>
+
+<h2>💼 Inversores Activos en Costa Rica</h2>
+<div class="investor-section">
+  <p style="font-size:0.85rem; color:var(--text-muted);">Conocer a los investors de estas startups ayuda a Aurea a entender el timing de cuándo necesitan marketing (pre-ronda / post-ronda).</p>
+  <div class="investor-grid">
+    <div class="investor-card">
+      <div class="inv-name">Caricaco Ventures</div>
+      <div class="inv-type">VC — Fundador activo CR</div>
+      <div class="inv-note">Invierte en etapas tempranas, muy activo en 2025-2026</div>
+    </div>
+    <div class="investor-card">
+      <div class="inv-name">Carao Ventures</div>
+      <div class="inv-type">VC — Regional</div>
+      <div class="inv-note">Presente en CR, enfoque en SaaS y fintech</div>
+    </div>
+    <div class="investor-card">
+      <div class="inv-name">Invariantes Fund</div>
+      <div class="inv-type">VC — Región</div>
+      <div class="inv-note">Apoya startups del Top 20 Caricaco 2026</div>
+    </div>
+    <div class="investor-card">
+      <div class="inv-name">Cacao Ventures</div>
+      <div class="inv-type">VC — Centroamérica</div>
+      <div class="inv-note">Inversiones early-stage en CR</div>
+    </div>
+    <div class="investor-card">
+      <div class="inv-name">Barrilete Ventures</div>
+      <div class="inv-type">VC — Latam</div>
+      <div class="inv-note">Activo en CR, portfolio diverso</div>
+    </div>
+    <div class="investor-card">
+      <div class="inv-name">Amador Holdings</div>
+      <div class="inv-type">Holding — CR</div>
+      <div class="inv-note">Inversionista estratégico en ecosistema CR</div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <p>Reporte generado automáticamente por Logos (Aurea Intelligence) — Mayo 1, 2026</p>
+  <p>Fuentes: StartupBlink, Tracxn, Latam Republic, Startuplinks, Crunchbase | Nicho rotativo: STARTUPS</p>
+</div>
+
+</div>
+</body>
+</html>
