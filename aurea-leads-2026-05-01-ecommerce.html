@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurea — Leads: E-commerce Costa Rica | Mayo 2026</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #0d0d0f;
+            color: #e8e8ec;
+            font-family: 'Segoe UI', 'Inter', -apple-system, sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        .container { max-width: 1100px; margin: 0 auto; padding: 40px 24px; }
+        header {
+            border-bottom: 1px solid #1e1e28;
+            padding-bottom: 28px;
+            margin-bottom: 40px;
+        }
+        .badge {
+            display: inline-block;
+            background: #7c3aed22;
+            border: 1px solid #7c3aed55;
+            color: #a78bfa;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 14px;
+        }
+        h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: -0.5px;
+            margin-bottom: 8px;
+        }
+        .meta { color: #6b7280; font-size: 13px; }
+        .meta span { color: #9ca3af; }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 44px;
+        }
+        .stat-card {
+            background: #16161e;
+            border: 1px solid #1e1e28;
+            border-radius: 12px;
+            padding: 20px;
+        }
+        .stat-card .value {
+            font-size: 26px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+        .stat-card .label {
+            font-size: 12px;
+            color: #6b7280;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+        .stat-card .highlight { color: #a78bfa; }
+
+        h2 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #1e1e28;
+        }
+        h3 { font-size: 15px; font-weight: 600; color: #e8e8ec; margin-bottom: 4px; }
+
+        .companies-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-bottom: 44px;
+        }
+        .company-card {
+            background: #16161e;
+            border: 1px solid #1e1e28;
+            border-radius: 12px;
+            padding: 20px;
+            transition: border-color 0.2s;
+        }
+        .company-card:hover { border-color: #7c3aed55; }
+        .company-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+        .company-name { font-size: 15px; font-weight: 600; color: #fff; }
+        .company-category {
+            font-size: 11px;
+            color: #a78bfa;
+            background: #7c3aed18;
+            border: 1px solid #7c3aed33;
+            padding: 2px 8px;
+            border-radius: 10px;
+            margin-top: 4px;
+            display: inline-block;
+        }
+        .company-url { font-size: 12px; color: #6b7280; margin-bottom: 8px; word-break: break-all; }
+        .company-desc { font-size: 13px; color: #9ca3af; margin-bottom: 10px; }
+        .company-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+        .tag {
+            font-size: 11px;
+            padding: 2px 8px;
+            border-radius: 6px;
+            background: #1e1e28;
+            color: #6b7280;
+            border: 1px solid #2a2a38;
+        }
+        .tag.boost { background: #7c3aed18; color: #a78bfa; border-color: #7c3aed33; }
+
+        .section { margin-bottom: 44px; }
+        .trend-item {
+            background: #16161e;
+            border: 1px solid #1e1e28;
+            border-radius: 10px;
+            padding: 16px 20px;
+            margin-bottom: 10px;
+        }
+        .trend-item .trend-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #e8e8ec;
+            margin-bottom: 4px;
+        }
+        .trend-item .trend-desc { font-size: 13px; color: #6b7280; }
+
+        .contact-strategy {
+            background: #16161e;
+            border: 1px solid #1e1e28;
+            border-radius: 12px;
+            padding: 24px;
+        }
+        .contact-strategy h3 { color: #fff; margin-bottom: 14px; }
+        .strategy-step {
+            display: flex;
+            gap: 14px;
+            margin-bottom: 14px;
+            align-items: flex-start;
+        }
+        .step-num {
+            min-width: 28px;
+            height: 28px;
+            background: #7c3aed22;
+            border: 1px solid #7c3aed55;
+            color: #a78bfa;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        .step-content { font-size: 13px; color: #9ca3af; }
+        .step-content strong { color: #e8e8ec; }
+
+        .prioridad {
+            display: inline-block;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-left: 6px;
+        }
+        .prio-alta { background: #ef444422; color: #f87171; border: 1px solid #ef444444; }
+        .prio-media { background: #f59e0b22; color: #fbbf24; border: 1px solid #f59e0b44; }
+
+        .divider { border: none; border-top: 1px solid #1e1e28; margin: 40px 0; }
+
+        footer {
+            text-align: center;
+            color: #3f3f50;
+            font-size: 12px;
+            padding-top: 20px;
+            border-top: 1px solid #1e1e28;
+        }
+        footer a { color: #6c5ce7; text-decoration: none; }
+
+        @media (max-width: 768px) {
+            .summary-grid { grid-template-columns: repeat(2, 1fr); }
+            .companies-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+<header>
+    <div class="badge">Reporte de Leads — Oportunidades Comerciales</div>
+    <h1>E-commerce en Costa Rica</h1>
+    <div class="meta">Nicho del ciclo: <span>E-commerce / Tiendas Online</span> &nbsp;|&nbsp; Fecha: <span>1 de mayo, 2026</span> &nbsp;|&nbsp; Agencia: <span>Aurea</span></div>
+</header>
+
+<div class="summary-grid">
+    <div class="stat-card">
+        <div class="value">21%</div>
+        <div class="label">CAGR 2023–2026</div>
+    </div>
+    <div class="stat-card">
+        <div class="value">US$9.7B</div>
+        <div class="label">Proyección ingresos 2026</div>
+    </div>
+    <div class="stat-card">
+        <div class="value">257+</div>
+        <div class="label">Tiendas online en CR</div>
+    </div>
+    <div class="stat-card">
+        <div class="value">10</div>
+        <div class="label">Empresas priorizadas</div>
+    </div>
+</div>
+
+<h2>10 Empresas Objetivo</h2>
+<div class="companies-grid">
+
+    <div class="company-card">
+        <div class="company-header">
+            <div>
+                <h3>Tienda Monge</h3>
+                <span class="company-category">Retail / Multi-category</span>
+            </div>
+            <span class="prioridad prio-alta">Alta Prioridad</span>
+        </div>
+        <div class="company-url">tiendamonge.com</div>
+        <div class="company-desc">Cadena de retail con +US$21.4M en ingresos. Amplio catálogo: electrónica, hogar, deporte. Usa Magento con alto volumen de tráfico. Posible necesidad de repositioning de marca y campañas de temporada.</div>
+        <div class="company-tags">
+            <span class="tag">Magento</span>
+            <span class="tag">Retail</span>
+            <span class="tag boost">+US$21.4M revenue</span>
+            <span class="tag">Campañas estacionales</span>
+        </div>
+    </div>
+
+    <div class="company-card">
+        <div class="company-header">
+            <div>
+                <h3>Walmart Costa Rica</h3>
+                <span class="company-category">Hipermercado / Grocery</span>
+            </div>
+            <span class="prioridad prio-alta">Alta Prioridad</span>
+        </div>
+        <div class="company-url">walmart.co.cr</div>
+        <div class="company-desc">División en línea del gigante mundial. Trafico masivo, campañas Always-on. Usa plataforma VTEX. Departamento de marketing centralizado; oportunidad en contenido para redes y performance media.</div>
+        <div class="company-tags">
+            <span class="tag">VTEX</span>
+            <span class="tag">Grocery</span>
+            <span class="tag boost">Gran volumen</span>
+            <span class="tag">Performance media</span>
+        </div>
+    </div>
+
+    <div class="company-card">
+        <div class="company-header">
+            <div>
+                <h3>Gollo</h3>
+                <span class="company-category">Electrónica / Electrodomésticos</span>
+            </div>
+            <span class="prioridad prio-alta">Alta Prioridad</span>
+        </div>
+        <div class="company-url">gollo.com</div>
+        <div class="company-desc">Cadena de electrónica y línea blanca con presencia física + online. Magento. Enfoque en financiamiento y crédito. Oportunidad para creatividad de marca y campaigns de lanzamiento de productos.</div>
+        <div class="company-tags">
+            <span class="tag">Magento</span>
+            <span class="tag">Electrónica</span>
+            <span class="tag boost">Financiamiento</span>
+            <span class="tag">Lanzamientos</span>
+        </div>
+    </div>
+
+    <div class="company-card">
+        <div class="company-header">
+            <div>
+                <h3>Unimart</h3>
+                <span class="company-category">Electrónica / Tecnología</span>
+            </div>
+            <span class="prioridad prio-media">Media Prioridad</span>
+        </div>
+        <div class="company-url">unimart.com</div>
+        <div class="company-desc">Tienda online especializada en laptops, celulares y accesorios. Shopify. Envíos a todo el país. Marca con espacio para crecer en awareness y diferenciación vs. competencia.</div>
+        <div class="company-tags">
+            <span class="tag">Shopify</span>
+            <span class="tag">Tech</span>
+            <span class="tag">Awareness</span>
+        </div>
+    </div>
+
+    <div class="company-card">
+        <div class="company-header">
+            <div>
+                <h3>Supermercado Masxmenos</h3>
+                <span class="company-category">Supermercado / Grocery</span>
+            </div>
+            <span class="prioridad prio-media">Media Prioridad</span>
+        </div>
+        <div class="company-url">masxmenos.cr</div>
+        <div class="company-desc">Supermercado con servicio de delivery. VTEX. Posicionamiento de precio. Oportunidad en branding de marca propia y estrategias de loyalty digital.</div>
+        <div class="company-tags">
+            <span class="tag">VTEX</span>
+            <span class="tag">Grocery</span>
+            <span class="tag">Loyalty</span>
+            <span class="tag">Delivery</span>
+        </div>
+    </div>
+
+    <div class="company-card">
+        <div class="company-header">
+            <div>
+                <h3>Ekono</h3>
+                <span class="company-category">Fashion / Ropa</span>
+            </div>
+            <span class="prioridad prio-media">Media Prioridad</span>
+        </div>
+        <div class="company-url">tiendasekono.com</div>
+        <div class="company-desc">Cadena de moda con presencia online. Magento. Categorías: mujer, hombre, calzado, deportivo. Oportunidad para rebranding y social commerce.</div>
+        <div class="company-tags">
+            <span class="tag">Magento</span>
+            <span class="tag">Fashion</span>
+            <span class="tag">Social commerce</span>
+        </div>
+    </div>
+
+    <div class="company-card">
+        <div class="company-header">
+            <div>
+                <h3>Samsung Costa Rica</h3>
+                <span class="company-category">Tecnología / Electrónica</span>
+            </div>
+            <span class="prioridad prio-media">Media Prioridad</span>
+        </div>
+        <div class="company-url">tiendasamsung.cr</div>
+        <div class="company-desc">Sitio oficial de Samsung en Costa Rica. Magento. Campañas de producto vinculadas a lanzamientos globales. Posibilidad de trabajar en co-marketing con la marca.</div>
+        <div class="company-tags">
+            <span class="tag">Magento</span>
+            <span class="tag">Brand</span>
+            <span class="tag">Co-marketing</span>
+        </div>
+    </div>
+
+    <div class="company-card">
+        <div class="company-header">
+            <div>
+                <h3>Almacenes El Rey</h3>
+                <span class="company-category">Retail / Departamental</span>
+            </div>
+            <span class="prioridad prio-media">Media Prioridad</span>
+        </div>
+        <div class="company-url">almaceneselrey.com</div>
+        <div class="company-desc">Cadena departamental histórica en CR. Magento. Servicio al cliente por email publicado. Oportunidad para refresh de marca y estrategia digital.</div>
+        <div class="company-tags">
+            <span class="tag">Magento</span>
+            <span class="tag">Retail</span>
+            <span class="tag">Email disponible</span>
+        </div>
+    </div>
+
+    <div class="company-card">
+        <div class="company-header">
+            <div>
+                <h3>Intelec</h3>
+                <span class="company-category">Computadoras / Tech B2B</span>
+            </div>
+            <span class="prioridad prio-media">Media Prioridad</span>
+        </div>
+        <div class="company-url">intelec.co.cr</div>
+        <div class="company-desc">Venta de computadoras, servidores, software y soporte técnico. WooCommerce. Enfoque B2B y B2C. Oportunidad en content marketing y posicionamiento como referente tech.</div>
+        <div class="company-tags">
+            <span class="tag">WooCommerce</span>
+            <span class="tag">B2B</span>
+            <span class="tag">Content</span>
+        </div>
+    </div>
+
+    <div class="company-card">
+        <div class="company-header">
+            <div>
+                <h3>Café Britt</h3>
+                <span class="company-category">Gourmet / Coffee</span>
+            </div>
+            <span class="prioridad prio-media">Media Prioridad</span>
+        </div>
+        <div class="company-url">cafebritt.com</div>
+        <div class="company-desc">Marca de café gourmet costarricense con presencia internacional. Custom Cart. Exportación + domestic e-commerce. Fuerte componente de storytelling y marca-país.</div>
+        <div class="company-tags">
+            <span class="tag">Custom Cart</span>
+            <span class="tag">Gourmet</span>
+            <span class="tag">Storytelling</span>
+            <span class="tag">Exportación</span>
+        </div>
+    </div>
+
+</div>
+
+<h2>Tendencias del Mercado E-commerce CR 2026</h2>
+<div class="section">
+    <div class="trend-item">
+        <div class="trend-title">Crecimiento acelerado del mercado digital</div>
+        <div class="trend-desc">El comercio electrónico en Costa Rica proyecta un crecimiento del 21% CAGR hasta 2026, alcanzando los US$9.7 mil millones. La pandemia aceleró la adopción digital y el comportamiento de compra online se consolidó. (Fuente: PCMIData / Revista E&Y)</div>
+    </div>
+    <div class="trend-item">
+        <div class="trend-title">Dominio de dispositivos móviles</div>
+        <div class="trend-desc">Mobile commerce representa la mayor proporción de transacciones. Los players que no optimizan para móvil están perdiendo cuota. Las apps de delivery (Rappi, PedidosYa) refuerzan esta tendencia.</div>
+    </div>
+    <div class="trend-item">
+        <div class="trend-title">SINPE Móvil como método de pago preferido</div>
+        <div class="trend-desc">Las transferencias por SINPE Móvil se consolidaron como método de pago dominante en CR, superando tarjetas de crédito en volumen de transacciones de retail. Las tiendas online que no lo integran pierden conversiones.</div>
+    </div>
+    <div class="trend-item">
+        <div class="trend-title">Plataformas: Magento lidera en grandes retailers</div>
+        <div class="trend-desc">Magento (Adobe Commerce) domina entre los retailers grandes de CR. Shopify gana terreno entre medianos y pequeños. VTEX se posiciona en grocery y multinacionales. Esto tiene implicaciones directas para estrategias de integración y data tracking.</div>
+    </div>
+    <div class="trend-item">
+        <div class="trend-title">Logística y última milla como diferenciador</div>
+        <div class="trend-desc">Empresas como Correos de Costa Rica, Cargo Expreso y servicios de delivery tercerizados son clave. Rappi y PedidosYa operan como marketplaces híbridos. La experiencia de entrega define la lealtad del cliente.</div>
+    </div>
+    <div class="trend-item">
+        <div class="trend-title">Apertura a nuevos métodos de pago digitales</div>
+        <div class="trend-desc">SICA, SIMO yWallet y pagos con QR se están expandiendo. Las fintech locales están facilitando la adopción de pagos digitales incluso en segmentos sin acceso a banca tradicional.</div>
+    </div>
+</div>
+
+<h2>Estrategia de Contacto</h2>
+<div class="contact-strategy">
+    <div class="strategy-step">
+        <div class="step-num">1</div>
+        <div class="step-content"><strong>Research profundo en LinkedIn</strong> — Identificar al Director de Marketing, Gerente de E-commerce o CMO de cada empresa objetivo. Usar datos de ZoomInfo o Apollo.io para conseguir emails corporativos directos.</div>
+    </div>
+    <div class="strategy-step">
+        <div class="step-num">2</div>
+        <div class="step-content"><strong>Email personalizado en frío (cold email)</strong> — Referirse a un problema concreto observado en su sitio web o campañas (ej: "Noté que su página de producto no tiene reviews visibles, esto podría estar afectando su conversión"). Incluir un caso de estudio de Aurea en otro retailer similar.</div>
+    </div>
+    <div class="strategy-step">
+        <div class="step-num">3</div>
+        <div class="step-content"><strong>Secuencia de LinkedIn + WhatsApp</strong> — Tras el email, conectar en LinkedIn y enviar mensaje breve por WhatsApp Business al número corporativo. Prioridad: Tienda Monge, Walmart, Gollo.</div>
+    </div>
+    <div class="strategy-step">
+        <div class="step-num">4</div>
+        <div class="step-content"><strong>Pitch inicial: "Diagnóstico gratuito"</strong> — Ofrecer un mini-auditorío de 30 minutos de su presencia digital (web, social, paid media) sin costo. Generar valor antes de pedir la reunión.</div>
+    </div>
+    <div class="strategy-step">
+        <div class="step-num">5</div>
+        <div class="step-content"><strong>Propuesta de valor por vertical:</strong><br>
+        → <strong>Retail (Monge, Gollo, El Rey, Ekono):</strong> Brand refresh + campañas estacionales + performance media<br>
+        → <strong>Grocery (Walmart, Masxmenos, Maxi Palí):</strong> Loyalty digital + contenido para redes + SEM<br>
+        → <strong>Tech (Unimart, Intelec, Samsung):</strong> Content marketing + SEO + reviews management<br>
+        → <strong>Gourmet (Café Britt):</strong> Storytelling de marca + posicionamiento premium + export marketing</div>
+    </div>
+    <div class="strategy-step">
+        <div class="step-num">6</div>
+        <div class="step-content"><strong>Follow-up estructurado</strong> — 3 touchpoints en 10 días: email (día 1), LinkedIn (día 4), WhatsApp (día 7). Si no hay respuesta, esperar 30 días y repetir con ángulo diferente.</div>
+    </div>
+</div>
+
+<hr class="divider">
+
+<footer>
+    <p>Reporte generado automáticamente por <strong>Aurea Lead Research Agent</strong></p>
+    <p>Fecha: 1 de mayo, 2026 — 08:00 CST &nbsp;|&nbsp; Nicho: E-commerce Costa Rica</p>
+    <p>Fuentes: ZoomInfo, AfterShip Ecommerce Directory, DataReportal, PCMIData, The Manifest, TechBehemoths</p>
+</footer>
+
+</div>
+</body>
+</html>
