@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurea — Lead Report: Manufacturers Costa Rica | Mayo 2026</title>
+    <style>
+        :root {
+            --bg: #0d0d0d;
+            --card: #161616;
+            --card2: #1e1e1e;
+            --border: #2a2a2a;
+            --accent: #f5a623;
+            --accent2: #e8e8e8;
+            --text: #d4d4d4;
+            --muted: #888;
+            --green: #4ade80;
+            --red: #f87171;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.6; }
+        .container { max-width: 960px; margin: 0 auto; padding: 2rem 1.5rem; }
+
+        header { border-bottom: 1px solid var(--border); padding-bottom: 1.5rem; margin-bottom: 2rem; }
+        .badge { display: inline-block; background: var(--accent); color: #000; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.25rem 0.75rem; border-radius: 3px; margin-bottom: 0.75rem; }
+        h1 { font-size: 1.6rem; color: var(--accent2); font-weight: 700; margin-bottom: 0.25rem; }
+        .subtitle { color: var(--muted); font-size: 0.85rem; }
+        .meta { display: flex; gap: 2rem; margin-top: 0.75rem; font-size: 0.8rem; color: var(--muted); }
+        .meta span { display: flex; align-items: center; gap: 0.35rem; }
+
+        .summary { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; margin-bottom: 2rem; }
+        .summary h2 { color: var(--accent); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.75rem; }
+        .summary p { font-size: 0.9rem; color: var(--text); }
+
+        .section { margin-bottom: 2rem; }
+        .section-title { color: var(--accent); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-bottom: 1rem; }
+
+        .company-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .company-card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1.25rem; }
+        .company-card h3 { color: var(--accent2); font-size: 0.95rem; margin-bottom: 0.25rem; }
+        .company-card .type { font-size: 0.7rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.6rem; }
+        .company-card p { font-size: 0.82rem; color: var(--text); margin-bottom: 0.3rem; }
+        .company-card .contact { color: var(--muted); font-size: 0.8rem; }
+        .company-card .tag { display: inline-block; background: #222; border: 1px solid #333; color: #aaa; font-size: 0.65rem; padding: 0.15rem 0.5rem; border-radius: 3px; margin-top: 0.4rem; }
+
+        .trend-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .trend-card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1.25rem; }
+        .trend-card .icon { font-size: 1.4rem; margin-bottom: 0.4rem; }
+        .trend-card h3 { color: var(--accent2); font-size: 0.9rem; margin-bottom: 0.4rem; }
+        .trend-card p { font-size: 0.8rem; color: var(--text); }
+
+        .strategy-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+        .strategy-item { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; display: flex; gap: 0.75rem; align-items: flex-start; }
+        .strategy-item .num { background: var(--accent); color: #000; font-weight: 700; font-size: 0.75rem; width: 1.5rem; height: 1.5rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .strategy-item h4 { color: var(--accent2); font-size: 0.85rem; margin-bottom: 0.2rem; }
+        .strategy-item p { font-size: 0.78rem; color: var(--text); }
+
+        .contact-table { width: 100%; border-collapse: collapse; }
+        .contact-table th { background: #1a1a1a; color: var(--accent); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border); }
+        .contact-table td { padding: 0.75rem 1rem; border-bottom: 1px solid #1e1e1e; font-size: 0.82rem; }
+        .contact-table tr:hover td { background: #1a1a1a; }
+        .contact-table .name { color: var(--accent2); font-weight: 600; }
+        .contact-table .role { color: var(--muted); font-size: 0.75rem; }
+
+        footer { border-top: 1px solid var(--border); margin-top: 3rem; padding-top: 1rem; text-align: center; font-size: 0.75rem; color: var(--muted); }
+        @media (max-width: 700px) {
+            .company-grid, .trend-grid, .strategy-list { grid-template-columns: 1fr; }
+            .meta { flex-direction: column; gap: 0.4rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+<header>
+    <div class="badge">AUREA — LEAD RESEARCH</div>
+    <h1>Fabricantes &amp; Industriales en Costa Rica</h1>
+    <div class="subtitle">Oportunidades de lead generation para agencia de publicidad</div>
+    <div class="meta">
+        <span>📅 Viernes 1 de Mayo, 2026 — 13:00 CST</span>
+        <span>🏷️ Nicho: Manufacturers / Industriales</span>
+        <span>🌎 Mercado: Costa Rica (San José, Alajuela, Cartago)</span>
+    </div>
+</header>
+
+<div class="summary">
+    <h2>Resumen Ejecutivo</h2>
+    <p>Costa Rica consolida su posición como hub de manufactura avanzada en América Latina. En 2025 atrajo 67 proyectos de IED (FDI), con 48 gestionados por CINDE. El sector de dispositivos médicos creció de forma sostenida: 13 de las 20 mayores empresas de dispositivos del mundo tienen presencia en San José, empleando ~50,000 personas. Marcas como <strong>Solesis</strong> (inaugurada marzo 2026), <strong>Cretex Medical</strong>, <strong>Forj Medical</strong> y <strong>Surface Solutions Group</strong> están en expansión activa. Este es el momento óptimo para que Aurea ofrezca servicios de branding, campañas B2B y lead generation digital a este sector en crecimiento.</p>
+</div>
+
+<div class="section">
+    <div class="section-title">🏢 Empresas Identificadas</div>
+    <div class="company-grid">
+
+        <div class="company-card">
+            <div class="type">Dispositivos Médicos</div>
+            <h3>Solesis</h3>
+            <p>Multinacional estadounidense. Primera planta en CR especializada en biomateriales (textiles y polímeros para componentes de dispositivos médicos). Ubicación: Greenpark Free Trade Zone, El Coyol, Alajuela. Inaugurada marzo 2026.</p>
+            <p class="contact">📍 Alajuela — Greenpark Free Zone</p>
+            <span class="tag">Expansión 2026</span>
+            <span class="tag">Dispositivo Médico</span>
+        </div>
+
+        <div class="company-card">
+            <div class="type">Manufactura de Precisión</div>
+            <h3>Cretex Medical</h3>
+            <p>Adquirió Atemisa Precision (fábrica costarricense) para expandir capacidades de maquinado. Ubicación: Cartago, Costa Rica. En proceso de expansión activa.</p>
+            <p class="contact">✉️ infocrjobs@cretex.com</p>
+            <span class="tag">Adquisición Reciente</span>
+            <span class="tag">Medical Device</span>
+        </div>
+
+        <div class="company-card">
+            <div class="type">Dispositivos Médicos</div>
+            <h3>Forj Medical</h3>
+            <p>Empresa en fase de conformación de equipo directivo en Costa Rica. Liderazgo: Alfredo González Arce como Site Director (manufactura y operaciones).</p>
+            <p class="contact">🌐 forjmedical.com</p>
+            <span class="tag">Start-up Fase</span>
+            <span class="tag">Dispositivo Médico</span>
+        </div>
+
+        <div class="company-card">
+            <div class="type">Dispositivos Médicos / Recubrimientos</div>
+            <h3>Surface Solutions Group (SSG)</h3>
+            <p>Multinacional estadounidense. Construcción de nueva planta en Costa Rica (inicio early 2026, operación 2027). Procesos avanzados de recubrimiento para dispositivos médicos.</p>
+            <p class="contact">🌐 surfacesolutionsgroup.com</p>
+            <span class="tag">Expansión 2026</span>
+            <span class="tag">USD$ Millones Inversión</span>
+        </div>
+
+        <div class="company-card">
+            <div class="type">EMS / Manufactura Electrónica</div>
+            <h3>East West Manufacturing</h3>
+            <p>Planta en San José, Costa Rica (Free Trade Zone). SMT lines avanzados: +75,000 componentes/hora. Diseño, manufactura y supply chain solutions. 20+ años de experiencia.</p>
+            <p class="contact">🌐 ewmfg.com | 📍 San José, Free Zone</p>
+            <span class="tag">Electronics Manufacturing</span>
+            <span class="tag">FTZ</span>
+        </div>
+
+        <div class="company-card">
+            <div class="type">Dispositivos Médicos / Robótica</div>
+            <h3>CRIL Tech</h3>
+            <p>Soluciones de manufactura de dispositivos médicos. Contacto directo disponible.</p>
+            <p class="contact">📞 +506 8636 2571 | ✉️ info@cril-tech.com | 🌐 cril-tech.com</p>
+            <span class="tag">Contacto Disponible</span>
+            <span class="tag">MedTech</span>
+        </div>
+
+        <div class="company-card">
+            <div class="type">Dispositivos Médicos</div>
+            <h3>Philips Costa Rica</h3>
+            <p>Planta en Costa Rica fabrica dispositivos de imagenología guiada, cuidado respiratorio y monitoreo hospitalario. Envía +12 millones de unidades anualmente. Decision maker: Mario Barquero (Plant Manager).</p>
+            <p class="contact">🌐 philips.com | 📍 Costa Rica</p>
+            <span class="tag">Multinacional</span>
+            <span class="tag">High Volume</span>
+        </div>
+
+        <div class="company-card">
+            <div class="type">Maquinado de Precisión</div>
+            <h3>Atemisa Precision (ahora Cretex)</h3>
+            <p>Fábrica de maquinado de precisión en Costa Rica. Adquirida por Cretex Medical para expandir capacidad de manufactura de piezas metálicas.</p>
+            <p class="contact">📍 Cartago, Costa Rica</p>
+            <span class="tag">Adquirida 2025</span>
+            <span class="tag">Precision Machining</span>
+        </div>
+
+    </div>
+</div>
+
+<div class="section">
+    <div class="section-title">📊 Tendencias del Mercado</div>
+    <div class="trend-grid">
+
+        <div class="trend-card">
+            <div class="icon">🏭</div>
+            <h3>Nearshoring en Aceleración</h3>
+            <p>Costa Rica es destino prioritario para nearshoring de manufactura por su estabilidad política, tratado con EE.UU. y mano de obra calificada. 67 proyectos FDI en 2025.</p>
+        </div>
+
+        <div class="trend-card">
+            <div class="icon">🏥</div>
+            <h3>Medical Devices Líder Regional</h3>
+            <p>13 de las 20 mayores empresas de dispositivos médicos del mundo tienen presencia en San José. +50,000 empleos directos. Mercado de turismo médico proyectado a USD$1,662M para 2033 (CAGR 19.12%).</p>
+        </div>
+
+        <div class="trend-card">
+            <div class="icon">🤖</div>
+            <h3>Automatización y Robótica</h3>
+            <p>Startups como Tri Tech Robotics (soluciones robóticas para logística y manufactura) y ePRAC (software para optimización de almacenes) crecen en el sector industrial.</p>
+        </div>
+
+        <div class="trend-card">
+            <div class="icon">🏆</div>
+            <h3>Excelencia Operacional</h3>
+            <p>Costa Rica ganó 3 Shingo Awards por excelencia operacional (2019). El país lidera en sofisticación de procesos de producción en Latinoamérica según el WEF.</p>
+        </div>
+
+        <div class="trend-card">
+            <div class="icon">🌐</div>
+            <h3>Free Trade Zones Activas</h3>
+            <p>Zonas Francas con 100% de exención en impuestos de importación/exportación y taxes locales. Acceso preferencial a mercados de EE.UU., UE, China, Singapur y Corea.</p>
+        </div>
+
+        <div class="trend-card">
+            <div class="icon">📈</div>
+            <h3>Biomateriales: Nuevo Segmento</h3>
+            <p>Solesis marca un precedente como primer fabricante de biomateriales en el país (2026). El segmento de manufactura de alta tecnología está en expansión.</p>
+        </div>
+
+    </div>
+</div>
+
+<div class="section">
+    <div class="section-title">🎯 Estrategias de Contacto</div>
+    <div class="strategy-list">
+
+        <div class="strategy-item">
+            <div class="num">1</div>
+            <div>
+                <h4>LinkedIn Outreach Masivo</h4>
+                <p>Dirigirse a: Plant Managers, Site Directors, Marketing Managers de las empresas listadas. Mensaje breve con propuesta de valor enfocada en lead gen B2B y brand awareness.</p>
+            </div>
+        </div>
+
+        <div class="strategy-item">
+            <div class="num">2</div>
+            <div>
+                <h4>Cold Email Segmentado</h4>
+                <p>Email directo a contactos con nombre disponible. Asunto personalizado. Offer: diagnóstico gratuito de presencia digital. CRIL Tech tiene email info@cril-tech.com publicly disponible.</p>
+            </div>
+        </div>
+
+        <div class="strategy-item">
+            <div class="num">3</div>
+            <div>
+                <h4>Caso de Éxito: Medical Tourism</h4>
+                <p>Los fabricantes de dispositivos médicos en Costa Rica sirven a clientes internacionales. Posicionar a Aurea como socio para su marketing orientado a pacientes/turistas médicos.</p>
+            </div>
+        </div>
+
+        <div class="strategy-item">
+            <div class="num">4</div>
+            <div>
+                <h4>Trade Shows &amp; Eventos B2B</h4>
+                <p>Identificar eventos de manufactura/dispositivos médicos en Costa Rica. CINDE y PROCOMER organizan ferias. Aurea puede ofrecer materiales promocionales y diseño de stand.</p>
+            </div>
+        </div>
+
+        <div class="strategy-item">
+            <div class="num">5</div>
+            <div>
+                <h4>Contenido B2B en Español</h4>
+                <p>Crear whitepapers o guías sobre "Cómo fabricantes en Costa Rica pueden atraer más leads B2B con marketing digital". Distribuir vía LinkedIn y email.</p>
+            </div>
+        </div>
+
+        <div class="strategy-item">
+            <div class="num">6</div>
+            <div>
+                <h4>PAYG / Proyecto Piloto</h4>
+                <p>Ofrecer primer proyecto pequeño (ej: diseño de brochure digital, optimización de LinkedIn company page) a cambio de testimonial y caso de estudio para portfolio B2B.</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="section">
+    <div class="section-title">👤 Contactos Clave</div>
+    <table class="contact-table">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Rol</th>
+                <th>Empresa</th>
+                <th>Canal</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="name">Mario Barquero</td>
+                <td class="role">Plant Manager &amp; Manufacturing Leader</td>
+                <td>Philips Costa Rica</td>
+                <td>LinkedIn</td>
+            </tr>
+            <tr>
+                <td class="name">Alfredo González Arce</td>
+                <td class="role">Site Director</td>
+                <td>Forj Medical</td>
+                <td>LinkedIn</td>
+            </tr>
+            <tr>
+                <td class="name">Lila Johnson</td>
+                <td class="role">Advanced Manufacturing Director</td>
+                <td>PROCOMER</td>
+                <td>LinkedIn</td>
+            </tr>
+            <tr>
+                <td class="name">Eduardo Baharet</td>
+                <td class="role">Director of Sales CA</td>
+                <td>Sinax Centroamérica</td>
+                <td>LinkedIn</td>
+            </tr>
+            <tr>
+                <td class="name">Mario Ramirez</td>
+                <td class="role">General Director</td>
+                <td>SINAX Centroamérica S.A.</td>
+                <td>LinkedIn</td>
+            </tr>
+            <tr>
+                <td class="name">Sergio Montero Coto</td>
+                <td class="role">Business Planning Senior Manager</td>
+                <td>Procter &amp; Gamble CR</td>
+                <td>LinkedIn</td>
+            </tr>
+            <tr>
+                <td class="name">—</td>
+                <td class="role">Contacto Directo</td>
+                <td>CRIL Tech</td>
+                <td>+506 8636 2571</td>
+            </tr>
+            <tr>
+                <td class="name">—</td>
+                <td class="role">rrhh</td>
+                <td>Cretex Medical CR</td>
+                <td>infocrjobs@cretex.com</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<footer>
+    <p>Reporte generado por <strong>Aurea Lead Research Agent</strong> · Viernes 1 de Mayo 2026 · 13:00 CST</p>
+    <p>Este documento es información de dominio público recopilada de fuentes abiertas. Uso interno.</p>
+</footer>
+
+</div>
+</body>
+</html>
