@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurea - Leads Restaurantes Costa Rica | Mayo 2026</title>
+    <style>
+        :root {
+            --bg-primary: #0d1117;
+            --bg-secondary: #161b22;
+            --bg-card: #21262d;
+            --border: #30363d;
+            --text-primary: #e6edf3;
+            --text-secondary: #8b949e;
+            --accent: #58a6ff;
+            --accent-secondary: #3fb950;
+            --warning: #d29922;
+            --danger: #f85149;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+        .header {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-card) 100%);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-secondary), var(--warning));
+        }
+        .header-content { position: relative; z-index: 1; }
+        .badge {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--bg-primary);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+        }
+        h1 { font-size: 2.5rem; margin-bottom: 10px; font-weight: 700; }
+        .subtitle { color: var(--text-secondary); font-size: 1.1rem; }
+        .meta {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+        .meta-item svg { width: 16px; height: 16px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 20px; margin-bottom: 30px; }
+        .card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            transition: border-color 0.2s, transform 0.2s;
+        }
+        .card:hover { border-color: var(--accent); transform: translateY(-2px); }
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 16px;
+        }
+        .card-title { font-size: 1.2rem; font-weight: 600; margin-bottom: 4px; }
+        .card-subtitle { color: var(--text-secondary); font-size: 0.9rem; }
+        .tag {
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        .tag-restaurant { background: rgba(88, 166, 255, 0.15); color: var(--accent); }
+        .tag-contact { background: rgba(63, 185, 80, 0.15); color: var(--accent-secondary); }
+        .tag-trend { background: rgba(210, 153, 34, 0.15); color: var(--warning); }
+        .section { margin-bottom: 30px; }
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .company-list { list-style: none; }
+        .company-item {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 12px;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 16px;
+            align-items: center;
+        }
+        .company-name { font-weight: 600; font-size: 1.1rem; margin-bottom: 6px; }
+        .company-detail { color: var(--text-secondary); font-size: 0.9rem; }
+        .company-contact { text-align: right; }
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--accent);
+            color: var(--bg-primary);
+            padding: 8px 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: opacity 0.2s;
+        }
+        .contact-btn:hover { opacity: 0.85; }
+        .strategy-card {
+            background: var(--bg-card);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 16px;
+            border-left: 4px solid var(--accent);
+        }
+        .strategy-title { font-weight: 600; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+        .strategy-desc { color: var(--text-secondary); font-size: 0.95rem; }
+        .trend-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 20px;
+        }
+        .trend-item {
+            display: flex;
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .trend-item:last-child { border-bottom: none; padding-bottom: 0; }
+        .trend-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--bg-card);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+        .trend-content h4 { font-size: 1rem; margin-bottom: 6px; }
+        .trend-content p { color: var(--text-secondary); font-size: 0.9rem; }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 30px;
+        }
+        .stat-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+        }
+        .stat-value { font-size: 2.5rem; font-weight: 700; color: var(--accent); }
+        .stat-label { color: var(--text-secondary); font-size: 0.9rem; margin-top: 8px; }
+        .footer {
+            text-align: center;
+            padding: 40px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border);
+            margin-top: 40px;
+        }
+        @media (max-width: 768px) {
+            h1 { font-size: 1.8rem; }
+            .company-item { grid-template-columns: 1fr; }
+            .company-contact { text-align: left; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-content">
+                <span class="badge">Investigación de Leads</span>
+                <h1>🍽️ Oportunidades para Restaurantes en Costa Rica</h1>
+                <p class="subtitle">Sector Gastronómico - Agencia Aurea | Mayo 2026</p>
+                <div class="meta">
+                    <div class="meta-item">
+                        <span>📅</span> Viernes 1 de Mayo, 2026 — 17:00 CST
+                    </div>
+                    <div class="meta-item">
+                        <span>🌎</span> San José, Costa Rica
+                    </div>
+                    <div class="meta-item">
+                        <span>📊</span> Nicho: Restaurantes
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-value">8</div>
+                <div class="stat-label">Empresas Identificadas</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">6</div>
+                <div class="stat-label">Estrategias de Contacto</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">5</div>
+                <div class="stat-label">Tendencias Clave 2026</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">Alta</div>
+                <div class="stat-label">Demanda de Marketing</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">🏢 Empresas y Decision Makers Identificados</h2>
+            <ul class="company-list">
+                <li class="company-item">
+                    <div>
+                        <div class="company-name">El Barco Bar & Restaurant</div>
+                        <div class="company-detail">Playa Coyote, Guanacaste — Costa de Oro 74a</div>
+                        <div class="company-detail">📞 +506 8631 5757 | ✉️ info@el-barco-costarica.com</div>
+                    </div>
+                    <div class="company-contact">
+                        <span class="tag tag-restaurant">Guanacaste</span>
+                    </div>
+                </li>
+                <li class="company-item">
+                    <div>
+                        <div class="company-name">Ander's Restaurant</div>
+                        <div class="company-detail">Brasilito, Santa Cruz, Guanacaste</div>
+                        <div class="company-detail">📞 +506 2654-6034 | ✉️ andersreservation@gmail.com</div>
+                    </div>
+                    <div class="company-contact">
+                        <span class="tag tag-restaurant">Guanacaste</span>
+                    </div>
+                </li>
+                <li class="company-item">
+                    <div>
+                        <div class="company-name">Restaurante Canton</div>
+                        <div class="company-detail">San José — Gerente: Owen Chen Wang (LinkedIn)</div>
+                        <div class="company-detail">Desde 2017, expansión y manejo de múltiples equipos</div>
+                    </div>
+                    <div class="company-contact">
+                        <span class="tag tag-contact">B2B Listo</span>
+                    </div>
+                </li>
+                <li class="company-item">
+                    <div>
+                        <div class="company-name">Restaurante Sofia</div>
+                        <div class="company-detail">Tamarindo — Top rated en OpenTable 2026</div>
+                        <div class="company-detail">Zona turística de alto tráfico</div>
+                    </div>
+                    <div class="company-contact">
+                        <span class="tag tag-restaurant">Tourism</span>
+                    </div>
+                </li>
+                <li class="company-item">
+                    <div>
+                        <div class="company-name">Chiquita's Tamarindo</div>
+                        <div class="company-detail">Tamarindo — Restaurante popular Top 3 TripAdvisor</div>
+                        <div class="company-detail">Alto engagement en redes sociales</div>
+                    </div>
+                    <div class="company-contact">
+                        <span class="tag tag-restaurant">Top Rated</span>
+                    </div>
+                </li>
+                <li class="company-item">
+                    <div>
+                        <div class="company-name">Mamagui Nosara</div>
+                        <div class="company-detail">Nosara, Puntarenas — Gastronomía premium</div>
+                        <div class="company-detail">Zona de surf y turismo ecológico</div>
+                    </div>
+                    <div class="company-contact">
+                        <span class="tag tag-restaurant">Premium</span>
+                    </div>
+                </li>
+                <li class="company-item">
+                    <div>
+                        <div class="company-name">Sabor Español</div>
+                        <div class="company-detail">Uvita de Osa, Puntarenas — Paella y fideuá</div>
+                        <div class="company-detail">Mencionado como mejor restaurante español CR</div>
+                    </div>
+                    <div class="company-contact">
+                        <span class="tag tag-restaurant">Especializado</span>
+                    </div>
+                </li>
+                <li class="company-item">
+                    <div>
+                        <div class="company-name">CACORE - Cámara Costarricense de Restaurantes</div>
+                        <div class="company-detail">Presidenta: Silvia Durán Mora | Contacto: ICT</div>
+                        <div class="company-detail">+506 2299-5800 — 400+ miembros en Costa Rica</div>
+                    </div>
+                    <div class="company-contact">
+                        <span class="tag tag-contact">Asociación</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">🎯 Estrategias de Contacto para Aurea</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <div class="card-title">1. Outreach por Email Personalizado</div>
+                            <div class="card-subtitle">Para restaurantes con email público</div>
+                        </div>
+                        <span class="tag tag-contact">Alta Prioridad</span>
+                    </div>
+                    <div class="strategy-desc">
+                        <p>Usar datos encontrados (El Barco: info@el-barco-costarica.com, Ander's: andersreservation@gmail.com) para enviar propuestas personalizadas highlightando casos de éxito en su zona.</p>
+                        <p style="margin-top: 12px;"><strong>Template:</strong> Referencia su ubicación + mention CACORE + propuesta de audit gratis de redes.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <div class="card-title">2. LinkedIn a Decision Makers</div>
+                            <div class="card-subtitle">Para gerentes y dueños en LinkedIn</div>
+                        </div>
+                        <span class="tag tag-contact">Media Prioridad</span>
+                    </div>
+                    <div class="strategy-desc">
+                        <p>Owen Chen Wang (Restaurante Canton) ya tiene LinkedIn con perfil completo. Enviar InMail con propuesta de consulting sobre "cómo llenar su restaurante los lunes".</p>
+                        <p style="margin-top: 12px;"><strong>Objetivo:</strong> Extraer más perfiles de gerentes de restaurantes en LinkedIn Costa Rica.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <div class="card-title">3. Contacto vía CACORE</div>
+                            <div class="card-subtitle">Alianza estratégica con la cámara</div>
+                        </div>
+                        <span class="tag tag-contact">Estrategic</span>
+                    </div>
+                    <div class="strategy-desc">
+                        <p>Contactar a Silvia Durán Mora (Presidenta) para propuesta de pack de servicios para miembros CACORE con descuento grupal.</p>
+                        <p style="margin-top: 12px;"><strong>Beneficio:</strong> Acceder a 400+ restaurantes simultáneamente.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <div class="card-title">4. Instagram Engagement Directo</div>
+                            <div class="card-subtitle">Para restaurantes activos en redes</div>
+                        </div>
+                        <span class="tag tag-restaurant">Táctica</span>
+                    </div>
+                    <div class="strategy-desc">
+                        <p>Chiquita's Tamarindo, Mamagui Nosara tienen Instagram activo. Comentar con valor agregado, luego DM con propuesta de gestión de redes.</p>
+                        <p style="margin-top: 12px;"><strong>Nota:</strong> El 46% busca restaurantes en Instagram antes de decidir.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <div class="card-title">5. Google Maps SEO Pitch</div>
+                            <div class="card-subtitle">Servicio de optimización local</div>
+                        </div>
+                        <span class="tag tag-restaurant">Servicio</span>
+                    </div>
+                    <div class="strategy-desc">
+                        <p>Ofrecer audit de Google Business Profile + optimización para "restaurante cerca de mí" en su zona. Muy demandado en 2026.</p>
+                        <p style="margin-top: 12px;"><strong> diferenciador:</strong> Mostrar cómo aparecen vs competencia local.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <div class="card-title">6. Paquete Turismo + Restaurantes</div>
+                            <div class="card-subtitle">Guanacaste y zonas costeras</div>
+                        </div>
+                        <span class="tag tag-trend">Growth</span>
+                    </div>
+                    <div class="strategy-desc">
+                        <p>El Barco, Ander's, Chiquita's están en zonas turísticas. Proponer package "Digital Tourism Package" para atraer turistas antes de que lleguen.</p>
+                        <p style="margin-top: 12px;"><strong>Incluye:</strong> Instagram, Google Maps, TripAdvisor optimization.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">📈 Tendencias de Marketing para Restaurantes 2026</h2>
+            <div class="grid">
+                <div class="trend-card">
+                    <div class="trend-item">
+                        <div class="trend-icon">🤖</div>
+                        <div class="trend-content">
+                            <h4>1. Optimización para Búsqueda con IA</h4>
+                            <p>Los restaurantes deben optimizar para ChatGPT, Gemini y Google AI Answers. Esto incluye schema markup de menú, FAQ y datos estructurados. El SEO local tradicional evoluciona hacia "Search Everywhere Optimization".</p>
+                        </div>
+                    </div>
+                    <div class="trend-item">
+                        <div class="trend-icon">📱</div>
+                        <div class="trend-content">
+                            <h4>2. Google Business Profile es Crítico</h4>
+                            <p>El 83% de consumidores usan Google para encontrar restaurantes locales. Fotos de calidad, reseñas respondidas y posts semanales son obligatorios. El 46% de búsquedas tienen intención local.</p>
+                        </div>
+                    </div>
+                    <div class="trend-item">
+                        <div class="trend-icon">🎥</div>
+                        <div class="trend-content">
+                            <h4>3. Video Short-form Domina</h4>
+                            <p>Restaurantes que publican Reels/TikTok tienen 3x más engagement. El contenido "behind the scenes" de cocina y testimonios de clientes funcionan muy bien en Costa Rica.</p>
+                        </div>
+                    </div>
+                    <div class="trend-item">
+                        <div class="trend-icon">🏖️</div>
+                        <div class="trend-content">
+                            <h4>4. Geomarketing Costero</h4>
+                            <p>En Guanacaste y zonas like Tamarindo/Nosara, el turismo representa 60%+ de clientes. Campañas geotargeteadas en Instagram y Google Ads rindiendo 4x más que en zonas urbanas.</p>
+                        </div>
+                    </div>
+                    <div class="trend-item">
+                        <div class="trend-icon">📊</div>
+                        <div class="trend-content">
+                            <h4>5. Datos y ROAS Miden Todo</h4>
+                            <p>En 2026, los dueños de restaurantes exigen ver retorno sobre inversión publicitaria. Agencias que demuestren ROAS con dashboards en tiempo real ganan contratos. El precio promedio de gestión de redes es ₡15,000/mes en CR.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">💡 Insights Clave para Aurea</h2>
+            <div class="grid">
+                <div class="card" style="border-left: 4px solid var(--accent-secondary);">
+                    <div class="strategy-title">🎯 Oportunidad Inmediata</div>
+                    <div class="strategy-desc">
+                        <p>El mercado de restaurants en Costa Rica tiene necesidad urgente de marketing digital profesional. Solo algunas agencias como Cariba Marketing ofrecen servicios especializados, dejando espacio para Aurea.</p>
+                        <p style="margin-top: 12px;"><strong>Ángel de ataque:</strong> Enfoque en SEO local + gestión de redes para presupuestos de ₡50,000-₡150,000/mes.</p>
+                    </div>
+                </div>
+                <div class="card" style="border-left: 4px solid var(--warning);">
+                    <div class="strategy-title">⚠️ Competencia Detectada</div>
+                    <div class="strategy-desc">
+                        <p>Cariba Marketing y DMA Latam ya operan en este espacio. Diferenciarse requiere:</p>
+                        <ul style="margin-top: 12px; padding-left: 20px; color: var(--text-secondary);">
+                            <li>Casos de éxito medibles (ROAS demostrado)</li>
+                            <li>Especialización en turismo/restaurantes</li>
+                            <li>Herramientas de reporting automatizado</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card" style="border-left: 4px solid var(--accent);">
+                    <div class="strategy-title">🚀 Próximos Pasos Recomendados</div>
+                    <div class="strategy-desc">
+                        <p>Esta semana:</p>
+                        <ol style="margin-top: 12px; padding-left: 20px; color: var(--text-secondary);">
+                            <li>Contactar a El Barco y Ander's por email con propuesta piloto</li>
+                            <li>Enviar InMail a Owen Chen Wang (LinkedIn)</li>
+                            <li>Investigar CACORE para alianza estratégica</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p><strong>Aurea Advertising Agency</strong> — Lead Research Report</p>
+            <p>Generado automáticamente | Mayo 1, 2026 — 17:00 CST</p>
+            <p style="margin-top: 12px;">⚠️ Este reporte es para uso interno. Los datos son públicos gathered de fuentes como LinkedIn, websites de restaurantes y directorios.</p>
+        </div>
+    </div>
+</body>
+</html>
