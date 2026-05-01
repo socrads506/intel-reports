@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aurea Leads — Clínicas Costa Rica | Mayo 2026</title>
+<style>
+  :root {
+    --bg: #0d0d0d;
+    --surface: #161616;
+    --surface2: #1e1e1e;
+    --border: #2a2a2a;
+    --accent: #00d4aa;
+    --accent2: #0097a7;
+    --text: #e0e0e0;
+    --text-muted: #888;
+    --green: #4caf50;
+    --blue: #2196f3;
+    --red: #ef5350;
+    --purple: #ab47bc;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 2rem; }
+  header { border-bottom: 2px solid var(--accent); padding-bottom: 1.5rem; margin-bottom: 2rem; }
+  .badge { display: inline-block; background: var(--accent); color: #000; font-weight: 700; font-size: 0.75rem; padding: 3px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.75rem; }
+  h1 { font-size: 1.9rem; color: #fff; margin-bottom: 0.3rem; }
+  h2 { font-size: 1.3rem; color: var(--accent); margin: 2rem 0 1rem; border-left: 4px solid var(--accent); padding-left: 0.75rem; }
+  h3 { font-size: 1.05rem; color: #fff; margin: 1.2rem 0 0.5rem; }
+  .meta { color: var(--text-muted); font-size: 0.85rem; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.2rem; margin-top: 1rem; }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.2rem; transition: border-color 0.2s; }
+  .card:hover { border-color: var(--accent); }
+  .card-name { font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 0.3rem; }
+  .card-type { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--accent); margin-bottom: 0.7rem; }
+  .card p { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 0.4rem; }
+  .card .tag { display: inline-block; background: var(--surface2); border: 1px solid var(--border); border-radius: 4px; padding: 2px 8px; font-size: 0.72rem; color: var(--text-muted); margin: 2px 3px 2px 0; }
+  .card .tag.high { border-color: var(--green); color: var(--green); }
+  .card .tag.medium { border-color: var(--blue); color: var(--blue); }
+  .card .tag.new { border-color: var(--accent); color: var(--accent); }
+  .card .tag.purple { border-color: var(--purple); color: var(--purple); }
+  .trend-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; margin-top: 1rem; }
+  .trend-card { background: var(--surface2); border-radius: 8px; padding: 1rem; border-left: 3px solid var(--accent2); }
+  .trend-card h4 { font-size: 0.9rem; color: #fff; margin-bottom: 0.3rem; }
+  .trend-card p { font-size: 0.8rem; color: var(--text-muted); }
+  .strategy-table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+  .strategy-table th { background: var(--surface2); color: var(--accent); text-align: left; padding: 0.7rem 1rem; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; }
+  .strategy-table td { padding: 0.7rem 1rem; border-bottom: 1px solid var(--border); font-size: 0.85rem; color: var(--text); }
+  .strategy-table tr:hover td { background: var(--surface); }
+  .stat-row { display: flex; gap: 1rem; margin-top: 1.2rem; flex-wrap: wrap; }
+  .stat-box { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.5rem; flex: 1; min-width: 150px; text-align: center; }
+  .stat-box .num { font-size: 2rem; font-weight: 800; color: var(--accent); }
+  .stat-box .label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin-top: 0.2rem; }
+  .contact-approach { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.2rem; margin-top: 1rem; }
+  .contact-approach li { margin: 0.5rem 0 0.5rem 1.5rem; font-size: 0.88rem; color: var(--text); }
+  .pulse { animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+  footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--border); font-size: 0.75rem; color: var(--text-muted); text-align: center; }
+  @media(max-width:600px){ .container{padding:1rem} h1{font-size:1.4rem} .grid{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <div class="badge">🏥 Agencia Aurea — Research Agent</div>
+  <h1>Lead Research: Clínicas & Salud Privada</h1>
+  <div class="meta">Costa Rica &nbsp;|&nbsp; Viernes 1 de mayo 2026 &nbsp;|&nbsp; Hora: 00:00 CST</div>
+</header>
+
+<div class="stat-row">
+  <div class="stat-box">
+    <div class="num">10</div>
+    <div class="label">Empresas Identificadas</div>
+  </div>
+  <div class="stat-box">
+    <div class="num">3</div>
+    <div class="label">Hospitales Top Tier</div>
+  </div>
+  <div class="stat-box">
+    <div class="num">5</div>
+    <div class="label">Clínicas Estéticas</div>
+  </div>
+  <div class="stat-box">
+    <div class="num pulse">Alta</div>
+    <div class="label">Oportunidad</div>
+  </div>
+</div>
+
+<h2>🏥 Hospitales Privados Top Tier</h2>
+<div class="grid">
+
+  <div class="card">
+    <div class="card-name">Hospital Clínica Bíblica</div>
+    <div class="card-type">Hospital Privado — Nivel Latinoamericano</div>
+    <p>📍 San José — Avinguda J.W. Tiffany</p>
+    <p>🇨🇷 Único hospital de Costa Rica en el ranking "Latin America's Top Private Hospitals & Clinics 2026". 978 empleados.</p>
+    <p>👤 CEO: Gerardo Arnoldo Sánchez Cordero | Commercial Manager: Ezio Fila</p>
+    <p>💡 Oportunidad: Branding hospitalario, marketing de turismo médico internacional, campaigns para pacientes extranjeros.</p>
+    <span class="tag high">Top Tier LATAM</span>
+    <span class="tag high">Turismo Médico</span>
+    <span class="tag">Alto Presupuesto</span>
+  </div>
+
+  <div class="card">
+    <div class="card-name">Hospital CIMA San José</div>
+    <div class="card-type">Hospital Privado — Red IHC</div>
+    <p>📍 San José — parte de International Healthcare Consortium</p>
+    <p>🏥 201-500 empleados, 1086 contactos en LinkedIn. 25+ años de historia. Líder en servicios médicos especializados.</p>
+    <p>💡 Oportunidad: Marketing digital de especialidades, posicionamiento internacional, SEO para procedimientos específicos.</p>
+    <span class="tag high">Red de Hospitales</span>
+    <span class="tag medium">Turismo Médico</span>
+    <span class="tag">Especialidades</span>
+  </div>
+
+  <div class="card">
+    <div class="card-name">Hospital Metropolitano de San José</div>
+    <div class="card-type">Hospital Privado — 8 Sedes</div>
+    <p>📍 8 sedes: San José, Lindora, Lincoln Plaza, Plaza del Sol, Quepos, Huacas, Liberia, San Carlos</p>
+    <p>🏥 501-1000 empleados, 1624 contactos LinkedIn. Director: Roberto Herrera. Fundado en 2010. Modelo de SEGURIDAD, CALIDAD, ACCESIBILIDAD e INNOVACIÓN.</p>
+    <p>💡 Oportunidad: Campaña multisede, branding de expansión regional, marketing de servicios ambulatorios.</p>
+    <span class="tag high">Expansión Activa</span>
+    <span class="tag high">8 Ubicaciones</span>
+    <span class="tag">Marketing Multisite</span>
+  </div>
+
+  <div class="card">
+    <div class="card-name">Hospital La Católica</div>
+    <div class="card-type">Hospital Privado — Grupo Clínica Bíblica</div>
+    <p>📍 San José — Campus médico integrado</p>
+    <p>🇨🇷 Competidor directo de Clínica Bíblica en turismo médico. Acreditado. Parte del ecosistema de salud privada premium.</p>
+    <p>💡 Oportunidad: Marketing comparativo vs. Clínica Bíblica, paquetes de servicios para extranjeros, content de marca.</p>
+    <span class="tag medium">Turismo Médico</span>
+    <span class="tag">Acreditado</span>
+  </div>
+
+</div>
+
+<h2>✨ Clínicas Estéticas & Cirugía Plástica</h2>
+<div class="grid">
+
+  <div class="card">
+    <div class="card-name">Rosenstock-Lieberman Clinic</div>
+    <div class="card-type">Cirugía Plástica — 30 Años de Experiencia</div>
+    <p>📍 San José — una de las clínicas más antiguas de CR</p>
+    <p>🇺🇸 Fundada por los Dres. Noe Rosenstock y Clara Lieberman. 30 años posicionando cirugía estética. Presencia internacional establecida.</p>
+    <p>💡 Oportunidad: Rediseño de branding digital, fotografía clínica premium, campañas de procedimientos específicos.</p>
+    <span class="tag high">30 Años</span>
+    <span class="tag medium">Internacional</span>
+    <span class="tag">Premium</span>
+  </div>
+
+  <div class="card">
+    <div class="card-name">Costa Rica Center of Plastic Surgery — Dr. Luis Pacheco</div>
+    <div class="card-type">Centro de Cirugía Plástica — Dr. Luis Pacheco M.D.</div>
+    <p>📍 San José — uno de los centros más modernos del país</p>
+    <p>🇨🇷 Centro moderno y avanzado. Dr. Pacheco con perfil médico reconocido. Enfoque en pacientes internacionales.</p>
+    <p>💡 Oportunidad: Contenido de video con el doctor, SEO para procedimientos, marketing de resultados (antes/después).</p>
+    <span class="tag high">Moderno</span>
+    <span class="tag new">Alto Potencial SEO</span>
+    <span class="tag">Pacientes Internacionales</span>
+  </div>
+
+  <div class="card">
+    <div class="card-name">Premier Plastic Surgery of Costa Rica</div>
+    <div class="card-type">Cirugía Plástica Certificada</div>
+    <p>📍 San José</p>
+    <p>🇺🇸 Todos los doctores board-certified. Experiencia amplia y entrenamiento especializado. Posicionamiento como clínica de cirugía plástica premium.</p>
+    <p>💡 Oportunidad: Branding de certificación y seguridad, contenido educativo, influencers de medicina estética.</p>
+    <span class="tag medium">Certificado</span>
+    <span class="tag medium">Premium</span>
+  </div>
+
+  <div class="card">
+    <div class="card-name">Clínica Dermatológica & Estética</div>
+    <div class="card-type">Dermatología Clínica y Estética</div>
+    <p>📍 San José / GAM</p>
+    <p>🇨🇷 Clínicas dermatológicas en expansión en Costa Rica. Tratamiento de piel, láser, procedimientos estéticos no invasivos.</p>
+    <p>💡 Oportunidad: Campañas de season marketing (verano, bronceado), contenido educativo sobre cuidado de piel, presencia en Google My Business.</p>
+    <span class="tag medium">Estacional</span>
+    <span class="tag">GAM Coverage</span>
+  </div>
+
+</div>
+
+<h2>🦷 Clínicas Dentales & Especializadas</h2>
+<div class="grid">
+
+  <div class="card">
+    <div class="card-name">Smile Design Costa Rica</div>
+    <div class="card-type">Odontología Estética — Dental Tourism</div>
+    <p>📍 San José — especializado en turismo dental</p>
+    <p>🌎 Posicionado internacionalmente para turismo dental. Procedimientos: implantes, carillas, blanqueamiento, sonrisa holográfica.</p>
+    <p>💡 Oportunidad: SEO multilingüe, contenido antes/después, partnerships con agencias de turismo médico.</p>
+    <span class="tag high">Turismo Dental</span>
+    <span class="tag new">SEO Alto</span>
+    <span class="tag">Alto Ticket</span>
+  </div>
+
+  <div class="card">
+    <div class="card-name">Clínica de Fertilidad & Reproducción Asistida</div>
+    <div class="card-type">Fertilidad — Costa Rica</div>
+    <p>📍 San José</p>
+    <p>🇨🇷 Clínicas de fertilidad con alta inversión en tecnología. Mercado en crecimiento en CR para tratamientos de reproducción asistida.</p>
+    <p>💡 Oportunidad: Marketing sensible y educativo, contenido de valor, posicionamiento como clínica de referencia regional.</p>
+    <span class="tag purple">Nicho Premium</span>
+    <span class="tag">Alto Ticket</span>
+    <span class="tag">Mercado Creciente</span>
+  </div>
+
+</div>
+
+<h2>📊 Tendencias del Mercado Salud Privada CR 2026</h2>
+<div class="trend-grid">
+  <div class="trend-card">
+    <h4>🌎 Turismo Médico en Auge</h4>
+    <p>Costa Rica es hub de turismo médico en Centroamérica. Pacientes de USA y Canadá eligen CR por costo-beneficio. Hospitales clave: Clínica Bíblica, CIMA, La Católica.</p>
+  </div>
+  <div class="trend-card">
+    <h4>🏥 Costa Rica como Hub MedTech</h4>
+    <p>CINDE organiza el foro MedTech más grande de LATAM en Costa Rica. 51 empresas de healthcare, 4 con funding activo. Inversiones en AI aplicado a salud.</p>
+  </div>
+  <div class="trend-card">
+    <h4>💉 Estética No Invasiva en Expansión</h4>
+    <p>Procedimientos mínimamente invasivos (botox, rellenos, láser) crecen 25%+ anual. Target: mujeres 25-55 y hombres millennials. Instagram y TikTok como canales.</p>
+  </div>
+  <div class="trend-card">
+    <h4>📱 Telemedicina Consolidada</h4>
+    <p>Post-pandemia, telemedicina es estándar. Clínicas que no tienen presencia digital pierden pacientes. Agenda online y telemedicina son expectativa mínima.</p>
+  </div>
+  <div class="trend-card">
+    <h4>🦷 Dental Tourism Internacional</h4>
+    <p>Implantes y carillas en CR cuestan 50-70% menos que USA. Clínicas dentales invierten fuerte en SEO multilingüe y reputational marketing.</p>
+  </div>
+  <div class="trend-card">
+    <h4>🤖 AI en Diagnóstico y Marketing</h4>
+    <p>Agencias reportan uso de AI para booking de citas, chatbots de atención al paciente y personalización de campañas de email marketing en salud.</p>
+  </div>
+</div>
+
+<h2>🎯 Estrategias de Contacto Recomendadas</h2>
+<table class="strategy-table">
+  <thead>
+    <tr>
+      <th>Tipo de Clínica</th>
+      <th>Decisor Típico</th>
+      <th>Estrategia de Approach</th>
+      <th>Prioridad</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Hospitales Privados (Clínica Bíblica, CIMA, Metropolitano)</td>
+      <td>Commercial Manager / Director de Marketing / CEO</td>
+      <td>Cold email con caso de estudio de turismo médico + propuesta de branding. LinkedIn Sales Navigator para decisores.</td>
+      <td style="color:var(--green)">🔴 Alta</td>
+    </tr>
+    <tr>
+      <td>Clínicas de Cirugía Plástica (Rosenstock-Lieberman, Dr. Pacheco)</td>
+      <td>Cirujano/Propietario o Marketing Manager</td>
+      <td>Portafolio visual (antes/después), propuesta de contenido para Instagram/TikTok. Contacto vía web y LinkedIn.</td>
+      <td style="color:var(--green)">🔴 Alta</td>
+    </tr>
+    <tr>
+      <td>Clínicas Dentales (Smile Design, etc.)</td>
+      <td>Director de Clínica / Head de Marketing</td>
+      <td>SEO y Google Ads strategy deck + caso de estudio dental tourism. Presentación presencial o Zoom.</td>
+      <td style="color:var(--blue)">🟡 Media-Alta</td>
+    </tr>
+    <tr>
+      <td>Clínicas de Fertilidad</td>
+      <td>Director Médico / Director General</td>
+      <td>Marketing educativo y contenido de valor. Enfoque en sensibilidad y regulaciones. Contacto vía LinkedIn y referrals.</td>
+      <td style="color:var(--blue)">🟡 Media</td>
+    </tr>
+    <tr>
+      <td>Clínicas Estéticas (derm, no invasivas)</td>
+      <td>Propietario/Médico o Equipo de Redes</td>
+      <td>Propuesta de social media marketing + contenido estacional. Instagram DM + email. Ticket más bajo, ciclo más corto.</td>
+      <td style="color:var(--accent)">🟢 Alta (Volumen)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>📋 Decisores Identificados</h2>
+<div class="contact-approach">
+  <ul>
+    <li>🔍 <strong>Hospital Clínica Bíblica — CEO:</strong> Gerardo Arnoldo Sánchez Cordero. Commercial Manager: Ezio Fila. LinkedIn: buscar "Hospital Clínica Bíblica" + Marketing.</li>
+    <li>🔍 <strong>Hospital Metropolitano — Director:</strong> Roberto Herrera. LinkedIn: "Hospital Metropolitano de Costa Rica" → 1624 empleados.</li>
+    <li>🔍 <strong>Hospital CIMA:</strong> LinkedIn company page con 1086 miembros. Buscar "Marketing Manager" + "Hospital CIMA Costa Rica".</li>
+    <li>🔍 <strong>Rosenstock-Lieberman Clinic:</strong> Dres. Noe Rosenstock y Clara Lieberman (fundadores). Web: cosmetic-cr.com.</li>
+    <li>🔍 <strong>Dr. Luis Pacheco:</strong> Costa Rica Center of Plastic Surgery. LinkedIn como "Dr. Luis Pacheco M.D." + clínica website.</li>
+    <li>🔍 <strong>Instituto Nacional de Estadísticas y Censos:</strong> Directorio de establecimientos de salud — fuente para mapeo completo de clínicas.</li>
+    <li>🔍 <strong>HuliPractice / HuliHealth:</strong> Plataforma de software médico costarricense — contacto indirecto con cientos de clínicas y médicos en CR.</li>
+  </ul>
+</div>
+
+<h2>💡 Insights Clave para Aurea</h2>
+<div class="trend-grid">
+  <div class="trend-card" style="border-left-color:var(--green)">
+    <h4>🏆 PRIORIDAD 1: Hospitales para turismo médico</h4>
+    <p>Clínica Bíblica, CIMA y Metropolitano son los 3 pesos pesados. Juntos atienden miles de pacientes internacionales al año. Necesitan agencias con experiencia en branding hospitalario internacional, SEO multilingüe y content marketing de alta gama. Retainers grandes posibles.</p>
+  </div>
+  <div class="trend-card" style="border-left-color:var(--blue)">
+    <h4>🎯 PRIORIDAD 2: Clínicas de cirugía plástica</h4>
+    <p>Rosenstock-Lieberman, Dr. Pacheco y Premier compiten por el mismo paciente internacional. Diferenciador: presencia digital, reviews, antes/después. Paquetes de contenido visual trimestrales con fotografía profesional y video storytelling.</p>
+  </div>
+  <div class="trend-card" style="border-left-color:var(--purple)">
+    <h4>⚡ PRIORIDAD 3: Clínicas dentales de turismo</h4>
+    <p>Smile Design Costa Rica y similares son nichos de alto ticket con ciclo corto de decisión. SEO para términos como "dental implants Costa Rica" o "affordable veneers Costa Rica" genera leads directos. Oportunidad para packages SEO + Google Ads.</p>
+  </div>
+</div>
+
+<footer>
+  <p>Reporte generado automáticamente por Aurea Lead Research Agent &mdash; Logos &copy; 2026 &mdash; Confidencial &mdash; Próximo nicho: E-commerce</p>
+</footer>
+
+</div>
+</body>
+</html>
