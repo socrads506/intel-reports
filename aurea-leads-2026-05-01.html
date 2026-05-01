@@ -3,690 +3,330 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aurea - Leads Manufacturers Costa Rica | Mayo 2026</title>
+    <title>Aurea Lead Report - Hoteles Costa Rica | Mayo 2026</title>
     <style>
-        :root {
-            --primary: #6366f1;
-            --primary-dark: #4f46e5;
-            --secondary: #ec4899;
-            --bg-dark: #0f172a;
-            --bg-card: #1e293b;
-            --bg-input: #334155;
-            --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
-            --text-muted: #64748b;
-            --border: #334155;
-            --success: #22c55e;
-            --warning: #f59e0b;
-            --danger: #ef4444;
-            --info: #3b82f6;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            background: var(--bg-dark);
-            color: var(--text-primary);
+            background: #0d1117;
+            color: #c9d1d9;
             line-height: 1.6;
-            min-height: 100vh;
         }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-        
+        .container { max-width: 1100px; margin: 0 auto; padding: 2rem; }
         header {
-            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--secondary) 100%);
-            padding: 3rem 2rem;
-            border-radius: 1rem;
+            background: linear-gradient(135deg, #161b22 0%, #1c2128 100%);
+            border-bottom: 1px solid #30363d;
+            padding: 2.5rem 2rem;
+            text-align: center;
             margin-bottom: 2rem;
-            position: relative;
-            overflow: hidden;
         }
-        
-        header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-            opacity: 0.3;
-        }
-        
-        header h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            position: relative;
-        }
-        
-        header .subtitle {
-            font-size: 1.1rem;
-            opacity: 0.9;
-            position: relative;
-        }
-        
-        header .badge {
+        .badge {
             display: inline-block;
-            background: rgba(255,255,255,0.2);
+            background: #238636;
+            color: #fff;
             padding: 0.25rem 0.75rem;
-            border-radius: 2rem;
-            font-size: 0.85rem;
-            margin-top: 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
         }
-        
-        .meta-info {
+        h1 { color: #f0f6fc; font-size: 2rem; margin-bottom: 0.5rem; }
+        .subtitle { color: #8b949e; font-size: 1rem; }
+        .meta-bar {
             display: flex;
+            justify-content: center;
             gap: 2rem;
             margin-top: 1.5rem;
             flex-wrap: wrap;
-            position: relative;
         }
-        
         .meta-item {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.9rem;
-        }
-        
-        .meta-item svg {
-            width: 18px;
-            height: 18px;
-        }
-        
-        .section {
-            background: var(--bg-card);
-            border-radius: 1rem;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            border: 1px solid var(--border);
-        }
-        
-        .section-header {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            margin-bottom: 1.25rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid var(--border);
-        }
-        
-        .section-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 0.75rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.25rem;
-        }
-        
-        .section-icon.blue { background: rgba(59, 130, 246, 0.2); color: var(--info); }
-        .section-icon.green { background: rgba(34, 197, 94, 0.2); color: var(--success); }
-        .section-icon.purple { background: rgba(168, 85, 247, 0.2); color: #a855f7; }
-        .section-icon.pink { background: rgba(236, 72, 153, 0.2); color: var(--secondary); }
-        .section-icon.orange { background: rgba(245, 158, 11, 0.2); color: var(--warning); }
-        
-        .section h2 {
-            font-size: 1.25rem;
-            font-weight: 600;
-        }
-        
-        .company-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-            gap: 1rem;
-        }
-        
-        .company-card {
-            background: var(--bg-input);
-            border-radius: 0.75rem;
-            padding: 1.25rem;
-            border: 1px solid var(--border);
-            transition: all 0.2s ease;
-        }
-        
-        .company-card:hover {
-            border-color: var(--primary);
-            transform: translateY(-2px);
-        }
-        
-        .company-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 0.75rem;
-        }
-        
-        .company-name {
-            font-weight: 600;
-            font-size: 1.05rem;
-            color: var(--text-primary);
-        }
-        
-        .company-sector {
-            font-size: 0.75rem;
-            background: var(--primary);
-            color: white;
-            padding: 0.2rem 0.6rem;
-            border-radius: 1rem;
-            white-space: nowrap;
-        }
-        
-        .company-detail {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.5rem;
-            margin-bottom: 0.5rem;
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-        }
-        
-        .company-detail svg {
-            width: 16px;
-            height: 16px;
-            flex-shrink: 0;
-            margin-top: 0.15rem;
-            color: var(--text-muted);
-        }
-        
-        .company-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.4rem;
-            margin-top: 0.75rem;
-        }
-        
-        .tag {
-            font-size: 0.7rem;
-            padding: 0.2rem 0.5rem;
-            border-radius: 0.25rem;
-            background: rgba(99, 102, 241, 0.15);
-            color: var(--primary);
-            border: 1px solid rgba(99, 102, 241, 0.3);
-        }
-        
-        .trend-card {
-            background: var(--bg-input);
-            border-radius: 0.75rem;
-            padding: 1.25rem;
-            border: 1px solid var(--border);
-        }
-        
-        .trend-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-            padding: 1rem 0;
-            border-bottom: 1px solid var(--border);
-        }
-        
-        .trend-item:last-child {
-            border-bottom: none;
-            padding-bottom: 0;
-        }
-        
-        .trend-icon {
-            width: 44px;
-            height: 44px;
-            border-radius: 0.75rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.25rem;
-            flex-shrink: 0;
-        }
-        
-        .trend-content h4 {
-            font-size: 0.95rem;
-            font-weight: 600;
-            margin-bottom: 0.25rem;
-        }
-        
-        .trend-content p {
+            text-align: center;
             font-size: 0.85rem;
-            color: var(--text-secondary);
         }
-        
-        .strategy-card {
-            background: var(--bg-input);
-            border-radius: 0.75rem;
-            padding: 1.25rem;
-            border: 1px solid var(--border);
+        .meta-item span { color: #58a6ff; font-weight: 600; }
+        section {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            padding: 1.75rem;
+            margin-bottom: 1.5rem;
+        }
+        h2 {
+            color: #f0f6fc;
+            font-size: 1.25rem;
+            margin-bottom: 1.25rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid #238636;
+            display: inline-block;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
             margin-bottom: 1rem;
         }
-        
-        .strategy-card:last-child {
-            margin-bottom: 0;
+        .stat-card {
+            background: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 1.25rem;
+            text-align: center;
         }
-        
-        .strategy-header {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            margin-bottom: 0.75rem;
+        .stat-card .number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #58a6ff;
         }
-        
-        .strategy-number {
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            background: var(--primary);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .stat-card .label {
+            font-size: 0.8rem;
+            color: #8b949e;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        th {
+            background: #0d1117;
+            color: #f0f6fc;
+            padding: 0.85rem;
+            text-align: left;
+            font-weight: 600;
             font-size: 0.85rem;
-            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 2px solid #238636;
         }
-        
-        .strategy-header h4 {
-            font-size: 1rem;
-            font-weight: 600;
-        }
-        
-        .strategy-card p {
+        td {
+            padding: 0.85rem;
+            border-bottom: 1px solid #21262d;
             font-size: 0.9rem;
-            color: var(--text-secondary);
-            padding-left: 2.25rem;
         }
-        
-        .contact-approach {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1rem;
+        tr:hover { background: #1c2128; }
+        .hotel-name { color: #58a6ff; font-weight: 600; }
+        .location { color: #8b949e; }
+        .contact { font-family: monospace; font-size: 0.85rem; color: #a5d6ff; }
+        .trend-tag {
+            display: inline-block;
+            background: #1f6feb;
+            color: #fff;
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            margin: 0.15rem;
         }
-        
-        .approach-item {
-            background: var(--bg-input);
-            border-radius: 0.75rem;
-            padding: 1rem;
-            border-left: 3px solid var(--primary);
+        .strategy-card {
+            background: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin-bottom: 1rem;
         }
-        
-        .approach-item h4 {
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 0.35rem;
-            color: var(--primary);
-        }
-        
-        .approach-item p {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-        }
-        
+        .strategy-card h3 { color: #58a6ff; margin-bottom: 0.5rem; font-size: 1rem; }
+        .strategy-card p { color: #c9d1d9; font-size: 0.9rem; }
         footer {
             text-align: center;
             padding: 2rem;
-            color: var(--text-muted);
-            font-size: 0.85rem;
+            color: #8b949e;
+            font-size: 0.8rem;
+            border-top: 1px solid #30363d;
+            margin-top: 2rem;
         }
-        
-        @media (max-width: 768px) {
-            .container { padding: 1rem; }
-            header h1 { font-size: 1.75rem; }
-            .company-grid { grid-template-columns: 1fr; }
-            .meta-info { gap: 1rem; }
-        }
+        .highlight { color: #f0883e; font-weight: 600; }
     </style>
 </head>
 <body>
+    <header>
+        <span class="badge">Reporte de Leads</span>
+        <h1>Hoteles & Resorts de Costa Rica</h1>
+        <p class="subtitle">Oportunidades de publicidad para Aurea — Nicho: Hoteles</p>
+        <div class="meta-bar">
+            <div class="meta-item"><span>Mayo 2026</span><br>Mes del nicho</div>
+            <div class="meta-item"><span>8-10 Hotels</span><br>Empresas identificadas</div>
+            <div class="meta-item"><span>Cron #001</span><br>Ejecutado</div>
+        </div>
+    </header>
+
     <div class="container">
-        <header>
-            <h1>🎯 Leads: Manufacturers Costa Rica</h1>
-            <p class="subtitle">Investigación de oportunidades de publicidad para agencias en Costa Rica</p>
-            <span class="badge">📅 Mayo 2026 | ⏰ 08:00 UTC</span>
-            <div class="meta-info">
-                <div class="meta-item">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                    <span>San José, Costa Rica</span>
+        <!-- Market Overview -->
+        <section>
+            <h2>📊 Panorama del Mercado</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="number">+10.4%</div>
+                    <div class="label">Crecimiento Arrivals (Ene-Feb 2026)</div>
                 </div>
-                <div class="meta-item">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
-                    <span>Sector: Manufacturing / Industrial</span>
+                <div class="stat-card">
+                    <div class="number">653,959</div>
+                    <div class="label">Visitantes (Ene-Feb 2026)</div>
                 </div>
-                <div class="meta-item">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
-                    <span>10 empresas identificadas</span>
+                <div class="stat-card">
+                    <div class="number">$391.8M</div>
+                    <div class="label">Inversión hotelera proyectada</div>
                 </div>
-            </div>
-        </header>
-
-        <div class="section">
-            <div class="section-header">
-                <div class="section-icon blue">🏭</div>
-                <h2>Empresas Manufactureras Identificadas</h2>
-            </div>
-            
-            <div class="company-grid">
-                <div class="company-card">
-                    <div class="company-header">
-                        <span class="company-name">Intel Costa Rica</span>
-                        <span class="company-sector">Tecnología</span>
-                    </div>
-                    <div class="company-detail">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>
-                        <span>Eugenia,漳州 / Heredia - Zona Franca</span>
-                    </div>
-                    <div class="company-detail">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-                        <span>+506 2200 0000</span>
-                    </div>
-                    <div class="company-detail">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                        <span>communications@intel.co.cr</span>
-                    </div>
-                    <div class="company-tags">
-                        <span class="tag">Semiconductores</span>
-                        <span class="tag">Alta Tecnología</span>
-                        <span class="tag">Exportación</span>
-                        <span class="tag">B2B</span>
-                    </div>
+                <div class="stat-card">
+                    <div class="number">1,500</div>
+                    <div class="label">Nuevas habitaciones en desarrollo</div>
                 </div>
-
-                <div class="company-card">
-                    <div class="company-header">
-                        <span class="company-name">Abbott Laboratories Costa Rica</span>
-                        <span class="company-sector">Salud</span>
-                    </div>
-                    <div class="company-detail">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>
-                        <span>La Uruca, San José - Zona Franca</span>
-                    </div>
-                    <div class="company-detail">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-                        <span>+506 2522 0000</span>
-                    </div>
-                    <div class="company-tags">
-                        <span class="tag">Dispositivos Médicos</span>
-                        <span class="tag">Diagnóstico</span>
-                        <span class="tag">Farmacéutica</span>
-                        <span class="tag">FDA</span>
-                    </div>
+                <div class="stat-card">
+                    <div class="number">8.1%</div>
+                    <div class="label">CAGR del turismo 2025-2030</div>
                 </div>
-
-                <div class="company-card">
-                    <div class="company-header">
-                        <span class="company-name">Boston Scientific Costa Rica</span>
-                        <span class="company-sector">Salud</span>
-                    </div>
-                    <div class="company-detail">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>
-                        <span>Coyol, Alajuela - Zona Franca</span>
-                    </div>
-                    <div class="company-detail">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                        <span>info.cr@bostonscientific.com</span>
-                    </div>
-                    <div class="company-tags">
-                        <span class="tag">Cardiología</span>
-                        <span class="tag">Dispositivos Médicos</span>
-                        <span class="tag">Exportación</span>
-                    </div>
-                </div>
-
-                <div class="company-card">
-                    <div class="company-header">
-                        <span class="company-name">Medtronic Costa Rica</span>
-                        <span class="company-sector">Salud</span>
-                    </div>
-                    <div class="company-detail">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>
-                        <span>San Joaquín, Flores - Heredia</span>
-                    </div>
-                    <div class="company-detail">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-                        <span>+506 2202 5000</span>
-                    </div>
-                    <div class="company-tags">
-                        <span class="tag">Tecnología Médica</span>
-                        <span class="tag">Implantes</span>
-                        <span class="tag">I+D</span>
-                    </div>
-                </div>
-
-                <div class="company-card">
-                    <div class="company-header">
-                        <span class="company-name">Kimberly-Clark Costa Rica</span>
-                        <span class="company-sector">Bienes de Consumo</span>
-                    </div>
-                    <div class="company-detail">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>
-                        <span>Barreal de Heredia</span>
-                    </div>
-                    <div class="company-detail">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                        <span>atencion.cliente@kcc.com</span>
-                    </div>
-                    <div class="company-tags">
-                        <span class="tag">Higiene Personal</span>
-                        <span class="tag">Cuidado del Hogar</span>
-                        <span class="tag">B2C</span>
-                        <span class="tag">Marca Propia</span>
-                    </div>
-                </div>
-
-                <div class="company-card">
-                    <div class="company-header">
-                        <span class="company-name">Coca-Cola FEMSA Costa Rica</span>
-                        <span class="company-sector">Alimentos y Bebidas</span>
-                    </div>
-                    <div class="company-detail">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>
-                        <span>La Rivera de Belén, Heredia</span>
-                    </div>
-                    <div class="company-detail">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-                        <span>+506 2248 9000</span>
-                    </div>
-                    <div class="company-tags">
-                        <span class="tag">Bebidas</span>
-                        <span class="tag">Manufactura</span>
-                        <span class="tag">B2B/B2C</span>
-                    </div>
-                </div>
-
-                <div class="company-card">
-                    <div class="company-header">
-                        <span class="company-name">Del Monte Costa Rica</span>
-                        <span class="company-sector">Agroindustrial</span>
-                    </div>
-                    <div class="company-detail">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>
-                        <span>Molino, Pococí - Limón</span>
-                    </div>
-                    <div class="company-detail">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                        <span>info@delmonte.com</span>
-                    </div>
-                    <div class="company-tags">
-                        <span class="tag">Piñas</span>
-                        <span class="tag">Exportación</span>
-                        <span class="tag">Agroindustrial</span>
-                        <span class="tag">Mundo</span>
-                    </div>
-                </div>
-
-                <div class="company-card">
-                    <div class="company-header">
-                        <span class="company-name">Fischer Costa Rica</span>
-                        <span class="company-sector">Autopartes</span>
-                    </div>
-                    <div class="company-detail">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>
-                        <span>Zona Franca de Cartago</span>
-                    </div>
-                    <div class="company-detail">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                        <span>contactocr@fischer.com</span>
-                    </div>
-                    <div class="company-tags">
-                        <span class="tag">Autopartes</span>
-                        <span class="tag">Automotriz</span>
-                        <span class="tag">Germany</span>
-                        <span class="tag">Precisión</span>
-                    </div>
-                </div>
-
-                <div class="company-card">
-                    <div class="company-header">
-                        <span class="company-name">Herman Miller Costa Rica</span>
-                        <span class="company-sector">Muebles</span>
-                    </div>
-                    <div class="company-detail">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>
-                        <span>El Coyol, Alajuela</span>
-                    </div>
-                    <div class="company-tags">
-                        <span class="tag">Muebles de Diseño</span>
-                        <span class="tag">Ergonomía</span>
-                        <span class="tag">Exportación USA</span>
-                    </div>
-                </div>
-
-                <div class="company-card">
-                    <div class="company-header">
-                        <span class="company-name">Viking Manufacturing CR</span>
-                        <span class="company-sector">Textil/Moda</span>
-                    </div>
-                    <div class="company-detail">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>
-                        <span>San José Centro</span>
-                    </div>
-                    <div class="company-tags">
-                        <span class="tag">Textil</span>
-                        <span class="tag">Moda Sostenible</span>
-                        <span class="tag">Local</span>
-                    </div>
+                <div class="stat-card">
+                    <div class="number">337,027</div>
+                    <div class="label">Visitantes USA (Ene-Feb 2026)</div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div class="section">
-            <div class="section-header">
-                <div class="section-icon green">📈</div>
-                <h2>Tendencias del Mercado Manufacturero CR 2026</h2>
-            </div>
-            
-            <div class="trend-card">
-                <div class="trend-item">
-                    <div class="trend-icon" style="background: rgba(34, 197, 94, 0.2); color: #22c55e;">🔬</div>
-                    <div class="trend-content">
-                        <h4>Nearshoring y Relocalización de Cadenas de Suministro</h4>
-                        <p>Empresas estadounidenses y europeas están reubicando producción a Costa Rica para reducir dependencia de Asia. Intel, Medtronic y Boston Scientific lideran esta tendencia con expansiones significativas en 2025-2026.</p>
-                    </div>
-                </div>
-                <div class="trend-item">
-                    <div class="trend-icon" style="background: rgba(59, 130, 246, 0.2); color: #3b82f6;">💊</div>
-                    <div class="trend-content">
-                        <h4>Boom de Dispositivos Médicos</h4>
-                        <p>Costa Rica se consolida como hub de manufactura de dispositivos médicos en Latinoamérica. El cluster de Coyol/Alajuela atrae inversiones de multinationales norteamericanas. Se esperan 2,000+ nuevos empleos en el sector durante 2026.</p>
-                    </div>
-                </div>
-                <div class="trend-item">
-                    <div class="trend-icon" style="background: rgba(168, 85, 247, 0.2); color: #a855f7;">🌱</div>
-                    <div class="trend-content">
-                        <h4>Manufactura Sostenible y ESG</h4>
-                        <p>Las empresas manufactureras enfrentan presión para adoptar prácticas sustentables. Nielsen reporta que el 73% de consumidores ticos prefieren marcas sostenibles. Las agencies que ofrezcan comunicación ESG tienen ventaja competitiva.</p>
-                    </div>
-                </div>
-                <div class="trend-item">
-                    <div class="trend-icon" style="background: rgba(236, 72, 153, 0.2); color: #ec4899;">🤖</div>
-                    <div class="trend-content">
-                        <h4>Automatización e Industria 4.0</h4>
-                        <p>La adopción de robots, IoT y analytics predictivo está transformando la manufactura costarricense. Empresas buscan socios para comunicar su transformación digital a stakeholders y talento potencial.</p>
-                    </div>
-                </div>
-                <div class="trend-item">
-                    <div class="trend-icon" style="background: rgba(245, 158, 11, 0.2); color: #f59e0b;">🎯</div>
-                    <div class="trend-content">
-                        <h4>Marketing B2B Industrial en Auge</h4>
-                        <p>Las empresas manufactureras B2B invierten más en lead generation digital y content marketing. El 65% de CEOs industriales planean aumentar presupuesto de marketing en 2026 según encuesta de CINDE.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <!-- Hoteles Identificados -->
+        <section>
+            <h2>🏨 Hoteles Identificados</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Hotel / Resort</th>
+                        <th>Ubicación</th>
+                        <th>Tipo</th>
+                        <th>Contacto / Notas</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="hotel-name">Hotel Fermata</td>
+                        <td class="location">Santa Teresa, Puntarenas</td>
+                        <td>Boutique, T+L 2026 Best New</td>
+                        <td class="contact">hotelfermatacr.com</td>
+                    </tr>
+                    <tr>
+                        <td class="hotel-name">Origins Astral Lodge</td>
+                        <td class="location">Bijagua de Upala, Alajuela</td>
+                        <td>Boutique, T+L 2026 Best New</td>
+                        <td class="contact">Sister: Origins Floral (2018)</td>
+                    </tr>
+                    <tr>
+                        <td class="hotel-name">Waldorf Astoria Costa Rica</td>
+                        <td class="location">Punta Cacique, Guanacaste</td>
+                        <td>Luxury, Steve Case / Exclusive Resorts</td>
+                        <td class="contact">Abrió Abril 2025, brand launch</td>
+                    </tr>
+                    <tr>
+                        <td class="hotel-name">Nekajui, a Ritz-Carlton Reserve</td>
+                        <td class="location">Peninsula Papagayo, Guanacaste</td>
+                        <td>Ultra-Luxury, 50th Marriott luxury property</td>
+                        <td class="contact">Feb 2025 opening</td>
+                    </tr>
+                    <tr>
+                        <td class="hotel-name">JW Marriott All-Inclusive Costa Elena</td>
+                        <td class="location">Guanacaste</td>
+                        <td>All-Inclusive, 415 rooms</td>
+                        <td class="contact">Opening Mayo 2027, Marriott Bonvoy</td>
+                    </tr>
+                    <tr>
+                        <td class="hotel-name">Drake Bay Getaway Resort</td>
+                        <td class="location">Drake Bay, Osa Peninsula</td>
+                        <td>Eco-Luxury Boutique</td>
+                        <td class="contact">manager@drakebaygetaway.com | +506 6438 2854</td>
+                    </tr>
+                    <tr>
+                        <td class="hotel-name">Chayote Lodge</td>
+                        <td class="location">Costa Rica (Mountain region)</td>
+                        <td>Boutique, Owner-operated</td>
+                        <td class="contact">Owner: Rolando Campos (30yr tourism veteran)</td>
+                    </tr>
+                    <tr>
+                        <td class="hotel-name">Santarena Hotel</td>
+                        <td class="location">Las Catalinas, Guanacaste</td>
+                        <td>Boutique, Design Hotel</td>
+                        <td class="contact">Mr & Mrs Smith collection</td>
+                    </tr>
+                    <tr>
+                        <td class="hotel-name">Capitán Suizo Beachfront</td>
+                        <td class="location">Tamarindo, Guanacaste</td>
+                        <td>Boutique Beachfront</td>
+                        <td class="contact">TripAdvisor top rated, Adults-friendly</td>
+                    </tr>
+                    <tr>
+                        <td class="hotel-name">Si Como No Resort</td>
+                        <td class="location">Manuel Antonio, Puntarenas</td>
+                        <td>Resort, 54 rooms, Sustainable</td>
+                        <td class="contact">sicomono.com — Adults area + Family</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
 
-        <div class="section">
-            <div class="section-header">
-                <div class="section-icon purple">🎯</div>
-                <h2>Estrategias de Contacto para Aurea</h2>
+        <!-- Tendencias del Mercado -->
+        <section>
+            <h2>📈 Tendencias 2026</h2>
+            <div style="margin-bottom: 1rem;">
+                <span class="trend-tag">Wellness Tourism</span>
+                <span class="trend-tag">Eco-Luxury</span>
+                <span class="trend-tag">Experiential Travel</span>
+                <span class="trend-tag">Sostenibilidad Verificada</span>
+                <span class="trend-tag">MICE Tourism</span>
+                <span class="trend-tag">All-Inclusive Premium</span>
+                <span class="trend-tag">US Market Dominance</span>
+                <span class="trend-tag">North America 32% Luxury Share</span>
             </div>
-            
-            <div class="contact-approach">
-                <div class="approach-item">
-                    <h4>LinkedIn Outreach Masivo</h4>
-                    <p>Dirígete a VP de Marketing y Directores de Comunicación. Usa InMail Premium para mensajes personalizados sobre casos de éxito en manufacturing B2B.</p>
-                </div>
-                <div class="approach-item">
-                    <h4>Cold Email Sequences</h4>
-                    <p>Crea sequences de 5-7 emails con temas sobre: "Cómo [Empresa] puede aumentar leads B2B", "Caso de estudio: Manufactura + ROI publicidad", "Invitación a webinar gratuito".</p>
-                </div>
-                <div class="approach-item">
-                    <h4>Eventos y Ferias Industriales</h4>
-                    <p>Participa en EXPOMANIFA (expo manufacturera) y eventos de CINDE. Recopila tarjetas, toma notas, haz follow-up en 24 horas con propuesta de valor.</p>
-                </div>
-                <div class="approach-item">
-                    <h4>Content Marketing Especializado</h4>
-                    <p>Publica estudio: "Estado del Marketing Industrial en Costa Rica 2026" con datos de 50+ empresas. Distribución gratuita a cambio de datos de contacto.</p>
-                </div>
-                <div class="approach-item">
-                    <h4>Alianzas con Zonas Francas</h4>
-                    <p>Contacta administradores de zonas francas (Coyol, Heredia, Cartago) para convertirse en proveedor preferido de sus empresas residentes.</p>
-                </div>
-                <div class="approach-item">
-                    <h4>Referrals de Clientes Existentes</h4>
-                    <p>Si tienes 1-2 clientes manufacturing, pide referral a cambio de descuento. El B2B manufacturing es un ecosistema cerrado donde todos se conocen.</p>
-                </div>
-            </div>
-        </div>
+            <p style="color: #c9d1d9; margin-top: 1rem;">
+                Costa Rica se consolida como destino de <span class="highlight">turismo de lujo premium</span> en Latinoamérica. 
+                Los viajeros de alto perfil buscan experiencias <span class="highlight">holísticas, bienestar y privacidad significativa</span>. 
+                El mercado norteamericano representa el <span class="highlight">69.6%</span> de las llegadas internacionales (454,889 visitantes 
+                de Norteamérica en Ene-Feb 2026). La región Guanacaste concentra el 50% de las nuevas habitaciones en desarrollo.
+            </p>
+            <p style="color: #c9d1d9; margin-top: 0.75rem;">
+                La expansión de aviación hacia Liberia (aviación handling upgrades) beneficia el segmento premium y MICE. 
+                Los operadores que combinen <span class="highlight">sostenibilidad verificada + wellness depth + logística confiable</span> 
+                estarán mejor posicionados para capturar market share.
+            </p>
+        </section>
 
-        <div class="section">
-            <div class="section-header">
-                <div class="section-icon pink">📋</div>
-                <h2>Script de Contacto Inicial</h2>
-            </div>
-            
+        <!-- Estrategias de Contacto -->
+        <section>
+            <h2>📧 Estrategias de Contacto</h2>
             <div class="strategy-card">
-                <div class="strategy-header">
-                    <span class="strategy-number">1</span>
-                    <h4>Asunto: Propuesta para [Nombre Empresa]</h4>
-                </div>
-                <p>"Hola [Nombre], notamos que [Empresa] está expandiendo sus operaciones en Costa Rica según [fuente]. ¿Has considerado cómo una campaña de marketing B2B podría acelerar su crecimiento en el mercado local? Tenemos experiencia con [empresa similar del mismo sector] y conseguimos [resultado específico]. ¿Podemos agendar 15 minutos esta semana?"</p>
+                <h3>1. cold outreach via Email Directo</h3>
+                <p>Contactar gerentes generales y directors de marketing de cada hotel con propuesta de 值 servicios de branding y campaigns digitales. Emphasis en track record con turismo de lujo.</p>
             </div>
-            
             <div class="strategy-card">
-                <div class="strategy-header">
-                    <span class="strategy-number">2</span>
-                    <h4>Follow-up (3 días después)</h4>
-                </div>
-                <p>"Hola [Nombre], solo quería confirmar si viste mi mensaje anterior sobre [tema específico mencionado]. Tenemos una disponibilidad limitada este mes para nuevos clientes. ¿Hay alguien más en su equipo que debería ver esta propuesta?"</p>
+                <h3>2. LinkedIn Outreach</h3>
+                <p>Buscar: "Director de Marketing", "Gerente General", "Director de Ventas" + nombres de propiedades. Usar InMail para establecer contacto inicial.</p>
             </div>
-            
             <div class="strategy-card">
-                <div class="strategy-header">
-                    <span class="strategy-number">3</span>
-                    <h4>Valor Agregado Pre-Call</h4>
-                </div>
-                <p>Antes de la llamada, envía un breve PDF con 3 ideas específicas para su negocio: "3 formas de aumentar [métrica relevante] para [tipo de empresa]". Esto demuestra expertise y reduce friction para agendar.</p>
+                <h3>3. Attending Travel/Tourism Events</h3>
+                <p>Buscar ferias como "FITT 2026" o "EXPOGRAM", o visitar properties en Guanacaste para contacto in-person. Rolando Campos (Chayote Lodge) es vocal en podcasts — oportunidad de networking.</p>
             </div>
-        </div>
+            <div class="strategy-card">
+                <h3>4. Propuesta de Valor para Hoteles</h3>
+                <p>Highlight: 337k+ visitantes USA anuales, target audience de travelers conscientes con sostenibilidad, eco-conscious luxury travelers, digital marketing para booking directo y OTAs.</p>
+            </div>
+            <div class="strategy-card">
+                <h3>5. follow-up con Nuevos Proyectos</h3>
+                <p>JW Marriott All-Inclusive Costa Elena (Mayo 2027) y Moxy Hotel Alajuela (Abril 2027) son targets quentes. Contactar equipos de pre-apertura para servicios de branding desde day one.</p>
+            </div>
+        </section>
 
-        <footer>
-            <p>Reporte generado automáticamente por Aurea Lead Research Agent</p>
-            <p style="margin-top: 0.5rem; color: var(--text-muted);">📅 Viernes 1 de Mayo, 2026 | ⏰ 08:00 UTC</p>
-        </footer>
+        <!-- Stats Summary -->
+        <section>
+            <h2>🎯 Prioridades para Outreach Inmediato</h2>
+            <ol style="color: #c9d1d9; padding-left: 1.5rem; line-height: 2;">
+                <li><span class="highlight">Drake Bay Getaway Resort</span> — Email directo disponible (manager@drakebaygetaway.com)</li>
+                <li><span class="highlight">Hotel Fermata</span> — T+L recognition reciente, alto perfil, buscando expandir</li>
+                <li><span class="highlight">Origins Astral Lodge</span> — Propiedad nueva con momentum mediático</li>
+                <li><span class="highlight">Chayote Lodge / Rolando Campos</span> — Veteran del industry, bien conectado, podcast guest frecuente</li>
+                <li><span class="highlight">Waldorf Astoria Costa Rica</span> — Brand de lujo, Steve Case connection, presupuesto alto para marketing</li>
+            </ol>
+        </section>
     </div>
+
+    <footer>
+        <p>Aurea Advertising Agency — Lead Research Report | Generado: Mayo 1, 2026 12:00 CST</p>
+        <p>Archivo: <code>aurea-leads-2026-05-01.html</code> | Nicho: Hoteles | Fuentes: Tavily Search, Tourism Boards</p>
+    </footer>
 </body>
 </html>
