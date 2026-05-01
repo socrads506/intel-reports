@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurea — Leads Hotel Sector Costa Rica | Mayo 2026</title>
+    <style>
+        :root {
+            --bg: #0d1117;
+            --surface: #161b22;
+            --surface2: #21262d;
+            --border: #30363d;
+            --accent: #f0b429;
+            --accent2: #58a6ff;
+            --text: #c9d1d9;
+            --text-muted: #8b949e;
+            --green: #3fb950;
+            --red: #f85149;
+            --tag-bg: #1f3a5f;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.6; }
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+        .header { border-bottom: 2px solid var(--accent); padding-bottom: 24px; margin-bottom: 36px; }
+        .header .badge { display: inline-block; background: var(--accent); color: #000; font-weight: 700; font-size: 11px; letter-spacing: 1.5px; padding: 4px 12px; border-radius: 3px; text-transform: uppercase; margin-bottom: 12px; }
+        .header h1 { font-size: 28px; font-weight: 700; color: #fff; margin-bottom: 6px; }
+        .header .subtitle { color: var(--text-muted); font-size: 14px; }
+        .header .meta { margin-top: 14px; display: flex; gap: 20px; font-size: 12px; color: var(--text-muted); }
+        .header .meta span { display: flex; align-items: center; gap: 5px; }
+        .summary { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 20px 24px; margin-bottom: 32px; }
+        .summary h2 { color: var(--accent); font-size: 13px; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; }
+        .summary p { color: var(--text); font-size: 14px; }
+        .summary strong { color: var(--green); }
+        .summary em { color: var(--text-muted); font-style: normal; }
+        .section { margin-bottom: 36px; }
+        .section-title { color: #fff; font-size: 18px; font-weight: 600; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 10px; }
+        .section-title .icon { font-size: 20px; }
+        .company-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 18px 22px; margin-bottom: 14px; transition: border-color 0.2s; }
+        .company-card:hover { border-color: var(--accent); }
+        .company-card .top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
+        .company-card .name { font-size: 16px; font-weight: 600; color: #fff; }
+        .company-card .location { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+        .company-card .tag { font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 20px; background: var(--tag-bg); color: var(--accent2); border: 1px solid rgba(88,166,255,0.3); }
+        .company-card .desc { color: var(--text-muted); font-size: 13px; margin-bottom: 10px; }
+        .company-card .contact-row { display: flex; gap: 20px; flex-wrap: wrap; font-size: 12px; }
+        .company-card .contact-item { display: flex; align-items: center; gap: 5px; color: var(--text-muted); }
+        .company-card .contact-item .label { color: var(--text-muted); }
+        .company-card .contact-item .value { color: var(--accent2); }
+        .trend-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+        .trend-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 16px 20px; }
+        .trend-card .trend-title { font-weight: 600; color: #fff; font-size: 14px; margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
+        .trend-card .trend-title .emoji { font-size: 16px; }
+        .trend-card .trend-body { font-size: 12px; color: var(--text-muted); }
+        .strategy-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 16px 20px; margin-bottom: 12px; }
+        .strategy-card .strategy-title { color: var(--accent); font-weight: 600; font-size: 14px; margin-bottom: 6px; }
+        .strategy-card .strategy-body { color: var(--text-muted); font-size: 13px; }
+        .cta-box { background: linear-gradient(135deg, #1a2a1a, #162020); border: 1px solid var(--green); border-radius: 8px; padding: 20px 24px; margin-top: 24px; }
+        .cta-box h3 { color: var(--green); font-size: 14px; margin-bottom: 8px; }
+        .cta-box p { color: var(--text-muted); font-size: 13px; }
+        .footer { text-align: center; color: var(--text-muted); font-size: 11px; padding-top: 32px; margin-top: 32px; border-top: 1px solid var(--border); }
+        @media (max-width: 600px) { .trend-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <div class="badge">Reporte de Leads — Aurea</div>
+        <h1>Sector Hoteles en Costa Rica</h1>
+        <div class="subtitle">Investigación de oportunidades de publicidad y marketing digital para agencias en el mercado costarricense</div>
+        <div class="meta">
+            <span>📅 Mayo 1, 2026 — 06:00 AM CST</span>
+            <span>🌎 Costa Rica</span>
+            <span>🏨 Nicho: Hoteles & Hospitality</span>
+        </div>
+    </div>
+
+    <div class="summary">
+        <h2>Resumen Ejecutivo</h2>
+        <p>Costa Rica está en medio de un <strong>boom hotelero sin precedentes</strong>. Con 17 nuevos proyectos turísticos valorado en <strong>$391.8 millones</strong> y la adición de ~1,500 habitaciones en 2026–2027, los grandes operadores internacionales (Hilton, Marriott, Waldorf Astoria, Ritz-Carlton) están entrando al mercado con fuerza. La挨此同时, las campañas turísticas del ICT (Instituto Costarricense de Turismo) con CNN y la ONU están generando visibilidad global. El momento para servicios de publicidad es <strong>ahora</strong>: los hoteles que buscan posicionarse frente a esta oleada necesitarán estrategias digitales agresivas — meta de búsqueda, TikTok, optimización de reservas directas y branding de sostenibilidad.</p>
+    </div>
+
+    <div class="section">
+        <div class="section-title">
+            <span class="icon">🏨</span> Empresas y Propiedades Identificadas
+        </div>
+
+        <div class="company-card">
+            <div class="top">
+                <div>
+                    <div class="name">JW Marriott All-Inclusive — Costa Elena</div>
+                    <div class="location">Guanacaste, Costa Rica</div>
+                </div>
+                <span class="tag">Abrir May 2027</span>
+            </div>
+            <div class="desc">Nuevo desarrollo Marriott de 415 habitaciones con modelo all-inclusive. Primer JW Marriott all-inclusive en Costa Rica. Operador: Mullen Real Estate Capital. Conversion expected Spring 2026 como Marriott Bonvoy property.</div>
+            <div class="contact-row">
+                <div class="contact-item"><span class="label">Decisor:</span> <span class="value">Mullen Real Estate Capital — dirección corporativa disponible via Marriott Development</span></div>
+                <div class="contact-item"><span class="label">Estrategia:</span> <span class="value">LinkedIn B2B / Contacto vía Marriott global marketing partnerships</span></div>
+            </div>
+        </div>
+
+        <div class="company-card">
+            <div class="top">
+                <div>
+                    <div class="name">Hilton — 6 Nuevos Hoteles</div>
+                    <div class="location">Nacional (Guanacaste, Alajuela, Central Valley)</div>
+                </div>
+                <span class="tag">Expansión 2026–2028</span>
+            </div>
+            <div class="desc">Hilton planea abrir 6 hoteles con 3 marcas debutando por primera vez en Costa Rica: LXR Hotels & Resorts (lujo), Tapestry Collection by Hilton (lifestyle) y Tru by Hilton (select-service). Montara Hotel (Tapestry Collection) abre fin de año.</div>
+            <div class="contact-row">
+                <div class="contact-item"><span class="label">Decisor:</span> <span class="value">Pablo Maturana — VP Desarrollo, Arquitectura y Construcción para Caribbean & LATAM</span></div>
+                <div class="contact-item"><span class="label">Estrategia:</span> <span class="value">LinkedIn / Contacto vía Hilton Development team LATAM</span></div>
+            </div>
+        </div>
+
+        <div class="company-card">
+            <div class="top">
+                <div>
+                    <div class="name">Nekajui, a Ritz-Carlton Reserve</div>
+                    <div class="location">Peninsula Papagayo, Guanacaste</div>
+                </div>
+                <span class="tag">Abierto 2025</span>
+            </div>
+            <div class="desc">Uno de los proyectos hoteleros más esperados de la región. Marca de ultra-lujo de Ritz-Carlton. Operado por Crabtree &rossi. Posicionado como destino exclusivocon enfoque en sostenibilidad.</div>
+            <div class="contact-row">
+                <div class="contact-item"><span class="label">Decisor:</span> <span class="value">Gerencia general Crabtree &rossi / Marriott Luxury Brands LATAM</span></div>
+                <div class="contact-item"><span class="label">Estrategia:</span> <span class="value">Marriott Bonvoy partnership program / eventos corporativos</span></div>
+            </div>
+        </div>
+
+        <div class="company-card">
+            <div class="top">
+                <div>
+                    <div class="name">Waldorf Astoria Costa Rica Punta Cacique</div>
+                    <div class="location">Guanacaste, Costa Rica</div>
+                </div>
+                <span class="tag">Abierto 2025</span>
+            </div>
+            <div class="desc">Propiedad de ultra-lujo bajo la marca Waldorf Astoria (Hilton). Segunda marca de lujo Hilton en Costa Rica. Director of Revenue Management: Mike Grapkowski (desde Jul 2025).</div>
+            <div class="contact-row">
+                <div class="contact-item"><span class="label">Decisor:</span> <span class="value">Mike Grapkowski — Director of Revenue Management</span></div>
+                <div class="contact-item"><span class="label">Estrategia:</span> <span class="value">LinkedIn / Contacto directo hotel</span></div>
+            </div>
+        </div>
+
+        <div class="company-card">
+            <div class="top">
+                <div>
+                    <div class="name">Moxy Hotel AIJS</div>
+                    <div class="location">Alajuela, Costa Rica</div>
+                </div>
+                <span class="tag">Abrir Abril 2027</span>
+            </div>
+            <div class="desc">Hotel de 173 habitaciones bajo la marca lifestyle de Marriott. Parte del pipeline de expansión de Marriott en Costa Rica. Ubicación estratégica cerca del aeropuerto.</div>
+            <div class="contact-row">
+                <div class="contact-item"><span class="label">Decisor:</span> <span class="value">Marriott International Development — LATAM</span></div>
+                <div class="contact-item"><span class="label">Estrategia:</span> <span class="value">LinkedIn B2B / Marriott partner inquiries</span></div>
+            </div>
+        </div>
+
+        <div class="company-card">
+            <div class="top">
+                <div>
+                    <div class="name">Hotel Fermata</div>
+                    <div class="location">Santa Teresa, Puntarenas</div>
+                </div>
+                <span class="tag">T+L 2026 Best New</span>
+            </div>
+            <div class="desc">Propiedad boutique reconocida por Travel + Leisure en su lista de los 100 mejores hoteles nuevos del mundo 2026. Combina habitaciones, suites y oceanfront casitas. Enfoque en experiencia auténtica de la costa pacífica.</div>
+            <div class="contact-row">
+                <div class="contact-item"><span class="label">Decisor:</span> <span class="value">Gerencia Hotel Fermata Santa Teresa</span></div>
+                <div class="contact-item"><span class="label">Estrategia:</span> <span class="value">Instagram DM / Email directo / Colaboración con influencers de viajes</span></div>
+            </div>
+        </div>
+
+        <div class="company-card">
+            <div class="top">
+                <div>
+                    <div class="name">Origins Astral Lodge</div>
+                    <div class="location">Bijagua de Upala, Alajuela</div>
+                </div>
+                <span class="tag">T+L 2026 Best New</span>
+            </div>
+            <div class="desc">Propiedad hermana de Origins Floral (2018). Lodge de elevación en el norte cerca de los volcanes Miravalles y Tenorio. También en la T+L 2026 It List. Enfoque en experiencias de naturaleza inmersivas.</div>
+            <div class="contact-row">
+                <div class="contact-item"><span class="label">Decisor:</span> <span class="value">Origins Hospitality Group — Gerencia general</span></div>
+                <div class="contact-item"><span class="label">Estrategia:</span> <span class="value">Email marketing / Website contacto / Partnership con tours operadores</span></div>
+            </div>
+        </div>
+
+        <div class="company-card">
+            <div class="top">
+                <div>
+                    <div class="name">ElITE Hotels & Resorts</div>
+                    <div class="location">San José & zonas turísticas</div>
+                </div>
+                <span class="tag">Cadena Nacional</span>
+            </div>
+            <div class="desc">Cadena hotelera costarricense con presencia en San José y zonas turísticas. Fundada por Sandor Tupi (CEO). Gerencia con enfoque en ventas corporativas, marketing y revenue management. Equipo con +30 años experiencia en hotelería.</div>
+            <div class="contact-row">
+                <div class="contact-item"><span class="label">Decisor:</span> <span class="value">Sandor Tupi — Fundador y CEO / Ludwing Díaz — Director Financiero</span></div>
+                <div class="contact-item"><span class="label">Estrategia:</span> <span class="value">LinkedIn / Visitas directas / Propuestas de co-branding</span></div>
+            </div>
+        </div>
+
+        <div class="company-card">
+            <div class="top">
+                <div>
+                    <div class="name">Chayote Lodge</div>
+                    <div class="location">Manuel Antonio, Puntarenas</div>
+                </div>
+                <span class="tag">Propietario Experto</span>
+            </div>
+            <div class="desc">Propiedad boutique de lujo con 30 años de experiencia en turismo. Dueño Rolando Campos, veterano de la industria turística costarricense. Enfoque en ventas de turismo y marketing de destinos.</div>
+            <div class="contact-row">
+                <div class="contact-item"><span class="label">Decisor:</span> <span class="value">Rolando Campos — Propietario (info@investingcostarica.com)</span></div>
+                <div class="contact-item"><span class="label">Estrategia:</span> <span class="value">Email / Podcast guesting / Tourism investment networks</span></div>
+            </div>
+        </div>
+
+        <div class="company-card">
+            <div class="top">
+                <div>
+                    <div class="name">BLT Global Brands — Dual Brand Applebee's + IHOP</div>
+                    <div class="location">San José, Costa Rica</div>
+                </div>
+                <span class="tag">Inversión $4.5M</span>
+            </div>
+            <div class="desc">Operador de franquicias que invierte $4.5 millones en 3 nuevos restaurantes dual-brand Applebee's + IHOP. Modelo de negocio de alta rotación con necesidades de marketing local intenso.</div>
+            <div class="contact-row">
+                <div class="contact-item"><span class="label">Decisor:</span> <span class="value">BLT Global Brands — Gerencia de expansión Costa Rica</span></div>
+                <div class="contact-item"><span class="label">Estrategia:</span> <span class="value">Email directo / Contacto vía firma legal Bufete de Costa Rica</span></div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="section">
+        <div class="section-title">
+            <span class="icon">📊</span> Tendencias del Mercado 2026
+        </div>
+        <div class="trend-grid">
+
+            <div class="trend-card">
+                <div class="trend-title"><span class="emoji">🚀</span> Boom de inversión hotelera</div>
+                <div class="trend-body">17 nuevos proyectos turísticos por $391.8Madding ~1,500 habitaciones. Guanacaste lidera con 719 habitaciones nuevas. Los grandes operadores internacionales buscan posicionarse antes de que el mercado se sature.</div>
+            </div>
+
+            <div class="trend-card">
+                <div class="trend-title"><span class="emoji">📱</span> TikTok como canal de reservas</div>
+                <div class="trend-body">TikTok evoluciona de plataforma de inspiración a canal de reservas directo. Travel Ads permite mostrar habitaciones y experiencias dentro de la app. Hotels targeting younger luxury travelers need authentic content strategies now.</div>
+            </div>
+
+            <div class="trend-card">
+                <div class="trend-title"><span class="emoji">🏖️</span> Guanacaste domina la expansión</div>
+                <div class="trend-body">La provincia del Pacífico Norte concentra casi la mitad de las habitaciones nuevas. U.S. travelers siguen siendo el principal motor de demanda, pero Europa y Canadá muestran crecimiento acelerado (+10.4% en arrivals early 2026).</div>
+            </div>
+
+            <div class="trend-card">
+                <div class="trend-title"><span class="emoji">🌿</span> Sostenibilidad como diferenciador</div>
+                <div class="trend-body">Costa Rica's Sustainable Tourism Model es su principal activo de marca. ICT partnership con UNWTO y CNN para campaña "Essential Costa Rica" refuerza posicionamiento eco-lujo. Los viajeros de alto presupuesto buscan verified sustainability credentials.</div>
+            </div>
+
+            <div class="trend-card">
+                <div class="trend-title"><span class="emoji">🔄</span> Direct booking vs. OTAs</div>
+                <div class="trend-body">Hoteles priorizan estrategias de reservas directas para reducir comisiones de OTAs (15-25%). Metasearch optimization (Google Hotel Ads, Tripadvisor) y guest data ownership son competencias críticas. Cookies declining = first-party data es rey.</div>
+            </div>
+
+            <div class="trend-card">
+                <div class="trend-title"><span class="emoji">🤖</span> AI en revenue management</div>
+                <div class="trend-body">AI para dynamic pricing, demand forecasting y personalized guest marketing. High-end hotels using AI for guest segmentation and loyalty programs see better LTV. Costa Rica properties are beginning to adopt these tools.</div>
+            </div>
+
+            <div class="trend-card">
+                <div class="trend-title"><span class="emoji">🚗</span> Self-drive tourism en auge</div>
+                <div class="trend-body">Self-drive tourism growing faster than organized tours. Travel services (ground transport, mobility) proyectado 11.4% CAGR through 2031. Implica que los viajeros llegan más independientes, buscando contenido digital para planificar sus rutas.</div>
+            </div>
+
+            <div class="trend-card">
+                <div class="trend-title"><span class="emoji">🧘</span> Wellness y privacy para viajeros premium</div>
+                <div class="trend-body">High-end travelers en 2026 priorizan holistic wellness, purposeful privacy y experiencias significativas. Costa Rica posicionada como destino ideal para este segmento. Hotels need branding que comunique estas propuestas de manera auténtica.</div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">
+            <span class="icon">🎯</span> Estrategias de Contacto Recomendadas
+        </div>
+
+        <div class="strategy-card">
+            <div class="strategy-title">1. LinkedIn B2B Outreach para Grandes Cadenas</div>
+            <div class="strategy-body">Hilton, Marriott y Waldorf Astoria tienen equipos de desarrollo y marketing accesibles via LinkedIn. Target: VP Development, Director of Marketing, Director of Revenue Management. Mensaje: propuesta de valor para posicionamiento en mercado costarricense + data de turismo local. Warm outreach funciona mejor que cold email.</div>
+        </div>
+
+        <div class="strategy-card">
+            <div class="strategy-title">2. Instagram DM para Boutique Hotels</div>
+            <div class="strategy-body">Propiedades como Hotel Fermata y Origins Astral tienen equipos pequeños de marketing, a menudo gestionados por dueños o gerentes. Instagram es su canal principal. DM personalizado con ideas de contenido y collaboration proposal genera alta respuesta.</div>
+        </div>
+
+        <div class="strategy-card">
+            <div class="strategy-title">3. Paquetes de Marketing Digital para Nuevos Aperturas</div>
+            <div class="strategy-body">JW Marriott All-Inclusive (May 2027), Moxy Hotel (Abr 2027), nuevos hoteles Hilton — todos necesitan construcción de marca, pre-opening marketing, social media strategy y SEO local antes de abrir. Offer: package de 6 meses de marketing pre-opening con discount por early commitment.</div>
+        </div>
+
+        <div class="strategy-card">
+            <div class="strategy-title">4. AI & Revenue Management Consulting</div>
+            <div class="strategy-body">Hoteles pequeños y medianos en Costa Rica aún no han adoptado AI para revenue management. Posiciónate como advisor que les ayude a competir con las grandes cadenas usando tecnología. Posibilidad de generar ingresos recurrentes con retainer mensual.</div>
+        </div>
+
+        <div class="strategy-card">
+            <div class="strategy-title">5. Sostenibilidad y Content Marketing</div>
+            <div class="strategy-body">La campaña "Essential Costa Rica" del ICT genera momentum. Hotels que se alineen con el storytelling de sostenibilidad pueden capitalizar la cobertura mediatica. Offer: content strategy + visual storytelling + sustainability reporting como diferenciador.</div>
+        </div>
+
+    </div>
+
+    <div class="cta-box">
+        <h3>🎯 Oportunidad Prioritaria</h3>
+        <p>Enfocar outreach en los <strong>3 nuevos hoteles Hilton</strong> (desarrollo activo) y el <strong>JW Marriott All-Inclusive Guanacaste</strong> — son los que más necesitan servicios de marketing externo antes de abrir. Hoteles ya establecidos (Ritz-Carlton, Waldorf Astoria) tienen equipos internos robustos pero podrían outsourcear proyectos puntuales de branding o content.</p>
+    </div>
+
+    <div class="footer">
+        <p>Reporte generado por Logos — Agente de Investigación Aurea | viernes, 1 de mayo 2026</p>
+        <p>Fuentes: Tico Times, Hospitality Net, Travel + Leisure, STR, Mordor Intelligence, Breaking Travel News, Tourism Analytics</p>
+    </div>
+
+</div>
+</body>
+</html>
