@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI News Report — 01 May 2026</title>
+<style>
+  :root {
+    --bg: #0d0d0f;
+    --card: #16161a;
+    --border: #26262e;
+    --text: #e8e8ed;
+    --muted: #6b6b7a;
+    --accent: #7c6af7;
+    --green: #3ecf8e;
+    --yellow: #f5a623;
+    --red: #ef4444;
+    --blue: #3b82f6;
+    --pink: #ec4899;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--bg); color:var(--text); font-family:'Segoe UI',sans-serif; min-height:100vh; padding:24px; }
+  .header { text-align:center; margin-bottom:32px; }
+  .header h1 { font-size:1.8em; font-weight:700; color:var(--accent); letter-spacing:-0.5px; }
+  .header p { color:var(--muted); margin-top:6px; font-size:0.9em; }
+  .badge-row { display:flex; justify-content:center; gap:12px; margin-top:16px; flex-wrap:wrap; }
+  .badge { background:var(--card); border:1px solid var(--border); padding:4px 14px; border-radius:20px; font-size:0.75em; color:var(--muted); }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(340px,1fr)); gap:20px; }
+  .card { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:22px; }
+  .card-title { font-size:0.7em; text-transform:uppercase; letter-spacing:1.5px; color:var(--muted); margin-bottom:14px; font-weight:600; }
+  .card-title.red { color:var(--red); }
+  .card-title.green { color:var(--green); }
+  .card-title.blue { color:var(--blue); }
+  .card-title.yellow { color:var(--yellow); }
+  .card-title.pink { color:var(--pink); }
+  .item { border-left:2px solid var(--border); padding-left:14px; margin-bottom:16px; }
+  .item:last-child { margin-bottom:0; }
+  .item.green { border-color:var(--green); }
+  .item.yellow { border-color:var(--yellow); }
+  .item.blue { border-color:var(--blue); }
+  .item.pink { border-color:var(--pink); }
+  .item.red { border-color:var(--red); }
+  .item h3 { font-size:0.95em; font-weight:600; margin-bottom:4px; line-height:1.35; }
+  .item p { font-size:0.8em; color:var(--muted); line-height:1.5; }
+  .tag { display:inline-block; background:rgba(124,106,247,0.15); color:var(--accent); font-size:0.65em; padding:2px 8px; border-radius:4px; margin-top:6px; }
+  .tag.green { background:rgba(62,207,142,0.15); color:var(--green); }
+  .tag.yellow { background:rgba(245,166,35,0.15); color:var(--yellow); }
+  .tag.blue { background:rgba(59,130,246,0.15); color:var(--blue); }
+  .tag.pink { background:rgba(236,72,153,0.15); color:var(--pink); }
+  .tag.red { background:rgba(239,68,68,0.15); color:var(--red); }
+  .big-stat { font-size:2.2em; font-weight:700; color:var(--accent); }
+  .big-stat-label { color:var(--muted); font-size:0.8em; margin-top:2px; }
+  .stat-row { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-bottom:20px; }
+  .stat-card { background:var(--bg); border:1px solid var(--border); border-radius:8px; padding:14px; text-align:center; }
+  .hero { background:linear-gradient(135deg,var(--card) 0%,#1a1a2e 100%); border:1px solid var(--accent); border-radius:12px; padding:24px; margin-bottom:20px; }
+  .hero h2 { color:var(--accent); font-size:1.1em; margin-bottom:8px; }
+  .hero p { color:var(--muted); font-size:0.85em; line-height:1.6; }
+  .footer { text-align:center; color:var(--muted); font-size:0.75em; margin-top:32px; }
+  @media(max-width:600px){ body{padding:14px;} .stat-row{grid-template-columns:1fr 1fr;} }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>🤖 AI News Report</h1>
+  <p>01 de Mayo, 2026 — Resumen de últimas 24h</p>
+  <div class="badge-row">
+    <span class="badge">OpenAI</span>
+    <span class="badge">Anthropic</span>
+    <span class="badge">Google</span>
+    <span class="badge">xAI</span>
+    <span class="badge">Funding</span>
+  </div>
+</div>
+
+<div class="hero">
+  <h2>💰 AI Startups capturan $242B mientras funding global alcanza $300B en Q1 2026</h2>
+  <p>Microsoft-backeado OpenAI levantó <strong>$122B</strong> a valoración de $852B — la ronda más grande registrada. Anthropic levantó $30B en su Serie G, valorando la company en $380B. 17 startups en USA secured $100M+ rounds solo en los primeros dos meses del año.</p>
+</div>
+
+<div class="stat-row">
+  <div class="stat-card">
+    <div class="big-stat">$242B</div>
+    <div class="big-stat-label">AI Funding Q1 2026</div>
+  </div>
+  <div class="stat-card">
+    <div class="big-stat">$852B</div>
+    <div class="big-stat-label">OpenAI Valuation</div>
+  </div>
+  <div class="stat-card">
+    <div class="big-stat">17</div>
+    <div class="big-stat-label">$100M+ Rounds (2 meses)</div>
+  </div>
+</div>
+
+<div class="grid">
+  <!-- MODELS -->
+  <div class="card">
+    <div class="card-title">🧠 Model Releases Mayo 2026</div>
+    <div class="item green">
+      <h3>Qwen3.6-27B — Alibaba / Qwen Team</h3>
+      <p>Open source, 1 semana ago. Agentic coding capabilities, competitive en benchmarks con modelos propietarios.</p>
+      <span class="tag green">Open Source</span>
+    </div>
+    <div class="item green">
+      <h3>Kimi K2.6 — Moonshot AI</h3>
+      <p>Open source release, 1 semana ago. Nuevo en la familia Kimi con mejoras en reasoning y context.</p>
+      <span class="tag green">Open Source</span>
+    </div>
+    <div class="item yellow">
+      <h3>Claude Opus 4.7 — Anthropic</h3>
+      <p>Actualización del flagship model. GPQA benchmark alto. Disponible via API y claude.ai.</p>
+      <span class="tag yellow">Proprietary</span>
+    </div>
+    <div class="item green">
+      <h3>Qwen3.6-35B-A3B — Alibaba / Qwen Team</h3>
+      <p>MoE architecture, open source. Lanzado hace ~2 semanas junto con 27B variant.</p>
+      <span class="tag green">Open Source</span>
+    </div>
+  </div>
+
+  <!-- OPENAI -->
+  <div class="card">
+    <div class="card-title red">🔴 OpenAI</div>
+    <div class="item red">
+      <h3>GPT-5.5 — Nuevo modelo más poderoso</h3>
+      <p>NYT reporta que OpenAI unveiled un nuevo modelo GPT-5.5 — más avanzado que iteraciones anteriores. Lanzado finales Abril 2026.</p>
+      <span class="tag red">Model Release</span>
+    </div>
+    <div class="item red">
+      <h3>$122B raise — $852B valuation</h3>
+      <p>La ronda más grande en historia tech. Microsoft-backed. OpenAI ahora vale más que la mayoria de companies públicas.</p>
+      <span class="tag red">Funding</span>
+    </div>
+  </div>
+
+  <!-- ANTHROPIC -->
+  <div class="card">
+    <div class="card-title blue">🔵 Anthropic</div>
+    <div class="item blue">
+      <h3>$30B Serie G — $380B Valuation</h3>
+      <p>La mayor inversión individual en AI en la historia. La company's revenue run rate llegó a $30B annualizados.</p>
+      <span class="tag blue">Funding</span>
+    </div>
+    <div class="item blue">
+      <h3>Research: BioMysteryBench (Apr 29)</h3>
+      <p>Anthropic evaluó capacidades de Claude en bioinformática research. Resultados muestran strong performance en bioinformatics.</p>
+      <span class="tag blue">Research</span>
+    </div>
+    <div class="item blue">
+      <h3>81K Users Survey — AI Economics</h3>
+      <p>Estudio con 81,000 usuarios sobre la economía de AI — qué pagan, cómo usan, qué valoran.</p>
+      <span class="tag blue">Research</span>
+    </div>
+  </div>
+
+  <!-- GOOGLE DEEPMIND -->
+  <div class="card">
+    <div class="card-title yellow">🟡 Google DeepMind</div>
+    <div class="item yellow">
+      <h3>New AI Coding Team — Gemini vs Anthropic</h3>
+      <p>Google assembled a team liderada por Sebastian Borgeaud para mejorar coding capabilities de Gemini. Buscan cerrar la brecha con Claude en coding tasks. Quieren construir software from scratch.</p>
+      <span class="tag yellow">Strategic</span>
+    </div>
+    <div class="item yellow">
+      <h3>Gemini Robotics + Genie 3</h3>
+      <p>Modelos de Google para robótica y generación de mundos interactivos. Parte de la estrategia multimodal.</p>
+      <span class="tag yellow">Product</span>
+    </div>
+    <div class="item yellow">
+      <h3>Gemma 4 Family</h3>
+      <p>Open source 26B-A4B-IT destacado en leaderboards. Apache 2.0 license.</p>
+      <span class="tag yellow">Open Source</span>
+    </div>
+  </div>
+
+  <!-- XAI & OTHERS -->
+  <div class="card">
+    <div class="card-title pink">🩷 xAI / Others</div>
+    <div class="item pink">
+      <h3>Grok-4 Heavy + Grok-4</h3>
+      <p>xAI sigue iterando en la familia Grok. Grok-4 Heavy disponible en排行榜.</p>
+      <span class="tag pink">Model</span>
+    </div>
+    <div class="item pink">
+      <h3>DeepSeek-R1-0528</h3>
+      <p>DeepSeek продолжает развивать свои reasoning models. Disponible en排行榜.</p>
+      <span class="tag pink">Model</span>
+    </div>
+  </div>
+
+  <!-- TRENDS -->
+  <div class="card">
+    <div class="card-title green">📈 Tendencias Clave</div>
+    <div class="item green">
+      <h3>Agentic AI Dominates</h3>
+      <p>Modelos con agentic capabilities (Qwen3.6, Kimi K2.6) son el foco principal de todos los labs este mes.</p>
+    </div>
+    <div class="item yellow">
+      <h3>Open Source Acceleration</h3>
+      <p>Qwen, Kimi, DeepSeek, Gemma — todos release open source. La competencia open source se intensifica.</p>
+    </div>
+    <div class="item blue">
+      <h3>$300B Global AI Funding Q1</h3>
+      <p>AI startups capturaron 80% del total de $300B en funding global Q1 2026. Mega-rounds siguen dominando.</p>
+    </div>
+    <div class="item red">
+      <h3>Coding Wars</h3>
+      <p>Google, Anthropic y xAI compiten intensamente en coding capabilities. Team-building visible en Google.</p>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <p>AI News Report — 01 Mayo 2026 • Generado por Logos/Explorer</p>
+</div>
+</body>
+</html>
