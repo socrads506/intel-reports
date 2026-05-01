@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aurea Lead Report — Hoteles Costa Rica | 30 Abr 2026</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #0d1117;
+    color: #c9d1d9;
+    font-family: 'Segoe UI', -apple-system, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    padding: 40px 20px;
+  }
+  .container { max-width: 960px; margin: 0 auto; }
+  header {
+    border-bottom: 2px solid #238636;
+    padding-bottom: 24px;
+    margin-bottom: 36px;
+  }
+  .badge {
+    display: inline-block;
+    background: #1f6feb;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+  }
+  h1 {
+    color: #f0f6fc;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .subtitle { color: #8b949e; font-size: 14px; }
+  .meta {
+    display: flex;
+    gap: 24px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+  }
+  .meta-item {
+    font-size: 13px;
+    color: #8b949e;
+  }
+  .meta-item strong { color: #c9d1d9; }
+
+  section { margin-bottom: 48px; }
+  h2 {
+    color: #f0f6fc;
+    font-size: 19px;
+    font-weight: 600;
+    margin-bottom: 18px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #21262d;
+  }
+  h3 {
+    color: #58a6ff;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .stat-card {
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+  }
+  .stat-card .num {
+    font-size: 32px;
+    font-weight: 700;
+    color: #58a6ff;
+    display: block;
+  }
+  .stat-card .label {
+    font-size: 12px;
+    color: #8b949e;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 4px;
+  }
+
+  .lead-card {
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 10px;
+    padding: 22px;
+    margin-bottom: 16px;
+  }
+  .lead-card:hover { border-color: #238636; }
+  .lead-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .lead-name {
+    font-size: 17px;
+    font-weight: 700;
+    color: #f0f6fc;
+  }
+  .lead-brand {
+    font-size: 12px;
+    color: #8b949e;
+    background: #21262d;
+    padding: 3px 10px;
+    border-radius: 12px;
+  }
+  .lead-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; }
+  .tag {
+    font-size: 11px;
+    padding: 3px 9px;
+    border-radius: 6px;
+    font-weight: 600;
+  }
+  .tag-luxury { background: #3d2a00; color: #f0b429; }
+  .tag-all-inclusive { background: #0d2840; color: #58a6ff; }
+  .tag-boutique { background: #2d1a40; color: #d2a8ff; }
+  .tag-chain { background: #0d3020; color: #3fb950; }
+  .lead-desc { color: #8b949e; font-size: 14px; margin-bottom: 12px; }
+  .lead-contacts { display: flex; flex-direction: column; gap: 6px; }
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+  }
+  .contact-label {
+    color: #8b949e;
+    min-width: 80px;
+    font-weight: 600;
+  }
+  .contact-value { color: #c9d1d9; }
+  a { color: #58a6ff; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .trend-list { list-style: none; }
+  .trend-list li {
+    background: #161b22;
+    border-left: 3px solid #238636;
+    padding: 14px 18px;
+    margin-bottom: 12px;
+    border-radius: 0 8px 8px 0;
+    font-size: 14px;
+  }
+  .trend-list strong { color: #f0f6fc; }
+
+  .strategy-card {
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 10px;
+    padding: 22px;
+    margin-bottom: 14px;
+  }
+  .strategy-card h4 {
+    color: #3fb950;
+    font-size: 15px;
+    margin-bottom: 8px;
+  }
+  .strategy-card p { font-size: 14px; color: #8b949e; }
+
+  .hot-alert {
+    background: linear-gradient(135deg, #0d1117 0%, #1c1f35 100%);
+    border: 1px solid #f0b429;
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+  }
+  .hot-alert strong { color: #f0b429; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; }
+  .hot-alert p { color: #c9d1d9; margin-top: 6px; font-size: 14px; }
+
+  footer {
+    border-top: 1px solid #21262d;
+    padding-top: 24px;
+    margin-top: 60px;
+    color: #484f58;
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <div class="badge">Reporte de Leads — Sector Hoteles</div>
+    <h1>Hoteles en Costa Rica: Oportunidades para Aurea</h1>
+    <p class="subtitle">Investigación de leads para agencias de publicidad y marketing digital en el nicho hotelero costarricense.</p>
+    <div class="meta">
+      <div class="meta-item"><strong>Fecha:</strong> 30 de Abril, 2026</div>
+      <div class="meta-item"><strong>Hora:</strong> 20:00 CST</div>
+      <div class="meta-item"><strong>Nicho:</strong> Hoteles</div>
+      <div class="meta-item"><strong>País:</strong> Costa Rica</div>
+      <div class="meta-item"><strong>Autor:</strong> Logo — Agente de Investigación</div>
+    </div>
+  </header>
+
+  <section>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <span class="num">17</span>
+        <div class="label">Nuevos hoteles 2026-27</div>
+      </div>
+      <div class="stat-card">
+        <span class="num">$391.8M</span>
+        <div class="label">Inversión proyectada</div>
+      </div>
+      <div class="stat-card">
+        <span class="num">10</span>
+        <div class="label">Hoteles identificados</div>
+      </div>
+      <div class="stat-card">
+        <span class="num">3</span>
+        <div class="label">Marcas globales en expansión</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="hot-alert">
+      <strong>⚡ Oportunidad caliente</strong>
+      <p>Marriott y Hilton están en plena expansión en Costa Rica con múltiples aperturas 2026-2028. Las marcas de lujo y all-inclusive buscan activamente socios de marketing digital para diferenciarse en un mercado que crece rápidamente. El JW Marriott All-Inclusive debutará en 2026 y el Waldorf Astoria ya apareció en la lista Esquire Best New Hotels 2026.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>🏨 Hoteles Identificados</h2>
+
+    <div class="lead-card">
+      <div class="lead-header">
+        <span class="lead-name">Four Seasons Resort Peninsula Papagayo</span>
+        <span class="lead-brand">Four Seasons (Luxury)</span>
+      </div>
+      <div class="lead-tags">
+        <span class="tag tag-luxury">Forbes Five-Star 10 años</span>
+        <span class="tag tag-luxury">Peninsula Papagayo, Guanacaste</span>
+        <span class="tag tag-luxury">Re-imagen $35M</span>
+      </div>
+      <p class="lead-desc">Resort de lujo insignia de Costa Rica, reconocido como destino familiar premier de Latinoamérica. $100M+ en inversión de desarrollo. Re-imagen de $35M completada. Brent Martin como GM desde 2024-2025.</p>
+      <div class="lead-contacts">
+        <div class="contact-item"><span class="contact-label">GM:</span><span class="contact-value">Brent J. Martin (LinkedIn: Brent J. Martin)</span></div>
+        <div class="contact-item"><span class="contact-label">Website:</span><span class="contact-value"><a href="https://www.fourseasons.com/costarica" target="_blank">fourseasons.com/costarica</a></span></div>
+        <div class="contact-item"><span class="contact-label">Press:</span><span class="contact-value"><a href="https://press.fourseasons.com/costarica" target="_blank">press.fourseasons.com/costarica</a></span></div>
+        <div class="contact-item"><span class="contact-label">LinkedIn:</span><span class="contact-value"><a href="https://www.linkedin.com/in/brent-j-martin" target="_blank">Brent J. Martin</a></span></div>
+      </div>
+    </div>
+
+    <div class="lead-card">
+      <div class="lead-header">
+        <span class="lead-name">Waldorf Astoria Costa Rica Punta Cacique</span>
+        <span class="lead-brand">Hilton (Luxury)</span>
+      </div>
+      <div class="lead-tags">
+        <span class="tag tag-luxury">Esquire Best New Hotels 2026</span>
+        <span class="tag tag-luxury">Guanacaste</span>
+      </div>
+      <p class="lead-desc">Primera propiedad Waldorf Astoria en Costa Rica. Ubicado en Punta Cacique, Guanacaste. Nombrado por Esquire como uno de los mejores nuevos hoteles del mundo 2026. Representa la entrada de la marca Hilton de ultra-lujo al mercado costarricense.</p>
+      <div class="lead-contacts">
+        <div class="contact-item"><span class="contact-label">Brand:</span><span class="contact-value">Hilton — Luxury & Lifestyle</span></div>
+        <div class="contact-item"><span class="contact-label">Website:</span><span class="contact-value"><a href="https://www.hilton.com/es/hotels/lirguwa-waldorf-astoria-costa-rica-punta-cacique/" target="_blank">hilton.com/lirguwa</a></span></div>
+      </div>
+    </div>
+
+    <div class="lead-card">
+      <div class="lead-header">
+        <span class="lead-name">Andaz Peninsula Papagayo</span>
+        <span class="lead-brand">Hyatt (Boutique Luxury)</span>
+      </div>
+      <div class="lead-tags">
+        <span class="tag tag-boutique">Peninsula Papagayo, Guanacaste</span>
+        <span class="tag tag-boutique">Hyatt Regency母公司</span>
+      </div>
+      <p class="lead-desc">Parte de la comunidad integrada Peninsula Papagayo. Hotel boutique de diseño con enfoque en experiencias auténticas costarricenses. Comunidad en expansión con $100M+ en transformación.</p>
+      <div class="lead-contacts">
+        <div class="contact-item"><span class="contact-label">Dir. Sales & Mktg:</span><span class="contact-value">Dale N. Smith (LinkedIn)</span></div>
+        <div class="contact-item"><span class="contact-label">Website:</span><span class="contact-value"><a href="https://www.hyatt.com/en-US/hotel/costa-rica/andaz-peninsula-papagayo" target="_blank">hyatt.com/andaz-peninsula-papagayo</a></span></div>
+        <div class="contact-item"><span class="contact-label">LinkedIn:</span><span class="contact-value"><a href="https://www.linkedin.com/in/dalensmith415" target="_blank">Dale N. Smith</a></span></div>
+      </div>
+    </div>
+
+    <div class="lead-card">
+      <div class="lead-header">
+        <span class="lead-name">JW Marriott All-Inclusive Resort Costa Rica</span>
+        <span class="lead-brand">Marriott Bonvoy (All-Inclusive)</span>
+      </div>
+      <div class="lead-tags">
+        <span class="tag tag-all-inclusive">Apertura 2026</span>
+        <span class="tag tag-all-inclusive">Conversión propiedad existente</span>
+        <span class="tag tag-all-inclusive">Mullen Real Estate Capital</span>
+      </div>
+      <p class="lead-desc">Nuevo JW Marriott All-Inclusive debutando en Spring 2026 bajo Marriott Bonvoy. Conversión de propiedad existente que se suma al portfolio de lujo de Marriott en Costa Rica. Buscará activamente diferenciación digital.</p>
+      <div class="lead-contacts">
+        <div class="contact-item"><span class="contact-label">Owner:</span><span class="contact-value">Mullen Real Estate Capital</span></div>
+        <div class="contact-item"><span class="contact-label">Marriott LatAm:</span><span class="contact-value"><a href="https://www.marriott.com/en-us/hotels/" target="_blank">marriott.com</a></span></div>
+      </div>
+    </div>
+
+    <div class="lead-card">
+      <div class="lead-header">
+        <span class="lead-name">The Westin Reserva Conchal, All-Inclusive Golf Resort & Spa</span>
+        <span class="lead-brand">Marriott Bonvoy</span>
+      </div>
+      <div class="lead-tags">
+        <span class="tag tag-all-inclusive">Guanacaste</span>
+        <span class="tag tag-all-inclusive">Top 3 Tripadvisor</span>
+      </div>
+      <p class="lead-desc">Resort all-inclusive de golf y spa. Constantemente ranking entre los mejores de Costa Rica en Tripadvisor. Parte de Marriott Bonvoy. Gama media-alta a premium.</p>
+      <div class="lead-contacts">
+        <div class="contact-item"><span class="contact-label">Website:</span><span class="contact-value"><a href="https://www.marriott.com/en-us/hotels/lirwc-the-westin-reserva-conchal/" target="_blank">marriott.com/lirwc</a></span></div>
+      </div>
+    </div>
+
+    <div class="lead-card">
+      <div class="lead-header">
+        <span class="lead-name">Tabacon Thermal Resort & Spa</span>
+        <span class="lead-brand">Independiente (Lujo)</span>
+      </div>
+      <div class="lead-tags">
+        <span class="tag tag-luxury">Arenal, Alajuela</span>
+        <span class="tag tag-luxury">Thermal Springs</span>
+      </div>
+      <p class="lead-desc">Resort icónico de lujo construido alrededor de aguas termales naturales. Destino único en Costa Rica, reconocido internacionalmente. Hotel independiente (no cadena) — ciclo de decisión más corto para contratar agencias.</p>
+      <div class="lead-contacts">
+        <div class="contact-item"><span class="contact-label">Website:</span><span class="contact-value"><a href="https://www.tabacon.com" target="_blank">tabacon.com</a></span></div>
+        <div class="contact-item"><span class="contact-label">Social:</span><span class="contact-value">Instagram @tabacon</span></div>
+      </div>
+    </div>
+
+    <div class="lead-card">
+      <div class="lead-header">
+        <span class="lead-name">The Springs Resort and Spa</span>
+        <span class="lead-brand">Independiente (Lujo)</span>
+      </div>
+      <div class="lead-tags">
+        <span class="tag tag-luxury">Arenal, Alajuela</span>
+        <span class="tag tag-luxury">Top 3 Tripadvisor</span>
+      </div>
+      <p class="lead-desc">Resort de lujo en la zona de Arenal con vistas al Volcán Arenal. Top 3 en Tripadvisor para Costa Rica. Cinco estrellas en TripAdvisor. Hotel boutique independiente con necesidad activa de marketing digital.</p>
+      <div class="lead-contacts">
+        <div class="contact-item"><span class="contact-label">Website:</span><span class="contact-value"><a href="https://www.thespringscostarica.com" target="_blank">thespringscostarica.com</a></span></div>
+      </div>
+    </div>
+
+    <div class="lead-card">
+      <div class="lead-header">
+        <span class="lead-name">Hyatt Centric San José Escazú</span>
+        <span class="lead-brand">Hyatt (Upscale)</span>
+      </div>
+      <div class="lead-tags">
+        <span class="tag tag-chain">San José</span>
+        <span class="tag tag-chain">Hub Regional</span>
+      </div>
+      <p class="lead-desc">Hyatt Centric en la zona premium de Escazú, San José. Posicionado como hub para viajes de negocios y eventos corporativos. Participó en The Business Year 2026 como referente del sector hotelero costarricense.</p>
+      <div class="lead-contacts">
+        <div class="contact-item"><span class="contact-label">Website:</span><span class="contact-value"><a href="https://www.hyatt.com/en-US/hotel/costa-rica/hyatt-centric-san-jose-escazu" target="_blank">hyatt.com/hyatt-centric-san-jose-escazu</a></span></div>
+      </div>
+    </div>
+
+    <div class="lead-card">
+      <div class="lead-header">
+        <span class="lead-name">Studio Hotel Boutique</span>
+        <span class="lead-brand">Independiente (Boutique)</span>
+      </div>
+      <div class="lead-tags">
+        <span class="tag tag-boutique">San José</span>
+        <span class="tag tag-boutique">Hotel-Museo Arte Costarricense</span>
+      </div>
+      <p class="lead-desc">Único hotel boutique temático de arte en Costa Rica. Alberga una de las colecciones de arte costarricense más grandes del país. Hotel boutique con identidad de marca fuerte y oportunidad de marketing cultural/de contenidos.</p>
+      <div class="lead-contacts">
+        <div class="contact-item"><span class="contact-label">Website:</span><span class="contact-value"><a href="https://www.costaricastudiohotel.com" target="_blank">costaricastudiohotel.com</a></span></div>
+        <div class="contact-item"><span class="contact-label">Social:</span><span class="contact-value">Instagram @studiotelboutique</span></div>
+      </div>
+    </div>
+
+    <div class="lead-card">
+      <div class="lead-header">
+        <span class="lead-name">IHG Hotels Costa Rica (Holiday Inn Express + Others)</span>
+        <span class="lead-brand">IHG (Upscale/Mid-scale)</span>
+      </div>
+      <div class="lead-tags">
+        <span class="tag tag-chain">5+ propiedades en CR</span>
+        <span class="tag tag-chain">San José y Guanacaste</span>
+      </div>
+      <p class="lead-desc">IHG opera 5+ hoteles en Costa Rica incluyendo Holiday Inn Express Aeropuerto San José. Enfocados en旅客 de negocios y familias. Buscan estrategias de marketing digital para competir con cadenas locales y Airbnb.</p>
+      <div class="lead-contacts">
+        <div class="contact-item"><span class="contact-label">Website:</span><span class="contact-value"><a href="https://www.ihg.com/es-us/costa-rica" target="_blank">ihg.com/costa-rica</a></span></div>
+      </div>
+    </div>
+
+  </section>
+
+  <section>
+    <h2>📊 Tendencias de Marketing Hotelero 2026</h2>
+    <ul class="trend-list">
+      <li><strong>Direct Booking Strategy:</strong> Los hoteles buscan reducir la dependencia de OTAs (Booking.com, Expedia) que cobran comisiones del 15-30%. Invierten en booking engines propios y metasearch para capturar reservas directas.</li>
+      <li><strong>Metasearch Optimization:</strong> Google Hotel Ads y Tripadvisor son canales prioritarios. Optimización de feeds, paridad de tarifas y pujas dinámicas son competencias básicas 2026.</li>
+      <li><strong>First-Party Data:</strong> Con la muerte de third-party cookies y regulaciones de privacidad, los hoteles que poseen datos propios (historial de reservas, loyalty, comportamiento web) tienen ventaja en retargeting y personalización.</li>
+      <li><strong>Generative Engine Optimization (GEO):</strong> Posicionamiento en resultados de IA (ChatGPT, Perplexity, Gemini) es la nueva frontera SEO. Hoteles que optimizan para GEO serán descubiertos por asistentes de IA.</li>
+      <li><strong>Storytelling + Autenticidad Local:</strong> Campañas que mezclan narrativa digital con experiencias auténticas costarricenses (ecoturismo, bienestar, aventura) performan mejor. Viajeros buscan conexión cultural genuina.</li>
+      <li><strong>AI Guest Personalization:</strong> Chatbots predictivos, campañas automatizadas de nurturing post-reserva y personalización de ofertas basada en IA son inversiones prioritarias para cadenas hoteleras en 2026.</li>
+      <li><strong>Expansión de Lujo en Costa Rica:</strong> $391.8M en nuevos proyectos hoteleros 2026-2027. Marriott, Hilton y marcas independientes buscan diferenciación en un mercado que se profesionaliza rápidamente.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>🎯 Estrategias de Contacto Recomendadas</h2>
+
+    <div class="strategy-card">
+      <h4>1. LinkedIn Outreach para C-Level</h4>
+      <p>Los Directores de Marketing y Directores de Ventas son los puntos de entrada ideales. Hoteles independientes como Tabacon, The Springs y Studio Hotel tienen equipos pequeños donde el dueño/GM toma decisiones de marketing. Personalizar mensajes referencing contenido reciente (rankings, aperturas, proyectos).</p>
+    </div>
+    <div class="strategy-card">
+      <h4>2. Caso "Direct Booking" para OTAs Fatigue</h4>
+      <p>Presentar caso de estudio sobre reducción de comisiones OTA mediante campañas de metasearch y SEO. Los hoteles de lujo tienen MRR (RevPAR) alto pero pagan comisiones enormes a OTAs. Mostrar ROI concreto de marketing digital en bookings directos.</p>
+    </div>
+    <div class="strategy-card">
+      <h4>3. Contenido GEO para Alta Gama</h4>
+      <p>Four Seasons, Waldorf Astoria y Andaz son conscientes de marca pero necesitan diferenciarse localmente. Ofrecer auditoría de presencia en AI search engines y estrategia de GEO como servicio de entrada.</p>
+    </div>
+    <div class="strategy-card">
+      <h4>4. Nuevas Aperturas 2026 = Sprint de Lanzamiento</h4>
+      <p>JW Marriott All-Inclusive (apertura Spring 2026) y Waldorf Astoria (ya en Esquire list) necesitan campañas de lanzamiento. Posicionar como partner para go-to-market. Timing ideal: Q2-Q3 2026.</p>
+    </div>
+    <div class="strategy-card">
+      <h4>5. Hospitality Marketing Groups</h4>
+      <p>Para cadenas (Marriott, Hilton, Hyatt, IHG), el contact center regional está en Miami o Ciudad de México. Buscar Directors of Marketing Latin America via LinkedIn. Las decisiones corporativas de marca influyen en las propiedades locales.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>📋 Resumen Ejecutivo</h2>
+    <div class="lead-card" style="border-color: #238636;">
+      <p class="lead-desc">
+        El sector hotelero costarricense vive un momento de expansión sin precedentes con <strong>17 nuevos hoteles y $391.8M en inversión</strong> entre 2026-2027. Marcas globales como <strong>Marriott, Hilton y Hyatt</strong> lideran la expansión, mientras hoteles independientes de lujo (<strong>Tabacon, The Springs, Studio Hotel</strong>) buscan diferenciación digital.
+      </p>
+      <p class="lead-desc" style="margin-top:10px;">
+        <strong>La oportunidad para Aurea:</strong> Agencias de publicidad pueden posicionarse como socios de <em>direct booking strategy</em>, <em>metasearch optimization</em> y <em>Generative Engine Optimization</em> — las tres necesidades más urgentes del sector. Los ciclos de venta son más cortos con hoteles independientes y las marcas globales buscan partners creativos para sus aperturas en Costa Rica.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <span>Reporte generado por Logos para Aurea Advertising Agency</span>
+    <span>30 de Abril, 2026 — 20:00 CST</span>
+    <span>Próximo nicho: Startups (31 de Mayo rotation)</span>
+  </footer>
+
+</div>
+</body>
+</html>
