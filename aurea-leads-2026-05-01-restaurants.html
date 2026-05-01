@@ -3,286 +3,565 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aurea Leads — Restaurantes Costa Rica | Mayo 2026</title>
+<title>Aurea — Leads Restaurantes Costa Rica | 2026-05-01</title>
 <style>
   :root {
-    --bg: #0d0d0d;
-    --surface: #161616;
-    --surface2: #1e1e1e;
-    --border: #2a2a2a;
-    --accent: #f5a623;
-    --accent2: #e85d04;
-    --text: #e0e0e0;
-    --text-muted: #888;
-    --green: #4caf50;
-    --blue: #2196f3;
-    --red: #ef5350;
+    --bg: #0d1117;
+    --card: #161b22;
+    --border: #30363d;
+    --accent: #e6a817;
+    --accent2: #f0b429;
+    --text: #c9d1d9;
+    --muted: #8b949e;
+    --green: #3fb950;
+    --red: #f85149;
+    --blue: #58a6ff;
+    --purple: #bc8cff;
   }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; }
-  .container { max-width: 1100px; margin: 0 auto; padding: 2rem; }
-  header { border-bottom: 2px solid var(--accent); padding-bottom: 1.5rem; margin-bottom: 2rem; }
-  .badge { display: inline-block; background: var(--accent); color: #000; font-weight: 700; font-size: 0.75rem; padding: 3px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.75rem; }
-  h1 { font-size: 1.9rem; color: #fff; margin-bottom: 0.3rem; }
-  h2 { font-size: 1.3rem; color: var(--accent); margin: 2rem 0 1rem; border-left: 4px solid var(--accent); padding-left: 0.75rem; }
-  h3 { font-size: 1.05rem; color: #fff; margin: 1.2rem 0 0.5rem; }
-  .meta { color: var(--text-muted); font-size: 0.85rem; }
-  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.2rem; margin-top: 1rem; }
-  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.2rem; transition: border-color 0.2s; }
-  .card:hover { border-color: var(--accent); }
-  .card-name { font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 0.3rem; }
-  .card-type { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--accent); margin-bottom: 0.7rem; }
-  .card p { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 0.4rem; }
-  .card .tag { display: inline-block; background: var(--surface2); border: 1px solid var(--border); border-radius: 4px; padding: 2px 8px; font-size: 0.72rem; color: var(--text-muted); margin: 2px 3px 2px 0; }
-  .card .tag.high { border-color: var(--green); color: var(--green); }
-  .card .tag.medium { border-color: var(--blue); color: var(--blue); }
-  .card .tag.new { border-color: var(--accent); color: var(--accent); }
-  .trend-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; margin-top: 1rem; }
-  .trend-card { background: var(--surface2); border-radius: 8px; padding: 1rem; border-left: 3px solid var(--accent2); }
-  .trend-card h4 { font-size: 0.9rem; color: #fff; margin-bottom: 0.3rem; }
-  .trend-card p { font-size: 0.8rem; color: var(--text-muted); }
-  .strategy-table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
-  .strategy-table th { background: var(--surface2); color: var(--accent); text-align: left; padding: 0.7rem 1rem; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; }
-  .strategy-table td { padding: 0.7rem 1rem; border-bottom: 1px solid var(--border); font-size: 0.85rem; color: var(--text); }
-  .strategy-table tr:hover td { background: var(--surface); }
-  .stat-row { display: flex; gap: 1rem; margin-top: 1.2rem; flex-wrap: wrap; }
-  .stat-box { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.5rem; flex: 1; min-width: 150px; text-align: center; }
-  .stat-box .num { font-size: 2rem; font-weight: 800; color: var(--accent); }
-  .stat-box .label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin-top: 0.2rem; }
-  .contact-approach { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.2rem; margin-top: 1rem; }
-  .contact-approach li { margin: 0.5rem 0 0.5rem 1.5rem; font-size: 0.88rem; color: var(--text); }
-  .pulse { animation: pulse 2s infinite; }
-  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
-  footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--border); font-size: 0.75rem; color: var(--text-muted); text-align: center; }
-  @media(max-width:600px){ .container{padding:1rem} h1{font-size:1.4rem} .grid{grid-template-columns:1fr} }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+  .container { max-width: 960px; margin: 0 auto; padding: 2rem 1.5rem; }
+  header {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  .badge {
+    display: inline-block;
+    background: var(--accent);
+    color: #000;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-bottom: 0.75rem;
+  }
+  h1 { font-size: 1.75rem; font-weight: 700; color: #fff; margin-bottom: 0.3rem; }
+  .subtitle { color: var(--muted); font-size: 0.85rem; }
+  .meta {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 0.75rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+  .meta span { display: flex; align-items: center; gap: 0.35rem; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-bottom: 2rem; }
+  @media (max-width: 640px) { .grid { grid-template-columns: 1fr; } }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.25rem;
+  }
+  .card h2 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 0.25rem;
+  }
+  .card .tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 0.75rem;
+  }
+  .tag.restaurant { background: rgba(230,168,23,0.15); color: var(--accent); }
+  .tag.trend { background: rgba(63,185,80,0.15); color: var(--green); }
+  .tag.strategy { background: rgba(88,166,255,0.15); color: var(--blue); }
+  .card p { color: var(--text); font-size: 0.875rem; margin-bottom: 0.75rem; }
+  .card ul { list-style: none; }
+  .card ul li {
+    padding: 0.35rem 0;
+    font-size: 0.85rem;
+    color: var(--text);
+    border-bottom: 1px solid rgba(48,54,61,0.5);
+    display: flex;
+    gap: 0.5rem;
+  }
+  .card ul li:last-child { border-bottom: none; }
+  .card ul li::before { content: '→'; color: var(--accent); flex-shrink: 0; }
+  .section-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .section-title .emoji { font-size: 1.1rem; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+    font-size: 0.85rem;
+  }
+  thead tr { background: var(--card); }
+  thead th {
+    text-align: left;
+    padding: 0.75rem 1rem;
+    font-weight: 600;
+    color: var(--muted);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    border-bottom: 1px solid var(--border);
+  }
+  tbody tr { border-bottom: 1px solid var(--border); }
+  tbody tr:hover { background: rgba(230,168,23,0.04); }
+  tbody td { padding: 0.85rem 1rem; vertical-align: top; }
+  .company-name { font-weight: 600; color: #fff; }
+  .company-type { font-size: 0.75rem; color: var(--muted); }
+  .contact-info { color: var(--text); }
+  .contact-info a { color: var(--blue); text-decoration: none; }
+  .contact-info a:hover { text-decoration: underline; }
+  .priority {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 0.25rem;
+  }
+  .priority.high { background: var(--green); }
+  .priority.medium { background: var(--accent); }
+  .priority.low { background: var(--muted); }
+  .trend-list { display: flex; flex-direction: column; gap: 0.5rem; }
+  .trend-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    background: rgba(63,185,80,0.06);
+    border: 1px solid rgba(63,185,80,0.15);
+    border-radius: 6px;
+    font-size: 0.85rem;
+  }
+  .trend-item .icon { font-size: 1rem; flex-shrink: 0; }
+  .footer {
+    border-top: 1px solid var(--border);
+    padding-top: 1.5rem;
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 0.75rem;
+    color: var(--muted);
+  }
+  .horizontal-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+    margin-bottom: 1rem;
+  }
+  .horizontal-card .top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem; }
+  .horizontal-card h3 { font-size: 0.95rem; color: #fff; }
+  .horizontal-card .desc { font-size: 0.8rem; color: var(--muted); }
+  .horizontal-card .contact-row { display: flex; gap: 1rem; margin-top: 0.5rem; font-size: 0.8rem; }
+  .horizontal-card .contact-row span { color: var(--text); }
+  .full-width { grid-column: 1 / -1; }
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  @media (max-width: 640px) { .stats-row { grid-template-columns: repeat(2, 1fr); } }
+  .stat-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.25rem;
+    text-align: center;
+  }
+  .stat-card .number { font-size: 2rem; font-weight: 700; color: var(--accent); line-height: 1; margin-bottom: 0.35rem; }
+  .stat-card .label { font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
 </style>
 </head>
 <body>
 <div class="container">
 
 <header>
-  <div class="badge">🚀 Agencia Aurea — Research Agent</div>
-  <h1>Lead Research: Restaurantes & Gastronomía</h1>
-  <div class="meta">Costa Rica &nbsp;|&nbsp; Semana del 30 de abril – 1 de mayo 2026 &nbsp;|&nbsp;Hora: 23:00 CST</div>
+  <div class="badge">🔍 Research Agente — Aurea Advertising</div>
+  <h1>Lead Generation: Restaurantes Costa Rica</h1>
+  <div class="subtitle">Sector: Restaurantes, Comida & Gastronomía &mdash; Nicho de la semana</div>
+  <div class="meta">
+    <span>📅 Mayo 1, 2026</span>
+    <span>🕙 10:00 UTC / 04:00 CST</span>
+    <span>🌎 Costa Rica (San José &amp; nacional)</span>
+  </div>
 </header>
 
-<div class="stat-row">
-  <div class="stat-box">
-    <div class="num">9</div>
-    <div class="label">Empresas Identificadas</div>
+<div class="stats-row">
+  <div class="stat-card">
+    <div class="number">10</div>
+    <div class="label">Empresas identificadas</div>
   </div>
-  <div class="stat-box">
-    <div class="num">4</div>
-    <div class="label">Franquicias en Expansión</div>
+  <div class="stat-card">
+    <div class="number">7</div>
+    <div class="label">Decisores rastreados</div>
   </div>
-  <div class="stat-box">
-    <div class="num">$4.5M+</div>
-    <div class="label">Inversión Detectada</div>
+  <div class="stat-card">
+    <div class="number">5</div>
+    <div class="label">Tendencias clave</div>
   </div>
-  <div class="stat-box">
-    <div class="num pulse">Alta</div>
-    <div class="label">Oportunidad</div>
-  </div>
-</div>
-
-<h2>🍽️ Empresas & Franquicias Detectadas</h2>
-<div class="grid">
-
-  <div class="card">
-    <div class="card-name">Rosti</div>
-    <div class="card-type">Cadena Nacional de Comida Costarricense</div>
-    <p>📍 San José — 40 sucursales a nivel nacional</p>
-    <p>🇨🇷 Marca local insignia. Expansión activa en GAM (Mall San Pedro, Multicentro Desamparados).</p>
-    <p>💡 Oportunidad: Campaña de posicionamiento de marca nacional + expansión a nuevos puntos.</p>
-    <span class="tag high">Franquicia en Expansión</span>
-    <span class="tag high">Alta Visibilidad</span>
-  </div>
-
-  <div class="card">
-    <div class="card-name">BLT Global Brands (Applebee's + IHOP)</div>
-    <div class="card-type">Franquicia Dual-Brand Americana</div>
-    <p>📍 Costa Rica — $4.5M de inversión en 3 años</p>
-    <p>🇺🇸 Primera apertura dual-brand en el país. Planeación activa de nuevas sucursales.</p>
-    <p>💡 Oportunidad: Marketing local, alianzas con centros comerciales, campaigns de lanzamiento.</p>
-    <span class="tag new">Nuevo en Mercado</span>
-    <span class="tag high">Alto Presupuesto</span>
-  </div>
-
-  <div class="card">
-    <div class="card-name">Dunkin' Costa Rica (AR Holdings)</div>
-    <div class="card-type">Franquicia de Café Americana</div>
-    <p>📍 GAM — 8 sucursales, planeación de duplicar footprint en 2025</p>
-    <p>🇺🇸 Lanzamiento julio 2024. Expansión fuera del GAM: Alajuela, Moravia, Sabana, Lindora.</p>
-    <p>💡 Oportunidad: Planes de apertura nueva requieren branding, señalización, marketing local.</p>
-    <span class="tag new">Rápido Crecimiento</span>
-    <span class="tag high">Alto Presupuesto</span>
-  </div>
-
-  <div class="card">
-    <div class="card-name">Silvestre Restaurant</div>
-    <div class="card-type">Fine Dining — Cocina Costarricense Moderna</div>
-    <p>📍 San José — reconocido internacionalmente</p>
-    <p>🇨🇷 Cocina costarricense contemporánea, ambiente elegante. Presencia en listas de mejores restaurantes.</p>
-    <p>💡 Oportunidad: Branding de experiencia, fotografía profesional, redes sociales premium.</p>
-    <span class="tag medium">Fine Dining</span>
-    <span class="tag">Turismo gastronómico</span>
-  </div>
-
-  <div class="card">
-    <div class="card-name">Sikwa</div>
-    <div class="card-type">Restaurante de Alta Cocina — Chef Pablo Bonilla</div>
-    <p>📍 San José — cocina indígena/jungla a mesa</p>
-    <p>🇨🇷 Chef Pablo Bonilla. Cocina indígena reinventada, ingredientes nativos. Tendencia global.</p>
-    <p>💡 Oportunidad: Contenido de marca, video storytelling, posicionamiento en medios internacionales.</p>
-    <span class="tag medium">Chef Reconocido</span>
-    <span class="tag new">Alta Tendencia</span>
-  </div>
-
-  <div class="card">
-    <div class="card-name">Conservatorium</div>
-    <div class="card-type">Grill & Steakhouse Premium</div>
-    <p>📍 San José — concepto de carne seca madurada local</p>
-    <p>🇨🇷 Dry aged cattle local. Concepto premium烤肉. Posicionamiento como destino gastronómico.</p>
-    <p>💡 Oportunidad: Producción de contenido visual premium, colaboraciones con influencers.</p>
-    <span class="tag medium">Premium</span>
-    <span class="tag">Experiencia única</span>
-  </div>
-
-  <div class="card">
-    <div class="card-name">Grano de Oro</div>
-    <div class="card-type">Fine Dining Clásico — Hotel Grano de Oro</div>
-    <p>📍 San José — restaurante icónico de hotel boutique</p>
-    <p>🇨🇷 Cocina internacional y costarricense en ambiente elegante. Destino para tourists y corporativos.</p>
-    <p>💡 Oportunidad: Marketing hotelero, packages gastronómicos, reseñas en prensa.</p>
-    <span class="tag medium">Clásico</span>
-    <span class="tag">Turismo + Corporativo</span>
-  </div>
-
-  <div class="card">
-    <div class="card-name">Café Britt</div>
-    <div class="card-type">Cafetería Premium + Cadena de Café</div>
-    <p>📍 Heredia — presencia nacional</p>
-    <p>🇨🇷 Líder en café premium costarricense. Marca reconocida en LATAM. Equipo de marketing propio.</p>
-    <p>💡 Oportunidad: Campañas estacionales, retail y foodservice, branding de origen.</p>
-    <span class="tag high">Marca Potente</span>
-    <span class="tag">B2C + B2B</span>
-  </div>
-
-  <div class="card">
-    <div class="card-name">The Retreat Costa Rica</div>
-    <div class="card-type">Resort Gastronómico — Chef Richard Neat</div>
-    <p>📍 Costa Rica — $4M en renovación</p>
-    <p>🇬🇧 Chef estrella Michelin Richard Neat. Tres nuevos restaurantes. Apertura junio 2025.</p>
-    <p>💡 Oportunidad: Ruedas de prensa, content marketing, influencers gastronómicos.</p>
-    <span class="tag new">Chef Michelin</span>
-    <span class="tag high">Alto Presupuesto</span>
-  </div>
-
-</div>
-
-<h2>📊 Tendencias del Mercado Gastronómico CR 2026</h2>
-<div class="trend-grid">
-  <div class="trend-card">
-    <h4>🏝️ Gastronomía Tico-Moderna</h4>
-    <p>Alza de restaurantes que priorizan ingredientes nativos costarricenses con técnicas de alta cocina. Sikwa y Conservatorium lideran la tendencia.</p>
-  </div>
-  <div class="trend-card">
-    <h4>🇺🇸 Explosión de Franquicias gringas</h4>
-    <p>Applebee's+IHOP (dual-brand), Dunkin', Burger King y otros invierten fuerte en CR. Necesitan marketing local agresivo.</p>
-  </div>
-  <div class="trend-card">
-    <h4>📱 Social Media como Ventana</h4>
-    <p>Restaurantes fine dining dependen fuertemente de Instagram y reseñas (TripAdvisor, Google). Fotografía profesional es diferenciador clave.</p>
-  </div>
-  <div class="trend-card">
-    <h4>🛒 Delivery & Digitalización</h6>
-    <p>Post-pandemia, delivery representa hasta 35% de ventas en cadenas. Optimización de presencia en Uber Eats, PedidosYa y apps locales es esencial.</p>
-  </div>
-  <div class="trend-card">
-    <h4>🌿 Sostenibilidad como Valor</h4>
-    <p>Comensales ticos y turistas valoran prácticas sostenibles (orgánico, comercio justo, reducción de plástico). Marcas que comunican esto tienen ventaja.</p>
-  </div>
-  <div class="trend-card">
-    <h4>💰 Inversión Extranjera Creciendo</h4>
-    <p>CR se posiciona como hub gastronómico regional. Atrae chefs internacionales y cadenas globales. Oportunidad para agencias con experiencia en onboarding de marcas.</p>
+  <div class="stat-card">
+    <div class="number">8</div>
+    <div class="label">Estrategias sugeridas</div>
   </div>
 </div>
 
-<h2>🎯 Estrategias de Contacto Recomendadas</h2>
-<table class="strategy-table">
+<!-- ================================================
+     SECCIÓN 1: EMPRESAS Y DECISORES
+================================================ -->
+<div class="section-title"><span class="emoji">🏪</span> Empresas &amp; Decisores Identificados</div>
+
+<table>
   <thead>
     <tr>
-      <th>Tipo de Restaurante</th>
-      <th>Decisor Típico</th>
-      <th>Estrategia de Approach</th>
+      <th>Empresa / Restaurante</th>
+      <th>Tipo &amp; Ubicación</th>
+      <th>Decisor / Contacto</th>
       <th>Prioridad</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>Franquicias (Rosti, Dunkin', Applebee's)</td>
-      <td>Director de Marketing / Gerente de Expansión</td>
-      <td>Cold email con caso de estudio de expansión + propuesta de marketing localize. LinkedIn Sales Navigator.</td>
-      <td style="color:var(--green)">🔴 Alta</td>
+      <td>
+        <div class="company-name">Sikwa Restaurante</div>
+        <div class="company-type">Alta cocina costarricense</div>
+      </td>
+      <td>
+        <div class="contact-info">San José, Costa Rica</div>
+        <div class="company-type">#43 LatAm 50 Best / #1 CR 2025</div>
+      </td>
+      <td>
+        <div class="contact-info">Chef Pablo Bonilla</div>
+        <div class="contact-info"><a href="https://www.sikwacostarica.com" target="_blank">sikwacostarica.com</a></div>
+        <div class="contact-info">WhatsApp: +506 7093-1662</div>
+      </td>
+      <td><span class="priority high"></span> Alta</td>
     </tr>
     <tr>
-      <td>Fine Dining (Silvestre, Sikwa, Grano de Oro)</td>
-      <td>Chef/Propietario o Director de Marca</td>
-      <td>Portafolio visual premium + propuesta de contenido storytelling. Presencial o vía Instagram DM.</td>
-      <td style="color:var(--blue)">🟡 Media-Alta</td>
+      <td>
+        <div class="company-name">KFC Costa Rica</div>
+        <div class="company-type">Fast food / Franquicia</div>
+      </td>
+      <td>
+        <div class="contact-info">Nacional — 6+ aperturas 2025</div>
+        <div class="company-type">Adquirido por Grupo Inversor Intelectiva (MX)</div>
+      </td>
+      <td>
+        <div class="contact-info">Nuevo ownership corporativo</div>
+        <div class="contact-info">Contacto marketing: Santiago Mariño</div>
+        <div class="contact-info">LinkedIn: santiagomarinomercadeoyventas</div>
+      </td>
+      <td><span class="priority high"></span> Alta</td>
     </tr>
     <tr>
-      <td>Resorts Gastronómicos (The Retreat)</td>
-      <td>Director General / Marketing Hotelero</td>
-      <td>Evento o desayuno de networking + propuesta de PR y content. Contacto vía hotel matriz.</td>
-      <td style="color:var(--green)">🔴 Alta</td>
+      <td>
+        <div class="company-name">Burger King Costa Rica</div>
+        <div class="company-type">Fast food / Franquicia</div>
+      </td>
+      <td>
+        <div class="contact-info">San José &amp; nacional</div>
+        <div class="company-type">Fuerte expansión 2025-2026</div>
+      </td>
+      <td>
+        <div class="contact-info">Director Marketing: Vladimir Monestel</div>
+        <div class="contact-info">LinkedIn: /in/vladimir-monestel-66379967</div>
+      </td>
+      <td><span class="priority high"></span> Alta</td>
     </tr>
     <tr>
-      <td>Cafeterías y cadenas de café (Café Britt)</td>
-      <td>Gerente de Marca / Head of Marketing</td>
-      <td>Propuesta de campaña estacional + ROI estimado. LinkedIn y email directo.</td>
-      <td style="color:var(--blue)">🟡 Media</td>
+      <td>
+        <div class="company-name">Restaurante Canton</div>
+        <div class="company-type">Restaurante cantonés</div>
+      </td>
+      <td>
+        <div class="contact-info">San José, Costa Rica</div>
+        <div class="company-type">Independiente, en expansión</div>
+      </td>
+      <td>
+        <div class="contact-info">Owen Chen Wang — Gerente General</div>
+        <div class="contact-info">Desde 2017, 30 conexiones LinkedIn</div>
+        <div class="contact-info">Michigan State University grad</div>
+      </td>
+      <td><span class="priority medium"></span> Media</td>
     </tr>
     <tr>
-      <td>Cadenas de comida rápida (McDonald's CR, Burger King)</td>
-      <td>Equipo de Marketing Regional / Franquiciado local</td>
-      <td> RFP/brief competitivo. Presencia en licitaciones.行业协会.</td>
-      <td style="color:var(--text-muted)">⚪ Media</td>
+      <td>
+        <div class="company-name">Picanha Grill &amp; Bar</div>
+        <div class="company-type">Restaurante de carnes / brazileño</div>
+      </td>
+      <td>
+        <div class="contact-info">Costa Rica</div>
+        <div class="company-type">Independiente</div>
+      </td>
+      <td>
+        <div class="contact-info">Magally Vasquez Montero — Propietario/a</div>
+        <div class="contact-info">500+ contactos LinkedIn</div>
+      </td>
+      <td><span class="priority medium"></span> Media</td>
+    </tr>
+    <tr>
+      <td>
+        <div class="company-name">Restaurante Don Quijote / Rooster CR</div>
+        <div class="company-type">Restaurante español / pollería</div>
+      </td>
+      <td>
+        <div class="contact-info">Heredia Centro, Costa Rica</div>
+        <div class="company-type">Grupo Ticsa / multi-ubicación</div>
+      </td>
+      <td>
+        <div class="contact-info">Carlos Antonio Rojas Salas — Gerente General</div>
+        <div class="contact-info">Desde 2012, 145 conexiones LinkedIn</div>
+      </td>
+      <td><span class="priority medium"></span> Media</td>
+    </tr>
+    <tr>
+      <td>
+        <div class="company-name">Cafe Rey</div>
+        <div class="company-type">Restaurante tradicional costarricense</div>
+      </td>
+      <td>
+        <div class="contact-info">Costa Rica</div>
+        <div class="company-type">Top restaurant CR — Tracxn Score #1</div>
+      </td>
+      <td>
+        <div class="contact-info">Propietario/gerencia por identificar</div>
+        <div class="contact-info"><a href="https://www.caferey.co.cr" target="_blank">caferey.co.cr</a></div>
+      </td>
+      <td><span class="priority medium"></span> Media</td>
+    </tr>
+    <tr>
+      <td>
+        <div class="company-name">Pizza Hut Costa Rica</div>
+        <div class="company-type">Fast food pizza / Franquicia</div>
+      </td>
+      <td>
+        <div class="contact-info">Nacional — expansión 2025-2026</div>
+        <div class="company-type">Operado por QSR International</div>
+      </td>
+      <td>
+        <div class="contact-info">Gerente local por identificar</div>
+        <div class="contact-info">Jonathan Orellana Cedeño (Pizza Hut)</div>
+        <div class="contact-info">19+ años en sector restaurantes</div>
+      </td>
+      <td><span class="priority medium"></span> Media</td>
+    </tr>
+    <tr>
+      <td>
+        <div class="company-name">Conservatorium</div>
+        <div class="company-type">Alta cocina / grill premium</div>
+      </td>
+      <td>
+        <div class="contact-info">San José, Costa Rica</div>
+        <div class="company-type">Dry aged cattle, concepto premium</div>
+      </td>
+      <td>
+        <div class="contact-info">Equipo de cocina / gerencia por identificar</div>
+      </td>
+      <td><span class="priority low"></span> Baja</td>
+    </tr>
+    <tr>
+      <td>
+        <div class="company-name">Soda &amp; Restaurante Rodríguez</div>
+        <div class="company-type">Soda tradicional /local</div>
+      </td>
+      <td>
+        <div class="contact-info">La Fortuna, Costa Rica</div>
+        <div class="company-type">Turismo — zona Arenal</div>
+      </td>
+      <td>
+        <div class="contact-info">Familia Rodríguez — propietarios</div>
+        <div class="contact-info">Enfoque en marketing turístico</div>
+      </td>
+      <td><span class="priority low"></span> Baja</td>
     </tr>
   </tbody>
 </table>
 
-<h2>📋 Contactos Potenciales Identificados</h2>
-<div class="contact-approach">
-  <ul>
-    <li>🔍 <strong>LinkedIn:</strong> Buscar "Gerente de Marketing" + nombre de restaurante en Costa Rica. Sectores clave: San José, Heredia, Alajuela.</li>
-    <li>🔍 <strong>AR Holdings (Dunkin' CR):</strong> Franquiciatario local con plan de duplicar footprint. Buscar directivos en LinkedIn bajo "AR Holdings Costa Rica".</li>
-    <li>🔍 <strong>BLT Global Brands:</strong> Operador de Applebee's + IHOP dual-brand. Buscar "BLT Global Brands Costa Rica" en LinkedIn.</li>
-    <li>🔍 <strong>Rosti:</strong> Empresa local. Buscar "Rosti Costa Rica" en LinkedIn + сайт corporativo. Propietarios generalmente en cámara de comercio.</li>
-    <li>🔍 <strong>Instituto Gastronómico Isabel Campabadal:</strong> María Gonzalez-Campabadal — Sales & Marketing con 25+ años en sector gastronómico (contacto LinkedIn identificado).</li>
-    <li>🔍 <strong>Café Britt:</strong> Gabriela Muñoz Riggioni — ex-Directora Regional de Ventas, Marketing e Innovación (LinkedIn identificado). Buscar reemplazo o contacto actual de marketing.</li>
-  </ul>
+<!-- ================================================
+     SECCIÓN 2: TENDENCIAS DEL MERCADO
+================================================ -->
+<div class="section-title"><span class="emoji">📊</span> Tendencias del Mercado 2026</div>
+
+<div class="grid">
+  <div class="card">
+    <span class="tag trend">Tendencias 2026</span>
+    <h2>Digitalización &amp; RRSS</h2>
+    <div class="trend-list">
+      <div class="trend-item">
+        <div class="icon">📱</div>
+        <div><strong>Instagram = obligatorio</strong> — 87% de restaurantes CR dependen de contenido visual en IG. Google Business Profile es no negociable.</div>
+      </div>
+      <div class="trend-item">
+        <div class="icon">🎥</div>
+        <div><strong>Video corto (Reels/TikTok)</strong> — detrás de escenas, plating, cocina en vivo. Formato que más engagement genera en 2026.</div>
+      </div>
+      <div class="trend-item">
+        <div class="icon">🤖</div>
+        <div><strong>IA para publicidad</strong> — segmentación de ads con IA, chatbots para reservas, optimización dinámica de menús.</div>
+      </div>
+      <div class="trend-item">
+        <div class="icon">🌱</div>
+        <div><strong>Comida sostenible/indígena</strong> — Sikwa marca tendencia. Ingredientes locales y ancestrales son diferenciador competitivo.</div>
+      </div>
+      <div class="trend-item">
+        <div class="icon">📍</div>
+        <div><strong>Turismo gastronómico en auge</strong> — Costa Rica como destino culinario. La Fortuna, San José y Guanacaste como hubs.</div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <span class="tag trend">Sector Fast Food CR</span>
+    <h2>Franquicias &amp; Inversión</h2>
+    <ul>
+      <li>KFC Costa Rica adquirido por Grupo mexicano Inversor Intelectiva — 5+ aperturas nuevas planificadas para 2025</li>
+      <li>6 nuevas ubicaciones KFC planificadas para cierre 2025 — oportunidad para agencies que manejen expansión</li>
+      <li>Fusiones KFC-Pizza Hut (operadores) crean grupos QSR más grandes — más presupuesto marketing corporativo</li>
+      <li>OpenTable lista 869 restaurantes en Costa Rica — mercado maduro y competitivo</li>
+      <li>Sector restaurantes CR: 25+ empresas, 2 financiadas, 1 adquisición reciente — ecosistema activo</li>
+      <li>Tourism CAGR 5% hasta 2034 — flujo turístico alimenta demanda gastronómica</li>
+    </ul>
+  </div>
+  <div class="card full-width">
+    <span class="tag trend">Proyecciones 2026</span>
+    <h2>Panorama Gastronómico Costarricense</h2>
+    <p>La industria de restaurantes en Costa Rica se beneficia directamente del crecimiento turístico del país. El sector alimentación costarricense alcanzará $6.7B USD para 2026 (+1.5% anual). La convergencia de turismo, expatriados digitales y clase media emergente genera una demanda sostenida de experiencias gastronómicas diversas — desde alta cocina hasta fast casual.</p>
+    <br>
+    <p><strong>Puntos clave para pitching:</strong> (1) KFC y BK están en expansión activa y necesitan marketing de marca local, (2) Restaurantes independientes buscan diferenciarse ante corporaciones con mejor presencia digital, (3) El segmento premium (Sikwa, Conservatorium) prioriza branding de experiencia y contenido visual, (4) El turismo gastronómico es un nicho desatendido por agencias locales.</p>
+  </div>
 </div>
 
-<h2>💡 Insights Clave para Aurea</h2>
-<div class="trend-grid">
-  <div class="trend-card" style="border-left-color:var(--green)">
-    <h4>🏆 PRIORIDAD 1: Franquicias en expansión</h4>
-    <p>Rosti, Dunkin' y BLT Global Brands están en modo crecimiento agresivo. Necesitan agencias que puedan acompañar su expansión con marketing localized. Propuesta: retainer mensual + proyecto de lanzamiento.</p>
+<!-- ================================================
+     SECCIÓN 3: ESTRATEGIAS DE CONTACTO
+================================================ -->
+<div class="section-title"><span class="emoji">🎯</span> Estrategias de Contacto</div>
+
+<div class="grid">
+  <div class="card">
+    <span class="tag strategy">Alta cocina / Premium</span>
+    <h2>Sikwa, Conservatorium</h2>
+    <ul>
+      <li>Enfoque en branding de experiencia y storytelling cultural</li>
+      <li>Contenido de video: detrás de escenas con chefs, ingredientes nativos</li>
+      <li>Propuesta: gestión de redes, contenido para prensa/gastronomía</li>
+      <li>LinkedIn outreach directo a Chef Pablo Bonilla</li>
+      <li>Instagram strategy + colaboraciones con influencers gastronómicos CR</li>
+      <li>Presupuesto esperado: bajo-medio (son negocio mediano, no corporativo)</li>
+    </ul>
   </div>
-  <div class="trend-card" style="border-left-color:var(--blue)">
-    <h4>🎯 PRIORIDAD 2: Fine Dining buscando diferenciación</h4>
-    <p>Silvestre, Sikwa, Conservatorium compiten por tourists y foodies. Fotografía profesional, video storytelling y posicionamiento en medios internacionales son sus puntos débiles. Paquetes de contenido trimestrales.</p>
+  <div class="card">
+    <span class="tag strategy">Franquicias Fast Food</span>
+    <h2>KFC, Burger King, Pizza Hut</h2>
+    <ul>
+      <li>Contacto vía marketing corporativo / brand managers en LinkedIn</li>
+      <li>Vladimir Monestel (BK) y Santiago Mariño (KFC) son puntos de entrada</li>
+      <li>Propuesta: gestión de ads locales, activation en punto de venta</li>
+      <li>Foco en campaigns de expansión de nuevas ubicaciones</li>
+      <li>Presupuesto esperado: alto (son corporativos con mucho spend)</li>
+      <li>Explotar el ángulo de "6 aperturas KFC" para pitch de activation</li>
+    </ul>
   </div>
-  <div class="trend-card" style="border-left-color:var(--accent)">
-    <h4>⚡ PRIORIDAD 3: Chef Michelin en The Retreat</h4>
-    <p>Richard Neat abre 3 restaurantes en 2025 con $4M de inversión. Alta visibilidad internacional. Oportunidad para PR, relaciones con prensa gastronómica y content de lujo.</p>
+  <div class="card">
+    <span class="tag strategy">Restaurantes Independientes</span>
+    <h2>Canton, Picanha, Don Quijote, Cafe Rey</h2>
+    <ul>
+      <li>WhatsApp Business + email como canales principales de outreach</li>
+      <li>Pitch: diferenciación digital vs. competencia de franquicias</li>
+      <li>Solicitar reunión exploratoria, no venta fría directa</li>
+      <li>Oferta inicial: auditoría gratuita de presencia digital (30 min)</li>
+      <li>Objetivo: contrato mensual de gestión de RRSS o contenido</li>
+      <li>Carlos Rojas Salas (Rooster/Don Quijote) → 8+ años en el sector, accesible en LinkedIn</li>
+    </ul>
+  </div>
+  <div class="card">
+    <span class="tag strategy">Turismo Gastronómico</span>
+    <h2>La Fortuna, Guanacaste, zonas turísticas</h2>
+    <ul>
+      <li>Segmento desatendido por agencias — oportunidad de nicho</li>
+      <li>Restaurantes en zonas turísticas: marketing en idiomas (EN/ES)</li>
+      <li>TripAdvisor + Google Business + Instagram = stack obligatorio</li>
+      <li>Outreach via email + formulario web (muchos no están en LinkedIn)</li>
+      <li>Colaboración con tour operadores locales como canal de referral</li>
+      <li>Pitch: captar turista digital nomad/expat que busca experiencias auténticas</li>
+    </ul>
   </div>
 </div>
 
-<footer>
-  <p>Reporte generado automáticamente por Aurea Lead Research Agent &mdash; Logos &copy; 2026 &mdash; Confidencial</p>
-</footer>
+<!-- ================================================
+     SECCIÓN 4: FRAMEWORK DE ABORDAJE
+================================================ -->
+<div class="section-title"><span class="emoji">📋</span> Framework de Acción — Próximos 7 días</div>
+
+<div class="card full-width">
+  <table>
+    <thead>
+      <tr>
+        <th>Día</th>
+        <th>Acción</th>
+        <th>Target</th>
+        <th>Canal</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Día 1-2</td>
+        <td>Outreach introductorio + auditoría gratuita</td>
+        <td>Vladimir Monestel (BK), Santiago Mariño (KFC)</td>
+        <td>LinkedIn InMail</td>
+      </tr>
+      <tr>
+        <td>Día 2-3</td>
+        <td>Research de contacto + propuesta de valor</td>
+        <td>Chef Pablo Bonilla (Sikwa)</td>
+        <td>LinkedIn + WhatsApp</td>
+      </tr>
+      <tr>
+        <td>Día 3-4</td>
+        <td>Mensaje de diferenciación para independientes</td>
+        <td>Carlos Rojas Salas, Owen Chen Wang, Magally Vasquez</td>
+        <td>LinkedIn InMail</td>
+      </tr>
+      <tr>
+        <td>Día 4-5</td>
+        <td>Research de contactos faltantes + follow-up</td>
+        <td>Cafe Rey, Pizza Hut local</td>
+        <td>Email + LinkedIn</td>
+      </tr>
+      <tr>
+        <td>Día 5-7</td>
+        <td>Calls de discovery + proposals</td>
+        <td>Los 3-5 leads más responsive</td>
+        <td>Google Meet / Zoom</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="footer">
+  <p>Reporte generado automáticamente por Logos — Agente de Investigación Aurea</p>
+  <p>Fuente: Tavily Web Search, LinkedIn, Tracxn, OpenTable, World's 50 Best, Eater, Hootsuite 2026 Trends</p>
+  <p>⚠️ Los contactos fueron encontrados vía fuentes públicas. Verificar datos antes de outreach formal.</p>
+</div>
 
 </div>
 </body>
