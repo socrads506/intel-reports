@@ -3,740 +3,627 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aurea Leads — Restaurantes Costa Rica | Mayo 2026</title>
+    <title>Aurea Lead Research - E-commerce Costa Rica | Mayo 2026</title>
     <style>
         :root {
             --bg-primary: #0d1117;
             --bg-secondary: #161b22;
-            --bg-card: #1c2128;
+            --bg-card: #21262d;
             --border: #30363d;
-            --accent: #f0b429;
-            --accent-hover: #d9a01f;
             --text-primary: #e6edf3;
             --text-secondary: #8b949e;
-            --text-muted: #6e7681;
-            --green: #3fb950;
-            --red: #f85149;
-            --blue: #58a6ff;
-            --purple: #bc8cff;
+            --accent: #58a6ff;
+            --accent-hover: #79c0ff;
+            --success: #3fb950;
+            --warning: #d29922;
+            --danger: #f85149;
+            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         body {
-            background: var(--bg-primary);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background-color: var(--bg-primary);
             color: var(--text-primary);
-            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
             line-height: 1.6;
             min-height: 100vh;
         }
 
-        .container { max-width: 1100px; margin: 0 auto; padding: 40px 24px; }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
 
         header {
+            background: var(--bg-secondary);
             border-bottom: 1px solid var(--border);
-            padding-bottom: 32px;
-            margin-bottom: 40px;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .brand h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .brand span {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
         }
 
         .badge {
-            display: inline-block;
-            background: rgba(240, 180, 41, 0.12);
-            color: var(--accent);
-            border: 1px solid rgba(240, 180, 41, 0.3);
-            padding: 4px 12px;
+            background: var(--accent);
+            color: var(--bg-primary);
+            padding: 0.5rem 1rem;
             border-radius: 20px;
-            font-size: 12px;
+            font-size: 0.875rem;
             font-weight: 600;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            margin-bottom: 16px;
         }
 
-        h1 {
-            font-size: 28px;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 8px;
+        .report-meta {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
         }
 
-        h2 {
-            font-size: 20px;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid var(--border);
-        }
-
-        h3 {
-            font-size: 15px;
-            font-weight: 600;
-            color: var(--accent);
-            margin-bottom: 12px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .subtitle {
-            color: var(--text-secondary);
-            font-size: 14px;
-        }
-
-        .meta {
-            display: flex;
-            gap: 24px;
-            flex-wrap: wrap;
-            margin-top: 16px;
+        .meta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
         }
 
         .meta-item {
             display: flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 13px;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .meta-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
             color: var(--text-secondary);
         }
 
-        .meta-item .icon { font-size: 14px; }
+        .meta-value {
+            font-size: 1rem;
+            font-weight: 600;
+        }
 
-        .stats-grid {
+        .section {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+        }
+
+        .section-header {
+            background: var(--bg-card);
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .section-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+        }
+
+        .icon-companies { background: rgba(63, 185, 80, 0.2); color: var(--success); }
+        .icon-trends { background: rgba(88, 166, 255, 0.2); color: var(--accent); }
+        .icon-strategy { background: rgba(210, 153, 34, 0.2); color: var(--warning); }
+
+        .section-header h2 {
+            font-size: 1.125rem;
+            font-weight: 600;
+        }
+
+        .section-content {
+            padding: 1.5rem;
+        }
+
+        .stats-row {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 16px;
-            margin-bottom: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
         }
 
         .stat-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 20px;
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
         }
 
-        .stat-card .label {
-            font-size: 12px;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 8px;
-        }
-
-        .stat-card .value {
-            font-size: 28px;
+        .stat-value {
+            font-size: 1.75rem;
             font-weight: 700;
             color: var(--accent);
         }
 
-        .stat-card .sub {
-            font-size: 12px;
+        .stat-label {
+            font-size: 0.75rem;
             color: var(--text-secondary);
-            margin-top: 4px;
+            margin-top: 0.25rem;
         }
 
-        .section { margin-bottom: 40px; }
-
-        .lead-card {
+        .company-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 14px;
-            transition: border-color 0.2s;
+            border-radius: 10px;
+            padding: 1.25rem;
+            margin-bottom: 1rem;
+            transition: border-color 0.2s, transform 0.2s;
         }
 
-        .lead-card:hover { border-color: var(--accent); }
+        .company-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
 
-        .lead-header {
+        .company-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            gap: 12px;
-            margin-bottom: 10px;
+            margin-bottom: 0.75rem;
         }
 
-        .lead-name {
-            font-size: 16px;
+        .company-name {
+            font-size: 1.125rem;
             font-weight: 600;
             color: var(--text-primary);
         }
 
-        .lead-location {
-            font-size: 12px;
-            color: var(--text-muted);
-            margin-top: 2px;
-        }
-
-        .lead-type {
-            background: rgba(88, 166, 255, 0.1);
-            color: var(--blue);
-            border: 1px solid rgba(88, 166, 255, 0.2);
-            padding: 3px 10px;
+        .company-category {
+            background: rgba(88, 166, 255, 0.15);
+            color: var(--accent);
+            padding: 0.25rem 0.75rem;
             border-radius: 12px;
-            font-size: 11px;
+            font-size: 0.75rem;
             font-weight: 500;
-            white-space: nowrap;
         }
 
-        .lead-type.local { background: rgba(63, 185, 80, 0.1); color: var(--green); border-color: rgba(63, 185, 80, 0.2); }
-        .lead-type.franquicia { background: rgba(188, 140, 255, 0.1); color: var(--purple); border-color: rgba(188, 140, 255, 0.2); }
-        .lead-type.gourmet { background: rgba(240, 180, 41, 0.1); color: var(--accent); border-color: rgba(240, 180, 41, 0.2); }
-
-        .lead-desc {
-            font-size: 13px;
+        .company-description {
             color: var(--text-secondary);
-            margin-bottom: 12px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
         }
 
-        .lead-tags {
+        .company-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 6px;
-            margin-bottom: 12px;
+            gap: 0.5rem;
         }
 
         .tag {
             background: var(--bg-secondary);
             border: 1px solid var(--border);
-            color: var(--text-secondary);
-            padding: 2px 8px;
+            padding: 0.25rem 0.75rem;
             border-radius: 6px;
-            font-size: 11px;
-        }
-
-        .contact-box {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 10px 14px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 12px;
+            font-size: 0.75rem;
             color: var(--text-secondary);
         }
 
-        .contact-box .ci { color: var(--accent); font-size: 13px; }
-
-        .strategy-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 16px;
-        }
-
-        .strategy-card {
+        .contact-strategy {
             background: var(--bg-card);
             border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 20px;
+            border-radius: 10px;
+            padding: 1.25rem;
+            margin-bottom: 1rem;
         }
 
-        .strategy-card h4 {
-            font-size: 14px;
-            font-weight: 600;
+        .contact-strategy h4 {
             color: var(--accent);
-            margin-bottom: 10px;
+            font-size: 1rem;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
-        .strategy-card p {
-            font-size: 13px;
+        .contact-strategy ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .contact-strategy li {
             color: var(--text-secondary);
-            line-height: 1.7;
+            font-size: 0.9rem;
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .contact-strategy li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
         }
 
         .trend-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 18px 20px;
-            margin-bottom: 12px;
-            display: flex;
-            gap: 14px;
-            align-items: flex-start;
+            border-radius: 10px;
+            padding: 1.25rem;
+            margin-bottom: 1rem;
         }
 
-        .trend-icon {
-            width: 38px;
-            height: 38px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-            flex-shrink: 0;
-        }
-
-        .trend-icon.green { background: rgba(63, 185, 80, 0.1); }
-        .trend-icon.blue { background: rgba(88, 166, 255, 0.1); }
-        .trend-icon.purple { background: rgba(188, 140, 255, 0.1); }
-        .trend-icon.orange { background: rgba(240, 180, 41, 0.1); }
-
-        .trend-text h4 {
-            font-size: 14px;
-            font-weight: 600;
+        .trend-card h4 {
             color: var(--text-primary);
-            margin-bottom: 4px;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
         }
 
-        .trend-text p {
-            font-size: 13px;
+        .trend-card p {
             color: var(--text-secondary);
+            font-size: 0.9rem;
         }
 
-        .pillar {
-            background: linear-gradient(135deg, rgba(240, 180, 41, 0.08), rgba(240, 180, 41, 0.02));
-            border: 1px solid rgba(240, 180, 41, 0.2);
-            border-radius: 12px;
-            padding: 24px;
-            margin-bottom: 16px;
-        }
-
-        .pillar-header {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 10px;
-        }
-
-        .pillar-header .num {
-            width: 28px;
-            height: 28px;
-            background: var(--accent);
-            color: var(--bg-primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 13px;
-            font-weight: 700;
-        }
-
-        .pillar-header h4 {
-            font-size: 15px;
+        .priority-badge {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.7rem;
             font-weight: 600;
-            color: var(--text-primary);
+            text-transform: uppercase;
         }
 
-        .pillar p {
-            font-size: 13px;
+        .priority-high { background: rgba(248, 81, 73, 0.2); color: var(--danger); }
+        .priority-medium { background: rgba(210, 153, 34, 0.2); color: var(--warning); }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
             color: var(--text-secondary);
-            padding-left: 38px;
-            line-height: 1.7;
-        }
-
-        .footer {
+            font-size: 0.875rem;
             border-top: 1px solid var(--border);
-            padding-top: 24px;
-            margin-top: 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 12px;
+            margin-top: 2rem;
         }
 
-        .footer p { font-size: 12px; color: var(--text-muted); }
-        .footer a { color: var(--accent); text-decoration: none; }
-        .footer a:hover { text-decoration: underline; }
-
-        @media (max-width: 600px) {
-            h1 { font-size: 22px; }
-            .meta { gap: 12px; }
-            .lead-header { flex-direction: column; }
+        @media (max-width: 768px) {
+            .container { padding: 1rem; }
+            .header-content { flex-direction: column; align-items: flex-start; }
+            .meta-grid { grid-template-columns: 1fr; }
+            .stats-row { grid-template-columns: 1fr 1fr; }
         }
     </style>
 </head>
 <body>
-<div class="container">
-
     <header>
-        <div class="badge">⚡ Reporte de Leads —周期性自动生成</div>
-        <h1>🍽️ Leads: Restaurantes en Costa Rica</h1>
-        <p class="subtitle">Oportunidades de publicidad y marketing digital para Aurea — Nicho: Hostelería y Gastronomía</p>
-        <div class="meta">
-            <div class="meta-item"><span class="icon">📅</span> 1 de Mayo, 2026</div>
-            <div class="meta-item"><span class="icon">⏰</span> 04:00 UTC</div>
-            <div class="meta-item"><span class="icon">🏷️</span> Nicho: Restaurantes</div>
-            <div class="meta-item"><span class="icon">📍</span> Costa Rica</div>
-            <div class="meta-item"><span class="icon">🎯</span> 10 Empresas Identificadas</div>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="logo">A</div>
+                    <div class="brand">
+                        <h1>AUREA Advertising Agency</h1>
+                        <span>Intel Reports • Lead Generation Research</span>
+                    </div>
+                </div>
+                <div class="badge">Mayo 2026 • Ronda #1</div>
+            </div>
         </div>
     </header>
 
-    <!-- STATS -->
-    <div class="stats-grid">
-        <div class="stat-card">
-            <div class="label">Crecimiento del Sector</div>
-            <div class="value">5.7%</div>
-            <div class="sub">CAGR 2026–2032 proyectado</div>
-        </div>
-        <div class="stat-card">
-            <div class="label">Llegadas Turísticas 2024</div>
-            <div class="value">2.7M</div>
-            <div class="sub">+7.7% vs 2023 — 40% de EE.UU.</div>
-        </div>
-        <div class="stat-card">
-            <div class="label">Franquicias EE.UU.</div>
-            <div class="value">+65%</div>
-            <div class="sub">Crecimiento en 10 años — 26,500 empleos directos</div>
-        </div>
-        <div class="stat-card">
-            <div class="label">Inversión Dual-Brand</div>
-            <div class="value">$4.5M</div>
-            <div class="sub">Applebee's + IHOP — BLT Global Brands</div>
-        </div>
-    </div>
-
-    <!-- LEADS -->
-    <div class="section">
-        <h2>🎯 10 Restaurantes Identificados — Decision Makers</h2>
-
-        <div class="lead-card">
-            <div class="lead-header">
-                <div>
-                    <div class="lead-name">Silvestre Restaurante</div>
-                    <div class="lead-location">San José Centro — Barrio Escalante</div>
+    <main class="container">
+        <div class="report-meta">
+            <div class="meta-grid">
+                <div class="meta-item">
+                    <span class="meta-label">Fecha de Investigación</span>
+                    <span class="meta-value">1 Mayo 2026</span>
                 </div>
-                <span class="lead-type gourmet">Alta Cocina</span>
-            </div>
-            <p class="lead-desc">Reconocido como uno de los mejores restaurantes de Costa Rica. Chef Pablo Bonilla combina cocina indígena con técnica moderna (jungle-to-table). Ganador de premios internacionales. Altamente activo en redes sociales con contenido gastronómico premium.</p>
-            <div class="lead-tags">
-                <span class="tag">Alta cocina</span>
-                <span class="tag">Turismo gastronómico</span>
-                <span class="tag">Instagram activo</span>
-                <span class="tag">Chef propio</span>
-                <span class="tag">Expansión internacional</span>
-            </div>
-            <div class="contact-box">
-                <span class="ci">📸</span>
-                <span>Instagram: @silvestrecr — Contacto vía DM para colaboraciones y patrocinios</span>
-            </div>
-        </div>
-
-        <div class="lead-card">
-            <div class="lead-header">
-                <div>
-                    <div class="lead-name">Tenedor Argentino</div>
-                    <div class="lead-location">Avenida Escazú, San José</div>
+                <div class="meta-item">
+                    <span class="meta-label">Nicho Objetivo</span>
+                    <span class="meta-value">E-commerce & Fashion Brands</span>
                 </div>
-                <span class="lead-type local">Restaurante Premium</span>
-            </div>
-            <p class="lead-desc">Restaurante argentino auténtico con cortes premium (Prime y Choice), más de 70 etiquetas de vino, coctelería fusión mexicana e internacional. Espacio premium con terraza, VIP room para 14+, barra y counters. Posicionado como destino experiencial.</p>
-            <div class="lead-tags">
-                <span class="tag">Cortes premium</span>
-                <span class="tag">Enología</span>
-                <span class="tag">Eventos privados</span>
-                <span class="tag">Coctelería</span>
-            </div>
-            <div class="contact-box">
-                <span class="ci">🌐</span>
-                <span>Web: tendorargentino.cr — Gerente de Marketing o Dueño directamente vía LinkedIn</span>
-            </div>
-        </div>
-
-        <div class="lead-card">
-            <div class="lead-header">
-                <div>
-                    <div class="lead-name">Insurgentes 21</div>
-                    <div class="lead-location">Avenida Escazú, San José</div>
+                <div class="meta-item">
+                    <span class="meta-label">Mercado</span>
+                    <span class="meta-value">Costa Rica</span>
                 </div>
-                <span class="lead-type gourmet">Gastronomía Mexicana Premium</span>
-            </div>
-            <p class="lead-desc">Restaurante mexicano de autor con propuesta experiencial. Combina tradición y modernidad con platillos de autor, full bar y coctelería fusión. Diseñado como destino sensorial con espacios diferenciados.</p>
-            <div class="lead-tags">
-                <span class="tag">Cocina mexicana de autor</span>
-                <span class="tag">Full bar</span>
-                <span class="tag">Eventos corporativos</span>
-                <span class="tag">Turismo</span>
-            </div>
-            <div class="contact-box">
-                <span class="ci">📸</span>
-                <span>Instagram: @insurgentes21cr — Enfoque en contenido visual y experiencias</span>
-            </div>
-        </div>
-
-        <div class="lead-card">
-            <div class="lead-header">
-                <div>
-                    <div class="lead-name">Tino's Restaurant</div>
-                    <div class="lead-location">San José, Costa Rica</div>
+                <div class="meta-item">
+                    <span class="meta-label">Empresas Identificadas</span>
+                    <span class="meta-value">8</span>
                 </div>
-                <span class="lead-type local">Cadena Nacional</span>
-            </div>
-            <p class="lead-desc">Cadena nacional consolidada con 20+ empleados. Historia inspiradora: Oliver R. Sotillo empezó lavaplatos a los 13 años y hoy es propietario. Empresa familiar con crecimiento orgánico. Visible en medios nacionales.</p>
-            <div class="lead-tags">
-                <span class="tag">Cadena nacional</span>
-                <span class="tag">Marca personal del dueño</span>
-                <span class="tag">Cobertura mediática</span>
-                <span class="tag">Crecimiento orgánico</span>
-            </div>
-            <div class="contact-box">
-                <span class="ci">📰</span>
-                <span>Oliver Sotillo (propietario) — Entrevistas públicas disponibles. Contacto vía redes del restaurante</span>
             </div>
         </div>
 
-        <div class="lead-card">
-            <div class="lead-header">
-                <div>
-                    <div class="lead-name">Restaurante Grano de Oro</div>
-                    <div class="lead-location">San José</div>
+        <div class="stats-row">
+            <div class="stat-card">
+                <div class="stat-value">$6.4B</div>
+                <div class="stat-label">Volumen E-commerce 2024</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">$9.3B</div>
+                <div class="stat-label">Proyección 2027 (CAGR 13%)</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">90%</div>
+                <div class="stat-label">Adultos con cuenta bancaria</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">80%</div>
+                <div class="stat-label">Adultos que compran online</div>
+            </div>
+        </div>
+
+        <section class="section">
+            <div class="section-header">
+                <div class="section-icon icon-companies">🏢</div>
+                <h2>Empresas Identificadas en Costa Rica</h2>
+            </div>
+            <div class="section-content">
+                <div class="company-card">
+                    <div class="company-header">
+                        <div class="company-name">KARUNA Sustainable Fashion</div>
+                        <span class="company-category">Fashion • Sustainable</span>
+                    </div>
+                    <p class="company-description">Marca de moda sostenible 100% costarricense. Producción artesanal en la selva tropical. Piezas versátiles para yoga, ocio y festivales. Envíos worldwide.</p>
+                    <div class="company-tags">
+                        <span class="tag">Instagram: @karunacostarica</span>
+                        <span class="tag">E-commerce propio</span>
+                        <span class="tag">Moda sostenible</span>
+                        <span class="tag">Artesanal</span>
+                    </div>
+                    <div style="margin-top: 0.75rem;">
+                        <span class="priority-badge priority-high">Alta Prioridad</span>
+                    </div>
                 </div>
-                <span class="lead-type gourmet">Alta Cocina / Hotel</span>
-            </div>
-            <p class="lead-desc">Clásico de la alta cocina en San José. Uno de los mejores restaurantes del país según TripAdvisor (top 3). Posición consolidada pero probablemente sin estrategia digital agresiva — oportunidad para rebranding digital.</p>
-            <div class="lead-tags">
-                <span class="tag">Reputación establecida</span>
-                <span class="tag">TripAdvisor top</span>
-                <span class="tag">Cocina europea</span>
-                <span class="tag">Necesita digital</span>
-            </div>
-            <div class="contact-box">
-                <span class="ci">🌐</span>
-                <span>Web: granodeoro.com — Dueño/propietario desconocido, contacto vía web</span>
-            </div>
-        </div>
 
-        <div class="lead-card">
-            <div class="lead-header">
-                <div>
-                    <div class="lead-name">Restaurante El Patio del Balmoral</div>
-                    <div class="lead-location">San José Centro</div>
+                <div class="company-card">
+                    <div class="company-header">
+                        <div class="company-name">NEREA Costa Rican Resort Wear</div>
+                        <span class="company-category">Fashion • Resort Wear</span>
+                    </div>
+                    <p class="company-description">Marca de ropa de playa y resort limitada. Piezas en lino, algodón y poplín. Diseños exclusivos. Enfoque en calidad y atemporalidad.</p>
+                    <div class="company-tags">
+                        <span class="tag">Resort wear premium</span>
+                        <span class="tag">Lino • Algodón</span>
+                        <span class="tag">Ediciones limitadas</span>
+                        <span class="tag">E-commerce propio</span>
+                    </div>
+                    <div style="margin-top: 0.75rem;">
+                        <span class="priority-badge priority-high">Alta Prioridad</span>
+                    </div>
                 </div>
-                <span class="lead-type local">Tradicional</span>
-            </div>
-            <p class="lead-desc">Institución en San José con 3,295+ reseñas en TripAdvisor. Alto volumen de tráfico. Necesidad probable de revitalizar imagen digital y presencia en redes para competir con nuevos restaurantes.</p>
-            <div class="lead-tags">
-                <span class="tag">Alto volumen</span>
-                <span class="tag">Reseñas masiva</span>
-                <span class="tag">Marca tradicional</span>
-                <span class="tag">Digital upgrade</span>
-            </div>
-            <div class="contact-box">
-                <span class="ci">📍</span>
-                <span>Ubicado en Hotel Balmoral — Contacto vía web o LinkedIn corporativo</span>
-            </div>
-        </div>
 
-        <div class="lead-card">
-            <div class="lead-header">
-                <div>
-                    <div class="lead-name">Los Tres Perros</div>
-                    <div class="lead-location">San José</div>
+                <div class="company-card">
+                    <div class="company-header">
+                        <div class="company-name">MareMare</div>
+                        <span class="company-category">Fashion • Swimwear</span>
+                    </div>
+                    <p class="company-description">Marca de ropa playera costarricense. @shopmaremare en Instagram. Primera en el ranking de marcas de moda de Costa Rica.</p>
+                    <div class="company-tags">
+                        <span class="tag">Top 1 Ranking StarNgage</span>
+                        <span class="tag">Instagram activo</span>
+                        <span class="tag">Swimwear</span>
+                        <span class="tag">Moda tica</span>
+                    </div>
                 </div>
-                <span class="lead-type local">Gastronómico</span>
-            </div>
-            <p class="lead-desc">4.9 estrellas (498 reseñas) — uno de los mejor valorados en TripAdvisor. Restaurante gastronómico independiente con propuesta diferenciada. Propietarios probablemente emprendedores digitales.</p>
-            <div class="lead-tags">
-                <span class="tag">Alta valoración</span>
-                <span class="tag">Indie/independiente</span>
-                <span class="tag">Gastronómico</span>
-            </div>
-            <div class="contact-box">
-                <span class="ci">📸</span>
-                <span>Búsqueda de @lostresperros en Instagram — DM directo al restaurante</span>
-            </div>
-        </div>
 
-        <div class="lead-card">
-            <div class="lead-header">
-                <div>
-                    <div class="lead-name">Hungry Costa Rica</div>
-                    <div class="lead-location">San José — Múltiples ubicaciones</div>
+                <div class="company-card">
+                    <div class="company-header">
+                        <div class="company-name">Cata Freer</div>
+                        <span class="company-category">Fashion • Lifestyle</span>
+                    </div>
+                    <p class="company-description">Influencer y marca de moda lifestyle en Costa Rica. Segunda posición en ranking de fashion brands del país.</p>
+                    <div class="company-tags">
+                        <span class="tag">Top 2 Ranking</span>
+                        <span class="tag">Instagram</span>
+                        <span class="tag">Lifestyle</span>
+                    </div>
                 </div>
-                <span class="lead-type franquicia">Franquicia / Fast Casual</span>
-            </div>
-            <p class="lead-desc">Fast-casual de sándwiches a la parrilla con presencia en Costa Rica. Fundadores jóvenes (Andrés y socio). Instagram activo con contenido de producto. Potencial para expansionar su marketing digital con presupuesto de franquicia.</p>
-            <div class="lead-tags">
-                <span class="tag">Fast-casual</span>
-                <span class="tag">Franquicia</span>
-                <span class="tag">Fundadores jóvenes</span>
-                <span class="tag">Expansión</span>
-            </div>
-            <div class="contact-box">
-                <span class="ci">📸</span>
-                <span>Instagram: @hungrycostarica — DM para conectar con fundadores</span>
-            </div>
-        </div>
 
-        <div class="lead-card">
-            <div class="lead-header">
-                <div>
-                    <div class="lead-name">Restaurante OLD WEST</div>
-                    <div class="lead-location">Santa Ana, San José Oeste</div>
+                <div class="company-card">
+                    <div class="company-header">
+                        <div class="company-name">Calzado Lazo</div>
+                        <span class="company-category">Fashion • Footwear</span>
+                    </div>
+                    <p class="company-description">Marca de calzado costarricense. En el Top 5 de marcas de moda en Costa Rica según StarNgage.</p>
+                    <div class="company-tags">
+                        <span class="tag">Top 5 Ranking</span>
+                        <span class="tag">Calzado</span>
+                        <span class="tag">E-commerce</span>
+                    </div>
                 </div>
-                <span class="lead-type local">Temático / Especializado</span>
-            </div>
-            <p class="lead-desc">Propietario: Alejandro Montes Guillen (entrepreneur). Restaurante temático western en la zona oeste de San José. Presencia visible en YouTube como entrevista empresarial.</p>
-            <div class="lead-tags">
-                <span class="tag">Dueño accesible</span>
-                <span class="tag">Entrepreneur</span>
-                <span class="tag">Zona Santa Ana</span>
-                <span class="tag">Nicho temático</span>
-            </div>
-            <div class="contact-box">
-                <span class="ci">🎬</span>
-                <span>Alejandro Montes Guillen — Entrevista pública en YouTube disponible como referencia</span>
-            </div>
-        </div>
 
-        <div class="lead-card">
-            <div class="lead-header">
-                <div>
-                    <div class="lead-name">L'Olivo & L'Incontro</div>
-                    <div class="lead-location">Sabana Norte & Escazú Village</div>
+                <div class="company-card">
+                    <div class="company-header">
+                        <div class="company-name">Galeri Baby Looks</div>
+                        <span class="company-category">Fashion • Kids</span>
+                    </div>
+                    <p class="company-description">Ropa para bebé y niños. Cuenta oficial @galeribabylooks. Parte del ecosistema de marcas de moda ticas.</p>
+                    <div class="company-tags">
+                        <span class="tag">Top 3 Ranking</span>
+                        <span class="tag">Moda infantil</span>
+                        <span class="tag">Instagram</span>
+                    </div>
                 </div>
-                <span class="lead-type gourmet">Italiano Premium</span>
+
+                <div class="company-card">
+                    <div class="company-header">
+                        <div class="company-name">MercadoLibre Costa Rica</div>
+                        <span class="company-category">Marketplace</span>
+                    </div>
+                    <p class="company-description">Plataforma de e-commerce líder en Latinoamérica. Vendedores costarricenses activos. Gran oportunidad para soluciones publicitarias.</p>
+                    <div class="company-tags">
+                        <span class="tag">Marketplace #1 Latam</span>
+                        <span class="tag">mercadolibre.co.cr</span>
+                        <span class="tag">Vendedores locales</span>
+                    </div>
+                </div>
+
+                <div class="company-card">
+                    <div class="company-header">
+                        <div class="company-name">Encuentra24 Costa Rica</div>
+                        <span class="company-category">Classifieds • Marketplace</span>
+                    </div>
+                    <p class="company-description">Uno de los top sites de retail en Costa Rica. Clasificados y ventas online. Mercado activo de vendedores.</p>
+                    <div class="company-tags">
+                        <span class="tag">Top 3 site retail CR</span>
+                        <span class="tag">Clasificados</span>
+                        <span class="tag">E-commerce</span>
+                    </div>
+                </div>
             </div>
-            <p class="lead-desc">Dos restaurantes italianos de Bruno Pezzuolo (@lincontrocr). Presencia de longuevidad en el mercado costarricense. Restaurante italiano con posicionamiento gourmet en zonas premium de San José.</p>
-            <div class="lead-tags">
-                <span class="tag">Italiano gourmet</span>
-                <span class="tag">Dos ubicaciones</span>
-                <span class="tag">Posición consolidada</span>
-                <span class="tag">Zonas premium</span>
+        </section>
+
+        <section class="section">
+            <div class="section-header">
+                <div class="section-icon icon-strategy">🎯</div>
+                <h2>Estrategias de Contacto</h2>
             </div>
-            <div class="contact-box">
-                <span class="ci">📸</span>
-                <span>Instagram: @lincontrocr — DM directo a Bruno Pezzuolo</span>
+            <div class="section-content">
+                <div class="contact-strategy">
+                    <h4>📱 Instagram / Redes Sociales (Prioridad Alta)</h4>
+                    <ul>
+                        <li>Contacto directo vía DM a cuentas @karunacostarica, @shopmaremare, @catafreer</li>
+                        <li>Mensajes personalizados mencionando su presencia en redes y propuesta de valor para e-commerce</li>
+                        <li>Ideal para marcas de moda que ya entienden el poder del branding visual</li>
+                    </ul>
+                </div>
+
+                <div class="contact-strategy">
+                    <h4>📧 Email Marketing Dirigido</h4>
+                    <ul>
+                        <li>Investigar emails de contacto en websites de las marcas (karunacostarica.com, nereacostarica.com)</li>
+                        <li>Propuesta: gestión de redes sociales + publicidad digital + diseño de branding</li>
+                        <li>Segmento: marcas con presencia online pero sin equipo interno de marketing</li>
+                    </ul>
+                </div>
+
+                <div class="contact-strategy">
+                    <h4>🤝 LinkedIn B2B</h4>
+                    <ul>
+                        <li>Buscar founders y CMOs de startups de e-commerce en Costa Rica</li>
+                        <li>Conectar con profesionales del sector fintech/payments (Tilopay, etc.)</li>
+                        <li>Mensaje introductorio corto con caso de éxito en fashion e-commerce</li>
+                    </ul>
+                </div>
+
+                <div class="contact-strategy">
+                    <h4>🏛️ Eventos y Cámaras de Comercio</h4>
+                    <ul>
+                        <li>EcomFest Costa Rica (evento de comercio electrónico organizado por Cámara de Comercio)</li>
+                        <li>Cámara de Comercio de Costa Rica: networking con empresas miembros</li>
+                        <li>Ministerio de Economía: contacto con empresas del "Plan de IA y E-commerce"</li>
+                    </ul>
+                </div>
+
+                <div class="contact-strategy">
+                    <h4>💡 Pitch para E-commerce Fashion</h4>
+                    <ul>
+                        <li>Gestión profesional de Instagram/TikTok Shop para ventas directas</li>
+                        <li>Campañas de Meta Ads segmentadas por intereses de moda y estilo de vida</li>
+                        <li>Email marketing con flows de abandono de carrito y recuperación</li>
+                        <li>SEO para su e-commerce propio (Shopify, WooCommerce local)</li>
+                    </ul>
+                </div>
             </div>
-        </div>
+        </section>
 
-    </div>
-
-    <!-- TRENDS -->
-    <div class="section">
-        <h2>📈 Tendencias del Mercado 2026</h2>
-
-        <div class="trend-card">
-            <div class="trend-icon green">📱</div>
-            <div class="trend-text">
-                <h4>Delivery y comida a domicilio en auge</h4>
-                <p>El segmento de delivery individual lideró el crecimiento en 2025. Los restaurantes que no tienen presencia digital fuerte pierden terreno frente a apps como PedidosYa y Rappi en Costa Rica.</p>
+        <section class="section">
+            <div class="section-header">
+                <div class="section-icon icon-trends">📊</div>
+                <h2>Tendencias del Mercado 2025-2026</h2>
             </div>
-        </div>
+            <div class="section-content">
+                <div class="trend-card">
+                    <h4>🚀 Crecimiento del Mercado</h4>
+                    <p>Costa Rica es el mercado de e-commerce más destacado de Centroamérica con $6.4B en ventas 2024. Proyección de $1.8B solo para 2025. CAGR del 13% hasta 2027.</p>
+                </div>
 
-        <div class="trend-card">
-            <div class="trend-icon blue">🌎</div>
-            <div class="trend-text">
-                <h4>Explosión de franquicias norteamericanas</h4>
-                <p>Crecimiento del 65% en 10 años. Applebee's, IHOP, California Pizza Kitchen, Popeyes, KFC, Yard House y más. Traen presupuestos de marketing corporate, pero los operadores locales buscan agencias locales para adaptaciones.</p>
+                <div class="trend-card">
+                    <h4>🤖 Plan Nacional de IA y E-commerce</h4>
+                    <p>El Ministerio de Economía y la Embajada de España lanzan el "Plan de IA y E-commerce" en Costa Rica. Gran oportunidad para agencias que ofrezcan servicios de automatización e IA.</p>
+                </div>
+
+                <div class="trend-card">
+                    <h4>💳 Alta Bancarización</h4>
+                    <p>90% de adultos tienen cuenta bancaria y 80% ya compra online. Métodos de pago principales: tarjetas de crédito/débito y pagos con código QR.</p>
+                </div>
+
+                <div class="trend-card">
+                    <h4>📱 Social Commerce en Ascenso</h4>
+                    <p>Facebook es la tercera palabra más buscada en Costa Rica. 59% del tráfico de redes sociales va a Facebook. TikTok Shop emerge como nueva plataforma de ventas.</p>
+                </div>
+
+                <div class="trend-card">
+                    <h4>🛒 Marketplaces Dominan</h4>
+                    <p>Amazon, eBay y Encuentra24 son los top sites de e-commerce en Costa Rica. MercadoLibre tiene presencia local pero con desafíos de confianza.</p>
+                </div>
+
+                <div class="trend-card">
+                    <h4>🌐 EcomFest Costa Rica</h4>
+                    <p>Evento nacional de comercio electrónico (primera edición octubre 2025). Organizado por Cámara de Comercio de Costa Rica. Descuentos de hasta 50% en marcas participantes.</p>
+                </div>
+
+                <div class="trend-card">
+                    <h4>☁️ Infraestructura Cloud</h4>
+                    <p>La nube se consolida como base del e-commerce costarricense. Tendencia hacia plataformas SaaS para tiendas online (Shopify, WooCommerce, etc.).</p>
+                </div>
+
+                <div class="trend-card">
+                    <h4>⚠️ Desafíos Identificados</h4>
+                    <p>Mejora en ciberseguridad necesaria. Experiencia de compra necesita optimizarse. Logistics de última milla es un dolor operativo. Oportunidad para agencias de growth marketing.</p>
+                </div>
             </div>
-        </div>
-
-        <div class="trend-card">
-            <div class="trend-icon purple">🏆</div>
-            <div class="trend-text">
-                <h4>Gastronomía costarricense de autor</h4>
-                <p>Restaurantes como Sikwa y Silvestre lideran la tendencia de cocina indígena moderna. Alto potencial para contenido visual premium, colaboraciones con influencers gastronómicos y posicionamiento en medios internacionales.</p>
-            </div>
-        </div>
-
-        <div class="trend-card">
-            <div class="trend-icon orange">🎯</div>
-            <div class="trend-text">
-                <h4>Experiencias más que comida</h4>
-                <p>Full-service restaurants dominaron la ingresos del sector en 2025. El consumidor busca experiencias memorables: barras de coctelería, catas de vino, espacios con diseño, eventos privados. La comunicación visual lo es todo.</p>
-            </div>
-        </div>
-
-        <div class="trend-card">
-            <div class="trend-icon green">🌿</div>
-            <div class="trend-text">
-                <h4>Turismo gastronómico en expansión</h4>
-                <p>2.7 millones de llegadas internacionales en 2024. El turismo representa 8.2% del PIB. Los restaurantes en zonas turísticas (Guanacaste, Manuel Antonio, Tamarindo) tienen季节性 de demanda intensa y necesidad de comunicación multicanal.</p>
-            </div>
-        </div>
-
-    </div>
-
-    <!-- CONTACT STRATEGIES -->
-    <div class="section">
-        <h2>🎯 Estrategias de Contacto Recomendadas</h2>
-
-        <div class="strategy-grid">
-
-            <div class="strategy-card">
-                <h4>📸 Instagram DM Outreach (Prioridad Alta)</h4>
-                <p>El 90% de los restaurantes identificados tienen Instagram activo. Estrategia: mensaje personalizado referencing contenido específico que让他们眼前一亮 (ej: "Vi su post del evento de vinos y me encantó la propuesta"). Incluir 1 caso breve de resultados en otro restaurante. Sin adjunto, solo texto claro.</p>
-            </div>
-
-            <div class="strategy-card">
-                <h4>🔗 LinkedIn B2B Escalada</h4>
-                <p>Para restaurantes con estructura corporativa (El Patio del Balmoral → Hotel Balmoral; Tenedor Argentino → grupo inversor). Buscar "Gerente de Marketing", "Director Comercial" o "Propietario" en LinkedIn. Mensaje de Max 200 palabras con propuesta de valor clara.</p>
-            </div>
-
-            <div class="strategy-card">
-                <h4>🍽️ Pitch Deck Gastronómico</h4>
-                <p>Crear deck de 8-10 slides enfocado en casos de éxito en restaurantes (antes/después de redes sociales, campañas de delivery, branded content). Enviar por email después de contacto inicial en Instagram. Tono visual: oscuro, premium, gastronómico.</p>
-            </div>
-
-            <div class="strategy-card">
-                <h4>📍 Geolocalización y Google Business</h4>
-                <p>Múltiples restaurantes locales no tienen estrategia de Google Business optimizada. Ofrecer auditoría gratuita de perfil de Google como gancho de entrada. Muchas PYMES en Costa Rica todavía no explotan reseñas de Google para atraer turistas.</p>
-            </div>
-
-            <div class="strategy-card">
-                <h4>🤝 Alianzas con Influencers Gastronómicos</h4>
-                <p>Roberto Biasetti (@jalejandotodo) tiene audiencia masiva en Costa Rica con contenido de restaurantes. Ofrecer a restaurantes paquetes que incluyan gestión de campañas con influencers gastronómicos locales como parte del servicio.</p>
-            </div>
-
-            <div class="strategy-card">
-                <h4>💰 Franquicias: Proponer Paketes Corporativos</h4>
-                <p>BLT Global Brands (Applebee's + IHOP), Popeyes, Hungry y otros tienen estructura de franquicias. El marketing corporate es centralizado pero las operaciones locales tienen presupuesto discrecional. Identificar los operadores locales vía laCCSS o registros de comercio.</p>
-            </div>
-
-        </div>
-    </div>
-
-    <!-- WHY RESTAURANTS NOW -->
-    <div class="section">
-        <h2>💡 ¿Por qué Restaurantes Ahora? — 5 Pilares</h2>
-
-        <div class="pillar">
-            <div class="pillar-header">
-                <span class="num">1</span>
-                <h4>Crecimiento del delivery digital</h4>
-            </div>
-            <p>La penetración de apps de delivery creció +30% en Costa Rica post-2023. Restaurantes que no dominan el ecosistema digital pierden cuota de mercado frente a competidores nativos digitales. Aurea puede posicionarse como el socio que cierra esa brecha.</p>
-        </div>
-
-        <div class="pillar">
-            <div class="pillar-header">
-                <span class="num">2</span>
-                <h4>Franquicias con budget local</h4>
-            </div>
-            <p>65% más franquicias estadounidenses operando. Traen sistemas de marketing corporate pero necesitan agencias locales para contenido adaptado al consumidor costarricense (idioma, cultura, plataformas locales).</p>
-        </div>
-
-        <div class="pillar">
-            <div class="pillar-header">
-                <span class="num">3</span>
-                <h4>Turismo: 2.7M de Llegadas</h4>
-            </div>
-            <p>El 40% de los turistas vienen de EE.UU. y esperan estándares de comunicación digital similares a los de su país. Restaurantes en zonas turísticas (Tamarindo, Guanacaste, Manuel Antonio) son los más receptivos a contratar servicios de marketing en inglés y español.</p>
-        </div>
-
-        <div class="pillar">
-            <div class="pillar-header">
-                <span class="num">4</span>
-                <h4>Pymes sin estrategia digital</h4>
-            </div>
-            <p>Tino's Restaurant, Old West, y otros negocios familiares tienen trayectoria pero gestión digital básica o nula. Están en el punto de madurez donde el fundador se da cuenta de que necesita ayuda profesional. Aurea puede llegar como socio estratégico.</p>
-        </div>
-
-        <div class="pillar">
-            <div class="pillar-header">
-                <span class="num">5</span>
-                <h4>CAGR 5.7% hasta 2032</h4>
-            </div>
-            <p>El mercado de food services en Costa Rica crece sostenidamente. Los full-service restaurants siguen dominando ingresos. Entrar ahora significa establecer relaciones antes de que la competencia internacional de agencias se intensifique.</p>
-        </div>
-    </div>
+        </section>
+    </main>
 
     <footer>
-        <p>Reporte generado automáticamente para <strong>Aurea Advertising Agency</strong> — 1 de Mayo 2026</p>
-        <p>Archivo guardado en: <a href="file:///home/asdelgado506/intel-reports/aurea-leads-2026-05-01.html">intel-reports/aurea-leads-2026-05-01.html</a></p>
+        <div class="container">
+            <p>Reporte generado automáticamente por Aurea Lead Research Agent</p>
+            <p>Mayo 2026 • Ronda #1 • Nicho: E-commerce & Fashion Brands Costa Rica</p>
+        </div>
     </footer>
-
-</div>
 </body>
 </html>
