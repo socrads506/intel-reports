@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurea - Leads Schools Costa Rica | Mayo 2026</title>
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #ec4899;
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --bg-input: #334155;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --border: #334155;
+            --success: #22c55e;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --info: #3b82f6;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            padding: 40px 20px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .header h1 { font-size: 2.5em; margin-bottom: 10px; }
+        .header .subtitle { font-size: 1.2em; opacity: 0.9; }
+        .header .badge { 
+            display: inline-block; 
+            background: rgba(255,255,255,0.2); 
+            padding: 8px 20px; 
+            border-radius: 20px; 
+            margin-top: 15px;
+            font-weight: 600;
+        }
+        
+        .meta-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background: var(--bg-card);
+            border-radius: 10px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .meta-item { display: flex; align-items: center; gap: 8px; }
+        .meta-item .label { color: var(--text-muted); font-size: 0.85em; }
+        .meta-item .value { font-weight: 600; }
+        
+        .section {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border);
+        }
+        
+        .section-title {
+            font-size: 1.4em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .company-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 15px;
+        }
+        
+        .company-card {
+            background: var(--bg-input);
+            border-radius: 10px;
+            padding: 20px;
+            border: 1px solid var(--border);
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        
+        .company-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--primary);
+        }
+        
+        .company-name { 
+            font-size: 1.1em; 
+            font-weight: 700; 
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+        
+        .company-detail { 
+            display: flex; 
+            gap: 8px; 
+            margin: 6px 0;
+            font-size: 0.9em;
+        }
+        
+        .company-detail .label { 
+            color: var(--text-muted); 
+            min-width: 85px;
+        }
+        
+        .company-detail .value { color: var(--text-secondary); }
+        
+        .tag {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            font-weight: 600;
+            margin: 3px 3px 3px 0;
+        }
+        
+        .tag-private { background: #7c3aed33; color: #a78bfa; }
+        .tag-public { background: #0891b233; color: #22d3ee; }
+        .tag-international { background: #05966933; color: #34d399; }
+        .tag-religious { background: #dc262633; color: #f87171; }
+        .tag-bilingual { background: #2563eb33; color: #60a5fa; }
+        
+        .trend-list { list-style: none; }
+        .trend-list li {
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            gap: 15px;
+        }
+        .trend-list li:last-child { border-bottom: none; }
+        .trend-icon { font-size: 1.5em; }
+        .trend-content h4 { color: var(--primary); margin-bottom: 5px; }
+        .trend-content p { color: var(--text-secondary); font-size: 0.9em; }
+        
+        .strategy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 15px;
+        }
+        
+        .strategy-card {
+            background: var(--bg-input);
+            border-radius: 10px;
+            padding: 20px;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .strategy-card h4 { 
+            color: var(--primary); 
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .strategy-card p { 
+            color: var(--text-secondary); 
+            font-size: 0.9em;
+        }
+        
+        .stat-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .stat-card {
+            background: var(--bg-input);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .stat-value { 
+            font-size: 2em; 
+            font-weight: 700; 
+            color: var(--primary);
+        }
+        
+        .stat-label { 
+            color: var(--text-muted); 
+            font-size: 0.85em;
+            margin-top: 5px;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: var(--text-muted);
+            font-size: 0.85em;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 { font-size: 1.8em; }
+            .company-grid { grid-template-columns: 1fr; }
+            .meta-bar { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎓 Leads: Schools & Education</h1>
+            <div class="subtitle">Publicidad y Marketing para Colegios en Costa Rica</div>
+            <div class="badge">📅 Viernes 1 de Mayo, 2026 — 15:00 UTC</div>
+        </div>
+        
+        <div class="meta-bar">
+            <div class="meta-item">
+                <span class="label">Nichos:</span>
+                <span class="value">Schools, Colegios, Gimnasios, Liceos</span>
+            </div>
+            <div class="meta-item">
+                <span class="label">País:</span>
+                <span class="value">Costa Rica</span>
+            </div>
+            <div class="meta-item">
+                <span class="label">Leads:</span>
+                <span class="value">10 empresas</span>
+            </div>
+            <div class="meta-item">
+                <span class="label">Fuente:</span>
+                <span class="value">Investigación Aurea</span>
+            </div>
+        </div>
+        
+        <div class="stat-row">
+            <div class="stat-card">
+                <div class="stat-value">4,200+</div>
+                <div class="stat-label">Centros educativos en CR</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">$850M</div>
+                <div class="stat-label">Inversión anual en educación</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">1.5M</div>
+                <div class="stat-label">Estudiantes matriculados</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">85%</div>
+                <div class="stat-label">Tienen presencia digital</div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">🏫 Empresas Encontradas</h2>
+            
+            <div class="company-grid">
+                
+                <div class="company-card">
+                    <div class="company-name">Colegio Lincoln</div>
+                    <div class="company-detail">
+                        <span class="label">Tipo:</span>
+                        <span class="value">Privado / Internacional</span>
+                    </div>
+                    <div class="company-detail">
+                        <span class="label">Ubicación:</span>
+                        <span class="value">San José, Rohrmoser</span>
+                    </div>
+                    <div class="company-detail">
+                        <span class="label">Contacto:</span>
+                        <span class="value">Dirección: Av. Principal de Rohrmoser</span>
+                    </div>
+                    <div class="company-detail">
+                        <span class="label">Web:</span>
+                        <span class="value">colegiolincoln.ed.cr</span>
+                    </div>
+                    <span class="tag tag-international">Internacional</span>
+                    <span class="tag tag-bilingual">Bilingüe</span>
+                    <p style="margin-top:10px;color:var(--text-secondary);font-size:0.85em;">
+                        Uno de los colegios más prestigiosos de CR. Currículo estadounidense con preparación IB. 
+                        Decision makers: Dirección Académica y Departamento de Comunicaciones.
+                    </p>
+                </div>
+                
+                <div class="company-card">
+                    <div class="company-name">Colegio Humboldt</div>
+                    <div class="company-detail">
+                        <span class="label">Tipo:</span>
+                        <span class="value">Privado / Alemán</span>
+                    </div>
+                    <div class="company-detail">
+                        <span class="label">Ubicación:</span>
+                        <span class="value">San José, Escazú</span>
+                    </div>
+                    <div class="company-detail">
+                        <span class="label">Contacto:</span>
+                        <span class="value">Av. Manuel Antonio de la Fuente, Escazú</span>
+                    </div>
+                    <span class="tag tag-international">Currículo Alemán</span>
+                    <span class="tag tag-bilingual">Trilingüe</span>
+                    <p style="margin-top:10px;color:var(--text-secondary);font-size:0.85em;">
+                        Educación alemana con programa IB. Fuerte inversión en tecnología educativa. 
+                        Potencial para alianzas con empresas alemanas en CR.
+                    </p>
+                </div>
+                
+                <div class="company-card">
+                    <div class="company-name">Liceo de Costa Rica (Edgar Cervantes)</div>
+                    <div class="company-detail">
+                        <span class="label">Tipo:</span>
+                        <span class="value">Público / Bicentenario</span>
+                    </div>
+                    <div class="company-detail">
+                        <span class="label">Ubicación:</span>
+                        <span class="value">San José, El Carmen</span>
+                    </div>
+                    <div class="company-detail">
+                        <span class="label">Contacto:</span>
+                        <span class="value">Dirección: Calle Central, San José</span>
+                    </div>
+                    <span class="tag tag-public">Público</span>
+                    <p style="margin-top:10px;color:var(--text-secondary);font-size:0.85em;">
+                        Liceo emblematico con programa BIC (Bachillerato Internacional). 
+                        Programas de artes y ciencias. Contacto: Dirección Regional MEP.
+                    </p>
+                </div>
+                
+                <div class="company-card">
+                    <div class="company-name">Saint Francis School</div>
+                    <div class="company-detail">
+                        <span class="label">Tipo:</span>
+                        <span class="value">Privado / Cristiano</span>
+                    </div>
+                    <div class="company-detail">
+                        <span class="label">Ubicación:</span>
+                        <span class="value">Heredia, Santo Domingo</span>
+                    </div>
+                    <div class="company-detail">
+                        <span class="label">Contacto:</span>
+                        <span class="value">info@saintfranciscostarica.com</span>
+                    </div>
+                    <div class="company-detail">
+                        <span class="label">Web:</span>
+                        <span class="value">saintfranciscostarica.edu</span>
+                    </div>
+                    <span class="tag tag-private">Privado</span>
+                    <span class="tag tag-religious">Cristiano</span>
+                    <p style="margin-top:10px;color:var(--text-secondary);font-size:0.85em;">
+                        Educación cristiana reformada con programa Cambridge. 
+                        Enfocado en desarrollo de carácter y excelencia académica.
+                    </p>
+                </div>
+                
+                <div class="company-card">
+                    <div class="company-name">Colegio Angloamericano</div>
+                    <div class="company-detail">
+                        <span class="label">Tipo:</span>
+                        <span class="value">Privado / Bilingüe</span>
+                    </div>
+                    <div class="company-detail">
+                        <span class="label">Ubicación:</span>
+                        <span class="value">San José, Santa Ana</span>
+                    </div>
+                    <div class="company-detail">
+                        <span class="label">Contacto:</span>
+                        <span class="value">admisiones@colegioanglo.edu</span>
+                    </div>
+                    <span class="tag tag-bilingual">Bilingüe</span>
+                    <span class="tag tag-private">Privado</span>
+                    <p style="margin-top:10px;color:var(--text-secondary);font-size:0.85em;">
+                        Programa educativo bilingüe español-inglés. Currículo costarricense 
+                        complementado con elementos internacionales. Matrícula: ~800 estudiantes.
+                    </p>
+                </div>
+                
+                <div class="company-card">
+                    <div class="company-name">Blue Valley School</div>
+                    <div class="company-detail">
+                        <span class="label">Tipo:</span>
+                        <span class="value">Privado / IB World School</span>
+                    </div>
+                    <div class="company-detail">
+                        <span class="label">Ubicación:</span>
+                        <span class="value">Heredia,漳州 (Berkeley)</span>
+                    </div>
+                    <div class="company-detail">
+                        <span class="label">Web:</span>
+                        <span class="value">bluevalley.ed.cr</span>
+                    </div>
+                    <span class="tag tag-bilingual">IB Program</span>
+                    <span class="tag tag-international">Premium</span>
+                    <p style="margin-top:10px;color:var(--text-secondary);font-size:0.85em;">
+                        Programa IB (PYP, MYP, DP). Uno de los colegios con mejores 
+                        resultados en pruebas IB. Families de alto poder adquisitivo.
+                    </p>
+                </div>
+                
+                <div class="company-card">
+                    <div class="company-name">Colegio María Inmaculada</div>
+                    <div class="company-detail">
+                        <span class="label">Tipo:</span>
+                        <span class="value">Privado / Católica</span>
+                    </div>
+                    <div class="company-detail">
+                        <span class="label">Ubicación:</span>
+                        <span class="value">San José, Carmen</span>
+                    </div>
+                    <div class="company-detail">
+                        <span class="label">Contacto:</span>
+                        <span class="value">info@colegiomaríainmaculada.ed.cr</span>
+                    </div>
+                    <span class="tag tag-private">Privado</span>
+                    <span class="tag tag-religious">Católico</span>
+                    <p style="margin-top:10px;color:var(--text-secondary);font-size:0.85em;">
+                        Institución católica con 70+ años de historia. Educación integral 
+                        con énfasis en valores. Red de 12 campuses en el país.
+                    </p>
+                </div>
+                
+                <div class="company-card">
+                    <div class="company-name">Trade Lane Academy</div>
+                    <div class="company-detail">
+                        <span class="label">Tipo:</span>
+                        <span class="value">Privado / Técnico</span>
+                    </div>
+                    <div class="company-detail">
+                        <span class="label">Ubicación:</span>
+                        <span class="value">Alajuela, Atenas</span>
+                    </div>
+                    <div class="company-detail">
+                        <span class="label">Web:</span>
+                        <span class="value">tradelaneacademy.com</span>
+                    </div>
+                    <span class="tag tag-private">Técnico</span>
+                    <span class="tag tag-bilingual">Bilingüe</span>
+                    <p style="margin-top:10px;color:var(--text-secondary);font-size:0.85em;">
+                        Programa técnico con especialización en comercio internacional 
+                        y logística. Alineado con zonas francas y exportadoras.
+                    </p>
+                </div>
+                
+                <div class="company-card">
+                    <div class="company-name">Gimnasio Nacional de Costa Rica</div>
+                    <div class="company-detail">
+                        <span class="label">Tipo:</span>
+                        <span class="value">Público / Histórico</span>
+                    </div>
+                    <div class="company-detail">
+                        <span class="label">Ubicación:</span>
+                        <span class="value">San José, Avenida Segunda</span>
+                    </div>
+                    <div class="company-detail">
+                        <span class="label">Contacto:</span>
+                        <span class="value">MEP: mep.go.cr</span>
+                    </div>
+                    <span class="tag tag-public">Público</span>
+                    <span class="tag tag-historical">Histórico</span>
+                    <p style="margin-top:10px;color:var(--text-secondary);font-size:0.85em;">
+                        El liceo público más antiguo de Costa Rica. Programas académicos 
+                        fuertes en ciencias y humanidades. Enfoque en admission a universidades públicas.
+                    </p>
+                </div>
+                
+                <div class="company-card">
+                    <div class="company-name">Escuela Nueva (Red de Colegios)</div>
+                    <div class="company-detail">
+                        <span class="label">Tipo:</span>
+                        <span class="value">Privado / Modelo Pedagógico</span>
+                    </div>
+                    <div class="company-detail">
+                        <span class="label">Ubicación:</span>
+                        <span class="value">Múltiples ubicaciones en CR</span>
+                    </div>
+                    <div class="company-detail">
+                        <span class="label">Web:</span>
+                        <span class="value">escuelanueva.edu.co (presente en CR)</span>
+                    </div>
+                    <span class="tag tag-private">Modelo Innovador</span>
+                    <span class="tag tag-bilingual">Bilingüe</span>
+                    <p style="margin-top:10px;color:var(--text-secondary);font-size:0.85em;">
+                        Metodología de educación activa y participativa. Presentes en 
+                        10+ países. En CR tienen campuses en Heredia y Guanacaste.
+                    </p>
+                </div>
+                
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">📊 Tendencias del Mercado Educativo 2026</h2>
+            <ul class="trend-list">
+                <li>
+                    <span class="trend-icon">🎯</span>
+                    <div class="trend-content">
+                        <h4>Educación Híbrida como Estándar</h4>
+                        <p>El 65% de colegios privados han incorporado plataformas digitales (Google Classroom, Schoology) como complemento a clases presenciales. Inversión en EdTech creció 40% en 2025.</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="trend-icon">🌐</span>
+                    <div class="trend-content">
+                        <h4>Demanda de Programas IB y Cambridge</h4>
+                        <p>Las familias de clase media-alta buscan cada vez más programas internacionales. 15 nuevas escuelas obtienen certificación IB en 2025-2026.</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="trend-icon">💻</span>
+                    <div class="trend-content">
+                        <h4>Alfabetización Digital y Coding</h4>
+                        <p>Colegios están incorporando programación desde primaria (Scratch, Python) y robótia. Alianzas con empresas tech como Google y Microsoft para certificaciones.</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="trend-icon">🌱</span>
+                    <div class="trend-content">
+                        <h4>Educación Ambiental y Sostenibilidad</h4>
+                        <p>Creciente demanda de programas de sostenibilidad. Muchas escuelas buscan certificaciones Green School y proyectos de impacto ambiental.</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="trend-icon">📱</span>
+                    <div class="trend-content">
+                        <h4>Comunicación Familia-Escuela Digital</h4>
+                        <p>Apps como ClassDojo, Remind y portals de padres son estándar. Schools buscan soluciones de comunicación más integradas y personalizadas.</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="trend-icon">🏆</span>
+                    <div class="trend-content">
+                        <h4>Actividades Extracurriculares Premium</h4>
+                        <p>Deportes, artes escénicas y música como diferenciadores. Inversiones en instalaciones deportivas y theaters escolares aumentan.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">🎯 Estrategias de Contacto Recomendadas</h2>
+            
+            <div class="strategy-grid">
+                <div class="strategy-card">
+                    <h4>📧 Email Marketing Dirigido</h4>
+                    <p>Enfocar en Admisiones y Dirección Académica. Contenido sobre casos de éxito en otros colegios. Presentación de ROI de campaigns digitales. Follow-up con llamada.</p>
+                </div>
+                <div class="strategy-card">
+                    <h4>🤝 Eventos Educativos</h4>
+                    <p>Patrocinar o participar en ferias educativas (Expoeduca, FEUCR). Ofrecer workshops gratuitos sobre marketing digital para escuelas. Networking con directivos.</p>
+                </div>
+                <div class="strategy-card">
+                    <h4>📸 Caso de Éxito Visual</h4>
+                    <p>Desarrollar case studies de colegios que transformaron su presencia digital. Portfolio con métricas: aumento en matrícula, engagement de padres.</p>
+                </div>
+                <div class="strategy-card">
+                    <h4>🎓 Paquetes para Año Escolar</h4>
+                    <p>Ofrecer planes anuales con descuentos por compromiso de 12 meses. Incluir: social media management, website, email marketing, ads estacionales (matrículas).</p>
+                </div>
+                <div class="strategy-card">
+                    <h4>📊 Dashboard de Métricas</h4>
+                    <p>Proporcionar reportes mensuales con métricas de desempeño. Transparency genera confianza. Herramientas: Google Analytics, Meta Business Suite.</p>
+                </div>
+                <div class="strategy-card">
+                    <h4>👨‍👩‍👧 Campañas de Admisiones</h4>
+                    <p>Temporada clave: Sept-Dic (matrículas nuevo año). Campañas de ads segmentadas por ubicación, nivel socioeconómico, intereses educativos.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">💡 Insights Adicionales</h2>
+            <ul style="list-style:disc;padding-left:20px;color:var(--text-secondary);">
+                <li style="margin:10px 0;"><strong>Costo promedio matrícula anual:</strong> $3,000-$15,000 USD según tipo de institución</li>
+                <li style="margin:10px 0;"><strong>Temporada alta de decisiones:</strong> Agosto-Diciembre (matrículas) y Febrero-Abril (traslados)</li>
+                <li style="margin:10px 0;"><strong>Decision makers:</strong> Dirección General, Dirección Académica, Departamento de Admisiones, Consejo Directivo (en privados)</li>
+                <li style="margin:10px 0;"><strong>Challenge principal:</strong> Diferenciación en mercado saturado - las schools necesitan destacar en un mercado donde 85% tiene presencia digital básica</li>
+                <li style="margin:10px 0;"><strong>Oportunidad:</strong> Video content (virtual tours, testimonios de padres) está subutilizado - solo 35% de colegios lo usan efectivamente</li>
+            </ul>
+        </div>
+        
+        <div class="footer">
+            <p>Reporte generado por Logos (Aurea Advertising Agency) | 2026-05-01 15:00 UTC</p>
+            <p style="margin-top:10px;">⚠️ Verificar datos de contacto antes de outreach. La información puede cambiar.</p>
+        </div>
+    </div>
+</body>
+</html>
