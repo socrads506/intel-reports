@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aurea Leads — Hotels Costa Rica | 30 Abr 2026 21:00</title>
+  <style>
+    :root {
+      --bg: #0d0f14;
+      --surface: #151820;
+      --surface2: #1c2030;
+      --border: #252a3a;
+      --accent: #f0a500;
+      --accent2: #e05c3a;
+      --text: #e8eaf0;
+      --text-dim: #8891a8;
+      --green: #3ecf8e;
+      --red: #f05252;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', sans-serif; line-height: 1.6; }
+    .container { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem; }
+
+    .header { text-align: center; margin-bottom: 2.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); }
+    .header .badge { display: inline-block; background: var(--accent); color: #000; font-weight: 700; font-size: 0.7rem; padding: 3px 10px; border-radius: 20px; margin-bottom: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; }
+    .header h1 { font-size: 1.8rem; color: #fff; margin-bottom: 0.3rem; }
+    .header h1 span { color: var(--accent); }
+    .header p { color: var(--text-dim); font-size: 0.85rem; }
+    .header .meta { display: flex; justify-content: center; gap: 1.5rem; margin-top: 0.75rem; font-size: 0.75rem; color: var(--text-dim); }
+    .header .meta span { display: flex; align-items: center; gap: 0.3rem; }
+
+    .niche-banner { background: linear-gradient(135deg, var(--surface2), #1e2538); border: 1px solid var(--border); border-radius: 12px; padding: 1.2rem 1.5rem; margin-bottom: 2rem; display: flex; align-items: center; gap: 1rem; }
+    .niche-banner .icon { font-size: 2rem; }
+    .niche-banner .text h2 { color: #fff; font-size: 1.1rem; margin-bottom: 0.2rem; }
+    .niche-banner .text p { color: var(--text-dim); font-size: 0.8rem; }
+    .niche-banner .tag { margin-left: auto; background: var(--accent); color: #000; font-weight: 700; font-size: 0.65rem; padding: 4px 12px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.08em; white-space: nowrap; }
+
+    .section { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; }
+    .section h3 { color: #fff; font-size: 0.95rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem; }
+    .section h3 .emoji { font-size: 1.1rem; }
+    .section h3 .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+
+    .companies-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .company-card { background: var(--surface2); border: 1px solid var(--border); border-radius: 10px; padding: 1.1rem; transition: border-color 0.2s; }
+    .company-card:hover { border-color: var(--accent); }
+    .company-card .name { color: #fff; font-weight: 600; font-size: 0.9rem; margin-bottom: 0.3rem; }
+    .company-card .type { font-size: 0.7rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.5rem; }
+    .company-card .detail { font-size: 0.78rem; color: var(--text-dim); margin-bottom: 0.2rem; }
+    .company-card .detail strong { color: var(--text); }
+    .company-card .contact-strategy { margin-top: 0.6rem; padding-top: 0.6rem; border-top: 1px solid var(--border); font-size: 0.72rem; color: var(--green); }
+
+    .trend-item { display: flex; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid var(--border); }
+    .trend-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .trend-item .num { font-size: 1.5rem; font-weight: 800; color: var(--accent); line-height: 1; min-width: 2rem; }
+    .trend-item h4 { color: #fff; font-size: 0.9rem; margin-bottom: 0.25rem; }
+    .trend-item p { font-size: 0.78rem; color: var(--text-dim); }
+
+    .contact-strategies li { background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; padding: 0.9rem 1rem; margin-bottom: 0.7rem; font-size: 0.82rem; color: var(--text-dim); }
+    .contact-strategies li strong { color: var(--accent); }
+    .contact-strategies li::before { content: "→ "; color: var(--accent); }
+
+    .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .stat-card { background: var(--surface2); border: 1px solid var(--border); border-radius: 10px; padding: 1rem; text-align: center; }
+    .stat-card .value { font-size: 1.6rem; font-weight: 800; color: var(--accent); }
+    .stat-card .label { font-size: 0.7rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 0.2rem; }
+    .stat-card .sub { font-size: 0.65rem; color: var(--green); margin-top: 0.3rem; }
+
+    .cta-box { background: linear-gradient(135deg, #1a1d28, #1e2538); border: 1px solid var(--accent); border-radius: 12px; padding: 1.5rem; text-align: center; }
+    .cta-box h4 { color: var(--accent); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.5rem; }
+    .cta-box p { color: var(--text-dim); font-size: 0.82rem; margin-bottom: 1rem; }
+
+    .footer { text-align: center; padding: 1.5rem 0; color: var(--text-dim); font-size: 0.7rem; border-top: 1px solid var(--border); margin-top: 1rem; }
+
+    .cold-email-template { background: var(--surface2); border: 1px solid var(--border); border-radius: 10px; padding: 1.2rem; margin-top: 1rem; font-size: 0.78rem; color: var(--text-dim); }
+    .cold-email-template .label { color: var(--accent); font-weight: 600; margin-bottom: 0.5rem; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; }
+    .cold-email-template pre { font-family: 'Segoe UI', sans-serif; white-space: pre-wrap; line-height: 1.7; }
+
+    @media (max-width: 600px) {
+      .companies-grid, .stats-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="badge">🔎 Lead Research — Costa Rica</div>
+    <h1>AUREA <span>LEADS</span></h1>
+    <p>Publicidad &amp; Marketing Intelligence</p>
+    <div class="meta">
+      <span>📅 30 Abril 2026</span>
+      <span>⏰ 21:00 CST</span>
+      <span>🏷️ Hotels &amp; Hospitality</span>
+    </div>
+  </div>
+
+  <!-- NICHE BANNER -->
+  <div class="niche-banner">
+    <div class="icon">🏨</div>
+    <div class="text">
+      <h2>Nicho: Hoteles &amp; Hospitality Costa Rica</h2>
+      <p>Cadenas internacionales, resorts de lujo, boutique hotels y operadores turísticos con necesidad de marketing digital.</p>
+    </div>
+    <div class="tag">🔄 Semana 9/8</div>
+  </div>
+
+  <!-- STATS -->
+  <div class="section">
+    <h3><span class="dot"></span>Mercado Hotelería Costa Rica — Quick Stats</h3>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="value">3.5M+</div>
+        <div class="label">Turistas 2025</div>
+        <div class="sub">↑ En recuperación</div>
+      </div>
+      <div class="stat-card">
+        <div class="value">66.9%</div>
+        <div class="label">Share Alojamiento</div>
+        <div class="sub">Del mercado turístico</div>
+      </div>
+      <div class="stat-card">
+        <div class="value">11.4%</div>
+        <div class="label">CAGR 2031</div>
+        <div class="sub">Travel services</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMPANIES -->
+  <div class="section">
+    <h3><span class="dot"></span>🏢 Hoteles Identificados — Leads para Aurea</h3>
+    <div class="companies-grid">
+
+      <div class="company-card">
+        <div class="type">🏖️ Resort de Lujo</div>
+        <div class="name">Four Seasons Resort Costa Rica<br>Peninsula Papagayo</div>
+        <div class="detail"><strong>Ubicación:</strong> Guanacaste, Papagayo</div>
+        <div class="detail"><strong>Cadena:</strong> Four Seasons (Hyatt)</div>
+        <div class="detail"><strong>Contacto:</strong> Brent Martin — General Manager</div>
+        <div class="detail"><strong>Marketing:</strong> Mark Ley — Director of Marketing</div>
+        <div class="contact-strategy">💡 Enfoque: branding de lujo, partnerships con OTAs premium, campañas estacionales en mercados США y Europa.</div>
+      </div>
+
+      <div class="company-card">
+        <div class="type">🏨 Hotel Histórico — Hilton</div>
+        <div class="name">Gran Hotel Costa Rica<br>Curio Collection by Hilton</div>
+        <div class="detail"><strong>Ubicación:</strong> San José, centro</div>
+        <div class="detail"><strong>Cadena:</strong> Hilton / Curio Collection</div>
+        <div class="detail"><strong>Target:</strong> Marketing Manager local + Hilton LATAM</div>
+        <div class="contact-strategy">💡 Enfoque: marketing para segmento MICE y turismo cultural. Posibilidad de co-branding con la campaña oficial de Costa Rica.</div>
+      </div>
+
+      <div class="company-card">
+        <div class="type">🏨 Hotel Urbano — Cadena</div>
+        <div class="name">Barceló San José Hotel</div>
+        <div class="detail"><strong>Ubicación:</strong> San José, cerca aeropuerto</div>
+        <div class="detail"><strong>Cadena:</strong> Barceló Hotels &amp; Resorts (España)</div>
+        <div class="detail"><strong>Target:</strong> Director de Marketing CR + HQ Barceló</div>
+        <div class="contact-strategy">💡 Enfoque: renovaciones recientes ($110M invertidos en 12 propiedades CR). Campañas de recuperación post-COVID para mercado corporativo.</div>
+      </div>
+
+      <div class="company-card">
+        <div class="type">🏖️ Resort &amp; Experiencia</div>
+        <div class="name">Andaz Peninsula Papagayo<br>by Hyatt</div>
+        <div class="detail"><strong>Ubicación:</strong> Guanacaste, Papagayo</div>
+        <div class="detail"><strong>Cadena:</strong> Hyatt / Andaz</div>
+        <div class="detail"><strong>Contacto:</strong> Dale N. Smith — Director of Sales &amp; Marketing</div>
+        <div class="contact-strategy">💡 Enfoque:旅客UX premium, redes sociales de alta gama, influencers de viaje, experiential marketing para bodas y retiros corporativos.</div>
+      </div>
+
+      <div class="company-card">
+        <div class="type">⛳ Resort Golf &amp; Marina</div>
+        <div class="name">Los Sueños Marriott Ocean<br>&amp; Golf Resort</div>
+        <div class="detail"><strong>Ubicación:</strong> Herradura, Jacó</div>
+        <div class="detail"><strong>Cadena:</strong> Marriott International</div>
+        <div class="detail"><strong>Target:</strong> Marketing Director + Marriott LATAM</div>
+        <div class="contact-strategy">💡 Enfoque: Marriott Bonoy program, grupos MICE, jugadores de golf США. Sustainability branding (CST certification).</div>
+      </div>
+
+      <div class="company-card">
+        <div class="type">🏡 Boutique Lodge</div>
+        <div class="name">Chayote Lodge</div>
+        <div class="detail"><strong>Ubicación:</strong> Valle Central / Manuel Antonio</div>
+        <div class="detail"><strong>Dueño:</strong> Rolando Campos — Veteran tourism (30 años)</div>
+        <div class="detail"><strong>Segmento:</strong> Lujo, retiros, bodas</div>
+        <div class="contact-strategy">💡 Enfoque: dueños independientes abiertos a agencias creativas boutique. Propuesta de contenido para podcast/video tourism marketing.</div>
+      </div>
+
+      <div class="company-card">
+        <div class="type">🏨 Hotel Boutique</div>
+        <div class="name">Hotel Parque del Lago<br>Boutique Hotel</div>
+        <div class="detail"><strong>Ubicación:</strong> San José, Sabana</div>
+        <div class="detail"><strong>Tipo:</strong> Boutique independiente</div>
+        <div class="detail"><strong>Target:</strong> Gerente General / Owner</div>
+        <div class="contact-strategy">💡 Enfoque: independencia de cadenas = más autonomía para contratar agencia externa. Ideal para estrategia digital local completa.</div>
+      </div>
+
+      <div class="company-card">
+        <div class="type">🏨 Cadena — IHG</div>
+        <div class="name">Crowne Plaza San José<br>La Sabana by IHG</div>
+        <div class="detail"><strong>Ubicación:</strong> San José, La Sabana</div>
+        <div class="detail"><strong>Cadena:</strong> IHG (InterContinental)</div>
+        <div class="detail"><strong>Target:</strong> Marketing Manager + IHG regional</div>
+        <div class="contact-strategy">💡 Enfoque: corporativo y negocios. Posibilidad de pitch para cuenta regional IHG o propiedad individual.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- MARKET TRENDS -->
+  <div class="section">
+    <h3><span class="dot"></span>📊 Tendencias de Marketing Hotelería 2026</h3>
+
+    <div class="trend-item">
+      <div class="num">01</div>
+      <div>
+        <h4>IA Agentic para Operaciones y Experiencia de Huésped</h4>
+        <p>Hoteles de lujo implementan agentes de IA para planificación dinámica de viajes, recomendaciones personalizadas y gestión de operaciones. La barrera: requieren partners tecnológicos para integración.</p>
+      </div>
+    </div>
+
+    <div class="trend-item">
+      <div class="num">02</div>
+      <div>
+        <h4>TikTok como Canal de Reservación Directa</h4>
+        <p>TikTok Travel Ads ahora permite mostrar habitaciones, paquetes y experiencias directamente en la app — y completar la reserva sin salir de la plataforma. Clave para hoteles que apuntan a viajeros jóvenes y luxury.</p>
+      </div>
+    </div>
+
+    <div class="trend-item">
+      <div class="num">03</div>
+      <div>
+        <h4>Metasearch y Direct Booking como Prioridad Estratégica</h4>
+        <p>Google Hotel Ads, TripAdvisor y OTAs compiten por la misma reserva. Los hoteles que dominan sus feeds, paridad de tarifas y bids dinámicos tienen menor costo de adquisición. El objetivo: reducir dependencia de Booking.com y Expedia.</p>
+      </div>
+    </div>
+
+    <div class="trend-item">
+      <div class="num">04</div>
+      <div>
+        <h4>Sostenibilidad Verificada como Diferenciador</h4>
+        <p>Costa Rica tiene ventaja competitiva con Certification for Sustainable Tourism (CST). Los hoteles que integran CST en su messaging y tienen páginas de sostenibilidad propias (ej: Los Sueños + Marriott Serve 360) se posicionan mejor en segmentos premium.</p>
+      </div>
+    </div>
+
+    <div class="trend-item">
+      <div class="num">05</div>
+      <div>
+        <h4>Bifurcación Económica — Lujo vs. Experiencias Auténticas</h4>
+        <p>El mercado se polariza: viajeros de alta renta buscan retreats de lujo en la naturaleza; el segmento medio-optimitza presupuesto pero quiere experiencias auténticas. Los hoteles boutique y wellness lodges están en el punto ideal.</p>
+      </div>
+    </div>
+
+    <div class="trend-item">
+      <div class="num">06</div>
+      <div>
+        <h4>Campaña Oficial Costa Rica — Oportunidad para Partners</h4>
+        <p>El ICT (Instituto Costarricense de Turismo) lanza campaña publicitaria en mercados europeos prioridad (Mar-Nov 2026). Hoteles que se alineen con la campaña país tienen oportunidad de co-branding y mayor visibilidad internacional.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CONTACT STRATEGIES -->
+  <div class="section">
+    <h3><span class="dot"></span>📋 Estrategias de Contacto para Aurea</h3>
+    <ul class="contact-strategies">
+      <li><strong>Cadenas internacionales (Four Seasons, Marriott, Hilton, IHG):</strong> Contactar al Director de Marketing local + equipo regional LATAM. Pitch: caso de éxito en hospitality, capacidades de performance marketing y branded content para el mercado estadounidense y europeo.</li>
+      <li><strong>Boutique hotels independientes (Chayote Lodge, Parque del Lago):</strong> Outreach directo al owner/GM vía LinkedIn o email. Propuesta: paquete de marketing digital completo (social media management + SEO + Google Hotel Ads setup) con propuesta de valor diferenciada vs. agencias grandes.</li>
+      <li><strong>Barceló:</strong> Leveraging su inversión de $110M en renovaciones. Enfoque en storytelling post-renovación y campañas para recuperar mercado corporativo post-pandemia.</li>
+      <li><strong>Andaz + Four Seasons:</strong> Altamente selectivity para agencias. Requiere portfolio en hospitality de lujo, referencias verificables, y propuesta de AI-driven personalization o revenue management marketing.</li>
+      <li><strong>Hoteles cerca del ICT Campaign:</strong> Contactar ahora (abril 2026) para alinearse con la campaña oficial europea. Opportunity window: antes de que la campaña peak en verano boreal.</li>
+    </ul>
+  </div>
+
+  <!-- COLD EMAIL TEMPLATE -->
+  <div class="section">
+    <h3><span class="dot"></span>✉️ Cold Email Template — Hospitality</h3>
+    <div class="cold-email-template">
+      <div class="label">Asunto: [Hotel Name] + estrategia de directo booking 2026</div>
+      <pre>Hola [Nombre],
+
+Vi el posicionamiento de [Hotel Name] en [fuente] y creo que hay una oportunidad concreta en 2026.
+
+En Aurea trabajamos con hoteles en LATAM ayudándolos a:
+→ Reducir dependencia de Booking.com/Expedia (comisiones 15-25%)
+→ Implementar Google Hotel Ads y TikTok Travel Ads con ROAS medible
+→ Crear contenido de marca para el mercado estadounidense y europeo
+
+[Hotels como Four Seasons CR, Andaz, Marriott] ya están haciendo esta transición. ¿Tenemos 20 minutos esta o próxima semana para mostrarle cómo lo vemos para [Hotel Name]?
+
+Saludos,
+[Tu nombre]
+Aurea — Publicidad y Marketing Digital</pre>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-box">
+    <h4>🎯 Prioridad de Seguimiento Esta Semana</h4>
+    <p>Contactar primero a <strong>Hotel Parque del Lago</strong> (independiente, decisión rápida) y <strong>Chayote Lodge</strong> (owner accesible, 30 años en tourism). Segundo nivel: equipos marketing de Marriott y Hilton CR.</p>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <p>Reporte generado automáticamente por Logos (OpenClaw) para Aurea Advertising Agency</p>
+    <p>Fuentes: TechBehemoths, Colliers, Mordor Intelligence, Glassdoor, HospitalityNet, Cloudbeds, Travel2Latam, Sojern, PRNewswire</p>
+    <p>⚠️ Datos públicos solamente. Verificar información de contacto antes de outreach.</p>
+  </div>
+
+</div>
+</body>
+</html>
