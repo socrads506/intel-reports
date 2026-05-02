@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurea Leads - Clínicas Privadas Costa Rica | 2 Mayo 2026</title>
+    <style>
+        :root {
+            --bg-primary: #0d1117;
+            --bg-secondary: #161b22;
+            --bg-card: #21262d;
+            --accent: #58a6ff;
+            --accent-secondary: #238636;
+            --text-primary: #c9d1d9;
+            --text-secondary: #8b949e;
+            --border: #30363d;
+            --warning: #d29922;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 30px;
+            margin-bottom: 40px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #7c3aed, #a855f7);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #58a6ff, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .meta-info {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .meta-item svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+        }
+
+        .stat-card .number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+
+        .stat-card .label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .stat-card.highlight {
+            border-color: var(--accent);
+            background: linear-gradient(135deg, rgba(88, 166, 255, 0.1), rgba(168, 85, 247, 0.1));
+        }
+
+        section {
+            margin-bottom: 50px;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        h2 svg {
+            width: 24px;
+            height: 24px;
+            color: var(--accent);
+        }
+
+        .company-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 16px;
+            transition: border-color 0.2s, transform 0.2s;
+        }
+
+        .company-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .company-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .company-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .company-type {
+            display: inline-block;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            padding: 4px 12px;
+            border-radius: 16px;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .company-description {
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+            font-size: 0.95rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .contact-item svg {
+            width: 16px;
+            height: 16px;
+            color: var(--accent);
+        }
+
+        .decision-maker {
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid var(--border);
+        }
+
+        .decision-maker-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+
+        .decision-maker-name {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .decision-maker-role {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .trend-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 16px;
+        }
+
+        .trend-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .trend-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--accent), #a855f7);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .trend-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .trend-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 16px;
+        }
+
+        .trend-action {
+            background: var(--bg-secondary);
+            border-left: 3px solid var(--accent);
+            padding: 12px 16px;
+            font-size: 0.9rem;
+        }
+
+        .strategy-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 16px;
+        }
+
+        .strategy-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: var(--accent);
+            color: white;
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 16px;
+        }
+
+        .strategy-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .strategy-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 16px;
+        }
+
+        .strategy-tactics {
+            list-style: none;
+            padding: 0;
+        }
+
+        .strategy-tactics li {
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .strategy-tactics li:last-child {
+            border-bottom: none;
+        }
+
+        .strategy-tactics li::before {
+            content: "→";
+            color: var(--accent);
+        }
+
+        footer {
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .container {
+                padding: 20px;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <span class="badge">Investigación de Leads</span>
+            <h1>Clínicas Privadas en Costa Rica</h1>
+            <p class="subtitle">Oportunidades de publicidad y marketing digital para agencias</p>
+            <div class="meta-info">
+                <div class="meta-item">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                    2 de Mayo, 2026
+                </div>
+                <div class="meta-item">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    15:03 UTC
+                </div>
+                <div class="meta-item">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                    San José, Costa Rica
+                </div>
+                <div class="meta-item">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+                    Nicho: Clínicas Privadas
+                </div>
+            </div>
+        </header>
+
+        <div class="stats-grid">
+            <div class="stat-card highlight">
+                <div class="number">$289M</div>
+                <div class="label">Mercado turismo médico 2024</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">19.12%</div>
+                <div class="label">Crecimiento anual (2025-2033)</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">$1.66B</div>
+                <div class="label">Proyección 2033</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">8</div>
+                <div class="label">Empresas analizadas</div>
+            </div>
+        </div>
+
+        <section>
+            <h2>
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                Empresas Identificadas
+            </h2>
+
+            <div class="company-card">
+                <div class="company-header">
+                    <span class="company-name">Hospital Clínica Bíblica</span>
+                    <span class="company-type">Hospital Privado Premium</span>
+                </div>
+                <p class="company-description">Uno de los hospitales privados más prestigiados de América Latina. Acreditado por Joint Commission International (JCI). 95+ años de trayectoria. En rankings Merco y Intelat.向我</p>
+                <div class="decision-maker">
+                    <div class="decision-maker-label">Contacto clave</div>
+                    <div class="decision-maker-name">Gerardo Sánchez Cordero</div>
+                    <div class="decision-maker-role">Director General</div>
+                </div>
+                <div class="contact-info" style="margin-top: 12px;">
+                    <div class="contact-item">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
+                        clinicabiblica.com
+                    </div>
+                    <div class="contact-item">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                        servicioalcliente@clinicabiblica.com
+                    </div>
+                </div>
+            </div>
+
+            <div class="company-card">
+                <div class="company-header">
+                    <span class="company-name">Hospital Metropolitano</span>
+                    <span class="company-type">Red Hospitalaria</span>
+                </div>
+                <p class="company-description">Modelo de salud que combina excelente servicio, calidad y precio accesible. Múltiples sedes incluyendo nueva sede en San Carlos. Centro de Cáncer, Salud Mental, Cirugía de Columna.</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
+                        metropolitanocr.com
+                    </div>
+                </div>
+            </div>
+
+            <div class="company-card">
+                <div class="company-header">
+                    <span class="company-name">Hospital UNIBE</span>
+                    <span class="company-type">Hospital Privado</span>
+                </div>
+                <p class="company-description">15+ años de experiencia. Acreditación ACHC. Especialidades en cirugía de tórax, cardiovascular, y procedimientos avanzados como HoLEP. Sede en Tibás y San Pedro.</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
+                        hospitalunibecr.com
+                    </div>
+                </div>
+            </div>
+
+            <div class="company-card">
+                <div class="company-header">
+                    <span class="company-name">Hospital CIMA</span>
+                    <span class="company-type">Centro Médico</span>
+                </div>
+                <p class="company-description">Más de 60 especialidades y sub-especialidades médicas. Atención integral con tecnología de vanguardia.</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
+                        hospitalcima.com
+                    </div>
+                </div>
+            </div>
+
+            <div class="company-card">
+                <div class="company-header">
+                    <span class="company-name">Hospital Internacional La Católica</span>
+                    <span class="company-type">Hospital Privado</span>
+                </div>
+                <p class="company-description">Ubicado frente a Tribunales de Justicia en Goicoechea. Atención médica con estándares internacionales.</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                        servicioalcliente@hilc.cr
+                    </div>
+                    <div class="contact-item">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>
+                        Goicoechea, San José
+                    </div>
+                </div>
+            </div>
+
+            <div class="company-card">
+                <div class="company-header">
+                    <span class="company-name">Hospital Las Américas</span>
+                    <span class="company-type">Hospital Regional</span>
+                </div>
+                <p class="company-description">Líderes en la Zona Sur de Costa Rica. Más de 30 especialidades médicas. Tecnología de vanguardia y atención personalizada.</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
+                        hospitallasamericas.com
+                    </div>
+                    <div class="contact-item">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>
+                        San Isidro del General
+                    </div>
+                </div>
+            </div>
+
+            <div class="company-card">
+                <div class="company-header">
+                    <span class="company-name">Coopesana R.L.</span>
+                    <span class="company-type">Cooperativa de Salud</span>
+                </div>
+                <p class="company-description">Modelo cooperativo en prestación de servicios de salud. Enfoque en economía social solidaria. Desarrollo de proyectos de salud.</p>
+                <div class="decision-maker">
+                    <div class="decision-maker-label">Contacto clave</div>
+                    <div class="decision-maker-name">Luis Beirute</div>
+                    <div class="decision-maker-role">Médico / Gerente General</div>
+                </div>
+            </div>
+
+            <div class="company-card">
+                <div class="company-header">
+                    <span class="company-name">Clínica Confía Salud</span>
+                    <span class="company-type">Clínica Privada</span>
+                </div>
+                <p class="company-description">Clínica con equipo médico familiar. Equipo directivo liderado por Lic. Mariluz Alania (Gerente General).</p>
+                <div class="decision-maker">
+                    <div class="decision-maker-label">Contacto clave</div>
+                    <div class="decision-maker-name">Lic. Mariluz Alania</div>
+                    <div class="decision-maker-role">Gerente General</div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+                Tendencias del Mercado
+            </h2>
+
+            <div class="trend-card">
+                <div class="trend-header">
+                    <div class="trend-icon">📈</div>
+                    <div class="trend-title">Turismo Médico en Auge</div>
+                </div>
+                <p class="trend-description">Costa Rica se posiciona como destino líder para turismo médico, especialmente procedimientos dentales y cosméticos para pacientes de Estados Unidos y Canadá. El mercado pasó de $289M en 2024 a proyectar $1.66B para 2033.</p>
+                <div class="trend-action">
+                    <strong> Oportunidad:</strong> Campañas de posicionamiento para atraer pacientes internacionales, contenido en inglés, SEO para términos de búsqueda en США.
+                </div>
+            </div>
+
+            <div class="trend-card">
+                <div class="trend-header">
+                    <div class="trend-icon">📱</div>
+                    <div class="trend-title">Marketing Digital para Clínicas</div>
+                </div>
+                <p class="trend-description">Las clínicas privadas están invirtiendo activamente en presencia digital. El manejo de redes sociales para médicos se ha convertido en herramienta clave para posicionar consultas y atraer pacientes.</p>
+                <div class="trend-action">
+                    <strong> Oportunidad:</strong> Servicios de gestión de redes sociales, publicidad en Google y Meta, estrategias de reputación online (reseñas Google Business Profile).
+                </div>
+            </div>
+
+            <div class="trend-card">
+                <div class="trend-header">
+                    <div class="trend-icon">🏆</div>
+                    <div class="trend-title">Acreditaciones Internacionales</div>
+                </div>
+                <p class="trend-description">Hospitales como Clínica Bíblica (JCI) y UNIBE (ACHC) destacan sus acreditaciones como diferenciadores. Esto genera demanda por contenido que comunique estos logros a audiencias internacionales.</p>
+                <div class="trend-action">
+                    <strong> Oportunidad:</strong> Creación de contenido multilingual, videos testimoniales, landing pages para mercados extranjeros.
+                </div>
+            </div>
+
+            <div class="trend-card">
+                <div class="trend-header">
+                    <div class="trend-icon">🤖</div>
+                    <div class="trend-title">IA y Automatización</div>
+                </div>
+                <p class="trend-description">Las clínicas están adoptando tecnología de IA para marketing, incluyendo chatbots, personalización de campañas y análisis predictivo de pacientes.</p>
+                <div class="trend-action">
+                    <strong> Oportunidad:</strong> Implementación de chatbots para agendamiento, email marketing automatizado, integración de CRM médico.
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+                Estrategias de Contacto
+            </h2>
+
+            <div class="strategy-card">
+                <div class="strategy-number">1</div>
+                <div class="strategy-title">Enfoque en Medical Tourism</div>
+                <p class="strategy-description">Dado el crecimiento del turismo médico, posicionar a Aurea como agencia especializada en atraer pacientes internacionales para clínicas costarricenses.</p>
+                <ul class="strategy-tactics">
+                    <li>Crear caso de éxito con Hospital Clínica Bíblica</li>
+                    <li>Desarrollar contenido en inglés y portugués</li>
+                    <li>Propuesta de SEO multilingüe para términos como "best plastic surgery Costa Rica"</li>
+                    <li>Campañas Google Ads segmentadas por zip codes de Florida, Texas, California</li>
+                </ul>
+            </div>
+
+            <div class="strategy-card">
+                <div class="strategy-number">2</div>
+                <div class="strategy-title">Paquetes de Redes Sociales para Clínicas</div>
+                <p class="strategy-description">Ofrecer gestión completa de Instagram, Facebook y LinkedIn con enfoque médico, incluyendo contenido educativo y testimonios.</p>
+                <ul class="strategy-tactics">
+                    <li>Auditoría gratuita de presencia digital</li>
+                    <li>Plan de contenido mensual con 4 posts/semana</li>
+                    <li>Stories interactivas para educación de pacientes</li>
+                    <li>Gestión de reseñas y reputación online</li>
+                </ul>
+            </div>
+
+            <div class="strategy-card">
+                <div class="strategy-number">3</div>
+                <div class="strategy-title">Contacto Directo con Decision Makers</div>
+                <p class="strategy-description">Aprovechar los contactos de directors generales identificados para acercamientos personalizados.</p>
+                <ul class="strategy-tactics">
+                    <li>LinkedIn: Conectar con Gerardo Sánchez Cordero (Clínica Bíblica) y Luis Beirute (Coopesana)</li>
+                    <li>Email: secuencias de nurture con casos de éxito del sector salud</li>
+                    <li>Webinars gratuitos sobre marketing médico</li>
+                    <li>Invitar a eventos de networking empresarial en San José</li>
+                </ul>
+            </div>
+
+            <div class="strategy-card">
+                <div class="strategy-number">4</div>
+                <div class="strategy-title">Propuesta de Valor Diferenciada</div>
+                <p class="strategy-description">Las clínicas buscan agencias que entiendan las regulaciones del sector salud y los desafíos de comunicación con pacientes.</p>
+                <ul class="strategy-tactics">
+                    <li>Certificaciones en marketing farmacéutico/ médico</li>
+                    <li>Cumplimiento con HIPAA y regulaciones locales de privacidad médica</li>
+                    <li>Portafolio especializado en sector salud</li>
+                    <li>Testimonios de otros clientes del sector médico</li>
+                </ul>
+            </div>
+        </section>
+
+        <footer>
+            <p>Reporte generado automáticamente por AUREA Lead Research Agent</p>
+            <p>Próxima actualización: 2 de Mayo, 2026 16:03 UTC</p>
+        </footer>
+    </div>
+</body>
+</html>
