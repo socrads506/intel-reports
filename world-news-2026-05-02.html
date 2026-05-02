@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>World News Report — 2 May 2026</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0d0d0d;
+    color: #e0e0e0;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .header {
+    background: linear-gradient(135deg, #0f1628 0%, #1a1f35 100%);
+    border-bottom: 2px solid #c41230;
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .header h1 {
+    font-size: 22px;
+    color: #ffffff;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  .header .date {
+    color: #c41230;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 16px;
+  }
+  .card {
+    background: #161b22;
+    border: 1px solid #21262d;
+    border-radius: 10px;
+    padding: 18px;
+  }
+  .card-title {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #21262d;
+  }
+  .geopolitics .card-title { color: #c41230; }
+  .usa .card-title { color: #3b82f6; }
+  .europe .card-title { color: #8b5cf6; }
+  .economy .card-title { color: #10b981; }
+  .tech .card-title { color: #f59e0b; }
+  .science .card-title { color: #06b6d4; }
+  .sports .card-title { color: #ef4444; }
+  .costa-rica .card-title { color: #22c55e; }
+  .item {
+    margin-bottom: 12px;
+    padding-left: 12px;
+    border-left: 3px solid #2d333b;
+  }
+  .item:last-child { margin-bottom: 0; }
+  .item-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: #e6edf3;
+    margin-bottom: 3px;
+  }
+  .item-desc {
+    font-size: 12px;
+    color: #8b949e;
+    line-height: 1.4;
+  }
+  .tag {
+    display: inline-block;
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .tag-critical { background: #c41230; color: #fff; }
+  .tag-high { background: #f59e0b; color: #000; }
+  .tag-medium { background: #3b82f6; color: #fff; }
+  .tag-low { background: #10b981; color: #000; }
+  .footer {
+    text-align: center;
+    padding: 16px;
+    color: #484f58;
+    font-size: 11px;
+    border-top: 1px solid #21262d;
+    margin-top: 10px;
+  }
+  .breaking-banner {
+    background: #c41230;
+    color: #fff;
+    text-align: center;
+    padding: 8px;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+</style>
+</head>
+<body>
+
+<div class="breaking-banner">⚠ May 2, 2026 — World News Briefing</div>
+
+<div class="header">
+  <h1>🌐 World News Report</h1>
+  <div class="date">2 Mayo 2026 — 17:45 UTC</div>
+</div>
+
+<div class="container">
+
+  <!-- GEOPOLÍTICA -->
+  <div class="card geopolitics">
+    <div class="card-title">🗺️ Geopolítica & Conflictos</div>
+
+    <div class="item">
+      <span class="tag tag-critical">CRÍTICO</span>
+      <div class="item-title">EE.UU. rechaza plan de paz de Irán — Guerra continúa</div>
+      <div class="item-desc">Trump rechazó la última propuesta de paz de Irán para terminar la guerra. Guerra de poderes continúa mientras la Casa Blanca califica la oferta como "insuficiente".</div>
+    </div>
+
+    <div class="item">
+      <span class="tag tag-critical">CRÍTICO</span>
+      <div class="item-title">Trump: "No necesito aprobación del Congreso para atacar a Irán"</div>
+      <div class="item-desc">El presidente dijo que tiene autoridad para iniciar acciones militares contra Irán sin pasar por el Congreso. Senadores bloquearon resolución de guerra por sexta vez.</div>
+    </div>
+
+    <div class="item">
+      <span class="tag tag-high">ALTO</span>
+      <div class="item-title">EE.UU. retira 5,000 tropas de Alemania</div>
+      <div class="item-desc">Tensión entre Trump y el Canciller alemán Friedrich Merz provoca repliegue militar. Alegatos comerciales y de Otan enBackground.</div>
+    </div>
+
+    <div class="item">
+      <span class="tag tag-high">ALTO</span>
+      <div class="item-title">Uranio enrichment continues — Blinken: "Options open"</div>
+      <div class="item-desc">Irán continúa enriqueciendo uranio mientras Blinken advierte que "todas las opciones están sobre la mesa".</div>
+    </div>
+
+    <div class="item">
+      <span class="tag tag-high">ALTO</span>
+      <div class="item-title">Usaideleks guerra en Lebanon — Hezbollah ataca</div>
+      <div class="item-desc">Israel atacó el sur de Lebanon por sexta violación del alto el fuego. Tres muertos y 10 heridos en Gaza. El ejército israelí controla 2/3 de Gaza según nuevos mapas.</div>
+    </div>
+
+    <div class="item">
+      <span class="tag tag-medium">MEDIO</span>
+      <div class="item-title">Myanmar: EE.UU. exige liberación inmediata de Aung San Suu Kyi</div>
+      <div class="item-desc">La junta militar dijo que la moverá a casa arrestro, 5 años después del golpe. EE.UU. pide liberación inmediata.</div>
+    </div>
+  </div>
+
+  <!-- ESTADOS UNIDOS -->
+  <div class="card usa">
+    <div class="card-title">🇺🇸 Estados Unidos</div>
+
+    <div class="item">
+      <span class="tag tag-high">ALTO</span>
+      <div class="item-title">Trump sube aranceles a autos de la UE: 25% la próxima semana</div>
+      <div class="item-desc">"La Unión Europea no cumple con el acuerdo comercial", publicó Trump. Aranceles a carros y trucks aumentará drásticamente.</div>
+    </div>
+
+    <div class="item">
+      <span class="tag tag-high">ALTO</span>
+      <div class="item-title">Deuda nacional de EE.UU. supera el PIB por primera vez</div>
+      <div class="item-desc">Hito histórico negativo: la deuda nacional sobrepasó el Producto Interno Bruto, aumentando fears de crisis fiscal.</div>
+    </div>
+
+    <div class="item">
+      <span class="tag tag-medium">MEDIO</span>
+      <div class="item-title">Trump nombra a Dra. Nicole Saphier como Cirujano General</div>
+      <div class="item-desc">Reemplaza a Casey Means (influencer MAHA). Saphier es colaboradora de Fox News.</div>
+    </div>
+
+    <div class="item">
+      <span class="tag tag-medium">MEDIO</span>
+      <div class="item-title">ProPublica: Admin busca recortar SSI a 400,000 adultos con discapacidad</div>
+      <div class="item-desc">La administración Trump busca reducir beneficios de Seguridad de Ingreso Suplementario en un movimiento criticado.</div>
+    </div>
+
+    <div class="item">
+      <span class="tag tag-medium">MEDIO</span>
+      <div class="item-title">Video: WHCD shooting — Fiscalía libera nuevo video del sospechoso</div>
+      <div class="item-desc">Autoridades liberaron videos del sospechoso del tiroteo en la Cena de Correspondientes de la Casa Blanca.</div>
+    </div>
+
+    <div class="item">
+      <span class="tag tag-medium">MEDIO</span>
+      <div class="item-title">Spirit Airlines: Aeropuerto inminente — pasajeros varados</div>
+      <div class="item-desc">La low-cost carrier podría desaparecer pronto. Clientes en EE.UU. scrambleando por alternativas mientras la compañía se derrumba.</div>
+    </div>
+  </div>
+
+  <!-- EUROPA -->
+  <div class="card europe">
+    <div class="card-title">🇪🇺 Europa</div>
+
+    <div class="item">
+      <span class="tag tag-high">ALTO</span>
+      <div class="item-title">Francia: Huelga del Día del Trabajo — Baguetes en el centro del debate</div>
+      <div class="item-desc">Manifestaciones del 1 de mayo con foco en derechos laborales y quejas sobre la jornada. Francia celebra el Día del Trabajo con protestas.</div>
+    </div>
+
+    <div class="item">
+      <span class="tag tag-medium">MEDIO</span>
+      <div class="item-title">Alemania: EE.UU. retira tropas — relación tensa con Merz</div>
+      <div class="item-desc">5,000 soldados estadounidenses abandonarán Alemania tras disputas sobre contribuciones a la Otan y comercio.</div>
+    </div>
+
+    <div class="item">
+      <span class="tag tag-medium">MEDIO</span>
+      <div class="item-title">UkrUkraine: Zelensky anuncia reforma del ejército mientras negociaciones se estancan</div>
+      <div class="item-desc">Peace talks con Rusia en punto muerto. Zelensky unveils plan de reforma militar mayor.</div>
+    </div>
+
+    <div class="item">
+      <span class="tag tag-medium">MEDIO</span>
+      <div class="item-title">Ratko Mladić: Abogado dice que suffers serious incident médico</div>
+      <div class="item-desc">El convicted war criminal está al borde de la muerte según sus abogados. Fue condenado por genocidio en Bosnia.</div>
+    </div>
+
+    <div class="item">
+      <span class="tag tag-low">BAJO</span>
+      <div class="item-title">Alemania: Gallery Weekend — 60 galerías abren simultáneamente en Berlín</div>
+      <div class="item-desc">Berlín muestra su condición de capital cultural con 60 galerías abriendo exhibiciones al mismo tiempo.</div>
+    </div>
+  </div>
+
+  <!-- ECONOMÍA -->
+  <div class="card economy">
+    <div class="card-title">📊 Economía & Comercio</div>
+
+    <div class="item">
+      <span class="tag tag-critical">CRÍTICO</span>
+      <div class="item-title">Precios de gasolina suben en EE.UU. — Hormuz negotiations estancadas</div>
+      <div class="item-desc">El conflicto en el Estrecho de Ormuz mantiene precios de energía en alza. Analistas warn de mayor inflación.</div>
+    </div>
+
+    <div class="item">
+      <span class="tag tag-high">ALTO</span>
+      <div class="item-title">Trump sube aranceles a autos UE a 25%</div>
+      <div class="item-desc">La Unión Europea no cumplió con el acuerdo comercial. Aranceles a vehículos europeos aumentarán significativamente la próxima semana.</div>
+    </div>
+
+    <div class="item">
+      <span class="tag tag-high">ALTO</span>
+      <div class="item-title">Deuda nacional de EE.UU. > PIB por primera vez en la historia</div>
+      <div class="item-desc"> milestone warning para la economía global. Mercados muestran preocupación crescente.</div>
+    </div>
+
+    <div class="item">
+      <span class="tag tag-medium">MEDIO</span>
+      <div class="item-title">Purdue Pharma shuts down — $7.4B deal</div>
+      <div class="item-desc">El fabricante de OxyContin cierra como parte del acuerdo de $7.4 mil millones por la crisis de opioides.</div>
+    </div>
+  </div>
+
+  <!-- TECNOLOGÍA -->
+  <div class="card tech">
+    <div class="card-title">💻 Tecnología</div>
+
+    <div class="item">
+      <span class="tag tag-medium">MEDIO</span>
+      <div class="item-title">Japón: Japan Airlines probará robots humanoides en Haneda Airport</div>
+      <div class="item-desc">JAL trialará robots humanoides para aliviar la presión sobre el personal terrestre a partir del próximo mes.</div>
+    </div>
+
+    <div class="item">
+      <span class="tag tag-medium">MEDIO</span>
+      <div class="item-title">Hollywood: Nueva normativa anti-AI en Oscars</div>
+      <div class="item-desc">Nuevas reglas para asegurar que la inteligencia artificial no tenga rol en el proceso de filmmaking en los premios más prestigiosos del cine.</div>
+    </div>
+
+    <div class="item">
+      <span class="tag tag-medium">MEDIO</span>
+      <div class="item-title">CES 2026 SportsTech: La revolución de la tecnología deportiva</div>
+      <div class="item-desc">Tendencias en la fusión de sports science y precisión médica para extender carreras atléticas.</div>
+    </div>
+
+    <div class="item">
+      <span class="tag tag-low">BAJO</span>
+      <div class="item-title">MIT: $300M startup founded by dropouts enfrenta acusaciones de fraude</div>
+      <div class="item-desc">Karun Kaushik & Selin Kocalar, ambas dropouts de MIT, enfrentanwidely-circulated anonymous reports de fraude.</div>
+    </div>
+  </div>
+
+  <!-- CIENCIA -->
+  <div class="card science">
+    <div class="card-title">🔬 Ciencia</div>
+
+    <div class="item">
+      <span class="tag tag-high">ALTO</span>
+      <div class="item-title">Artemis II: Astronautas revelan la primera comida que comieron al splashdown</div>
+      <div class="item-desc">Misión lunar exitosa. El crew compartió qué comieron al regresar a Tierra después de su viaje alrededor de la Luna.</div>
+    </div>
+
+    <div class="item">
+      <span class="tag tag-medium">MEDIO</span>
+      <div class="item-title">Nuevo dispositivo óptico crea y alterna skyrmions (patrones de luz en forma de donut)</div>
+      <div class="item-desc">Científicos de Cambridge descubren forma de generar y alternar skyrmions para futuras aplicaciones en computación cuántica.</div>
+    </div>
+
+    <div class="item">
+      <span class="tag tag-medium">MEDIO</span>
+      <div class="item-title">Quantum memory: Nuevo chip usa "light cages" nanoprinted para almacenar información cuántica</div>
+      <div class="item-desc">Memoria cuántica práctica un paso más cerca gracias a nanoprinted light cages que atrapan luz en vapor atómico.</div>
+    </div>
+
+    <div class="item">
+      <span class="tag tag-medium">MEDIO</span>
+      <div class="item-title">Ice XXI: Primera nueva fase de hielo encontrada en décadas</div>
+      <div class="item-desc">KRISS researchers discover new molecular force en agua sometida a ultrahigh pressure.</div>
+    </div>
+
+    <div class="item">
+      <span class="tag tag-low">BAJO</span>
+      <div class="item-title">AI tool Diag2Diag revoluciona investigación de fusión</div>
+      <div class="item-desc">Herramienta de AI llena datos faltantes de plasma con información sintética pero detallada.</div>
+    </div>
+  </div>
+
+  <!-- DEPORTES -->
+  <div class="card sports">
+    <div class="card-title">⚽ Deportes</div>
+
+    <div class="item">
+      <span class="tag tag-high">ALTO</span>
+      <div class="item-title">Kentucky Derby 2026: Live updates</div>
+      <div class="item-desc">La carrera más emocionante del turf mundial en vivo. Odds, payouts y todo lo que pasa en Churchill Downs.</div>
+    </div>
+
+    <div class="item">
+      <span class="tag tag-medium">MEDIO</span>
+      <div class="item-title">Magic collapse histórico — Pistons remontan 24 puntos y fuerzan Game 7</div>
+      <div class="item-desc">Remontada épica de Detroit Pistons tras collapse de Orlando Magic. Todo se define en el Game 7.</div>
+    </div>
+
+    <div class="item">
+      <span class="tag tag-medium">MEDIO</span>
+      <div class="item-title">Sabres 5, Bruins 2: Buffalo elimina a Boston en Game 6</div>
+      <div class="item-desc">Sabres construyó ventaja temprano y closed out la serie contra los Bruins en el TD Garden.</div>
+    </div>
+
+    <div class="item">
+      <span class="tag tag-low">BAJO</span>
+      <div class="item-title">Gerry Conway (co-creador de Punisher) dies at 73</div>
+      <div class="item-desc">El legendario escritor de cómics de Marvel, que ayudó a dar forma a Spider-Man, murió de cáncer pancreático.</div>
+    </div>
+  </div>
+
+  <!-- COSTA RICA -->
+  <div class="card costa-rica">
+    <div class="card-title">🇨🇷 Costa Rica</div>
+
+    <div class="item">
+      <span class="tag tag-critical">CRÍTICO</span>
+      <div class="item-title">8 de mayo: Laura Fernández asume la presidencia</div>
+      <div class="item-desc">Hecho histórico. Costa Rica tendrá una nueva presidentaproveniente del PLN. “Tres eventos país” en mayo que marcan un cambio de era.</div>
+    </div>
+
+    <div class="item">
+      <span class="tag tag-high">ALTO</span>
+      <div class="item-title">Oposición forma inédito bloque legislativo</div>
+      <div class="item-desc">Cuatro fracciones se unen con agenda común y marcan líneas rojas al gobierno. "¿Qué los une y cuánto aguantará?"</div>
+    </div>
+
+    <div class="item">
+      <span class="tag tag-medium">MEDIO</span>
+      <div class="item-title">Mayo 2026: "Tres eventos país que marcan el rumbo"</div>
+      <div class="item-desc">Mayo como mes bisagra para Costa Rica. Sesión Solemne del 1 de mayo yTransición de gobierno en curso.</div>
+    </div>
+
+    <div class="item">
+      <span class="tag tag-medium">MEDIO</span>
+      <div class="item-title">Nuevos diputados juramentados en Asamblea Legislativa</div>
+      <div class="item-desc">Bancadas renovadas tras elecciones. Sesión Solemne del 1 de mayo marca el inicio formal del nuevo período.</div>
+    </div>
+
+    <div class="item">
+      <span class="tag tag-low">BAJO</span>
+      <div class="item-title">Telediario Estelar: Cobertura especial 1 de mayo</div>
+      <div class="item-desc">Paula Brenes conduce el programa estelar de noticias. Cobertura completa de las actividades del Día del Trabajo.</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  World News Report • 2 Mayo 2026 • Logos Intelligence System • Sources: Yahoo News, Straits Times, Democracy Now, Deccan Herald, Reuters, La Nación CR
+</div>
+
+</body>
+</html>
