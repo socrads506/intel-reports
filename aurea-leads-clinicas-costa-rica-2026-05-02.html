@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aurea Leads — Clínicas Costa Rica | Mayo 2026</title>
+<style>
+  :root {
+    --bg: #0d0d0d;
+    --surface: #161616;
+    --surface2: #1e1e1e;
+    --border: #2a2a2a;
+    --accent: #f5a623;
+    --accent2: #e8e8e8;
+    --text: #d4d4d4;
+    --text-muted: #888;
+    --green: #4caf50;
+    --blue: #4fc3f7;
+    --red: #ef5350;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; }
+  .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+
+  header { text-align: center; margin-bottom: 50px; }
+  .badge { display: inline-block; background: var(--accent); color: #000; font-weight: 700; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; padding: 4px 14px; border-radius: 20px; margin-bottom: 16px; }
+  h1 { font-size: 2.4rem; font-weight: 800; color: #fff; letter-spacing: -1px; margin-bottom: 8px; }
+  .subtitle { color: var(--text-muted); font-size: 1rem; }
+  .meta { margin-top: 16px; display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+  .meta span { background: var(--surface); border: 1px solid var(--border); padding: 4px 12px; border-radius: 6px; font-size: 12px; color: var(--text-muted); }
+
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 50px; }
+  .stat { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-align: center; }
+  .stat .num { font-size: 2.2rem; font-weight: 800; color: var(--accent); }
+  .stat .label { font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
+
+  section { margin-bottom: 50px; }
+  .section-title { font-size: 1.3rem; font-weight: 700; color: #fff; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid var(--accent); display: inline-block; }
+  .trend-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 22px; margin-bottom: 12px; }
+  .trend-card .trend-title { font-weight: 700; color: var(--blue); margin-bottom: 4px; font-size: 0.95rem; }
+  .trend-card p { font-size: 0.88rem; color: var(--text-muted); }
+
+  .company-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 22px; margin-bottom: 16px; transition: border-color 0.2s; }
+  .company-card:hover { border-color: var(--accent); }
+  .company-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; flex-wrap: wrap; gap: 8px; }
+  .company-name { font-size: 1.1rem; font-weight: 700; color: #fff; }
+  .company-type { background: var(--surface2); color: var(--accent); font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .company-desc { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 12px; }
+  .company-info { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 8px; }
+  .info-item { display: flex; gap: 8px; font-size: 0.85rem; }
+  .info-label { color: var(--text-muted); min-width: 70px; }
+  .info-value { color: var(--accent2); word-break: break-all; }
+  .tag { display: inline-block; background: var(--surface2); border: 1px solid var(--border); color: var(--text-muted); font-size: 11px; padding: 2px 8px; border-radius: 4px; margin: 2px; }
+
+  .contact-strategy { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 16px; }
+  .contact-strategy h3 { color: var(--accent); font-size: 1rem; margin-bottom: 10px; }
+  .contact-strategy ol { padding-left: 20px; font-size: 0.88rem; color: var(--text); }
+  .contact-strategy ol li { margin-bottom: 6px; }
+
+  .cta-box { background: linear-gradient(135deg, #1a1200 0%, #0d0d0d 100%); border: 1px solid var(--accent); border-radius: 12px; padding: 30px; text-align: center; margin-top: 50px; }
+  .cta-box h2 { color: var(--accent); font-size: 1.4rem; margin-bottom: 10px; }
+  .cta-box p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px; }
+  .cta-btn { display: inline-block; background: var(--accent); color: #000; font-weight: 700; padding: 12px 30px; border-radius: 8px; text-decoration: none; font-size: 0.9rem; }
+
+  footer { text-align: center; color: var(--text-muted); font-size: 12px; margin-top: 50px; padding-top: 20px; border-top: 1px solid var(--border); }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <span class="badge">Aurea Advertising Agency</span>
+  <h1>Lead Research — Clínicas Costa Rica</h1>
+  <p class="subtitle">Oportunidades de marketing digital y publicidad para el sector salud en Costa Rica</p>
+  <div class="meta">
+    <span>📅 Mayo 2, 2026 — 22:00 UTC</span>
+    <span>🏷️ Nicho: Clínicas Privadas</span>
+    <span>📍 Mercado: Costa Rica</span>
+  </div>
+</header>
+
+<div class="stats">
+  <div class="stat">
+    <div class="num">10</div>
+    <div class="label">Empresas Identificadas</div>
+  </div>
+  <div class="stat">
+    <div class="num">4</div>
+    <div class="label">Hospitales Privados Clave</div>
+  </div>
+  <div class="stat">
+    <div class="num">3</div>
+    <div class="label">Clínicas Especializadas</div>
+  </div>
+  <div class="stat">
+    <div class="num">3</div>
+    <div class="label">Tendencias Clave</div>
+  </div>
+</div>
+
+<section>
+  <h2 class="section-title">🏥 Empresas Identificadas</h2>
+
+  <!-- Hospital Clínica Bíblica -->
+  <div class="company-card">
+    <div class="company-header">
+      <span class="company-name">Hospital Clínica Bíblica</span>
+      <span class="company-type">Hospital Privado</span>
+    </div>
+    <p class="company-desc">El hospital privado más grande e importante de Costa Rica. 96 años de trayectoria, atención integral 24/7, múltiples sedes. Lidera el mercado de turismo médico en el país. Acreditado internacionalmente.</p>
+    <div class="company-info">
+      <div class="info-item"><span class="info-label">Web</span><span class="info-value">clinicabiblica.com</span></div>
+      <div class="info-item"><span class="info-label">Ubicación</span><span class="info-value">San José, Costa Rica</span></div>
+      <div class="info-item"><span class="info-label">Enfoque</span><span class="info-value">Turismo médico, especialidades múltiples</span></div>
+    </div>
+    <div style="margin-top:10px">
+      <span class="tag">Marketing médico</span>
+      <span class="tag">Turismo de salud</span>
+      <span class="tag">Internacional</span>
+      <span class="tag">Alto presupuesto</span>
+    </div>
+  </div>
+
+  <!-- Hospital CIMA -->
+  <div class="company-card">
+    <div class="company-header">
+      <span class="company-name">Hospital CIMA</span>
+      <span class="company-type">Hospital Privado</span>
+    </div>
+    <p class="company-desc">Hospital privado ubicado en Escazú, San José. Parte de la red de hospitales CIMA a nivel regional. Fuerte enfoque en pacientes internacionales y turismo médico. Instalaciones modernas de alta complejidad.</p>
+    <div class="company-info">
+      <div class="info-item"><span class="info-label">Web</span><span class="info-value">hospitalcima.co.cr</span></div>
+      <div class="info-item"><span class="info-label">Ubicación</span><span class="info-value">Escazú, San José</span></div>
+      <div class="info-item"><span class="info-label">Enfoque</span><span class="info-value">Turismo médico, especialidades</span></div>
+    </div>
+    <div style="margin-top:10px">
+      <span class="tag">Expatriados</span>
+      <span class="tag">Medical tourism</span>
+      <span class="tag">Digital marketing</span>
+      <span class="tag">Alto presupuesto</span>
+    </div>
+  </div>
+
+  <!-- Hospital Metropolitano -->
+  <div class="company-card">
+    <div class="company-header">
+      <span class="company-name">Hospital Metropolitano</span>
+      <span class="company-type">Hospital Privado</span>
+    </div>
+    <p class="company-desc">Red de hospitales privados en San José con directorio médico en línea. Servicios de salud ocupacional y atención general. Directorio de doctores disponible en Metropolitano Directory.操 作:</p>
+    <div class="company-info">
+      <div class="info-item"><span class="info-label">Web</span><span class="info-value">metropolitanocr.com</span></div>
+      <div class="info-item"><span class="info-label">Ubicación</span><span class="info-value">San José</span></div>
+      <div class="info-item"><span class="info-label">Enfoque</span><span class="info-value">Directorio médico online, salud ocupacional</span></div>
+    </div>
+    <div style="margin-top:10px">
+      <span class="tag">Salud ocupacional</span>
+      <span class="tag">Empresas B2B</span>
+      <span class="tag">Redes profesionales</span>
+    </div>
+  </div>
+
+  <!-- Hospital Internacional La Católica -->
+  <div class="company-card">
+    <div class="company-header">
+      <span class="company-name">Hospital Internacional La Católica</span>
+      <span class="company-type">Hospital Privado</span>
+    </div>
+    <p class="company-desc">Hospital privado con fuerte posicionamiento en atención integral y especializada. Ubicado en el área metropolitana de San José. Destinado a pacientes locales y extranjeros.</p>
+    <div class="company-info">
+      <div class="info-item"><span class="info-label">Web</span><span class="info-value">hospitalcatolica.com</span></div>
+      <div class="info-item"><span class="info-label">Ubicación</span><span class="info-value">San José</span></div>
+      <div class="info-item"><span class="info-label">Enfoque</span><span class="info-value">Atención integral, especialidades</span></div>
+    </div>
+    <div style="margin-top:10px">
+      <span class="tag">Especializado</span>
+      <span class="tag">Internacional</span>
+      <span class="tag">Marketing institucional</span>
+    </div>
+  </div>
+
+  <!-- Centro Médico Munkel -->
+  <div class="company-card">
+    <div class="company-header">
+      <span class="company-name">Centro Médico Munkel (Münkel)</span>
+      <span class="company-type">Clínica Privada</span>
+    </div>
+    <p class="company-desc">Centro médico privado con varias especialidades. Listado en el directorio del Colegio de Médicos y Cirujanos de Costa Rica. Atención general y especialidades.</p>
+    <div class="company-info">
+      <div class="info-item"><span class="info-label">Directorio</span><span class="info-value">medicoscr.hulilabs.com</span></div>
+      <div class="info-item"><span class="info-label">Ubicación</span><span class="info-value">San José</span></div>
+      <div class="info-item"><span class="info-label">Enfoque</span><span class="info-value">Medicina general, especialidades</span></div>
+    </div>
+    <div style="margin-top:10px">
+      <span class="tag">Pequeña clínica</span>
+      <span class="tag">Facebook/Instagram</span>
+      <span class="tag">Marketing local</span>
+    </div>
+  </div>
+
+  <!-- Centro Médico Nacer -->
+  <div class="company-card">
+    <div class="company-header">
+      <span class="company-name">Centro Médico Nacer</span>
+      <span class="company-type">Clínica Privada</span>
+    </div>
+    <p class="company-desc">Centro médico registrado en el directorio oficial del Colegio de Médicos y Cirujanos de Costa Rica. Especializado en atención materno-infantil y medicina general.</p>
+    <div class="company-info">
+      <div class="info-item"><span class="info-label">Directorio</span><span class="info-value">medicoscr.hulilabs.com</span></div>
+      <div class="info-item"><span class="info-label">Ubicación</span><span class="info-value">San José</span></div>
+      <div class="info-item"><span class="info-label">Enfoque</span><span class="info-value">Materno-infantil, medicina general</span></div>
+    </div>
+    <div style="margin-top:10px">
+      <span class="tag">Nicho especializado</span>
+      <span class="tag">Facebook</span>
+      <span class="tag">Comunidad local</span>
+    </div>
+  </div>
+
+  <!-- Balance Wellness Center -->
+  <div class="company-card">
+    <div class="company-header">
+      <span class="company-name">Balance Wellness Center</span>
+      <span class="company-type">Centro de Bienestar</span>
+    </div>
+    <p class="company-desc">Centro de bienestar y balance health listing en directorio médico costarricense. Servicios de medicina preventiva y bienestar integral.</p>
+    <div class="company-info">
+      <div class="info-item"><span class="info-label">Directorio</span><span class="info-value">medicoscr.hulilabs.com</span></div>
+      <div class="info-item"><span class="info-label">Ubicación</span><span class="info-value">San José</span></div>
+      <div class="info-item"><span class="info-label">Enfoque</span><span class="info-value">Bienestar, medicina preventiva</span></div>
+    </div>
+    <div style="margin-top:10px">
+      <span class="tag">Wellness</span>
+      <span class="tag">Lifestyle</span>
+      <span class="tag">Instagram</span>
+      <span class="tag">Contenido educativo</span>
+    </div>
+  </div>
+
+  <!-- Torre Médica Momentum -->
+  <div class="company-card">
+    <div class="company-header">
+      <span class="company-name">Torre Médica Momentum</span>
+      <span class="company-type">Centro Médico Comercial</span>
+    </div>
+    <p class="company-desc">Complejo médico comercial en Curridabat, San José. Alberga múltiples consultorios médicos. Horario extendido: Lunes a Viernes 8am-8pm, Sáb 8am-4pm. Mercado B2B de profesionales de la salud.</p>
+    <div class="company-info">
+      <div class="info-item"><span class="info-label">Web</span><span class="info-value">torremedicamomentum.com</span></div>
+      <div class="info-item"><span class="info-label">Ubicación</span><span class="info-value">Curridabat, San José</span></div>
+      <div class="info-item"><span class="info-label">Enfoque</span><span class="info-value">Consultorios médicos, salud B2B</span></div>
+    </div>
+    <div style="margin-top:10px">
+      <span class="tag">B2B médicos</span>
+      <span class="tag">Consultorios</span>
+      <span class="tag">Señalización digital</span>
+    </div>
+  </div>
+
+  <!-- ArveSalud -->
+  <div class="company-card">
+    <div class="company-header">
+      <span class="company-name">ArveSalud — Servicios de Salud Empresarial</span>
+      <span class="company-type">Salud Ocupacional B2B</span>
+    </div>
+    <p class="company-desc">Desde 2007 ofreciendo servicios médicos exclusively para empresas: enfermería, terapia física, psicología. Potencial cliente B2B para paquetes de marketingdirigidos a RRHH y directodzi.</p>
+    <div class="company-info">
+      <div class="info-item"><span class="info-label">Web</span><span class="info-value">arvesalud.com</span></div>
+      <div class="info-item"><span class="info-label">Desde</span><span class="info-value">2007</span></div>
+      <div class="info-item"><span class="info-label">Enfoque</span><span class="info-value">Salud ocupacional empresarial</span></div>
+    </div>
+    <div style="margin-top:10px">
+      <span class="tag">B2B</span>
+      <span class="tag">RRHH</span>
+      <span class="tag">Paquetes corporativos</span>
+      <span class="tag">Largo plazo</span>
+    </div>
+  </div>
+
+  <!-- Clínica San Francisco -->
+  <div class="company-card">
+    <div class="company-header">
+      <span class="company-name">Clínica San Francisco</span>
+      <span class="company-type">Clínica Privada</span>
+    </div>
+    <p class="company-desc">Clínica privada con servicios de medicina general, nutrición, geriatría. Personal médico registrado. Sitio web activo con directorio de doctores.</p>
+    <div class="company-info">
+      <div class="info-item"><span class="info-label">Web</span><span class="info-value">clinicasanfranciscocr.com</span></div>
+      <div class="info-item"><span class="info-label">Ubicación</span><span class="info-value">Costa Rica</span></div>
+      <div class="info-item"><span class="info-label">Enfoque</span><span class="info-value">MG, nutrición, geriatría</span></div>
+    </div>
+    <div style="margin-top:10px">
+      <span class="tag">Clínica local</span>
+      <span class="tag">Web propia</span>
+      <span class="tag">Redes sociales</span>
+    </div>
+  </div>
+
+</section>
+
+<section>
+  <h2 class="section-title">📊 Tendencias del Mercado de Salud en Costa Rica 2026</h2>
+
+  <div class="trend-card">
+    <div class="trend-title">📱 Marketing Médico Digital en Auge</div>
+    <p>El sector salud en Costa Rica está adoptando rápidamente estrategias de marketing digital. Según специалистов en el área, la gestión de redes sociales para médicos y clínicas se ha convertido en una herramienta clave para posicionar consultas médicas y atraer pacientes. La tendencia en 2026 es hacia contenido educativo profesional, presencia en Google My Business y estrategias de reputación online.</p>
+  </div>
+
+  <div class="trend-card">
+    <div class="trend-title">🌐 Turismo Médico como Motor Principal</div>
+    <p>Costa Rica es reconocida como uno de los principales destinos de turismo médico en Latinoamérica. Hospitales como Clínica Bíblica, CIMA y La Católica dependen fuertemente del marketing internacional para atraer pacientes extranjeros. Esto abre oportunidades para agencias con experiencia en marketing médico multilingüe y estrategias para mercados de EE.UU. y Europa.</p>
+  </div>
+
+  <div class="trend-card">
+    <div class="trend-title">💼 Salud Ocupacional y B2B en Expansión</div>
+    <p>Empresas como ArveSalud y Hospital Metropolitano están creciendo en el segmento B2B de salud ocupacional. Las empresas costarricenses buscan servicios de salud para empleados cada vez más sofisticados. Las agencias pueden ofrecer paquetes de marketing B2B que combinen branding corporativo, campaigns de captación de empleados y comunicación interna.</p>
+  </div>
+
+  <div class="trend-card">
+    <div class="trend-title">🤖 Inteligencia Artificial en Marketing de Salud</div>
+    <p>Agencias especializadas como Flow Results ya están utilizando metodologías con IA (AlphaAI™) para el marketing de clínicas y cirujanos. La diferenciación está en combinar creatividad con datos y automatización. Las clínicas que no estén digitalizadas serán targets prioritarios para agencias que demuestren ROI comprobable.</p>
+  </div>
+
+  <div class="trend-card">
+    <div class="trend-title">🏥 Crecimiento de Clínicas Especializadas</div>
+    <p>A diferencia de los grandes hospitales, las clínicas especializadas (estética, fertilidad, dermatología, odontología) representan un segmento de alto crecimiento con presupuestos de marketing más flexibles y decisiones más rápidas. El directorio del Colegio de Médicos identifica más de 100 clínicas activas solo en el área metropolitana de San José.</p>
+  </div>
+
+</section>
+
+<section>
+  <h2 class="section-title">🎯 Estrategias de Contacto Sugeridas</h2>
+
+  <div class="contact-strategy">
+    <h3>🏥 Hospitales Privados (Alto Presupuesto, Decisiones Largas)</h3>
+    <ol>
+      <li><strong>Enfoque:</strong> Marketing institucional, branding, posicionamiento internacional</li>
+      <li><strong>Canales:</strong> LinkedIn (directores de mercadeo),Inbound en conferences de turismo médico, partnerships con agencias de turismo de salud internacionales</li>
+      <li><strong>Valor diferencial:</strong> Portafolio en turismo médico, casos de éxito en吸引 internacional patients, SEO multilíngue</li>
+      <li><strong>Timeline:</strong> 3-6 meses de nurturing hasta primera reunión正式</li>
+      <li><strong>Contacto clave:</strong> Directores de mercadeo o branding, directores generales</li>
+    </ol>
+  </div>
+
+  <div class="contact-strategy">
+    <h3>🩺 Clínicas Especializadas (Presupuesto Medio, Decisiones Rápidas)</h3>
+    <ol>
+      <li><strong>Enfoque:</strong> Redes sociales, Google Ads, SEO local,content marketing</li>
+      <li><strong>Canales:</strong> DM en Instagram/Facebook, email marketing con propuesta de auditoría gratuita, webinars sobre marketing para doctores</li>
+      <li><strong>Valor diferencial:</strong> Casos de éxito en吸引 nuevos pacientes, ROI demostrable, estrategia de contenido educativo</li>
+      <li><strong>Timeline:</strong> 2-4 semanas para cerrar primera campagne</li>
+      <li><strong>Contacto clave:</strong> El médico/dueño directamente (muchas clínicas son de un solo doctor)</li>
+    </ol>
+  </div>
+
+  <div class="contact-strategy">
+    <h3>🏢 Salud Ocupacional B2B (Contratos Corporativos)</h3>
+    <ol>
+      <li><strong>Enfoque:</strong> Propuestas de360 marketing para servicios de salud empresarial, employee engagement campaigns</li>
+      <li><strong>Canales:</strong> LinkedIn, ferias empresariales, REFERENCIAS de empresas que ya usan estos servicios</li>
+      <li><strong>Valor diferencial:</strong> Pack completo: branding del servicio, captación de empresas, comunicación interna de salud</li>
+      <li><strong>Timeline:</strong> 1-3 meses por contrato</li>
+      <li><strong>Contacto clave:</strong> Gerentes comerciales, directores de RRHH</li>
+    </ol>
+  </div>
+
+  <div class="contact-strategy">
+    <h3>📱 Pitch Frío — Template Inicial</h3>
+    <ol>
+      <li><strong>Asunto/Intro:</strong> "Aumenté pacientes un 40% en clínicas similares — breve audit без cost" </li>
+      <li><strong>Evidencia:</strong> 1 caso de éxito relevante (anonimizado)</li>
+      <li><strong>Oferta:</strong> Auditoría gratuita de presencia digital de 15 min</li>
+      <li><strong>CTA:</strong> Llamada de 20 min o Zoom, sin compromiso</li>
+      <li><strong>Seguimiento:</strong> 3 emails en 10 días, luego LinkedIn connect</li>
+    </ol>
+  </div>
+</section>
+
+<section>
+  <h2 class="section-title">👤 Decisores Clave Identificados</h2>
+
+  <div class="company-card">
+    <div class="company-header">
+      <span class="company-name">Steven Vargas Jiménez</span>
+      <span class="company-type">Gerente Comercial — División Salud</span>
+    </div>
+    <p class="company-desc">Gerente Comercial de la División Salud en Grupo Montecristo Costa Rica. Trayectoria en estrategia de crecimiento y ventas en el sector salud y retail. Contacto relevante para campañas B2B en salud.</p>
+    <div class="company-info">
+      <div class="info-item"><span class="info-label">LinkedIn</span><span class="info-value">cr.linkedin.com/in/steven-vargas-jimenez-066a03aa</span></div>
+      <div class="info-item"><span class="info-label">Empresa</span><span class="info-value">Grupo Montecristo Costa Rica</span></div>
+      <div class="info-item"><span class="info-label">Sector</span><span class="info-value">Salud y Retail</span></div>
+    </div>
+  </div>
+
+  <div class="company-card">
+    <div class="company-header">
+      <span class="company-name">Mónica Taylor Hernández</span>
+      <span class="company-type">Junta Directiva — CCSS</span>
+    </div>
+    <p class="company-desc">Miembro de la Junta Directiva de la Caja Costarricense de Seguro Social (CCSS). Periodo 2022-2026. Designada por el sector laboral. Contacto estratégico para salud pública y vinculación institucional.</p>
+    <div class="company-info">
+      <div class="info-item"><span class="info-label">Organismo</span><span class="info-value">CCSS — ccss.sa.cr</span></div>
+      <div class="info-item"><span class="info-label">Sector</span><span class="info-value">Salud pública</span></div>
+      <div class="info-item"><span class="info-label">Período</span><span class="info-value">2022-2026</span></div>
+    </div>
+  </div>
+
+  <div class="company-card">
+    <div class="company-header">
+      <span class="company-name">Dr. Claudio Regueyra Edelman</span>
+      <span class="company-type">Director Médico — Clínica Bíblica</span>
+    </div>
+    <p class="company-desc">Director Médico en Hospital Clínica Bíblica. Perfil visible en el directorio oficial del hospital. Alta influencia en decisiones de adquisición de servicios médicos y tecnológicos.</p>
+    <div class="company-info">
+      <div class="info-item"><span class="info-label">LinkedIn</span><span class="info-value">Perfil en clinicabiblica.com</span></div>
+      <div class="info-item"><span class="info-label">Empresa</span><span class="info-value">Hospital Clínica Bíblica</span></div>
+      <div class="info-item"><span class="info-label">Sector</span><span class="info-value">Hospital privado</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-box">
+  <h2>¿Listo para atacar este nicho?</h2>
+  <p>Este reporte fue generado automáticamente para Aurea Advertising Agency.<br>Próximo nicho: Ecommerce Costa Rica. Revisión en la próxima hora.</p>
+  <a href="https://github.com/asdelgado506/intel-reports" class="cta-btn">Ver Repo de Intel</a>
+</div>
+
+<footer>
+  <p>Aurea Lead Research — Cron Job #272739b3 — 2026-05-02 22:00 UTC</p>
+  <p>Generated by Logos · MiniMax M2.7-highspeed · Intel Reports Repo</p>
+</footer>
+
+</div>
+</body>
+</html>
