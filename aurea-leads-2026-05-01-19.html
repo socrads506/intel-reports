@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurea Leads — Real Estate Costa Rica | Mayo 2026</title>
+    <style>
+        :root {
+            --bg-primary: #0d0d0d;
+            --bg-secondary: #1a1a1a;
+            --bg-card: #141414;
+            --border: #2a2a2a;
+            --text-primary: #e8e8e8;
+            --text-secondary: #999;
+            --accent: #f0a500;
+            --accent-dim: rgba(240, 165, 0, 0.15);
+            --accent-hover: #ffc107;
+            --green: #4ade80;
+            --red: #f87171;
+            --blue: #60a5fa;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+        .container { max-width: 1100px; margin: 0 auto; }
+        .header {
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 1.5rem;
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .header-left h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent);
+            letter-spacing: -0.5px;
+        }
+        .header-left .subtitle {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-top: 0.25rem;
+        }
+        .badge {
+            display: inline-block;
+            background: var(--accent-dim);
+            color: var(--accent);
+            border: 1px solid var(--accent);
+            padding: 0.2rem 0.75rem;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .meta-bar {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+            padding: 0.75rem 1rem;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        .meta-bar span { display: flex; align-items: center; gap: 0.4rem; }
+        .meta-bar strong { color: var(--text-primary); }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+        @media (max-width: 768px) { .grid-2 { grid-template-columns: 1fr; } }
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .card h2 {
+            font-size: 1.1rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+        .card h3 { font-size: 0.95rem; color: var(--text-primary); margin-bottom: 0.25rem; }
+        .card p, .card li { font-size: 0.88rem; color: var(--text-secondary); }
+        ul { padding-left: 1.2rem; }
+        li { margin-bottom: 0.4rem; }
+        .lead-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+        .lead-table th {
+            background: var(--bg-secondary);
+            color: var(--accent);
+            padding: 0.6rem 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .lead-table td {
+            padding: 0.7rem 0.75rem;
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+            color: var(--text-secondary);
+        }
+        .lead-table tr:last-child td { border-bottom: none; }
+        .lead-table .company { font-weight: 600; color: var(--text-primary); }
+        .lead-table .contact { color: var(--blue); font-size: 0.8rem; }
+        .lead-table .type-badge {
+            display: inline-block;
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            background: var(--accent-dim);
+            color: var(--accent);
+            font-weight: 600;
+        }
+        .trend-up { color: var(--green); }
+        .trend-down { color: var(--red); }
+        .trend-neutral { color: var(--text-secondary); }
+        .contact-strategy-item {
+            background: var(--bg-secondary);
+            border-left: 3px solid var(--accent);
+            padding: 0.75rem 1rem;
+            margin-bottom: 0.75rem;
+            border-radius: 0 6px 6px 0;
+        }
+        .contact-strategy-item h4 { font-size: 0.9rem; color: var(--text-primary); margin-bottom: 0.2rem; }
+        .contact-strategy-item p { font-size: 0.82rem; color: var(--text-secondary); }
+        .email-template {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 1rem;
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            font-family: 'Courier New', monospace;
+            white-space: pre-wrap;
+            line-height: 1.5;
+        }
+        .email-template .tag { color: var(--accent); }
+        .footer {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.78rem;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- HEADER -->
+    <div class="header">
+        <div class="header-left">
+            <h1>AUREA — Lead Intelligence</h1>
+            <div class="subtitle">Costa Rica Real Estate Sector · Oportunidades para Agencias de Publicidad</div>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:0.5rem;">
+            <span class="badge">Real Estate</span>
+            <span style="font-size:0.8rem;color:var(--text-secondary);">Mayo 2026 · Run #19:00</span>
+        </div>
+    </div>
+
+    <!-- META BAR -->
+    <div class="meta-bar">
+        <span><strong>Fecha:</strong> 1 de Mayo, 2026 — 19:00 CST</span>
+        <span><strong>Nicho:</strong> Bienes Raíces / Real Estate</span>
+        <span><strong>Mercado:</strong> Costa Rica (Nacional)</span>
+        <span><strong>Fuentes:</strong> Tavily Web Search</span>
+        <span><strong>Leads:</strong> 10 empresas</span>
+    </div>
+
+    <!-- MARKET OVERVIEW -->
+    <div class="card">
+        <h2>📊 Panorama del Mercado Inmobiliario — Costa Rica 2026</h2>
+        <p>El mercado inmobiliario costarricense atraviesa una fase de estabilización después del auge post-pandemia. Varios factores configuran el panorama actual:</p>
+        <br>
+        <ul>
+            <li><strong class="trend-up">+ Inventario elevado:</strong> Más propiedades en el mercado generan mayor competencia entre vendedores; los compradores tienen más poder de negociación.</li>
+            <li><strong class="trend-down">⏱ Tiempo de venta extendido:</strong> Las propiedades permanecen más tiempo listadas, lo que obliga a las inmobiliarias a invertir más en presentación y marketing digital.</li>
+            <li><strong class="trend-neutral">Guanacaste lidera precios:</strong> La provincia de Guanacaste registró los precios más altos del país (departamentos USD 2.990/m² en julio 2025), impulsada por el turismo y la demanda extranjera.</li>
+            <li><strong class="trend-down">Compradores extranjeros en pausa:</strong> La incertidumbre económica global (tasas de interés, noticias negativas en EE.UU.) ha reducido la urgencia de compra entre compradores norteamericanos, que representan la mayoría de la demanda foránea.</li>
+            <li><strong class="trend-up">Mercado de alquiler vacacional en crecimiento:</strong> Propiedades duales (residencia + rental) son una tendencia fuerte, especialmente en zonas costeras.</li>
+            <li><strong class="trend-up">Digitalización acelerada:</strong> Websites dedicados por propiedad, Google Ads geo-segmentados y tours virtuales son ahora estándar para competir.</li>
+        </ul>
+        <br>
+        <p style="font-size:0.85rem;color:var(--accent);"><strong>💡 Oportunidad para Aurea:</strong> Las inmobiliarias están bajo presión para diferenciarse. Agencias que ofrezcan marketing digital, producción de video, SEO local y campañas de Google Ads tienen una ventana de oportunidad significativa.</p>
+    </div>
+
+    <!-- LEADS TABLE -->
+    <div class="card">
+        <h2>🎯 Leads Identificados — Empresas y Decision Makers</h2>
+        <table class="lead-table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Empresa</th>
+                    <th>Contacto Clave</th>
+                    <th>Rol / Título</th>
+                    <th>Teléfono / Email</th>
+                    <th>Enfoque</th>
+                    <th>Potencial</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td class="company">Blue Water Properties of Costa Rica</td>
+                    <td>Rebecca "Becky" Clower</td>
+                    <td>Founder, CEO & Broker</td>
+                    <td class="contact">+506 2653-6779<br>becky@bwpcr.com</td>
+                    <td><span class="type-badge">Luxury / Guanacaste</span></td>
+                    <td>⭐⭐⭐⭐⭐</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td class="company">Coldwell Banker Costa Rica</td>
+                    <td>Daveed Hollander</td>
+                    <td>President & CEO</td>
+                    <td class="contact">coldwellbankercostarica.com</td>
+                    <td><span class="type-badge">Franchise / Nacional</span></td>
+                    <td>⭐⭐⭐⭐⭐</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td class="company">Coldwell Banker Costa Rica</td>
+                    <td>Aaron Dyer</td>
+                    <td>Vice President</td>
+                    <td class="contact">LinkedIn: aarondyerpga</td>
+                    <td><span class="type-badge">Commercial / Luxury</span></td>
+                    <td>⭐⭐⭐⭐</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td class="company">2Costa Rica Real Estate</td>
+                    <td>Andres Murillo</td>
+                    <td>Real Estate Agent (Guanacaste)</td>
+                    <td class="contact">+506 8835-6055<br>andres@2costaricarealestate.com</td>
+                    <td><span class="type-badge">Beach / Vacation Rental</span></td>
+                    <td>⭐⭐⭐⭐</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td class="company">KRAIN Luxury Real Estate</td>
+                    <td>Luis (KRAIN agent)</td>
+                    <td>Real Estate Agent</td>
+                    <td class="contact">+506 8319-9154<br>luis@kraincostarica.com</td>
+                    <td><span class="type-badge">Luxury / International</span></td>
+                    <td>⭐⭐⭐⭐</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td class="company">The Agency Costa Rica</td>
+                    <td>Equipo comercial</td>
+                    <td>Brokerage</td>
+                    <td class="contact">+506 4001-4398<br>costarica@theagencyre.com</td>
+                    <td><span class="type-badge">Luxury / National</span></td>
+                    <td>⭐⭐⭐⭐</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td class="company">RE/MAX Costa Rica</td>
+                    <td>Equipo comercial</td>
+                    <td>Franchise</td>
+                    <td class="contact">+1-714-369-8133<br>info@remax-costa-rica.com</td>
+                    <td><span class="type-badge">Franchise / Nacional</span></td>
+                    <td>⭐⭐⭐⭐</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td class="company">Magnolia Real Estate Costa Rica</td>
+                    <td>David</td>
+                    <td>Broker</td>
+                    <td class="contact">+506 8847-6556<br>david@magnolia.cr</td>
+                    <td><span class="type-badge">Residential</span></td>
+                    <td>⭐⭐⭐</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td class="company">GoDutch Realty</td>
+                    <td>Ivo Henfling</td>
+                    <td>Broker Owner</td>
+                    <td class="contact">ivo@godutchrealty.com</td>
+                    <td><span class="type-badge">Expats / Residential</span></td>
+                    <td>⭐⭐⭐</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td class="company">Spicy Life Real Estate</td>
+                    <td>Pepe</td>
+                    <td>Broker</td>
+                    <td class="contact">+506 8444-4806<br>pepe@spicyliferealestate.com</td>
+                    <td><span class="type-badge">South Pacific / Dominical</span></td>
+                    <td>⭐⭐⭐</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- CONTACT STRATEGIES -->
+    <div class="card">
+        <h2>📬 Estrategias de Contacto Recomendadas</h2>
+
+        <div class="contact-strategy-item">
+            <h4>1. LinkedIn Outreach Masivo</h4>
+            <p>Buscar y conectar directamente con Becky Clower, Daveed Hollander, Aaron Dyer, Andres Murillo e Ivo Henfling. Usar mensaje personalizado referencing su enfoque de mercado actual y proponiendo una auditoría gratuita de su presencia digital.</p>
+        </div>
+        <div class="contact-strategy-item">
+            <h4>2. Email frío con propuesta de valor</h4>
+            <p>Email directo al contacto clave de cada empresa. Enfatizar que el mercado actual favorece a quienes tienen mejor marketing digital. Ofrecer auditoría gratuita + mini propuesta de 30 días.</p>
+        </div>
+        <div class="contact-strategy-item">
+            <h4>3. cold-calling + WhatsApp</h4>
+            <p>Dado que tenemos números directos (Becky: +506 2653-6779, Andres: +506 8835-6055), el WhatsApp Business es altamente efectivo en Costa Rica. Mensaje breve y valioso, sin presión de venta.</p>
+        </div>
+        <div class="contact-strategy-item">
+            <h4>4. Contenido de valor en Instagram</h4>
+            <p>Seguir y comentar en las cuentas de Instagram de estas inmobiliarias (muchas publican en @bluewaterproperties, @iamrebeccaclower). Generar engagement genuino antes de proponer servicios.</p>
+        </div>
+        <div class="contact-strategy-item">
+            <h4>5. Caso de estudio: Propuesta de video para Guanacaste</h4>
+            <p>Proponer un video de 60-90 segundos mostrando una propiedad premium en Tamarindo/Hacienda Pinilla. Mostrar antes/después del marketing. Posicionar como "content marketing que vende propiedades".</p>
+        </div>
+    </div>
+
+    <!-- COLD EMAIL TEMPLATE -->
+    <div class="card">
+        <h2>📧 Plantilla de Email Frío — Decision Maker Real Estate</h2>
+        <div class="email-template"><span class="tag">Asunto:</span> Cómo [NombreEmpresa] podría vender propiedades 30% más rápido en este mercado
+
+---
+
+Hola [Nombre],
+
+Vi que [Empresa] trabaja en [zona/nicho específico — ej: Guanacaste/propiedades de lujo/alquiler vacacional].
+
+El mercado inmobiliario costarricense está mostrando que las propiedades con <strong>mejor marketing digital se venden más rápido y a mejor precio</strong>. Muchas inmobiliarias en este momento están listando sin una estrategia de contenido que las diferencie.
+
+En Aurea ayudamos a agencias inmobiliarias a:
+• Producir videos de propiedad profesionales
+• Generar campañas de Google Ads geo-segmentadas
+• Crear landing pages dedicadas por propiedad
+• Gestionar presencia en redes sociales para la marca
+
+Tenemos disponibilidad para trabajar con <strong>2-3 inmobiliarias</strong> este trimestre.
+
+¿Te parece si agendamos 20 minutos esta semana para mostrarte cómo lo hemos hecho con otras inmobiliarias en Costa Rica?
+
+Quedo atento,
+[Tu nombre]
+Aurea — Publicidad y Marketing Digital</div>
+    </div>
+
+    <!-- MARKET TRENDS -->
+    <div class="card">
+        <h2>📈 Tendencias Clave del Sector — Mayo 2026</h2>
+        <div class="grid-2">
+            <div>
+                <h3 style="color:var(--accent);font-size:0.9rem;margin-bottom:0.5rem;">Tendencia de Mercado</h3>
+                <ul>
+                    <li><strong>Mercado compradora:</strong> Mayor inventario y precios más estables favorecen al comprador. Las inmobiliarias necesitan diferenciarse.</li>
+                    <li><strong>Alquiler vacacional:</strong> Propiedades duales (residencia + rental) son el producto más demandado en la costa.</li>
+                    <li><strong>Video marketing:</strong> Los tours virtuales y videos de drone son ahora expectativas mínimas, no diferenciadores.</li>
+                    <li><strong>Google Ads:</strong> Campañas por propiedad con presupuesto pequeño (USD 200-500/mes) son altamente efectivas en Guanacaste.</li>
+                    <li><strong>Influencer local:</strong> Colaboraciones con micro-influencers de viaje en Instagram generan leads de alta calidad.</li>
+                </ul>
+            </div>
+            <div>
+                <h3 style="color:var(--accent);font-size:0.9rem;margin-bottom:0.5rem;">Servicios de Marketing Más Demandados</h3>
+                <ul>
+                    <li>🎥 Producción de video (tours, aerial, social media reels)</li>
+                    <li>📱 Gestión de Instagram / Facebook para la marca</li>
+                    <li>🌐 Desarrollo de websites de propiedad individuales</li>
+                    <li>📊 Google Ads y Meta Ads campaigns</li>
+                    <li>📧 Email marketing para bases de datos de compradores</li>
+                    <li>🤳 Content marketing para atraer compradores extranjeros (US, Canada, Europa)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- PRIORITY ACTIONS -->
+    <div class="card" style="border-left: 3px solid var(--green);">
+        <h2>✅ Acciones Inmediatas para Aurea</h2>
+        <ol style="padding-left:1.2rem;">
+            <li style="margin-bottom:0.5rem;"><strong>Enviar LinkedIn connect a Becky Clower y Daveed Hollander</strong> — Mensaje breve referencing su enfoque en Guanacaste.</li>
+            <li style="margin-bottom:0.5rem;"><strong>Email frío a Andres Murillo</strong> (andres@2costaricarealestate.com) — Propuesta de video para propiedades en Tamarindo.</li>
+            <li style="margin-bottom:0.5rem;"><strong>WhatsApp a Becky Clower</strong> (+506 2653-6779) — Presentación de Aurea + propuesta de valor.</li>
+            <li style="margin-bottom:0.5rem;"><strong>Investigar presencia digital de KRAIN y RE/MAX Costa Rica</strong> — Identificar gaps en su estrategia para propuesta específica.</li>
+            <li><strong>Crear caso de estudio ficticio (mock)</strong> — Mostrar cómo una propiedad en Tamarindo se beneficiaría con video + Google Ads.</li>
+        </ol>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        Reporte generado automáticamente por AUREA Lead Intelligence Agent<br>
+        Fecha: 1 de Mayo, 2026 — 19:00 CST · Mercado: Costa Rica · Nicho: Real Estate<br>
+        Confidential — Solo para uso interno de Aurea Advertising Agency
+    </div>
+
+</div>
+</body>
+</html>
