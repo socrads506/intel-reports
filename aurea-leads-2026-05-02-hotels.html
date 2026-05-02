@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aurea — Lead Report: Hotels & Resorts | Costa Rica | 2026-05-02</title>
+<style>
+  :root {
+    --bg: #0d0f14;
+    --card: #141720;
+    --border: #1e2330;
+    --accent: #f5a623;
+    --accent2: #4fc3f7;
+    --text: #d1d5e0;
+    --text-muted: #6b7280;
+    --green: #4ade80;
+    --red: #f87171;
+    --blue: #60a5fa;
+    --tag-bg: #1a2030;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    padding: 32px 20px;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  .header {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 20px;
+    margin-bottom: 28px;
+  }
+
+  .header .badge {
+    display: inline-block;
+    background: var(--accent);
+    color: #000;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 3px;
+    margin-bottom: 10px;
+  }
+
+  .header h1 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 4px;
+  }
+
+  .header .meta {
+    color: var(--text-muted);
+    font-size: 12px;
+  }
+
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+
+  .stat-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+  }
+
+  .stat-card .label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+  }
+
+  .stat-card .value {
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+  }
+
+  .stat-card .value.accent { color: var(--accent); }
+  .stat-card .value.green { color: var(--green); }
+  .stat-card .value.blue { color: var(--blue); }
+
+  h2 {
+    font-size: 15px;
+    font-weight: 600;
+    color: #fff;
+    margin: 28px 0 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  h2::before {
+    content: '';
+    display: inline-block;
+    width: 3px;
+    height: 14px;
+    background: var(--accent);
+    border-radius: 2px;
+  }
+
+  .lead-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 18px;
+    margin-bottom: 12px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+    align-items: start;
+    transition: border-color 0.2s;
+  }
+
+  .lead-card:hover {
+    border-color: var(--accent);
+  }
+
+  .lead-card .name {
+    font-size: 15px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 4px;
+  }
+
+  .lead-card .segment {
+    font-size: 11px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 6px;
+  }
+
+  .lead-card .detail {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-bottom: 2px;
+  }
+
+  .lead-card .detail strong {
+    color: var(--text);
+  }
+
+  .lead-card .contact-tag {
+    display: inline-block;
+    background: var(--tag-bg);
+    border: 1px solid var(--border);
+    color: var(--accent2);
+    font-size: 11px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+    align-self: start;
+    margin-top: 4px;
+  }
+
+  .trend-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 18px;
+    margin-bottom: 12px;
+  }
+
+  .trend-card .trend-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+
+  .trend-card p {
+    font-size: 13px;
+    color: var(--text);
+    line-height: 1.7;
+  }
+
+  .strategy-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 18px;
+    margin-bottom: 12px;
+  }
+
+  .strategy-card .step {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 4px;
+  }
+
+  .strategy-card h3 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 6px;
+  }
+
+  .strategy-card p {
+    font-size: 13px;
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  .contact-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 24px;
+  }
+
+  .contact-table th {
+    text-align: left;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .contact-table td {
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--text);
+    vertical-align: top;
+  }
+
+  .contact-table tr:hover td {
+    background: rgba(245, 166, 35, 0.04);
+  }
+
+  .contact-table .company-name {
+    font-weight: 600;
+    color: #fff;
+  }
+
+  .contact-table .tag {
+    display: inline-block;
+    background: var(--tag-bg);
+    border: 1px solid var(--border);
+    color: var(--blue);
+    font-size: 11px;
+    padding: 2px 7px;
+    border-radius: 3px;
+  }
+
+  .footer {
+    margin-top: 36px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+
+  @media (max-width: 600px) {
+    .lead-card { grid-template-columns: 1fr; }
+    .lead-card .contact-tag { align-self: auto; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="badge">Aurea Advertising Agency</div>
+  <h1>Lead Generation Report — Hotels & Resorts</h1>
+  <div class="meta">Costa Rica &nbsp;|&nbsp; May 2, 2026 &nbsp;|&nbsp; 07:00 UTC &nbsp;|&nbsp; Niche: Hotels & Hospitality</div>
+</div>
+
+<div class="summary-grid">
+  <div class="stat-card">
+    <div class="label">Companies Found</div>
+    <div class="value accent">12</div>
+  </div>
+  <div class="stat-card">
+    <div class="label">Luxury / Premium</div>
+    <div class="value green">8</div>
+  </div>
+  <div class="stat-card">
+    <div class="label">Boutique / Eco-Luxury</div>
+    <div class="value blue">4</div>
+  </div>
+  <div class="stat-card">
+    <div class="label">Tourism Mkt Growth (2026–30)</div>
+    <div class="value">+USD 2.23B &nbsp;|&nbsp; 8.1% CAGR</div>
+  </div>
+</div>
+
+<h2>Market Overview</h2>
+
+<div class="trend-card">
+  <div class="trend-title">Costa Rica Tourism Market Boom</div>
+  <p>The Costa Rica tourism market is valued to increase by USD 2.23 billion between 2025 and 2030, growing at an 8.1% CAGR. International tourism dominates (USD 3.97B in 2024), driven by sustainability-focused experiential travel. Sun & beach remains the largest segment, but eco-luxury lodges and wellness retreats are the fastest-growing categories.</p>
+</div>
+
+<div class="trend-card">
+  <div class="trend-title">2026 Hotel Marketing Key Trends</div>
+  <p>Hotels increasingly prioritize <strong>direct booking strategy</strong> over OTA commissions, using metasearch optimization (Google Hotel Ads, Tripadvisor). <strong>Short-form video (TikTok, Instagram Reels)</strong> is now a genuine booking channel, not just inspiration. <strong>AI-powered personalization</strong> and first-party data ownership are critical given cookie deprecation. Luxury travelers increasingly research via AI assistants, making brand authority and structured content essential.</p>
+</div>
+
+<h2>Target Companies — Hotels & Resorts</h2>
+
+<div class="lead-card">
+  <div>
+    <div class="segment">Luxury Resort — Peninsula Papagayo</div>
+    <div class="name">Nekajui, A Ritz-Carlton Reserve</div>
+    <div class="detail"><strong>Segment:</strong> Ultra-luxury, adults-adjacent wellness & nature</div>
+    <div class="detail"><strong>Why they need ads:</strong> Competing against Four Seasons & Andaz in Papagayo; direct booking share is strategic</div>
+    <div class="detail"><strong>Approach:</strong> Showcase cinematic nature visuals, exclusive experience packages targeting US & Canadian HNW travelers</div>
+  </div>
+  <span class="contact-tag">Ritz-Carlton Mktg Team</span>
+</div>
+
+<div class="lead-card">
+  <div>
+    <div class="segment">Luxury Resort — Peninsula Papagayo</div>
+    <div class="name">Four Seasons Resort Peninsula Papagayo</div>
+    <div class="detail"><strong>Segment:</strong> Premium family & couples luxury</div>
+    <div class="detail"><strong>Decision maker:</strong> Mark Ley, Director of Marketing (appointed 2023)</div>
+    <div class="detail"><strong>Approach:</strong> AI-ready content strategy, TikTok presence, direct booking campaigns</div>
+  </div>
+  <span class="contact-tag">Mark Ley — Mktg Director</span>
+</div>
+
+<div class="lead-card">
+  <div>
+    <div class="segment">Luxury Resort — Peninsula Papagayo</div>
+    <div class="name">Andaz Costa Rica Resort at Peninsula Papagayo</div>
+    <div class="detail"><strong>Segment:</strong> Lifestyle luxury, younger affluent travelers</div>
+    <div class="detail"><strong>Why they need ads:</strong> Hyatt brand with hip, design-forward positioning — ideal for social & influencer campaigns</div>
+    <div class="detail"><strong>Approach:</strong> Instagram/TikTok content partnerships, experiential digital campaigns</div>
+  </div>
+  <span class="contact-tag">Hyatt Regional Team</span>
+</div>
+
+<div class="lead-card">
+  <div>
+    <div class="segment">Luxury Resort — Punta Cacique</div>
+    <div class="name">Waldorf Astoria Costa Rica Punta Cacique</div>
+    <div class="detail"><strong>Segment:</strong> Ultra-high-net-worth, Hilton brand</div>
+    <div class="detail"><strong>Why they need ads:</strong> Newer property (2023–2024), brand awareness phase in North American luxury market</div>
+    <div class="detail"><strong>Approach:</strong> Premium content marketing, loyalty-driven campaigns, Hilton.com optimization</div>
+  </div>
+  <span class="contact-tag">Hilton Luxury Team</span>
+</div>
+
+<div class="lead-card">
+  <div>
+    <div class="segment">Boutique Eco-Luxury — Guanacaste</div>
+    <div class="name">Hacienda AltaGracia, Auberge Resorts Collection</div>
+    <div class="detail"><strong>Segment:</strong> Sustainable luxury wellness, equestrian</div>
+    <div class="detail"><strong>Why they need ads:</strong> Boutique独立 brand — limited in-house marketing team; relies heavily on agencies</div>
+    <div class="detail"><strong>Approach:</strong> Storytelling-first content, wellness retreat packages, US luxury travel media</div>
+  </div>
+  <span class="contact-tag">Auberge Mktg Dept</span>
+</div>
+
+<div class="lead-card">
+  <div>
+    <div class="segment">Boutique — La Fortuna / Arenal</div>
+    <div class="name">Nayara Hotel (Nayara Tented Camp)</div>
+    <div class="detail"><strong>Segment:</strong> Rainforest luxury tents, wellness</div>
+    <div class="detail"><strong>Why they need ads:</strong> Multi-property brand (Nayara Gardens, Nayara Tented Camp) — expanding awareness to new markets</div>
+    <div class="detail"><strong>Approach:</strong> Experiential video content, OTA vs. direct booking optimization, wellness brand positioning</div>
+  </div>
+  <span class="contact-tag">Nayara Mktg Team</span>
+</div>
+
+<div class="lead-card">
+  <div>
+    <div class="segment">Boutique — Santa Teresa</div>
+    <div class="name">Hotel Fermata</div>
+    <div class="detail"><strong>Segment:</strong> Surf-lifestyle boutique, young digital nomads</div>
+    <div class="detail"><strong>Recognition:</strong> Named on Travel + Leisure's World's Best 2026 list</div>
+    <div class="detail"><strong>Approach:</strong> TikTok & Instagram-first strategy, influencer collaborations, direct booking via Instagram Shop</div>
+  </div>
+  <span class="contact-tag">Hotel Fermata Owners</span>
+</div>
+
+<div class="lead-card">
+  <div>
+    <div class="segment">Boutique — Bijagua</div>
+    <div class="name">Origins Astral Lodge</div>
+    <div class="detail"><strong>Segment:</strong> Astro-tourism, remote nature, luxury glamping</div>
+    <div class="detail"><strong>Recognition:</strong> Named on Travel + Leisure's World's Best 2026 list</div>
+    <div class="detail"><strong>Approach:</strong> Niche content marketing (astronomy, sustainability), PR-driven campaigns, specialty travel agencies</div>
+  </div>
+  <span class="contact-tag">Origins Astral Mgmt</span>
+</div>
+
+<div class="lead-card">
+  <div>
+    <div class="segment">Upscale Resort — Guanacaste</div>
+    <div class="name">JW Marriott Guanacaste Resort and Spa</div>
+    <div class="detail"><strong>Segment:</strong> Upscale family & golf resort</div>
+    <div class="detail"><strong>Why they need ads:</strong> Part of Marriott — strong brand but needs local market support and group/meeting segment marketing</div>
+    <div class="detail"><strong>Approach:</strong> MICE segment campaigns, Marriott Bonvoy integration, local Costa Rica market targeting</div>
+  </div>
+  <span class="contact-tag">Marriott Mktg — LatAm</span>
+</div>
+
+<div class="lead-card">
+  <div>
+    <div class="segment">Lifestyle Resort — Gulf of Papagayo</div>
+    <div class="name">El Mangroove</div>
+    <div class="detail"><strong>Segment:</strong> Design-forward boutique, young professionals</div>
+    <div class="detail"><strong>Why they need ads:</strong> Independent boutique competing against big brands — differentiation via lifestyle content is key</div>
+    <div class="detail"><strong>Approach:</strong> Bold creative campaigns, direct booking incentives, targeted Instagram ads</div>
+  </div>
+  <span class="contact-tag">El Mangroove Mgmt</span>
+</div>
+
+<div class="lead-card">
+  <div>
+    <div class="segment">Boutique — Santa Teresa</div>
+    <div class="name">Casa Chameleon at Las Catalinas</div>
+    <div class="detail"><strong>Segment:</strong> Adults-only luxury cliffside villas</div>
+    <div class="detail"><strong>Why they need ads:</strong> Small adult-only property — high ROI per booking; needs precision targeting</div>
+    <div class="detail"><strong>Approach:</strong> High-end travel advisor partnerships, Forbes-level PR placement, romantic getaway packages</div>
+  </div>
+  <span class="contact-tag">Casa Chameleon Mktg</span>
+</div>
+
+<div class="lead-card">
+  <div>
+    <div class="segment">Upscale Resort — Manuel Antonio</div>
+    <div class="name">Parador Nature Resort & Spa</div>
+    <div class="detail"><strong>Segment:</strong> Nature-resort blend, adventure travelers</div>
+    <div class="detail"><strong>Why they need ads:</strong> Tops TripAdvisor Manuel Antonio — leveraging reviews into paid acquisition campaigns</div>
+    <div class="detail"><strong>Approach:</strong> Review-to-content pipeline, adventure travel packages, metasearch + direct booking</div>
+  </div>
+  <span class="contact-tag">Parador Mktg Team</span>
+</div>
+
+<h2>Outreach Strategy — Hotels</h2>
+
+<div class="strategy-card">
+  <div class="step">Step 1 — LinkedIn DM Sequence</div>
+  <h3>Target: Marketing Directors & General Managers</h3>
+  <p>Find decision makers at each property via LinkedIn Sales Navigator. Sequence: 1) Value-add insight DM referencing a trend in their niche (e.g., "Direct booking shift in Costa Rica luxury") → 2) Brief case study of a comparable property → 3) CTA to 30-min strategy call. Keep DMs under 150 words, no pitch in first message.</p>
+</div>
+
+<div class="strategy-card">
+  <div class="step">Step 2 — Email Cold Outreach</div>
+  <h3>Subject Lines That Cut Through</h3>
+  <p>Sample subjects: "Direct booking strategy for [Property Name] — 3 ideas that cost nothing to test," "Why [Property Name]'s competitor is outpacing them on TikTok," "What the Costa Rica tourism boom means for your occupancy in Q3." Include 1-paragraph relevant insight. No attachments in first email. Use Calendly link for easy scheduling.</p>
+</div>
+
+<div class="strategy-card">
+  <div class="step">Step 3 — Referral & Partnership Angle</div>
+  <h3>Tourism Marketing Agencies as Warm Introductions</h3>
+  <p>Reach out to Turistiko, MS Costa Rica Hotel Marketing, and Consuhotel for referral partnerships — they know the hotel buyers and may not offer full digital advertising services. Offer 10–15% referral commission for introductions that lead to signed contracts.</p>
+</div>
+
+<div class="strategy-card">
+  <div class="step">Step 4 — Paid Social Trial Offer</div>
+  <h3>Low-Risk Entry Point</h3>
+  <p>Offer a $1,500–2,500 "Digital Audit + 2-Week Paid Trial" package: full audit of their current digital presence + $500 ad spend matched by Aurea + full reporting. This removes budget objections and demonstrates ROI before scaling. Target: properties spending $3K+/month on OTAs who could own that budget directly.</p>
+</div>
+
+<h2>Quick Contact Reference</h2>
+
+<table class="contact-table">
+  <thead>
+    <tr>
+      <th>Company</th>
+      <th>Segment</th>
+      <th>Priority</th>
+      <th>Contact Angle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="company-name">Nekajui, Ritz-Carlton Reserve</td>
+      <td>Ultra-luxury</td>
+      <td><span class="tag">High</span></td>
+      <td>Direct booking, US HNW market</td>
+    </tr>
+    <tr>
+      <td class="company-name">Four Seasons Papagayo</td>
+      <td>Premium luxury</td>
+      <td><span class="tag">High</span></td>
+      <td>AI content, TikTok, Mark Ley via LinkedIn</td>
+    </tr>
+    <tr>
+      <td class="company-name">Andaz Costa Rica</td>
+      <td>Lifestyle luxury</td>
+      <td><span class="tag">High</span></td>
+      <td>Social-first campaigns, Hyatt team</td>
+    </tr>
+    <tr>
+      <td class="company-name">Waldorf Astoria Punta Cacique</td>
+      <td>Ultra-luxury</td>
+      <td><span class="tag">High</span></td>
+      <td>Brand launch phase, Hilton luxury team</td>
+    </tr>
+    <tr>
+      <td class="company-name">Hacienda AltaGracia</td>
+      <td>Eco-luxury wellness</td>
+      <td><span class="tag">Medium</span></td>
+      <td>Storytelling content, Auberge marketing</td>
+    </tr>
+    <tr>
+      <td class="company-name">Nayara Hotel</td>
+      <td>Rainforest tents</td>
+      <td><span class="tag">Medium</span></td>
+      <td>Video content, wellness brand</td>
+    </tr>
+    <tr>
+      <td class="company-name">Hotel Fermata</td>
+      <td>Surf-lifestyle</td>
+      <td><span class="tag">Medium</span></td>
+      <td>TikTok/IG, T+L prestige angle</td>
+    </tr>
+    <tr>
+      <td class="company-name">Origins Astral Lodge</td>
+      <td>Astro-tourism</td>
+      <td><span class="tag">Medium</span></td>
+      <td>PR + niche content, T+L prestige</td>
+    </tr>
+    <tr>
+      <td class="company-name">JW Marriott Guanacaste</td>
+      <td>Upscale resort</td>
+      <td><span class="tag">Medium</span></td>
+      <td>MICE + Marriott Bonvoy integration</td>
+    </tr>
+    <tr>
+      <td class="company-name">El Mangroove</td>
+      <td>Design boutique</td>
+      <td><span class="tag">Low</span></td>
+      <td>Creative campaigns, IG direct</td>
+    </tr>
+    <tr>
+      <td class="company-name">Casa Chameleon</td>
+      <td>Adults-only villas</td>
+      <td><span class="tag">Low</span></td>
+      <td>Travel advisor partnerships</td>
+    </tr>
+    <tr>
+      <td class="company-name">Parador Nature Resort</td>
+      <td>Adventure nature</td>
+      <td><span class="tag">Low</span></td>
+      <td>Metasearch + review content pipeline</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="footer">
+  Aurea Advertising Agency — Lead Intelligence Report &nbsp;|&nbsp; Hotels & Resorts Niche &nbsp;|&nbsp; Costa Rica<br>
+  Generated: 2026-05-02 07:00 UTC &nbsp;|&nbsp; Sources: Tavily Web Search, Forbes Travel Guide, Travel + Leisure, U.S. News, Technavio
+</div>
+
+</body>
+</html>
