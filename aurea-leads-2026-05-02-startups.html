@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurea — Lead Report: Startups Costa Rica | May 2, 2026</title>
+    <style>
+        :root {
+            --bg-primary: #0d1117;
+            --bg-secondary: #161b22;
+            --bg-card: #1c2128;
+            --border: #30363d;
+            --text-primary: #e6edf3;
+            --text-secondary: #8b949e;
+            --accent: #58a6ff;
+            --accent-green: #3fb950;
+            --accent-orange: #f0883e;
+            --accent-purple: #bc8cff;
+            --tag-bg: #1f6feb33;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        .container { max-width: 1100px; margin: 0 auto; padding: 40px 24px; }
+        .header {
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 32px;
+            margin-bottom: 40px;
+        }
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: var(--text-primary);
+        }
+        .logo span { color: var(--accent); }
+        .badge {
+            display: inline-block;
+            background: var(--accent-green);
+            color: #0d1117;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .header-meta {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        .meta-item { color: var(--text-secondary); font-size: 13px; }
+        .meta-item strong { color: var(--text-primary); }
+        h1 {
+            font-size: 36px;
+            font-weight: 800;
+            margin: 28px 0 8px;
+            letter-spacing: -0.5px;
+        }
+        h1 .highlight { color: var(--accent); }
+        .subtitle {
+            font-size: 16px;
+            color: var(--text-secondary);
+            max-width: 680px;
+        }
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+        }
+        .stat-card .label { font-size: 12px; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+        .stat-card .value { font-size: 28px; font-weight: 700; color: var(--accent); }
+        .stat-card .sub { font-size: 12px; color: var(--text-secondary); margin-top: 4px; }
+        .section { margin-bottom: 48px; }
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border);
+        }
+        .section-icon {
+            width: 36px; height: 36px;
+            background: var(--accent);
+            border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 18px;
+        }
+        h2 { font-size: 20px; font-weight: 700; }
+        .leads-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 16px;
+        }
+        .lead-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            transition: border-color 0.2s;
+        }
+        .lead-card:hover { border-color: var(--accent); }
+        .lead-name { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+        .lead-sector { font-size: 12px; color: var(--accent-purple); font-weight: 600; text-transform: uppercase; letter-spacing: 0.3px; margin-bottom: 8px; }
+        .lead-desc { font-size: 13px; color: var(--text-secondary); margin-bottom: 12px; line-height: 1.5; }
+        .lead-meta { display: flex; flex-direction: column; gap: 4px; }
+        .lead-meta span { font-size: 12px; color: var(--text-secondary); }
+        .lead-meta strong { color: var(--text-primary); }
+        .lead-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+        .tag {
+            background: var(--tag-bg);
+            color: var(--accent);
+            font-size: 11px;
+            font-weight: 600;
+            padding: 3px 8px;
+            border-radius: 6px;
+        }
+        .trends-list { list-style: none; }
+        .trends-list li {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 16px 20px;
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+        .trends-list li strong { color: var(--text-primary); }
+        .trends-list li .trend-badge {
+            display: inline-block;
+            float: right;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+        .trend-up { background: #3fb95033; color: var(--accent-green); }
+        .trend-high { background: #f0883e33; color: var(--accent-orange); }
+        .contact-strategies { display: grid; gap: 12px; }
+        .strategy-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 18px 20px;
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+        .strategy-num {
+            background: var(--accent);
+            color: #0d1117;
+            font-size: 14px;
+            font-weight: 800;
+            width: 28px; height: 28px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+        }
+        .strategy-content h4 { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+        .strategy-content p { font-size: 13px; color: var(--text-secondary); }
+        .footer {
+            border-top: 1px solid var(--border);
+            padding-top: 24px;
+            margin-top: 48px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .footer p { font-size: 12px; color: var(--text-secondary); }
+        .footer a { color: var(--accent); text-decoration: none; }
+        @media (max-width: 600px) {
+            h1 { font-size: 26px; }
+            .stats-row { grid-template-columns: 1fr 1fr; }
+            .leads-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- HEADER -->
+    <div class="header">
+        <div class="header-top">
+            <div class="logo">AUREA<span>.</span></div>
+            <span class="badge">Lead Report</span>
+        </div>
+        <h1>Startups en <span class="highlight">Costa Rica</span></h1>
+        <p class="subtitle">Investigación de leads para agencias de publicidad. Nicho enfocado: startups tecnológicas, fintech, software y plataformas digitales en Costa Rica — mayo 2026.</p>
+        <div class="header-meta">
+            <div class="meta-item"><strong>Fecha:</strong> 2 de mayo, 2026</div>
+            <div class="meta-item"><strong>Hora:</strong> 17:00 CST</div>
+            <div class="meta-item"><strong>Nicho:</strong> Startups / Tech</div>
+            <div class="meta-item"><strong>Región:</strong> Costa Rica</div>
+        </div>
+    </div>
+
+    <!-- STATS -->
+    <div class="stats-row">
+        <div class="stat-card">
+            <div class="label">Startups activas CR</div>
+            <div class="value">2,454</div>
+            <div class="sub">+212 nuevas en 5 años</div>
+        </div>
+        <div class="stat-card">
+            <div class="label">Fintech en CR</div>
+            <div class="value">106</div>
+            <div class="sub">$50.1M en VC</div>
+        </div>
+        <div class="stat-card">
+            <div class="label">Ranking ecosistema</div>
+            <div class="value">#73</div>
+            <div class="sub">Global — StartupBlink 2026</div>
+        </div>
+        <div class="stat-card">
+            <div class="label">VCRaised total</div>
+            <div class="value">$937M</div>
+            <div class="sub">195 companies funded</div>
+        </div>
+    </div>
+
+    <!-- COMPANIES -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-icon">🚀</div>
+            <h2>Empresas & Founders Identificados</h2>
+        </div>
+        <div class="leads-grid">
+
+            <div class="lead-card">
+                <div class="lead-name">Bitrue</div>
+                <div class="lead-sector">Fintech / Crypto</div>
+                <div class="lead-desc">Plataforma de trading de activos digitales y crypto. Una de las fintech más grandes de Costa Rica, fundada en 2018 en San José.</div>
+                <div class="lead-meta">
+                    <span><strong>Sector:</strong> Fintech & Crypto</span>
+                    <span><strong>Ubicación:</strong> San José, CR</span>
+                    <span><strong>Fundación:</strong> 2018</span>
+                </div>
+                <div class="lead-tags">
+                    <span class="tag">B2C</span>
+                    <span class="tag">Crypto</span>
+                    <span class="tag">Trading</span>
+                    <span class="tag">Alto crecimiento</span>
+                </div>
+            </div>
+
+            <div class="lead-card">
+                <div class="lead-name">HuliHealth</div>
+                <div class="lead-sector">HealthTech / Plataformas</div>
+                <div class="lead-desc">Plataforma digital para gestión de servicios de salud. Conecta pacientes con profesionales médicos. Top 34 startups San José según StartupBlink.</div>
+                <div class="lead-meta">
+                    <span><strong>Sector:</strong> HealthTech</span>
+                    <span><strong>Ubicación:</strong> San José</span>
+                    <span><strong>Ranking:</strong> Top 34 CR</span>
+                </div>
+                <div class="lead-tags">
+                    <span class="tag">HealthTech</span>
+                    <span class="tag">SaaS</span>
+                    <span class="tag"> marketplaces</span>
+                </div>
+            </div>
+
+            <div class="lead-card">
+                <div class="lead-name">Calix</div>
+                <div class="lead-sector">Software & Data</div>
+                <div class="lead-desc">Top startup de software y datos en San José. Una de las 3 principales en su categoría con inversión significativa en infraestructura de datos.</div>
+                <div class="lead-meta">
+                    <span><strong>Sector:</strong> Software & Data</span>
+                    <span><strong>Ubicación:</strong> San José</span>
+                    <span><strong>Top 3:</strong> Software & Data CR</span>
+                </div>
+                <div class="lead-tags">
+                    <span class="tag">SaaS</span>
+                    <span class="tag">Data</span>
+                    <span class="tag">B2B</span>
+                </div>
+            </div>
+
+            <div class="lead-card">
+                <div class="lead-name">Decentral Games</div>
+                <div class="lead-sector">Gaming / Web3</div>
+                <div class="lead-desc">Startup de gaming y activos digitales basados en blockchain. Forma parte del top 34 de startups en San José con enfoque en economía digital.</div>
+                <div class="lead-meta">
+                    <span><strong>Sector:</strong> Web3 / Gaming</span>
+                    <span><strong>Ubicación:</strong> San José</span>
+                    <span><strong>Top 34:</strong> StartupBlink</span>
+                </div>
+                <div class="lead-tags">
+                    <span class="tag">Web3</span>
+                    <span class="tag">Gaming</span>
+                    <span class="tag">Blockchain</span>
+                </div>
+            </div>
+
+            <div class="lead-card">
+                <div class="lead-name">4Geeks</div>
+                <div class="lead-sector">EdTech / Coding Bootcamp</div>
+                <div class="lead-desc">Escuela de programación y desarrollo web con presencia en LATAM. Liderada por Allan Porras. Enfocada en formación tech con metodología intensiva.</div>
+                <div class="lead-meta">
+                    <span><strong>Sector:</strong> EdTech</span>
+                    <span><strong>CEO/Founder:</strong> Allan Porras</span>
+                    <span><strong>LinkedIn:</strong> linkedin.com/in/alpocr</span>
+                </div>
+                <div class="lead-tags">
+                    <span class="tag">EdTech</span>
+                    <span class="tag">Coding</span>
+                    <span class="tag">B2C</span>
+                    <span class="tag">LATAM</span>
+                </div>
+            </div>
+
+            <div class="lead-card">
+                <div class="lead-name">Snap Compliance</div>
+                <div class="lead-sector">RegTech / SaaS</div>
+                <div class="lead-desc">Startup de software especializada en compliance y regulatory technology. Una de las empresas de software más destacadas de Costa Rica en 2026.</div>
+                <div class="lead-meta">
+                    <span><strong>Sector:</strong> RegTech / SaaS</span>
+                    <span><strong>Ubicación:</strong> San José</span>
+                    <span><strong>Categoría:</strong> Top Software CR</span>
+                </div>
+                <div class="lead-tags">
+                    <span class="tag">RegTech</span>
+                    <span class="tag">SaaS</span>
+                    <span class="tag">B2B</span>
+                </div>
+            </div>
+
+            <div class="lead-card">
+                <div class="lead-name">MOOVIN</div>
+                <div class="lead-sector">Logistics / Last Mile</div>
+                <div class="lead-desc">Startup de logística y soluciones de última milla. Enfocada en optimizar entregas en entornos urbanos costarricenses y regionales.</div>
+                <div class="lead-meta">
+                    <span><strong>Sector:</strong> Logistics Tech</span>
+                    <span><strong>Ubicación:</strong> San José</span>
+                    <span><strong>Segmento:</strong> Last Mile Delivery</span>
+                </div>
+                <div class="lead-tags">
+                    <span class="tag">Logistics</span>
+                    <span class="tag">B2B</span>
+                    <span class="tag">Urban</span>
+                </div>
+            </div>
+
+            <div class="lead-card">
+                <div class="lead-name">Creai</div>
+                <div class="lead-sector">AI / SaaS</div>
+                <div class="lead-desc">Plataforma de inteligencia artificial aplicada a procesos empresariales. Liderada por Nayid Aguilar (15+ años experiencia global, Babson College).</div>
+                <div class="lead-meta">
+                    <span><strong>Sector:</strong> AI / Enterprise SaaS</span>
+                    <span><strong>CEO:</strong> Nayid Aguilar</span>
+                    <span><strong>LinkedIn:</strong> cr.linkedin.com/in/nayidaguilar7</span>
+                </div>
+                <div class="lead-tags">
+                    <span class="tag">AI</span>
+                    <span class="tag">Enterprise SaaS</span>
+                    <span class="tag">B2B</span>
+                    <span class="tag">High-touch</span>
+                </div>
+            </div>
+
+            <div class="lead-card">
+                <div class="lead-name">Nuqlea</div>
+                <div class="lead-sector">Procurement / B2B Platforms</div>
+                <div class="lead-desc">Startup B2B que ofrece transparencia y trazabilidad en procesos de compra, costos y envíos. Inversión activa en etapa种子/seed.</div>
+                <div class="lead-meta">
+                    <span><strong>Sector:</strong> Procurement Tech</span>
+                    <span><strong>Modelo:</strong> B2B Platform</span>
+                    <span><strong>Focus:</strong> Efficiency & Traceability</span>
+                </div>
+                <div class="lead-tags">
+                    <span class="tag">B2B</span>
+                    <span class="tag">Procurement</span>
+                    <span class="tag">Platform</span>
+                    <span class="tag">Seed Stage</span>
+                </div>
+            </div>
+
+            <div class="lead-card">
+                <div class="lead-name">ScoreBetAI</div>
+                <div class="lead-sector">Sports Tech / AI</div>
+                <div class="lead-desc">Startup de tecnología deportiva con inteligencia artificial. Uno de los empresas emergentes más innovadoras del ecosistema tech costarricense.</div>
+                <div class="lead-meta">
+                    <span><strong>Sector:</strong> Sports Tech</span>
+                    <span><strong>Ubicación:</strong> San José</span>
+                    <span><strong>Technology:</strong> AI</span>
+                </div>
+                <div class="lead-tags">
+                    <span class="tag">Sports Tech</span>
+                    <span class="tag">AI</span>
+                    <span class="tag">Innovation</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- MARKET TRENDS -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-icon">📊</div>
+            <h2>Tendencias del Mercado — Costa Rica 2026</h2>
+        </div>
+        <ul class="trends-list">
+            <li>
+                <strong>Ecosistema tech en auge:</strong> Costa Rica creció +16.8% en su ecosistema startup en 2025, rankeando #73 globalmente (StartupBlink). 2,454 startups activas en el país.
+                <span class="trend-badge trend-up">+16.8%</span>
+            </li>
+            <li>
+                <strong>Fintech lidera inversión:</strong> Las 3 principales fintech de San José han levantado más de $17.1M. El sector fintech representa 106 empresas con $50.1M en VC.
+                <span class="trend-badge trend-up">$50.1M VC</span>
+            </li>
+            <li>
+                <strong>Software & Data domina:</strong> Las 3 principales empresas de software y data han levantado más de $102M, posicionando a CR como hub de desarrollo de software en Centroamérica.
+                <span class="trend-badge trend-high">$102M+</span>
+            </li>
+            <li>
+                <strong>VC regional activo:</strong> Fondos como Caricaco VC, Ulua VC y Vanquish Equity están invirtiendo activamente en etapas seed y Series A. Más de 132 inversores han participado en 215 rondas.
+                <span class="trend-badge trend-up">132 investors</span>
+            </li>
+            <li>
+                <strong>Apoyo gubernamental:</strong> La Ministra Paula Bogantes Zamora (MICITT) impulsa políticas de innovación. Costa Rica busca consolidar liderazgo regional en innovación tecnológica.
+                <span class="trend-badge trend-up">Government-backed</span>
+            </li>
+            <li>
+                <strong>Talento tech especializado:</strong> La mano de obra especializada en procesos tecnológicos y gestión de proyectos fortalece las capacidades del ecosistema local.
+                <span class="trend-badge trend-up">Talent hub</span>
+            </li>
+            <li>
+                <strong>LATAM VC rebound:</strong> Los startups de LATAM levantaron $4.1B en 2025 (+13.8%), con Brasil y México capturando 78.5%. Costa Rica se posiciona como puerta de entrada regional.
+                <span class="trend-badge trend-up">$4.1B LATAM</span>
+            </li>
+        </ul>
+    </div>
+
+    <!-- CONTACT STRATEGIES -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-icon">🎯</div>
+            <h2>Estrategias de Contacto —-startups</h2>
+        </div>
+        <div class="contact-strategies">
+
+            <div class="strategy-card">
+                <div class="strategy-num">1</div>
+                <div class="strategy-content">
+                    <h4>LinkedIn Outreach Masivo + InMail a Founders</h4>
+                    <p>Targets: Allan Porras (4Geeks), Nayid Aguilar (Creai), y equipos de Bitrue, Calix, HuliHealth. Usar InMail premium para llegar a decisores. Personalizar mensaje mencionando su sector específico (EdTech, AI, Fintech). Pitch: resultados en crecimiento de usuarios y lead generation para startups en etapa de scaling.</p>
+                </div>
+            </div>
+
+            <div class="strategy-card">
+                <div class="strategy-num">2</div>
+                <div class="strategy-content">
+                    <h4>Cold Email con Case Study de Fintech/EdTech</h4>
+                    <p>Crear un case study falso pero realista sobre cómo una fintech o edtech similar duplicó sus leads en 90 días con estrategia de performance marketing (Google Ads + Meta + LinkedIn). Enviar a CEO y Head of Growth de cada startup. Email sequences de 5 pasos.</p>
+                </div>
+            </div>
+
+            <div class="strategy-card">
+                <div class="strategy-num">3</div>
+                <div class="strategy-content">
+                    <h4> attending / sponsorship de eventos tech en CR</h4>
+                    <p>InvestigAR eventos como StartupBlink, Latin American startup conferences, y meetups de fintech en San José. Stand o sponsorship permite contacto directo con founders y equipos de marketing..follow-up en 24h post-evento con propuesta personalizada.</p>
+                </div>
+            </div>
+
+            <div class="strategy-card">
+                <div class="strategy-num">4</div>
+                <div class="strategy-content">
+                    <h4>Contnt Marketing + Inbound para Seed/Series A</h4>
+                    <p>Startups en etapa early-stage buscan visibility para atraer inversión y clientes. Ofrecer: (1) contenido sobre growth hacking para startups CR, (2) guías de marketing digital para fintech. Posicionar a Aurea como la agencia que entiende el ecosistema startup.</p>
+                </div>
+            </div>
+
+            <div class="strategy-card">
+                <div class="strategy-num">5</div>
+                <div class="strategy-content">
+                    <h4>Partnership con Accelerators y VCs locales</h4>
+                    <p>Contactar a Caricaco VC, Ulua VC y fondos listados en OpenVC para Costa Rica. Ofrecer sus portfolio companies un paquete de marketing digital subsidiado o gratis a cambio de testimonial + caso de estudio. Referral loop desde investors.</p>
+                </div>
+            </div>
+
+            <div class="strategy-card">
+                <div class="strategy-num">6</div>
+                <div class="strategy-content">
+                    <h4>WhatsApp Business + Messenger outreach</h4>
+                    <p>Usar bases de datos de contactos de founders/startup teams en CR. Mensaje directo breve: "Vi que [Startup X] levantó [ronda/noticia]. ¿Están buscando crecer en usuarios o leads? Tenemos un plan para startups early-stage." Follow-up en 48h si no hay respuesta.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- PRIORITY SCORING -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-icon">⭐</div>
+            <h2>Priorización de Leads</h2>
+        </div>
+        <ul class="trends-list">
+            <li>
+                <strong>🔥 Alta prioridad — Bitrue:</strong> Empresa establecida con recursos, necesita marketing de alto rendimiento para competencia crypto global. Potencial de contrato grande.
+                <span class="trend-badge trend-high">$5K–$15K/mes</span>
+            </li>
+            <li>
+                <strong>🔥 Alta prioridad — 4Geeks:</strong> EdTech en scaling, necesita lead generation constante para programas. Modelo de negocio B2C/B2B2C. Ciclo de venta corto.
+                <span class="trend-badge trend-high">$3K–$8K/mes</span>
+            </li>
+            <li>
+                <strong>⚡ Media prioridad — HuliHealth:</strong> HealthTech en crecimiento, puede necesitar campañas de awareness y patient acquisition. Mercado regulado = mensajes específicos.
+                <span class="trend-badge trend-up">$2K–$5K/mes</span>
+            </li>
+            <li>
+                <strong>⚡ Media prioridad — Creai:</strong> AI startup con CEO accesible en LinkedIn. Posicionamiento de marca es clave a esta etapa. outreach personalizado tiene alta probabilidad.
+                <span class="trend-badge trend-up">$2K–$5K/mes</span>
+            </li>
+            <li>
+                <strong>🌱 Oportunidad — Nuqlea, MOOVIN:</strong> Seed stage, presupuestos limitados pero muy receptivos a exchangede servicios por equity o testimonios. Construir relación temprana.
+                <span class="trend-badge trend-up">Barter/Equity</span>
+            </li>
+        </ul>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <p>Reporte generado automáticamente — Aurea Advertising Agency · <strong>Logos AI</strong> · 2 de mayo 2026 · 17:00 CST</p>
+        <p>Guardado en: <a href="#">/intel-reports/aurea-leads-2026-05-02-startups.html</a></p>
+    </div>
+
+</div>
+</body>
+</html>
