@@ -1,383 +1,408 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aurea — Leads: Manufacturers Costa Rica | May 2, 2026</title>
-<style>
-  :root {
-    --bg: #0d0d12;
-    --card: #16161f;
-    --border: #2a2a3a;
-    --accent: #f5a623;
-    --accent2: #4fc3f7;
-    --green: #66bb6a;
-    --red: #ef5350;
-    --text: #e8e8f0;
-    --muted: #8888a0;
-    --tag-bg: #1e1e2e;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'Segoe UI', system-ui, sans-serif;
-    font-size: 14px;
-    line-height: 1.6;
-    padding: 24px;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-  header {
-    border-bottom: 1px solid var(--border);
-    padding-bottom: 20px;
-    margin-bottom: 28px;
-  }
-  .badge {
-    display: inline-block;
-    background: var(--accent);
-    color: #000;
-    font-weight: 700;
-    font-size: 11px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    padding: 3px 10px;
-    border-radius: 3px;
-    margin-bottom: 10px;
-  }
-  h1 { font-size: 22px; font-weight: 700; margin-bottom: 6px; }
-  .meta { color: var(--muted); font-size: 12px; }
-  h2 {
-    font-size: 16px;
-    color: var(--accent);
-    margin: 28px 0 12px;
-    padding-bottom: 6px;
-    border-bottom: 1px solid var(--border);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
-  .lead-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 18px;
-    margin-bottom: 14px;
-  }
-  .lead-card .name { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
-  .lead-card .detail { color: var(--muted); font-size: 12px; margin-bottom: 8px; }
-  .lead-card .tags { display: flex; flex-wrap: wrap; gap: 6px; }
-  .tag {
-    background: var(--tag-bg);
-    border: 1px solid var(--border);
-    color: var(--accent2);
-    font-size: 11px;
-    padding: 2px 8px;
-    border-radius: 4px;
-  }
-  .contact-strategy {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 18px;
-    margin-bottom: 14px;
-  }
-  .contact-strategy h3 { font-size: 14px; margin-bottom: 10px; color: var(--text); }
-  .contact-strategy ul { list-style: none; padding: 0; }
-  .contact-strategy li { padding: 4px 0; color: var(--muted); font-size: 13px; }
-  .contact-strategy li::before { content: "→ "; color: var(--accent); }
-  .trends-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    margin-bottom: 14px;
-  }
-  .trend-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 16px;
-  }
-  .trend-card .trend-title { font-weight: 600; margin-bottom: 6px; font-size: 13px; }
-  .trend-card .trend-desc { color: var(--muted); font-size: 12px; line-height: 1.5; }
-  .stat-row {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 20px;
-  }
-  .stat-box {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 14px 18px;
-    flex: 1;
-    text-align: center;
-  }
-  .stat-box .num { font-size: 22px; font-weight: 700; color: var(--accent); }
-  .stat-box .label { font-size: 11px; color: var(--muted); margin-top: 4px; }
-  .priority { color: var(--accent); font-weight: 700; }
-  .footer { text-align: center; color: var(--muted); font-size: 11px; margin-top: 40px; padding-top: 16px; border-top: 1px solid var(--border); }
-  .niche-badge {
-    display: inline-block;
-    background: var(--accent2);
-    color: #000;
-    font-weight: 700;
-    font-size: 11px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    padding: 3px 10px;
-    border-radius: 3px;
-    margin-left: 8px;
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aurea — Lead Report: Clínicas Privadas Costa Rica · 2026-05-02</title>
+  <style>
+    :root {
+      --bg:        #0d0f14;
+      --surface:   #161a24;
+      --surface2:  #1e2330;
+      --border:    #2a3045;
+      --accent:    #e8b04b;
+      --accent2:   #4a9eff;
+      --text:      #dde3f0;
+      --muted:     #7a849c;
+      --green:     #4ecb8d;
+      --red:       #ff5f6d;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.6; }
+    a { color: var(--accent2); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .container { max-width: 960px; margin: 0 auto; padding: 40px 24px; }
+
+    /* ── Header ── */
+    header { border-bottom: 1px solid var(--border); padding-bottom: 28px; margin-bottom: 36px; }
+    .logo-row { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+    .logo-mark { background: var(--accent); color: var(--bg); font-weight: 900; font-size: 18px; padding: 6px 12px; border-radius: 4px; letter-spacing: 1px; }
+    .tag { background: var(--accent2); color: #fff; font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 3px; letter-spacing: 1px; text-transform: uppercase; }
+    header h1 { font-size: 22px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+    header p { color: var(--muted); font-size: 13px; }
+    .meta-grid { display: flex; gap: 24px; margin-top: 14px; flex-wrap: wrap; }
+    .meta-item { display: flex; flex-direction: column; gap: 2px; }
+    .meta-label { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); }
+    .meta-value { font-size: 13px; font-weight: 600; color: var(--accent); }
+
+    /* ── Sections ── */
+    section { margin-bottom: 36px; }
+    .section-title { font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); border-bottom: 1px solid var(--border); padding-bottom: 8px; margin-bottom: 18px; }
+
+    /* ── Lead Cards ── */
+    .leads-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 16px; transition: border-color .2s; }
+    .card:hover { border-color: var(--accent2); }
+    .card-name { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+    .card-type { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--accent); margin-bottom: 8px; }
+    .card-detail { font-size: 12px; color: var(--muted); margin-bottom: 3px; }
+    .card-detail span { color: var(--text); }
+    .card-tag { display: inline-block; background: var(--surface2); border: 1px solid var(--border); border-radius: 3px; padding: 1px 7px; font-size: 10px; color: var(--muted); margin-top: 6px; }
+    .card-tag.hot { background: rgba(232,176,75,.12); border-color: var(--accent); color: var(--accent); }
+
+    /* ── Trend cards ── */
+    .trend-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .trend-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 14px; }
+    .trend-icon { font-size: 22px; margin-bottom: 8px; }
+    .trend-title { font-size: 12px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+    .trend-desc { font-size: 11px; color: var(--muted); line-height: 1.5; }
+
+    /* ── Strategy table ── */
+    .strategy-table { width: 100%; border-collapse: collapse; }
+    .strategy-table th { background: var(--surface2); color: var(--muted); font-size: 10px; text-transform: uppercase; letter-spacing: 1px; padding: 8px 12px; text-align: left; border-bottom: 1px solid var(--border); }
+    .strategy-table td { padding: 10px 12px; border-bottom: 1px solid var(--border); font-size: 12px; vertical-align: top; }
+    .strategy-table tr:last-child td { border-bottom: none; }
+    .priority { display: inline-block; padding: 1px 6px; border-radius: 3px; font-size: 10px; font-weight: 700; }
+    .priority.high { background: rgba(232,176,75,.15); color: var(--accent); }
+    .priority.mid  { background: rgba(74,158,255,.15); color: var(--accent2); }
+    .priority.low  { background: rgba(78,203,141,.15); color: var(--green); }
+
+    /* ── Outreach script ── */
+    .script-box { background: var(--surface2); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 4px; padding: 14px 16px; font-family: 'Consolas', monospace; font-size: 12px; color: var(--text); white-space: pre-wrap; line-height: 1.8; margin-bottom: 10px; }
+    .script-label { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin-bottom: 6px; }
+
+    /* ── Stats bar ── */
+    .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 32px; }
+    .stat-box { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 16px; text-align: center; }
+    .stat-num { font-size: 26px; font-weight: 800; color: var(--accent); }
+    .stat-label { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin-top: 2px; }
+
+    /* ── Footer ── */
+    footer { border-top: 1px solid var(--border); padding-top: 20px; margin-top: 40px; display: flex; justify-content: space-between; align-items: center; color: var(--muted); font-size: 11px; }
+
+    @media (max-width: 640px) {
+      .leads-grid, .trend-grid, .stats-row { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
+<div class="container">
 
-<header>
-  <div class="badge">Aurea Advertising Agency</div>
-  <h1>Lead Generation Report — Costa Rica Manufacturers</h1>
-  <div class="meta">May 2, 2026 · 11:00 CST · Slot 17 · Niche: <span class="niche-badge">Manufacturers</span></div>
-</header>
+  <!-- ══ HEADER ══ -->
+  <header>
+    <div class="logo-row">
+      <div class="logo-mark">AUREA</div>
+      <div class="tag">Lead Intelligence</div>
+    </div>
+    <h1>Lead Report — Clínicas Privadas Costa Rica</h1>
+    <p>Investigación horaria para oportunidades de publicidad y marketing digital en el nicho clínico privado costarricense.</p>
+    <div class="meta-grid">
+      <div class="meta-item">
+        <span class="meta-label">Fecha</span>
+        <span class="meta-value">2 de mayo 2026</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Nicho</span>
+        <span class="meta-value">Clínicas Privadas / Salud</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Ciclo</span>
+        <span class="meta-value">Hora 12:00 UTC</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Próx. nicho</span>
+        <span class="meta-value">Ecommerce</span>
+      </div>
+    </div>
+  </header>
 
-<div class="stat-row">
-  <div class="stat-box">
-    <div class="num">70+</div>
-    <div class="label">Active Medtech Manufacturers</div>
+  <!-- ══ STATS ══ -->
+  <div class="stats-row">
+    <div class="stat-box">
+      <div class="stat-num">10</div>
+      <div class="stat-label">Empresas identificadas</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">6</div>
+      <div class="stat-label">Hospitales privados</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">4</div>
+      <div class="stat-label">Clínicas especializadas</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">USD 84.5B</div>
+      <div class="stat-label">Turismo médico global 2026</div>
+    </div>
   </div>
-  <div class="stat-box">
-    <div class="num">$8.7B</div>
-    <div class="label">Med Device Exports 2024</div>
-  </div>
-  <div class="stat-box">
-    <div class="num">22%</div>
-    <div class="label">Annual Export Growth</div>
-  </div>
-  <div class="stat-box">
-    <div class="num">10th</div>
-    <div class="label">Largest Med Device Exporter Globally</div>
-  </div>
+
+  <!-- ══ COMPANIES ══ -->
+  <section>
+    <div class="section-title">🏥 Empresas Identificadas — Clínicas y Hospitales Privados</div>
+    <div class="leads-grid">
+
+      <!-- Hospital Clínica Bíblica -->
+      <div class="card">
+        <div class="card-name">Hospital Clínica Bíblica</div>
+        <div class="card-type">Hospital Privado · Top Tier</div>
+        <div class="card-detail">📍 Ave. 14, entre calles 1 y 0, San José</div>
+        <div class="card-detail">📞 <span>+506 2522 1000</span></div>
+        <div class="card-detail">🌐 <a href="https://www.clinicabiblica.com" target="_blank">clinicabiblica.com</a></div>
+        <div class="card-detail">💡 High-spend · foco en turismo médico internacional</div>
+        <div class="card-tag hot">🔴 Prioridad Alta</div>
+      </div>
+
+      <!-- Hospital Metropolitano -->
+      <div class="card">
+        <div class="card-name">Hospital Metropolitano</div>
+        <div class="card-type">Hospital Privado · Red Nacional</div>
+        <div class="card-detail">📍 Calle 14, Ave. 8, Torre Médica HM, San José</div>
+        <div class="card-detail">📞 <span>+506 2521-9595</span></div>
+        <div class="card-detail">🌐 <a href="https://metropolitanocr.com" target="_blank">metropolitanocr.com</a></div>
+        <div class="card-detail">💡 Sede 24h · múltiples especialidades</div>
+        <div class="card-tag hot">🔴 Prioridad Alta</div>
+      </div>
+
+      <!-- Hospital CIMA -->
+      <div class="card">
+        <div class="card-name">Hospital CIMA</div>
+        <div class="card-type">Hospital Privado · Escazú</div>
+        <div class="card-detail">📍 San Rafael de Escazú, San José</div>
+        <div class="card-detail">🌐 <a href="https://hospitalcima.com" target="_blank">hospitalcima.com</a></div>
+        <div class="card-detail">💡 26 años · tecnología avanzada · atraer turismo médico</div>
+        <div class="card-tag hot">🔴 Prioridad Alta</div>
+      </div>
+
+      <!-- Hospital Internacional La Católica -->
+      <div class="card">
+        <div class="card-name">Hospital Internacional La Católica</div>
+        <div class="card-type">Hospital Privado · Grupo ICE</div>
+        <div class="card-detail">📍 San José</div>
+        <div class="card-detail">🌐 <a href="https://hilc.cr" target="_blank">hilc.cr</a></div>
+        <div class="card-detail">💡 Grupo ICE · medicina empresarial · especialidades complejas</div>
+        <div class="card-tag hot">🔴 Prioridad Alta</div>
+      </div>
+
+      <!-- Centro Médico La California -->
+      <div class="card">
+        <div class="card-name">Centro Médico La California</div>
+        <div class="card-type">Centro Médico Multiespecialidad</div>
+        <div class="card-detail">📍 El Carmen, San José</div>
+        <div class="card-detail">📞 <span>+506 4040 0808</span></div>
+        <div class="card-detail">🌐 <a href="https://www.hulihealth.com/en/clinic/centro-medico-la-california" target="_blank">hulihealth.com</a></div>
+        <div class="card-detail">💡 25+ especialidades · +650 procedimientos</div>
+        <div class="card-tag">🟡 Interés Medio</div>
+      </div>
+
+      <!-- Centro Médico Momentum Escazú -->
+      <div class="card">
+        <div class="card-name">Centro Médico Momentum Escazú</div>
+        <div class="card-type">Centro Médico · Directorio Especializado</div>
+        <div class="card-detail">📍 Escazú, San José</div>
+        <div class="card-detail">🌐 <a href="https://directorio.momentumescazu.com" target="_blank">momentumescazu.com</a></div>
+        <div class="card-detail">💡 Directorio digital · dermatología, cirugía dermatológica</div>
+        <div class="card-tag">🟡 Interés Medio</div>
+      </div>
+
+      <!-- HF Derma Clinique -->
+      <div class="card">
+        <div class="card-name">HF Derma Clinique</div>
+        <div class="card-type">Clínica de Medicina Estética y Dermatología</div>
+        <div class="card-detail">📍 Escazú, San José</div>
+        <div class="card-detail">🌐 <a href="https://derma-clinique.com" target="_blank">derma-clinique.com</a></div>
+        <div class="card-detail">💡 Foco en estética y dermatología avanzada · clientela premium</div>
+        <div class="card-tag">🟡 Interés Medio</div>
+      </div>
+
+      <!-- Clínica Americana -->
+      <div class="card">
+        <div class="card-name">Clínica Americana</div>
+        <div class="card-type">Clínica Privada · Multiespecialidad</div>
+        <div class="card-detail">📍 Ave. 14, contiguo a Farmacia Clínica Bíblica, San José</div>
+        <div class="card-detail">🌐 <a href="https://clinicaamericana.hulilabs.com" target="_blank">clinicaamericana.hulilabs.com</a></div>
+        <div class="card-detail">💡 Centro de diagnóstico y tratamiento del dolor · múltiples especialistas</div>
+        <div class="card-tag">🟡 Interés Medio</div>
+      </div>
+
+      <!-- Goodness Dental -->
+      <div class="card">
+        <div class="card-name">Goodness Dental</div>
+        <div class="card-type">Clínica Dental · Ranking #1 CR</div>
+        <div class="card-detail">📍 San José, Costa Rica</div>
+        <div class="card-detail">🌐 <a href="https://www.goodnessdental.com" target="_blank">goodnessdental.com</a></div>
+        <div class="card-detail">💡 Mejor clínica dental CR 2025 · foco en turismo dental EE.UU./Canadá</div>
+        <div class="card-tag hot">🔴 Prioridad Alta</div>
+      </div>
+
+      <!-- Advance Dental -->
+      <div class="card">
+        <div class="card-name">Advance Dental Costa Rica</div>
+        <div class="card-type">Clínica Dental · Ubicación CIMA Hospital</div>
+        <div class="card-detail">📍 Torre 2, Hospital CIMA, Escazú</div>
+        <div class="card-detail">🌐 <a href="https://www.advancedentalcostarica.com" target="_blank">advancedentalcostarica.com</a></div>
+        <div class="card-detail">💡 Foco en turismo dental · zona premium Escazú</div>
+        <div class="card-tag">🟡 Interés Medio</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ MARKET TRENDS ══ -->
+  <section>
+    <div class="section-title">📊 Tendencias del Mercado — Salud y Turismo Médico 2026</div>
+    <div class="trend-grid">
+
+      <div class="trend-card">
+        <div class="trend-icon">🤖</div>
+        <div class="trend-title">IA en Marketing de Salud</div>
+        <div class="trend-desc">El 46% de especialistas ya usa IA para escalar contenido creativo. En 2026, los "Marketers de precisión" reducen desperdicio presupuestario un 27% por debajo del 10%.</div>
+      </div>
+
+      <div class="trend-card">
+        <div class="trend-icon">🌐</div>
+        <div class="trend-title">Turismo Médico en CR</div>
+        <div class="trend-desc">Mercado global de turismo médico: USD 84.5B en 2026. Costa Rica es referente en dental, cirugía plástica, ortopedia y fertilidad para pacientes de EE.UU. y Canadá.</div>
+      </div>
+
+      <div class="trend-card">
+        <div class="trend-icon">📱</div>
+        <div class="trend-title">Búsqueda Móvil</div>
+        <div class="trend-desc">80% de pacientes buscan especialistas en Internet antes de agendar. Google Business Profile optimizado y reseñas son obligatorio para cualquier clínica privada.</div>
+      </div>
+
+      <div class="trend-card">
+        <div class="trend-icon">💬</div>
+        <div class="trend-title">WhatsApp Business</div>
+        <div class="trend-desc">WhatsApp Business es canal fundamental para atención médica en Costa Rica. Automatización de citas y respuestas por IA son diferenciadores clave en 2026.</div>
+      </div>
+
+      <div class="trend-card">
+        <div class="trend-icon">⭐</div>
+        <div class="trend-title">E-E-A-T en Salud</div>
+        <div class="trend-desc">Google prioriza señales E-E-A-T (Experiencia, Expertise, Autoridad, Confianza) para contenido de salud. Contenido educativo del médico es rey.</div>
+      </div>
+
+      <div class="trend-card">
+        <div class="trend-icon">📈</div>
+        <div class="trend-title">Foco en Resultados</div>
+        <div class="trend-desc">Las clínicas más exitosas exigen métricas claras: costo por lead, tasa de conversión, retorno de inversión publicitaria. El "branding bonito" ya no justifica inversión.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ CONTACT STRATEGIES ══ -->
+  <section>
+    <div class="section-title">🎯 Estrategias de Contacto — Clínicas Privadas Costa Rica</div>
+    <table class="strategy-table">
+      <thead>
+        <tr>
+          <th>Canal</th>
+          <th>Estrategia</th>
+          <th>Prioridad</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>LinkedIn B2B</strong></td>
+          <td>Conectar con Directores de Marketing, Gerentes Comerciales y Directores Ejecutivos de hospitales privados (Clínica Bíblica, CIMA, Metropolitano). Usar mensaje de valor sobre casos de éxito en sector salud.</td>
+          <td><span class="priority high">HIGH</span></td>
+        </tr>
+        <tr>
+          <td><strong>Email Marketing frío</strong></td>
+          <td>Personalizar por nombre de clínica. Presentar caso de aumento de agenda vacía (Clínica Vallejo like). Ofrecer auditoría gratuita de presencia digital de 30 min.</td>
+          <td><span class="priority high">HIGH</span></td>
+        </tr>
+        <tr>
+          <td><strong>Instagram / Meta Ads</strong></td>
+          <td>Campaña de contenido educativo en nombre de la clínica. Dirigir a formulario de agendar cita. Enfocar en antes/después para clín. estéticas (Derma Clinique, Goodness Dental).</td>
+          <td><span class="priority high">HIGH</span></td>
+        </tr>
+        <tr>
+          <td><strong>Google Ads Búsqueda</strong></td>
+          <td>Segmentar por keywords: "clínica dental San José", "hospital privado Costa Rica", "dermatólogo Escazú". Landing page dedicada con CTA de cita.</td>
+          <td><span class="priority mid">MED</span></td>
+        </tr>
+        <tr>
+          <td><strong>WhatsApp Business API</strong></td>
+          <td>Ofrecer setup de WhatsApp Business con chatbot de citas automáticas. Differenciador fuerte para clínicas con alta demanda de agendamiento.</td>
+          <td><span class="priority mid">MED</span></td>
+        </tr>
+        <tr>
+          <td><strong> PR / Comunicados</strong></td>
+          <td>Colocar nota en medios CR sobre crecimiento del turismo médico y el rol del marketing digital. Tocar a PROMÉD (Cámara Costarricense de Salud).</td>
+          <td><span class="priority low">LOW</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ══ OUTREACH SCRIPTS ══ -->
+  <section>
+    <div class="section-title">📬 Scripts de Contacto — Email y LinkedIn</div>
+
+    <div class="script-label">📧 Script Email — Hospital/Clínica Grande (prioridad alta)</div>
+    <div class="script-box">Asunto: Aumentar citas y reducir espacios vacíos — Auditoría gratuita para [Nombre Clínica]
+
+Hola [Nombre],
+
+Mi nombre es [Tu nombre] de Aurea, agencia de publicidad con experiencia en el sector salud costarricense.
+
+En los últimos meses hemos trabajado con clínicas privadas en San José ayudándoles a reducir los espacios vacíos en su agenda mediante estrategias de marketing digital focalizadas (Meta Ads + Google Ads + contenido educativo).
+
+Trabajamos con el modelo de resultados medibles: solo cobramos por gestión + un % sobre el crecimiento en leads generados. Sin contratos largos, sin promesas vacías.
+
+¿Tendrían 20 minutos esta semana para una auditoría gratuita de su presencia digital actual?
+
+Quedo atento.
+
+Saludos,
+[Tu nombre] | Aurea</div>
+
+    <div class="script-label">💬 Script LinkedIn — Director de Marketing / Gerente Comercial</div>
+    <div class="script-box">Hola [Nombre],
+
+Vi que [Nombre Clínica] está posicionada como referente en [especialidad]. Felicitaciones.
+
+Soy [Tu nombre] de Aurea. Ayudamos a hospitales y clínicas privadas en Costa Rica a llenar sus agendas con estrategias de publicidad digital orientadas a resultados (no solo "gestión de redes").
+
+¿Estarías abierto/a a una conversación breve sobre cómo estamos ayudando a otras clínicas similares?
+
+No hay venta agresiva — solo una auditoría de 20 min para ver si hay oportunidad.
+
+¡Buen fin de semana!</div>
+  </section>
+
+  <!-- ══ CTA ══ -->
+  <section>
+    <div class="section-title">⚡ Próximos Pasos Recomendados</div>
+    <div style="background: var(--surface); border: 1px solid var(--accent); border-radius: 8px; padding: 20px; display:grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+      <div>
+        <div style="color: var(--accent); font-weight: 700; font-size: 13px; margin-bottom: 6px;">1. Semana 1–2</div>
+        <div style="font-size: 12px; color: var(--muted);">Priorizar contact0 con Hospital Clínica Bíblica, CIMA y Goodness Dental via LinkedIn y email frío. Enviar mínimo 15 mensajes personalizados.</div>
+      </div>
+      <div>
+        <div style="color: var(--accent); font-weight: 700; font-size: 13px; margin-bottom: 6px;">2. Semana 3–4</div>
+        <div style="font-size: 12px; color: var(--muted);">Presentar propuesta a clínicas con mayor respuesta. Incluir auditoría gratuita de Google Business Profile y Meta Insights.</div>
+      </div>
+      <div>
+        <div style="color: var(--accent); font-weight: 700; font-size: 13px; margin-bottom: 6px;">3. Mrrqueting</div>
+        <div style="font-size: 12px; color: var(--muted);">Crear caso de estudio con datos de Clínica Vallejo (referencia pública) para demostrar ROI de inversión publicitaria en sector salud CR.</div>
+      </div>
+      <div>
+        <div style="color: var(--accent); font-weight: 700; font-size: 13px; margin-bottom: 6px;">4. KPls a seguir</div>
+        <div style="font-size: 12px; color: var(--muted);">Tasa de respuesta outreach frío, costo por lead (CPL), tasa de conversión agenda. Meta: CPL &lt; $15 en 60 días.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ══ -->
+  <footer>
+    <span>Reporte generado por AUREA Lead Intelligence · 2026-05-02 12:00 UTC</span>
+    <span>Confidencial — Solo para uso interno de Aurea Advertising</span>
+  </footer>
+
 </div>
-
-<h2>Companies & Decision Makers Found</h2>
-
-<div class="lead-card">
-  <div class="name">Forj Medical <span class="priority">★ PRIORITY</span></div>
-  <div class="detail">CDMO · Evolution Free Zone, Tacares de Grecia, Costa Rica · Grand opening 2026</div>
-  <div class="tags">
-    <span class="tag">Medical Devices</span>
-    <span class="tag">Surgical Navigation</span>
-    <span class="tag">Electrophysiology</span>
-    <span class="tag">Diabetes Devices</span>
-    <span class="tag">Cardiovascular</span>
-  </div>
-  <p style="color: var(--muted); font-size: 12px; margin-top: 10px;">
-    <strong>Why target:</strong> Brand new 53,000 sq ft facility opening 2026 — will need full brand identity, website, recruitment marketing, corporate communications. Decision makers: CEO, Marketing Director, HR Director.
-  </p>
-</div>
-
-<div class="lead-card">
-  <div class="name">Surface Solutions Group</div>
-  <div class="detail">Medical Coating · Costa Rica · $10M new facility under construction</div>
-  <div class="tags">
-    <span class="tag">Medical Devices</span>
-    <span class="tag">Surface Coating</span>
-    <span class="tag">High-Precision Manufacturing</span>
-  </div>
-  <p style="color: var(--muted); font-size: 12px; margin-top: 10px;">
-    <strong>Why target:</strong> Major capex investment in 2026 — ideal moment for PR, corporate branding, and awareness campaigns. Target: General Manager, Marketing Lead.
-  </p>
-</div>
-
-<div class="lead-card">
-  <div class="name">Resonetics</div>
-  <div class="detail">Medical Device Manufacturing · Expanding third plant in Costa Rica · Free Zone</div>
-  <div class="tags">
-    <span class="tag">Medical Devices</span>
-    <span class="tag">Nitinol Processing</span>
-    <span class="tag">Laser Cutting</span>
-    <span class="tag">Expansion 2026</span>
-  </div>
-  <p style="color: var(--muted); font-size: 12px; margin-top: 10px;">
-    <strong>Why target:</strong> Actively expanding — needs employer branding, facility launch comms, and B2B marketing. Target: Site Director, Communications.
-  </p>
-</div>
-
-<div class="lead-card">
-  <div class="name">Medtronic Costa Rica</div>
-  <div class="detail">Medical Devices · Coyol Free Zone, Alajuela · Top 1 global medtech company</div>
-  <div class="tags">
-    <span class="tag">Medical Devices</span>
-    <span class="tag">Cardiovascular</span>
-    <span class="tag">Global MNC</span>
-    <span class="tag">Fortune 500</span>
-  </div>
-  <p style="color: var(--muted); font-size: 12px; margin-top: 10px;">
-    <strong>Why target:</strong> 13 of world's 25 largest medtech companies in CR — Medtronic leads. Regional hub, regular need for campaigns, events, employer branding. Target: HR Director, Communications Manager.
-  </p>
-</div>
-
-<div class="lead-card">
-  <div class="name">Cardinal Health Costa Rica</div>
-  <div class="detail">Medical Manufacturing · Coyol Free Zone · Fortune 500 company</div>
-  <div class="tags">
-    <span class="tag">Medical Devices</span>
-    <span class="tag">Distribution</span>
-    <span class="tag">Global MNC</span>
-  </div>
-  <p style="color: var(--muted); font-size: 12px; margin-top: 10px;">
-    <strong>Why target:</strong> Large operational footprint — ongoing needs for safety comms, internal campaigns, logistics marketing. Target: Operations Director, HR Manager.
-  </p>
-</div>
-
-<div class="lead-card">
-  <div class="name">Abbott Vascular Costa Rica</div>
-  <div class="detail">Medical Device Manufacturing · Coyol Free Zone · Part of Abbott (NYSE: ABT)</div>
-  <div class="tags">
-    <span class="tag">Medical Devices</span>
-    <span class="tag">Vascular</span>
-    <span class="tag">Global MNC</span>
-    <span class="tag">Listed</span>
-  </div>
-  <p style="color: var(--muted); font-size: 12px; margin-top: 10px;">
-    <strong>Why target:</strong> High brand awareness globally but local marketing often managed regionally — opportunity to pitch LATAM-focused creative campaigns. Target: Regulatory/Communications Lead.
-  </p>
-</div>
-
-<div class="lead-card">
-  <div class="name">Smith & Nephew Costa Rica</div>
-  <div class="detail">Medical Devices · Coyol Free Zone · Orthopedics & Sports Medicine</div>
-  <div class="tags">
-    <span class="tag">Medical Devices</span>
-    <span class="tag">Orthopedics</span>
-    <span class="tag">Sports Medicine</span>
-  </div>
-  <p style="color: var(--muted); font-size: 12px; margin-top: 10px;">
-    <strong>Why target:</strong> Niche medtech player with specific marketing needs around physician education and B2B channels. Target: Marketing Manager, Training Director.
-  </p>
-</div>
-
-<div class="lead-card">
-  <div class="name">Establishment Labs (Motiva)</div>
-  <div class="detail">Medical Devices · Women's Health · Listed on Nasdaq · Coyol Free Zone</div>
-  <div class="tags">
-    <span class="tag">Medical Devices</span>
-    <span class="tag">Women's Health</span>
-    <span class="tag">Nasdaq Listed</span>
-    <span class="tag">Breast Implants</span>
-  </div>
-  <p style="color: var(--muted); font-size: 12px; margin-top: 10px;">
-    <strong>Why target:</strong> Publicly traded — investor relations communications, brand campaigns, and social media are critical. Sophisticated marketing team but opportunity for specialized creative. Target: CMO, Communications Director.
-  </p>
-</div>
-
-<div class="lead-card">
-  <div name">TMA (Técnicos y Materiales Avanzados)</div>
-  <div class="detail">Specialized Resins & Chemicals · Coyol, Alajuela · Free Trade Zone regime</div>
-  <div class="tags">
-    <span class="tag">Industrial Manufacturing</span>
-    <span class="tag">Plastics</span>
-    <span class="tag">Chemicals</span>
-    <span class="tag">B2B</span>
-  </div>
-  <p style="color: var(--muted); font-size: 12px; margin-top: 10px;">
-    <strong>Why target:</strong> B2B supplier to manufacturers — needs content marketing, LinkedIn campaigns, and case studies to reach procurement/manufacturing decision makers. Target: CEO Eduardo Castillo, Sales Director.
-  </p>
-</div>
-
-<div class="lead-card">
-  <div class="name">ITEK Costa Rica</div>
-  <div class="detail">Free Zone Operations & Logistics · Coyol Free Zone · ISO 13485 Certified</div>
-  <div class="tags">
-    <span class="tag">Manufacturing Services</span>
-    <span class="tag">Logistics</span>
-    <span class="tag">ISO 13485</span>
-    <span class="tag">B2B</span>
-  </div>
-  <p style="color: var(--muted); font-size: 12px; margin-top: 10px;">
-    <strong>Why target:</strong> Growing operational company — brand positioning, case studies, and export-focused digital presence. CEO: Bernal Rodríguez. Ideal for B2B industrial branding.
-  </p>
-</div>
-
-<h2>Market Trends</h2>
-
-<div class="trends-grid">
-  <div class="trend-card">
-    <div class="trend-title">📈 Nearshoring Acceleration</div>
-    <div class="trend-desc">Global supply chain redesign driving MNCs to Costa Rica. PROCOMER led 150+ company delegation to MD&M West 2026. Smart manufacturing FDI hit record in 2025 with 19 new projects.</div>
-  </div>
-  <div class="trend-card">
-    <div class="trend-title">🏭 Industry 4.0 Adoption</div>
-    <div class="trend-desc">Digital transformation spending in manufacturing projected to reach $1T globally by 2031. Costa Rica positioned as advanced manufacturing hub with Shingo Award-winning operations.</div>
-  </div>
-  <div class="trend-card">
-    <div class="trend-title">💉 Medical Devices Dominate</div>
-    <div class="trend-desc">Med device exports grew 22% annually 2020-2024, reaching $8.7B. Costa Rica is #1 globally in med device exports per capita. Over 100 MNCs including 13 of world's 25 largest.</div>
-  </div>
-  <div class="trend-card">
-    <div class="trend-title">🎨 Digital Marketing Gap</div>
-    <div class="trend-desc">MNCs manage brand centrally but local LATAM marketing is often underserved. Industrial/B2B digital ad spend growing 17-24% annually. SEO, LinkedIn, and content marketing are key entry points.</div>
-  </div>
-</div>
-
-<h2>Contact Strategies</h2>
-
-<div class="contact-strategy">
-  <h3>🔍 Discovery & Research</h3>
-  <ul>
-    <li>Search LinkedIn Sales Navigator for "Manufacturing Manager + Costa Rica" + specific company names</li>
-    <li>Cross-reference Coyol Free Zone company directory: coyolfz.com/medical-manufacturing-companies-directory</li>
-    <li>Use CINDE's investment news (cinde.org) to track new announcements and expansions</li>
-    <li>PROCOMER's export registry has decision-maker contact data for Free Zone companies</li>
-  </ul>
-</div>
-
-<div class="contact-strategy">
-  <h3>✉️ Outreach Sequence</h3>
-  <ul>
-    <li><strong>Touch 1 — LinkedIn Connection:</strong> Personalized InMail referencing their expansion/announcement + brief Aurea manufacturing portfolio highlight</li>
-    <li><strong>Touch 2 — Email (5 days later):</strong> Value-prop email with 30-sec video or case study of similar medtech client work</li>
-    <li><strong>Touch 3 — WhatsApp/Call (7 days later):</strong> Call reception, ask for Marketing Manager or Communications lead</li>
-    <li><strong>Touch 4 — Follow-up Email:</strong> "Quick 15-min intro call" offer with calendar link</li>
-  </ul>
-</div>
-
-<div class="contact-strategy">
-  <h3>🎯 Best Entry Points for Manufacturers</h3>
-  <ul>
-    <li><strong>New facility openings / expansions</strong> — highest receptivity to brand/launch agencies</li>
-    <li><strong>Employer branding</strong> — manufacturing firms hiring heavily in 2026 need recruitment marketing</li>
-    <li><strong>B2B content marketing</strong> — LinkedIn articles, case studies, technical whitepapers</li>
-    <li><strong>Corporate social responsibility / sustainability communications</strong> — exports require ESG storytelling</li>
-    <li><strong>Event marketing</strong> — PROCOMER trade shows create agency opportunities for exhibitor support</li>
-  </ul>
-</div>
-
-<div class="contact-strategy">
-  <h3>🏆 Highest Priority Targets This Cycle</h3>
-  <ul>
-    <li><span class="priority">Forj Medical</span> — brand new 2026 facility, full marketing setup needed</li>
-    <li><span class="priority">Surface Solutions</span> — $10M facility, launch communications wide open</li>
-    <li><span class="priority">Resonetics</span> — third plant expansion = employer branding goldmine</li>
-    <li><strong>Establishment Labs</strong> — Nasdaq listed, sophisticated marketing needs, higher budget</li>
-    <li><strong>TMA / ITEK</strong> — local firms, faster sales cycles, B2B industrial focus</li>
-  </ul>
-</div>
-
-<h2>Next Steps for Aurea</h2>
-
-<div class="contact-strategy">
-  <ul>
-    <li>Build targeted LinkedIn campaign around "Costa Rica manufacturing expansion 2026" keywords</li>
-    <li>Create Aurea medtech/manufacturing capability deck (portfolio + case studies)</li>
-    <li>Register for PROCOMER trade event notifications to identify live opportunities</li>
-    <li>Set up Google Alerts for: "Costa Rica manufacturing", "Coyol Free Zone", "Forj Medical Costa Rica"</li>
-    <li>Map 5-8 additional manufacturers from D&B machinery list: Ingersoll Rand CR, Kaical Machinery, Injection Moulding CR, Maquinaria Industrial TIMSA</li>
-  </ul>
-</div>
-
-<div class="footer">
-  Report generated by Logos (Aurea Research Agent) · intel-reports repo<br>
-  Next run: manufacturers again at 12:00 CST · Rotate to: startups
-</div>
-
 </body>
 </html>
