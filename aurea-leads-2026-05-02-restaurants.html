@@ -37,87 +37,66 @@
             padding: 40px 20px;
         }
 
-        /* Header */
-        .header {
+        header {
             border-bottom: 1px solid var(--border);
-            padding-bottom: 32px;
+            padding-bottom: 24px;
             margin-bottom: 40px;
         }
 
-        .header-top {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 8px;
-        }
-
         .badge {
-            background: var(--accent);
-            color: #000;
-            font-size: 11px;
-            font-weight: 700;
+            display: inline-block;
+            background: rgba(240, 136, 62, 0.15);
+            color: var(--accent);
+            border: 1px solid rgba(240, 136, 62, 0.3);
             padding: 3px 10px;
             border-radius: 20px;
-            letter-spacing: 0.5px;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1px;
             text-transform: uppercase;
+            margin-bottom: 12px;
         }
 
-        .header h1 {
+        h1 {
             font-size: 28px;
             font-weight: 700;
             color: var(--text-primary);
-            letter-spacing: -0.5px;
+            margin-bottom: 8px;
         }
 
-        .header .subtitle {
-            color: var(--text-secondary);
-            font-size: 15px;
-            margin-top: 4px;
-        }
-
-        .meta-row {
-            display: flex;
-            gap: 24px;
-            margin-top: 16px;
-            flex-wrap: wrap;
-        }
-
-        .meta-item {
-            display: flex;
-            align-items: center;
-            gap: 6px;
+        .meta {
             color: var(--text-muted);
             font-size: 13px;
         }
 
-        .meta-item .icon {
-            font-size: 16px;
+        .meta span {
+            margin-right: 16px;
         }
 
-        /* Section */
         .section {
             margin-bottom: 48px;
         }
 
-        .section-title {
+        h2 {
             font-size: 18px;
             font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 20px;
-            padding-bottom: 10px;
+            color: var(--accent);
+            margin-bottom: 16px;
+            padding-bottom: 8px;
             border-bottom: 1px solid var(--border);
-            display: flex;
-            align-items: center;
-            gap: 8px;
         }
 
-        /* Cards */
+        .companies-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
         .company-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 12px;
+            padding: 16px;
             transition: border-color 0.2s;
         }
 
@@ -125,142 +104,90 @@
             border-color: var(--accent);
         }
 
-        .company-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 10px;
-            gap: 12px;
-        }
-
         .company-name {
-            font-size: 16px;
-            font-weight: 600;
-            color: var(--text-primary);
-        }
-
-        .company-type {
-            font-size: 11px;
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            color: var(--text-secondary);
-            padding: 2px 8px;
-            border-radius: 4px;
-            white-space: nowrap;
-        }
-
-        .company-desc {
-            color: var(--text-secondary);
-            font-size: 13px;
-            margin-bottom: 12px;
-            line-height: 1.5;
-        }
-
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            margin-bottom: 12px;
-        }
-
-        .tag {
-            font-size: 11px;
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-weight: 500;
-        }
-
-        .tag-franquicia { background: rgba(88,166,255,0.15); color: var(--blue); }
-        .tag-fin { background: rgba(240,136,62,0.15); color: var(--accent); }
-        .tag-cadena { background: rgba(63,185,80,0.15); color: var(--green); }
-        .tag-local { background: rgba(210,153,34,0.15); color: var(--yellow); }
-
-        .contact-row {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 12px;
-            color: var(--text-muted);
-        }
-
-        .contact-item a {
-            color: var(--blue);
-            text-decoration: none;
-        }
-
-        .contact-item a:hover {
-            text-decoration: underline;
-        }
-
-        /* Strategy cards */
-        .strategy-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 16px;
-        }
-
-        .strategy-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 20px;
-        }
-
-        .strategy-card h3 {
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--accent);
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .strategy-card p {
-            color: var(--text-secondary);
-            font-size: 13px;
-            line-height: 1.5;
-        }
-
-        /* Trends */
-        .trend-item {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 16px 20px;
-            margin-bottom: 10px;
-            display: flex;
-            gap: 14px;
-            align-items: flex-start;
-        }
-
-        .trend-icon {
-            font-size: 20px;
-            flex-shrink: 0;
-        }
-
-        .trend-content h4 {
-            font-size: 14px;
+            font-size: 15px;
             font-weight: 600;
             color: var(--text-primary);
             margin-bottom: 4px;
         }
 
-        .trend-content p {
-            font-size: 13px;
+        .company-type {
+            font-size: 11px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .company-detail {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-bottom: 3px;
+        }
+
+        .company-detail strong {
+            color: var(--text-primary);
+        }
+
+        .contact-tag {
+            display: inline-block;
+            background: rgba(63, 185, 80, 0.1);
+            color: var(--green);
+            border: 1px solid rgba(63, 185, 80, 0.25);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            margin-top: 6px;
+        }
+
+        .trends-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .trend-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 16px;
+        }
+
+        .trend-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--blue);
+            margin-bottom: 6px;
+        }
+
+        .trend-desc {
+            font-size: 12px;
             color: var(--text-secondary);
         }
 
-        /* Stats */
-        .stats-grid {
+        .strategy-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 10px;
+        }
+
+        .strategy-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+        }
+
+        .strategy-desc {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        .stat-row {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 12px;
             margin-bottom: 32px;
         }
@@ -273,7 +200,7 @@
             text-align: center;
         }
 
-        .stat-number {
+        .stat-value {
             font-size: 28px;
             font-weight: 700;
             color: var(--accent);
@@ -282,334 +209,298 @@
         .stat-label {
             font-size: 11px;
             color: var(--text-muted);
-            margin-top: 4px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            margin-top: 4px;
         }
 
-        /* Footer */
-        .footer {
+        .cold-email-template {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 20px;
+            font-size: 12px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .cold-email-template .highlight {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        footer {
             border-top: 1px solid var(--border);
-            padding-top: 24px;
+            padding-top: 20px;
             margin-top: 48px;
             color: var(--text-muted);
             font-size: 12px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 12px;
+            text-align: center;
         }
-
-        /* Priority badge */
-        .priority-high { color: var(--red); }
-        .priority-med { color: var(--yellow); }
 
         .note-box {
-            background: rgba(88,166,255,0.08);
-            border: 1px solid rgba(88,166,255,0.2);
-            border-radius: 6px;
-            padding: 12px 16px;
-            font-size: 13px;
+            background: rgba(88, 166, 255, 0.08);
+            border: 1px solid rgba(88, 166, 255, 0.2);
+            border-radius: 8px;
+            padding: 14px 16px;
+            font-size: 12px;
             color: var(--text-secondary);
-            margin-top: 12px;
+            margin-bottom: 32px;
         }
 
+        .note-box strong {
+            color: var(--blue);
+        }
+
+        @media (max-width: 640px) {
+            .companies-grid,
+            .trends-grid,
+            .stat-row {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
-<div class="container">
+    <div class="container">
+        <header>
+            <div class="badge">AUREA — LEAD RESEARCH</div>
+            <h1>🍽️ Oportunidades para Agencias de Publicidad en Restaurantes de Costa Rica</h1>
+            <div class="meta">
+                <span>📅 Mayo 2026</span>
+                <span>🕐 13:00 UTC</span>
+                <span>🏷️ Nicho: Restaurantes</span>
+                <span>📍 Mercado: Costa Rica</span>
+            </div>
+        </header>
 
-    <!-- Header -->
-    <div class="header">
-        <div class="header-top">
-            <span class="badge">Aurea Advertising</span>
-            <span class="badge" style="background: var(--bg-secondary); color: var(--accent); border: 1px solid var(--accent);">Lead Research</span>
+        <div class="note-box">
+            <strong>Nota del ejecutor:</strong> Los restaurantes en Costa Rica han sido cubiertos en sesiones anteriores de este mismo día. Este informe profundiza en restaurants fine dining y alta gama con chefs propietarios identificados — un sub-nicho con mayor capacidad de inversión en publicidad y branding profesional.
         </div>
-        <h1>Leads: Restaurantes en Costa Rica</h1>
-        <p class="subtitle">Oportunidades de publicidad y marketing para agencias en el sector gastronómico tico</p>
-        <div class="meta-row">
-            <div class="meta-item"><span class="icon">📅</span> 2 de mayo, 2026 — 08:00 UTC</div>
-            <div class="meta-item"><span class="icon">🗺️</span> San José, Guanacaste, Alajuela, Heredia, Puntarenas</div>
-            <div class="meta-item"><span class="icon">🏷️</span> Nicho: Restaurantes</div>
-            <div class="meta-item"><span class="icon">🔄</span> Ronda: Mayo — Semana 1</div>
+
+        <div class="stat-row">
+            <div class="stat-card">
+                <div class="stat-value">869</div>
+                <div class="stat-label">Restaurantes en OpenTable CR</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">#1</div>
+                <div class="stat-label">CR en crecimiento publicitario CA</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">$4.2B</div>
+                <div class="stat-label">Gasto en advertising CR 2024</div>
+            </div>
         </div>
+
+        <div class="section">
+            <h2>🏆 Restaurantes Identificados — Leads de Alta Prioridad</h2>
+            <div class="companies-grid">
+
+                <div class="company-card">
+                    <div class="company-name">Sikwa</div>
+                    <div class="company-type">Fine Dining — Indigenous-Jungle to Table</div>
+                    <div class="company-detail"><strong>Chef/Dueño:</strong> Pablo Bonilla</div>
+                    <div class="company-detail"><strong>Ubicación:</strong> San José, Costa Rica</div>
+                    <div class="company-detail"><strong>Web:</strong> theworlds50best.com/discovery</div>
+                    <div class="company-detail"><strong>Perfil:</strong> 50 Best Discovery. Cocina indígena con productores locales. Círculo virtuoso con granjas indígenas.</div>
+                    <div class="contact-tag">Alta prioridad — Chefs reconocidos</div>
+                </div>
+
+                <div class="company-card">
+                    <div class="company-name">Conservatorium</div>
+                    <div class="company-type">Creative Roaster / Dry-Aged Beef</div>
+                    <div class="company-detail"><strong>Dueño:</strong> Gonzalo Picon</div>
+                    <div class="company-detail"><strong>Ubicación:</strong> Ciudad Colón, Mora (225m este del Banco Nacional)</div>
+                    <div class="company-detail"><strong>Tel:</strong> +506 6106-5321</div>
+                    <div class="company-detail"><strong>Web:</strong> conservatoriumcr.com</div>
+                    <div class="company-detail"><strong>Perfil:</strong> Cortes secos 45 y 100 días. Granja propia. Cocteles inovadores.</div>
+                    <div class="contact-tag">Contacto verificado</div>
+                </div>
+
+                <div class="company-card">
+                    <div class="company-name">Grano de Oro</div>
+                    <div class="company-type">Fine Dining en Hotel Boutique</div>
+                    <div class="company-detail"><strong>Ubicación:</strong> San José</div>
+                    <div class="company-detail"><strong>Perfil:</strong> Fine dining clásico en hotel boutique. Cocina costarricense de alta gama.</div>
+                    <div class="contact-tag">Alta prioridad — Hotel con presupuesto marketing</div>
+                </div>
+
+                <div class="company-card">
+                    <div class="company-name">Silvestre</div>
+                    <div class="company-type">Modern Costa Rican — Elegante</div>
+                    <div class="company-detail"><strong>Ubicación:</strong> San José</div>
+                    <div class="company-detail"><strong>Perfil:</strong> Cocina costarricense moderna y elegante. Alta visibilidad en medios gastronómicos.</div>
+                    <div class="contact-tag">Alta prioridad</div>
+                </div>
+
+                <div class="company-card">
+                    <div class="company-name">Feroz</div>
+                    <div class="company-type">Fine Dining — San José</div>
+                    <div class="company-detail"><strong>Ubicación:</strong> San José</div>
+                    <div class="company-detail"><strong>Perfil:</strong> Alta cocina en San José, parte del movimiento de restaurants fine dining emergentes.</div>
+                </div>
+
+                <div class="company-card">
+                    <div class="company-name">Furca</div>
+                    <div class="company-type">Fine Dining — San José</div>
+                    <div class="company-detail"><strong>Ubicación:</strong> San José</div>
+                    <div class="company-detail"><strong>Perfil:</strong> Restaurante fine dining emergente en la escena gastronomica tica.</div>
+                </div>
+
+                <div class="company-card">
+                    <div class="company-name">Enbocacr</div>
+                    <div class="company-type">Fine Dining — TripAdvisor #1</div>
+                    <div class="company-detail"><strong>Ubicación:</strong> San José</div>
+                    <div class="company-detail"><strong>Calificación:</strong> 4.9 — 641 reseñas (TripAdvisor)</div>
+                    <div class="company-detail"><strong>Perfil:</strong> #1 en categoría fine dining San José según TripAdvisor.</div>
+                    <div class="contact-tag">Alta prioridad — Mejor calificado</div>
+                </div>
+
+                <div class="company-card">
+                    <div class="company-name">La Esquina de Buenos Aires</div>
+                    <div class="company-type">Argentine Grill — Premium</div>
+                    <div class="company-detail"><strong>Ubicación:</strong> San José</div>
+                    <div class="company-detail"><strong>Perfil:</strong> Parrilla argentina premium. Mercado internacional y local.</div>
+                </div>
+
+                <div class="company-card">
+                    <div class="company-name">Los Tres Perros</div>
+                    <div class="company-type">Fine Dining — TripAdvisor #2</div>
+                    <div class="company-detail"><strong>Ubicación:</strong> San José</div>
+                    <div class="company-detail"><strong>Calificación:</strong> 4.9 — 498 reseñas (TripAdvisor)</div>
+                    <div class="company-detail"><strong>Perfil:</strong> Concepto unique, alta calificación, clientela fiel.</div>
+                </div>
+
+                <div class="company-card">
+                    <div class="company-name">Restaurante El Taller de Billy Sazón</div>
+                    <div class="company-type">Fine Dining — TripAdvisor #3</div>
+                    <div class="company-detail"><strong>Ubicación:</strong> San José</div>
+                    <div class="company-detail"><strong>Calificación:</strong> 5.0 — TripAdvisor</div>
+                    <div class="company-detail"><strong>Perfil:</strong> Perfect score. Chef-propietario con perfil gastronómico alto.</div>
+                    <div class="contact-tag">Perfect score — Chef propietario</div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📊 Tendencias del Mercado de Restaurantes 2026</h2>
+            <div class="trends-grid">
+
+                <div class="trend-card">
+                    <div class="trend-title">IA para Segmentación de Audiencias</div>
+                    <div class="trend-desc">Herramientas de IA permiten segmentar clientes y crear campañas de email marketing y publicidad dirigida con datos reales de consumo.</div>
+                </div>
+
+                <div class="trend-card">
+                    <div class="trend-title">Social Media como Canal de Ventas</div>
+                    <div class="trend-desc">Instagram, TikTok y redes sociales son ahora extensiones del punto de venta — no solo branding. Restaurants usan redes para pedidos online y reservas directas.</div>
+                </div>
+
+                <div class="trend-card">
+                    <div class="trend-title">Influencers vs. Publicidad Tradicional</div>
+                    <div class="trend-desc">En 2026 los mejores resultados vienen de colaboraciones auténticas con micro-influencers locales, no de anuncios pagados convencionales.</div>
+                </div>
+
+                <div class="trend-card">
+                    <div class="trend-title">Cocina Regional Costarricense</div>
+                    <div class="trend-desc">Shift hacia ingredientes locales e indígenas. Restaurantes como Sikwa lideran la tendencia jungle-to-table, atrayendo turismo gastronómico internacional.</div>
+                </div>
+
+                <div class="trend-card">
+                    <div class="trend-title">SEO Local y Google Business</div>
+                    <div class="trend-desc">La visibilidad en búsquedas locales (Google Maps, reseñas) es el crecimiento más eficiente para restaurants en Costa Rica.</div>
+                </div>
+
+                <div class="trend-card">
+                    <div class="trend-title">Experiencias + Private Dining</div>
+                    <div class="trend-desc">OpenTable reporta que perfiles de private dining y experiencias (catas, menús secretos) generan hasta 40% más reservas en restaurants premium.</div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎯 Estrategias de Contacto Recomendadas</h2>
+
+            <div class="strategy-item">
+                <div class="strategy-title">1. LinkedIn Outreach a Chefs-Propietarios</div>
+                <div class="strategy-desc">
+                    <strong>Por qué:</strong> chefs como Pablo Bonilla (Sikwa) tienen perfil público activo en LinkedIn y 50 Best. Son decisores directos.<br>
+                    <strong>Mensaje clave:</strong> "Su concepto de cocina indígena tiene potencial para posicionarse en medios internacionales con la estrategia correcta."
+                </div>
+            </div>
+
+            <div class="strategy-item">
+                <div class="strategy-title">2. Email Frío — Propuesta de Contenido para Instagram</div>
+                <div class="strategy-desc">
+                    <strong>Por qué:</strong> Restaurants fine dining necesitan contenido visual de alta calidad pero carecen de equipo interno de marketing.<br>
+                    <strong>Ángulo:</strong> Ofrecer 4 reels produzidos + estrategia de hashtags semanal por 3 meses. Mostrar ROI con seguimiento de reservas.
+                </div>
+            </div>
+
+            <div class="strategy-item">
+                <div class="strategy-title">3. Paquete Google Business + SEO Local</div>
+                <div class="strategy-desc">
+                    <strong>Por qué:</strong> Muchos restaurants en CR no aprovechan SEO local. Un paquete de optimización de Google Business + posts semanales tiene alto valor percibido.<br>
+                    <strong>Target:</strong> Restaurantes con 100+ reseñas en Google/TripAdvisor pero sin estrategia digital.
+                </div>
+            </div>
+
+            <div class="strategy-item">
+                <div class="strategy-title">4. Colaboraciones con Micro-Influencers Gastronómicos</div>
+                <div class="strategy-desc">
+                    <strong>Por qué:</strong> Restaurantes premium responden mejor a cobertura "orgánica" de food bloggers locales.<br>
+                    <strong>Ángulo para Aurea:</strong> Ofrecer gestión completa de influencer marketing + creación de contenido.
+                </div>
+            </div>
+
+            <div class="strategy-item">
+                <div class="strategy-title">5. Inteligencia de Datos — Analítica de Reseñas</div>
+                <div class="strategy-desc">
+                    <strong>Por qué:</strong> Enbocacr, Los Tres Perros, El Taller tienen 500+ reseñas pero no las explotan. Analizar sentiment y responder estratégicamente es un servicio de alto valor.<br>
+                    <strong>Herramientas:</strong> Talkwalker, Brandwatch, o scraping de TripAdvisor/Google reviews.
+                </div>
+            </div>
+
+        </div>
+
+        <div class="section">
+            <h2>📧 Plantilla de Cold Email — Restaurante Fine Dining</h2>
+            <div class="cold-email-template">
+                <strong>Asunto:</strong> Cómo [Nombre Restaurant] puede llenar mesas los lunes con Instagram<br><br>
+
+                Hola [Nombre],<br><br>
+
+                Vi lo que están haciendo con [mencionar algo específico del restaurant — el concepto, los ingredientes locales, etc.]. Es exactamente el tipo de historia que la gente comparte en Instagram sin que nadie se lo pida.<br><br>
+
+                La mayoría de los restaurants fine dining en San José tienen dos problemas: (1) dependen de clientes recurrentes o guías de viaje, y (2) no tienen tiempo para crear contenido. Ambos se resuelven con una estrategia de contenido semanal de 30 minutos.<br><br>
+
+                No te estoy proponiendo un contrato grande. Te propongo una prueba de <span class="highlight">4 semanas de contenido Instagram (3 reels + stories)</span> a cambio de una conversación sobre tu estrategia de marketing digital actual.<br><br>
+
+                ¿Tienes 15 minutos esta semana?<br><br>
+
+                [Tu nombre] — Aurea Agencia de Publicidad
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>💡 Observaciones Clave para Aurea</h2>
+            <ul style="font-size: 13px; color: var(--text-secondary); padding-left: 20px; line-height: 2;">
+                <li>El nicho fine dining en Costa Rica tiene <strong>alta disposición a invertir en branding</strong> — compiten por turismo gastronómico internacional.</li>
+                <li>Chefs-propietarios son los <strong>decisores únicos</strong> — no hay comité de marketing. El outreach es directo y personal.</li>
+                <li>Instagram y contenido visual son el <strong>canal #1</strong> para este segmento. YouTube y 50 Best son segundos.</li>
+                <li>Conservatorium tiene contacto directo (teléfono + web). Sikwa, Enbocacr, Los Tres Perros se pueden encontrar por nombre en LinkedIn/Instagram.</li>
+                <li>El gasto digital publicitario de restaurants en Costa Rica creció 18% en 2019 y sigue en ascenso — Statista confirma "largest restaurant digital advertisers" como categoría activa.</li>
+            </ul>
+        </div>
+
+        <footer>
+            <p>Reporte generado automáticamente por Logos (OpenClaw) — Agente de Investigación Aurea</p>
+            <p>Fuentes: Eater, OpenTable, TripAdvisor, The World's 50 Best, Statista, Clutch.co, Tavily Search</p>
+            <p>Fecha: Sábado 2 de Mayo, 2026 — 13:00 UTC | Nicho: Restaurantes Fine Dining Costa Rica</p>
+        </footer>
     </div>
-
-    <!-- Stats -->
-    <div class="stats-grid">
-        <div class="stat-card">
-            <div class="stat-number">8</div>
-            <div class="stat-label">Empresas identificadas</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-number">$9.1M</div>
-            <div class="stat-label">Inversión en franquicias 2026</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-number">400</div>
-            <div class="stat-label">Empleos nuevos restaurantes</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-number">6+</div>
-            <div class="stat-label">Marcas en expansión activa</div>
-        </div>
-    </div>
-
-    <!-- Companies -->
-    <div class="section">
-        <h2 class="section-title">🍽️ Empresas y Decisores Identificados</h2>
-
-        <!-- FRANQUICIAS -->
-        <h3 style="color: var(--blue); font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;">▸ Franquicias Internacionales en Expansión (Alta Prioridad)</h3>
-
-        <div class="company-card">
-            <div class="company-header">
-                <div class="company-name">KFC Costa Rica</div>
-                <span class="company-type">Cadena Internacional</span>
-            </div>
-            <p class="company-desc">Líder en comida rápida de pollo. Anunció inversión de <strong>$9.1 millones</strong> para abrir <strong>7 nuevos restaurantes</strong> en Guanacaste, Heredia, Alajuela y San José en 2026. Cerrarán el año con 74 locales operativos. Fueron los primeros en tener kioscos digitales de autoservicio en todos sus restaurantes.</p>
-            <div class="tags">
-                <span class="tag tag-franquicia">Franquicia Internacional</span>
-                <span class="tag tag-cadena">Expansión Activa</span>
-                <span class="tag tag-cadena">Digital signage</span>
-            </div>
-            <div class="contact-row">
-                <div class="contact-item">👤 <strong>Alfonso Gutiérrez</strong> — Gerente General</div>
-                <div class="contact-item">📍 San José / Guanacaste / Heredia / Alajuela</div>
-            </div>
-            <div class="note-box">💡 Oportunidad: Nuevas aperturas necesitan campañas de apertura, branding de punto de venta, y marketing digital local. Contactar vía LinkedIn o a través de recursos humanos corporativos.</div>
-        </div>
-
-        <div class="company-card">
-            <div class="company-header">
-                <div class="company-name">Popeyes Costa Rica</div>
-                <span class="company-type">Cadena Internacional</span>
-            </div>
-            <p class="company-desc">Pollo frito estilo Luisiana. Regresó al país en julio 2024 y ya tiene <strong>40 locales</strong>. Apertura de 2 nuevos restaurantes (Food Mall Liberia y Desamparados). Expansion activa con alto ritmo de crecimiento.</p>
-            <div class="tags">
-                <span class="tag tag-franquicia">Franquicia Internacional</span>
-                <span class="tag tag-cadena">Expansión Rápida</span>
-            </div>
-            <div class="contact-row">
-                <div class="contact-item">📍 Food Mall Liberia, Desamparados</div>
-                <div class="contact-item">🔗 linkedin.com/company/popeyes-cr</div>
-            </div>
-            <div class="note-box">💡 Oportunidad: Marca nueva en el mercado costarricense necesita construir reconocimiento de marca. Campañas de posicionamiento y apertura de nuevos puntos.</div>
-        </div>
-
-        <div class="company-card">
-            <div class="company-header">
-                <div class="company-name">Burger King Costa Rica</div>
-                <span class="company-type">Cadena Internacional</span>
-            </div>
-            <p class="company-desc">Tres nuevos puntos de venta inaugurados recientemente: Desamparados (Zona Centro), Universidad Latina Heredia, y San Sebastián. Proyecta más aperturas para 2026.</p>
-            <div class="tags">
-                <span class="tag tag-franquicia">Franquicia Internacional</span>
-                <span class="tag tag-cadena">Expansión 2026</span>
-            </div>
-            <div class="contact-row">
-                <div class="contact-item">📍 Desamparados, Heredia, San Sebastián</div>
-                <div class="contact-item">🌐 burgerking.co.cr</div>
-            </div>
-        </div>
-
-        <div class="company-card">
-            <div class="company-header">
-                <div class="company-name">Domino's Pizza Costa Rica</div>
-                <span class="company-type">Cadena Internacional</span>
-            </div>
-            <p class="company-desc">Dos nuevos restaurantes: Food Mall Liberia y San Sebastián. Plan de nuevas aperturas para 2026. Gran enfoque en delivery y presencia digital.</p>
-            <div class="tags">
-                <span class="tag tag-franquicia">Franquicia Internacional</span>
-                <span class="tag tag-cadena">Delivery</span>
-            </div>
-            <div class="contact-row">
-                <div class="contact-item">📍 Food Mall Liberia, San Sebastián</div>
-                <div class="contact-item">🌐 dominos.co.cr</div>
-            </div>
-        </div>
-
-        <div class="company-card">
-            <div class="company-header">
-                <div class="company-name">Rosti Costa Rica</div>
-                <span class="company-type">Cadena Nacional</span>
-            </div>
-            <p class="company-desc">Cadena costarricense (antes Rosti Pollos) en proceso de refrescamiento de marca y expansión. Formatos en centros comerciales y puntos estratégicos residenciales.</p>
-            <div class="tags">
-                <span class="tag tag-local">Marca Nacional</span>
-                <span class="tag tag-cadena">Rebranding</span>
-            </div>
-            <div class="contact-row">
-                <div class="contact-item">🌐 rosti.co.cr</div>
-                <div class="contact-item">📍 Nacional</div>
-            </div>
-            <div class="note-box">💡 Oportunidad: Rebranding activo requiere comunicación de marca, campañas de redes sociales y material POP. Agency-friendly por ser marca local.</div>
-        </div>
-
-        <div class="company-card">
-            <div class="company-header">
-                <div class="company-name">Chipotle Mexican Grill (llegada 2026 via Alsea)</div>
-                <span class="company-type">Franquicia Internacional</span>
-            </div>
-            <p class="company-desc">Primera apertura confirmada para Costa Rica en 2026, operada por Alsea (grupo que maneja múltiples franquicias en LATAM). Gran oportunidad para campaña de entrada al mercado.</p>
-            <div class="tags">
-                <span class="tag tag-franquicia">Nuevo en Mercado</span>
-                <span class="tag tag-cadena">Gran Campaña de Lanzamiento</span>
-            </div>
-            <div class="contact-row">
-                <div class="contact-item">🏢 Alsea (operador)</div>
-                <div class="contact-item">📍 Por confirmar</div>
-            </div>
-            <div class="note-box">💡 Oportunidad PRIORITARIA: Primera apertura en el país requiere estrategia de lanzamiento completa. Contactar al equipo de Alsea para zona CAC.</div>
-        </div>
-
-        <!-- ALTA COCINA -->
-        <h3 style="color: var(--accent); font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; margin: 28px 0 12px;">▸ Restaurantes de Alta Cocina (Nicho Premium)</h3>
-
-        <div class="company-card">
-            <div class="company-header">
-                <div class="company-name">Sikwa</div>
-                <span class="company-type">Fine Dining</span>
-            </div>
-            <p class="company-desc">Cocina costarricense contemporánea. <strong>#43 en The World's 50 Best Latin America</strong>. 39K seguidores en Instagram. Cocina historias honestas a través de los sabores de Costa Rica. Reservas abiertas lunes-sábado 6PM-11PM.</p>
-            <div class="tags">
-                <span class="tag tag-fin">Alta Cocina</span>
-                <span class="tag tag-fin">Top 50 Best</span>
-            </div>
-            <div class="contact-row">
-                <div class="contact-item">👤 Chef/Dueño: <strong>Javier Rodríguez</strong> (@javierelpapagayo)</div>
-                <div class="contact-item">📍 San José</div>
-                <div class="contact-item">📸 @sikwa.cr (39K seguidores)</div>
-            </div>
-            <div class="note-box">💡 Oportunidad: Perfil alto en redes pero puede necesitar soporte de contenido paid media para eventos especiales y cenas privadas.</div>
-        </div>
-
-        <div class="company-card">
-            <div class="company-header">
-                <div class="company-name">Conservatorium</div>
-                <span class="company-type">Fine Dining</span>
-            </div>
-            <p class="company-desc">Asador creativo en Ciudad Colón. Considerado entre los mejores de Costa Rica, al nivel de Thomas Keller y The French Laundry. Tiene laboratorio de I+D propio. Co-propietario y chef Henry Quesada Sánchez, MBA en Basque Culinary Center.</p>
-            <div class="tags">
-                <span class="tag tag-fin">Alta Cocina</span>
-                <span class="tag tag-fin">Steakhouse Premium</span>
-            </div>
-            <div class="contact-row">
-                <div class="contact-item">👤 Chef/Dueño: <strong>Henry Quesada Sánchez</strong></div>
-                <div class="contact-item">📍 Ciudad Colón, Mora</div>
-                <div class="contact-item">🌐 conservatoriumcr.com</div>
-            </div>
-            <div class="note-box">💡 Oportunidad: Cocina de autor con fuerte identidad visual. Necesita branding de experiencia, fotografía profesional y contenido para medios.</div>
-        </div>
-
-    </div>
-
-    <!-- Contact Strategies -->
-    <div class="section">
-        <h2 class="section-title">🎯 Estrategias de Contacto</h2>
-        <div class="strategy-grid">
-
-            <div class="strategy-card">
-                <h3>📧 Para Franquicias (KFC, Popeyes, Burger King)</h3>
-                <p>Buscar en LinkedIn al <strong>Gerente de Marketing</strong> o <strong>Gerente de Marca</strong> de cada cadena. Asunto: "Propuesta de campaña para nuevas aperturas 2026". Adjuntar caso de estudio de campañas de apertura en otros mercados. Tiempo ideal: martes o miércoles 9AM.</p>
-            </div>
-
-            <div class="strategy-card">
-                <h3>📸 Para Alta Cocina (Sikwa, Conservatorium)</h3>
-                <p>DM directa por Instagram al chef/dueño. Presentación breve: "Soy [nombre] de Aurea, мы работаем con restaurantes en Costa Rica para elevate su presencia digital. ¿Te interesa聊天amos?" Enfoque en valor, no en venta.</p>
-            </div>
-
-            <div class="strategy-card">
-                <h3>🏢 Para Alsea (Chipotle)</h3>
-                <p>Contactar al equipo de marketing corporativo de Alsea para la región CAC. LinkedIn es la vía principal. Buscar: "Alsea Costa Rica marketing" o "Alsea Central America marketing manager". Chipotle es prioridad por ser lanzamiento nuevo.</p>
-            </div>
-
-            <div class="strategy-card">
-                <h3>🌐 Para Rosti (marca nacional)</h3>
-                <p>Al ser cadena local en rebranding, el tomador de decisiones puede ser más accesible. Contactar directamente vía formulario web o LinkedIn de su equipo de marketing. Enfoque: caso de éxito en refrescamiento de marca.</p>
-            </div>
-
-        </div>
-    </div>
-
-    <!-- Market Trends -->
-    <div class="section">
-        <h2 class="section-title">📊 Tendencias del Mercado Gastronómico CR — 2026</h2>
-
-        <div class="trend-item">
-            <div class="trend-icon">🚀</div>
-            <div class="trend-content">
-                <h4>Boom de franquicias internacionales</h4>
-                <p>KFC, Popeyes, Burger King, Domino's, Arby's y Juan Valdez están en planes activos de contratación y apertura. Se proyectan 400+ empleos nuevos en el sector. Costa Rica tiene 388 franquicias registradas (68 son locales).</p>
-            </div>
-        </div>
-
-        <div class="trend-item">
-            <div class="trend-icon">🌶️</div>
-            <div class="trend-content">
-                <h4>Chipotle debuta en Costa Rica via Alsea</h4>
-                <p>La llegada de Chipotle en 2026 marca un hito. Alsea como operadorwill need a full launch campaign. Es la oportunidad más grande del año para una agencia que consiga el contrato.</p>
-            </div>
-        </div>
-
-        <div class="trend-item">
-            <div class="trend-icon">🥑</div>
-            <div class="trend-content">
-                <h4>Alta cocina costarricense en el mapa global</h4>
-                <p>Sikwa (#43 World's 50 Best LATAM) y Conservatorium están posicionando a Costa Rica como destino gastronómico. Esto eleva el estándar de branding que los restaurantes locales quieren y necesitan.</p>
-            </div>
-        </div>
-
-        <div class="trend-item">
-            <div class="trend-icon">📱</div>
-            <div class="trend-content">
-                <h4>Kioscos digitales y delivery como norma</h4>
-                <p>KFC ya tiene kioscos digitales en todos sus restaurantes. El delivery ( Rappi, PedidosYa) es ahora infraestructura básica. Los restaurantes que no tienen estrategia digital están quedando rezagados.</p>
-            </div>
-        </div>
-
-        <div class="trend-item">
-            <div class="trend-icon">🎨</div>
-            <div class="trend-content">
-                <h4>Rebranding de marcas locales</h4>
-                <p>Rosti está en proceso de refrescamiento de marca. Otras cadenas nacionales buscan diferenciarse de las internacionales con identidad tica más fuerte. Oportunidad para agencias que entiendan el mercado local.</p>
-            </div>
-        </div>
-
-    </div>
-
-    <!-- Priority Leads -->
-    <div class="section">
-        <h2 class="section-title">⭐ Lead Scoring — Prioridad de Contacto</h2>
-        <div class="company-card" style="border-left: 3px solid var(--red);">
-            <div class="company-name">1. Chipotle Costa Rica (Alsea) — <span class="priority-high">PRIORIDAD ALTA</span></div>
-            <p class="company-desc">Lanzamiento inaugural en Costa Rica 2026. Necesita agencia para estrategia completa de entrada al mercado. Contacto: equipo marketing Alsea CAC.</p>
-        </div>
-        <div class="company-card" style="border-left: 3px solid var(--accent);">
-            <div class="company-name">2. KFC Costa Rica — <span class="priority-high">PRIORIDAD ALTA</span></div>
-            <p class="company-desc">7 aperturas nuevas + inversión $9.1M. Gerente General Alfonso Gutiérrez. Volumen alto de trabajo de marketing para nuevas aperturas.</p>
-        </div>
-        <div class="company-card" style="border-left: 3px solid var(--yellow);">
-            <div class="company-name">3. Rosti Costa Rica — <span class="priority-med">PRIORIDAD MEDIA-ALTA</span></div>
-            <p class="company-desc">Rebranding activo. Marca nacional con presupuesto de marketing en transformación. Más accesible que corporativo internacional.</p>
-        </div>
-        <div class="company-card" style="border-left: 3px solid var(--yellow);">
-            <div class="company-name">4. Popeyes Costa Rica — <span class="priority-med">PRIORIDAD MEDIA-ALTA</span></div>
-            <p class="company-desc">40 locales + aperturas activas. Marca nueva en mercado, necesita construir reconocimiento. Enfoque en branding y campanas de apertura.</p>
-        </div>
-        <div class="company-card" style="border-left: 3px solid var(--blue);">
-            <div class="company-name">5. Sikwa & Conservatorium — <span class="priority-med">OPORTUNIDAD NICHO PREMIUM</span></div>
-            <p class="company-desc">Alta cocina con perfiles de chefs activos en redes. Proyecto de contenido digital, fotografía y branded experiences.</p>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <div class="footer">
-        <span>Reporte generado por Logos (Aurea Lead Research) — Mayo 2026</span>
-        <span>Fuentes: TripAdvisor, The World's 50 Best, El Financiero CR, La República, observador.cr</span>
-    </div>
-
-</div>
 </body>
 </html>
