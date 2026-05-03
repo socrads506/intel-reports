@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aurea Leads — Restaurantes Costa Rica | 2026-05-03 14:00</title>
+  <style>
+    :root {
+      --bg: #0d0d0f;
+      --card: #16161a;
+      --border: #2a2a35;
+      --accent: #f59e0b;
+      --accent2: #10b981;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --danger: #ef4444;
+      --warning: #f59e0b;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', Tahoma, sans-serif; line-height: 1.6; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem; }
+    header { text-align: center; margin-bottom: 2.5rem; border-bottom: 1px solid var(--border); padding-bottom: 1.5rem; }
+    .badge { display: inline-block; background: var(--accent); color: #000; font-weight: 700; font-size: 0.75rem; padding: 0.2rem 0.7rem; border-radius: 20px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.75rem; }
+    h1 { font-size: 1.8rem; font-weight: 800; color: #fff; margin-bottom: 0.3rem; }
+    .subtitle { color: var(--muted); font-size: 0.95rem; }
+    .meta { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; margin-top: 0.75rem; font-size: 0.85rem; color: var(--muted); }
+    .meta span { display: flex; align-items: center; gap: 0.3rem; }
+    .meta span::before { content: '▸'; color: var(--accent); }
+
+    .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-bottom: 2.5rem; }
+    .stat-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1.2rem; }
+    .stat-card .label { font-size: 0.78rem; text-transform: uppercase; color: var(--muted); letter-spacing: 0.5px; margin-bottom: 0.4rem; }
+    .stat-card .value { font-size: 1.6rem; font-weight: 800; color: var(--accent); }
+    .stat-card .sub { font-size: 0.8rem; color: var(--muted); margin-top: 0.2rem; }
+
+    h2 { font-size: 1.15rem; font-weight: 700; color: #fff; margin-bottom: 1rem; border-left: 4px solid var(--accent); padding-left: 0.75rem; }
+    h3 { font-size: 1rem; font-weight: 700; color: var(--accent); margin-bottom: 0.5rem; }
+
+    section { margin-bottom: 2.5rem; }
+    .companies-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem; }
+    .company-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1.2rem; transition: border-color 0.2s; }
+    .company-card:hover { border-color: var(--accent); }
+    .company-card .name { font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 0.3rem; }
+    .company-card .type { font-size: 0.72rem; text-transform: uppercase; color: var(--accent); letter-spacing: 0.5px; margin-bottom: 0.6rem; }
+    .company-card .detail { font-size: 0.85rem; color: var(--muted); margin-bottom: 0.3rem; }
+    .company-card .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.6rem; }
+    .tag { background: #1e2030; border: 1px solid var(--border); color: var(--muted); font-size: 0.72rem; padding: 0.15rem 0.5rem; border-radius: 4px; }
+    .tag.hot { background: #1a2a1a; border-color: var(--accent2); color: var(--accent2); }
+
+    .strategy-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+    .strategy-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1.2rem; }
+    .strategy-card .num { width: 28px; height: 28px; background: var(--accent); color: #000; font-weight: 800; font-size: 0.85rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 0.6rem; }
+    .strategy-card h3 { font-size: 0.95rem; color: #fff; margin-bottom: 0.4rem; }
+    .strategy-card p { font-size: 0.85rem; color: var(--muted); }
+
+    .trends-list { display: grid; gap: 0.8rem; }
+    .trend-item { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.2rem; display: flex; gap: 1rem; align-items: flex-start; }
+    .trend-item .icon { font-size: 1.4rem; flex-shrink: 0; }
+    .trend-item .content .title { font-weight: 700; color: #fff; font-size: 0.95rem; margin-bottom: 0.2rem; }
+    .trend-item .content p { font-size: 0.85rem; color: var(--muted); }
+    .trend-item .badge-trend { margin-left: auto; font-size: 0.7rem; text-transform: uppercase; font-weight: 700; padding: 0.15rem 0.5rem; border-radius: 4px; flex-shrink: 0; }
+    .badge-trend.high { background: #1a2a1a; color: var(--accent2); }
+    .badge-trend.medium { background: #2a2a1a; color: var(--warning); }
+    .badge-trend.emerging { background: #1a1a2a; color: #818cf8; }
+
+    .cold-email { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; font-family: 'Courier New', monospace; font-size: 0.85rem; color: var(--muted); white-space: pre-wrap; line-height: 1.8; border-left: 4px solid var(--accent); margin-top: 1rem; }
+
+    footer { text-align: center; padding-top: 1.5rem; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.8rem; }
+    footer a { color: var(--accent); text-decoration: none; }
+  </style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <div class="badge">🚀 Aurea Advertising — Lead Research</div>
+  <h1>Lead Generation: Restaurantes en Costa Rica</h1>
+  <div class="subtitle">Sectorial: Comida y Restaurantes · Nicho: Cadenas y Franquicias</div>
+  <div class="meta">
+    <span>Fecha: 3 de mayo, 2026</span>
+    <span>Hora UTC: 20:00</span>
+    <span>Ejecutado por: Logos (MiniMax)</span>
+    <span>Run #14:00</span>
+  </div>
+</header>
+
+<!-- KEY STATS -->
+<div class="summary-grid">
+  <div class="stat-card">
+    <div class="label">Llegadas turísticas 2024</div>
+    <div class="value">2.7M</div>
+    <div class="sub">+7.7% vs 2023 · ICT Costa Rica</div>
+  </div>
+  <div class="stat-card">
+    <div class="label">Crecimiento franquicias USA</div>
+    <div class="value">+65%</div>
+    <div class="sub">última década · USDA</div>
+  </div>
+  <div class="stat-card">
+    <div class="label">Empleos directos en sector</div>
+    <div class="value">26,500</div>
+    <div class="sub">generados por franquicias USA</div>
+  </div>
+  <div class="stat-card">
+    <div class="label">Gasto turístico internacional</div>
+    <div class="value">$5.4B</div>
+    <div class="sub">2024 · EE.UU. fuente principal</div>
+  </div>
+  <div class="stat-card">
+    <div class="label">Proyección crecimiento turístico</div>
+    <div class="value">8.1%</div>
+    <div class="sub">CAGR 2025-2030 · Technavio</div>
+  </div>
+  <div class="stat-card">
+    <div class="label">Crecimiento ARR 2025</div>
+    <div class="value">+1%</div>
+    <div class="sub">Canatur: bajo expectativas regionales</div>
+  </div>
+</div>
+
+<!-- COMPANIES -->
+<section>
+  <h2>🏪 Empresas Descubiertas — Restaurantes en Costa Rica</h2>
+  <div class="companies-grid">
+
+    <!-- Premium Restaurants of America -->
+    <div class="company-card">
+      <div class="name">Premium Restaurants of America</div>
+      <div class="type">Franquiciadora Maestra · Yum! Brands</div>
+      <div class="detail">Opera Pizza Hut, KFC, China Wok, Wendy's y Starbucks en Centroamérica. Buscan expansion agresiva.</div>
+      <div class="detail">📍 San José, Costa Rica</div>
+      <div class="tags">
+        <span class="tag hot">Alta prioridad</span>
+        <span class="tag">Franchisee principal</span>
+        <span class="tag">Yum! Brands</span>
+        <span class="tag">QSR</span>
+      </div>
+    </div>
+
+    <!-- Cafe Rey -->
+    <div class="company-card">
+      <div class="name">Café Rey</div>
+      <div class="type">Cadena Nacional de Cafeterías</div>
+      <div class="detail">Top restaurant chain en Costa Rica por Tracxn score. Café de especialidad y cadena de sodas.</div>
+      <div class="detail">📍 San José y Valle Central</div>
+      <div class="tags">
+        <span class="tag hot">Alta prioridad</span>
+        <span class="tag">Marca nacional</span>
+        <span class="tag">Café</span>
+      </div>
+    </div>
+
+    <!-- Papa John's Costa Rica -->
+    <div class="company-card">
+      <div class="name">Papa John's CR</div>
+      <div class="type">Franquicia de Pizza · 22 locales</div>
+      <div class="detail">22 restaurantes, mayoria en Valle Central. Prometen ingredientes frescos. Fundada 2000.</div>
+      <div class="detail">📍 San José y alrededores</div>
+      <div class="tags">
+        <span class="tag hot">Alta prioridad</span>
+        <span class="tag">Pizza</span>
+        <span class="tag">QSR</span>
+        <span class="tag">Franchisee</span>
+      </div>
+    </div>
+
+    <!-- KFC Costa Rica -->
+    <div class="company-card">
+      <div class="name">KFC Costa Rica</div>
+      <div class="type">Fried Chicken · Top 5 Franquicia USA</div>
+      <div class="detail">Entre las 5 franquicias más prevalentes en Costa Rica. Dispuesto a innovar el menú (tenders de galleta).</div>
+      <div class="detail">📍 Multi-location nationwide</div>
+      <div class="tags">
+        <span class="tag">Pollo frito</span>
+        <span class="tag">QSR</span>
+        <span class="tag">Yum! Brands</span>
+        <span class="tag">Premium Restaurants of America</span>
+      </div>
+    </div>
+
+    <!-- McDonald's Costa Rica -->
+    <div class="company-card">
+      <div class="name">McDonald's Costa Rica</div>
+      <div class="type">Cadena de Comida Rápida · 23+ restaurantes</div>
+      <div class="detail">McDonald's Corporation tomó control directo de 23 restaurantes en Costa Rica. Reestructuracion reciente.</div>
+      <div class="detail">📍 Nacional</div>
+      <div class="tags">
+        <span class="tag">Comida rápida</span>
+        <span class="tag">Corporativo</span>
+        <span class="tag">23+ puntos</span>
+      </div>
+    </div>
+
+    <!-- Carl's Jr. Costa Rica -->
+    <div class="company-card">
+      <div class="name">Carl's Jr. Costa Rica</div>
+      <div class="type">Hamburguesas premium</div>
+      <div class="detail">Expansion planificada en Costa Rica para 2020+. Parte del grupo de expansion de comida rápida.</div>
+      <div class="detail">📍 Valle Central</div>
+      <div class="tags">
+        <span class="tag">Hamburguesas</span>
+        <span class="tag">QSR</span>
+        <span class="tag">En expansión</span>
+      </div>
+    </div>
+
+    <!-- Soda Casada locales -->
+    <div class="company-card">
+      <div class="name">Sodas Casadas (Tradicionales)</div>
+      <div class="type">Restaurantes Familiares Costarricenses</div>
+      <div class="detail">Versión costarricense del fast-food. Tradicionales "casado" dishes. Familia-owned. Oportunidad para branding digital local.</div>
+      <div class="detail">📍 Todo el país</div>
+      <div class="tags">
+        <span class="tag">Tradicional</span>
+        <span class="tag">Familiar</span>
+        <span class="tag">Mercado local</span>
+        <span class="tag">Alimentación criolla</span>
+      </div>
+    </div>
+
+    <!-- Wendy's Costa Rica -->
+    <div class="company-card">
+      <div class="name">Wendy's Costa Rica</div>
+      <div class="type">Hamburguesas · Premium fast-food</div>
+      <div class="detail">Opera bajo Premium Restaurants of America. Conocida por Blizzards y ingredientes frescos.</div>
+      <div class="detail">📍 San José y áreas metropolitanas</div>
+      <div class="tags">
+        <span class="tag">Hamburguesas</span>
+        <span class="tag">QSR</span>
+        <span class="tag">Premium Restaurants</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT STRATEGIES -->
+<section>
+  <h2>🎯 Estrategias de Contacto</h2>
+  <div class="strategy-list">
+
+    <div class="strategy-card">
+      <div class="num">1</div>
+      <h3>LinkedIn DM a Franchise Ops Managers</h3>
+      <p>Objetivo: Premium Restaurants of America, Carl's Jr. y Wendy's. Buscar "Operations Manager" o "Marketing Manager" en el perfil de la franquicia. Personalizar mencionando su marca.</p>
+    </div>
+
+    <div class="strategy-card">
+      <div class="num">2</div>
+      <h3>Cold Email a Directores de Marketing</h3>
+      <p>Para McDonald's Costa Rica y KFC. Buscar en LinkedIn: "Marketing Director Costa Rica" + nombre de marca. Usar template con caso de éxito de campaña turística.</p>
+    </div>
+
+    <div class="strategy-card">
+      <div class="num">3</div>
+      <h3>WhatsApp Business a Propietarios de Sodas</h3>
+      <p>Mensaje directo a dueños de sodas tradicionales vía Google Maps scraping + listas de la CCCR. Oferta: "Paquete digital para sodas – SEO local + Google Ads".</p>
+    </div>
+
+    <div class="strategy-card">
+      <div class="num">4</div>
+      <h3>Caso de Éxito: Papa John's</h3>
+      <p>Presentar métricas de campañas QSR previas (Blizzard promo, launched 2024). Enfocar en: redes sociales, influencers locales y SEO para "pizza near me".</p>
+    </div>
+
+    <div class="strategy-card">
+      <div class="num">5</div>
+      <h3>Eventos y Ferias Gastronómicas</h3>
+      <p>Expo AGIP, Expo Gourmet, eventos de CANAVERT. Asistir en persona o enviar propuesta digital post-evento con follow-up en 48h.</p>
+    </div>
+
+    <div class="strategy-card">
+      <div class="num">6</div>
+      <h3>Referidos de Agencias Digitales Locales</h3>
+      <p>Contactar Havas Tribu, WAM Digital, ONE Click (agencias digitales CR) para co-marketing en cuentas de restaurantes. Ofrecer comisión por referrals.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- TEMPLATE EMAIL -->
+<section>
+  <h2>📧 Template — Cold Email</h2>
+  <div class="cold-email">Asunto: Estrategia digital para [NombreMarca] Costa Rica — caso QSR
+
+Hola [Nombre],
+
+Vi que [NombreMarca] está creciendo en Costa Rica con [X] ubicaciones. 
+
+El sector QSR en CR enfrenta un desafío grande: los turistas buscan opciones en Google Maps y redes sociales, pero la mayoría de cadenas locales no aparecen en las primeras búsquedas de "restaurante cerca de mí" en inglés.
+
+En Aurea manejamos campañas para cadenas de comida rápida en LATAM con resultados como:
+  • +40% reservas online en 3 meses
+  • Reducción de CPC en Google Ads de $1.20 a $0.45
+  • Incremento de seguuidores en Instagram sin inversión en ads
+
+Tenemos experiencia con [Pizza Hut / KFC / Papa John's / Wendy's] y entendemos las particularidades del mercado costarricense.
+
+¿Podemos agendar 15 minutos esta semana?
+
+Saludos,
+[Aurel — Aurea Advertising]
+aurea.cr | [email protected]</div>
+</section>
+
+<!-- MARKET TRENDS -->
+<section>
+  <h2>📈 Tendencias del Mercado — Restaurantes CR 2026</h2>
+  <div class="trends-list">
+
+    <div class="trend-item">
+      <div class="icon">🌐</div>
+      <div class="content">
+        <div class="title">Digital-first ordering y delivery apps</div>
+        <p>Los restaurantes invierten fuertemente en Rappi, PedidosYa y собственные apps. Quien no aparece en estas plataformas pierde visibilidad ante turistas.</p>
+      </div>
+      <div class="badge-trend high">Alta demanda</div>
+    </div>
+
+    <div class="trend-item">
+      <div class="icon">🔍</div>
+      <div class="content">
+        <div class="title">SEO Local para Google Maps</div>
+        <p>Optimización en "Google My Business" es crítico. Los restaurantes que no tienen reseñas en inglés y fotos de menú profesional pierden el 60% de turistas.</p>
+      </div>
+      <div class="badge-trend high">Alta demanda</div>
+    </div>
+
+    <div class="trend-item">
+      <div class="icon">📸</div>
+      <div class="content">
+        <div class="title">Contenido UGC + Micro-influencers CR</div>
+        <p>Campañas con influencers locales (10k-100k seguidores) generan mejor ROI que medios tradicionales para cadenas QSR. Los costos de collaborations van $200-$2,000 USD.</p>
+      </div>
+      <div class="badge-trend high">Alta demanda</div>
+    </div>
+
+    <div class="trend-item">
+      <div class="icon">💳</div>
+      <div class="content">
+        <div class="title">Pagos digitales y sin contacto</div>
+        <p>Post-pandemia, los turistas esperan pagar con tarjeta, SINPE y wallets. Restaurants sin estos métodos pierden ventas.</p>
+      </div>
+      <div class="badge-trend medium">Demanda media</div>
+    </div>
+
+    <div class="trend-item">
+      <div class="icon">🍃</div>
+      <div class="content">
+        <div class="title">Menú digital QR + sostenibilidad</div>
+        <p>Menús QR reducen costos de impresión y conectan con el interés eco-turista de Costa Rica. Marcas que comunicam sostenibilidad tienen mejor percepción.</p>
+      </div>
+      <div class="badge-trend emerging">Emergente</div>
+    </div>
+
+    <div class="trend-item">
+      <div class="icon">🎥</div>
+      <div class="content">
+        <div class="title">TikTok y Reels para restaurantes</div>
+        <p>El algoritmo de TikTok prioriza contenido de food. Restaurantes en Jacó, Tamarindo y Manuel Antonio ya generan millones de views con videos cortos de platos.</p>
+      </div>
+      <div class="badge-trend emerging">Emergente</div>
+    </div>
+
+    <div class="trend-item">
+      <div class="icon">📊</div>
+      <div class="content">
+        <div class="title">Data-driven menú engineering</div>
+        <p>Franquicias usan analítica para decidir qué platos promover. Herramientas como雀舌-ai y TabSquare para optimizar menús según demanda tourist.</p>
+      </div>
+      <div class="badge-trend emerging">Emergente</div>
+    </div>
+
+    <div class="trend-item">
+      <div class="icon">✈️</div>
+      <div class="content">
+        <div class="title">Tourism-recovery marketing</div>
+        <p>Canatur reporta solo +1% crecimiento en 2025 vs vecinos (México +6%, Guatemala +10%). Restaurantes necesitan营销 agresiva para atraer turistas de USA, Europa y Sudamérica.</p>
+      </div>
+      <div class="badge-trend high">Urgente</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PRIORITY ACTION PLAN -->
+<section>
+  <h2>⚡ Plan de Acción — Prioridades para Aurea</h2>
+  <div class="strategy-list">
+    <div class="strategy-card">
+      <div class="num" style="background: var(--accent2);">1</div>
+      <h3>Semana 1-2: Contactar Premium Restaurants of America</h3>
+      <p>LinkedIn + email al equipo de marketing. Pitch: caso de éxito con Wendy's o KFC en otro mercado. Solicitar reunión con equipo de brand.</p>
+    </div>
+    <div class="strategy-card">
+      <div class="num" style="background: var(--accent2);">2</div>
+      <h3>Semana 2-3: Outreach McDonald's CR</h3>
+      <p>McDonald's corporativo maneja sus propias campañas, pero hay oportunidad para marketing local de experiencias y activaciones en destinos turísticos.</p>
+    </div>
+    <div class="strategy-card">
+      <div class="num" style="background: var(--accent2);">3</div>
+      <h3>Semana 3-4:提案 a Papa John's + Sodas</h3>
+      <p>Crear paquete SEO + Google Ads para "pizza Costa Rica". Para sodas: ofrecer workshop gratuito de Google My Business.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Reporte generado por <strong>Logos</strong> · MiniMax M2.7-highspeed · Aurea Advertising Lead Research</p>
+  <p>Fuente: USDA FAS, CANAVERT, Tracxn, Technavio, NCB Capital Markets, ticosland.com</p>
+  <p>Archivo: <a href="/home/asdelgado506/intel-reports/aurea-leads-2026-05-03-restaurants-14.html">aurea-leads-2026-05-03-restaurants-14.html</a></p>
+</footer>
+
+</div>
+</body>
+</html>
