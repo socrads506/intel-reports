@@ -3,446 +3,852 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aurea Lead Research - Clínicas Médicas Costa Rica | 2026-05-02</title>
+    <title>Aurea Leads - Restaurantes Costa Rica | 2026-05-02 21:00</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg-primary: #0d1117;
+            --bg-secondary: #161b22;
+            --bg-card: #21262d;
+            --border: #30363d;
+            --text-primary: #e6edf3;
+            --text-secondary: #8b949e;
+            --accent: #58a6ff;
+            --accent-hover: #79b8ff;
+            --success: #3fb950;
+            --warning: #d29922;
+            --danger: #f85149;
+            --tag-restaurants: #a371f7;
+            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            background: #0d0d0f;
-            color: #e4e4e7;
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
             line-height: 1.6;
+            min-height: 100vh;
         }
-        .container { max-width: 1100px; margin: 0 auto; padding: 40px 24px; }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
         header {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-            border-bottom: 3px solid #e94560;
-            padding: 48px 24px;
-            margin-bottom: 40px;
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border);
+            padding: 2rem 0;
+            margin-bottom: 2rem;
         }
-        .logo { font-size: 12px; letter-spacing: 4px; color: #e94560; font-weight: 700; margin-bottom: 16px; }
-        h1 { font-size: 32px; font-weight: 700; color: #fff; margin-bottom: 8px; }
-        .subtitle { font-size: 18px; color: #a0a0b0; margin-bottom: 24px; }
-        .meta {
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
             display: flex;
-            gap: 24px;
+            justify-content: space-between;
+            align-items: center;
             flex-wrap: wrap;
-            font-size: 13px;
-            color: #888;
+            gap: 1rem;
         }
-        .meta span { display: flex; align-items: center; gap: 6px; }
-        .badge {
-            display: inline-block;
-            padding: 4px 12px;
-            background: #e94560;
-            color: #fff;
-            border-radius: 4px;
-            font-size: 12px;
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo {
+            width: 48px;
+            height: 48px;
+            background: var(--gradient-1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .brand h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .brand span {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .meta-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.875rem;
+        }
+
+        .meta-badge .dot {
+            width: 8px;
+            height: 8px;
+            background: var(--success);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .hero {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 100%;
+            background: var(--gradient-1);
+            opacity: 0.1;
+            border-radius: 0 16px 16px 0;
+        }
+
+        .niche-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(163, 113, 247, 0.2);
+            border: 1px solid var(--tag-restaurants);
+            color: var(--tag-restaurants);
+            padding: 0.375rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .hero h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            color: var(--text-secondary);
+            font-size: 1.125rem;
+            max-width: 600px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent);
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .section {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+        }
+
+        .section-header {
+            padding: 1.25rem 1.5rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .section-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--bg-card);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+
+        .section-header h3 {
+            font-size: 1.125rem;
             font-weight: 600;
         }
-        .summary-grid {
+
+        .section-content {
+            padding: 1.5rem;
+        }
+
+        .companies-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-            margin-bottom: 48px;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 1rem;
         }
-        .summary-card {
-            background: #16161a;
-            border: 1px solid #27272a;
-            border-radius: 12px;
-            padding: 24px;
-        }
-        .summary-card .number { font-size: 36px; font-weight: 700; color: #e94560; }
-        .summary-card .label { font-size: 13px; color: #71717a; margin-top: 4px; }
-        h2 {
-            font-size: 22px;
-            color: #fff;
-            margin-bottom: 20px;
-            padding-bottom: 12px;
-            border-bottom: 1px solid #27272a;
-        }
-        .section { margin-bottom: 48px; }
+
         .company-card {
-            background: #16161a;
-            border: 1px solid #27272a;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
             border-radius: 12px;
-            padding: 24px;
-            margin-bottom: 16px;
+            padding: 1.25rem;
+            transition: border-color 0.2s, transform 0.2s;
         }
-        .company-card:hover { border-color: #3f3f46; }
+
+        .company-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
         .company-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 12px;
+            margin-bottom: 0.75rem;
         }
-        .company-name { font-size: 18px; font-weight: 600; color: #fff; }
+
+        .company-name {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .company-location {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.375rem;
+        }
+
         .company-type {
-            font-size: 11px;
-            padding: 3px 10px;
-            background: #27272a;
-            color: #a1a1aa;
-            border-radius: 4px;
+            font-size: 0.75rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 1rem;
             font-weight: 500;
         }
-        .company-desc { font-size: 14px; color: #a1a1aa; margin-bottom: 16px; }
+
+        .type-fine-dining {
+            background: rgba(163, 113, 247, 0.2);
+            color: var(--tag-restaurants);
+        }
+
+        .type-franchise {
+            background: rgba(63, 185, 80, 0.2);
+            color: var(--success);
+        }
+
+        .type-chain {
+            background: rgba(210, 153, 34, 0.2);
+            color: var(--warning);
+        }
+
+        .company-description {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
         .contact-info {
             display: flex;
-            flex-wrap: wrap;
-            gap: 16px;
-            font-size: 13px;
+            flex-direction: column;
+            gap: 0.5rem;
         }
-        .contact-item { display: flex; align-items: center; gap: 6px; color: #71717a; }
-        .contact-item a { color: #60a5fa; text-decoration: none; }
-        .contact-item a:hover { text-decoration: underline; }
-        .trends-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
         }
-        .trend-card {
-            background: #16161a;
-            border: 1px solid #27272a;
-            border-radius: 12px;
-            padding: 24px;
+
+        .contact-label {
+            color: var(--text-secondary);
+            min-width: 80px;
         }
-        .trend-card h3 { font-size: 16px; color: #fff; margin-bottom: 12px; }
-        .trend-card p { font-size: 14px; color: #a1a1aa; }
+
+        .contact-value {
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .trends-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .trend-item {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--bg-card);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .trend-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-2);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        .trend-content h4 {
+            font-size: 0.9375rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .trend-content p {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .strategy-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
         .strategy-item {
-            background: #16161a;
-            border: 1px solid #27272a;
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 12px;
+            display: flex;
+            gap: 0.75rem;
+            padding: 1rem;
+            background: var(--bg-card);
+            border-radius: 8px;
+            border: 1px solid var(--border);
         }
-        .strategy-item h4 { font-size: 15px; color: #e94560; margin-bottom: 8px; }
-        .strategy-item p { font-size: 14px; color: #a1a1aa; }
+
+        .strategy-number {
+            width: 28px;
+            height: 28px;
+            background: var(--accent);
+            color: var(--bg-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.875rem;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .strategy-content h4 {
+            font-size: 0.9375rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .strategy-content p {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
         footer {
             text-align: center;
-            padding: 32px;
-            color: #52525b;
-            font-size: 12px;
-            border-top: 1px solid #27272a;
-            margin-top: 48px;
+            padding: 2rem;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            border-top: 1px solid var(--border);
+            margin-top: 2rem;
         }
-        .tag {
-            display: inline-block;
-            padding: 2px 8px;
-            background: #1e1e2e;
-            color: #888;
-            border-radius: 3px;
-            font-size: 11px;
-            margin-right: 4px;
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .companies-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="container">
-            <div class="logo">AUREA ADVERTISING AGENCY</div>
-            <h1>Lead Research Report: Clínicas Médicas Costa Rica</h1>
-            <p class="subtitle">Investigación de mercado para oportunidades de publicidad y marketing digital</p>
-            <div class="meta">
-                <span>📅 Mayo 2, 2026 — 20:00 CST</span>
-                <span>📍 Costa Rica</span>
-                <span>🏥 Nicho: Clínicas Médicas / Dental / Estética</span>
-                <span class="badge">NUEVO REPORTE</span>
+        <div class="header-content">
+            <div class="logo-section">
+                <div class="logo">A</div>
+                <div class="brand">
+                    <h1>Aurea Advertising Agency</h1>
+                    <span>Intel Reports - Lead Generation</span>
+                </div>
+            </div>
+            <div class="meta-badge">
+                <span class="dot"></span>
+                <span>May 2, 2026 - 21:00 Costa Rica</span>
             </div>
         </div>
     </header>
 
-    <div class="container">
-        <!-- Resumen Ejecutivo -->
-        <div class="summary-grid">
-            <div class="summary-card">
-                <div class="number">12</div>
-                <div class="label">Empresas identificadas</div>
+    <main class="container">
+        <div class="hero">
+            <div class="niche-tag">🍽️ Restaurantes</div>
+            <h2>Lead Generation Report: Restaurant Sector in Costa Rica</h2>
+            <p>Comprehensive analysis of fine dining establishments, restaurant chains, and franchise operators with marketing decision makers and expansion plans.</p>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value">10</div>
+                <div class="stat-label">Companies Identified</div>
             </div>
-            <div class="summary-card">
-                <div class="number">8</div>
-                <div class="label">Decision makers localizados</div>
+            <div class="stat-card">
+                <div class="stat-value">65%</div>
+                <div class="stat-label">Franchise Growth (10yr)</div>
             </div>
-            <div class="summary-card">
-                <div class="number">4</div>
-                <div class="label">Hospitales privados top</div>
+            <div class="stat-card">
+                <div class="stat-value">$4.5M</div>
+                <div class="stat-label">BLT Global Investment</div>
             </div>
-            <div class="summary-card">
-                <div class="number">40%</div>
-                <div class="label">Turismo dental en CR</div>
+            <div class="stat-card">
+                <div class="stat-value">Mar 2026</div>
+                <div class="stat-label">New Franchise Law</div>
             </div>
         </div>
 
-        <!-- Hospitals Section -->
-        <section class="section">
-            <h2>🏥 Hospitales Privados Destacados</h2>
-            
-            <div class="company-card">
-                <div class="company-header">
-                    <span class="company-name">Hospital Clínica Bíblica</span>
-                    <span class="company-type">Hospital Privado</span>
-                </div>
-                <p class="company-desc">Único hospital de Costa Rica incluido en el ranking "Latin America's Top Private Hospitals & Clinics 2026" de Newsweek/Statista. Destaca en cirugías y procedimientos de alta complejidad. Referencia internacional en turismo médico.</p>
-                <div class="contact-info">
-                    <span class="contact-item">📍 San José, Costa Rica</span>
-                    <span class="contact-item">🌐 <a href="https://www.clinicabiblica.com" target="_blank">clinicabiblica.com</a></span>
-                    <span class="contact-item">📧 info@clinicabiblica.com</span>
-                </div>
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">🏆</div>
+                <h3>Top Restaurant Companies in Costa Rica</h3>
             </div>
+            <div class="section-content">
+                <div class="companies-grid">
+                    <div class="company-card">
+                        <div class="company-header">
+                            <div>
+                                <div class="company-name">Sikwa</div>
+                                <div class="company-location">📍 San José, Costa Rica</div>
+                            </div>
+                            <span class="company-type type-fine-dining">Fine Dining</span>
+                        </div>
+                        <div class="company-description">
+                            Named Best Restaurant in Costa Rica (Latin America's 50 Best Restaurants 2025). Chef Pablo Bonilla focuses on Indigenous pantry and jungle-to-table cooking.
+                        </div>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <span class="contact-label">Key Contact:</span>
+                                <span class="contact-value">Chef Pablo Bonilla (Owner/Chef)</span>
+                            </div>
+                            <div class="contact-item">
+                                <span class="contact-label">Opportunity:</span>
+                                <span class="contact-value">Branding, Social Media</span>
+                            </div>
+                        </div>
+                    </div>
 
-            <div class="company-card">
-                <div class="company-header">
-                    <span class="company-name">Hospital Internacional La Católica</span>
-                    <span class="company-type">Hospital Privado</span>
-                </div>
-                <p class="company-desc">Centro médico de alta complejidad con directorio de clínicas especializadas. Ofrece medicina empresarial y múltiples especialidades. Ubicado en zona estratégica de San José.</p>
-                <div class="contact-info">
-                    <span class="contact-item">📍 San José, Costa Rica</span>
-                    <span class="contact-item">🌐 <a href="https://hilc.cr" target="_blank">hilc.cr</a></span>
-                    <span class="contact-item">📞 Consultas: (506) 2244-0000</span>
-                </div>
-            </div>
+                    <div class="company-card">
+                        <div class="company-header">
+                            <div>
+                                <div class="company-name">Yard House Costa Rica</div>
+                                <div class="company-location">📍 San José, Costa Rica</div>
+                            </div>
+                            <span class="company-type type-franchise">International Franchise</span>
+                        </div>
+                        <div class="company-description">
+                            First international location opened March 2026. Operated by AR Holdings. American upscale casual dining chain with extensive beer selection and creative cuisine.
+                        </div>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <span class="contact-label">Key Contact:</span>
+                                <span class="contact-value">Miguel Ramírez, VP Operations (AR Holdings)</span>
+                            </div>
+                            <div class="contact-item">
+                                <span class="contact-label">Opportunity:</span>
+                                <span class="contact-value">Local Marketing, Launch Campaign</span>
+                            </div>
+                        </div>
+                    </div>
 
-            <div class="company-card">
-                <div class="company-header">
-                    <span class="company-name">Hospital CIMA (Escazú)</span>
-                    <span class="company-type">Hospital Privado</span>
-                </div>
-                <p class="company-desc">Hospital moderno en zona premium de Escazú. Cuenta con directorio de doctores en línea y consultorios especializados. Torre 1 y Torre 2 con múltiples especialidades.</p>
-                <div class="contact-info">
-                    <span class="contact-item">📍 Escazú, San José</span>
-                    <span class="contact-item">🌐 <a href="https://www.hospitalcima.com" target="_blank">hospitalcima.com</a></span>
-                    <span class="contact-item">🏢 Torre 1, 7mo piso consultorios</span>
-                </div>
-            </div>
+                    <div class="company-card">
+                        <div class="company-header">
+                            <div>
+                                <div class="company-name">Conservatorium</div>
+                                <div class="company-location">📍 San José, Costa Rica</div>
+                            </div>
+                            <span class="company-type type-fine-dining">Fine Dining</span>
+                        </div>
+                        <div class="company-description">
+                            Premium grill concept featuring dry aged local cattle. Part of Costa Rica's shift towards regional dining with focus on local ingredients and traditions.
+                        </div>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <span class="contact-label">Key Contact:</span>
+                                <span class="contact-value">Restaurant Management</span>
+                            </div>
+                            <div class="contact-item">
+                                <span class="contact-label">Opportunity:</span>
+                                <span class="contact-value">Digital Marketing, SEO</span>
+                            </div>
+                        </div>
+                    </div>
 
-            <div class="company-card">
-                <div class="company-header">
-                    <span class="company-name">Hospital San Rafael</span>
-                    <span class="company-type">Hospital Privado</span>
-                </div>
-                <p class="company-desc">Parte del grupo Hospital CIMA. Instalaciones completas con múltiples especialidades médicas y quirúrgicas.</p>
-                <div class="contact-info">
-                    <span class="contact-item">📍 Escazú, San José</span>
-                    <span class="contact-item">🌐 Directorio: directorio.hospitalcima.com</span>
-                </div>
-            </div>
-        </section>
+                    <div class="company-card">
+                        <div class="company-header">
+                            <div>
+                                <div class="company-name">BLT Global Brands (Applebee's + IHOP)</div>
+                                <div class="company-location">📍 San José, Costa Rica</div>
+                            </div>
+                            <span class="company-type type-chain">Dual-Brand Chain</span>
+                        </div>
+                        <div class="company-description">
+                            Investing $4.5M to open 3 dual-brand restaurants combining Applebee's and IHOP. Major expansion in Costa Rican market with 3-year rollout plan.
+                        </div>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <span class="contact-label">Key Contact:</span>
+                                <span class="contact-value">BLT Global Brands Management</span>
+                            </div>
+                            <div class="contact-item">
+                                <span class="contact-label">Opportunity:</span>
+                                <span class="contact-value">Multi-location Marketing Strategy</span>
+                            </div>
+                        </div>
+                    </div>
 
-        <!-- Dental Clinics Section -->
-        <section class="section">
-            <h2>🦷 Clínicas Dentales (Turismo Médico)</h2>
-            <p style="color: #a1a1aa; margin-bottom: 20px;">El sector dental representa el <strong style="color:#e94560">40% del turismo médico en Costa Rica</strong>. Alto potencial para estrategias de marketing internacional.</p>
-            
-            <div class="company-card">
-                <div class="company-header">
-                    <span class="company-name">Art Dental Care</span>
-                    <span class="company-type">Clínica Dental Premium</span>
-                </div>
-                <p class="company-desc">Clínica dental en San José especializada en estética dental y turismo médico. Atiende pacientes internacionales de USA, Canadá y México. Equipos de alta tecnología, precios accesibles vs países de origen.</p>
-                <div class="contact-info">
-                    <span class="contact-item">🌐 <a href="https://artdentalcare.com" target="_blank">artdentalcare.com</a></span>
-                    <span class="contact-item">📍 San José, Costa Rica</span>
-                    <span class="tag">turismo médico</tag>
-                    <span class="tag">dental estético</tag>
-                </div>
-            </div>
+                    <div class="company-card">
+                        <div class="company-header">
+                            <div>
+                                <div class="company-name">Restaurante Grano De Oro</div>
+                                <div class="company-location">📍 San José, Costa Rica</div>
+                            </div>
+                            <span class="company-type type-fine-dining">Fine Dining</span>
+                        </div>
+                        <div class="company-description">
+                            Acclaimed fine dining establishment recommended for reservations. Known for beautiful ambiance and delicious cuisine. Consistently top-rated on TripAdvisor.
+                        </div>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <span class="contact-label">Key Contact:</span>
+                                <span class="contact-value">Restaurant Ownership</span>
+                            </div>
+                            <div class="contact-item">
+                                <span class="contact-label">Opportunity:</span>
+                                <span class="contact-value">Tourism Marketing, PR</span>
+                            </div>
+                        </div>
+                    </div>
 
-            <div class="company-card">
-                <div class="company-header">
-                    <span class="company-name">Advance Dental Costa Rica</span>
-                    <span class="company-type">Clínica Dental</span>
-                </div>
-                <p class="company-desc">Clínica dental enfocada en turismo médico. Carillas de porcelana, blanqueamiento y tratamientos accesibles para extranjeros. Costa Rica como destino popular de cuidado dental.</p>
-                <div class="contact-info">
-                    <span class="contact-item">🌐 <a href="https://www.advancedentalcostarica.com" target="_blank">advancedentalcostarica.com</a></span>
-                    <span class="contact-item">📍 Costa Rica</span>
-                    <span class="tag">turismo dental</tag>
-                </div>
-            </div>
+                    <div class="company-card">
+                        <div class="company-header">
+                            <div>
+                                <div class="company-name">Park Cafe Costa Rica</div>
+                                <div class="company-location">📍 San José, Costa Rica</div>
+                            </div>
+                            <span class="company-type type-fine-dining">Fine Dining</span>
+                        </div>
+                        <div class="company-description">
+                            Run by Richard Neat, a two-star Michelin chef with passion for creative cuisine. Highest-rated on TripAdvisor's fine dining list with 5.0 score.
+                        </div>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <span class="contact-label">Key Contact:</span>
+                                <span class="contact-value">Richard Neat (Owner/Chef)</span>
+                            </div>
+                            <div class="contact-item">
+                                <span class="contact-label">Opportunity:</span>
+                                <span class="contact-value">Content Marketing, International PR</span>
+                            </div>
+                        </div>
+                    </div>
 
-            <div class="company-card">
-                <div class="company-header">
-                    <span class="company-name">Dentika</span>
-                    <span class="company-type">Clínica Dental</span>
-                </div>
-                <p class="company-desc">Clínica de odontología estética y reconstructiva con más de 15 años de trayectoria en el corazón de San José. Enfoque en estética dental.</p>
-                <div class="contact-info">
-                    <span class="contact-item">📍 San José, Costa Rica</span>
-                    <span class="tag">+15 años</tag>
-                    <span class="tag">odontología estética</tag>
-                </div>
-            </div>
+                    <div class="company-card">
+                        <div class="company-header">
+                            <div>
+                                <div class="company-name">Enjoy Group de Costa Rica</div>
+                                <div class="company-location">📍 Costa Rica</div>
+                            </div>
+                            <span class="company-type type-chain">Restaurant Group</span>
+                        </div>
+                        <div class="company-description">
+                            Major restaurant group with multiple properties. Has dedicated marketing team including Roy Barrantes (Corporate Director of Marketing and Sales).
+                        </div>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <span class="contact-label">Key Contact:</span>
+                                <span class="contact-value">Roy Barrantes - Dir. Marketing y Ventas</span>
+                            </div>
+                            <div class="contact-item">
+                                <span class="contact-label">Opportunity:</span>
+                                <span class="contact-value">Full-Service Marketing Partnership</span>
+                            </div>
+                        </div>
+                    </div>
 
-            <div class="company-card">
-                <div class="company-header">
-                    <span class="company-name">La Bella Cosmetic Surgery</span>
-                    <span class="company-type">Clínica Estética Dental</span>
-                </div>
-                <p class="company-desc">Clínica en San José especializada en procedimientos cosméticos dentales y faciales. Botox, rellenos dérmicos, liposucción y procedimientos estéticos.</p>
-                <div class="contact-info">
-                    <span class="contact-item">📍 San José, Costa Rica</span>
-                    <span class="tag">estética</tag>
-                    <span class="tag">procedimientos</tag>
-                </div>
-            </div>
-        </section>
+                    <div class="company-card">
+                        <div class="company-header">
+                            <div>
+                                <div class="company-name">Silvestre</div>
+                                <div class="company-location">📍 San José, Costa Rica</div>
+                            </div>
+                            <span class="company-type type-fine-dining">Fine Dining</span>
+                        </div>
+                        <div class="company-description">
+                            Showcases depth and diversity of Costa Rican cuisine beyond typical fare. High-end restaurant recognized among San Jose's best.
+                        </div>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <span class="contact-label">Key Contact:</span>
+                                <span class="contact-value">Restaurant Management</span>
+                            </div>
+                            <div class="contact-item">
+                                <span class="contact-label">Opportunity:</span>
+                                <span class="contact-value">Branding, Visual Content</span>
+                            </div>
+                        </div>
+                    </div>
 
-        <!-- Medical Aesthetics Section -->
-        <section class="section">
-            <h2>✨ Clínicas de Medicina Estética y Spas Médicos</h2>
-            
-            <div class="company-card">
-                <div class="company-header">
-                    <span class="company-name">CSI Salud Integral</span>
-                    <span class="company-type">Centro Médico Estético</span>
-                </div>
-                <p class="company-desc">Centro médico estético de vanguardia desde 2009. Tecnología láser Fotona, tratamientos corporales, faciales y láser. +123,552 pacientes atendidos, +19,952 hidroláseres realizados.</p>
-                <div class="contact-info">
-                    <span class="contact-item">🌐 <a href="https://www.csisaludintegral.com" target="_blank">csisaludintegral.com</a></span>
-                    <span class="contact-item">📍 Costa Rica</span>
-                    <span class="contact-item">👩‍⚕️ Dra. Carolina Pérez</span>
-                    <span class="tag">láser</tag>
-                    <span class="tag">estética</tag>
-                </div>
-            </div>
+                    <div class="company-card">
+                        <div class="company-header">
+                            <div>
+                                <div class="company-name">El Taller De Billy Sazón</div>
+                                <div class="company-location">📍 San José, Costa Rica</div>
+                            </div>
+                            <span class="company-type type-fine-dining">Fine Dining</span>
+                        </div>
+                        <div class="company-description">
+                            TripAdvisor top-rated with 5.0 score and 361 reviews. Unique culinary concept combining traditional flavors with modern techniques.
+                        </div>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <span class="contact-label">Key Contact:</span>
+                                <span class="contact-value">Billy Sazón (Owner)</span>
+                            </div>
+                            <div class="contact-item">
+                                <span class="contact-label">Opportunity:</span>
+                                <span class="contact-value">Review Marketing, Local SEO</span>
+                            </div>
+                        </div>
+                    </div>
 
-            <div class="company-card">
-                <div class="company-header">
-                    <span class="company-name">Dr. Gabriel Peralta - Clínica de Cirugía Plástica & Spa</span>
-                    <span class="company-type">Cirugía Plástica</span>
-                </div>
-                <p class="company-desc">Cirujano plástico con consultorio y spa. Ubicado 200m sur y 200m oeste de la Librería Universal.</p>
-                <div class="contact-info">
-                    <span class="contact-item">📍 San José, Costa Rica</span>
-                    <span class="tag">cirugía plástica</tag>
+                    <div class="company-card">
+                        <div class="company-header">
+                            <div>
+                                <div class="company-name">Enbocacr</div>
+                                <div class="company-location">📍 San José, Costa Rica</div>
+                            </div>
+                            <span class="company-type type-fine-dining">Fine Dining</span>
+                        </div>
+                        <div class="company-description">
+                            Top-rated fine dining on TripAdvisor with 4.9 score and 641 reviews. Located in San Jose metro area. Known for exceptional cuisine.
+                        </div>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <span class="contact-label">Key Contact:</span>
+                                <span class="contact-value">Restaurant Ownership</span>
+                            </div>
+                            <div class="contact-item">
+                                <span class="contact-label">Opportunity:</span>
+                                <span class="contact-value">Reputation Management, Social Media</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <!-- Plastic Surgeons Directory -->
-        <section class="section">
-            <h2>👨‍⚕️ Cirujanos Plásticos en Hospital CIMA</h2>
-            <p style="color: #a1a1aa; margin-bottom: 20px;">Directorio de cirujanos plásticos con consultorios en Hospital CIMA Torre 1, Escazú.</p>
-            
-            <div class="company-card">
-                <div class="company-header">
-                    <span class="company-name">Dr. Rodrigo Araya Alegría</span>
-                    <span class="company-type">Cirujano Plástico</span>
-                </div>
-                <p class="company-desc">Cirujano plástico y reconstructivo. Consultorio en Hospital CIMA Torre 2, piso 2.</p>
-                <div class="contact-info">
-                    <span class="contact-item">📍 Hospital CIMA Torre 2, Consultorio 211, Escazú</span>
-                    <span class="tag">hospital hint</tag>
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">📊</div>
+                <h3>Market Trends 2026</h3>
+            </div>
+            <div class="section-content">
+                <div class="trends-list">
+                    <div class="trend-item">
+                        <div class="trend-icon">📱</div>
+                        <div class="trend-content">
+                            <h4>AI-Powered Targeted Marketing</h4>
+                            <p>Restaurant marketing in 2026 is defined by integration of predictive menu intelligence with guest engagement platforms. Hyper-localized campaigns through CRM and loyalty systems are now essential.</p>
+                        </div>
+                    </div>
+                    <div class="trend-item">
+                        <div class="trend-icon">🌱</div>
+                        <div class="trend-content">
+                            <h4>Health-Conscious & Locally-Sourced</h4>
+                            <p>Costa Rica's restaurant delivery market is experiencing a notable shift towards healthier, locally-sourced meal options as consumers become more health-conscious and environmentally aware.</p>
+                        </div>
+                    </div>
+                    <div class="trend-item">
+                        <div class="trend-icon">🍔</div>
+                        <div class="trend-content">
+                            <h4>US Franchise Boom (+65%)</h4>
+                            <p>Explosive 65% growth in American restaurant franchises over the past decade. Generates approximately 26,500 direct jobs. Major players: McDonald's, KFC, Pizza Hut, Papa John's, Yard House.</p>
+                        </div>
+                    </div>
+                    <div class="trend-item">
+                        <div class="trend-icon">⚖️</div>
+                        <div class="trend-content">
+                            <h4>New Franchise Law (March 2026)</h4>
+                            <p>Costa Rica's first franchise-specific statutory framework went into effect March 12, 2026. Requires franchisors to reassess market entry, disclosure, and franchise documentation.</p>
+                        </div>
+                    </div>
+                    <div class="trend-item">
+                        <div class="trend-icon">🎥</div>
+                        <div class="trend-content">
+                            <h4>Social Media & Visual Content</h4>
+                            <p>Restaurants can no longer afford to treat social media as an afterthought. High-quality authentic content, influencer collaborations, and AR experiences are now competitive necessities.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </div>
 
-            <div class="company-card">
-                <div class="company-header">
-                    <span class="company-name">Dr. Miguel Alfaro Dávila</span>
-                    <span class="company-type">Cirujano Plástico</span>
-                </div>
-                <p class="company-desc">Cirujano plástico y reconstructivo con consultorio en Hospital CIMA Torre 1.</p>
-                <div class="contact-info">
-                    <span class="contact-item">📍 Hospital CIMA Torre 1, 7mo piso, Consultorio 9-10, Escazú</span>
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">🎯</div>
+                <h3>Contact Strategies</h3>
+            </div>
+            <div class="section-content">
+                <div class="strategy-list">
+                    <div class="strategy-item">
+                        <div class="strategy-number">1</div>
+                        <div class="strategy-content">
+                            <h4>LinkedIn Outreach to Decision Makers</h4>
+                            <p>Target marketing directors (Roy Barrantes at Enjoy Group, Miguel Ramírez at AR Holdings). Use personalized connection requests referencing their expansion plans and market position.</p>
+                        </div>
+                    </div>
+                    <div class="strategy-item">
+                        <div class="strategy-number">2</div>
+                        <div class="strategy-content">
+                            <h4>Fine Dining Chef Networking</h4>
+                            <p>Approach chef-owners like Pablo Bonilla (Sikwa), Richard Neat (Park Cafe), and Billy Sazón through Instagram with collaboration proposals highlighting your track record with premium hospitality brands.</p>
+                        </div>
+                    </div>
+                    <div class="strategy-item">
+                        <div class="strategy-number">3</div>
+                        <div class="strategy-content">
+                            <h4>Franchise Marketing Consultations</h4>
+                            <p>With the new franchise law effective March 2026, offer compliance-ready marketing services. Target BLT Global Brands and AR Holdings for launch campaigns and local market positioning.</p>
+                        </div>
+                    </div>
+                    <div class="strategy-item">
+                        <div class="strategy-number">4</div>
+                        <div class="strategy-content">
+                            <h4>Tourism & Hospitality Cross-Promotion</h4>
+                            <p>Partner with hotels and tourism operators to offer restaurant packages. Restaurants like Grano De Oro and Silvestre benefit from tourism-focused marketing channels.</p>
+                        </div>
+                    </div>
+                    <div class="strategy-item">
+                        <div class="strategy-number">5</div>
+                        <div class="strategy-content">
+                            <h4>Digital Presence Audit Offer</h4>
+                            <p>Offer free digital presence audits to restaurants. With 75% of consumers preferring personalized content, demonstrate how AI-driven marketing can increase customer acquisition.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </div>
 
-            <div class="company-card">
-                <div class="company-header">
-                    <span class="company-name">Dr. Gilberto Reyna Waldron</span>
-                    <span class="company-type">Cirujano Plástico</span>
-                </div>
-                <p class="company-desc">Cirujano plástico y reconstructivo.</p>
-                <div class="contact-info">
-                    <span class="contact-item">📍 Clínica San Agustín, San José</span>
-                </div>
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">💡</div>
+                <h3>Key Insights for Aurea</h3>
             </div>
-        </section>
-
-        <!-- Market Trends -->
-        <section class="section">
-            <h2>📊 Tendencias del Mercado 2026</h2>
-            <div class="trends-grid">
-                <div class="trend-card">
-                    <h3>🏆 Ranking Internacional</h3>
-                    <p>Hospital Clínica Bíblica destacado en Newsweek/Statista 2026 como único representante de Costa Rica en Top Hospitales Privados de Latinoamérica.</p>
-                </div>
-                <div class="trend-card">
-                    <h3>🦷 Turismo Dental en Boom</h3>
-                    <p>40% del turismo médico en Costa Rica es dental. Pacientes de USA, Canadá y México buscan tratamientos de alta calidad a precios accesibles.</p>
-                </div>
-                <div class="trend-card">
-                    <h3>💉 Medicina Estética en Crecimiento</h3>
-                    <p>Alta demanda de procedimientos no quirúrgicos: botox, rellenos, láser. Clínicas invirtiendo en tecnología avanzada como láser Fotona.</p>
-                </div>
-                <div class="trend-card">
-                    <h3>🌐 Marketing Digital Esencial</h3>
-                    <p>Competencia creciente en sector odontológico. Agencias especializadas como JCA Dental dominan el mercado. Necesidad de diferenciación.</p>
-                </div>
-                <div class="trend-card">
-                    <h3>📱 Presencia Online Internacional</h3>
-                    <p>Clínicas targeting pacientes extranjeros necesitan estrategias de contenido multilingüe, SEO internacional y reputación online.</p>
-                </div>
-                <div class="trend-card">
-                    <h3>🤝 Alianzas Estratégicas</h3>
-                    <p>Hospitales como CIMA y Clínica Bíblica con directorios de doctores en línea. Oportunidad para marketing de referidos.</p>
+            <div class="section-content">
+                <div class="trends-list">
+                    <div class="trend-item">
+                        <div class="trend-icon">🚀</div>
+                        <div class="trend-content">
+                            <h4>High-Value Targets: Franchise Operators</h4>
+                            <p>Yard House, BLT Global Brands represent multi-location accounts with ongoing marketing needs. These are ideal for retainer relationships rather than one-off projects.</p>
+                        </div>
+                    </div>
+                    <div class="trend-item">
+                        <div class="trend-icon">⭐</div>
+                        <div class="trend-content">
+                            <h4>Premium Positioning: Fine Dining</h4>
+                            <p>Top restaurants (Sikwa, Park Cafe, Enbocacr) are award-winning but may lack dedicated marketing. Position Aurea as the agency that understands haute cuisine branding.</p>
+                        </div>
+                    </div>
+                    <div class="trend-item">
+                        <div class="trend-icon">📈</div>
+                        <div class="trend-content">
+                            <h4>Growth Market: Restaurant Tech</h4>
+                            <p>The intersection of restaurant operations and digital marketing is growing. Consider offering packages that combine ordering platform optimization with advertising campaigns.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </section>
-
-        <!-- Contact Strategies -->
-        <section class="section">
-            <h2>🎯 Estrategias de Contacto</h2>
-            
-            <div class="strategy-item">
-                <h4>1. LinkedIn Outreach a Decision Makers</h4>
-                <p>Localizar CMOs, Directores de Marketing y Gerentes Comerciales de Hospital CIMA, Clínica Bíblica y Hospital La Católica. Mensajes personalizados destacando casos de éxito en sector salud.</p>
-            </div>
-            
-            <div class="strategy-item">
-                <h4>2. Pitch para Turismo Médico</h4>
-                <p>Enfocar en clínicas dentales y estéticas que atienden internacionales. Propuesta de valor: captación de pacientes USA/Canadá vía contenido, SEO y Google Ads.</p>
-            </div>
-            
-            <div class="strategy-item">
-                <h4>3. Directorio Médico como Fuente</h4>
-                <p>Usar directorio.hospitalcima.com y hulilabs.com para identificar nuevos doctores/abiertos de consultorio que necesitan branding personal y marketing.</p>
-            </div>
-            
-            <div class="strategy-item">
-                <h4>4. Caso "Medical Tourism Package"</h4>
-                <p>Paquete integral: contenido multilingüe + redes sociales + ads targeting geográfico + reputación online. Mostrar ROI en captación de pacientes internacionales.</p>
-            </div>
-
-            <div class="strategy-item">
-                <h4>5. cold email Personalizado</h4>
-                <p>Email a directores de marketing de hospitales con estadísticas del sector turismo médico CR (crecimiento 15-20% anual). Incluir benchmark de competencia.</p>
-            </div>
-        </section>
-
-        <!-- Keywords para Outreach -->
-        <section class="section">
-            <h2>🔑 Keywords para Prospección</h2>
-            <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-                <span class="tag">marketing médico Costa Rica</span>
-                <span class="tag">turismo dental CR</span>
-                <span class="tag">clínica dental San José</span>
-                <span class="tag">hospital privado Costa Rica</span>
-                <span class="tag">cirugía plástica Costa Rica</span>
-                <span class="tag">marketing dental Costa Rica</span>
-                <span class="tag">medicina estética CR</span>
-                <span class="tag">patient acquisition medical tourism</span>
-                <span class="tag">dental tourism Costa Rica</span>
-                <span class="tag">private hospital Latin America</span>
-            </div>
-        </section>
-
-    </div>
+        </div>
+    </main>
 
     <footer>
-        <div class="container">
-            <p>Aurea Advertising Agency — Lead Research Report</p>
-            <p>Generado automáticamente | 2026-05-02 20:00 CST | Confidencial</p>
-        </div>
+        <p>Generated by Aurea Lead Research Agent | Data sources: Tavily Web Search | May 2, 2026 21:00</p>
     </footer>
 </body>
 </html>
