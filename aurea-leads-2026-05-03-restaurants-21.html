@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurea — Leads Restaurantes Costa Rica | 03 May 2026</title>
+    <style>
+        :root {
+            --bg-primary: #0d0d0f;
+            --bg-secondary: #141418;
+            --bg-card: #1a1a20;
+            --accent: #f5a623;
+            --accent-dim: rgba(245, 166, 35, 0.15);
+            --text-primary: #e8e8ec;
+            --text-secondary: #9898a8;
+            --text-muted: #5a5a6a;
+            --border: #2a2a35;
+            --green: #3ecf8e;
+            --red: #f56565;
+            --blue: #4299e1;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        .container { max-width: 1100px; margin: 0 auto; padding: 40px 24px; }
+        header {
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 32px;
+            margin-bottom: 40px;
+        }
+        .badge {
+            display: inline-block;
+            background: var(--accent-dim);
+            color: var(--accent);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 16px;
+        }
+        h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+        .meta {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+        .meta-item span { color: var(--text-secondary); font-weight: 600; }
+        .grid-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+        }
+        .stat-card .label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+        .stat-card .value {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--accent);
+        }
+        .stat-card .sub {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+        section { margin-bottom: 48px; }
+        h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border);
+        }
+        .company-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 12px;
+            transition: border-color 0.2s;
+        }
+        .company-card:hover { border-color: var(--accent); }
+        .company-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .company-name {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        .company-tag {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            padding: 3px 10px;
+            border-radius: 20px;
+            background: var(--accent-dim);
+            color: var(--accent);
+        }
+        .company-tag.hot { background: rgba(62, 207, 142, 0.15); color: var(--green); }
+        .company-tag.tourist { background: rgba(66, 153, 225, 0.15); color: var(--blue); }
+        .company-desc {
+            color: var(--text-secondary);
+            font-size: 0.88rem;
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+        .company-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        .company-meta-item {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+        .company-meta-item strong { color: var(--text-secondary); }
+        .strategy-box {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 40px;
+        }
+        .strategy-box h3 {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .strategy-box ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 10px;
+        }
+        .strategy-box ul li {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            padding: 8px 12px;
+            background: var(--bg-card);
+            border-radius: 6px;
+            border-left: 3px solid var(--accent);
+        }
+        .trend-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+        .trend-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+        }
+        .trend-card .trend-icon {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        .trend-card h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+        }
+        .trend-card p {
+            font-size: 0.83rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+        .insight-box {
+            background: var(--accent-dim);
+            border: 1px solid rgba(245, 166, 35, 0.3);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 24px;
+        }
+        .insight-box h4 {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .insight-box p { font-size: 0.88rem; color: var(--text-secondary); }
+        footer {
+            border-top: 1px solid var(--border);
+            padding-top: 24px;
+            margin-top: 40px;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            text-align: center;
+        }
+        footer a { color: var(--accent); text-decoration: none; }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <header>
+        <div class="badge">Aurea Advertising Agency — Lead Research</div>
+        <h1>Restaurantes en Costa Rica</h1>
+        <p class="subtitle">Oportunidades de publicidad y marketing digital para agencias en el nicho gastronómico tico</p>
+        <div class="meta">
+            <div class="meta-item">📅 <span>3 mayo 2026</span> — 21:00 UTC</div>
+            <div class="meta-item">🏷️ Nicho: <span>Restaurantes / Gastronomía</span></div>
+            <div class="meta-item">🌎 Mercado: <span>Costa Rica (San José + principales ciudades)</span></div>
+            <div class="meta-item">📊 Empresas analizadas: <span>10</span></div>
+        </div>
+    </header>
+
+    <div class="grid-stats">
+        <div class="stat-card">
+            <div class="label">Turistas 2024</div>
+            <div class="value">2.7M</div>
+            <div class="sub"> llegadas a Costa Rica por aire, tierra y mar</div>
+        </div>
+        <div class="stat-card">
+            <div class="label">Turismo como % PIB</div>
+            <div class="value">8.2%</div>
+            <div class="sub"> sector hospitality en crecimiento sostenido</div>
+        </div>
+        <div class="stat-card">
+            <div class="label">Crecimiento delivery</div>
+            <div class="value">+12%</div>
+            <div class="sub"> adopción de plataformas digitales 2025-2032</div>
+        </div>
+        <div class="stat-card">
+            <div class="label">Gasto turístico</div>
+            <div class="value">$5.4B</div>
+            <div class="sub"> ingresos internacionales 2024</div>
+        </div>
+    </div>
+
+    <section>
+        <h2>🏢 Restaurantes Objetivo — Decisores Clave</h2>
+
+        <div class="company-card">
+            <div class="company-header">
+                <div class="company-name">Restaurante Silvestre</div>
+                <div><span class="company-tag hot">⭐ Premium</span></div>
+            </div>
+            <p class="company-desc">Restaurante contemporáneo costarricense en Barrio Amón, San José. Pionero en cocina farm-to-table y gastronomía de autor. Menú de degustación basado en tradición, cultura y técnicas contemporáneas. Ubicado en casona histórica de 1860.</p>
+            <div class="company-meta">
+                <div class="company-meta-item"><strong>👨‍🍳 Decisor:</strong> Chef Santiago Fernández Benedetto — Owner & Chef</div>
+                <div class="company-meta-item"><strong>📍 Ubicación:</strong> 11-955 Barrio Amón, San José</div>
+                <div class="company-meta-item"><strong>🔗 LinkedIn:</strong> linkedin.com/in/santiago-fernandez-102b04151</div>
+            </div>
+        </div>
+
+        <div class="company-card">
+            <div class="company-header">
+                <div class="company-name">Conservatorium</div>
+                <div><span class="company-tag hot">⭐ Premium</span></div>
+            </div>
+            <p class="company-desc">Restaurante asador creativo ubicado en Ciudad Colón, reconocido internacionalmente. Triunvirato de chefs: Henry Quesada, Aldo Elizondo (Le Cordon Bleu México) y Kid Mey Chan. Cocina de autor con I+D constante, presente en The World's 50 Best Discovery.</p>
+            <div class="company-meta">
+                <div class="company-meta-item"><strong>👨‍🍳 Decisores:</strong> Chefs Henry Quesada, Aldo Elizondo, Kid Mey Chan — Co-owners</div>
+                <div class="company-meta-item"><strong>📍 Ubicación:</strong> Ciudad Colón, San José (from Banco Nacional 225m Este)</div>
+                <div class="company-meta-item"><strong>🌐 Web:</strong> conservatoriumcr.com</div>
+            </div>
+        </div>
+
+        <div class="company-card">
+            <div class="company-header">
+                <div class="company-name">Tin Jo</div>
+                <div><span class="company-tag">Cultural</span></div>
+            </div>
+            <p class="company-desc">El restaurante asiático más tradicional de Costa Rica. Ubicado en el corazón cultural de San José, cerca de teatros, museos y galerías. Cocina asiática para todos los gustos, ambiente histórico.</p>
+            <div class="company-meta">
+                <div class="company-meta-item"><strong>👤 Tipo:</strong> Restaurante establecido — decisión gastronómica</div>
+                <div class="company-meta-item"><strong>📍 Ubicación:</strong> Centro cultural, San José</div>
+                <div class="company-meta-item"><strong>📌 Nicho:</strong> Gastronomía asiática auténtica</div>
+            </div>
+        </div>
+
+        <div class="company-card">
+            <div class="company-header">
+                <div class="company-name">Kalú (Cafeoteca Kalú)</div>
+                <div><span class="company-tag">Familiar</span></div>
+            </div>
+            <p class="company-desc">Espacio de difusión del café como cultura, hogar de Kalú. Chef Camille Ratton (origen francés-costarricense). Menú internacional extenso, opciones veganas y sin gluten. Frequentado por familias y visitantes turísticos.</p>
+            <div class="company-meta">
+                <div class="company-meta-item"><strong>👩‍🍳 Decisora:</strong> Chef Camille Ratton — Chef & Owner</div>
+                <div class="company-meta-item"><strong>📍 Ubicación:</strong> Calle 31, San José</div>
+                <div class="company-meta-item"><strong>📌 Nicho:</strong> Café + gastronomía familiar/internacional</div>
+            </div>
+        </div>
+
+        <div class="company-card">
+            <div class="company-header">
+                <div class="company-name">Sikwa</div>
+                <div><span class="company-tag hot">⭐ Premium</span></div>
+            </div>
+            <p class="company-desc">Alta cocina contemporánea costarricense del Chef Pablo Bonilla. Cocina jungle-to-table que rescata ingredientes indígenas y pantry nativo. Referencia en la nueva ola gastronómica tica.</p>
+            <div class="company-meta">
+                <div class="company-meta-item"><strong>👨‍🍳 Decisor:</strong> Chef Pablo Bonilla — Owner & Chef</div>
+                <div class="company-meta-item"><strong>📍 Ubicación:</strong> San José</div>
+                <div class="company-meta-item"><strong>📌 Nicho:</strong> Alta cocina costarricense contemporánea</div>
+            </div>
+        </div>
+
+        <div class="company-card">
+            <div class="company-header">
+                <div class="company-name">Franco Restaurant</div>
+                <div><span class="company-tag">Brunch</span></div>
+            </div>
+            <p class="company-desc">Uno de los brunch spots más reconocidos de San José, ubicado en Barrio Escalante. Referencia en la escena gastronómica de la ciudad. Enfocado en público local y turistas foodies.</p>
+            <div class="company-meta">
+                <div class="company-meta-item"><strong>👤 Tipo:</strong> Restaurante establecido — decisión propia</div>
+                <div class="company-meta-item"><strong>📍 Ubicación:</strong> Barrio Escalante, San José</div>
+                <div class="company-meta-item"><strong>📌 Nicho:</strong> Brunch y dining contemporáneo</div>
+            </div>
+        </div>
+
+        <div class="company-card">
+            <div class="company-header">
+                <div class="company-name">La Esquina de Buenos Aires</div>
+                <div><span class="company-tag">Argentino</span></div>
+            </div>
+            <p class="company-desc">Auténtica parilla argentina recreada en San José. Ambiente tradicional rioplatense. Chef Marco Leiva al mando. Referencia para dagingreros y amantes de la cocina argentina en Costa Rica.</p>
+            <div class="company-meta">
+                <div class="company-meta-item"><strong>👨‍🍳 Decisor:</strong> Chef Marco Leiva</div>
+                <div class="company-meta-item"><strong>📍 Ubicación:</strong> San José</div>
+                <div class="company-meta-item"><strong>📌 Nicho:</strong> Parrilla argentina premium</div>
+            </div>
+        </div>
+
+        <div class="company-card">
+            <div class="company-header">
+                <div class="company-name">Caffe Negroni</div>
+                <div><span class="company-tag">Italiano</span></div>
+            </div>
+            <p class="company-desc">Restaurante italiano de alta referencia en San José. Cocina italiana auténtica con ambiente elegante. Ubicado en zona prime de la capital.</p>
+            <div class="company-meta">
+                <div class="company-meta-item"><strong>👤 Tipo:</strong> Restaurante establecido</div>
+                <div class="company-meta-item"><strong>📍 Ubicación:</strong> San José</div>
+                <div class="company-meta-item"><strong>📌 Nicho:</strong> Alta cocina italiana</div>
+            </div>
+        </div>
+
+        <div class="company-card">
+            <div class="company-header">
+                <div class="company-name">DOM Restaurante</div>
+                <div><span class="company-tag">Histórico</span></div>
+            </div>
+            <p class="company-desc">Restaurante histórico que impulsó una nueva era en la gastronomía costarricense. Primer local de Chef Santiago Fernández Benedetto antes de Silvestre. Referente de la evolución culinaria del país.</p>
+            <div class="company-meta">
+                <div class="company-meta-item"><strong>👨‍🍳 Decisor:</strong> Chef Santiago Fernández Benedetto</div>
+                <div class="company-meta-item"><strong>📍 Ubicación:</strong> San José</div>
+                <div class="company-meta-item"><strong>📌 Nicho:</strong> Alta cocina histórica costarricense</div>
+            </div>
+        </div>
+
+        <div class="company-card">
+            <div class="company-header">
+                <div class="company-name">Le Chandelier</div>
+                <div><span class="company-tag">Francés</span></div>
+            </div>
+            <p class="company-desc">Referencia de alta cocina francesa en San José. Ubicado entre los mejores restaurantes de la capital. Cocina francesa clásica con técnicas modernas.</p>
+            <div class="company-meta">
+                <div class="company-meta-item"><strong>👤 Tipo:</strong> Restaurante establecido</div>
+                <div class="company-meta-item"><strong>📍 Ubicación:</strong> San José</div>
+                <div class="company-meta-item"><strong>📌 Nicho:</strong> Alta cocina francesa</div>
+            </div>
+        </div>
+
+    </section>
+
+    <section>
+        <h2>🎯 Estrategias de Contacto Sugeridas</h2>
+        <div class="strategy-box">
+            <h3>Canales de aproximación priorizados</h3>
+            <ul>
+                <li><strong>Instagram & TikTok:</strong> Los chefs，老板es y restaurantes activos en redes. Enfoque con portafolio visual de campañas gastronómicas previas.</li>
+                <li><strong>LinkedIn:</strong> Ideal para Chef Santiago Fernández Benedetto y equipos de Conservatorium. Mensaje directo con propuesta de valor para branding gastronómico.</li>
+                <li><strong>Email marketing:</strong> Para restaurantes con presencia web. Drip campaigns con casos de éxito de restaurantes en LATAM.</li>
+                <li><strong>WhatsApp Business:</strong> Primer contacto rápido con mensajes cortos y propuesta de reunión virtual de 15 min.</li>
+                <li><strong>Ferias gastronómicas:</strong> Expo gastronomía CR, eventos de Club de Gastronomía. Contacto presencial de alto valor.</li>
+                <li><strong>Google Ads locales:</strong> Captar demanda de restaurantes que buscan posicionarse en "restaurante San José" y búsquedas similares.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>📈 Tendencias del Mercado Gastronómico CR 2025–2026</h2>
+        <div class="trend-grid">
+            <div class="trend-card">
+                <div class="trend-icon">🚀</div>
+                <h4>Delivery & Digital Ordering</h4>
+                <p>El segmento de home delivery es el de mayor crecimiento en Costa Rica. Plataformas como Uber Eats y DiDi Food impulsan la demanda de presencia digital y marketing de restaurantes.</p>
+            </div>
+            <div class="trend-card">
+                <div class="trend-icon">🌿</div>
+                <h4>Farm-to-Table & Sostenibilidad</h4>
+                <p>Los consumidores ticos priorizan ingredientes locales, orgánicos y de comercio justo. Los restaurantes que communican su sourcing tienen ventaja competitiva clara.</p>
+            </div>
+            <div class="trend-card">
+                <div class="trend-icon">🌮</div>
+                <h4>Cocina Costarricense Contemporánea</h4>
+                <p>Sikwa, Silvestre y Conservatorium lideran una ola de chefs locales que reinventan la identidad gastronómica nacional. Alto interés de medios y tourists foodies.</p>
+            </div>
+            <div class="trend-card">
+                <div class="trend-icon">💰</div>
+                <h4>Turismo Gastronómico en Expansión</h4>
+                <p>2.7 millones de llegadas turísticas en 2024. Los restaurantes son componente crítico del ecosistema tourism/hospitality. Hay presupuesto creciente para marketing.</p>
+            </div>
+            <div class="trend-card">
+                <div class="trend-icon">📱</div>
+                <h4>Social Media como Ventanilla</h4>
+                <p>Instagram y TikTok son canales principales de descubrimiento de restaurantes en Costa Rica. El contenido visual es la principal herramienta de atracción de clientela.</p>
+            </div>
+            <div class="trend-card">
+                <div class="trend-icon">🏨</div>
+                <h4>Convergencia Hospitality-Restaurant</h4>
+                <p>Hoteles y resorts buscan alianzas con restaurantes locales para experiencias gastronómicas diferenciadas. Oportunidad de paquetes creativos.</p>
+            </div>
+        </div>
+
+        <div class="insight-box">
+            <h4>💡 Insight clave para Aurea</h4>
+            <p>El nicho gastronómico en Costa Rica está en un momento de profesionalización. Restaurantes como Silvestre, Conservatorium y Sikwa ya tienen reconocimiento internacional pero carecen de estrategias de marketing digital sofisticadas. La oportunidad para Aurea es posicionar como la agencia especialista en marketing gastronómico tico, con casos de éxito que demuestren ROI en reservas, engagement en redes sociales y cobertura en prensa gastronómica.</p>
+        </div>
+    </section>
+
+    <section>
+        <h2>📋 Próximo Nicho en Rotación</h2>
+        <div class="strategy-box">
+            <h3>Agenda de investigación por hora</h3>
+            <ul>
+                <li>Hoteles → siguiente cuando sia el turno de hotels</li>
+                <li>ecommerce → rotation cuando corresponda</li>
+                <li>Escuelas → en la próxima rotación de schools</li>
+                <li>Startups → en la próxima rotación de startups</li>
+                <li>Manufacturas → en la próxima rotación de manufacturers</li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <p>Reporte generado automáticamente para <strong>Aurea Advertising Agency</strong></p>
+        <p>Fecha: 3 de mayo 2026 — 21:00 UTC · Nicho: Restaurantes · Mercado: Costa Rica</p>
+        <p>Fuente: Tavily Web Search · Datos de mercado: USDA, 6W Research, Mordor Intelligence</p>
+    </footer>
+
+</div>
+</body>
+</html>
