@@ -3,448 +3,525 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aurea — Leads Clínicas Costa Rica | 3 Mayo 2026</title>
+<title>Aurea — Lead Research: Real Estate CR | 2026-05-03</title>
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg: #0d0d0f;
+    --surface: #16161a;
+    --surface2: #1e1e24;
+    --border: #2a2a35;
+    --accent: #f0a500;
+    --accent2: #e05c5c;
+    --text: #e8e8f0;
+    --muted: #8888a0;
+    --green: #4ecb8a;
+    --tag-rest: #2d6a4f;
+    --tag-text: #d8f3dc;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
-    background: #0d1117;
-    color: #c9d1d9;
-    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-    font-size: 14px;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 15px;
     line-height: 1.6;
     min-height: 100vh;
   }
-  .container { max-width: 960px; margin: 0 auto; padding: 40px 24px; }
-  header {
-    border-bottom: 1px solid #21262d;
-    padding-bottom: 28px;
+  .container { max-width: 960px; margin: 0 auto; padding: 40px 20px; }
+
+  /* HEADER */
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 24px;
     margin-bottom: 36px;
   }
+  .brand { display: flex; align-items: center; gap: 12px; }
+  .brand-icon {
+    width: 40px; height: 40px;
+    background: var(--accent);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 18px; color: #000;
+  }
+  .brand-name { font-size: 22px; font-weight: 700; letter-spacing: -0.5px; }
+  .brand-name span { color: var(--accent); }
   .badge {
-    display: inline-block;
-    background: #1f6feb22;
-    color: #58a6ff;
-    border: 1px solid #1f6feb44;
-    border-radius: 6px;
-    padding: 3px 10px;
+    background: var(--accent);
+    color: #000;
     font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.8px;
-    text-transform: uppercase;
-    margin-bottom: 14px;
-  }
-  h1 {
-    color: #f0f6fc;
-    font-size: 26px;
     font-weight: 700;
-    margin-bottom: 8px;
-  }
-  .subtitle {
-    color: #8b949e;
-    font-size: 13px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
   }
   .meta {
-    display: flex;
-    gap: 24px;
-    margin-top: 14px;
-    flex-wrap: wrap;
+    display: flex; gap: 24px; margin-top: 8px;
+    color: var(--muted); font-size: 13px;
   }
-  .meta-item {
+  .meta span { display: flex; align-items: center; gap: 5px; }
+
+  /* SECTIONS */
+  .section { margin-bottom: 36px; }
+  .section-title {
     font-size: 12px;
-    color: #8b949e;
-  }
-  .meta-item strong { color: #c9d1d9; }
-
-  .section { margin-bottom: 40px; }
-  h2 {
-    color: #f0f6fc;
-    font-size: 17px;
-    font-weight: 600;
-    margin-bottom: 18px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
     padding-bottom: 8px;
-    border-bottom: 1px solid #21262d;
+    border-bottom: 1px solid var(--border);
   }
 
-  .stats-grid {
+  /* KPI CARDS */
+  .kpi-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 16px;
-    margin-bottom: 28px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 14px;
   }
-  .stat-card {
-    background: #161b22;
-    border: 1px solid #21262d;
+  .kpi {
+    background: var(--surface);
+    border: 1px solid var(--border);
     border-radius: 10px;
     padding: 18px 20px;
   }
-  .stat-card .label {
-    font-size: 11px;
-    color: #8b949e;
-    text-transform: uppercase;
-    letter-spacing: 0.6px;
-    margin-bottom: 6px;
-  }
-  .stat-card .value {
-    font-size: 22px;
-    font-weight: 700;
-    color: #f0f6fc;
-  }
-  .stat-card .sub { font-size: 11px; color: #3fb950; margin-top: 3px; }
+  .kpi-label { font-size: 11px; color: var(--muted); letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 6px; }
+  .kpi-value { font-size: 22px; font-weight: 700; }
+  .kpi-sub { font-size: 12px; color: var(--muted); margin-top: 2px; }
 
+  /* COMPANY CARDS */
+  .company-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 14px;
+  }
   .company-card {
-    background: #161b22;
-    border: 1px solid #21262d;
+    background: var(--surface);
+    border: 1px solid var(--border);
     border-radius: 10px;
-    padding: 22px 24px;
-    margin-bottom: 16px;
+    padding: 20px;
+    transition: border-color 0.2s;
   }
-  .company-card:hover { border-color: #30363d; }
-  .company-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 12px;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-  .company-name {
-    font-size: 16px;
-    font-weight: 700;
-    color: #f0f6fc;
-  }
+  .company-card:hover { border-color: var(--accent); }
+  .company-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
+  .company-name { font-size: 15px; font-weight: 600; color: var(--text); }
   .company-tag {
-    font-size: 10px;
-    padding: 3px 8px;
-    border-radius: 4px;
-    font-weight: 600;
-    letter-spacing: 0.4px;
+    font-size: 10px; font-weight: 600; padding: 2px 8px;
+    border-radius: 10px; letter-spacing: 0.3px;
   }
-  .tag-hospital { background: #1f6feb22; color: #58a6ff; border: 1px solid #1f6feb44; }
-  .tag-clinic { background: #3fb95022; color: #3fb950; border: 1px solid #3fb95044; }
-  .tag-group { background: #a371f722; color: #a371f7; border: 1px solid #a371f744; }
+  .tag-tier1 { background: #7b4f00; color: #f5c06d; }
+  .tag-tier2 { background: #1a3a5c; color: #7ec8e3; }
+  .tag-tier3 { background: #2d2d3a; color: var(--muted); }
+  .company-detail { font-size: 13px; color: var(--muted); margin-bottom: 4px; }
+  .company-contact { font-size: 13px; color: var(--green); margin-top: 8px; }
+  .company-contact a { color: var(--green); text-decoration: none; }
+  .company-contact a:hover { text-decoration: underline; }
 
-  .company-desc { color: #8b949e; font-size: 13px; margin-bottom: 14px; }
-  .contact-list { list-style: none; }
-  .contact-list li { font-size: 13px; margin-bottom: 6px; }
-  .contact-list .ci-label {
-    color: #8b949e;
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-right: 6px;
-  }
-  .contact-list .ci-value { color: #c9d1d9; }
-  .contact-list a { color: #58a6ff; text-decoration: none; }
-  .contact-list a:hover { text-decoration: underline; }
-
-  .strategy-card {
-    background: #161b22;
-    border: 1px solid #21262d;
+  /* TRENDS */
+  .trend-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 600px) { .trend-grid { grid-template-columns: 1fr; } }
+  .trend-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
     border-radius: 10px;
-    padding: 20px 22px;
-    margin-bottom: 14px;
+    padding: 18px 20px;
   }
-  .strategy-card h3 { font-size: 14px; color: #f0f6fc; margin-bottom: 8px; }
-  .strategy-card p { color: #8b949e; font-size: 13px; }
-  .strategy-card ul {
-    margin: 8px 0 0 18px;
-    color: #8b949e;
+  .trend-icon { font-size: 22px; margin-bottom: 8px; }
+  .trend-title { font-size: 14px; font-weight: 600; margin-bottom: 6px; }
+  .trend-desc { font-size: 13px; color: var(--muted); line-height: 1.5; }
+
+  /* STRATEGY */
+  .strategy-list { list-style: none; }
+  .strategy-item {
+    display: flex;
+    gap: 14px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .strategy-item:last-child { border-bottom: none; }
+  .strategy-num {
+    width: 28px; height: 28px; min-width: 28px;
+    background: var(--accent);
+    color: #000;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 700;
+  }
+  .strategy-text h4 { font-size: 14px; font-weight: 600; margin-bottom: 3px; }
+  .strategy-text p { font-size: 13px; color: var(--muted); }
+
+  /* OUTREACH */
+  .outreach-table { width: 100%; border-collapse: collapse; }
+  .outreach-table th {
+    text-align: left; font-size: 11px; letter-spacing: 0.5px;
+    text-transform: uppercase; color: var(--muted);
+    padding: 10px 14px; border-bottom: 1px solid var(--border);
+  }
+  .outreach-table td {
+    padding: 12px 14px; border-bottom: 1px solid var(--border);
     font-size: 13px;
   }
-  .strategy-card ul li { margin-bottom: 4px; }
-
-  .trend-item {
-    background: #161b22;
-    border: 1px solid #21262d;
-    border-radius: 10px;
-    padding: 18px 22px;
-    margin-bottom: 12px;
+  .outreach-table tr:last-child td { border-bottom: none; }
+  .outreach-table tr:hover td { background: var(--surface2); }
+  .priority-badge {
+    display: inline-block; padding: 2px 8px; border-radius: 10px;
+    font-size: 11px; font-weight: 600;
   }
-  .trend-item h3 { font-size: 14px; color: #f0f6fc; margin-bottom: 6px; }
-  .trend-item p { color: #8b949e; font-size: 13px; }
+  .prio-hi { background: #7b2d2d; color: #ff9999; }
+  .prio-md { background: #2d4a7b; color: #99b3ff; }
+  .prio-lo { background: #2d2d3a; color: var(--muted); }
 
-  .lead-score {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    font-size: 11px;
-    font-weight: 600;
-    padding: 2px 8px;
-    border-radius: 4px;
-    margin-left: 8px;
-    vertical-align: middle;
-  }
-  .score-high { background: #3fb95022; color: #3fb950; border: 1px solid #3fb95044; }
-  .score-med { background: #d2992222; color: #d29922; border: 1px solid #d2992244; }
-
-  footer {
-    border-top: 1px solid #21262d;
-    padding-top: 20px;
-    margin-top: 40px;
-    font-size: 11px;
-    color: #484f58;
+  /* FOOTER */
+  .footer {
     text-align: center;
+    color: var(--muted);
+    font-size: 12px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    margin-top: 40px;
   }
+  .next-run { color: var(--accent); font-weight: 600; }
 </style>
 </head>
 <body>
 <div class="container">
 
-<header>
-  <div class="badge">Reporte de Leads — Aurea Advertising</div>
-  <h1>Clínicas Privadas en Costa Rica</h1>
-  <div class="subtitle">Investigación de oportunidades de publicidad y marketing digital</div>
-  <div class="meta">
-    <div class="meta-item"><strong>Fecha:</strong> 3 de Mayo, 2026</div>
-    <div class="meta-item"><strong>Nicho:</strong> Clínicas / Hospitales Privados</div>
-    <div class="meta-item"><strong>Mercado:</strong> Costa Rica (San José)</div>
-    <div class="meta-item"><strong>Run:</strong> 2026-05-03 16:00 UTC</div>
-  </div>
-</header>
-
-<div class="stats-grid">
-  <div class="stat-card">
-    <div class="label">Empresas Identificadas</div>
-    <div class="value">8</div>
-  </div>
-  <div class="stat-card">
-    <div class="label">Contactos Clave</div>
-    <div class="value">6+</div>
-  </div>
-  <div class="stat-card">
-    <div class="label">Rating Oportunidad</div>
-    <div class="value" style="color:#3fb950;">Alta</div>
-    <div class="sub">Turismo médico + digital</div>
-  </div>
-  <div class="stat-card">
-    <div class="label">Segmento</div>
-    <div class="value">B2B / B2C</div>
-  </div>
-</div>
-
-<div class="section">
-  <h2>🏥 Empresas Identificadas</h2>
-
-  <div class="company-card">
-    <div class="company-header">
-      <div class="company-name">Hospital Clínica Bíblica</div>
-      <span class="company-tag tag-hospital">Hospital</span>
+  <!-- HEADER -->
+  <div class="header">
+    <div>
+      <div class="brand">
+        <div class="brand-icon">A</div>
+        <div class="brand-name">Aurea<span>Lead Intel</span></div>
+      </div>
+      <div class="meta">
+        <span>📅 May 3, 2026 — 16:00 CST</span>
+        <span>📍 Costa Rica — Real Estate</span>
+        <span>⏱ Hourly Cron Run</span>
+      </div>
     </div>
-    <div class="company-desc">
-      El hospital privado más grande de Costa Rica, fundado en 1929. Acreditado por JCI (Joint Commission International). Más de 80 especialidades. Principal receptor de turismo médico en el país. Ubicado en el centro de San José.
+    <div class="badge">LIVE RESEARCH</div>
+  </div>
+
+  <!-- EXECUTIVE SUMMARY + KPIs -->
+  <div class="section">
+    <div class="section-title">Executive Summary</div>
+    <p style="color: var(--muted); margin-bottom: 18px; font-size: 14px; max-width: 720px;">
+      This report covers the <strong style="color: var(--text);">Real Estate vertical in Costa Rica</strong> for Aurea's outbound prospecting. 
+      The market is currently a <strong style="color: var(--accent2);">buyer's market</strong> with median home prices down ~41% YoY, 
+      creating urgency for developers and brokerages to differentiate through professional marketing. 
+      We identified <strong style="color: var(--text);">10 actionable leads</strong> including two major developers with known decision-maker contacts.
+    </p>
+    <div class="kpi-grid">
+      <div class="kpi">
+        <div class="kpi-label">Total Leads Identified</div>
+        <div class="kpi-value">10</div>
+        <div class="kpi-sub">Real estate developers, brokerages & key contacts</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">Top Revenue Company</div>
+        <div class="kpi-value" style="color: var(--accent);">Capris</div>
+        <div class="kpi-sub">$92.4M revenue — Tier 1 prospect</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">Median Home Price Drop</div>
+        <div class="kpi-value" style="color: var(--accent2);">−41%</div>
+        <div class="kpi-sub">Jan 2024 ($907K) → Jan 2025 ($533K)</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">2026 Price Forecast</div>
+        <div class="kpi-value" style="color: var(--green);">+4–7%</div>
+        <div class="kpi-sub">Central Valley · Coastal up to +8%</div>
+      </div>
     </div>
-    <ul class="contact-list">
-      <li><span class="ci-label">WEB:</span><span class="ci-value"><a href="https://www.clinicabiblica.com" target="_blank">clinicabiblica.com</a></span></li>
-      <li><span class="ci-label">DIRECCIÓN:</span><span class="ci-value">Avenida 2, Calle 0, San José, Costa Rica</span></li>
-      <li><span class="ci-label">OPORTUNIDAD:</span><span class="ci-value">Campañas de turismo médico internacional, branding para mercados angloparlantes, SEO en inglés, Google Ads para procedimientos específicos (ortopedia, dental, bariátrica)</span></li>
-      <li><span class="ci-label">PRESUPUESTO EST.:</span><span class="ci-value">Alto — empresa establecida con marketing activo</span></li>
+  </div>
+
+  <!-- COMPANIES -->
+  <div class="section">
+    <div class="section-title">Companies & Decision Makers</div>
+    <div class="company-grid">
+
+      <div class="company-card">
+        <div class="company-header">
+          <div class="company-name">Capris</div>
+          <span class="company-tag tag-tier1">Tier 1</span>
+        </div>
+        <div class="company-detail">🏢 Real Estate Developer & Engineering</div>
+        <div class="company-detail">💰 Revenue: $92.4M</div>
+        <div class="company-detail">📍 San José, Costa Rica</div>
+        <div class="company-contact">
+          <a href="https://capriseng.com" target="_blank">capriseng.com</a> · <a href="https://www.cppropertiescostarica.com" target="_blank">CP Properties</a>
+        </div>
+        <div class="company-detail" style="margin-top:8px; font-size:12px; color: var(--accent);">⚡ Key opportunity: Largest real estate company in CR. Likely needs full-service ad agency for multi-channel campaigns.</div>
+      </div>
+
+      <div class="company-card">
+        <div class="company-header">
+          <div class="company-name">Rocca Development Group</div>
+          <span class="company-tag tag-tier1">Tier 1</span>
+        </div>
+        <div class="company-detail">🏗️ Real Estate Developer — 33+ years</div>
+        <div class="company-detail">💰 Revenue: $38.7M</div>
+        <div class="company-detail">📍 Santa Ana, San José</div>
+        <div class="company-contact">📞 +506 4035 5000 · <a href="https://roccacr.com" target="_blank">roccacr.com</a></div>
+        <div class="company-detail" style="margin-top:8px;">👤 <strong>Rodolfo Castro</strong> — Director General</div>
+        <div class="company-detail" style="font-size:12px; color: var(--accent);">⚡ Known decision-maker identified. Prime candidate for branded development marketing.</div>
+      </div>
+
+      <div class="company-card">
+        <div class="company-header">
+          <div class="company-name">Blue Water Properties</div>
+          <span class="company-tag tag-tier1">Tier 1</span>
+        </div>
+        <div class="company-detail">🏢 Brokerage — 5 offices, 40+ agents</div>
+        <div class="company-detail">📍 Tamarindo, Flamingo, Coco, Negra, Nosara</div>
+        <div class="company-contact"><a href="https://bluewaterpropertiesofcostarica.com" target="_blank">bluewaterpropertiesofcostarica.com</a></div>
+        <div class="company-detail" style="margin-top:8px; font-size:12px; color: var(--accent);">⚡ Largest independent brokerage in Guanacaste. Multi-location → multi-campaign potential.</div>
+      </div>
+
+      <div class="company-card">
+        <div class="company-header">
+          <div class="company-name">Volio & Trejos Asociados</div>
+          <span class="company-tag tag-tier2">Tier 2</span>
+        </div>
+        <div class="company-detail">🏗️ Real Estate Developer</div>
+        <div class="company-detail">💰 Revenue: $29.4M</div>
+        <div class="company-detail">📍 San José, Costa Rica</div>
+        <div class="company-contact"><a href="https://www.goodfirms.co/real-estate-companies/costa-rica" target="_blank">goodfirms.co/cr-real-estate</a></div>
+        <div class="company-detail" style="margin-top:8px; font-size:12px; color: var(--accent);">⚡ Established developer — potential for rebrand / digital marketing refresh.</div>
+      </div>
+
+      <div class="company-card">
+        <div class="company-header">
+          <div class="company-name">Urbania</div>
+          <span class="company-tag tag-tier2">Tier 2</span>
+        </div>
+        <div class="company-detail">🏗️ Real Estate Development</div>
+        <div class="company-detail">📍 Costa Rica</div>
+        <div class="company-detail">👤 <strong>Michael Tarcica</strong> — CEO & Founder</div>
+        <div class="company-contact"><a href="https://cr.linkedin.com/in/michael-tarcica" target="_blank">LinkedIn Profile</a></div>
+        <div class="company-detail" style="margin-top:8px; font-size:12px; color: var(--accent);">⚡ Transforming traditional real estate — forward-thinking leadership, likely receptive to digital strategy.</div>
+      </div>
+
+      <div class="company-card">
+        <div class="company-header">
+          <div class="company-name">Osa Development LLC</div>
+          <span class="company-tag tag-tier2">Tier 2</span>
+        </div>
+        <div class="company-detail">🏝️ Real Estate Development — Osa Peninsula</div>
+        <div class="company-detail">👤 <strong>Trevor Yoder</strong> — Founder & CEO (Attorney)</div>
+        <div class="company-contact"><a href="https://cr.linkedin.com/in/trevor-yoder-a8977731" target="_blank">LinkedIn Profile</a></div>
+        <div class="company-detail" style="margin-top:8px; font-size:12px; color: var(--accent);">⚡ High-net-worth niche market. Boutique projects need premium brand positioning.</div>
+      </div>
+
+      <div class="company-card">
+        <div class="company-header">
+          <div class="company-name">Coldwell Banker Vesta Group</div>
+          <span class="company-tag tag-tier2">Tier 2</span>
+        </div>
+        <div class="company-detail">🏢 Luxury Brokerage — Dominical & South Pacific</div>
+        <div class="company-detail">👤 <strong>Kelly Brannon</strong> — Brand Strategist & Associate Broker</div>
+        <div class="company-contact"><a href="https://cr.linkedin.com/in/kelly-brannon-670a4464" target="_blank">LinkedIn Profile</a></div>
+        <div class="company-detail" style="margin-top:8px; font-size:12px; color: var(--accent);">⚡ Active in luxury coastal — already marketing-focused, potential white-label partnership.</div>
+      </div>
+
+      <div class="company-card">
+        <div class="company-header">
+          <div class="company-name">El Rincón Inmobiliaria</div>
+          <span class="company-tag tag-tier3">Tier 3</span>
+        </div>
+        <div class="company-detail">🏠 Real Estate Developer</div>
+        <div class="company-detail">👤 <strong>Alexandra Sánchez Monge</strong> — Developer & Marketing Strategist</div>
+        <div class="company-contact"><a href="https://cr.linkedin.com/in/alexandrasanchezmonge" target="_blank">LinkedIn Profile</a></div>
+        <div class="company-detail" style="margin-top:8px; font-size:12px; color: var(--accent);">⚡ Developer with marketing expertise = understands value of agency partnership.</div>
+      </div>
+
+      <div class="company-card">
+        <div class="company-header">
+          <div class="company-name">CP Properties Costa Rica</div>
+          <span class="company-tag tag-tier3">Tier 3</span>
+        </div>
+        <div class="company-detail">🏡 Real Estate & Rentals — Jacó</div>
+        <div class="company-detail">📧 info@cppropertiescostarica.com</div>
+        <div class="company-detail">📞 +506 8718 7216</div>
+        <div class="company-detail">📍 Jacó, Puntarenas</div>
+        <div class="company-detail" style="margin-top:8px; font-size:12px; color: var(--accent);">⚡ Vacation rental focus — strong content & social media opportunity.</div>
+      </div>
+
+      <div class="company-card">
+        <div class="company-header">
+          <div class="company-name">Cushman & Wakefield AB Advisory</div>
+          <span class="company-tag tag-tier2">Tier 2</span>
+        </div>
+        <div class="company-detail">🏢 Commercial Real Estate — Global Brand</div>
+        <div class="company-detail">📍 San Rafael, Escazú, San José</div>
+        <div class="company-contact"><a href="https://www.cushmanwakefield.com/en/offices/costa-rica" target="_blank">Costa Rica Office</a></div>
+        <div class="company-detail" style="margin-top:8px; font-size:12px; color: var(--accent);">⚡ International standards, likely needs bilingual campaigns for expat/foreign buyer segments.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- MARKET TRENDS -->
+  <div class="section">
+    <div class="section-title">Market Trends — Costa Rica Real Estate 2025–2026</div>
+    <div class="trend-grid">
+      <div class="trend-card">
+        <div class="trend-icon">📉</div>
+        <div class="trend-title">Buyer's Market / Price Correction</div>
+        <div class="trend-desc">Median home prices dropped 41% (Jan 2024: $907K → Jan 2025: $533K). Buyers have leverage. Sellers need competitive positioning via professional marketing to stand out.</div>
+      </div>
+      <div class="trend-card">
+        <div class="trend-icon">🌊</div>
+        <div class="trend-title">Coastal Markets Lead Recovery</div>
+        <div class="trend-desc">Escazú, Santa Ana, and Nosara driving price appreciation in 2026 (+5–8% coastal). Vacation rental demand and tourism are key demand drivers.</div>
+      </div>
+      <div class="trend-card">
+        <div class="trend-icon">🌐</div>
+        <div class="trend-title">Foreign Buyer Dominance</div>
+        <div class="trend-desc">US buyers make up the majority of foreign demand. Political/economic news cycles in the US directly impact CR buyer sentiment — campaigns must be crisis-resilient.</div>
+      </div>
+      <div class="trend-card">
+        <div class="trend-icon">⏱️</div>
+        <div class="trend-title">Longer Time on Market</div>
+        <div class="trend-desc">Homes in the Central & South Pacific taking longer to sell. Sellers compete on price AND presentation. Professional photography, video, and staging content = higher conversions.</div>
+      </div>
+      <div class="trend-card">
+        <div class="trend-icon">🏗️</div>
+        <div class="trend-title">New Development Projects Active</div>
+        <div class="trend-desc">Las Catalinas announcing 28 new residences (starting $450K) in 2026. New projects need full go-to-market campaigns: branding, launch strategy, digital ads.</div>
+      </div>
+      <div class="trend-card">
+        <div class="trend-icon">🛏️</div>
+        <div class="trend-title">Short-Term Rental / Eco Tourism</div>
+        <div class="trend-desc">Dual-purpose properties (private + rental) growing. "Pura vida" wellness tourism and eco-investment hotspots expanding. Content marketing opportunity around lifestyle positioning.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT STRATEGY -->
+  <div class="section">
+    <div class="section-title">Contact Strategy</div>
+    <ul class="strategy-list">
+      <li class="strategy-item">
+        <div class="strategy-num">1</div>
+        <div class="strategy-text">
+          <h4>LinkedIn DM to Principals (Week 1)</h4>
+          <p>Target: Rodolfo Castro (Rocca), Michael Tarcica (Urbania), Trevor Yoder (Osa Development). Lead with data: "We help CR developers increase foreign buyer conversion by X%." Personalized, brief, no attach.</p>
+        </div>
+      </li>
+      <li class="strategy-item">
+        <div class="strategy-num">2</div>
+        <div class="strategy-text">
+          <h4>Cold Email Sequence — Marketing Directors (Week 1–2)</h4>
+          <p>For Capris, Blue Water Properties, and Vesta Group: 3-email sequence. Email 1: market data hook (buyer's market stat). Email 2: case study from comparable market. Email 3: free 30-min strategy audit.</p>
+        </div>
+      </li>
+      <li class="strategy-item">
+        <div class="strategy-num">3</div>
+        <div class="strategy-text">
+          <h4>CP Properties Direct Outreach (Week 2)</h4>
+          <p>Has public email and phone. Direct call + follow-up email. Vacation rental angle: "We help Jacó-area property managers increase direct bookings and reduce OTA commission fees."</p>
+        </div>
+      </li>
+      <li class="strategy-item">
+        <div class="strategy-num">4</div>
+        <div class="strategy-text">
+          <h4>Industry Event / Association Networking</h4>
+          <p>Connect via Costa Rica Real Estate Chamber (Cámara Inmobiliaria Costarricense) and AMPI Costa Rica. Attend expat investor meetups in Escazú/Santa Ana. Build credibility before pitching.</p>
+        </div>
+      </li>
+      <li class="strategy-item">
+        <div class="strategy-num">5</div>
+        <div class="strategy-text">
+          <h4>Content Marketing Play — "CR Developer Brand Playbook"</h4>
+          <p>Offer a free downloadable guide: "How to Attract US Buyers to Your CR Development in 2026." Gated lead gen. Position Aurea as the expert agency for this vertical.</p>
+        </div>
+      </li>
     </ul>
-    <span class="lead-score score-high">⭐ Lead prioritario</span>
   </div>
 
-  <div class="company-card">
-    <div class="company-header">
-      <div class="company-name">Hospital CIMA San José</div>
-      <span class="company-tag tag-hospital">Hospital</span>
-    </div>
-    <div class="company-desc">
-      Parte de International Hospital Corporation (IHC). 201-500 empleados. Ubicado en Santa Ana, corredor financiero al oeste de San José. Enfoque en pacientes privados y expatriados. Perfil similar a hospital estadounidense.
-    </div>
-    <ul class="contact-list">
-      <li><span class="ci-label">WEB:</span><span class="ci-value"><a href="https://hospitalcima.com" target="_blank">hospitalcima.com</a></span></li>
-      <li><span class="ci-label">LINKEDIN:</span><span class="ci-value"><a href="https://cr.linkedin.com/company/hospital-cima" target="_blank">linkedin.com/company/hospital-cima</a></span></li>
-      <li><span class="ci-label">MKTG CONTACT:</span><span class="ci-value">Gloriana Rosales Salas — Marketing Manager (INCAE MBA)</span></li>
-      <li><span class="ci-label">COMERCIAL:</span><span class="ci-value">David Burgos Gamboa — Regional Commercial Executive (15+ años)</span></li>
-      <li><span class="ci-label">C-Level:</span><span class="ci-value">Johanny Berdugo Recio — CCO International, IHC & CIMA Hospitals</span></li>
-      <li><span class="ci-label">OPORTUNIDAD:</span><span class="ci-value">Branding para comunidad expatriada/estadounidense, contenido digital, campañas de reputación online, medical tourism marketing</span></li>
-    </ul>
-    <span class="lead-score score-high">⭐ Lead prioritario</span>
+  <!-- OUTREACH PRIORITY TABLE -->
+  <div class="section">
+    <div class="section-title">Outreach Priority Matrix</div>
+    <table class="outreach-table">
+      <thead>
+        <tr>
+          <th>Company</th>
+          <th>Contact</th>
+          <th>Channel</th>
+          <th>Priority</th>
+          <th>Hook / Angle</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Rocca Development Group</strong></td>
+          <td>Rodolfo Castro (Dir. Gral.)</td>
+          <td>LinkedIn DM + Email</td>
+          <td><span class="priority-badge prio-hi">HIGH</span></td>
+          <td>33+ years — rebrand for next generation of buyers</td>
+        </tr>
+        <tr>
+          <td><strong>Capris</strong></td>
+          <td>Unknown Marketing Lead</td>
+          <td>LinkedIn Search + Website</td>
+          <td><span class="priority-badge prio-hi">HIGH</span></td>
+          <td>$92.4M revenue — full-service agency opportunity</td>
+        </tr>
+        <tr>
+          <td><strong>Urbania</strong></td>
+          <td>Michael Tarcica (CEO)</td>
+          <td>LinkedIn DM</td>
+          <td><span class="priority-badge prio-hi">HIGH</span></td>
+          <td>"Transforming real estate development" — match their ambition</td>
+        </tr>
+        <tr>
+          <td><strong>Blue Water Properties</strong></td>
+          <td>Team / General</td>
+          <td>LinkedIn + Email</td>
+          <td><span class="priority-badge prio-md">MEDIUM</span></td>
+          <td>Multi-location brokerage — consolidated ad campaigns</td>
+        </tr>
+        <tr>
+          <td><strong>Volio & Trejos Asociados</strong></td>
+          <td>Unknown</td>
+          <td>LinkedIn Search</td>
+          <td><span class="priority-badge prio-md">MEDIUM</span></td>
+          <td>$29.4M — digital marketing refresh opportunity</td>
+        </tr>
+        <tr>
+          <td><strong>Osa Development LLC</strong></td>
+          <td>Trevor Yoder (CEO)</td>
+          <td>LinkedIn DM</td>
+          <td><span class="priority-badge prio-md">MEDIUM</span></td>
+          <td>Boutique luxury — premium brand positioning</td>
+        </tr>
+        <tr>
+          <td><strong>CP Properties Costa Rica</strong></td>
+          <td>info@cppropertiescostarica.com</td>
+          <td>Email + Phone</td>
+          <td><span class="priority-badge prio-md">MEDIUM</span></td>
+          <td>Vacation rental STR angle — reduce OTA commissions</td>
+        </tr>
+        <tr>
+          <td><strong>Coldwell Banker Vesta</strong></td>
+          <td>Kelly Brannon</td>
+          <td>LinkedIn DM</td>
+          <td><span class="priority-badge prio-lo">LOW</span></td>
+          <td>Already marketing-savvy — white-label or referral play</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 
-  <div class="company-card">
-    <div class="company-header">
-      <div class="company-name">Hospital Internacional La Católica</div>
-      <span class="company-tag tag-hospital">Hospital</span>
-    </div>
-    <div class="company-desc">
-      Hospital de alta complejidad ubicado al este de San José. Parte del grupo Catholiche. Excelente infraestructura. Enfocado en medicina empresarial y servicios corporativos de salud.
-    </div>
-    <ul class="contact-list">
-      <li><span class="ci-label">WEB:</span><span class="ci-value"><a href="https://hilc.cr" target="_blank">hilc.cr</a></span></li>
-      <li><span class="ci-label">OPORTUNIDAD:</span><span class="ci-value">Medicina empresarial, paquetes corporativos B2B, programas de salud ocupacional para empresas</span></li>
-    </ul>
-    <span class="lead-score score-med">⬆ Mediana</span>
+  <!-- FOOTER -->
+  <div class="footer">
+    <p>Aurea Lead Intel — Costa Rica Real Estate · Hourly Cron Run</p>
+    <p>Next run: <span class="next-run">2026-05-03 17:00 CST</span> · Report saved to <code>/home/asdelgado506/intel-reports/aurea-leads-2026-05-03.html</code></p>
   </div>
-
-  <div class="company-card">
-    <div class="company-header">
-      <div class="company-name">Grupo Hospitalario Metropolitano</div>
-      <span class="company-tag tag-group">Grupo Hospitalario</span>
-    </div>
-    <div class="company-desc">
-      Líder del sector médico privado en Costa Rica. Adquirido parcialmente por Sanford Health (EUA). Amplia red de servicios para pacientes. Potencial para expansión y rebranding post-adquisición.
-    </div>
-    <ul class="contact-list">
-      <li><span class="ci-label">NOTICIA:</span><span class="ci-value">Adquisición por Sanford Health a través de Valeo Capital Partners (2025)</span></li>
-      <li><span class="ci-label">OPORTUNIDAD:</span><span class="ci-value">Rebranding post-adquisición, campañas de integración, marketing para nuevos servicios, materiales para mercado estadounidense</span></li>
-    </ul>
-    <span class="lead-score score-high">⭐ Lead prioritario</span>
-  </div>
-
-  <div class="company-card">
-    <div class="company-header">
-      <div class="company-name">Centro Médico La Asunción</div>
-      <span class="company-tag tag-clinic">Centro Clínico</span>
-    </div>
-    <div class="company-desc">
-      Clínica aliada con el Colegio de Abogados y el INS. Consulta de medicina general y especializada. Ubicada en San José. Relación institucional con seguros (INS).
-    </div>
-    <ul class="contact-list">
-      <li><span class="ci-label">OPORTUNIDAD:</span><span class="ci-value">Alianzas con seguros, marketing para profesionales independientes, branding de consulta médica</span></li>
-    </ul>
-    <span class="lead-score score-med">⬆ Mediana</span>
-  </div>
-
-  <div class="company-card">
-    <div class="company-header">
-      <div class="company-name">Consultorio Médico — Colegio de Abogados CR</div>
-      <span class="company-tag tag-clinic">Clínica Interna</span>
-    </div>
-    <div class="company-desc">
-      Servicio médico para agremiados del Colegio de Abogados. Servicios: medicina general, certificados, papanicolaou, control de crónicos. Horario inicial miércoles 8am-1pm.
-    </div>
-    <ul class="contact-list">
-      <li><span class="ci-label">TEL:</span><span class="ci-value">2272-0808 / 8877-8181</span></li>
-      <li><span class="ci-label">COSTO:</span><span class="ci-value">₡22,000 + IVA por consulta</span></li>
-      <li><span class="ci-label">OPORTUNIDAD:</span><span class="ci-value">Marketing interno de asociación profesional, materiales educativos, automatización de citas</span></li>
-    </ul>
-  </div>
-
-  <div class="company-card">
-    <div class="company-header">
-      <div class="company-name">Red de Servicios de Salud — INS</div>
-      <span class="company-tag tag-group">Grupo / Red</span>
-    </div>
-    <div class="company-desc">
-      Gerencia de Luis Antonio Monge Cordero. Red de servicios de salud del Instituto Nacional de Seguros. Cobertura nacional. Proveedor mayorista de servicios de salud.
-    </div>
-    <ul class="contact-list">
-      <li><span class="ci-label">GERENTE:</span><span class="ci-value">Luis Antonio Monge Cordero — Gerente General, Red de Servicios de Salud INS</span></li>
-      <li><span class="ci-label">OPORTUNIDAD:</span><span class="ci-value">Campañas masivas de salud preventiva, branding corporativo, programas de fidelización</span></li>
-    </ul>
-  </div>
-
-  <div class="company-card">
-    <div class="company-header">
-      <div class="company-name">Clínicas de Estética Médica — San José</div>
-      <span class="company-tag tag-clinic">Nicho</span>
-    </div>
-    <div class="company-desc">
-      29 clínicas identificadas en San José ofreciendo estética médica (WhatClinic). Nombres: Smile Design Costa Rica, Face and Body Care Center, Dr Eric Rojas, Dr Eric Rojas-San Carlos. Nicho en crecimiento con alta inversión en marketing digital.
-    </div>
-    <ul class="contact-list">
-      <li><span class="ci-label">DIRECTORIO:</span><span class="ci-value"><a href="https://www.whatclinic.com/beauty-clinics/costa-rica/san-jose" target="_blank">whatclinic.com/beauty-clinics/costa-rica/san-jose</a></span></li>
-      <li><span class="ci-label">OPORTUNIDAD:</span><span class="ci-value">Alta demanda de SEO, Google Ads, Instagram marketing, influencer marketing médico. Nicho altamente competitivo en digital.</span></li>
-    </ul>
-    <span class="lead-score score-high">⭐ Lead prioritario</span>
-  </div>
-
-</div>
-
-<div class="section">
-  <h2>🎯 Estrategias de Contacto</h2>
-
-  <div class="strategy-card">
-    <h3>1. Approaching a Hospital Grande (Clínica Bíblica / CIMA / Metropolitano)</h3>
-    <p>Estos son accounts grandes con estructuras de procurement complejas. El decisor típico es Director Médico, Director Comercial o Gerencia General.</p>
-    <ul>
-      <li>LinkedIn InMail al Marketing Manager o CCO identificado</li>
-      <li>Presentar caso de éxito de clínica similar en otro mercado (ej. México, Colombia)</li>
-      <li>Enfoque: crecimiento de paciente internacional (turismo médico = tema caliente)</li>
-      <li>Formato pitch: propuesta de valor en 5 slides, sin propuesta comercial al inicio</li>
-      <li>Tiempo estimado de decisión: 2-4 meses</li>
-    </ul>
-  </div>
-
-  <div class="strategy-card">
-    <h3>2. Clínicas de Estética Médica (nicho más accesible)</h3>
-    <p>Mercado fragmentado, 29 clínicas en San José. El decisor suele ser el médico/dueño directamente.</p>
-    <ul>
-      <li>Cold outreach por Instagram DM o WhatsApp Business</li>
-      <li>Oferta: auditoría gratuita de presencia digital (1 hora, sin costo)</li>
-      <li>Servicio inicial sugerido: gestión de redes sociales o Google Business optimization</li>
-      <li>Tono: educativo, no agresivo. El cliente tipo busca "más pacientes sin pagar ads caro"</li>
-      <li>Tiempo estimado de decisión: 2-6 semanas</li>
-    </ul>
-  </div>
-
-  <div class="strategy-card">
-    <h3>3. Grupo Hospitalario Metropolitano (post-adquisición Sanford)</h3>
-    <p>Situación especial: rebranding y transición post-adquisición implica necesidades de marketing fresco.</p>
-    <ul>
-      <li>Contactar через LinkedIn al equipo de liderazgo (Gary Vargas — Gerente Administrativo)</li>
-      <li>Posicionar como partners en transición de marca</li>
-      <li>Ofrecer: brand strategy workshop, messaging framework</li>
-      <li>Contexto adicional: Sanford Health (EUA) puede imponer estándares de marca y marketing</li>
-    </ul>
-  </div>
-
-  <div class="strategy-card">
-    <h3>4. Medicina Empresarial (La Católica, INS)</h3>
-    <p>Target B2B: empresas que contratan servicios de salud ocupacional.</p>
-    <ul>
-      <li>Conference presence en EXPOMED / HIMSS Central America</li>
-      <li>Caso de estudio: programa de wellness corporate para empresas tech</li>
-      <li>LinkedIn outreach a gerentes de recursos humanos y administración</li>
-    </ul>
-  </div>
-</div>
-
-<div class="section">
-  <h2>📈 Tendencias del Mercado Salud Costa Rica 2026</h2>
-
-  <div class="trend-item">
-    <h3>💉 Turismo Médico en Auge</h3>
-    <p>Costa Rica consolida su posición como hub de turismo médico en Centroamérica. Procedimientos populares: ortopedia, dental, bariátrica, cosmética. El paciente típico viene de EUA/Canadá buscando ahorro del 50-70% vs costos estadounidenses. Las clínicas que atraen estos pacientes están inversiando fuerte en marketing digital en inglés y presencia en directorios como WhatClinic, Medical Tourism Co.</p>
-  </div>
-
-  <div class="trend-item">
-    <h3>📱 Marketing Digital Obligatorio Post-COVID</h3>
-    <p>Las clínicas que no tienen presencia digital activa están perdiendo pacientes. Tendency: médicos y clínicas independientes buscándose agencias para gestión de redes, SEO local, y reputación online (resenas de Google). El 80%+ de pacientes buscan y reservan doctors online. Oportunidad enorme para agencies que entiendan el nicho health.</p>
-  </div>
-
-  <div class="trend-item">
-    <h3>🏢 Consolidación Hospitalaria</h3>
-    <p>La adquisición de Grupo Hospitalario Metropolitano por Sanford Health (EUA) marca una tendencia: grupos internacionales comprando hospitales locales. Esto genera demanda de rebranding, capacitación en marketing institucional, y alineación con estándares de grupo.</p>
-  </div>
-
-  <div class="trend-item">
-    <h3>🤖 IA y Automatización en Salud</h3>
-    <p>Surgen herramientas de IA para gestión de pacientes, triaje automatizado, y marketing personalizado. Clínicas mulai investasi en chatbots, CRM médico, y email marketing automatizado. Oportunidad para предложить soluciones integradas de marketing + tech.</p>
-  </div>
-
-  <div class="trend-item">
-    <h3>🧘 Wellness y Medicina Preventiva</h3>
-    <p>Crece la demanda de programas de bienestar corporativo y medicina preventiva. Empresas tech en Costa Rica (Amazon CR, Oracle, Intel) están pidiendo paquetes de salud para empleados. Nicho desatendido por agencies tradicionales.</p>
-  </div>
-</div>
-
-<div class="section">
-  <h2>📋 Próximos Pasos Recomendados</h2>
-  <div class="strategy-card">
-    <ol style="color:#8b949e;font-size:13px;margin-left:18px;margin-top:8px;">
-      <li style="margin-bottom:8px;"><strong style="color:#f0f6fc;">Semana 1:</strong> LinkedIn outreach a Gloriana Rosales Salas (Hospital CIMA) y Johanny Berdugo Recio (CCO IHC/CIMA) — pitch de marketing para paciente internacional</li>
-      <li style="margin-bottom:8px;"><strong style="color:#f0f6fc;">Semana 2:</strong> Outreach a 5 clínicas de estética médica con oferta de auditoría gratuita de Instagram/Google</li>
-      <li style="margin-bottom:8px;"><strong style="color:#f0f6fc;">Semana 3:</strong> Investigar contacto en Grupo Hospitalario Metropolitano post-adquisición Sanford</li>
-      <li style="margin-bottom:8px;"><strong style="color:#f0f6fc;">Mes 1:</strong> Cerrar 1 piloto con clínica pequeña (estética o dental), usar como caso de éxito para hospitals</li>
-    </ol>
-  </div>
-</div>
-
-<footer>
-  <p>Reporte generado automáticamente por Logos (Aurea Advertising Research Agent) — 2026-05-03 16:00 UTC</p>
-  <p>Fuentes: Tavily Web Search, LinkedIn, Jooble, Cámaras de Comercio CR, Medios costarricenses</p>
-</footer>
 
 </div>
 </body>
