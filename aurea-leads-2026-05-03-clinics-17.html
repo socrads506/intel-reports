@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurea — Leads Clinics / Clínicas Privadas Costa Rica | 03 Mayo 2026</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #0d0d0d;
+            color: #e0e0e0;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+        .container { max-width: 960px; margin: 0 auto; padding: 40px 24px; }
+        header {
+            border-bottom: 2px solid #00c9a7;
+            padding-bottom: 24px;
+            margin-bottom: 40px;
+        }
+        .badge {
+            display: inline-block;
+            background: #00c9a7;
+            color: #0d0d0d;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 4px 12px;
+            border-radius: 3px;
+            margin-bottom: 12px;
+        }
+        h1 { font-size: 28px; font-weight: 700; color: #ffffff; margin-bottom: 6px; }
+        .subtitle { color: #888; font-size: 14px; }
+        .meta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+        .meta-card {
+            background: #1a1a1a;
+            border: 1px solid #2a2a2a;
+            border-radius: 8px;
+            padding: 16px;
+        }
+        .meta-card .label { font-size: 11px; color: #666; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+        .meta-card .value { font-size: 18px; font-weight: 600; color: #00c9a7; }
+        h2 {
+            font-size: 18px;
+            color: #00c9a7;
+            border-left: 4px solid #00c9a7;
+            padding-left: 14px;
+            margin: 36px 0 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .lead-card {
+            background: #161616;
+            border: 1px solid #222;
+            border-radius: 10px;
+            padding: 22px 24px;
+            margin-bottom: 16px;
+            transition: border-color 0.2s;
+        }
+        .lead-card:hover { border-color: #00c9a7; }
+        .lead-name { font-size: 17px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+        .lead-location { font-size: 12px; color: #888; margin-bottom: 12px; }
+        .lead-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+        .tag {
+            background: #1f1f1f;
+            border: 1px solid #333;
+            color: #aaa;
+            font-size: 11px;
+            padding: 2px 9px;
+            border-radius: 20px;
+        }
+        .tag.hot { background: #001a15; border-color: #00c9a7; color: #00c9a7; }
+        .lead-detail { display: flex; flex-wrap: wrap; gap: 18px; font-size: 13px; }
+        .lead-detail-item { display: flex; align-items: center; gap: 6px; }
+        .lead-detail-label { color: #555; min-width: 60px; }
+        .lead-detail-value { color: #ccc; }
+        .lead-detail-value a { color: #5ba4f5; text-decoration: none; }
+        .lead-detail-value a:hover { text-decoration: underline; }
+        .lead-notes { margin-top: 10px; font-size: 13px; color: #777; font-style: italic; }
+        .strategy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+        }
+        .strategy-card {
+            background: #161616;
+            border: 1px solid #222;
+            border-radius: 10px;
+            padding: 20px;
+        }
+        .strategy-number {
+            display: inline-block;
+            background: #00c9a7;
+            color: #0d0d0d;
+            font-size: 11px;
+            font-weight: 700;
+            width: 24px;
+            height: 24px;
+            text-align: center;
+            line-height: 24px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+        .strategy-title { font-size: 15px; font-weight: 600; color: #fff; margin-bottom: 6px; }
+        .strategy-desc { font-size: 13px; color: #888; }
+        .trend-card {
+            background: #161616;
+            border: 1px solid #222;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 14px;
+        }
+        .trend-title { font-size: 14px; font-weight: 600; color: #00c9a7; margin-bottom: 6px; }
+        .trend-desc { font-size: 13px; color: #888; }
+        .section-note { background: #1a1a1a; border-left: 4px solid #444; padding: 14px 18px; margin: 20px 0 30px; font-size: 13px; color: #777; border-radius: 0 8px 8px 0; }
+        footer { margin-top: 60px; border-top: 1px solid #222; padding-top: 24px; text-align: center; font-size: 12px; color: #444; }
+    </style>
+</head>
+<body>
+<div class="container">
+
+<header>
+    <div class="badge">Nicho: Clinics / Clínicas Privadas</div>
+    <h1>Leads — Clínicas y Hospitales Privados Costa Rica</h1>
+    <p class="subtitle">Investigación horaria para Aurea | 03 de Mayo 2026, 17:00 UTC</p>
+</header>
+
+<div class="meta-grid">
+    <div class="meta-card">
+        <div class="label">Empresas identificadas</div>
+        <div class="value">10</div>
+    </div>
+    <div class="meta-card">
+        <div class="label">Nicho</div>
+        <div class="value">Clinics</div>
+    </div>
+    <div class="meta-card">
+        <div class="label">Ciclo anterior</div>
+        <div class="value">Schools → Clínicas</div>
+    </div>
+    <div class="meta-card">
+        <div class="label">Mercado</div>
+        <div class="value">$1.66B USD 2033</div>
+    </div>
+</div>
+
+<h2>📋 Empresas Identificadas</h2>
+
+<!-- Lead 1 -->
+<div class="lead-card">
+    <div class="lead-name">Hospital Clínica Bíblica</div>
+    <div class="lead-location">📍 Avenida 14, San José | Fundado 1929 — Único hospital de Costa Rica en ranking Newsweek/Statista Top LatAm 2026</div>
+    <div class="lead-tags">
+        <span class="tag hot">Top 1 Costa Rica</span>
+        <span class="tag">JCI Accredited</span>
+        <span class="tag">Medical Tourism</span>
+        <span class="tag">200+ doctors</span>
+        <span class="tag">300 beds</span>
+    </div>
+    <div class="lead-detail">
+        <div class="lead-detail-item">
+            <span class="lead-detail-label">CEO:</span>
+            <span class="lead-detail-value">Gerardo Arnoldo Sánchez Cordero</span>
+        </div>
+        <div class="lead-detail-item">
+            <span class="lead-detail-label">Comercial:</span>
+            <span class="lead-detail-value">Ezio Fila (Commercial Manager)</span>
+        </div>
+        <div class="lead-detail-item">
+            <span class="lead-detail-label">Marketing:</span>
+            <span class="lead-detail-value">(506) 2522-1402</span>
+        </div>
+        <div class="lead-detail-item">
+            <span class="lead-detail-label">Calidad:</span>
+            <span class="lead-detail-value">(506) 2522-1000 Ext.4300</span>
+        </div>
+    </div>
+    <div class="lead-notes">Dueño: Asociación de Servicios Médicos Costarricenses (ASEMECO). Clínica Bíblica es referente en turismo médico con programa de International Patient Services. Alta necesidad de contenido en inglés y estrategias de captación de pacientes extranjeros.</div>
+</div>
+
+<!-- Lead 2 -->
+<div class="lead-card">
+    <div class="lead-name">Hospital CIMA San José</div>
+    <div class="lead-location">📍 San José | Parte de red CIMA — Especializado en cardiology, oncology, pediatrics</div>
+    <div class="lead-tags">
+        <span class="tag hot">350+ doctors</span>
+        <span class="tag">500+ beds</span>
+        <span class="tag">24/7 Emergency</span>
+        <span class="tag">International Insurance</span>
+    </div>
+    <div class="lead-detail">
+        <div class="lead-detail-item">
+            <span class="lead-detail-label">Director Gral:</span>
+            <span class="lead-detail-value">Alejandro Ayón</span>
+        </div>
+        <div class="lead-detail-item">
+            <span class="lead-detail-label">Email:</span>
+            <span class="lead-detail-value">a****@hospitalcima.com</span>
+        </div>
+        <div class="lead-detail-item">
+            <span class="lead-detail-label">Web:</span>
+            <span class="lead-detail-value"><a href="https://hospitalcima.com" target="_blank">hospitalcima.com</a></span>
+        </div>
+        <div class="lead-detail-item">
+            <span class="lead-detail-label">WA:</span>
+            <span class="lead-detail-value">Corporate Medicine service</span>
+        </div>
+    </div>
+    <div class="lead-notes">Tienen división Corporate Medicine para empresas. Directorio médico online activo. Contacto principal para marketing: Contact Center (506) 2522-1000. Hospital aktif en redes sociales con contenido en inglés.</div>
+</div>
+
+<!-- Lead 3 -->
+<div class="lead-card">
+    <div class="lead-name">Hospital Clínica del Río</div>
+    <div class="lead-location">📍 San José | State-of-the-art technology, cardiology, oncology, surgery</div>
+    <div class="lead-tags">
+        <span class="tag hot">300+ doctors</span>
+        <span class="tag">400 beds</span>
+        <span class="tag">Cardiology</span>
+        <span class="tag">Oncology</span>
+    </div>
+    <div class="lead-detail">
+        <div class="lead-detail-item">
+            <span class="lead-detail-label">Web:</span>
+            <span class="lead-detail-value"><a href="https://www.clinicadelrio.com" target="_blank">clinicadelrio.com</a></span>
+        </div>
+        <div class="lead-detail-item">
+            <span class="lead-detail-label">Emergency:</span>
+            <span class="lead-detail-value">24/7 Emergency Service</span>
+        </div>
+    </div>
+    <div class="lead-notes">Specialized in advanced surgical treatments, cardiology and oncology. Potencial para campañas de servicios de alta complejidad. Busca contacto vía formulario web o LinkedIn corporativo.</div>
+</div>
+
+<!-- Lead 4 -->
+<div class="lead-card">
+    <div class="lead-name">Hospital La Católica</div>
+    <div class="lead-location">📍 San José | Asociado a Universidad Católica de Costa Rica</div>
+    <div class="lead-tags">
+        <span class="tag">250+ doctors</span>
+        <span class="tag">400 beds</span>
+        <span class="tag">University-affiliated</span>
+        <span class="tag">Surgery/OBGYN</span>
+    </div>
+    <div class="lead-detail">
+        <div class="lead-detail-item">
+            <span class="lead-detail-label">Specializations:</span>
+            <span class="lead-detail-value">Surgery, Cardiology, Maternity, Oncology</span>
+        </div>
+        <div class="lead-detail-item">
+            <span class="lead-detail-label">Emergency:</span>
+            <span class="lead-detail-value">24/7</span>
+        </div>
+    </div>
+    <div class="lead-notes">Hospital universitario con alta capacidad quirúrgica. Para outreach, 联系 vía página web institucional. Potencial para programas de bienestar corporativo dada su affiliación universitaria.</div>
+</div>
+
+<!-- Lead 5 -->
+<div class="lead-card">
+    <div class="lead-name">Dental Cosmetics Costa Rica</div>
+    <div class="lead-location">📍 3 oficinas en Costa Rica | Owner: Dr. Alejandro Mora — Desde 2001</div>
+    <div class="lead-tags">
+        <span class="tag hot">3 locations CR</span>
+        <span class="tag">Cosmetic Dentistry</span>
+        <span class="tag">Implants</span>
+        <span class="tag">Medical Tourism</span>
+    </div>
+    <div class="lead-detail">
+        <div class="lead-detail-item">
+            <span class="lead-detail-label">Owner:</span>
+            <span class="lead-detail-value">Dr. Alejandro Mora</span>
+        </div>
+        <div class="lead-detail-item">
+            <span class="lead-detail-label">LinkedIn:</span>
+            <span class="lead-detail-value"><a href="https://cr.linkedin.com/in/dental-cosmetics-costa-rica-558a8b20" target="_blank">LinkedIn Page</a></span>
+        </div>
+        <div class="lead-detail-item">
+            <span class="lead-detail-label">Specialties:</span>
+            <span class="lead-detail-value">Cosmetic dentistry, prosthodontics, oral surgery</span>
+        </div>
+    </div>
+    <div class="lead-notes">Clínica dental con presencia internacional marcada. Dr. Mora estudió en University of Pennsylvania. Pacientes objetivo: estadounidenses y canadienses. Alta necesidad de SEO, Google Ads y gestión de reseñas internacionales.</div>
+</div>
+
+<!-- Lead 6 -->
+<div class="lead-card">
+    <div class="lead-name">Rosenstock Lieberman — Cirugía Plástica</div>
+    <div class="lead-location">📍 San José | Fundada hace 40 años por Drs. Noe Rosenstock y Clara Lieberman</div>
+    <div class="lead-tags">
+        <span class="tag hot">40 years exp</span>
+        <span class="tag">Plastic Surgery</span>
+        <span class="tag">Facial/Breast/Body</span>
+        <span class="tag">Medical Tourism</span>
+    </div>
+    <div class="lead-detail">
+        <div class="lead-detail-item">
+            <span class="lead-detail-label">Web:</span>
+            <span class="lead-detail-value"><a href="https://cosmetic-cr.com" target="_blank">cosmetic-cr.com</a></span>
+        </div>
+        <div class="lead-detail-item">
+            <span class="lead-detail-label">Especialistas:</span>
+            <span class="lead-detail-value">Drs. Rosenstock, Lieberman + equipo</span>
+        </div>
+    </div>
+    <div class="lead-notes">Clínica establecida con equipo multidisciplinario. Experiencia confirmada en pacientes internacionales. Posible need de refresh de marca y estrategia digital para competir con clínicas más nuevas.</div>
+</div>
+
+<!-- Lead 7 -->
+<div class="lead-card">
+    <div class="lead-name">Dolce Medical Center — Clínica Estética</div>
+    <div class="lead-location">📍 Costa Rica | Director: Dr. Allan Pérez Baltodano — Cirugía plástica y medicina estética</div>
+    <div class="lead-tags">
+        <span class="tag">Plastic Surgery</span>
+        <span class="tag">Aesthetic Medicine</span>
+        <span class="tag">Minimally Invasive</span>
+    </div>
+    <div class="lead-detail">
+        <div class="lead-detail-item">
+            <span class="lead-detail-label">Web:</span>
+            <span class="lead-detail-value"><a href="https://dolcecr.com" target="_blank">dolcecr.com</a></span>
+        </div>
+        <div class="lead-detail-item">
+            <span class="lead-detail-label">Director:</span>
+            <span class="lead-detail-value">Dr. Allan Pérez Baltodano</span>
+        </div>
+    </div>
+    <div class="lead-notes">Clínica con enfoque en experiencia de paciente. Instagram activo con contenido de resultados. Ideal para strategy de contenido antes/después y captación de pacientes por Instagram Ads.</div>
+</div>
+
+<!-- Lead 8 -->
+<div class="lead-card">
+    <div class="lead-name">Sonria Dental Boutique</div>
+    <div class="lead-location">📍 Costa Rica | Director: Dr. González — Spa-like dentistry para pacientes internacionales</div>
+    <div class="lead-tags">
+        <span class="tag hot">Dental Tourism</span>
+        <span class="tag">US/Canada patients</span>
+        <span class="tag">Full mouth restoration</span>
+        <span class="tag">Implants/Crowns</span>
+    </div>
+    <div class="lead-detail">
+        <div class="lead-detail-item">
+            <span class="lead-detail-label">Web:</span>
+            <span class="lead-detail-value"><a href="https://sonriacr.com" target="_blank">sonriacr.com</a></span>
+        </div>
+        <div class="lead-detail-item">
+            <span class="lead-detail-label">Director:</span>
+            <span class="lead-detail-value">Dr. González</span>
+        </div>
+    </div>
+    <div class="lead-notes">Modelo de negocio orientado 100% a turismo médico (pacientes de Houston, Texas y otros). Necesitan captación constante de nuevos pacientes internacionales. Paquete ideal: SEO + Google Ads + content marketing.</div>
+</div>
+
+<!-- Lead 9 -->
+<div class="lead-card">
+    <div class="lead-name">Clínica Dra. Yaneth Prada Castellanos — Cirugía Plástica</div>
+    <div class="lead-location">📍 San José | Cirujana plástica con práctica establecida</div>
+    <div class="lead-tags">
+        <span class="tag">Plastic Surgery</span>
+        <span class="tag">Esthetic Procedures</span>
+        <span class="tag">Women-owned</span>
+    </div>
+    <div class="lead-detail">
+        <div class="lead-detail-item">
+            <span class="lead-detail-label">Web:</span>
+            <span class="lead-detail-value"><a href="https://cirugiaplasticaprada.com" target="_blank">cirugiaplasticaprada.com</a></span>
+        </div>
+        <div class="lead-detail-item">
+            <span class="lead-detail-label">Location:</span>
+            <span class="lead-detail-value">San José, Costa Rica</span>
+        </div>
+    </div>
+    <div class="lead-notes">Práctica individual de cirujana plástica con web activa. Oportunidad para ayudar con branding personal, content strategy y Google Ads para cirugías específicas (mamoplastia, liposucción, etc.).</div>
+</div>
+
+<!-- Lead 10 -->
+<div class="lead-card">
+    <div class="lead-name">Hospital Clínica Bíblica — División Marketing Internacional</div>
+    <div class="lead-location">📍 Avenida 14, San José | Comunicación: Ariana Corrales (Gestor de Comunicación)</div>
+    <div class="lead-tags">
+        <span class="tag hot">International Marketing</span>
+        <span class="tag">Medical Tourism</span>
+        <span class="tag">Multilingual</span>
+        <span class="tag">Patient Services</span>
+    </div>
+    <div class="lead-detail">
+        <div class="lead-detail-item">
+            <span class="lead-detail-label">Comunicación:</span>
+            <span class="lead-detail-value">Ariana Corrales</span>
+        </div>
+        <div class="lead-detail-item">
+            <span class="lead-detail-label">Marketing Dir:</span>
+            <span class="lead-detail-value">(506) 2522-1402</span>
+        </div>
+        <div class="lead-detail-item">
+            <span class="lead-detail-label">Web:</span>
+            <span class="lead-detail-value"><a href="https://www.clinicabiblica.com" target="_blank">clinicabiblica.com</a></span>
+        </div>
+    </div>
+    <div class="lead-notes">Ariana Corrales es contacto directo para comunicación institucional. Hospital tiene International Patient Services y acepta seguros internacionales. Estrategia digital en inglés y español es crítica para atraer pacientes de EE.UU. y Europa.</div>
+</div>
+
+<h2>🎯 Estrategias de Contacto</h2>
+<div class="strategy-grid">
+
+<div class="strategy-card">
+    <div class="strategy-number">1</div>
+    <div class="strategy-title">Email directo a Ezio Fila (Hospital Clínica Bíblica)</div>
+    <div class="strategy-desc">Asunto: "Propuesta de estrategia digital para International Patient Services — HCB". Presentar caso de cómo otras clínicas médicas de LatAm triplicaron leads de turismo médico con content marketing y SEO multilingual.</div>
+</div>
+
+<div class="strategy-card">
+    <div class="strategy-number">2</div>
+    <div class="strategy-title">LinkedIn outreach a Dr. Alejandro Mora (Dental Cosmetics)</div>
+    <div class="strategy-desc">Dental Cosmetics tiene LinkedIn activo con 436+ conexiones. Enviar mensaje directo proponiendo una auditoría gratuita de su presencia digital para pacientes internacionales. Enfocarse en keywords de turismo dental para el mercado estadounidense.</div>
+</div>
+
+<div class="strategy-card">
+    <div class="strategy-number">3</div>
+    <div class="strategy-title">Paquete "Medical Tourism Digital" — Clínicas plásticas</div>
+    <div class="strategy-desc">Ofrecer a Dolce Medical Center, Dra. Prada y Rosenstock Lieberman: landing page multilingüe + Google Ads (español + inglés) + Instagram Ads targeting mujeres 25-55 en EE.UU. Precio por诊所, descuento por paquete de 3+ clínicas.</div>
+</div>
+
+<div class="strategy-card">
+    <div class="strategy-number">4</div>
+    <div class="strategy-title">WhatsApp Business para Sonria Dental Boutique</div>
+    <div class="strategy-desc">Sonria ya recibe pacientes internacionales. Proponer automatización de WhatsApp para responder preguntas frecuentes de pacientes de EE.UU. (precio procedimientos, tiempo de recuperación, alojamiento). Integración con su CRM de turismo médico.</div>
+</div>
+
+<div class="strategy-card">
+    <div class="strategy-number">5</div>
+    <div class="strategy-title">Hospital CIMA — Corporate Medicine pitch</div>
+    <div class="strategy-desc">Hospital CIMA tiene división Corporate Medicine dedicada a empresas. Proponer услуг de employer branding y campañas de wellness corporativo para 联系 con RRHH de empresas multinacionales en Costa Rica (empresas tecnológicas, BPOs).</div>
+</div>
+
+<div class="strategy-card">
+    <div class="strategy-number">6</div>
+    <div class="strategy-title">Contenido "Before/After" para cirugía plástica</div>
+    <div class="strategy-desc">Crear biblioteca de contenido de resultados (con consentimiento) para Instagram y Google Ads. Las clínicas de cirugía plástica con portfolio visual tienen 3x más conversiones. Proponer como servicio mensual de content management.</div>
+</div>
+
+</div>
+
+<h2>📈 Tendencias del Mercado de Clínicas 2026</h2>
+
+<div class="trend-card">
+    <div class="trend-title">📈 Mercado de turismo médico en Costa Rica: $1.66B USD para 2033 (CAGR 19.12%)</div>
+    <div class="trend-desc">El mercado de turismo médico costarricense crece a tasas de dos dígitos. Los principales tratamientos: dental y cosmética. El mercado global de turismo médico alcanzará $263.45B USD en 2034. Costa Rica tiene ventaja competitiva por cercanía a EE.UU. y costos menores.</div>
+</div>
+
+<div class="trend-card">
+    <div class="trend-title">🤖 IA en marketing de salud 2026</div>
+    <div class="trend-desc">Chatbots con IA para agendar citas 24/7, email marketing hipersegmentado con IA generativa, y optimización de SEO médico con tools de AI son las tendencias dominantes. Google Gemini y ChatGPT están empezando a recomend医院 en respuestas de búsqueda.</div>
+</div>
+
+<div class="trend-card">
+    <div class="trend-title">🏆 Hospital Clínica Bíblica en Newsweek/Statista Top LatAm 2026</div>
+    <div class="trend-desc">Clínica Bíblica es el único hospital de Costa Rica incluido en el ranking Latin America's Top Private Hospitals & Clinics 2026 de Newsweek/Statista. Este tipo de certificación es poderosa para marketing de turismo médico y debe capitalizarse en campañas digitales.</div>
+</div>
+
+<div class="trend-card">
+    <div class="trend-title">🇺🇸 Pacientes de EE.UU. y Canadá: el mercado objetivo</div>
+    <div class="trend-desc">El grueso del turismo médico costarricense viene de Estados Unidos y Canadá. Los procedimientos más demandados: implantes dentales, cirugía estética, fertilidad. Campañas en inglés con Google Ads targeting geo específico (Florida, Texas, California) son efectivas.</div>
+</div>
+
+<div class="trend-card">
+    <div class="trend-title">🌐 Multilingüe o nada</div>
+    <div class="trend-desc">Las clínicas de turismo médico que no tienen presencia digital en inglés están perdiendo el 60%+ del mercado potencial. Un website con SEO en inglés, español y portugués, más chatbot multilingüe, es ya necesidad competitiva, no lujo.</div>
+</div>
+
+<div class="trend-card">
+    <div class="trend-title">⚕️ GEO (Generative Engine Optimization) para salud</div>
+    <div class="trend-desc">Nuevas frontier: aparecer en respuestas de ChatGPT, Perplexity y Gemini cuando usuarios preguntan sobre procedimientos médicos en Costa Rica. Las clínicas que inviertan en presencia en AI search este año tendrán ventaja en 2027.</div>
+</div>
+
+<div class="trend-card">
+    <div class="trend-title">🦷 Dental tourism: el segmento más maduro</div>
+    <div class="trend-desc">Costa Rica es reconocido mundialmente por dental tourism. Clínicas como Dental Cosmetics y Sonria tienen modelo de negocio establecido. Aún así, hay oportunidad para refrescar marca, mejorar SEO internacional y automatizar captación de leads.</div>
+</div>
+
+<div class="section-note">
+    <strong>Nota sobre timing:</strong> Mayo es mes de inicio de "temporada alta" para turismo médico en Costa Rica (viene del hemisferio norte que entra en verano). Ideal para proponer paquetes de marketing digital ahora y comenzar campañas en junio-julio 2026.
+</div>
+
+<footer>
+    <p>Reporte generado automáticamente por Logos (Aurea Advertising) | 03 Mayo 2026 17:00 UTC</p>
+    <p>Nichos rotate: Restaurants → Clinics → Ecommerce → Real Estate → Hotels → Startups → Manufacturers → Schools → (loop)</p>
+</footer>
+
+</div>
+</body>
+</html>
