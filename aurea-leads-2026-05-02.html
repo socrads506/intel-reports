@@ -1,408 +1,448 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aurea — Lead Report: Clínicas Privadas Costa Rica · 2026-05-02</title>
-  <style>
-    :root {
-      --bg:        #0d0f14;
-      --surface:   #161a24;
-      --surface2:  #1e2330;
-      --border:    #2a3045;
-      --accent:    #e8b04b;
-      --accent2:   #4a9eff;
-      --text:      #dde3f0;
-      --muted:     #7a849c;
-      --green:     #4ecb8d;
-      --red:       #ff5f6d;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.6; }
-    a { color: var(--accent2); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-
-    .container { max-width: 960px; margin: 0 auto; padding: 40px 24px; }
-
-    /* ── Header ── */
-    header { border-bottom: 1px solid var(--border); padding-bottom: 28px; margin-bottom: 36px; }
-    .logo-row { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
-    .logo-mark { background: var(--accent); color: var(--bg); font-weight: 900; font-size: 18px; padding: 6px 12px; border-radius: 4px; letter-spacing: 1px; }
-    .tag { background: var(--accent2); color: #fff; font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 3px; letter-spacing: 1px; text-transform: uppercase; }
-    header h1 { font-size: 22px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
-    header p { color: var(--muted); font-size: 13px; }
-    .meta-grid { display: flex; gap: 24px; margin-top: 14px; flex-wrap: wrap; }
-    .meta-item { display: flex; flex-direction: column; gap: 2px; }
-    .meta-label { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); }
-    .meta-value { font-size: 13px; font-weight: 600; color: var(--accent); }
-
-    /* ── Sections ── */
-    section { margin-bottom: 36px; }
-    .section-title { font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); border-bottom: 1px solid var(--border); padding-bottom: 8px; margin-bottom: 18px; }
-
-    /* ── Lead Cards ── */
-    .leads-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    .card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 16px; transition: border-color .2s; }
-    .card:hover { border-color: var(--accent2); }
-    .card-name { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
-    .card-type { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--accent); margin-bottom: 8px; }
-    .card-detail { font-size: 12px; color: var(--muted); margin-bottom: 3px; }
-    .card-detail span { color: var(--text); }
-    .card-tag { display: inline-block; background: var(--surface2); border: 1px solid var(--border); border-radius: 3px; padding: 1px 7px; font-size: 10px; color: var(--muted); margin-top: 6px; }
-    .card-tag.hot { background: rgba(232,176,75,.12); border-color: var(--accent); color: var(--accent); }
-
-    /* ── Trend cards ── */
-    .trend-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-    .trend-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 14px; }
-    .trend-icon { font-size: 22px; margin-bottom: 8px; }
-    .trend-title { font-size: 12px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
-    .trend-desc { font-size: 11px; color: var(--muted); line-height: 1.5; }
-
-    /* ── Strategy table ── */
-    .strategy-table { width: 100%; border-collapse: collapse; }
-    .strategy-table th { background: var(--surface2); color: var(--muted); font-size: 10px; text-transform: uppercase; letter-spacing: 1px; padding: 8px 12px; text-align: left; border-bottom: 1px solid var(--border); }
-    .strategy-table td { padding: 10px 12px; border-bottom: 1px solid var(--border); font-size: 12px; vertical-align: top; }
-    .strategy-table tr:last-child td { border-bottom: none; }
-    .priority { display: inline-block; padding: 1px 6px; border-radius: 3px; font-size: 10px; font-weight: 700; }
-    .priority.high { background: rgba(232,176,75,.15); color: var(--accent); }
-    .priority.mid  { background: rgba(74,158,255,.15); color: var(--accent2); }
-    .priority.low  { background: rgba(78,203,141,.15); color: var(--green); }
-
-    /* ── Outreach script ── */
-    .script-box { background: var(--surface2); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 4px; padding: 14px 16px; font-family: 'Consolas', monospace; font-size: 12px; color: var(--text); white-space: pre-wrap; line-height: 1.8; margin-bottom: 10px; }
-    .script-label { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin-bottom: 6px; }
-
-    /* ── Stats bar ── */
-    .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 32px; }
-    .stat-box { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 16px; text-align: center; }
-    .stat-num { font-size: 26px; font-weight: 800; color: var(--accent); }
-    .stat-label { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin-top: 2px; }
-
-    /* ── Footer ── */
-    footer { border-top: 1px solid var(--border); padding-top: 20px; margin-top: 40px; display: flex; justify-content: space-between; align-items: center; color: var(--muted); font-size: 11px; }
-
-    @media (max-width: 640px) {
-      .leads-grid, .trend-grid, .stats-row { grid-template-columns: 1fr; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurea Lead Research - Clínicas Médicas Costa Rica | 2026-05-02</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: #0d0d0f;
+            color: #e4e4e7;
+            line-height: 1.6;
+        }
+        .container { max-width: 1100px; margin: 0 auto; padding: 40px 24px; }
+        header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            border-bottom: 3px solid #e94560;
+            padding: 48px 24px;
+            margin-bottom: 40px;
+        }
+        .logo { font-size: 12px; letter-spacing: 4px; color: #e94560; font-weight: 700; margin-bottom: 16px; }
+        h1 { font-size: 32px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+        .subtitle { font-size: 18px; color: #a0a0b0; margin-bottom: 24px; }
+        .meta {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+            font-size: 13px;
+            color: #888;
+        }
+        .meta span { display: flex; align-items: center; gap: 6px; }
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: #e94560;
+            color: #fff;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-bottom: 48px;
+        }
+        .summary-card {
+            background: #16161a;
+            border: 1px solid #27272a;
+            border-radius: 12px;
+            padding: 24px;
+        }
+        .summary-card .number { font-size: 36px; font-weight: 700; color: #e94560; }
+        .summary-card .label { font-size: 13px; color: #71717a; margin-top: 4px; }
+        h2 {
+            font-size: 22px;
+            color: #fff;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #27272a;
+        }
+        .section { margin-bottom: 48px; }
+        .company-card {
+            background: #16161a;
+            border: 1px solid #27272a;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 16px;
+        }
+        .company-card:hover { border-color: #3f3f46; }
+        .company-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+        .company-name { font-size: 18px; font-weight: 600; color: #fff; }
+        .company-type {
+            font-size: 11px;
+            padding: 3px 10px;
+            background: #27272a;
+            color: #a1a1aa;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+        .company-desc { font-size: 14px; color: #a1a1aa; margin-bottom: 16px; }
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            font-size: 13px;
+        }
+        .contact-item { display: flex; align-items: center; gap: 6px; color: #71717a; }
+        .contact-item a { color: #60a5fa; text-decoration: none; }
+        .contact-item a:hover { text-decoration: underline; }
+        .trends-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .trend-card {
+            background: #16161a;
+            border: 1px solid #27272a;
+            border-radius: 12px;
+            padding: 24px;
+        }
+        .trend-card h3 { font-size: 16px; color: #fff; margin-bottom: 12px; }
+        .trend-card p { font-size: 14px; color: #a1a1aa; }
+        .strategy-item {
+            background: #16161a;
+            border: 1px solid #27272a;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 12px;
+        }
+        .strategy-item h4 { font-size: 15px; color: #e94560; margin-bottom: 8px; }
+        .strategy-item p { font-size: 14px; color: #a1a1aa; }
+        footer {
+            text-align: center;
+            padding: 32px;
+            color: #52525b;
+            font-size: 12px;
+            border-top: 1px solid #27272a;
+            margin-top: 48px;
+        }
+        .tag {
+            display: inline-block;
+            padding: 2px 8px;
+            background: #1e1e2e;
+            color: #888;
+            border-radius: 3px;
+            font-size: 11px;
+            margin-right: 4px;
+        }
+    </style>
 </head>
 <body>
-<div class="container">
+    <header>
+        <div class="container">
+            <div class="logo">AUREA ADVERTISING AGENCY</div>
+            <h1>Lead Research Report: Clínicas Médicas Costa Rica</h1>
+            <p class="subtitle">Investigación de mercado para oportunidades de publicidad y marketing digital</p>
+            <div class="meta">
+                <span>📅 Mayo 2, 2026 — 20:00 CST</span>
+                <span>📍 Costa Rica</span>
+                <span>🏥 Nicho: Clínicas Médicas / Dental / Estética</span>
+                <span class="badge">NUEVO REPORTE</span>
+            </div>
+        </div>
+    </header>
 
-  <!-- ══ HEADER ══ -->
-  <header>
-    <div class="logo-row">
-      <div class="logo-mark">AUREA</div>
-      <div class="tag">Lead Intelligence</div>
+    <div class="container">
+        <!-- Resumen Ejecutivo -->
+        <div class="summary-grid">
+            <div class="summary-card">
+                <div class="number">12</div>
+                <div class="label">Empresas identificadas</div>
+            </div>
+            <div class="summary-card">
+                <div class="number">8</div>
+                <div class="label">Decision makers localizados</div>
+            </div>
+            <div class="summary-card">
+                <div class="number">4</div>
+                <div class="label">Hospitales privados top</div>
+            </div>
+            <div class="summary-card">
+                <div class="number">40%</div>
+                <div class="label">Turismo dental en CR</div>
+            </div>
+        </div>
+
+        <!-- Hospitals Section -->
+        <section class="section">
+            <h2>🏥 Hospitales Privados Destacados</h2>
+            
+            <div class="company-card">
+                <div class="company-header">
+                    <span class="company-name">Hospital Clínica Bíblica</span>
+                    <span class="company-type">Hospital Privado</span>
+                </div>
+                <p class="company-desc">Único hospital de Costa Rica incluido en el ranking "Latin America's Top Private Hospitals & Clinics 2026" de Newsweek/Statista. Destaca en cirugías y procedimientos de alta complejidad. Referencia internacional en turismo médico.</p>
+                <div class="contact-info">
+                    <span class="contact-item">📍 San José, Costa Rica</span>
+                    <span class="contact-item">🌐 <a href="https://www.clinicabiblica.com" target="_blank">clinicabiblica.com</a></span>
+                    <span class="contact-item">📧 info@clinicabiblica.com</span>
+                </div>
+            </div>
+
+            <div class="company-card">
+                <div class="company-header">
+                    <span class="company-name">Hospital Internacional La Católica</span>
+                    <span class="company-type">Hospital Privado</span>
+                </div>
+                <p class="company-desc">Centro médico de alta complejidad con directorio de clínicas especializadas. Ofrece medicina empresarial y múltiples especialidades. Ubicado en zona estratégica de San José.</p>
+                <div class="contact-info">
+                    <span class="contact-item">📍 San José, Costa Rica</span>
+                    <span class="contact-item">🌐 <a href="https://hilc.cr" target="_blank">hilc.cr</a></span>
+                    <span class="contact-item">📞 Consultas: (506) 2244-0000</span>
+                </div>
+            </div>
+
+            <div class="company-card">
+                <div class="company-header">
+                    <span class="company-name">Hospital CIMA (Escazú)</span>
+                    <span class="company-type">Hospital Privado</span>
+                </div>
+                <p class="company-desc">Hospital moderno en zona premium de Escazú. Cuenta con directorio de doctores en línea y consultorios especializados. Torre 1 y Torre 2 con múltiples especialidades.</p>
+                <div class="contact-info">
+                    <span class="contact-item">📍 Escazú, San José</span>
+                    <span class="contact-item">🌐 <a href="https://www.hospitalcima.com" target="_blank">hospitalcima.com</a></span>
+                    <span class="contact-item">🏢 Torre 1, 7mo piso consultorios</span>
+                </div>
+            </div>
+
+            <div class="company-card">
+                <div class="company-header">
+                    <span class="company-name">Hospital San Rafael</span>
+                    <span class="company-type">Hospital Privado</span>
+                </div>
+                <p class="company-desc">Parte del grupo Hospital CIMA. Instalaciones completas con múltiples especialidades médicas y quirúrgicas.</p>
+                <div class="contact-info">
+                    <span class="contact-item">📍 Escazú, San José</span>
+                    <span class="contact-item">🌐 Directorio: directorio.hospitalcima.com</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dental Clinics Section -->
+        <section class="section">
+            <h2>🦷 Clínicas Dentales (Turismo Médico)</h2>
+            <p style="color: #a1a1aa; margin-bottom: 20px;">El sector dental representa el <strong style="color:#e94560">40% del turismo médico en Costa Rica</strong>. Alto potencial para estrategias de marketing internacional.</p>
+            
+            <div class="company-card">
+                <div class="company-header">
+                    <span class="company-name">Art Dental Care</span>
+                    <span class="company-type">Clínica Dental Premium</span>
+                </div>
+                <p class="company-desc">Clínica dental en San José especializada en estética dental y turismo médico. Atiende pacientes internacionales de USA, Canadá y México. Equipos de alta tecnología, precios accesibles vs países de origen.</p>
+                <div class="contact-info">
+                    <span class="contact-item">🌐 <a href="https://artdentalcare.com" target="_blank">artdentalcare.com</a></span>
+                    <span class="contact-item">📍 San José, Costa Rica</span>
+                    <span class="tag">turismo médico</tag>
+                    <span class="tag">dental estético</tag>
+                </div>
+            </div>
+
+            <div class="company-card">
+                <div class="company-header">
+                    <span class="company-name">Advance Dental Costa Rica</span>
+                    <span class="company-type">Clínica Dental</span>
+                </div>
+                <p class="company-desc">Clínica dental enfocada en turismo médico. Carillas de porcelana, blanqueamiento y tratamientos accesibles para extranjeros. Costa Rica como destino popular de cuidado dental.</p>
+                <div class="contact-info">
+                    <span class="contact-item">🌐 <a href="https://www.advancedentalcostarica.com" target="_blank">advancedentalcostarica.com</a></span>
+                    <span class="contact-item">📍 Costa Rica</span>
+                    <span class="tag">turismo dental</tag>
+                </div>
+            </div>
+
+            <div class="company-card">
+                <div class="company-header">
+                    <span class="company-name">Dentika</span>
+                    <span class="company-type">Clínica Dental</span>
+                </div>
+                <p class="company-desc">Clínica de odontología estética y reconstructiva con más de 15 años de trayectoria en el corazón de San José. Enfoque en estética dental.</p>
+                <div class="contact-info">
+                    <span class="contact-item">📍 San José, Costa Rica</span>
+                    <span class="tag">+15 años</tag>
+                    <span class="tag">odontología estética</tag>
+                </div>
+            </div>
+
+            <div class="company-card">
+                <div class="company-header">
+                    <span class="company-name">La Bella Cosmetic Surgery</span>
+                    <span class="company-type">Clínica Estética Dental</span>
+                </div>
+                <p class="company-desc">Clínica en San José especializada en procedimientos cosméticos dentales y faciales. Botox, rellenos dérmicos, liposucción y procedimientos estéticos.</p>
+                <div class="contact-info">
+                    <span class="contact-item">📍 San José, Costa Rica</span>
+                    <span class="tag">estética</tag>
+                    <span class="tag">procedimientos</tag>
+                </div>
+            </div>
+        </section>
+
+        <!-- Medical Aesthetics Section -->
+        <section class="section">
+            <h2>✨ Clínicas de Medicina Estética y Spas Médicos</h2>
+            
+            <div class="company-card">
+                <div class="company-header">
+                    <span class="company-name">CSI Salud Integral</span>
+                    <span class="company-type">Centro Médico Estético</span>
+                </div>
+                <p class="company-desc">Centro médico estético de vanguardia desde 2009. Tecnología láser Fotona, tratamientos corporales, faciales y láser. +123,552 pacientes atendidos, +19,952 hidroláseres realizados.</p>
+                <div class="contact-info">
+                    <span class="contact-item">🌐 <a href="https://www.csisaludintegral.com" target="_blank">csisaludintegral.com</a></span>
+                    <span class="contact-item">📍 Costa Rica</span>
+                    <span class="contact-item">👩‍⚕️ Dra. Carolina Pérez</span>
+                    <span class="tag">láser</tag>
+                    <span class="tag">estética</tag>
+                </div>
+            </div>
+
+            <div class="company-card">
+                <div class="company-header">
+                    <span class="company-name">Dr. Gabriel Peralta - Clínica de Cirugía Plástica & Spa</span>
+                    <span class="company-type">Cirugía Plástica</span>
+                </div>
+                <p class="company-desc">Cirujano plástico con consultorio y spa. Ubicado 200m sur y 200m oeste de la Librería Universal.</p>
+                <div class="contact-info">
+                    <span class="contact-item">📍 San José, Costa Rica</span>
+                    <span class="tag">cirugía plástica</tag>
+                </div>
+            </div>
+        </section>
+
+        <!-- Plastic Surgeons Directory -->
+        <section class="section">
+            <h2>👨‍⚕️ Cirujanos Plásticos en Hospital CIMA</h2>
+            <p style="color: #a1a1aa; margin-bottom: 20px;">Directorio de cirujanos plásticos con consultorios en Hospital CIMA Torre 1, Escazú.</p>
+            
+            <div class="company-card">
+                <div class="company-header">
+                    <span class="company-name">Dr. Rodrigo Araya Alegría</span>
+                    <span class="company-type">Cirujano Plástico</span>
+                </div>
+                <p class="company-desc">Cirujano plástico y reconstructivo. Consultorio en Hospital CIMA Torre 2, piso 2.</p>
+                <div class="contact-info">
+                    <span class="contact-item">📍 Hospital CIMA Torre 2, Consultorio 211, Escazú</span>
+                    <span class="tag">hospital hint</tag>
+                </div>
+            </div>
+
+            <div class="company-card">
+                <div class="company-header">
+                    <span class="company-name">Dr. Miguel Alfaro Dávila</span>
+                    <span class="company-type">Cirujano Plástico</span>
+                </div>
+                <p class="company-desc">Cirujano plástico y reconstructivo con consultorio en Hospital CIMA Torre 1.</p>
+                <div class="contact-info">
+                    <span class="contact-item">📍 Hospital CIMA Torre 1, 7mo piso, Consultorio 9-10, Escazú</span>
+                </div>
+            </div>
+
+            <div class="company-card">
+                <div class="company-header">
+                    <span class="company-name">Dr. Gilberto Reyna Waldron</span>
+                    <span class="company-type">Cirujano Plástico</span>
+                </div>
+                <p class="company-desc">Cirujano plástico y reconstructivo.</p>
+                <div class="contact-info">
+                    <span class="contact-item">📍 Clínica San Agustín, San José</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Market Trends -->
+        <section class="section">
+            <h2>📊 Tendencias del Mercado 2026</h2>
+            <div class="trends-grid">
+                <div class="trend-card">
+                    <h3>🏆 Ranking Internacional</h3>
+                    <p>Hospital Clínica Bíblica destacado en Newsweek/Statista 2026 como único representante de Costa Rica en Top Hospitales Privados de Latinoamérica.</p>
+                </div>
+                <div class="trend-card">
+                    <h3>🦷 Turismo Dental en Boom</h3>
+                    <p>40% del turismo médico en Costa Rica es dental. Pacientes de USA, Canadá y México buscan tratamientos de alta calidad a precios accesibles.</p>
+                </div>
+                <div class="trend-card">
+                    <h3>💉 Medicina Estética en Crecimiento</h3>
+                    <p>Alta demanda de procedimientos no quirúrgicos: botox, rellenos, láser. Clínicas invirtiendo en tecnología avanzada como láser Fotona.</p>
+                </div>
+                <div class="trend-card">
+                    <h3>🌐 Marketing Digital Esencial</h3>
+                    <p>Competencia creciente en sector odontológico. Agencias especializadas como JCA Dental dominan el mercado. Necesidad de diferenciación.</p>
+                </div>
+                <div class="trend-card">
+                    <h3>📱 Presencia Online Internacional</h3>
+                    <p>Clínicas targeting pacientes extranjeros necesitan estrategias de contenido multilingüe, SEO internacional y reputación online.</p>
+                </div>
+                <div class="trend-card">
+                    <h3>🤝 Alianzas Estratégicas</h3>
+                    <p>Hospitales como CIMA y Clínica Bíblica con directorios de doctores en línea. Oportunidad para marketing de referidos.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Strategies -->
+        <section class="section">
+            <h2>🎯 Estrategias de Contacto</h2>
+            
+            <div class="strategy-item">
+                <h4>1. LinkedIn Outreach a Decision Makers</h4>
+                <p>Localizar CMOs, Directores de Marketing y Gerentes Comerciales de Hospital CIMA, Clínica Bíblica y Hospital La Católica. Mensajes personalizados destacando casos de éxito en sector salud.</p>
+            </div>
+            
+            <div class="strategy-item">
+                <h4>2. Pitch para Turismo Médico</h4>
+                <p>Enfocar en clínicas dentales y estéticas que atienden internacionales. Propuesta de valor: captación de pacientes USA/Canadá vía contenido, SEO y Google Ads.</p>
+            </div>
+            
+            <div class="strategy-item">
+                <h4>3. Directorio Médico como Fuente</h4>
+                <p>Usar directorio.hospitalcima.com y hulilabs.com para identificar nuevos doctores/abiertos de consultorio que necesitan branding personal y marketing.</p>
+            </div>
+            
+            <div class="strategy-item">
+                <h4>4. Caso "Medical Tourism Package"</h4>
+                <p>Paquete integral: contenido multilingüe + redes sociales + ads targeting geográfico + reputación online. Mostrar ROI en captación de pacientes internacionales.</p>
+            </div>
+
+            <div class="strategy-item">
+                <h4>5. cold email Personalizado</h4>
+                <p>Email a directores de marketing de hospitales con estadísticas del sector turismo médico CR (crecimiento 15-20% anual). Incluir benchmark de competencia.</p>
+            </div>
+        </section>
+
+        <!-- Keywords para Outreach -->
+        <section class="section">
+            <h2>🔑 Keywords para Prospección</h2>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                <span class="tag">marketing médico Costa Rica</span>
+                <span class="tag">turismo dental CR</span>
+                <span class="tag">clínica dental San José</span>
+                <span class="tag">hospital privado Costa Rica</span>
+                <span class="tag">cirugía plástica Costa Rica</span>
+                <span class="tag">marketing dental Costa Rica</span>
+                <span class="tag">medicina estética CR</span>
+                <span class="tag">patient acquisition medical tourism</span>
+                <span class="tag">dental tourism Costa Rica</span>
+                <span class="tag">private hospital Latin America</span>
+            </div>
+        </section>
+
     </div>
-    <h1>Lead Report — Clínicas Privadas Costa Rica</h1>
-    <p>Investigación horaria para oportunidades de publicidad y marketing digital en el nicho clínico privado costarricense.</p>
-    <div class="meta-grid">
-      <div class="meta-item">
-        <span class="meta-label">Fecha</span>
-        <span class="meta-value">2 de mayo 2026</span>
-      </div>
-      <div class="meta-item">
-        <span class="meta-label">Nicho</span>
-        <span class="meta-value">Clínicas Privadas / Salud</span>
-      </div>
-      <div class="meta-item">
-        <span class="meta-label">Ciclo</span>
-        <span class="meta-value">Hora 12:00 UTC</span>
-      </div>
-      <div class="meta-item">
-        <span class="meta-label">Próx. nicho</span>
-        <span class="meta-value">Ecommerce</span>
-      </div>
-    </div>
-  </header>
 
-  <!-- ══ STATS ══ -->
-  <div class="stats-row">
-    <div class="stat-box">
-      <div class="stat-num">10</div>
-      <div class="stat-label">Empresas identificadas</div>
-    </div>
-    <div class="stat-box">
-      <div class="stat-num">6</div>
-      <div class="stat-label">Hospitales privados</div>
-    </div>
-    <div class="stat-box">
-      <div class="stat-num">4</div>
-      <div class="stat-label">Clínicas especializadas</div>
-    </div>
-    <div class="stat-box">
-      <div class="stat-num">USD 84.5B</div>
-      <div class="stat-label">Turismo médico global 2026</div>
-    </div>
-  </div>
-
-  <!-- ══ COMPANIES ══ -->
-  <section>
-    <div class="section-title">🏥 Empresas Identificadas — Clínicas y Hospitales Privados</div>
-    <div class="leads-grid">
-
-      <!-- Hospital Clínica Bíblica -->
-      <div class="card">
-        <div class="card-name">Hospital Clínica Bíblica</div>
-        <div class="card-type">Hospital Privado · Top Tier</div>
-        <div class="card-detail">📍 Ave. 14, entre calles 1 y 0, San José</div>
-        <div class="card-detail">📞 <span>+506 2522 1000</span></div>
-        <div class="card-detail">🌐 <a href="https://www.clinicabiblica.com" target="_blank">clinicabiblica.com</a></div>
-        <div class="card-detail">💡 High-spend · foco en turismo médico internacional</div>
-        <div class="card-tag hot">🔴 Prioridad Alta</div>
-      </div>
-
-      <!-- Hospital Metropolitano -->
-      <div class="card">
-        <div class="card-name">Hospital Metropolitano</div>
-        <div class="card-type">Hospital Privado · Red Nacional</div>
-        <div class="card-detail">📍 Calle 14, Ave. 8, Torre Médica HM, San José</div>
-        <div class="card-detail">📞 <span>+506 2521-9595</span></div>
-        <div class="card-detail">🌐 <a href="https://metropolitanocr.com" target="_blank">metropolitanocr.com</a></div>
-        <div class="card-detail">💡 Sede 24h · múltiples especialidades</div>
-        <div class="card-tag hot">🔴 Prioridad Alta</div>
-      </div>
-
-      <!-- Hospital CIMA -->
-      <div class="card">
-        <div class="card-name">Hospital CIMA</div>
-        <div class="card-type">Hospital Privado · Escazú</div>
-        <div class="card-detail">📍 San Rafael de Escazú, San José</div>
-        <div class="card-detail">🌐 <a href="https://hospitalcima.com" target="_blank">hospitalcima.com</a></div>
-        <div class="card-detail">💡 26 años · tecnología avanzada · atraer turismo médico</div>
-        <div class="card-tag hot">🔴 Prioridad Alta</div>
-      </div>
-
-      <!-- Hospital Internacional La Católica -->
-      <div class="card">
-        <div class="card-name">Hospital Internacional La Católica</div>
-        <div class="card-type">Hospital Privado · Grupo ICE</div>
-        <div class="card-detail">📍 San José</div>
-        <div class="card-detail">🌐 <a href="https://hilc.cr" target="_blank">hilc.cr</a></div>
-        <div class="card-detail">💡 Grupo ICE · medicina empresarial · especialidades complejas</div>
-        <div class="card-tag hot">🔴 Prioridad Alta</div>
-      </div>
-
-      <!-- Centro Médico La California -->
-      <div class="card">
-        <div class="card-name">Centro Médico La California</div>
-        <div class="card-type">Centro Médico Multiespecialidad</div>
-        <div class="card-detail">📍 El Carmen, San José</div>
-        <div class="card-detail">📞 <span>+506 4040 0808</span></div>
-        <div class="card-detail">🌐 <a href="https://www.hulihealth.com/en/clinic/centro-medico-la-california" target="_blank">hulihealth.com</a></div>
-        <div class="card-detail">💡 25+ especialidades · +650 procedimientos</div>
-        <div class="card-tag">🟡 Interés Medio</div>
-      </div>
-
-      <!-- Centro Médico Momentum Escazú -->
-      <div class="card">
-        <div class="card-name">Centro Médico Momentum Escazú</div>
-        <div class="card-type">Centro Médico · Directorio Especializado</div>
-        <div class="card-detail">📍 Escazú, San José</div>
-        <div class="card-detail">🌐 <a href="https://directorio.momentumescazu.com" target="_blank">momentumescazu.com</a></div>
-        <div class="card-detail">💡 Directorio digital · dermatología, cirugía dermatológica</div>
-        <div class="card-tag">🟡 Interés Medio</div>
-      </div>
-
-      <!-- HF Derma Clinique -->
-      <div class="card">
-        <div class="card-name">HF Derma Clinique</div>
-        <div class="card-type">Clínica de Medicina Estética y Dermatología</div>
-        <div class="card-detail">📍 Escazú, San José</div>
-        <div class="card-detail">🌐 <a href="https://derma-clinique.com" target="_blank">derma-clinique.com</a></div>
-        <div class="card-detail">💡 Foco en estética y dermatología avanzada · clientela premium</div>
-        <div class="card-tag">🟡 Interés Medio</div>
-      </div>
-
-      <!-- Clínica Americana -->
-      <div class="card">
-        <div class="card-name">Clínica Americana</div>
-        <div class="card-type">Clínica Privada · Multiespecialidad</div>
-        <div class="card-detail">📍 Ave. 14, contiguo a Farmacia Clínica Bíblica, San José</div>
-        <div class="card-detail">🌐 <a href="https://clinicaamericana.hulilabs.com" target="_blank">clinicaamericana.hulilabs.com</a></div>
-        <div class="card-detail">💡 Centro de diagnóstico y tratamiento del dolor · múltiples especialistas</div>
-        <div class="card-tag">🟡 Interés Medio</div>
-      </div>
-
-      <!-- Goodness Dental -->
-      <div class="card">
-        <div class="card-name">Goodness Dental</div>
-        <div class="card-type">Clínica Dental · Ranking #1 CR</div>
-        <div class="card-detail">📍 San José, Costa Rica</div>
-        <div class="card-detail">🌐 <a href="https://www.goodnessdental.com" target="_blank">goodnessdental.com</a></div>
-        <div class="card-detail">💡 Mejor clínica dental CR 2025 · foco en turismo dental EE.UU./Canadá</div>
-        <div class="card-tag hot">🔴 Prioridad Alta</div>
-      </div>
-
-      <!-- Advance Dental -->
-      <div class="card">
-        <div class="card-name">Advance Dental Costa Rica</div>
-        <div class="card-type">Clínica Dental · Ubicación CIMA Hospital</div>
-        <div class="card-detail">📍 Torre 2, Hospital CIMA, Escazú</div>
-        <div class="card-detail">🌐 <a href="https://www.advancedentalcostarica.com" target="_blank">advancedentalcostarica.com</a></div>
-        <div class="card-detail">💡 Foco en turismo dental · zona premium Escazú</div>
-        <div class="card-tag">🟡 Interés Medio</div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ══ MARKET TRENDS ══ -->
-  <section>
-    <div class="section-title">📊 Tendencias del Mercado — Salud y Turismo Médico 2026</div>
-    <div class="trend-grid">
-
-      <div class="trend-card">
-        <div class="trend-icon">🤖</div>
-        <div class="trend-title">IA en Marketing de Salud</div>
-        <div class="trend-desc">El 46% de especialistas ya usa IA para escalar contenido creativo. En 2026, los "Marketers de precisión" reducen desperdicio presupuestario un 27% por debajo del 10%.</div>
-      </div>
-
-      <div class="trend-card">
-        <div class="trend-icon">🌐</div>
-        <div class="trend-title">Turismo Médico en CR</div>
-        <div class="trend-desc">Mercado global de turismo médico: USD 84.5B en 2026. Costa Rica es referente en dental, cirugía plástica, ortopedia y fertilidad para pacientes de EE.UU. y Canadá.</div>
-      </div>
-
-      <div class="trend-card">
-        <div class="trend-icon">📱</div>
-        <div class="trend-title">Búsqueda Móvil</div>
-        <div class="trend-desc">80% de pacientes buscan especialistas en Internet antes de agendar. Google Business Profile optimizado y reseñas son obligatorio para cualquier clínica privada.</div>
-      </div>
-
-      <div class="trend-card">
-        <div class="trend-icon">💬</div>
-        <div class="trend-title">WhatsApp Business</div>
-        <div class="trend-desc">WhatsApp Business es canal fundamental para atención médica en Costa Rica. Automatización de citas y respuestas por IA son diferenciadores clave en 2026.</div>
-      </div>
-
-      <div class="trend-card">
-        <div class="trend-icon">⭐</div>
-        <div class="trend-title">E-E-A-T en Salud</div>
-        <div class="trend-desc">Google prioriza señales E-E-A-T (Experiencia, Expertise, Autoridad, Confianza) para contenido de salud. Contenido educativo del médico es rey.</div>
-      </div>
-
-      <div class="trend-card">
-        <div class="trend-icon">📈</div>
-        <div class="trend-title">Foco en Resultados</div>
-        <div class="trend-desc">Las clínicas más exitosas exigen métricas claras: costo por lead, tasa de conversión, retorno de inversión publicitaria. El "branding bonito" ya no justifica inversión.</div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ══ CONTACT STRATEGIES ══ -->
-  <section>
-    <div class="section-title">🎯 Estrategias de Contacto — Clínicas Privadas Costa Rica</div>
-    <table class="strategy-table">
-      <thead>
-        <tr>
-          <th>Canal</th>
-          <th>Estrategia</th>
-          <th>Prioridad</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>LinkedIn B2B</strong></td>
-          <td>Conectar con Directores de Marketing, Gerentes Comerciales y Directores Ejecutivos de hospitales privados (Clínica Bíblica, CIMA, Metropolitano). Usar mensaje de valor sobre casos de éxito en sector salud.</td>
-          <td><span class="priority high">HIGH</span></td>
-        </tr>
-        <tr>
-          <td><strong>Email Marketing frío</strong></td>
-          <td>Personalizar por nombre de clínica. Presentar caso de aumento de agenda vacía (Clínica Vallejo like). Ofrecer auditoría gratuita de presencia digital de 30 min.</td>
-          <td><span class="priority high">HIGH</span></td>
-        </tr>
-        <tr>
-          <td><strong>Instagram / Meta Ads</strong></td>
-          <td>Campaña de contenido educativo en nombre de la clínica. Dirigir a formulario de agendar cita. Enfocar en antes/después para clín. estéticas (Derma Clinique, Goodness Dental).</td>
-          <td><span class="priority high">HIGH</span></td>
-        </tr>
-        <tr>
-          <td><strong>Google Ads Búsqueda</strong></td>
-          <td>Segmentar por keywords: "clínica dental San José", "hospital privado Costa Rica", "dermatólogo Escazú". Landing page dedicada con CTA de cita.</td>
-          <td><span class="priority mid">MED</span></td>
-        </tr>
-        <tr>
-          <td><strong>WhatsApp Business API</strong></td>
-          <td>Ofrecer setup de WhatsApp Business con chatbot de citas automáticas. Differenciador fuerte para clínicas con alta demanda de agendamiento.</td>
-          <td><span class="priority mid">MED</span></td>
-        </tr>
-        <tr>
-          <td><strong> PR / Comunicados</strong></td>
-          <td>Colocar nota en medios CR sobre crecimiento del turismo médico y el rol del marketing digital. Tocar a PROMÉD (Cámara Costarricense de Salud).</td>
-          <td><span class="priority low">LOW</span></td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
-
-  <!-- ══ OUTREACH SCRIPTS ══ -->
-  <section>
-    <div class="section-title">📬 Scripts de Contacto — Email y LinkedIn</div>
-
-    <div class="script-label">📧 Script Email — Hospital/Clínica Grande (prioridad alta)</div>
-    <div class="script-box">Asunto: Aumentar citas y reducir espacios vacíos — Auditoría gratuita para [Nombre Clínica]
-
-Hola [Nombre],
-
-Mi nombre es [Tu nombre] de Aurea, agencia de publicidad con experiencia en el sector salud costarricense.
-
-En los últimos meses hemos trabajado con clínicas privadas en San José ayudándoles a reducir los espacios vacíos en su agenda mediante estrategias de marketing digital focalizadas (Meta Ads + Google Ads + contenido educativo).
-
-Trabajamos con el modelo de resultados medibles: solo cobramos por gestión + un % sobre el crecimiento en leads generados. Sin contratos largos, sin promesas vacías.
-
-¿Tendrían 20 minutos esta semana para una auditoría gratuita de su presencia digital actual?
-
-Quedo atento.
-
-Saludos,
-[Tu nombre] | Aurea</div>
-
-    <div class="script-label">💬 Script LinkedIn — Director de Marketing / Gerente Comercial</div>
-    <div class="script-box">Hola [Nombre],
-
-Vi que [Nombre Clínica] está posicionada como referente en [especialidad]. Felicitaciones.
-
-Soy [Tu nombre] de Aurea. Ayudamos a hospitales y clínicas privadas en Costa Rica a llenar sus agendas con estrategias de publicidad digital orientadas a resultados (no solo "gestión de redes").
-
-¿Estarías abierto/a a una conversación breve sobre cómo estamos ayudando a otras clínicas similares?
-
-No hay venta agresiva — solo una auditoría de 20 min para ver si hay oportunidad.
-
-¡Buen fin de semana!</div>
-  </section>
-
-  <!-- ══ CTA ══ -->
-  <section>
-    <div class="section-title">⚡ Próximos Pasos Recomendados</div>
-    <div style="background: var(--surface); border: 1px solid var(--accent); border-radius: 8px; padding: 20px; display:grid; grid-template-columns: 1fr 1fr; gap: 12px;">
-      <div>
-        <div style="color: var(--accent); font-weight: 700; font-size: 13px; margin-bottom: 6px;">1. Semana 1–2</div>
-        <div style="font-size: 12px; color: var(--muted);">Priorizar contact0 con Hospital Clínica Bíblica, CIMA y Goodness Dental via LinkedIn y email frío. Enviar mínimo 15 mensajes personalizados.</div>
-      </div>
-      <div>
-        <div style="color: var(--accent); font-weight: 700; font-size: 13px; margin-bottom: 6px;">2. Semana 3–4</div>
-        <div style="font-size: 12px; color: var(--muted);">Presentar propuesta a clínicas con mayor respuesta. Incluir auditoría gratuita de Google Business Profile y Meta Insights.</div>
-      </div>
-      <div>
-        <div style="color: var(--accent); font-weight: 700; font-size: 13px; margin-bottom: 6px;">3. Mrrqueting</div>
-        <div style="font-size: 12px; color: var(--muted);">Crear caso de estudio con datos de Clínica Vallejo (referencia pública) para demostrar ROI de inversión publicitaria en sector salud CR.</div>
-      </div>
-      <div>
-        <div style="color: var(--accent); font-weight: 700; font-size: 13px; margin-bottom: 6px;">4. KPls a seguir</div>
-        <div style="font-size: 12px; color: var(--muted);">Tasa de respuesta outreach frío, costo por lead (CPL), tasa de conversión agenda. Meta: CPL &lt; $15 en 60 días.</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══ FOOTER ══ -->
-  <footer>
-    <span>Reporte generado por AUREA Lead Intelligence · 2026-05-02 12:00 UTC</span>
-    <span>Confidencial — Solo para uso interno de Aurea Advertising</span>
-  </footer>
-
-</div>
+    <footer>
+        <div class="container">
+            <p>Aurea Advertising Agency — Lead Research Report</p>
+            <p>Generado automáticamente | 2026-05-02 20:00 CST | Confidencial</p>
+        </div>
+    </footer>
 </body>
 </html>
