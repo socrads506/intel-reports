@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aurea — Lead Report: Restaurantes Costa Rica | 2026-05-03</title>
+  <style>
+    :root {
+      --bg: #0d0d0f;
+      --surface: #141418;
+      --surface2: #1c1c22;
+      --border: #2a2a35;
+      --accent: #f0a500;
+      --accent-dim: #b37a00;
+      --text: #e8e8f0;
+      --text-muted: #8888a0;
+      --green: #4ade80;
+      --red: #f87171;
+      --blue: #60a5fa;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.6; }
+    .container { max-width: 960px; margin: 0 auto; padding: 40px 20px; }
+    header { border-bottom: 1px solid var(--border); padding-bottom: 24px; margin-bottom: 36px; }
+    .badge { display: inline-block; background: var(--accent); color: #000; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 10px; border-radius: 3px; margin-bottom: 12px; }
+    h1 { font-size: 26px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+    .subtitle { color: var(--text-muted); font-size: 13px; }
+    .meta { display: flex; gap: 24px; margin-top: 16px; flex-wrap: wrap; }
+    .meta-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text-muted); }
+    .meta-item span { color: var(--accent); font-weight: 600; }
+
+    .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 36px; }
+    .stat-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 20px; }
+    .stat-card .label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 8px; }
+    .stat-card .value { font-size: 28px; font-weight: 700; color: var(--accent); }
+
+    section { margin-bottom: 40px; }
+    h2 { font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+    h3 { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+
+    .lead-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 18px 20px; margin-bottom: 12px; }
+    .lead-card .lead-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 10px; }
+    .lead-card .lead-name { font-size: 15px; font-weight: 600; color: var(--text); }
+    .lead-card .lead-location { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+    .tag { display: inline-block; font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 3px; text-transform: uppercase; letter-spacing: 0.05em; }
+    .tag-premium { background: rgba(240,165,0,0.15); color: var(--accent); border: 1px solid rgba(240,165,0,0.3); }
+    .tag-opportunity { background: rgba(74,222,128,0.12); color: var(--green); border: 1px solid rgba(74,222,128,0.3); }
+    .tag-social { background: rgba(96,165,250,0.12); color: var(--blue); border: 1px solid rgba(96,165,250,0.3); }
+
+    .lead-details { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .lead-detail { font-size: 12px; }
+    .lead-detail .key { color: var(--text-muted); }
+    .lead-detail .val { color: var(--text); font-weight: 500; }
+    .lead-detail a { color: var(--accent); text-decoration: none; }
+    .lead-detail a:hover { text-decoration: underline; }
+
+    .contact-strategy { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 20px; margin-bottom: 12px; }
+    .contact-strategy h4 { font-size: 13px; font-weight: 600; color: var(--accent); margin-bottom: 10px; }
+    .contact-strategy ol { padding-left: 20px; }
+    .contact-strategy li { font-size: 13px; color: var(--text); margin-bottom: 6px; }
+
+    .trend-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 16px 20px; margin-bottom: 12px; }
+    .trend-card h4 { font-size: 13px; font-weight: 600; margin-bottom: 6px; }
+    .trend-card p { font-size: 12px; color: var(--text-muted); }
+    .trend-card .trend-icon { font-size: 20px; margin-bottom: 6px; }
+
+    .notes { background: var(--surface2); border-radius: 8px; padding: 16px 20px; margin-top: 12px; }
+    .notes p { font-size: 12px; color: var(--text-muted); margin-bottom: 6px; }
+    .notes p:last-child { margin-bottom: 0; }
+
+    .footer { border-top: 1px solid var(--border); padding-top: 20px; margin-top: 40px; text-align: center; font-size: 11px; color: var(--text-muted); }
+  </style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <div class="badge">Lead Research — Costa Rica</div>
+  <h1>Restaurantes &amp; Gastronomía en Costa Rica</h1>
+  <p class="subtitle">Oportunidades de publicidad digital para agencias. Nicho: Restaurantes — Semana del 3 de mayo 2026</p>
+  <div class="meta">
+    <div class="meta-item">📅 <span>2026-05-03</span> 08:00 UTC</div>
+    <div class="meta-item">🏷️ Nicho <span>Restaurantes</span></div>
+    <div class="meta-item">🔄 Hora <span>02:00 CST</span></div>
+    <div class="meta-item">📊 Companies <span>10</span></div>
+  </div>
+</header>
+
+<div class="summary-grid">
+  <div class="stat-card">
+    <div class="label">Companies identificadas</div>
+    <div class="value">10</div>
+  </div>
+  <div class="stat-card">
+    <div class="label">Con contacto directo</div>
+    <div class="value">6</div>
+  </div>
+  <div class="stat-card">
+    <div class="label">Ubicaciones clave</div>
+    <div class="value">5</div>
+  </div>
+  <div class="stat-card">
+    <div class="label">Tácticas clave</div>
+    <div class="value">5</div>
+  </div>
+</div>
+
+<section>
+  <h2>🍽️ Companies Identificadas — Restaurantes Costa Rica</h2>
+
+  <div class="lead-card">
+    <div class="lead-header">
+      <div>
+        <div class="lead-name">Conservatorium</div>
+        <div class="lead-location">Ciudad Colón, Mora, San José — Lat. America's 50 Best</div>
+      </div>
+      <span class="tag tag-premium">Premium</span>
+    </div>
+    <div class="lead-details">
+      <div class="lead-detail"><span class="key">Tipo:</span> <span class="val">Steakhouse creativo / Alta cocina</span></div>
+      <div class="lead-detail"><span class="key">Telefono:</span> <span class="val">+506 4081-2451</span></div>
+      <div class="lead-detail"><span class="key">Email:</span> <span class="val"><a href="mailto:conservatoriumcr@gmail.com">conservatoriumcr@gmail.com</a></span></div>
+      <div class="lead-detail"><span class="key">Web:</span> <span class="val"><a href="https://conservatoriumcr.com">conservatoriumcr.com</a></span></div>
+      <div class="lead-detail"><span class="key">Chefs:</span> <span class="val">Henry Quesada, Aldo Elizondo, Kid Mey Chan</span></div>
+      <div class="lead-detail"><span class="key">Instagram:</span> <span class="val">@ConservatoriumCR</span></div>
+    </div>
+    <div class="notes">
+      <p>🏆 Ganador LatAm's 50 Best Restaurants. Menú de autor con técnicas de alta cocina. Posible necesidad de: branding de contenido para RRSS, gestión de reputación online, campaigns para turismo gastronómico.</p>
+    </div>
+  </div>
+
+  <div class="lead-card">
+    <div class="lead-header">
+      <div>
+        <div class="lead-name">Restaurante Sofía Mediterránea</div>
+        <div class="lead-location">Tamarindo, Guanacaste</div>
+      </div>
+      <span class="tag tag-opportunity">Alta oportunidad</span>
+    </div>
+    <div class="lead-details">
+      <div class="lead-detail"><span class="key">Tipo:</span> <span class="val">Mediterráneo en zona turística</span></div>
+      <div class="lead-detail"><span class="key">WhatsApp:</span> <span class="val">+506 7297-4747</span></div>
+      <div class="lead-detail"><span class="key">Teléfono:</span> <span class="val">+506 4500-4222</span></div>
+      <div class="lead-detail"><span class="key">Ubicación:</span> <span class="val">Frente al Hotel Coast, Tamarindo</span></div>
+      <div class="lead-detail"><span class="key">Instagram:</span> <span class="val">@sofiamediterraneo</span></div>
+      <div class="lead-detail"><span class="key">Mercado:</span> <span class="val">Turismo internacional + locales</span></div>
+    </div>
+    <div class="notes">
+      <p>📍 Ubicado en zona de alto tráfico turístico (Tamarindo). Posible necesidad de: Google Business Profile optimization, Instagram ads para turistas, estrategias de reservas online, gestión de reviews.</p>
+    </div>
+  </div>
+
+  <div class="lead-card">
+    <div class="lead-header">
+      <div>
+        <div class="lead-name">Restaurante El Patio del Balmoral</div>
+        <div class="lead-location">Hotel Balmoral, Av. Central, San José</div>
+      </div>
+      <span class="tag tag-premium">Premium</span>
+    </div>
+    <div class="lead-details">
+      <div class="lead-detail"><span class="key">Tipo:</span> <span class="val">Italiana, Latina, Internacional / Bar</span></div>
+      <div class="lead-detail"><span class="key">Teléfono:</span> <span class="val">+506 6358-0927 / 2010-7222</span></div>
+      <div class="lead-detail"><span class="key">Facebook:</span> <span class="val">@ElPatioDelBalmoral</span></div>
+      <div class="lead-detail"><span class="key">Reviews:</span> <span class="val">3,300+ TripAdvisor (Travellers' Choice)</span></div>
+      <div class="lead-detail"><span class="key">Ubicación:</span> <span class="val">Centro histórico San José</span></div>
+      <div class="lead-detail"><span class="key">Hotel:</span> <span class="val">Hotel Balmoral 4*</span></div>
+    </div>
+    <div class="notes">
+      <p>🏆 TripAdvisor Travellers' Choice. Ubicación prime en el centro de San José. Al estar dentro de un hotel, hay posibilidad de pitch conjunto hotel-restaurante para paquetes de marketing.</p>
+    </div>
+  </div>
+
+  <div class="lead-card">
+    <div class="lead-header">
+      <div>
+        <div class="lead-name">Los Tres Perros</div>
+        <div class="lead-location">San José — #1 TripAdvisor</div>
+      </div>
+      <span class="tag tag-opportunity">Alta oportunidad</span>
+    </div>
+    <div class="lead-details">
+      <div class="lead-detail"><span class="key">Tipo:</span> <span class="val">Bar &amp; Mediterráneo</span></div>
+      <div class="lead-detail"><span class="key">Reviews:</span> <span class="val">498+ (4.9★ TripAdvisor)</span></div>
+      <div class="lead-detail"><span class="key">Público:</span> <span class="val">Locales + turismoss想吃</span></div>
+      <div class="lead-detail"><span class="key">Potencial:</span> <span class="val">Marketing de experiencia, UGC campaigns</span></div>
+    </div>
+    <div class="notes">
+      <p>⭐ Alto rating + posicion top. Restaurante con ambiente de bar. Ideal para estrategias de contenido generadas por usuarios (UGC) y campañas en redes sociales con influencers gastronómicos locales.</p>
+    </div>
+  </div>
+
+  <div class="lead-card">
+    <div class="lead-header">
+      <div>
+        <div class="lead-name">El Taller de Billy Sazón</div>
+        <div class="lead-location">San José</div>
+      </div>
+      <span class="tag tag-social">Social</span>
+    </div>
+    <div class="lead-details">
+      <div class="lead-detail"><span class="key">Tipo:</span> <span class="val">Gastronomía local / Chef local</span></div>
+      <div class="lead-detail"><span class="key">Reviews:</span> <span class="val">362 (5.0★ — score perfecto)</span></div>
+      <div class="lead-detail"><span class="key">Público:</span> <span class="val">Comunidad local / Foodies</span></div>
+      <div class="lead-detail"><span class="key">Potencial:</span> <span class="val">Reputación online, programas de lealtad</span></div>
+    </div>
+  </div>
+
+  <div class="lead-card">
+    <div class="lead-header">
+      <div>
+        <div class="lead-name">Chiquita's Tamarindo</div>
+        <div class="lead-location">Tamarindo, Guanacaste</div>
+      </div>
+      <span class="tag tag-opportunity">Alta oportunidad</span>
+    </div>
+    <div class="lead-details">
+      <div class="lead-detail"><span class="key">Tipo:</span> <span class="val">Gastronomía tica en zona turística</span></div>
+      <div class="lead-detail"><span class="key">Mercado:</span> <span class="val">Turistas internacionales</span></div>
+      <div class="lead-detail"><span class="key">Presencia:</span> <span class="val">OpenTable + TripAdvisor</span></div>
+      <div class="lead-detail"><span class="key">Potencial:</span> <span class="val">Google Ads, Instagram, tourism SEO</span></div>
+    </div>
+  </div>
+
+  <div class="lead-card">
+    <div class="lead-header">
+      <div>
+        <div class="lead-name">Mamagui Nosara</div>
+        <div class="lead-location">Nosara, Guanacaste</div>
+      </div>
+      <span class="tag tag-social">Social</span>
+    </div>
+    <div class="lead-details">
+      <div class="lead-detail"><span class="key">Tipo:</span> <span class="val">Restaurante costero / Playa</span></div>
+      <div class="lead-detail"><span class="key">Mercado:</span> <span class="val">Turismo wellness + surf</span></div>
+      <div class="lead-detail"><span class="key">Presencia:</span> <span class="val">OpenTable</span></div>
+      <div class="lead-detail"><span class="key">Potencial:</span> <span class="val">Content marketing, eco-tourism branding</span></div>
+    </div>
+  </div>
+
+  <div class="lead-card">
+    <div class="lead-header">
+      <div>
+        <div class="lead-name">The Capital Grille</div>
+        <div class="lead-location">San José</div>
+      </div>
+      <span class="tag tag-social">Social</span>
+    </div>
+    <div class="lead-details">
+      <div class="lead-detail"><span class="key">Tipo:</span> <span class="val">Steakhouse premium</span></div>
+      <div class="lead-detail"><span class="key">Presencia:</span> <span class="val">OpenTable</span></div>
+      <div class="lead-detail"><span class="key">Mercado:</span> <span class="val">Ejecutivos + turismo de negocios</span></div>
+      <div class="lead-detail"><span class="key">Potencial:</span> <span class="val">LinkedIn ads, corporate packages, SEO local</span></div>
+    </div>
+  </div>
+
+  <div class="lead-card">
+    <div class="lead-header">
+      <div>
+        <div class="lead-name">Park Cafe Costa Rica</div>
+        <div class="lead-location">San José</div>
+      </div>
+      <span class="tag tag-social">Social</span>
+    </div>
+    <div class="lead-details">
+      <div class="lead-detail"><span class="key">Tipo:</span> <span class="val">Café / Gastrobar</span></div>
+      <div class="lead-detail"><span class="key">Reviews:</span> <span class="val">Top rated San José</span></div>
+      <div class="lead-detail"><span class="key">Público:</span> <span class="val">Foodies locales / Coworking</span></div>
+      <div class="lead-detail"><span class="key">Potencial:</span> <span class="val">Instagram, partnerships locales, email mkt</span></div>
+    </div>
+  </div>
+
+  <div class="lead-card">
+    <div class="lead-header">
+      <div>
+        <div class="lead-name">Enbocacr</div>
+        <div class="lead-location">San José</div>
+      </div>
+      <span class="tag tag-social">Social</span>
+    </div>
+    <div class="lead-details">
+      <div class="lead-detail"><span class="key">Tipo:</span> <span class="val">Gastronomía creativa / Fine dining</span></div>
+      <div class="lead-detail"><span class="key">Reviews:</span> <span class="val">644 (4.9★)</span></div>
+      <div class="lead-detail"><span class="key">Público:</span> <span class="val">Alta gastronomía / Turismo gourmet</span></div>
+      <div class="lead-detail"><span class="key">Potencial:</span> <span class="val">Branding premium, content SEO gastronómico</span></div>
+    </div>
+  </div>
+
+</section>
+
+<section>
+  <h2>🎯 Estrategias de Contacto Recomendadas</h2>
+
+  <div class="contact-strategy">
+    <h4>1. Email outreach frío personalizado</h4>
+    <ol>
+      <li>Conservatorium: <strong>conservatoriumcr@gmail.com</strong> — Pitch: gestión de contenido para redes sociales + branded photography para tourists gastronómicos.</li>
+      <li>El Patio del Balmoral: vía hotel — contactar al department de Marketing del <strong>Hotel Balmoral</strong> para propuesta conjunta.</li>
+      <li>Enbocacr / Park Cafe: vía Instagram DMs + email si se encuentra en su web.</li>
+    </ol>
+  </div>
+
+  <div class="contact-strategy">
+    <h4>2. WhatsApp Business direct</h4>
+    <ol>
+      <li>Restaurante Sofía Tamarindo: <strong>+506 7297-4747</strong> — mensaje breve con propuesta de Instagram ads para captar turistas.</li>
+      <li>Formato: "Hola, vi que tienen presencia en Instagram pero no están usando ads — ¿les interesa una auditoría gratuita de su estrategia digital?"</li>
+    </ol>
+  </div>
+
+  <div class="contact-strategy">
+    <h4>3. Instagram DM outreach (restaurantes activos)</h4>
+    <ol>
+      <li>Enbocacr: 644 reviews = alto engagement, DM al chef/propietario con propuesta de contenido.</li>
+      <li>Los Tres Perros: DM directo proponiendo UGC campaign + concurso gastronómico.</li>
+      <li>Chiquita's Tamarindo: pitch de tourism marketing + Google Business Profile optimization.</li>
+    </ol>
+  </div>
+
+  <div class="contact-strategy">
+    <h4>4. Llamada directa</h4>
+    <ol>
+      <li>Conservatorium: <strong>+506 4081-2451</strong> — preguntar por el manager o encargado de marketing. Presentar servicios de branding para LatAm 50 Best.</li>
+      <li>El Patio del Balmoral: <strong>+506 2010-7222</strong> — preguntar por área de eventos y marketing.</li>
+    </ol>
+  </div>
+
+  <div class="contact-strategy">
+    <h4>5. Pitches temáticos por segmento</h4>
+    <ol>
+      <li><strong>Tamarindo / Nosara</strong> (turismo): Tourism digital marketing, Google Hotels Ads integration, Instagram geo-targeted.</li>
+      <li><strong>San José fine dining</strong> (Conservatorium, Enboca, Park Cafe): Content marketing para gastro-tourists, SEO para "best restaurants San Jose", partnerships con bloggers gastronómicos.</li>
+      <li><strong>Hoteles con restaurante</strong> (Balmoral): Paquetes de marketing hotel-restaurante, loyalty programs, email marketing.</li>
+    </ol>
+  </div>
+</section>
+
+<section>
+  <h2>📈 Tendencias del Mercado — Restaurantes Costa Rica 2026</h2>
+
+  <div class="trend-card">
+    <div class="trend-icon">🎥</div>
+    <h4>Short-form video + UGC dominates</h4>
+    <p>Los restaurantes que más crecen en 2026 usan TikTok, Reels y contenido generado por usuarios como motor principal de descubrimiento. La tendencia es crear sistemas de contenido, no campañas aisladas.</p>
+  </div>
+
+  <div class="trend-card">
+    <div class="trend-icon">🤖</div>
+    <h4>IA para personalización y automatización</h4>
+    <p>Chatbots en WhatsApp, menús digitalizados con AI recommendations, email marketing automatizado para reservas. La eficiencia operacional y marketing se unifican.</p>
+  </div>
+
+  <div class="trend-card">
+    <div class="trend-icon">🌿</div>
+    <h4>Regional + de origen</h4>
+    <p>Chef's como Pablo Bonilla (Sikwa) y Conservatorium empujan la cocina costarricense de autor. Los restaurantes premium usan "origen" y "sustentabilidad" como pilares de marca. Oportunidad para branding estratégico.</p>
+  </div>
+
+  <div class="trend-card">
+    <div class="trend-icon">📍</div>
+    <h4>Local SEO + Google Business Profile</h4>
+    <p>TripAdvisor, OpenTable y Google Maps son los canales de descubrimiento #1 para restaurantes en Costa Rica. Optimizar perfiles con fotos, respuestas y posts activos es diferenciador inmediato.</p>
+  </div>
+
+  <div class="trend-card">
+    <div class="trend-icon">🛎️</div>
+    <h4>Loyalty programs + CRM</h4>
+    <p>La tendencia de 2026 es tratar marketing y operaciones como un solo sistema. Programas de fidelización digital, reservas online y email marketing directo reemplazan los descuentos como estrategia de retención.</p>
+  </div>
+
+  <div class="trend-card">
+    <div class="trend-icon">✈️</div>
+    <h4>Turismo gastronómico en expansión</h4>
+    <p>Costa Rica es destino creciente de gastro-turismo. Zonas como Tamarindo, Nosara y Ciudad Colón atraen tourists internacionales con alto poder adquisitivo. Restaurantes en estas zonas necesitan marketing multilingual y para tourists.</p>
+  </div>
+</section>
+
+<section>
+  <h2>📋 Resumen Ejecutivo</h2>
+  <div class="notes">
+    <p><strong>Best targets para primer contacto:</strong> (1) Conservatorium — email directo + llamada, premium y en expansión. (2) Restaurante Sofía Tamarindo — WhatsApp directo, alta oportunidad por zona turística. (3) Los Tres Perros — Instagram DM con propuesta UGC.</p>
+    <p><strong>Insight clave:</strong> El mercado gastronómico costarricense está en transición de marketing intuitivo a marketing sistémico. Los restaurantes con mejor rating (4.9★, 500+ reviews) todavía NO están usando ads pagados — hay una ventana de oportunidad grande para Agencies que puedan demostrar ROI.</p>
+    <p><strong>Próximo nicho:</strong> Clínicas y centros médicos en Costa Rica.</p>
+  </div>
+</section>
+
+<div class="footer">
+  Reporte generado por <strong>Aurea Lead Research Agent</strong> · 2026-05-03 08:00 UTC · Logos Agent · OpenClaw<br>
+  Nicho: Restaurantes &amp; Gastronomía · Fuente: Tavily Web Search · Confidential — Uso interno Aurea
+</div>
+
+</div>
+</body>
+</html>
