@@ -1,334 +1,427 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aurea — Leads Restaurantes Costa Rica · 2026-05-03</title>
-    <style>
-        :root {
-            --bg: #0d0d0d;
-            --surface: #161616;
-            --surface2: #1e1e1e;
-            --border: #2a2a2a;
-            --accent: #f0a500;
-            --accent2: #e05c00;
-            --text: #e8e8e8;
-            --muted: #888;
-            --green: #4ade80;
-            --red: #f87171;
-        }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.6; }
-        .container { max-width: 960px; margin: 0 auto; padding: 32px 20px; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aurea — Leads Restaurantes Costa Rica | 03 May 2026</title>
+<style>
+  :root {
+    --bg: #0d0f14;
+    --card: #151820;
+    --card2: #1c2030;
+    --accent: #f0a500;
+    --accent2: #e07300;
+    --text: #e8eaf0;
+    --muted: #8891a8;
+    --border: #252a3a;
+    --green: #4ade80;
+    --blue: #60a5fa;
+    --red: #f87171;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Segoe UI', -apple-system, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    padding: 24px 16px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  header {
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 16px;
+    margin-bottom: 28px;
+  }
+  .badge {
+    display: inline-block;
+    background: var(--accent);
+    color: #000;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 10px;
+  }
+  h1 { font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+  .subtitle { color: var(--muted); font-size: 13px; }
+  h2 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--accent);
+    border-left: 3px solid var(--accent);
+    padding-left: 10px;
+    margin: 28px 0 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 8px;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .meta-row span { background: var(--card2); padding: 2px 8px; border-radius: 4px; }
+  .meta-row .tag-accent { background: rgba(240,165,0,0.15); color: var(--accent); }
+  .meta-row .tag-green { background: rgba(74,222,128,0.12); color: var(--green); }
 
-        header { border-bottom: 2px solid var(--accent); padding-bottom: 20px; margin-bottom: 28px; }
-        .badge { display: inline-block; background: var(--accent); color: #000; font-weight: 700; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; padding: 3px 10px; border-radius: 3px; margin-bottom: 10px; }
-        h1 { font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 6px; }
-        .subtitle { color: var(--muted); font-size: 13px; }
-        .meta { display: flex; gap: 16px; margin-top: 10px; flex-wrap: wrap; }
-        .meta span { font-size: 12px; color: var(--muted); }
-        .meta span strong { color: var(--accent); }
+  /* Lead Cards */
+  .leads-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .lead-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 20px;
+    transition: border-color 0.2s;
+  }
+  .lead-card:hover { border-color: var(--accent); }
+  .lead-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+  .lead-name { font-size: 15px; font-weight: 700; color: #fff; }
+  .lead-type {
+    font-size: 11px;
+    background: rgba(96,165,250,0.15);
+    color: var(--blue);
+    padding: 2px 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+  }
+  .lead-desc { font-size: 13px; color: var(--muted); margin-bottom: 12px; }
+  .lead-contacts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+  .contact-chip {
+    font-size: 11px;
+    background: var(--card2);
+    color: var(--text);
+    border: 1px solid var(--border);
+    padding: 3px 10px;
+    border-radius: 20px;
+  }
+  .contact-chip a { color: var(--accent); text-decoration: none; }
+  .strategy-box {
+    background: rgba(240,165,0,0.06);
+    border-left: 3px solid var(--accent);
+    padding: 10px 14px;
+    border-radius: 0 6px 6px 0;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .strategy-box strong { color: var(--accent); display: block; margin-bottom: 3px; }
 
-        .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-bottom: 32px; }
-        .summary-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 16px; }
-        .summary-card .label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
-        .summary-card .value { font-size: 20px; font-weight: 700; color: var(--accent); }
-        .summary-card .sub { font-size: 11px; color: var(--muted); margin-top: 2px; }
+  /* Trends */
+  .trends-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .trend-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px;
+  }
+  .trend-card h3 { font-size: 13px; font-weight: 600; color: var(--accent); margin-bottom: 6px; }
+  .trend-card p { font-size: 12px; color: var(--muted); }
+  .trend-stat {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--green);
+    margin-bottom: 4px;
+  }
 
-        h2 { font-size: 15px; font-weight: 700; color: #fff; margin: 28px 0 14px; padding-bottom: 8px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 8px; }
-        h2 .icon { color: var(--accent); }
+  /* Table */
+  .outreach-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+    margin-top: 4px;
+  }
+  .outreach-table th {
+    background: var(--card2);
+    color: var(--accent);
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+    border-bottom: 1px solid var(--border);
+  }
+  .outreach-table td {
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+    vertical-align: top;
+  }
+  .outreach-table tr:last-child td { border-bottom: none; }
+  .outreach-table tr:hover td { background: rgba(255,255,255,0.02); }
+  .priority { display: inline-block; padding: 1px 7px; border-radius: 3px; font-size: 10px; font-weight: 700; }
+  .priority-high { background: rgba(248,113,113,0.2); color: var(--red); }
+  .priority-med { background: rgba(240,165,0,0.2); color: var(--accent); }
 
-        .trend-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; margin-bottom: 28px; }
-        .trend-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 16px; border-left: 3px solid var(--accent); }
-        .trend-card h3 { font-size: 13px; font-weight: 600; color: var(--accent); margin-bottom: 6px; }
-        .trend-card p { font-size: 12px; color: var(--muted); }
+  /* Footer */
+  footer {
+    margin-top: 36px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    font-size: 11px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
 
-        .company-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 18px; margin-bottom: 12px; transition: border-color 0.2s; }
-        .company-card:hover { border-color: var(--accent); }
-        .company-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; flex-wrap: wrap; gap: 8px; }
-        .company-name { font-size: 15px; font-weight: 700; color: #fff; }
-        .company-type { font-size: 11px; background: var(--surface2); color: var(--muted); padding: 2px 8px; border-radius: 3px; border: 1px solid var(--border); }
-        .company-desc { font-size: 12px; color: var(--muted); margin-bottom: 10px; line-height: 1.5; }
-        .contact-row { display: flex; flex-wrap: wrap; gap: 8px; }
-        .contact-chip { font-size: 11px; background: var(--surface2); color: var(--text); padding: 3px 10px; border-radius: 20px; border: 1px solid var(--border); }
-        .contact-chip strong { color: var(--accent); font-weight: 600; }
-        .strategy { margin-top: 10px; background: var(--surface2); border-radius: 6px; padding: 10px 14px; border-left: 3px solid var(--green); }
-        .strategy-label { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: var(--green); margin-bottom: 4px; font-weight: 700; }
-        .strategy p { font-size: 12px; color: var(--muted); }
-
-        .approach-box { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 20px; margin-bottom: 28px; }
-        .approach-box h3 { font-size: 13px; color: var(--accent); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; }
-        .approach-box ul { list-style: none; padding: 0; }
-        .approach-box ul li { font-size: 12px; color: var(--muted); padding: 5px 0; border-bottom: 1px solid var(--border); display: flex; gap: 10px; }
-        .approach-box ul li:last-child { border-bottom: none; }
-        .approach-box ul li::before { content: "→"; color: var(--accent); flex-shrink: 0; }
-
-        footer { margin-top: 40px; padding-top: 16px; border-top: 1px solid var(--border); text-align: center; font-size: 11px; color: var(--muted); }
-        footer span { color: var(--accent); }
-
-        @media (max-width: 600px) {
-            .company-header { flex-direction: column; }
-            .meta { flex-direction: column; gap: 4px; }
-        }
-    </style>
+  @media (max-width: 560px) {
+    .trends-grid { grid-template-columns: 1fr; }
+    .lead-header { flex-direction: column; }
+  }
+</style>
 </head>
 <body>
-<div class="container">
 
 <header>
-    <div class="badge">Aurea Advertising · Lead Intelligence</div>
-    <h1>Leads: Restaurantes — Costa Rica</h1>
-    <div class="subtitle">Investigación de oportunidades de marketing y publicidad para agencias en el sector gastronómico costarricense</div>
-    <div class="meta">
-        <span>Fecha: <strong>2026-05-03</strong></span>
-        <span>Nicho: <strong>Restaurantes & Gastronomía</strong></span>
-        <span> Mercados: <strong>San José, Curridabat, Escazú</strong></span>
-        <span> Leads encontrados: <strong>8</strong></span>
-    </div>
+  <span class="badge">Aurea Advertising Agency</span>
+  <h1>Lead Generation Report — Restaurants & Dining</h1>
+  <p class="subtitle">Costa Rica &nbsp;|&nbsp; 3 de mayo, 2026 &nbsp;|&nbsp; Semana 1 del ciclo de rotación</p>
 </header>
 
-<div class="summary-grid">
-    <div class="summary-card">
-        <div class="label">Empresas mapeadas</div>
-        <div class="value">8</div>
-        <div class="sub">Alto potencial publicitario</div>
-    </div>
-    <div class="summary-card">
-        <div class="label">Franquicias activas</div>
-        <div class="value">+65%</div>
-        <div class="sub">Crecimiento en 10 años (USDA)</div>
-    </div>
-    <div class="summary-card">
-        <div class="label">Turistas gastronómica</div>
-        <div class="value">2.7M</div>
-        <div class="sub">Llegadas internacionales 2024</div>
-    </div>
-    <div class="summary-card">
-        <div class="label">Tendencia clave</div>
-        <div class="value">Digital</div>
-        <div class="sub">Menú digital + delivery + SEO</div>
-    </div>
+<div class="meta-row">
+  <span class="tag-accent">Nicho: Restaurantes</span>
+  <span class="tag-green">5 leads encontrados</span>
+  <span>Fuente: Tavily + investigación web</span>
+  <span>Compilado: Logos · 15:00 UTC</span>
 </div>
 
-<h2><span class="icon">⬡</span> Tendencias del Mercado 2026</h2>
-<div class="trend-grid">
-    <div class="trend-card">
-        <h3>📱 Marketing de Menú Digital</h3>
-        <p>Paquetes web para restaurantes en CR van de $700–$1,600 USD. Incluyen menú digital, reservas y pagos SINPE. Gran oportunidad para agencia.</p>
-    </div>
-    <div class="trend-card">
-        <h3>🌿 Sostenibilidad como diferenciador</h3>
-        <p>Restaurantes premium como Silvestre y Kalú priorizan ingredientes locales, orgánicos y prácticas sostenibles. Mensajes de marca enfocados en origen.</p>
-    </div>
-    <div class="trend-card">
-        <h3>🍽️ Cenas de alta gama en auge</h3>
-        <p>Alta gastronomía en Costa Rica en crecimiento: Sikwa, Silvestre, Conservatorium redefinen cocina costarricense. Experiencias tasting menu en tendencia.</p>
-    </div>
-    <div class="trend-card">
-        <h3>💬 WhatsApp Business obligatorio</h3>
-        <p> fundamental para atención turística y reservas en CR. Integración con pedidos y atención al cliente es necesidad urgente para restaurantes.</p>
-    </div>
-    <div class="trend-card">
-        <h3>🧑‍🍳 Crecimiento de franquicias</h3>
-        <p>65% crecimiento de franquicias estadounidenses en 10 años. KFC, Pizza Hut, Papa John's dominan. Oportunidad con franchisees locales.</p>
-    </div>
-    <div class="trend-card">
-        <h3>📸 Redes sociales para restaurantes</h3>
-        <p>Comunidad fuerte en redes: los restaurantes que publican contenido auténtico y consistentemente tienen 3x más engagement. TikTok e Instagram clave.</p>
-    </div>
+<h2>01 — Estadísticas del Mercado</h2>
+<div class="trends-grid">
+  <div class="trend-card">
+    <div class="trend-stat">2.7M</div>
+    <h3>Llegadas turísticas anuales (2024)</h3>
+    <p>1.5M provienen de EE.UU. Gasto turístico: $5.4B USD — el 8.2% del PIB nacional.</p>
+  </div>
+  <div class="trend-card">
+    <div class="trend-stat">+65%</div>
+    <h3>Crecimiento de franquicias estadounidenses</h3>
+    <p>Applebee's, IHOP, KFC, Pizza Hut, Papa John's lideran la expansión. ~26,500 empleos directos generados.</p>
+  </div>
+  <div class="trend-card">
+    <div class="trend-stat">$4.5M</div>
+    <h3>Inversión de BLT Global Brands</h3>
+    <p>3 nuevos restaurantes dual-brand Applebee's + IHOP en Costa Rica durante los próximos 3 años.</p>
+  </div>
+  <div class="trend-card">
+    <div class="trend-stat">↑22%</div>
+    <h3>Delivery digital (proyección 2030)</h3>
+    <p>Plataformas como Uber Eats y DiDi Food impulsan el segmento de entrega a domicilio como el de mayor crecimiento.</p>
+  </div>
 </div>
 
-<h2><span class="icon">◆</span> Empresas Descubiertas</h2>
+<h2>02 — Leads Identificados</h2>
+<div class="leads-grid">
 
-<div class="company-card">
-    <div class="company-header">
-        <span class="company-name">Café Rey S.A.</span>
-        <span class="company-type">Establecido · Cadena nacional</span>
+  <!-- Lead 1 -->
+  <div class="lead-card">
+    <div class="lead-header">
+      <div class="lead-name">Sikwa Restaurante</div>
+      <div class="lead-type">Fine Dining · Alta cocina costarricense</div>
     </div>
-    <div class="company-desc">
-        Cadena tostadora de café fundada en 1957 por Miguel Sánchez Picado y José Mora Obando. Cobertura +90% del territorio nacional. 65+ años de trayectoria con marcas propias.
+    <p class="lead-desc">
+      Restaurante de alta cocina en Los Yoses, San José. Liderado por el chef <strong>Pablo Bonilla</strong>, ganador de reconocimientos internacionales. El proyecto se enfoca en preservar ingredientes y técnicas culinarias de comunidades indígenas bribri y cabécar. Ubicado en el grupo de los 50 mejores restaurantes de Latinoamérica.
+    </p>
+    <div class="lead-contacts">
+      <span class="contact-chip">📞 +506 7093-1662 (WhatsApp)</span>
+      <span class="contact-chip">📧 info@sikwacostarica.com</span>
+      <span class="contact-chip">🌐 sikwacostarica.com</span>
+      <span class="contact-chip">📸 @pabloelcocinero</span>
     </div>
-    <div class="contact-row">
-        <span class="contact-chip"><strong>Migu</strong>l Sánchez Picado</span>
-        <span class="contact-chip"><strong>Anayancy Sánchez</strong> — Ventas online</span>
-        <span class="contact-chip">anayancy@caferey.co.cr</span>
-        <span class="contact-chip">+506 2272-0053</span>
-        <span class="contact-chip">Curridabat, SJ</span>
+    <div class="strategy-box">
+      <strong>Estrategia de contacto</strong>
+      Enfoque en storytelling e identidad cultural. Propuesta: contenido de marca para RRSS, estrategia de presencia internacional, partnerships con medios gastronómicos. LinkedIn outreach al chef con caso de estudio sobre marcas que han escalado mediante publicidad digital enfocada en exportación gastronómico.
     </div>
-    <div class="strategy">
-        <div class="strategy-label">Estrategia de contacto</div>
-        <p>Proponer branding de marca de café y campañas de contenido en redes. Su base de clientes B2B (hoteles, restaurantes) es amplia. Enfoque en storytelling de marca para exportar la experiencia Costa Rica.</p>
+  </div>
+
+  <!-- Lead 2 -->
+  <div class="lead-card">
+    <div class="lead-header">
+      <div class="lead-name">Conservatorium</div>
+      <div class="lead-type">Fine Dining · Steakhouse creativo</div>
     </div>
+    <p class="lead-desc">
+      Grill de alta gama fundado en 2020 por la terna <strong>Henry Quesada, Kid Mey Chan y Aldo Elizondo</strong> — chefs formados en Le Cordon Bleu México. Especializados en carne de res seca aged de ganado local. Ubicación en Ciudad Colón. Reconocido por 50 Best Discovery y prensa gastronómica internacional.
+    </p>
+    <div class="lead-contacts">
+      <span class="contact-chip">📍 Ciudad Colón, San José</span>
+      <span class="contact-chip">🌐 theworlds50best.com/discovery</span>
+      <span class="contact-chip">📸 Instagram: @conservatoriumcr</span>
+    </div>
+    <div class="strategy-box">
+      <strong>Estrategia de contacto</strong>
+      Outreach vía Instagram profesional y LinkedIn a los tres fundadores. Oportunidad clara: construcción de marca personal de los chefs + posicionamiento internacional. Presentar propuesta de contenido para atraer turismo gastronómico y prensa especializada.
+    </div>
+  </div>
+
+  <!-- Lead 3 -->
+  <div class="lead-card">
+    <div class="lead-header">
+      <div class="lead-name">Restaurante Silvestre</div>
+      <div class="lead-type">Fine Dining · Cocina costarricense contemporánea</div>
+    </div>
+    <p class="lead-desc">
+      Restaurante en el corazón del Barrio Amón bajo el liderazgo del chef-propietario <strong>Santiago Fernández Benedetto</strong>. Cocina contemporánea costarricense con enfoque farm-to-table, ingredientes orgánicos y pesca responsable. Espacio histórico en casona de los 1890. Uno de los restaurantes mejor valorados de San José.
+    </p>
+    <div class="lead-contacts">
+      <span class="contact-chip">📧 info@restaurantesilvestre.com</span>
+      <span class="contact-chip">📞 +506 2221-2465</span>
+      <span class="contact-chip">🌐 restaurantesilvestre.com</span>
+      <span class="contact-chip">📍 Ave. 11 Calle 3A #955, Barrio Amón</span>
+      <span class="contact-chip">📸 LinkedIn: Santiago Fernández Benedetto</span>
+    </div>
+    <div class="strategy-box">
+      <strong>Estrategia de contacto</strong>
+      Email directo a info@ con propuesta de rebranding digital y estrategia de contenido para attract tourists y corporativos. Alto valor de marca para partnerships. Enfoque en storytelling del barrio histórico Amón como diferencial.
+    </div>
+  </div>
+
+  <!-- Lead 4 -->
+  <div class="lead-card">
+    <div class="lead-header">
+      <div class="lead-name">Hotel Grano de Oro — Restaurante</div>
+      <div class="lead-type">Hotel Boutique · Fine Dining</div>
+    </div>
+    <p class="lead-desc">
+      Restaurante del icónico Hotel Grano de Oro, boutique hotel familiar en San José. Operado bajo la dirección del gerente general <strong>Marco Montoya</strong>, quien lleva en la propiedad desde 1991 y es figura conocida en la hospitalidad costarricense. Ambiente clásico con menú internacional y costarricense.
+    </p>
+    <div class="lead-contacts">
+      <span class="contact-chip">🌐 hotelgranodeoro.com</span>
+      <span class="contact-chip">📍 San José, Costa Rica</span>
+      <span class="contact-chip">📸 Facebook: Hotel Grano de Oro</span>
+    </div>
+    <div class="strategy-box">
+      <strong>Estrategia de contacto</strong>
+      Apuntar a Marco Montoya vía LinkedIn o contacto directo del hotel. Oportunidad: campaña de posicionamiento digital para atraer huéspedes de Estados Unidos y Europa. Paquete de servicios para digital presence + guest engagement.
+    </div>
+  </div>
+
+  <!-- Lead 5 -->
+  <div class="lead-card">
+    <div class="lead-header">
+      <div class="lead-name">BLT Global Brands — Applebee's + IHOP Costa Rica</div>
+      <div class="lead-type">Franquicia · Fast Casual / Full Service</div>
+    </div>
+    <p class="lead-desc">
+      Operador de franquicia <strong>BLT UK Holdings Limited</strong> con inversión de $4.5M USD para abrir 3 ubicaciones dual-brand Applebee's + IHOP en Costa Rica. Primera ubicación opened 2024 en Honduras. Costa Rica es el siguiente mercado prioritario. Operación manejada en conjunto con <strong>Dine Brands International</strong> (NYSE: DIN).
+    </p>
+    <div class="lead-contacts">
+      <span class="contact-chip">🌐 dinebrands.com</span>
+      <span class="contact-chip">📰 Investor relations: investors.dinebrands.com</span>
+      <span class="contact-chip">📰 Tico's Land: ticosland.com</span>
+    </div>
+    <div class="strategy-box">
+      <strong>Estrategia de contacto</strong>
+      Oportunidad corporativa a nivel de marca/marketing de Dine Brands para Costa Rica. En el corto plazo: marketing local para aperturas. En el mediano: gestión de redes sociales de las nuevas sucursales. Contactar vía LinkedIn a equipo de desarrollo de mercado de Dine Brands International para LATAM.
+    </div>
+  </div>
+
 </div>
 
-<div class="company-card">
-    <div class="company-header">
-        <span class="company-name">Restaurante Silvestre</span>
-        <span class="company-type">Fine Dining · Premium</span>
-    </div>
-    <div class="company-desc">
-        Cocina costarricense contemporánea en Barrio Amón. Chef y propietario: Santiago Fernández Benedetto. Le Cordon Bleu + experiencia internacional. Menú degustación 8 cursos. Ubicado en casona Art Deco de 1860.
-    </div>
-    <div class="contact-row">
-        <span class="contact-chip"><strong>Santiago Fernández Benedetto</strong> — Chef & Owner</span>
-        <span class="contact-chip">info@restaurantesilvestre.com</span>
-        <span class="contact-chip">LinkedIn: Santiago Fernández</span>
-        <span class="contact-chip">Barrio Amón, San José</span>
-    </div>
-    <div class="strategy">
-        <div class="strategy-label">Estrategia de contacto</div>
-        <p>Ofrecer estrategia de contenido para Instagram y video storytelling. Posicionamiento en medios gastronómicos internacionales. Enfoque en experiencia premium y marca país Costa Rica.</p>
-    </div>
+<h2>03 — Tabla de Contactos Prioritarios</h2>
+<table class="outreach-table">
+  <thead>
+    <tr>
+      <th>Empresa</th>
+      <th>Contacto</th>
+      <th>Channel</th>
+      <th>Prioridad</th>
+      <th>Ángulo de abordagem</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Sikwa Restaurante</strong></td>
+      <td>Pablo Bonilla</td>
+      <td>WhatsApp + LinkedIn</td>
+      <td><span class="priority priority-high">ALTA</span></td>
+      <td>Marca personal + posicionamiento internacional</td>
+    </tr>
+    <tr>
+      <td><strong>Restaurante Silvestre</strong></td>
+      <td>Santiago Fernández Benedetto</td>
+      <td>Email + LinkedIn</td>
+      <td><span class="priority priority-high">ALTA</span></td>
+      <td>Email marketing + rebranding digital</td>
+    </tr>
+    <tr>
+      <td><strong>Conservatorium</strong></td>
+      <td>Henry Quesada, Kid Mey Chan, Aldo Elizondo</td>
+      <td>Instagram + LinkedIn</td>
+      <td><span class="priority priority-high">ALTA</span></td>
+      <td>Contenido para turismo gastronómico</td>
+    </tr>
+    <tr>
+      <td><strong>Hotel Grano de Oro</strong></td>
+      <td>Marco Montoya (GM)</td>
+      <td>LinkedIn</td>
+      <td><span class="priority priority-med">MEDIA</span></td>
+      <td>Digital presence para guest acquisition</td>
+    </tr>
+    <tr>
+      <td><strong>BLT Global / Dine Brands</strong></td>
+      <td>Scott Gladstone / equipo Dine Brands</td>
+      <td>LinkedIn + Corporate</td>
+      <td><span class="priority priority-med">MEDIA</span></td>
+      <td>Marketing local de aperturas CR</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>04 — Tendencias Clave del Mercado</h2>
+<div class="trends-grid">
+  <div class="trend-card">
+    <h3>🇺🇸 Expansión de franquicias norteamericanas</h3>
+    <p>65% de crecimiento en la última década. Applebee's/IHOP, KFC, Pizza Hut, Papa John's lideran. BLT Global invierte $4.5M en Costa Rica con formato dual-brand.</p>
+  </div>
+  <div class="trend-card">
+    <h3>📱 Delivery digital en aceleración</h3>
+    <p>Se proyecta que el delivery representará 22% de los ingresos foodservice para 2030. Uber Eats y DiDi Food son los principales actores locales.</p>
+  </div>
+  <div class="trend-card">
+    <h3>🌿 Alta cocina con identidad local</h3>
+    <p>Sikwa, Silvestre, Conservatorium lideran una tendencia de cocina costarricense contemporánea. Los chefs locales son también figuras de marca personal con presencia internacional.</p>
+  </div>
+  <div class="trend-card">
+    <h3>✈️ Turismo como motor</h3>
+    <p>2.7M llegadas internacionales/año. 1.5M de EE.UU. ($5.4B USD en gasto). Los restaurantes finos son destinos turísticos en sí mismos — oportunidad de marketing para，吸引游客。</p>
+  </div>
 </div>
 
-<div class="company-card">
-    <div class="company-header">
-        <span class="company-name">Conservatorium Restaurante & Asador</span>
-        <span class="company-type">Steakhouse Premium · Tres socios</span>
-    </div>
-    <div class="company-desc">
-        Restaurante asador creativo fundado por Henry Quesada, Kid Mey Chan y Aldo Elizondo (tres chefs Le Cordon Bleu). Dry aged cattle local. Ubicado en Ciudad Colón, Mora.
-    </div>
-    <div class="contact-row">
-        <span class="contact-chip"><strong>Henry Quesada Sánchez</strong> — Co-propietario y chef</span>
-        <span class="contact-chip">+506 4081-xxxx</span>
-        <span class="contact-chip">Ciudad Colón, Mora</span>
-        <span class="contact-chip">IG: @conservatoriumcr</span>
-    </div>
-    <div class="strategy">
-        <div class="strategy-label">Estrategia de contacto</div>
-        <p>Crear identidad visual de marca premium y estrategia de contenido para atraer turistas gastronómicos. Fotografía profesional de producto y肉的 (meat) storytelling para redes.</p>
-    </div>
-</div>
-
-<div class="company-card">
-    <div class="company-header">
-        <span class="company-name">Restaurante Tin Jo</span>
-        <span class="company-type">Asiático · Fusión · 48 años</span>
-    </div>
-    <div class="company-desc">
-        Restaurante asiático-costarricense fundado en 1972 por Chi Wha (Jose) Hon y Miu Kan (Rosa) Cheng. Casa histórica en el centro cultural de San José. Cocina asiática con inspiración india, china y tailandesa.
-    </div>
-    <div class="contact-row">
-        <span class="contact-chip"><strong>María Hon Cheng</strong> — Segunda generación</span>
-        <span class="contact-chip">WhatsApp: 8886-8406</span>
-        <span class="contact-chip">+506 2221-7605</span>
-        <span class="contact-chip">Calle 11, Av. 6 y 8, San José</span>
-    </div>
-    <div class="strategy">
-        <div class="strategy-label">Estrategia de contacto</div>
-        <p>Modernizar presencia digital del restaurante más antiguo de San José. Campaña de aniversario 50 años. Enfoque en historia familiar y herencia cultural china-costarricense. WhatsApp Business para delivery.</p>
-    </div>
-</div>
-
-<div class="company-card">
-    <div class="company-header">
-        <span class="company-name">Hotel & Restaurante Grano de Oro</span>
-        <span class="company-type">Fine Dining · Hotel Boutique</span>
-    </div>
-    <div class="company-desc">
-        Restaurante del Hotel Grano de Oro (Small Distinctive Hotels). Cocina francés-tropical. Sommelier y gerente: Ciro De Angelis. GM: Marco Montoya (desde 1991). Propietarios: familia Cooke.
-    </div>
-    <div class="contact-row">
-        <span class="contact-chip"><strong>Marco Montoya</strong> — Gerente General</span>
-        <span class="contact-chip"><strong>Ciro De Angelis</strong> — GM Restaurante & Co-owner</span>
-        <span class="contact-chip">San José</span>
-        <span class="contact-chip">FB: Hotel Grano de Oro</span>
-    </div>
-    <div class="strategy">
-        <div class="strategy-label">Estrategia de contacto</div>
-        <p>Propuesta de contenido visual para redes sociales del hotel y restaurante. Posicionamiento en guías gastronómicas internacionales. Fotografía de producto y ambiental de alto nivel.</p>
-    </div>
-</div>
-
-<div class="company-card">
-    <div class="company-header">
-        <span class="company-name">Restaurante Kalú</span>
-        <span class="company-type">Gastronomía · Café gourmet</span>
-    </div>
-    <div class="company-desc">
-        Restaurante y Café gourmet en Barrio Escalante fundado en 2007. Dueña y chef: Camille Ratton (origen francés-costarricense). Incluye La Cafeoteca, cafetería gourmet especializada.
-    </div>
-    <div class="contact-row">
-        <span class="contact-chip"><strong>Camille Ratton</strong> — Chef & Dueña</span>
-        <span class="contact-chip">Calle 31, Av 5, Barrio Escalante</span>
-        <span class="contact-chip">IG: @KaluRestaurante</span>
-    </div>
-    <div class="strategy">
-        <div class="strategy-label">Estrategia de contacto</div>
-        <p>Ofrecer contenido visual de alto nivel para Instagram y colaboraciones con influencers gastronómicos locales. Enfoque en experiencia francesa-costarricense y café de especialidad.</p>
-    </div>
-</div>
-
-<div class="company-card">
-    <div class="company-header">
-        <span class="company-name">Sikwa Restaurante</span>
-        <span class="company-type">Alta Cocina Tica · Chef celebridad</span>
-    </div>
-    <div class="company-desc">
-        Alta cocina costarricense con ingredientes indígenas y jungle-to-table. Chef Pablo Bonilla. Reconocido en medios internacionales. Destaca en World's 50 Best Restaurants.
-    </div>
-    <div class="contact-row">
-        <span class="contact-chip"><strong>Chef Pablo Bonilla</strong> — Chef & Fundador</span>
-        <span class="contact-chip">San José</span>
-        <span class="contact-chip">Reconocido medios internacionales</span>
-    </div>
-    <div class="strategy">
-        <div class="strategy-label">Estrategia de contacto</div>
-        <p>Estrategia de PR gastronómico internacional y contenido para redes enfocadas en turismoculinario. Colaboración con marcas de ingredientes premium. Posicionamiento en guías World’s 50 Best.</p>
-    </div>
-</div>
-
-<div class="company-card">
-    <div class="company-header">
-        <span class="company-name">Park Café</span>
-        <span class="company-type">Gastronómico · Clásico San José</span>
-    </div>
-    <div class="company-desc">
-        Restaurante gastronómico establecido en San José, referente de la cocina local de alta calidad. Parte del circuito gastronómico josefino. Ubicación céntrica.
-    </div>
-    <div class="contact-row">
-        <span class="contact-chip">Barrio Amón / Centro, San José</span>
-        <span class="contact-chip">Instagram + redes sociales</span>
-    </div>
-    <div class="strategy">
-        <div class="strategy-label">Estrategia de contacto</div>
-        <p>Presencia digital y estrategia SEO para atraer turismo gastronómico. Contenido de marca histórica-local con fotografía profesional y reseñas en plataformas como TripAdvisor y Google Business.</p>
-    </div>
-</div>
-
-<h2><span class="icon">▶</span> Cómo Aproximarse</h2>
-<div class="approach-box">
-    <h3>Protocolo de Contacto Recomendado</h3>
-    <ul>
-        <li><strong>Email personalizado:</strong> Dirigirse al dueño o chef directamente. Mencionar un detalle específico del restaurante (menú, ubicación, awards) para demostrar que investigaste.</li>
-        <li><strong>WhatsApp Business:</strong> Muchos restaurantes CR responden más rápido por WhatsApp. Usar mensaje breve con propuesta de valor clara.</li>
-        <li><strong>LinkedIn:</strong> Ideal para chefs-propietarios con perfil profesional (Santiago Fernández Benedetto, Henry Quesada ya tienen perfiles).</li>
-        <li><strong>Instagram DM:</strong> Para restaurantes visuales como Kalú, Silvestre, Conservatorium. Enviar portafolio junto con propuesta.</li>
-        <li><strong>Primera propuesta:</strong> Auditoría gratuita de presencia digital + plan de 90 días. Sin costo inicial, solo compromiso de resultados.</li>
-        <li><strong>Siguiente paso:</strong> Seguimiento a los 7 días si no hay respuesta. Tasa de respuesta promedio en sector PYME CR: 15-20% en segundo contacto.</li>
-    </ul>
-</div>
-
-<h2><span class="icon">▲</span> Servicios con Mayor Demanda</h2>
-<div class="approach-box">
-    <h3>Servicios para Pitchar en Restaurantes CR</h3>
-    <ul>
-        <li><strong>Sitio web con menú digital + reservas online</strong> — $700–$1,600 USD (paquete promedio mercado CR)</li>
-        <li><strong>Gestión de Instagram profesional</strong> — 15-20 posts/mes + historias + reels</li>
-        <li><strong>Google Business Optimization</strong> — SEO local + reseñas + fotos</li>
-        <li><strong>WhatsApp Business setup + automation</strong> — menú digital por WhatsApp + respuestas automáticas</li>
-        <li><strong>Fotografía gastronómica profesional</strong> — 1 sesión/mes + banco de imágenes</li>
-        <li><strong>Campañas Meta Ads (Facebook/Instagram)</strong> — Promociones, eventos especiales, delivery</li>
-        <li><strong>Branding y diseño de menú</strong> — Actualización visual de marca y tipografía</li>
-    </ul>
-</div>
+<h2>05 — Próximos Pasos Recomendados</h2>
+<ol style="font-size:13px; color:var(--muted); padding-left:20px; display:flex; flex-direction:column; gap:8px; margin-top:4px;">
+  <li><strong style="color:var(--text)">Semana 1 (esta):</strong> Enviar pitch personalizado a Sikwa y Restaurante Silvestre vía email/WhatsApp con propuesta de diagnóstico de marca.</li>
+  <li><strong style="color:var(--text)">Semana 2:</strong> Outreach a Conservatorium vía Instagram DM profesional con case study de restaurantes similares que escalaron con estrategia digital.</li>
+  <li><strong style="color:var(--text)">Semana 3:</strong> Contactar a Marco Montoya en Hotel Grano de Oro vía LinkedIn con propuesta de digital guest experience.</li>
+  <li><strong style="color:var(--text)">Semana 4:</strong> Investigar punto de contacto en BLT Global/Dine Brands para oportunidad de marketing de las nuevas aperturas.</li>
+</ol>
 
 <footer>
-    Reporte generado por <span>Aurea Lead Intelligence</span> · 2026-05-03 06:00 UTC<br>
-    Nicho: Restaurantes · Fuente: Tavily Web Search · Datos públicos disponibles
+  <span>Reporte generado automáticamente por Aurea Lead Research · Logos AI</span>
+  <span>Mayo 2026 · Confidencial — Uso interno únicamente</span>
 </footer>
 
-</div>
 </body>
 </html>
