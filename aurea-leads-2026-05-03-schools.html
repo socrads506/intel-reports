@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurea — Leads Schools / Colegios Costa Rica | 03 Mayo 2026</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #0d0d0d;
+            color: #e0e0e0;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+        .container { max-width: 960px; margin: 0 auto; padding: 40px 24px; }
+        header {
+            border-bottom: 2px solid #f0a500;
+            padding-bottom: 24px;
+            margin-bottom: 40px;
+        }
+        .badge {
+            display: inline-block;
+            background: #f0a500;
+            color: #0d0d0d;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 4px 12px;
+            border-radius: 3px;
+            margin-bottom: 12px;
+        }
+        h1 { font-size: 28px; font-weight: 700; color: #ffffff; margin-bottom: 6px; }
+        .subtitle { color: #888; font-size: 14px; }
+        .meta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+        .meta-card {
+            background: #1a1a1a;
+            border: 1px solid #2a2a2a;
+            border-radius: 8px;
+            padding: 16px;
+        }
+        .meta-card .label { font-size: 11px; color: #666; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+        .meta-card .value { font-size: 18px; font-weight: 600; color: #f0a500; }
+        h2 {
+            font-size: 18px;
+            color: #f0a500;
+            border-left: 4px solid #f0a500;
+            padding-left: 14px;
+            margin: 36px 0 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .lead-card {
+            background: #161616;
+            border: 1px solid #222;
+            border-radius: 10px;
+            padding: 22px 24px;
+            margin-bottom: 16px;
+            transition: border-color 0.2s;
+        }
+        .lead-card:hover { border-color: #f0a500; }
+        .lead-name { font-size: 17px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+        .lead-location { font-size: 12px; color: #888; margin-bottom: 12px; }
+        .lead-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+        .tag {
+            background: #1f1f1f;
+            border: 1px solid #333;
+            color: #aaa;
+            font-size: 11px;
+            padding: 2px 9px;
+            border-radius: 20px;
+        }
+        .tag.hot { background: #2a1a00; border-color: #f0a500; color: #f0a500; }
+        .lead-detail { display: flex; flex-wrap: wrap; gap: 18px; font-size: 13px; }
+        .lead-detail-item { display: flex; align-items: center; gap: 6px; }
+        .lead-detail-label { color: #555; min-width: 60px; }
+        .lead-detail-value { color: #ccc; }
+        .lead-detail-value a { color: #5ba4f5; text-decoration: none; }
+        .lead-detail-value a:hover { text-decoration: underline; }
+        .lead-notes { margin-top: 10px; font-size: 13px; color: #777; font-style: italic; }
+        .strategy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+        }
+        .strategy-card {
+            background: #161616;
+            border: 1px solid #222;
+            border-radius: 10px;
+            padding: 20px;
+        }
+        .strategy-number {
+            display: inline-block;
+            background: #f0a500;
+            color: #0d0d0d;
+            font-size: 11px;
+            font-weight: 700;
+            width: 24px;
+            height: 24px;
+            text-align: center;
+            line-height: 24px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+        .strategy-title { font-size: 15px; font-weight: 600; color: #fff; margin-bottom: 6px; }
+        .strategy-desc { font-size: 13px; color: #888; }
+        .trend-card {
+            background: #161616;
+            border: 1px solid #222;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 14px;
+        }
+        .trend-title { font-size: 14px; font-weight: 600; color: #f0a500; margin-bottom: 6px; }
+        .trend-desc { font-size: 13px; color: #888; }
+        .section-note { background: #1a1a1a; border-left: 4px solid #444; padding: 14px 18px; margin: 20px 0 30px; font-size: 13px; color: #777; border-radius: 0 8px 8px 0; }
+        footer { margin-top: 60px; border-top: 1px solid #222; padding-top: 24px; text-align: center; font-size: 12px; color: #444; }
+    </style>
+</head>
+<body>
+<div class="container">
+
+<header>
+    <div class="badge">Nicho: Schools / Colegios Privados</div>
+    <h1>Leads — Colegios y Escuelas Privadas Costa Rica</h1>
+    <p class="subtitle">Investigación horaria para Aurea | 03 de Mayo 2026, 00:00 UTC</p>
+</header>
+
+<div class="meta-grid">
+    <div class="meta-card">
+        <div class="label">Empresas identificadas</div>
+        <div class="value">8</div>
+    </div>
+    <div class="meta-card">
+        <div class="label">Nicho</div>
+        <div class="value">Schools</div>
+    </div>
+    <div class="meta-card">
+        <div class="label">Ciclo</div>
+        <div class="value">Escuela → Restaurantes</div>
+    </div>
+    <div class="meta-card">
+        <div class="label">Fuentes</div>
+        <div class="value">Tavily + Web</div>
+    </div>
+</div>
+
+<h2>📋 Empresas Identificadas</h2>
+
+<!-- Lead 1 -->
+<div class="lead-card">
+    <div class="lead-name">American International School of Costa Rica (AIS)</div>
+    <div class="lead-location">📍 Ciudad Cariari, La Asunción de Belén, Heredia | Internacional K-12</div>
+    <div class="lead-tags">
+        <span class="tag hot">IB World School</span>
+        <span class="tag">Bilingüe</span>
+        <span class="tag">US Diploma</span>
+        <span class="tag">171+ estudiantes</span>
+    </div>
+    <div class="lead-detail">
+        <div class="lead-detail-item">
+            <span class="lead-detail-label">Email:</span>
+            <span class="lead-detail-value"><a href="mailto:aiscr@ais.ed.cr">aiscr@ais.ed.cr</a></span>
+        </div>
+        <div class="lead-detail-item">
+            <span class="lead-detail-label">Admisiones:</span>
+            <span class="lead-detail-value"><a href="mailto:admissions@ais.ed.cr">admissions@ais.ed.cr</a></span>
+        </div>
+        <div class="lead-detail-item">
+            <span class="lead-detail-label">Tel:</span>
+            <span class="lead-detail-value">+506 2293-2567</span>
+        </div>
+        <div class="lead-detail-item">
+            <span class="lead-detail-label">Web:</span>
+            <span class="lead-detail-value"><a href="https://ais.ed.cr" target="_blank">ais.ed.cr</a></span>
+        </div>
+    </div>
+    <div class="lead-notes">Director General: Charles Prince. Newsletter del Director activa (Abril 2026). Admisiones abiertas 2026-2027. Tienen PTO activo y Annual Family Day.</div>
+</div>
+
+<!-- Lead 2 -->
+<div class="lead-card">
+    <div class="lead-name">Lincoln School Costa Rica</div>
+    <div class="lead-location">📍 Barrio Socorro, San Miguel, Santo Domingo de Heredia | Fundado 1945</div>
+    <div class="lead-tags">
+        <span class="tag hot">IB Diploma</span>
+        <span class="tag">Non-profit</span>
+        <span class="tag">80 años</span>
+        <span class="tag">US Diploma</span>
+    </div>
+    <div class="lead-detail">
+        <div class="lead-detail-item">
+            <span class="lead-detail-label">Email:</span>
+            <span class="lead-detail-value"><a href="mailto:info@lincoln.ed.cr">info@lincoln.ed.cr</a></span>
+        </div>
+        <div class="lead-detail-item">
+            <span class="lead-detail-label">Admisiones:</span>
+            <span class="lead-detail-value">Karla Lizano (Dir. Admissions)</span>
+        </div>
+        <div class="lead-detail-item">
+            <span class="lead-detail-label">Director:</span>
+            <span class="lead-detail-value">Daniel Allen, Ed.D., NBCT</span>
+        </div>
+        <div class="lead-detail-item">
+            <span class="lead-detail-label">Web:</span>
+            <span class="lead-detail-value"><a href="https://lincoln.ed.cr" target="_blank">lincoln.ed.cr</a></span>
+        </div>
+    </div>
+    <div class="lead-notes">Requisito financiero: $6,000/estudiante + $2,000/hijo adicional. Mariela Alvarado Llach — Admissions Coordinator. Escuela no selectiva con proceso de admisiones estructurado.</div>
+</div>
+
+<!-- Lead 3 -->
+<div class="lead-card">
+    <div class="lead-name">Blue Valley School (BVS)</div>
+    <div class="lead-location">📍 Guachipelín, Escazú, San José | Parte de Inspired Education</div>
+    <div class="lead-tags">
+        <span class="tag hot">IB Diploma</span>
+        <span class="tag">Triple Diploma</span>
+        <span class="tag">NEASC Accredited</span>
+        <span class="tag">Est. 1989</span>
+    </div>
+    <div class="lead-detail">
+        <div class="lead-detail-item">
+            <span class="lead-detail-label">Email:</span>
+            <span class="lead-detail-value"><a href="mailto:info@bluevalley.ed.cr">info@bluevalley.ed.cr</a></span>
+        </div>
+        <div class="lead-detail-item">
+            <span class="lead-detail-label">Admisiones:</span>
+            <span class="lead-detail-value">Formulario web + proceso en línea</span>
+        </div>
+        <div class="lead-detail-item">
+            <span class="lead-detail-label">Head:</span>
+            <span class="lead-detail-value">Thomas Fennesy (via ZoomInfo)</span>
+        </div>
+        <div class="lead-detail-item">
+            <span class="lead-detail-label">Web:</span>
+            <span class="lead-detail-value"><a href="https://bluevalley.ed.cr" target="_blank">bluevalley.ed.cr</a></span>
+        </div>
+    </div>
+    <div class="lead-notes">Parte de Inspired Education (red global). Tres diplomas: Nacional Costarricense, US High School, IB. Sigue calendario costarricense y estadounidense. 10,312 likes en Facebook.</div>
+</div>
+
+<!-- Lead 4 -->
+<div class="lead-card">
+    <div class="lead-name">Pan-American School (PAS)</div>
+    <div class="lead-location">📍 San José, Costa Rica | Primer IB Continuum School del país</div>
+    <div class="lead-tags">
+        <span class="tag hot">IB PYP/MYP/DP</span>
+        <span class="tag">IB Continuum</span>
+        <span class="tag">Bilingüe EN/ES</span>
+        <span class="tag">Admisiones 2026-27</span>
+    </div>
+    <div class="lead-detail">
+        <div class="lead-detail-item">
+            <span class="lead-detail-label">Email:</span>
+            <span class="lead-detail-value"><a href="mailto:info@panam.ed.cr">info@panam.ed.cr</a></span>
+        </div>
+        <div class="lead-detail-item">
+            <span class="lead-detail-label">Admisiones:</span>
+            <span class="lead-detail-value">Elián Esquivel (Admissions Advisor)</span>
+        </div>
+        <div class="lead-detail-item">
+            <span class="lead-detail-label">Director:</span>
+            <span class="lead-detail-value">Alan Wrafter (General Director)</span>
+        </div>
+        <div class="lead-detail-item">
+            <span class="lead-detail-label">Web:</span>
+            <span class="lead-detail-value"><a href="https://panam.ed.cr" target="_blank">panam.ed.cr</a></span>
+        </div>
+    </div>
+    <div class="lead-notes">Instagram activo (2026-27 admissions post). Primer y único IB Continuum School en Costa Rica. Proceso de admisión digital. Comunidad incluyente y no selectiva.</div>
+</div>
+
+<!-- Lead 5 -->
+<div class="lead-card">
+    <div class="lead-name">La Paz Community School</div>
+    <div class="lead-location">📍 Carrillo y Santa Cruz, Guanacaste (Tempisque y Cabo Velas) | Non-profit IB</div>
+    <div class="lead-tags">
+        <span class="tag hot">IB Diploma</span>
+        <span class="tag">Dual Immersion</span>
+        <span class="tag">Non-profit</span>
+        <span class="tag">Guanacaste</span>
+    </div>
+    <div class="lead-detail">
+        <div class="lead-detail-item">
+            <span class="lead-detail-label">Email (Tempisque):</span>
+            <span class="lead-detail-value"><a href="mailto:colegiotempisque@lapazschool.org">colegiotempisque@lapazschool.org</a></span>
+        </div>
+        <div class="lead-detail-item">
+            <span class="lead-detail-label">Email (Cabo Velas):</span>
+            <span class="lead-detail-value"><a href="mailto:colegio@lapazschool.org">colegio@lapazschool.org</a></span>
+        </div>
+        <div class="lead-detail-item">
+            <span class="lead-detail-label">Tel/WA:</span>
+            <span class="lead-detail-value">+506 2201-8992 / 8831-0526</span>
+        </div>
+        <div class="lead-detail-item">
+            <span class="lead-detail-label">Web:</span>
+            <span class="lead-detail-value"><a href="https://lapazschool.org" target="_blank">lapazschool.org</a></span>
+        </div>
+    </div>
+    <div class="lead-notes">Escuela cooperativa non-profit. Director of Advancement & Communications disponible para contacto. Programas: PreK-12, dual language, experiential learning, CAS. Escuelas en Tempisque (Carrillo) y Cabo Velas (Santa Cruz).</div>
+</div>
+
+<!-- Lead 6 -->
+<div class="lead-card">
+    <div class="lead-name">Colegio de Ciencias y Letras</div>
+    <div class="lead-location">📍 San José, Costa Rica | Bilingüe Privado</div>
+    <div class="lead-tags">
+        <span class="tag">Bilingüe</span>
+        <span class="tag">PreK-12</span>
+        <span class="tag">Internacional</span>
+    </div>
+    <div class="lead-detail">
+        <div class="lead-detail-item">
+            <span class="lead-detail-label">Contacto:</span>
+            <span class="lead-detail-value">vía SeriousTeachers.com / directorio</span>
+        </div>
+        <div class="lead-detail-item">
+            <span class="lead-detail-label">Web:</span>
+            <span class="lead-detail-value"><a href="https://www.seriousteachers.com/GlobalLinks/4299/colegio-de-ciencias-y-letras" target="_blank">seriousteachers.com</a></span>
+        </div>
+    </div>
+    <div class="lead-notes">Énfasis en excelencia académica y desarrollo personal. Ambiente multicultural. Graduates preparados para educación superior y carreras globales.</div>
+</div>
+
+<!-- Lead 7 -->
+<div class="lead-card">
+    <div class="lead-name">Futuro Verde</div>
+    <div class="lead-location">📍 Cóbano, Montezuma, Puntarenas | Internacional bilingüe</div>
+    <div class="lead-tags">
+        <span class="tag hot">Bilingüe</span>
+        <span class="tag">Cóbano</span>
+        <span class="tag">WhatsApp disponible</span>
+        <span class="tag">Admisiones activas</span>
+    </div>
+    <div class="lead-detail">
+        <div class="lead-detail-item">
+            <span class="lead-detail-label">Director:</span>
+            <span class="lead-detail-value"><a href="mailto:director@futuro-verde.org">director@futuro-verde.org</a></span>
+        </div>
+        <div class="lead-detail-item">
+            <span class="lead-detail-label">Admisiones:</span>
+            <span class="lead-detail-value"><a href="mailto:admisiones@futuro-verde.org">admisiones@futuro-verde.org</a></span>
+        </div>
+        <div class="lead-detail-item">
+            <span class="lead-detail-label">Recepción:</span>
+            <span class="lead-detail-value"><a href="mailto:recepcion@futuro-verde.org">recepcion@futuro-verde.org</a></span>
+        </div>
+        <div class="lead-detail-item">
+            <span class="lead-detail-label">Tel:</span>
+            <span class="lead-detail-value">+506 8777 2105</span>
+        </div>
+    </div>
+    <div class="lead-notes">Ubicación en la península de Nicoya (zona tourism/high expat). 1.3 km del BNDR. Operations y Finance managers también contactables. Interesante para servicios de marketing educativo internacional.</div>
+</div>
+
+<!-- Lead 8 -->
+<div class="lead-card">
+    <div class="lead-name">Colegio Internacional de Costa Rica</div>
+    <div class="lead-location">📍 San José, Costa Rica | Internacional bilingüe</div>
+    <div class="lead-tags">
+        <span class="tag">Bilingüe</span>
+        <span class="tag">PreK-12</span>
+        <span class="tag">Internacional</span>
+    </div>
+    <div class="lead-detail">
+        <div class="lead-detail-item">
+            <span class="lead-detail-label">Web:</span>
+            <span class="lead-detail-value"><a href="https://www.seriousteachers.com/globallinks/4296/colegio-internacional-de-costa-rica" target="_blank">seriousteachers.com</a></span>
+        </div>
+    </div>
+    <div class="lead-notes">Listado en directorio SeriousTeachers. Oferta educativa bilingüe desde preschool hasta high school. Contacto a través del directorio de SeriousTeachers para email directo.</div>
+</div>
+
+<h2>🎯 Estrategias de Contacto</h2>
+<div class="strategy-grid">
+
+<div class="strategy-card">
+    <div class="strategy-number">1</div>
+    <div class="strategy-title">Email a Directors de Admisiones</div>
+    <div class="strategy-desc">Enviar propuesta de valor a responsables de admisiones. Asunto: "Estrategia de captación 2026-27 para [Nombre Colegio]". Personalizar por nombre del director/a encontrado.</div>
+</div>
+
+<div class="strategy-card">
+    <div class="strategy-number">2</div>
+    <div class="strategy-title">Outreach por WhatsApp</div>
+    <div class="strategy-desc">La Paz Community School y Futuro Verde tienen WhatsApp. Mensaje breve: "Vi que tienen admisiones abiertas para 2026-27. Tenemos una propuesta de marketing educativo para aumentar matrículas. ¿Podemos conversar 5 minutos?"</div>
+</div>
+
+<div class="strategy-card">
+    <div class="strategy-number">3</div>
+    <div class="strategy-title">Caso de Éxito en Lincoln School</div>
+    <div class="strategy-desc">Lincoln School celebra 80 años con enfoque en transformación digital. Presentar caso de cómo agencias de publicidad ayudaron a otra escuela internacional a duplicar leads de admisiones.</div>
+</div>
+
+<div class="strategy-card">
+    <div class="strategy-number">4</div>
+    <div class="strategy-title">Facebook/Instagram Ads Segmentados</div>
+    <div class="strategy-desc">Blue Valley School tiene 10,312 fans. IKZs: padres expatriados, diplomáticos, nómadas digitales con hijos en edad escolar en Costa Rica. Geotargeting: San José, Heredia, Escazú, Guanacaste.</div>
+</div>
+
+<div class="strategy-card">
+    <div class="strategy-number">5</div>
+    <div name="strategy-title">Servicio de Contenido para Director Newsletters</div>
+    <div class="strategy-desc">AIS envía newsletters mensuales del director. Ofrecer servicios de copywriting/ diseño para newsletters institucionales. Entra por admissions@ais.ed.cr citing su newsletter April-2026 como referencia.</div>
+</div>
+
+<div class="strategy-card">
+    <div class="strategy-number">6</div>
+    <div class="strategy-title">Paquete "Admisiones 2026-27"</div>
+    <div class="strategy-desc">Ofrecer: landing page de admisiones + Google Ads + email marketing + WhatsApp automation. Precio atractivo si incluyen 3+ escuelas del mismo grupo (Blue Valley/Inspired Education tiene grupo global).</div>
+</div>
+
+</div>
+
+<h2>📈 Tendencias del Mercado Educativo 2026</h2>
+
+<div class="trend-card">
+    <div class="trend-title">📉 Crisis demográfica: caída en matrículas</div>
+    <div class="trend-desc">Costa Rica enfrenta una fuerte baja en nacimientos que impacta directamente la matrícula escolar. Los colegios privados necesitan estrategias activas de captación para mantener sostenibilidad. Esto incrementa la demanda de servicios de marketing educativo.</div>
+</div>
+
+<div class="trend-card">
+    <div class="trend-title">🤖 IA Agéntica y Marketing Educativo 2026</div>
+    <div class="trend-desc">La inteligencia artificial agéntica está transformando la captación de alumnos. Herramientas de IA para personalizar comunicaciones, chatbots de admisiones, y automatización de seguimiento de prospectos son tendencia clave este año.</div>
+</div>
+
+<div class="trend-card">
+    <div class="trend-title">🌐 GEO (Generative Engine Optimization)</div>
+    <div class="trend-desc">Optimización para motores de búsqueda con IA generativa. Los colegios que aparezcan en respuestas de ChatGPT, Perplexity y Gemini tendrán ventaja competitiva. Estrategia de presencia en IA search es nueva frontera.</div>
+</div>
+
+<div class="trend-card">
+    <div class="trend-title">📱 Omnicanalidad: Email + WhatsApp + SMS</div>
+    <div class="trend-desc">El email marketing se consolida como canal principal con hipersegmentación y contenido dinámico. La combinación con WhatsApp y SMS (mensajería directa) forma la estrategia omnicanal ganadora para admisiones escolares.</div>
+</div>
+
+<div class="trend-card">
+    <div class="trend-title">🏆 Colegios privados crecen 4 años consecutivos</div>
+    <div class="trend-desc">Según El Financiero, los colegios privados de Costa Rica enlazan cuatro años consecutivos de crecimiento en matrículas. Después de perder 4.7% durante la pandemia, el sector se recuperó y busca diferenciarse. Oportunidad para servicios de branding.</div>
+</div>
+
+<div class="trend-card">
+    <div class="trend-title">🎨 Neuroestética en comunicaciones escolares</div>
+    <div class="trend-desc">Diseño de comunicaciones educativas basado en principios de neuroestética (colores, tipografía, layout) que aumentan engagement de padres. Tendencia emergente para presentaciones de admisiones y materiales institucionales.</div>
+</div>
+
+<div class="trend-card">
+    <div class="trend-title">🌎 Guanacaste: mercado educativo en expansión</div>
+    <div class="trend-desc">La zona de Guanacaste (Montezuma, Tamarindo, Cabo Velas) tiene crecimiento de población expatriada. Futuro Verde y La Paz atienden esta zona. Oportunidad para marketing dirigido a comunidad angloparlante y nómadas digitales.</div>
+</div>
+
+<div class="section-note">
+    <strong>Nota sobre timing:</strong> El curso lectivo 2026 inició en febrero. El ciclo de admisiones más activo para 2027-28 comienza en agosto-septiembre 2026. Ideal para pitch de servicios de branding y posicionamiento ahora para campañas de septiembre.
+</div>
+
+<footer>
+    <p>Reporte generado automáticamente por Logos (Aurea Advertising) | 03 Mayo 2026 00:00 UTC</p>
+    <p>Nichos rotate: Restaurants → Clinics → Ecommerce → Real Estate → Hotels → Startups → Manufacturers → Schools → (loop)</p>
+</footer>
+
+</div>
+</body>
+</html>
