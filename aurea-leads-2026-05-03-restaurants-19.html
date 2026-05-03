@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurea Leads — Restaurantes Costa Rica | Mayo 2026</title>
+    <style>
+        :root {
+            --bg-primary: #0d0d0f;
+            --bg-card: #16161a;
+            --bg-card-hover: #1c1c22;
+            --border: #2a2a35;
+            --text-primary: #e8e8ed;
+            --text-secondary: #9898a6;
+            --text-muted: #5c5c6d;
+            --accent: #f5a623;
+            --accent-dim: rgba(245, 166, 35, 0.12);
+            --accent-secondary: #4a9eff;
+            --accent-secondary-dim: rgba(74, 158, 255, 0.12);
+            --green: #3ecf8e;
+            --green-dim: rgba(62, 207, 142, 0.12);
+            --red: #f56565;
+            --red-dim: rgba(245, 101, 101, 0.12);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: 'Segoe UI', 'Inter', -apple-system, sans-serif;
+            font-size: 15px;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+        }
+
+        /* HEADER */
+        .report-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 40px;
+            padding-bottom: 28px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .brand-icon {
+            width: 44px;
+            height: 44px;
+            background: var(--accent);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            font-weight: 800;
+            color: #000;
+            letter-spacing: -1px;
+        }
+
+        .brand-text h1 {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: -0.3px;
+        }
+
+        .brand-text span {
+            font-size: 12px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .header-meta {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+
+        .badge-restaurants { background: var(--accent-dim); color: var(--accent); }
+        .badge-live { background: var(--green-dim); color: var(--green); }
+
+        .timestamp {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        /* TITLE BLOCK */
+        .title-block {
+            margin-bottom: 40px;
+        }
+
+        .title-block h2 {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--text-primary);
+            letter-spacing: -0.8px;
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+
+        .title-block p {
+            font-size: 16px;
+            color: var(--text-secondary);
+            max-width: 680px;
+        }
+
+        /* GRID */
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+
+        .grid-3 {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+
+        /* CARDS */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 24px;
+            transition: border-color 0.2s;
+        }
+
+        .card:hover { border-color: #3a3a48; }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 18px;
+        }
+
+        .card-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .card-title .icon {
+            font-size: 18px;
+        }
+
+        /* COMPANIES */
+        .company-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .company-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 14px;
+            background: var(--bg-primary);
+            border-radius: 10px;
+            border: 1px solid var(--border);
+        }
+
+        .company-item:hover { border-color: var(--accent); }
+
+        .company-rank {
+            min-width: 30px;
+            height: 30px;
+            background: var(--accent-dim);
+            color: var(--accent);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .company-info { flex: 1; }
+
+        .company-name {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 2px;
+        }
+
+        .company-desc {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-bottom: 4px;
+        }
+
+        .company-contact {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .company-contact strong {
+            color: var(--accent-secondary);
+        }
+
+        .company-tags {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            margin-top: 6px;
+        }
+
+        .tag {
+            font-size: 10px;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .tag-hot { background: var(--red-dim); color: var(--red); }
+        .tag-warm { background: var(--accent-dim); color: var(--accent); }
+        .tag-franchise { background: var(--accent-secondary-dim); color: var(--accent-secondary); }
+        .tag-local { background: var(--green-dim); color: var(--green); }
+
+        /* TRENDS */
+        .trend-item {
+            display: flex;
+            gap: 14px;
+            padding: 14px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .trend-item:last-child { border-bottom: none; }
+
+        .trend-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .trend-icon.green { background: var(--green-dim); }
+        .trend-icon.orange { background: var(--accent-dim); }
+        .trend-icon.blue { background: var(--accent-secondary-dim); }
+
+        .trend-content h4 {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 3px;
+        }
+
+        .trend-content p {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        /* STRATEGIES */
+        .strategy-item {
+            padding: 16px;
+            background: var(--bg-primary);
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            margin-bottom: 12px;
+        }
+
+        .strategy-item:last-child { margin-bottom: 0; }
+
+        .strategy-item h4 {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .strategy-item p {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        /* STATS */
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 4px;
+            letter-spacing: -1px;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        /* DECISION MAKERS */
+        .dm-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        .dm-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 18px;
+        }
+
+        .dm-card:hover { border-color: var(--accent-secondary); }
+
+        .dm-name {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 3px;
+        }
+
+        .dm-role {
+            font-size: 13px;
+            color: var(--accent-secondary);
+            margin-bottom: 4px;
+        }
+
+        .dm-company {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        /* FOOTER */
+        .report-footer {
+            margin-top: 40px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .footer-left {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .footer-right {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-badge {
+            font-size: 11px;
+            padding: 4px 10px;
+            background: var(--accent-dim);
+            color: var(--accent);
+            border-radius: 6px;
+            font-weight: 600;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .grid, .grid-3, .dm-grid { grid-template-columns: 1fr; }
+            .stat-grid { grid-template-columns: 1fr 1fr; }
+            .title-block h2 { font-size: 24px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <!-- HEADER -->
+        <div class="report-header">
+            <div class="brand">
+                <div class="brand-icon">A</div>
+                <div class="brand-text">
+                    <h1>AUREA Intelligence</h1>
+                    <span>Lead Research Report</span>
+                </div>
+            </div>
+            <div class="header-meta">
+                <span class="badge badge-live">● En vivo</span>
+                <span class="badge badge-restaurants">🍽️ Restaurantes</span>
+                <span class="timestamp">May 3, 2026 — 19:03 UTC</span>
+            </div>
+        </div>
+
+        <!-- TITLE -->
+        <div class="title-block">
+            <h2>Lead Generation: Restaurantes en Costa Rica</h2>
+            <p>Investigación horaria de oportunidades de publicidad para Aurea. Nicho del ciclo: <strong>Restaurantes</strong>. Tourist surge driving F&B growth — 2.7M arrivals in 2024.</p>
+        </div>
+
+        <!-- STATS -->
+        <div class="stat-grid">
+            <div class="stat-card">
+                <div class="stat-value">2.7M</div>
+                <div class="stat-label">Llegadas turísticas 2024</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">$5.4B</div>
+                <div class="stat-label">Gasto turístico total</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">34%</div>
+                <div class="stat-label">Franquicias USA en CR</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">Feb'26</div>
+                <div class="stat-label">Nueva ley franquicias</div>
+            </div>
+        </div>
+
+        <!-- COMPANIES + TRENDS -->
+        <div class="grid">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title"><span class="icon">🏢</span> Empresas Objetivo</div>
+                </div>
+                <div class="company-list">
+                    <div class="company-item">
+                        <div class="company-rank">1</div>
+                        <div class="company-info">
+                            <div class="company-name">Sikwa</div>
+                            <div class="company-desc">Mejor restaurante de Costa Rica — Latin America's 50 Best 2025. Cocina indígena y jungle-to-table.</div>
+                            <div class="company-contact"><strong>Chef Pablo Bonilla</strong> — owner/chef</div>
+                            <div class="company-tags">
+                                <span class="tag tag-hot">Alta prioridad</span>
+                                <span class="tag tag-local">Fine Dining</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="company-item">
+                        <div class="company-rank">2</div>
+                        <div class="company-info">
+                            <div class="company-name">KFC Costa Rica</div>
+                            <div class="company-desc">Cadena de comida rápida con presencia nacional. Buscando diferenciación digital.</div>
+                            <div class="company-contact"><strong>Isidro Perera</strong> — General Manager · 20 años en marketing</div>
+                            <div class="company-tags">
+                                <span class="tag tag-franchise">Franquicia</span>
+                                <span class="tag tag-warm">Alta prioridad</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="company-item">
+                        <div class="company-rank">3</div>
+                        <div class="company-info">
+                            <div class="company-name">Conservatorium</div>
+                            <div class="company-desc">Concepto grill premium con carne local seca. Alta inversión en experiencia.</div>
+                            <div class="company-contact">Dirección: San José · Concepto nuevo 2025</div>
+                            <div class="company-tags">
+                                <span class="tag tag-hot">Alta prioridad</span>
+                                <span class="tag tag-local">Fine Dining</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="company-item">
+                        <div class="company-rank">4</div>
+                        <div class="company-info">
+                            <div class="company-name">Hamburguesia International</div>
+                            <div class="company-desc">Franquicia de hamburguesas en expansión en Costa Rica.</div>
+                            <div class="company-contact"><strong>Adrian Vega Montero</strong> — Managing Director & Partner · 12+ años en restaurantes</div>
+                            <div class="company-tags">
+                                <span class="tag tag-franchise">Franquicia</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="company-item">
+                        <div class="company-rank">5</div>
+                        <div class="company-info">
+                            <div class="company-name">Café Britt</div>
+                            <div class="company-desc">Horeca channel. Cafeterías y restaurantes gourmet. Marca reconocida.</div>
+                            <div class="company-contact"><strong>Gabriela Muñoz Riggioni</strong> — CEO</div>
+                            <div class="company-tags">
+                                <span class="tag tag-warm">Prioridad media</span>
+                                <span class="tag tag-local">Horeca</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="company-item">
+                        <div class="company-rank">6</div>
+                        <div class="company-info">
+                            <div class="company-name">Silvestre</div>
+                            <div class="company-desc">Menú de degustación exclusivo en San José. Cocina costarricense moderna.</div>
+                            <div class="company-contact">Barrio Escalante, San José</div>
+                            <div class="company-tags">
+                                <span class="tag tag-hot">Alta prioridad</span>
+                                <span class="tag tag-local">Fine Dining</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="company-item">
+                        <div class="company-rank">7</div>
+                        <div class="company-info">
+                            <div class="company-name">Grano de Oro</div>
+                            <div class="company-desc">Fine dining clásico en hotel boutique. Alta clientela turística.</div>
+                            <div class="company-contact">Hotel Grano de Oro, San José</div>
+                            <div class="company-tags">
+                                <span class="tag tag-warm">Prioridad media</span>
+                                <span class="tag tag-local">Hotel Restaurant</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="company-item">
+                        <div class="company-rank">8</div>
+                        <div class="company-info">
+                            <div class="company-name">McDonald's Costa Rica</div>
+                            <div class="company-desc">Expansión con modelo dual-brand Applebee's/IHOP en CR.</div>
+                            <div class="company-contact"><strong>Andres Mejia</strong> — LATAM Business Unit Lead</div>
+                            <div class="company-tags">
+                                <span class="tag tag-franchise">Franquicia</span>
+                                <span class="tag tag-warm">Prioridad media</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title"><span class="icon">📊</span> Tendencias del Mercado</div>
+                </div>
+                <div class="trend-item">
+                    <div class="trend-icon green">🚀</div>
+                    <div class="trend-content">
+                        <h4>Home Delivery en auge</h4>
+                        <p>El segmento de delivery es el de mayor crecimiento en CR. Uber Eats y DiDi Food lideran. Los restaurantes que no tienen presencia digital están perdiendo mercado.</p>
+                    </div>
+                </div>
+                <div class="trend-item">
+                    <div class="trend-icon orange">🏛️</div>
+                    <div class="trend-content">
+                        <h4>Nueva Ley de Franquicias (Feb 2026)</h4>
+                        <p>Ley 23.448 aprueba marco regulatorio para franquicias. Abre puerta a más cadenas internacionales y expansión de jugadores existentes.</p>
+                    </div>
+                </div>
+                <div class="trend-item">
+                    <div class="trend-icon blue">🤖</div>
+                    <div class="trend-content">
+                        <h4>IA en restaurantes</h4>
+                        <p>Kioscos AI, voice assistants para pedidos, sensores en drive-thru. Restaurants que no adopten tecnología perderán eficiencia y competitividad.</p>
+                    </div>
+                </div>
+                <div class="trend-item">
+                    <div class="trend-icon green">🌱</div>
+                    <div class="trend-content">
+                        <h4>Indigenous & Local ingredients</h4>
+                        <p>Shift hacia cocina regional. Sikwa y Conservatorium lideran tendencia jungle-to-table y dry-aged local. Los consumidores priorizan autenticidad本地.</p>
+                    </div>
+                </div>
+                <div class="trend-item">
+                    <div class="trend-icon orange">📱</div>
+                    <div class="trend-content">
+                        <h4>Digital ordering es diferenciador</h4>
+                        <p>Plataformas digitales y redes sociales son el canal principal de adquisición. Restaurantes que no invierten en contenido visual pierden frente a competidores.</p>
+                    </div>
+                </div>
+                <div class="trend-item">
+                    <div class="trend-icon blue">✈️</div>
+                    <div class="trend-content">
+                        <h4>Turismo = motor del F&B</h4>
+                        <p>2.7M llegadas internacionales en 2024. Gastronomía es actividad preferida. Hoteles y restaurantes fine dining tienen demanda sostenida de游客.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DECISION MAKERS -->
+        <div class="card" style="margin-bottom: 24px;">
+            <div class="card-header">
+                <div class="card-title"><span class="icon">👤</span> Decision Makers Identificados</div>
+            </div>
+            <div class="dm-grid">
+                <div class="dm-card">
+                    <div class="dm-name">Isidro Perera</div>
+                    <div class="dm-role">General Manager</div>
+                    <div class="dm-company">KFC Costa Rica · +506 area</div>
+                </div>
+                <div class="dm-card">
+                    <div class="dm-name">Adrian Vega Montero</div>
+                    <div class="dm-role">Managing Director & Partner</div>
+                    <div class="dm-company">Hamburguesia International Inc.</div>
+                </div>
+                <div class="dm-card">
+                    <div class="dm-name">Gabriela Muñoz Riggioni</div>
+                    <div class="dm-role">CEO</div>
+                    <div class="dm-company">Café Britt</div>
+                </div>
+                <div class="dm-card">
+                    <div class="dm-name">Andres Mejia</div>
+                    <div class="dm-role">LATAM Business Unit Lead</div>
+                    <div class="dm-company">McDonald's Costa Rica</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONTACT STRATEGIES -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title"><span class="icon">🎯</span> Estrategias de Contacto</div>
+            </div>
+            <div class="strategy-item">
+                <h4>📱 Instagram & TikTok para Fine Dining</h4>
+                <p>Crear contenido visual premium (video 4K, reels de plating). Sikwa, Silvestre, Conservatum son candidatas ideales para campañas de branded content. Targets: turistas y foodies locales.</p>
+            </div>
+            <div class="strategy-item">
+                <h4>📍 Google Business & Maps para QSR</h4>
+                <p>KFC, McDonald's y Hamburguesia necesitan optimizar presencia local. Campañas de "near me" y reseñas en Google. Budget digital allocation para búsquedas de comida rápida.</p>
+            </div>
+            <div class="strategy-item">
+                <h4>🍕 Uber Eats / DiDi Food Ads</h4>
+                <p>Plataformas de delivery tienen programas de ads. Ofrecer gestión de campañas en Uber Eats / DiDi como servicio de agency. Retargeting de usuarios que ordenaron en competencia.</p>
+            </div>
+            <div class="strategy-item">
+                <h4>🤝 LinkedIn Outreach a Decision Makers</h4>
+                <p>Isidro Perera, Adrian Vega, Gabriela Muñoz son contactos en LinkedIn. InMail con propuesta de valor: "Cómo incrementamos tu revenue 20% con menos spend publicitario."</p>
+            </div>
+            <div class="strategy-item">
+                <h4>📧 Email sequences para Franchise Owners</h4>
+                <p>Dueños de franquicias tienen múltiples puntos de venta. Pitch: gestión centralizada de advertising, consistency de marca, reporting unificado. Usar nueva ley de franquicias como hook.</p>
+            </div>
+            <div class="strategy-item">
+                <h4>📊 Case Studies de Latam</h4>
+                <p>Preparar 2-3 case studies de restaurantes en Latam que crecieron con marketing digital. Mostrar ROI específico. Herramienta de venta más efectiva para el verticales F&B.</p>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="report-footer">
+            <div class="footer-left">
+                AUREA Advertising Agency — Lead Research · Costa Rica · Restaurants Niche · May 2026<br>
+                Generado automáticamente cada hora. Fuente: Tavily Search + datos públicos.
+            </div>
+            <div class="footer-right">
+                <span class="footer-badge">Nicho: Restaurantes</span>
+                <span class="footer-badge">Hora: 19:03 UTC</span>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
