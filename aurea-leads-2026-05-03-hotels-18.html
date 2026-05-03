@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurea Leads — Hoteles Costa Rica | 03 May 2026</title>
+    <style>
+        :root {
+            --bg: #0d0d0d;
+            --card: #161616;
+            --card-hover: #1e1e1e;
+            --border: #2a2a2a;
+            --accent: #f0a500;
+            --accent-dim: rgba(240,165,0,0.15);
+            --text-primary: #e8e8e8;
+            --text-secondary: #9a9a9a;
+            --text-muted: #666;
+            --green: #4ade80;
+            --red: #f87171;
+            --blue: #60a5fa;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: var(--bg);
+            color: var(--text-primary);
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 32px;
+        }
+        .container { max-width: 1100px; margin: 0 auto; }
+        .header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 24px;
+            margin-bottom: 32px;
+        }
+        .brand { display: flex; flex-direction: column; gap: 4px; }
+        .brand-label {
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--accent);
+            font-weight: 600;
+        }
+        .brand h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: -0.5px;
+        }
+        .brand h1 span { color: var(--accent); }
+        .meta {
+            text-align: right;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            align-items: flex-end;
+        }
+        .badge {
+            background: var(--accent-dim);
+            color: var(--accent);
+            border: 1px solid var(--accent);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        .meta-date { color: var(--text-muted); font-size: 13px; margin-top: 4px; }
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+        .stat-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+        }
+        .stat-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+        .stat-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        .stat-sub { font-size: 12px; color: var(--text-secondary); margin-top: 4px; }
+        .section { margin-bottom: 36px; }
+        .section-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .section-title::before {
+            content: '';
+            width: 3px;
+            height: 18px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+        .leads-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .leads-table thead th {
+            background: #1a1a1a;
+            color: var(--text-secondary);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 14px 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        .leads-table tbody tr {
+            border-bottom: 1px solid var(--border);
+            transition: background 0.15s;
+        }
+        .leads-table tbody tr:last-child { border-bottom: none; }
+        .leads-table tbody tr:hover { background: var(--card-hover); }
+        .leads-table td {
+            padding: 14px 16px;
+            font-size: 13px;
+            vertical-align: top;
+        }
+        .company-name {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 2px;
+        }
+        .company-location {
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+        .tag {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+        .tag-luxury { background: rgba(240,165,0,0.15); color: var(--accent); }
+        .tag-boutique { background: rgba(74,222,128,0.12); color: var(--green); }
+        .tag-upscale { background: rgba(96,165,250,0.12); color: var(--blue); }
+        .tag-eco { background: rgba(16,185,129,0.15); color: #34d399; }
+        .contact-line {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        .contact-main { color: var(--text-primary); font-size: 13px; }
+        .contact-sub { color: var(--text-muted); font-size: 11px; }
+        .priority-indicator {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .priority-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+        .priority-high { background: var(--green); box-shadow: 0 0 6px rgba(74,222,128,0.4); }
+        .priority-medium { background: var(--accent); box-shadow: 0 0 6px rgba(240,165,0,0.4); }
+        .priority-low { background: var(--text-muted); }
+        .trends-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+        .trend-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+        }
+        .trend-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+        .trend-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+        }
+        .trend-desc {
+            font-size: 12px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+        .strategy-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+        .strategy-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+        }
+        .strategy-num {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+        .strategy-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+        }
+        .strategy-desc {
+            font-size: 12px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        .insight-box {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .insight-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+        .insight-text {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        .footer {
+            border-top: 1px solid var(--border);
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-muted);
+            font-size: 12px;
+        }
+        @media (max-width: 768px) {
+            body { padding: 16px; }
+            .summary-grid { grid-template-columns: repeat(2, 1fr); }
+            .trends-grid { grid-template-columns: 1fr; }
+            .strategy-grid { grid-template-columns: 1fr; }
+            .header { flex-direction: column; gap: 12px; }
+            .meta { align-items: flex-start; text-align: left; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="brand">
+                <span class="brand-label">Aurea Advertising Agency</span>
+                <h1>Lead Research <span>Hotels & Resorts — Costa Rica</span></h1>
+            </div>
+            <div class="meta">
+                <span class="badge">Nicho: Hoteles</span>
+                <div class="meta-date">3 de mayo, 2026 — 18:00 UTC</div>
+            </div>
+        </div>
+
+        <div class="summary-grid">
+            <div class="stat-card">
+                <div class="stat-label">Compañías identificadas</div>
+                <div class="stat-value">10</div>
+                <div class="stat-sub">Hoteles & Resorts activos CR</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Inversión nueva (2026)</div>
+                <div class="stat-value">$392M</div>
+                <div class="stat-sub">17 proyectos hoteleros en curso</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Crecimiento mercado 2026-30</div>
+                <div class="stat-value">8.1%</div>
+                <div class="stat-sub">CAGR — Technavio</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Habitaciones nuevas</div>
+                <div class="stat-value">~1,500</div>
+                <div class="stat-sub">Proyección 2026-2027</div>
+            </div>
+        </div>
+
+        <div class="insight-box">
+            <div class="insight-title">🔍 Contexto clave para outreach</div>
+            <div class="insight-text">
+                Costa Rica está en plena ola de expansión hotelera de ultra-lujo. Guanacaste lidera con 6 de 17 proyectos y 719 habitaciones nuevas. Hotels como JW Marriott All Inclusive (415 habitaciones, mayo 2027) y Moxy Alajuela (173 habitaciones, abril 2027) son oportunidades inmediatas. El mercado también está vulnerado al depender heavily de viajeros estadounidenses — un ángulo para agencias que sepan diversificar mercados. Hoteles boutique en Santa Teresa y Bijagua acaban de entrar en la lista Travel + Leisure 2026, señal de que el segmento eco-lujo está caliente.
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Compañías identificadas</h2>
+            <table class="leads-table">
+                <thead>
+                    <tr>
+                        <th>Hotel / Resort</th>
+                        <th>Ubicación</th>
+                        <th>Perfil</th>
+                        <th>Contacto / Enfoque</th>
+                        <th>Prioridad</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="company-name">Hotel Manuel Antonio</div>
+                            <div class="company-location">Manuel Antonio, Quepos</div>
+                        </td>
+                        <td><span class="tag tag-upscale">Upscale</span></td>
+                        <td>
+                            <div class="contact-line">
+                                <span class="contact-main">hotelmanuelantonio@racsa.co.cr</span>
+                                <span class="contact-sub">+506 2777 1351</span>
+                            </div>
+                        </td>
+                        <td>GM / Marketing — digital y reputación online</td>
+                        <td>
+                            <div class="priority-indicator">
+                                <div class="priority-dot priority-high"></div>
+                                <span style="font-size:12px;color:var(--green)">Alta</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="company-name">Hotel Costa Verde</div>
+                            <div class="company-location">Manuel Antonio</div>
+                        </td>
+                        <td><span class="tag tag-upscale">Upscale</span></td>
+                        <td>
+                            <div class="contact-line">
+                                <span class="contact-main">info@costaverde.com</span>
+                                <span class="contact-sub">costaverde.com</span>
+                            </div>
+                        </td>
+                        <td>Propietario/Director — rebranding y campañas US</td>
+                        <td>
+                            <div class="priority-indicator">
+                                <div class="priority-dot priority-high"></div>
+                                <span style="font-size:12px;color:var(--green)">Alta</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="company-name">The Falls Boutique Resort</div>
+                            <div class="company-location">Manuel Antonio</div>
+                        </td>
+                        <td><span class="tag tag-boutique">Boutique</span></td>
+                        <td>
+                            <div class="contact-line">
+                                <span class="contact-main">info@fallsresortcr.com</span>
+                                <span class="contact-sub">+506 8767 6011</span>
+                            </div>
+                        </td>
+                        <td>GM — necesidad de marketing digital boutique</td>
+                        <td>
+                            <div class="priority-indicator">
+                                <div class="priority-dot priority-high"></div>
+                                <span style="font-size:12px;color:var(--green)">Alta</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="company-name">GAIA Hotel & Reserve</div>
+                            <div class="company-location">Manuel Antonio</div>
+                        </td>
+                        <td><span class="tag tag-luxury">Lujo</span></td>
+                        <td>
+                            <div class="contact-line">
+                                <span class="contact-main">gaiahr.com</span>
+                                <span class="contact-sub">+506 800 226 2515</span>
+                            </div>
+                        </td>
+                        <td>Directores — segmento wellness y experiencia premium</td>
+                        <td>
+                            <div class="priority-indicator">
+                                <div class="priority-dot priority-high"></div>
+                                <span style="font-size:12px;color:var(--green)">Alta</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="company-name">Hotel Fermata</div>
+                            <div class="company-location">Santa Teresa</div>
+                        </td>
+                        <td><span class="tag tag-luxury">Lujo</span></td>
+                        <td>
+                            <div class="contact-line">
+                                <span class="contact-main">T + L 2026 It List</span>
+                                <span class="contact-sub">Santa Teresa, Puntarenas</span>
+                            </div>
+                        </td>
+                        <td>Propietarios — acaban de entrar en T+L, necesitan consolidarse</td>
+                        <td>
+                            <div class="priority-indicator">
+                                <div class="priority-dot priority-high"></div>
+                                <span style="font-size:12px;color:var(--green)">Alta</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="company-name">Origins Astral Lodge</div>
+                            <div class="company-location">Bijagua de Upala</div>
+                        </td>
+                        <td><span class="tag tag-eco">Eco-Lodge</span></td>
+                        <td>
+                            <div class="contact-line">
+                                <span class="contact-main">T + L 2026 It List</span>
+                                <span class="contact-sub">Bijagua, Alajuela</span>
+                            </div>
+                        </td>
+                        <td>Selling via digital para llenar ocupación nueva</td>
+                        <td>
+                            <div class="priority-indicator">
+                                <div class="priority-dot priority-medium"></div>
+                                <span style="font-size:12px;color:var(--accent)">Media</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="company-name">Nekajui, a Ritz-Carlton Reserve</div>
+                            <div class="company-location">Peninsula Papagayo, Guanacaste</div>
+                        </td>
+                        <td><span class="tag tag-luxury">Ultra-Lujo</span></td>
+                        <td>
+                            <div class="contact-line">
+                                <span class="contact-main">Hilton / Gencom portfolio</span>
+                                <span class="contact-sub">Peninsula Papagayo</span>
+                            </div>
+                        </td>
+                        <td>Marketing regional Hilton — oportunidad branding de lujo</td>
+                        <td>
+                            <div class="priority-indicator">
+                                <div class="priority-dot priority-medium"></div>
+                                <span style="font-size:12px;color:var(--accent)">Media</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="company-name">Waldorf Astoria Costa Rica</div>
+                            <div class="company-location">Punta Cacique, Guanacaste</div>
+                        </td>
+                        <td><span class="tag tag-luxury">Ultra-Lujo</span></td>
+                        <td>
+                            <div class="contact-line">
+                                <span class="contact-main">Revolution Places / Steve Case</span>
+                                <span class="contact-sub">Esquire Best New Hotels 2026</span>
+                            </div>
+                        </td>
+                        <td>Equipo corporativo Hilton CR — campaña de posicionamiento</td>
+                        <td>
+                            <div class="priority-indicator">
+                                <div class="priority-dot priority-medium"></div>
+                                <span style="font-size:12px;color:var(--accent)">Media</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="company-name">Chayote Lodge</div>
+                            <div class="company-location">San José / Puriscal</div>
+                        </td>
+                        <td><span class="tag tag-boutique">Boutique</span></td>
+                        <td>
+                            <div class="contact-line">
+                                <span class="contact-main">Rolando Campos (Owner)</span>
+                                <span class="contact-sub">info@investingcostarica.com</span>
+                            </div>
+                        </td>
+                        <td>Owner Rolando Campos — 30 años en turismo CR, podcast activo</td>
+                        <td>
+                            <div class="priority-indicator">
+                                <div class="priority-dot priority-medium"></div>
+                                <span style="font-size:12px;color:var(--accent)">Media</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="company-name">Four Seasons Peninsula Papagayo</div>
+                            <div class="company-location">Peninsula Papagayo, Guanacaste</div>
+                        </td>
+                        <td><span class="tag tag-luxury">Ultra-Lujo</span></td>
+                        <td>
+                            <div class="contact-line">
+                                <span class="contact-main">Brent Martin (GM)</span>
+                                <span class="contact-sub">Gencom + Mohari Hospitality</span>
+                            </div>
+                        </td>
+                        <td>GM Brent Martin — 10 años Forbes Five-Star</td>
+                        <td>
+                            <div class="priority-indicator">
+                                <div class="priority-dot priority-low"></div>
+                                <span style="font-size:12px;color:var(--text-muted)">Baja</span>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Tendencias del mercado hotelero CR 2026</h2>
+            <div class="trends-grid">
+                <div class="trend-card">
+                    <div class="trend-icon" style="background: var(--accent-dim);">🚀</div>
+                    <div class="trend-title">Ola de Ultra-Lujo</div>
+                    <div class="trend-desc">
+                        Aperturas de Waldorf Astoria, Nekajui Ritz-Carlton y Four Seasons consolidan a Guanacaste como el polo ultra-lujo de América Latina. Los hoteles pequeños y medianos necesitan diferenciarse con identidad de marca fuerte.
+                    </div>
+                </div>
+                <div class="trend-card">
+                    <div class="trend-icon" style="background: rgba(74,222,128,0.12);">🌿</div>
+                    <div class="trend-title">Eco-Lujo en Ascenso</div>
+                    <div class="trend-desc">
+                        Costa Rica inventó el ecoturismo y ahora lo lleva al segmento premium. Hotel Fermata y Origins Astral representan la tendencia: lodge remoto, experiencia inmersiva en naturaleza, sin sacrificar servicio 5 estrellas.
+                    </div>
+                </div>
+                <div class="trend-card">
+                    <div class="trend-icon" style="background: rgba(96,165,250,0.12);">🇺🇸</div>
+                    <div class="trend-title">Dependencia del Mercado US</div>
+                    <div class="trend-desc">
+                        El 75%+ de crecimiento post-2020 viene de viajeros estadounidenses. STR advierte vulnerabilidad ante cualquier slowdown en USA. Oportunidad para agencias que puedan diversificar hacia Europa y Canadá.
+                    </div>
+                </div>
+                <div class="trend-card">
+                    <div class="trend-icon" style="background: rgba(239,68,68,0.12);">📱</div>
+                    <div class="trend-title">Direct Booking como Prioridad</div>
+                    <div class="trend-desc">
+                        OTAs cobran 15-25% de comisión. Hoteles boutique están invirtiendo fuerte en SEO, Google Ads y redes sociales para capturar búsquedas de marca. Untethered Media reporta 5x ROAS en campañas de booking directo.
+                    </div>
+                </div>
+                <div class="trend-card">
+                    <div class="trend-icon" style="background: rgba(168,85,247,0.12);">🤖</div>
+                    <div class="trend-title">IA y Automatización</div>
+                    <div class="trend-desc">
+                        Agencias como CLICK DIGITAL CR ofrecen implementación de IA para customer service, lead generation y automatización de marketing. El segmento hotelero está comenzando a adoptar estas herramientas.
+                    </div>
+                </div>
+                <div class="trend-card">
+                    <div class="trend-icon" style="background: rgba(16,185,129,0.12);">🏗️</div>
+                    <div class="trend-title">Expansión Guanacaste</div>
+                    <div class="trend-desc">
+                        6 de 17 nuevos proyectos hoteleros están en Guanacaste. JW Marriott All Inclusive (415 hab) y Moxy (173 hab) abren en 2027. El área necesita servicios de marketing local para captar turismo de lujo.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Estrategias de contacto recomendadas</h2>
+            <div class="strategy-grid">
+                <div class="strategy-card">
+                    <div class="strategy-num">Estrategia 01</div>
+                    <div class="strategy-title">Caso de éxito en T + L</div>
+                    <div class="strategy-desc">
+                        Enfocar pitch en los hotels que acaban de entrar en Travel + Leisure 2026 (Hotel Fermata, Origins Astral). Su cobertura mediática les da presupuesto para consolidar posicionamiento. Ofrecer gestión de campañas en redes sociales y Google Ads para capitalizar la ola de cobertura.
+                    </div>
+                </div>
+                <div class="strategy-card">
+                    <div class="strategy-num">Estrategia 02</div>
+                    <div class="strategy-title">Pain-point: dependencia de US</div>
+                    <div class="strategy-desc">
+                        Abordar hoteles (especialmente en Guanacaste) con propuesta de diversificar su mercado hacia Europa y Canadá. Campañas geográficas en Meta Ads y Google Ads focalizadas en UK, Alemania, Francia y Canadá. Datos STR muestran la vulnerabilidad — usarlo como hook.
+                    </div>
+                </div>
+                <div class="strategy-card">
+                    <div class="strategy-num">Estrategia 03</div>
+                    <div class="strategy-title">Direct Booking con ROAS demostrable</div>
+                    <div class="strategy-desc">
+                        Presentar case studies de 5x ROAS en campaigns de booking directo (benchmark de Untethered Media y Kollective Agency). Los boutique hotels responden bien a resultados concretos en vez de discursos de marca. Propuesta: mes gratis de Google Ads con garantía de leads.
+                    </div>
+                </div>
+                <div class="strategy-card">
+                    <div class="strategy-num">Estrategia 04</div>
+                    <div class="strategy-title">Podcast y contenido de autoridad</div>
+                    <div class="strategy-desc">
+                        Rolando Campos de Chayote Lodge tiene un podcast activo sobre turismo CR. Ideal para guest speaking o sponsorship de episodios. Para otros hotels, ofrecer contenido tipo " guía de-marketing hotelero CR" como lead magnet para iniciar conversación con GMs.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <span>Aurea Advertising Agency — Research Report | Logos AI Agent</span>
+            <span>3 de mayo, 2026 — 18:00 UTC</span>
+        </div>
+    </div>
+</body>
+</html>
