@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurea - Leads Restaurantes Costa Rica | Mayo 2026</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0d1117 0%, #161b22 50%, #0d1117 100%);
+            color: #c9d1d9;
+            min-height: 100vh;
+            padding: 2rem;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .header {
+            text-align: center;
+            padding: 2.5rem 2rem;
+            background: linear-gradient(180deg, rgba(63, 185, 80, 0.15) 0%, transparent 100%);
+            border-bottom: 1px solid #30363d;
+            margin-bottom: 2rem;
+            border-radius: 12px 12px 0 0;
+        }
+        .header h1 {
+            font-size: 2rem;
+            color: #f0f6fc;
+            margin-bottom: 0.5rem;
+        }
+        .header h1 span {
+            color: #3fb950;
+        }
+        .header .subtitle {
+            color: #8b949e;
+            font-size: 1rem;
+        }
+        .header .meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+        .header .meta-item {
+            background: rgba(63, 185, 80, 0.1);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(63, 185, 80, 0.3);
+        }
+        .header .meta-item strong {
+            color: #3fb950;
+        }
+        .section {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+        }
+        .section-header {
+            background: rgba(63, 185, 80, 0.08);
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid #30363d;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .section-header h2 {
+            font-size: 1.15rem;
+            color: #f0f6fc;
+        }
+        .section-header .icon {
+            font-size: 1.3rem;
+        }
+        .section-content {
+            padding: 1.5rem;
+        }
+        .leads-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1rem;
+        }
+        .lead-card {
+            background: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 1.25rem;
+            transition: border-color 0.2s;
+        }
+        .lead-card:hover {
+            border-color: #3fb950;
+        }
+        .lead-card .company-name {
+            font-size: 1.05rem;
+            color: #f0f6fc;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .lead-card .company-name span {
+            background: rgba(63, 185, 80, 0.2);
+            color: #3fb950;
+            font-size: 0.7rem;
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+        }
+        .lead-card .type {
+            font-size: 0.8rem;
+            color: #8b949e;
+            margin-bottom: 0.75rem;
+        }
+        .lead-card .detail {
+            font-size: 0.88rem;
+            color: #c9d1d9;
+            margin-bottom: 0.4rem;
+        }
+        .lead-card .detail strong {
+            color: #8b949e;
+        }
+        .lead-card .contact-strategy {
+            margin-top: 0.75rem;
+            padding-top: 0.75rem;
+            border-top: 1px solid #30363d;
+            font-size: 0.82rem;
+            color: #58a6ff;
+        }
+        .trends-list {
+            list-style: none;
+        }
+        .trends-list li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #21262d;
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+        .trends-list li:last-child {
+            border-bottom: none;
+        }
+        .trends-list .trend-icon {
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        .trends-list .trend-text {
+            color: #c9d1d9;
+        }
+        .trends-list .trend-text strong {
+            color: #f0f6fc;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        .stat-card {
+            background: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 1.25rem;
+            text-align: center;
+        }
+        .stat-card .stat-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #3fb950;
+            margin-bottom: 0.25rem;
+        }
+        .stat-card .stat-label {
+            font-size: 0.85rem;
+            color: #8b949e;
+        }
+        .contact-approach {
+            background: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+        .contact-approach h4 {
+            color: #f0f6fc;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+        .contact-approach ol {
+            padding-left: 1.5rem;
+            color: #c9d1d9;
+        }
+        .contact-approach ol li {
+            margin-bottom: 0.75rem;
+        }
+        .contact-approach ol li strong {
+            color: #3fb950;
+        }
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: #8b949e;
+            font-size: 0.85rem;
+            border-top: 1px solid #30363d;
+            margin-top: 2rem;
+        }
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        .badge-restaurant { background: rgba(121, 192, 255, 0.15); color: #79c0ff; }
+        .badge-chain { background: rgba(163, 113, 247, 0.15); color: #a371f7; }
+        .badge-franchise { background: rgba(248, 81, 73, 0.15); color: #f85149; }
+        .badge-gourmet { background: rgba(255, 158, 61, 0.15); color: #ff9e3d; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1><span>AUREA</span> Lead Research</h1>
+            <p class="subtitle">Sector: Restaurantes en Costa Rica</p>
+            <div class="meta">
+                <span class="meta-item"><strong>Fecha:</strong> Mayo 3, 2026</span>
+                <span class="meta-item"><strong>Hora:</strong> 10:00 UTC</span>
+                <span class="meta-item"><strong>Agencia:</strong> Aurea Advertising</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="icon">📊</span>
+                <h2>Mercado Costarricense de Restaurantes - Overview</h2>
+            </div>
+            <div class="section-content">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value">2.7M</div>
+                        <div class="stat-label">Llegadas turísticas 2024</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">$5.4B</div>
+                        <div class="stat-label">Gasto turístico internacional</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">+65%</div>
+                        <div class="stat-label">Crecimiento franquicias US (década)</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">26,500</div>
+                        <div class="stat-label">Empleos directos en sector</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="icon">🎯</span>
+                <h2>Empresas Identificadas - Leads Calientes</h2>
+            </div>
+            <div class="section-content">
+                <div class="leads-grid">
+
+                    <div class="lead-card">
+                        <div class="company-name">Rosti Costa Rica <span class="badge badge-chain">Cadena Nacional</span></div>
+                        <div class="type">Restaurante tipo casual dining · 40 ubicaciones</div>
+                        <div class="detail"><strong>Ubicación HQ:</strong> San José, GAM</div>
+                        <div class="detail"><strong>Expansión reciente:</strong> 2 nuevas ubicaciones en Mall San Pedro y Multicentro Desamparados</div>
+                        <div class="detail"><strong>Estrategia de contacto:</strong> LinkedIn con propuesta de branding para nuevas aperturas</div>
+                        <div class="contact-strategy">💡 Pitch: "Ayudamos a cadenas en expansión a consolidar su marca con campañas locales" </div>
+                    </div>
+
+                    <div class="lead-card">
+                        <div class="company-name">BLT Global Brands <span class="badge badge-franchise">Franquicias US</span></div>
+                        <div class="type">Operador dual-brand Applebee's + IHOP · Inversión $4.5M</div>
+                        <div class="detail"><strong>Proyecto:</strong> Apertura 3 restaurantes dual-brand en Costa Rica</div>
+                        <div class="detail"><strong>Contacto legal:</strong> Lic. Larry Hans Arroyo Vargas, Bufete de Costa Rica</div>
+                        <div class="detail"><strong>Potencial:</strong> Campañas de lanzamiento para cada nueva apertura</div>
+                        <div class="contact-strategy">💡 Pitch: "Experiencia en aperturas de franquicias US en LATAM - campañas de pre y post opening"</div>
+                    </div>
+
+                    <div class="lead-card">
+                        <div class="company-name">Dunkin' Costa Rica <span class="badge badge-franchise">Franquicias US</span></div>
+                        <div class="type">Cadena de café y donuts · 8 nuevas ubicaciones planned</div>
+                        <div class="detail"><strong>Expansión:</strong> Planes de abrir 8 restaurantes antes de fin 2025</div>
+                        <div class="detail"><strong>Áreas objetivo:</strong> Zonas metropolitanas en expansión</div>
+                        <div class="detail"><strong>Necesidad:</strong> Marketing local para nuevas ubicaciones</div>
+                        <div class="contact-strategy">💡 Pitch: "Campañas de awareness local para cada nuevo punto de venta"</div>
+                    </div>
+
+                    <div class="lead-card">
+                        <div class="company-name">Restaurante Silvestre <span class="badge badge-gourmet">Fine Dining</span></div>
+                        <div class="type">Gastronomía costarricense premium · Barrio Amón, San José</div>
+                        <div class="detail"><strong>Chef:</strong> Santiago Fernández (internacional, experiencia UAE, España, Dubái)</div>
+                        <div class="detail"><strong>Dirección:</strong> Ave. 11 Calle 3A #955, Barrio Amón</div>
+                        <div class="detail"><strong>Teléfono:</strong> +506 2221 2465</div>
+                        <div class="contact-strategy">💡 Pitch: "Content marketing gastronómico y estrategias para posicionamiento internacional"</div>
+                    </div>
+
+                    <div class="lead-card">
+                        <div class="company-name">Bia Costa Rica (Café Rey + Café Volio) <span class="badge badge-restaurant">Food & Beverage</span></div>
+                        <div class="type">Grupo alimenticio · Fusión Café Rey y Café Volio</div>
+                        <div class="detail"><strong>CEO:</strong> Oscar Felibert (Gerente General)</div>
+                        <div class="detail"><strong>Presencia:</strong> Nacional con productos de café y snacks</div>
+                        <div class="detail"><strong>LinkedIn:</strong> 500+ conexionesdirectas</div>
+                        <div class="contact-strategy">💡 Pitch: "Estrategia digital para marca de fusión y campaña de posicionamiento retail"</div>
+                    </div>
+
+                    <div class="lead-card">
+                        <div class="company-name">Sikwa Restaurant <span class="badge badge-gourmet">Fine Dining</span></div>
+                        <div class="type">Cocina indígena contemporánea · San José</div>
+                        <div class="detail"><strong>Chef:</strong> Pablo Bonilla</div>
+                        <div class="detail"><strong>Concepto:</strong> Jungle-to-table, ingredientes indígenas</div>
+                        <div class="detail"><strong>Posicionamiento:</strong> Tendencia culinaria innovadora en CR</div>
+                        <div class="contact-strategy">💡 Pitch: "Branding para experiencia gastronómica única - storytelling visual"</div>
+                    </div>
+
+                    <div class="lead-card">
+                        <div class="company-name">Conservatorium Grill <span class="badge badge-gourmet">Fine Dining</span></div>
+                        <div class="type">Concepto de carne seca artesanal · San José</div>
+                        <div class="detail"><strong>Especialidad:</strong> Dry aged cattle local, grill premium</div>
+                        <div class="detail"><strong>Mercado:</strong> Turismo y dining local premium</div>
+                        <div class="detail"><strong>Tendencia:</strong> Alta cocina con producto local</div>
+                        <div class="contact-strategy">💡 Pitch: "Campaña visual para posicionamiento en guías turísticas internacionales"</div>
+                    </div>
+
+                    <div class="lead-card">
+                        <div class="company-name">Grano de Oro <span class="badge badge-gourmet">Fine Dining</span></div>
+                        <div class="type">Restaurante fino en hotel · San José</div>
+                        <div class="detail"><strong>Concepto:</strong> Classic fine dining en entorno hotelero</div>
+                        <div class="detail"><strong>Mercado:</strong> Viajeros de negocios y turismo premium</div>
+                        <div class="detail"><strong>Potencial:</strong> Colaboración con hotel para marketing conjunto</div>
+                        <div class="contact-strategy">💡 Pitch: "Paquete de marketing digital para turismo gastronómico"</div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="icon">📈</span>
+                <h2>Tendencias del Mercado 2026</h2>
+            </div>
+            <div class="section-content">
+                <ul class="trends-list">
+                    <li>
+                        <span class="trend-icon">🌴</span>
+                        <span class="trend-text"><strong>Turismo gastronómico en auge:</strong> 2.7M llegadas internacionales generan demanda de experiencias culinarias premium. El 8.2% del PIB proviene del turismo.</span>
+                    </li>
+                    <li>
+                        <span class="trend-icon">🍔</span>
+                        <span class="trend-text"><strong>Explosión de franquicias US:</strong> 65% de crecimiento en la última década. McDonald's, KFC, Pizza Hut, IHOP, Applebee's, Dunkin' lideran la expansión.</span>
+                    </li>
+                    <li>
+                        <span class="trend-icon">📱</span>
+                        <span class="trend-text"><strong>Digitalización acelerada:</strong> Integración de pedidos digitales, delivery y formatos drive-thru son prioridades para cadenas.</span>
+                    </li>
+                    <li>
+                        <span class="trend-icon">🌿</span>
+                        <span class="trend-text"><strong>Sostenibilidad como diferencial:</strong> Restaurantes como Silvestre apostan por farm-to-table y biodiversidad como propuesta de valor.</span>
+                    </li>
+                    <li>
+                        <span class="trend-icon">🎨</span>
+                        <span class="trend-text"><strong>Cocina de autor costarricense:</strong> Chefs como Santiago Fernández y Pablo Bonilla lideran movimiento de gastronomía indigenous-inspired.</span>
+                    </li>
+                    <li>
+                        <span class="trend-icon">💰</span>
+                        <span class="trend-text"><strong>Inversión extranjera en dining:</strong> BLT Global Brands con $4.5M en dual-brand. Denny's llegó a Guatemala, evidencia expansión regional.</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="icon">📋</span>
+                <h2>Estrategia de Contacto Recomendada</h2>
+            </div>
+            <div class="section-content">
+                <div class="contact-approach">
+                    <h4>Enfoque por tipo de cliente:</h4>
+                    <ol>
+                        <li><strong>Franquicias (BLT, Dunkin', Rosti):</strong> LinkedIn outreach al management. Proponer campañas de apertura de locales con seguimiento por ubicación.</li>
+                        <li><strong>Fine Dining (Silvestre, Sikwa, Conservatorium):</strong> Email directo enfatizando contenido visual y storytelling gastronómico para medios internacionales.</li>
+                        <li><strong>Grupos Alimenticios (Bia):</strong> Presentación formal con caso de éxito en branding de fusión corporativa y estrategia retail.</li>
+                        <li><strong>Hoteles con restaurantes:</strong> Paquetes integrados de marketing digital para turismo gastronómico.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Reporte generado automáticamente por Aurea Lead Research Agent</p>
+            <p>Para acceso a la base de datos completa, contactar al administrador del sistema</p>
+        </div>
+    </div>
+</body>
+</html>
