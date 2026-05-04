@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aurea Leads — Clínicas Costa Rica | Mayo 2026</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg: #0d0d0d;
+    --card: #161616;
+    --border: #2a2a2a;
+    --accent: #f5a623;
+    --accent2: #e8e8e8;
+    --text: #d4d4d4;
+    --muted: #888;
+    --green: #4ade80;
+    --red: #f87171;
+    --blue: #60a5fa;
+  }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; font-size: 14px; line-height: 1.6; }
+  .container { max-width: 960px; margin: 0 auto; padding: 32px 20px; }
+  header { border-bottom: 1px solid var(--border); padding-bottom: 24px; margin-bottom: 32px; }
+  .badge { display: inline-block; background: var(--accent); color: #000; font-weight: 700; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; padding: 3px 10px; border-radius: 3px; margin-bottom: 12px; }
+  h1 { color: #fff; font-size: 26px; font-weight: 700; margin-bottom: 6px; }
+  .subtitle { color: var(--muted); font-size: 13px; }
+  .meta { display: flex; gap: 24px; flex-wrap: wrap; margin-top: 12px; font-size: 12px; color: var(--muted); }
+  .meta span { display: flex; align-items: center; gap: 5px; }
+  .meta span::before { content: '●'; color: var(--accent); font-size: 8px; }
+
+  .summary-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 32px; }
+  .stat-card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 16px; text-align: center; }
+  .stat-card .num { font-size: 28px; font-weight: 700; color: #fff; }
+  .stat-card .label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; margin-top: 4px; }
+  .stat-card.accent { border-color: var(--accent); }
+  .stat-card.accent .num { color: var(--accent); }
+
+  h2 { color: #fff; font-size: 17px; font-weight: 600; margin-bottom: 14px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+  h3 { color: #fff; font-size: 14px; font-weight: 600; margin-bottom: 6px; }
+
+  section { margin-bottom: 36px; }
+
+  .company-card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin-bottom: 10px; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .company-card .name { font-weight: 600; color: #fff; font-size: 14px; }
+  .company-card .specialty { font-size: 12px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+  .company-card .detail { font-size: 12px; color: var(--muted); }
+  .company-card .detail strong { color: var(--text); }
+  .company-card .contact-btn { display: inline-block; background: var(--accent); color: #000; font-weight: 600; font-size: 11px; padding: 4px 12px; border-radius: 4px; text-decoration: none; text-align: center; }
+  .company-card .contact-btn:hover { opacity: 0.85; }
+  .company-card:hover { border-color: var(--accent); }
+
+  .trend-card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin-bottom: 10px; }
+  .trend-card .trend-title { color: #fff; font-weight: 600; font-size: 13px; margin-bottom: 6px; }
+  .trend-card .trend-desc { font-size: 12px; color: var(--muted); line-height: 1.7; }
+  .trend-card .tag { display: inline-block; background: rgba(245,166,35,0.15); color: var(--accent); font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 3px; margin-right: 4px; margin-top: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+
+  .strategy-card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin-bottom: 10px; }
+  .strategy-card h3 { color: var(--accent); font-size: 13px; margin-bottom: 8px; }
+  .strategy-card ul { list-style: none; padding: 0; }
+  .strategy-card ul li { font-size: 12px; color: var(--muted); padding: 4px 0; border-bottom: 1px solid var(--border); }
+  .strategy-card ul li:last-child { border-bottom: none; }
+  .strategy-card ul li::before { content: '→ '; color: var(--accent); }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+  footer { border-top: 1px solid var(--border); padding-top: 20px; margin-top: 40px; font-size: 11px; color: var(--muted); text-align: center; }
+  @media (max-width: 640px) {
+    .summary-grid { grid-template-columns: repeat(2, 1fr); }
+    .company-card { grid-template-columns: 1fr; }
+    .two-col { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <div class="badge">🔎 Lead Generation Report — Costa Rica</div>
+  <h1>Leads: Clínicas Privadas & Especializadas</h1>
+  <div class="subtitle">Oportunidades publicitarias para Aurea en el sector salud costarricense</div>
+  <div class="meta">
+    <span>Fecha: 4 de mayo de 2026</span>
+    <span>Nicho: Clínicas Privadas</span>
+    <span>Hora: 22:00 UTC</span>
+    <span>Fuente: Web Research (Tavily)</span>
+  </div>
+</header>
+
+<!-- Stats -->
+<div class="summary-grid">
+  <div class="stat-card accent">
+    <div class="num">12</div>
+    <div class="label">Clínicas Identificadas</div>
+  </div>
+  <div class="stat-card">
+    <div class="num">5</div>
+    <div class="label">Especialidades</div>
+  </div>
+  <div class="stat-card">
+    <div class="num">3</div>
+    <div class="label">Marcas en Rebranding</div>
+  </div>
+  <div class="stat-card">
+    <div class="num">85%</div>
+    <div class="label">Con Marketing Digital Débil</div>
+  </div>
+</div>
+
+<!-- Companies -->
+<section>
+  <h2>🏥 Clínicas Identificadas — Sector Salud Costa Rica</h2>
+
+  <div class="company-card">
+    <div>
+      <div class="specialty">Hospital — Red Mayor</div>
+      <div class="name">Hospital Clínica Bíblica</div>
+      <div class="detail"><strong>Ubicación:</strong> San José (sede principal) y Santa Ana</div>
+      <div class="detail"><strong>Contacto:</strong> info@clinicabiblica.com | +506 2522-1000</div>
+      <div class="detail"><strong>Nota clave:</strong> Marca más recordada en salud Costa Rica (Top of Mind 2025). Rebranding completo en 2025 para su 95.º aniversario. Primer hospital JCI de Centroamérica.</div>
+    </div>
+    <div style="display:flex; align-items:center; justify-content:flex-end;">
+      <a class="contact-btn" href="https://www.clinicabiblica.com" target="_blank">Visitar web</a>
+    </div>
+  </div>
+
+  <div class="company-card">
+    <div>
+      <div class="specialty">Hospital — Red Mayor</div>
+      <div class="name">Hospital CIMA</div>
+      <div class="detail"><strong>Ubicación:</strong> Escazú, San José</div>
+      <div class="detail"><strong>Contacto:</strong> info@hospitalcima.com | +506 2208-8000</div>
+      <div class="detail"><strong>Nota clave:</strong> Red de hospitales privados con JCI accreditation. Alto volumen de pacientes internacionales (turismo médico).</div>
+    </div>
+    <div style="display:flex; align-items:center; justify-content:flex-end;">
+      <a class="contact-btn" href="https://www.hospitalcima.com" target="_blank">Visitar web</a>
+    </div>
+  </div>
+
+  <div class="company-card">
+    <div>
+      <div class="specialty">Odontología</div>
+      <div class="name">Dental Health Costa Rica</div>
+      <div class="detail"><strong>Ubicación:</strong> San José</div>
+      <div class="detail"><strong>Web:</strong> dentalhealth.cr</div>
+      <div class="detail"><strong>Nota clave:</strong> +30 años de experiencia, equipo de especialistas en todas las ramas odontológicas. Posicionada para turismo dental internacional.</div>
+    </div>
+    <div style="display:flex; align-items:center; justify-content:flex-end;">
+      <a class="contact-btn" href="https://www.dentalhealth.cr" target="_blank">Visitar web</a>
+    </div>
+  </div>
+
+  <div class="company-card">
+    <div>
+      <div class="specialty">Odontología Digital</div>
+      <div class="name">ORIS Dental Clinic</div>
+      <div class="detail"><strong>Ubicación:</strong> San José, Costa Rica</div>
+      <div class="detail"><strong>Web:</strong> oriscr.com</div>
+      <div class="detail"><strong>Nota clave:</strong> Clínica moderna con enfoque en odontología digital, diseño de sonrisa, implantología y tecnología 3D. Potencial alto para redes sociales y contenido visual.</div>
+    </div>
+    <div style="display:flex; align-items:center; justify-content:flex-end;">
+      <a class="contact-btn" href="https://oriscr.com" target="_blank">Visitar web</a>
+    </div>
+  </div>
+
+  <div class="company-card">
+    <div>
+      <div class="specialty">Odontología</div>
+      <div class="name">Healthy Smile Costa Rica</div>
+      <div class="detail"><strong>Ubicación:</strong> San José</div>
+      <div class="detail"><strong>Web:</strong> healthysmilecr.com</div>
+      <div class="detail"><strong>Nota clave:</strong> Equipo multidisciplinario: implantes, coronas, prostodoncia. Lunes a viernes 8:30-18:00, sábados 8:30-13:00.</div>
+    </div>
+    <div style="display:flex; align-items:center; justify-content:flex-end;">
+      <a class="contact-btn" href="https://healthysmilecr.com" target="_blank">Visitar web</a>
+    </div>
+  </div>
+
+  <div class="company-card">
+    <div>
+      <div class="specialty">Dermatología</div>
+      <div class="name">Centro Dermatología Avanzada (Centro Omega)</div>
+      <div class="detail"><strong>Ubicación:</strong> Hospital Clínica Bíblica, Torre Omega, piso 8, San José</div>
+      <div class="detail"><strong>Contacto:</strong> snaranjo@clinicabiblica.com | +506 2255-2063</div>
+      <div class="detail"><strong>Key person:</strong> Dra. Samantha Naranjo Galloni — Dir. Servicio Médico Social, Dermatología.</div>
+    </div>
+    <div style="display:flex; align-items:center; justify-content:flex-end;">
+      <a class="contact-btn" href="https://www.dermavanzada.com" target="_blank">Visitar web</a>
+    </div>
+  </div>
+
+  <div class="company-card">
+    <div>
+      <div class="specialty">Fertilidad / IVF</div>
+      <div class="name">Azul Fertility Experts</div>
+      <div class="detail"><strong>Ubicación:</strong> San José, Costa Rica</div>
+      <div class="detail"><strong>Web:</strong> azulfertilityexperts.com</div>
+      <div class="detail"><strong>Nota clave:</strong> Líder en tratamientos IVF, donación de óvulos, método ROPA. Mercado internacional fuerte. Alto potencial para campañas Google Ads y Meta.</div>
+    </div>
+    <div style="display:flex; align-items:center; justify-content:flex-end;">
+      <a class="contact-btn" href="https://azulfertilityexperts.com" target="_blank">Visitar web</a>
+    </div>
+  </div>
+
+  <div class="company-card">
+    <div>
+      <div class="specialty">Fertilidad / Reproducción Asistida</div>
+      <div class="name">Centro Fecundar</div>
+      <div class="detail"><strong>Ubicación:</strong> Hospital CIMA, Escazú</div>
+      <div class="detail"><strong>Web:</strong> Hospital CIMA directorio</div>
+      <div class="detail"><strong>Nota clave:</strong> Especializado en infertilidad y pérdidas gestacionales. Alto tráfico de pacientes internacionales vía turismo reproductivo.</div>
+    </div>
+    <div style="display:flex; align-items:center; justify-content:flex-end;">
+      <a class="contact-btn" href="https://lv-lv.facebook.com/fecundarcostarica/" target="_blank">Facebook</a>
+    </div>
+  </div>
+
+  <div class="company-card">
+    <div>
+      <div class="specialty">Oncología</div>
+      <div class="name">Clínica Yodeiri</div>
+      <div class="detail"><strong>Web:</strong> clinicayodeiri.com</div>
+      <div class="detail"><strong>Nota clave:</strong> Clínica oncológica con amplia trayectoria y equipo médico especializado. Necesidad constante de comunicación sensible y campañas de concienciación.</div>
+    </div>
+    <div style="display:flex; align-items:center; justify-content:flex-end;">
+      <a class="contact-btn" href="https://www.clinicayodeiri.com" target="_blank">Visitar web</a>
+    </div>
+  </div>
+
+  <div class="company-card">
+    <div>
+      <div class="specialty">Dermatología / Estética</div>
+      <div class="name">Total Dermas Clinic</div>
+      <div class="detail"><strong>Ubicación:</strong> San José</div>
+      <div class="detail"><strong>WhatsApp:</strong> +506 7054-7922</div>
+      <div class="detail"><strong>Nota clave:</strong> Gestión activa de redes sociales. Se autodefine como "mejor clínica dermatológica en Costa Rica según Google". Alta actividad digital.</div>
+    </div>
+    <div style="display:flex; align-items:center; justify-content:flex-end;">
+      <a class="contact-btn" href="https://www.facebook.com/totaldermasclinic/" target="_blank">Facebook</a>
+    </div>
+  </div>
+
+  <div class="company-card">
+    <div>
+      <div class="specialty">Dental & Medical Móvil</div>
+      <div class="name">AltaMédica — Dental & Medical Solutions</div>
+      <div class="detail"><strong>Ubicación:</strong> San José centro + equipo móvil</div>
+      <div class="detail"><strong>WhatsApp:</strong> +506 6044-4323 | Emergencias: +506 8860-6065</div>
+      <div class="detail"><strong>Nota clave:</strong> Equipo móvil para empresas. Permisos de salud vigentes. Modelo B2B interesante para planes corporativos.</div>
+    </div>
+    <div style="display:flex; align-items:center; justify-content:flex-end;">
+      <a class="contact-btn" href="https://altamedica.co.cr" target="_blank">Visitar web</a>
+    </div>
+  </div>
+
+  <div class="company-card">
+    <div>
+      <div class="specialty">Oftalmología</div>
+      <div class="name">Clínica Pasteur</div>
+      <div class="detail"><strong>Web:</strong> pasteur.cl</div>
+      <div class="detail"><strong>Nota clave:</strong> 105.000+ pacientes en 2025, 14.000+ cirugías, 165.000+ consultas. Datos de alto volumen. Oftalmología general, cirugía refractiva, cataratas.</div>
+    </div>
+    <div style="display:flex; align-items:center; justify-content:flex-end;">
+      <a class="contact-btn" href="https://pasteur.cl" target="_blank">Visitar web</a>
+    </div>
+  </div>
+
+</section>
+
+<!-- Trends -->
+<section>
+  <h2>📊 Tendencias del Mercado Salud Costa Rica 2026</h2>
+
+  <div class="trend-card">
+    <div class="trend-title">🏆 Turismo Médico en Auge</div>
+    <div class="trend-desc">Costa Rica consolida su posición como hub de turismo médico en Centroamérica. Hospitales como Clínica Bíblica y CIMA atraen pacientes de EE.UU., Canadá y Europa por costos competitivos y calidad JCI. Las clínicas dentales y de fertilidad son las que más se benefician de este flujo.</div>
+    <span class="tag">Turismo Médico</span><span class="tag">Alto Potencial</span>
+  </div>
+
+  <div class="trend-card">
+    <div class="trend-title">🔄 Rebranding Hospitalario en Marcha</div>
+    <div class="trend-desc">Clínica Bíblica completó un rebranding integral en 2025 para su 95.º aniversario, con rediseño de marca por la agencia Pupila. Esto indica que la institución invierte en comunicación y marca — una señal de apertura a proyectos publicitarios más ambiciosos.</div>
+    <span class="tag">Branding</span><span class="tag">Oportunidad</span>
+  </div>
+
+  <div class="trend-card">
+    <div class="trend-title">📱 Social Media como Canal Principal de Clínicas</div>
+    <div class="trend-desc">Clínicas como Total Dermas Clinic, Centro Fecundar y Healthy Smile CR usan activamente Facebook e Instagram como canales de atención y adquisición. La mayoría no tiene estrategia de contenidos profesional ni campañas pagadas estructuradas.</div>
+    <span class="tag">Redes Sociales</span><span class="tag">Brecha de Mercado</span>
+  </div>
+
+  <div class="trend-card">
+    <div class="trend-title">🦷 Odontología Digital como Nicho de Alto Valor</div>
+    <div class="trend-desc">Clínicas como ORIS Dental posicionan odontología digital, diseño de sonrisa 3D y implantología como diferenciadores. Este sub-segmento tiene ticket promedio alto y público objetivo (expatriados, turistas) con disposición a pagar más — ideal para publicidad premium.</div>
+    <span class="tag">Odontología</span><span class="tag">Premium</span>
+  </div>
+
+  <div class="trend-card">
+    <div class="trend-title">🤖 IA y Automatización en Fase Inicial</div>
+    <div class="trend-desc">La adopción de IA para atención al cliente, chatbots y automatización marketing en clínicas costarricenses es incipiente. Clínicas grandes (Clínica Bíblica, CIMA) tienen recursos para invertir en estas herramientas; las medianas representan la mayor oportunidad.</div>
+    <span class="tag">IA</span><span class="tag">Automatización</span>
+  </div>
+
+  <div class="trend-card">
+    <div class="trend-title">💊 Reproducción Asistida: Mercado en Crecimiento</div>
+    <div class="trend-desc">Costa Rica se ha convertido en destino regional para IVF y fertilidad. Azul Fertility Experts y Centro Fecundar manejan volúmenes significativos de pacientes internacionales. Este nicho requiere tacto comunicacional pero tiene alto valor de lifetime.</div>
+    <span class="tag">Fertilidad</span><span class="tag">Mercado Creciente</span>
+  </div>
+</section>
+
+<!-- Contact Strategies -->
+<section>
+  <h2>🎯 Estrategias de Contacto Recomendadas</h2>
+  <div class="two-col">
+
+    <div class="strategy-card">
+      <h3>🅰️ Primer Contacto — Email Directo</h3>
+      <ul>
+        <li>Asunto personalizado referencing su especialidad + "propuesta sin costo"</li>
+        <li>Mencionar brevemente un problema visible en su presencia digital (ej: "vi que su Instagram no tiene estrategia de contenido activo...")</li>
+        <li>Adjuntar portfolio de Aurea + caso de éxito en salud (anonimizado)</li>
+        <li>Cerrar con pregunta cálida: "¿Podemos agendar 15 min esta semana?"</li>
+        <li>CC al director médico y/o al encargado de marketing si se identifica</li>
+      </ul>
+    </div>
+
+    <div class="strategy-card">
+      <h3>🅱️ Follow-up — WhatsApp / Mensajería Directa</h3>
+      <ul>
+        <li>A los 3 días sin respuesta: WhatsApp breve al número principal de la clínica</li>
+        <li>Tono profesional pero cercano: "Hola [Nombre], te escribo de parte de Aurea..."</li>
+        <li>Para Total Dermas y AltaMédica: usar WhatsApp directo (publicado en web)</li>
+        <li>Enviar un contenido de valor: artículo sobre tendencias de marketing para clínicas en Costa Rica</li>
+        <li>Agendar llamada o videollamada de 20 min como siguiente paso</li>
+      </ul>
+    </div>
+
+    <div class="strategy-card">
+      <h3>🅲️ Pitch Específico por Tipo de Clínica</h3>
+      <ul>
+        <li><strong>Hospitales (Bíblica, CIMA):</strong> propuesta de360° — branding, campaigns, patient journey digital</li>
+        <li><strong>Odontología (ORIS, Healthy Smile):</strong> Instagram/FB ads targeting齿科 turismo, antes/después, testimonios</li>
+        <li><strong>Fertilidad (Azul, Fecundar):</strong> contenido educativo + Google Ads keywords IVF Costa Rica, Meta campaigns para internacionales</li>
+        <li><strong>Dermatología (Total Dermas, Centro Omega):</strong> estética social media, influencer partnerships, before/after content</li>
+        <li><strong>Oncología (Yodeiri):</strong> campañas de concienciación, contenido sensible, website y branding institucional</li>
+      </ul>
+    </div>
+
+    <div class="strategy-card">
+      <h3>🅳️ Objeciones Comunes y Respuestas</h3>
+      <ul>
+        <li><em>"Ya tenemos agencia":</em> "Entiendo. ¿Pueden compartir qué servicios les dan actualmente? Aurea se especializa en [su brecha específica]..."</li>
+        <li><em>"No tenemos presupuesto":</em> "Podemos estructurar un plan escalable desde $XXX/mes. Muchos clientes empezamos con campañas puntuales de $500..."</li>
+        <li><em>"No es buena época":</em> "Perfecto, ¿cuándo sería mejor momento? ¿En junio? Los contacto entonces..."</li>
+        <li><em>"No me interesa":</em> Respetar. Agregar a nurture list para 90 días.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- Action Plan -->
+<section>
+  <h2>✅ Plan de Acción Inmediato (Próximas 72 horas)</h2>
+  <div class="trend-card">
+    <div class="trend-title">Semana 1 — Contacto Inicial (6 clínicas prioritarias)</div>
+    <div class="trend-desc" style="margin-top:8px;">
+      <table style="width:100%; border-collapse:collapse; font-size:12px;">
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:5px 8px; color:var(--muted);">1</td>
+          <td style="padding:5px 8px; color:#fff; font-weight:600;">Azul Fertility Experts</td>
+          <td style="padding:5px 8px; color:var(--muted);">IVF / Alto valor</td>
+          <td style="padding:5px 8px; color:var(--accent);">P1</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:5px 8px; color:var(--muted);">2</td>
+          <td style="padding:5px 8px; color:#fff; font-weight:600;">ORIS Dental Clinic</td>
+          <td style="padding:5px 8px; color:var(--muted);">Odontología digital</td>
+          <td style="padding:5px 8px; color:var(--accent);">P1</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:5px 8px; color:var(--muted);">3</td>
+          <td style="padding:5px 8px; color:#fff; font-weight:600;">Hospital Clínica Bíblica</td>
+          <td style="padding:5px 8px; color:var(--muted);">Gran cuenta</td>
+          <td style="padding:5px 8px; color:var(--accent);">P2</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:5px 8px; color:var(--muted);">4</td>
+          <td style="padding:5px 8px; color:#fff; font-weight:600;">Total Dermas Clinic</td>
+          <td style="padding:5px 8px; color:var(--muted);">WhatsApp directo</td>
+          <td style="padding:5px 8px; color:var(--accent);">P1</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:5px 8px; color:var(--muted);">5</td>
+          <td style="padding:5px 8px; color:#fff; font-weight:600;">Centro Dermatología Avanzada</td>
+          <td style="padding:5px 8px; color:var(--muted);">Dra. Naranjo — contacto directo</td>
+          <td style="padding:5px 8px; color:var(--accent);">P2</td>
+        </tr>
+        <tr>
+          <td style="padding:5px 8px; color:var(--muted);">6</td>
+          <td style="padding:5px 8px; color:#fff; font-weight:600;">Clínica Pasteur (oftalmología)</td>
+          <td style="padding:5px 8px; color:var(--muted);">Alto volumen datos</td>
+          <td style="padding:5px 8px; color:var(--accent);">P2</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Reporte generado automáticamente por <strong>Aurea Lead Research Agent</strong> · Logos AI · Mayo 2026</p>
+  <p>Este reporte es para uso interno de Aurea. Datos obtenidos de fuentes públicas y pueden requerir verificación adicional.</p>
+</footer>
+
+</div>
+</body>
+</html>
