@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aurea — Leads Restaurantes Costa Rica | Mayo 2026</title>
+  <style>
+    :root {
+      --bg: #0d0d0d;
+      --card: #161616;
+      --border: #2a2a2a;
+      --accent: #f5a623;
+      --accent2: #e84545;
+      --text: #e8e8e8;
+      --muted: #888;
+      --green: #4ade80;
+      --blue: #60a5fa;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', sans-serif; line-height: 1.6; }
+    .container { max-width: 960px; margin: 0 auto; padding: 2rem 1.5rem; }
+    header { border-bottom: 1px solid var(--border); padding-bottom: 1.5rem; margin-bottom: 2rem; }
+    .badge { display: inline-block; background: var(--accent); color: #000; font-size: 0.7rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.75rem; }
+    h1 { font-size: 1.8rem; color: #fff; margin-bottom: 0.3rem; }
+    .subtitle { color: var(--muted); font-size: 0.9rem; }
+    .meta { display: flex; gap: 1.5rem; margin-top: 1rem; flex-wrap: wrap; }
+    .meta-item { display: flex; align-items: center; gap: 0.4rem; font-size: 0.8rem; color: var(--muted); }
+    .meta-item span { color: var(--accent); font-weight: 600; }
+
+    .section { margin-bottom: 2.5rem; }
+    .section-title { font-size: 1rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); margin-bottom: 1rem; border-left: 3px solid var(--accent); padding-left: 0.75rem; }
+
+    .lead-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin-bottom: 1rem; }
+    .lead-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem; flex-wrap: wrap; gap: 0.5rem; }
+    .lead-name { font-size: 1.1rem; font-weight: 700; color: #fff; }
+    .lead-tag { font-size: 0.7rem; padding: 2px 8px; border-radius: 4px; font-weight: 600; }
+    .tag-upscale { background: rgba(245,166,35,0.15); color: var(--accent); }
+    .tag-mid { background: rgba(74,222,128,0.15); color: var(--green); }
+    .lead-location { font-size: 0.82rem; color: var(--muted); margin-bottom: 0.5rem; }
+    .lead-contact { font-size: 0.82rem; color: var(--blue); margin-bottom: 0.5rem; }
+    .lead-desc { font-size: 0.85rem; color: #bbb; margin-bottom: 0.75rem; }
+    .lead-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .action-chip { background: rgba(96,165,250,0.1); border: 1px solid rgba(96,165,250,0.3); color: var(--blue); font-size: 0.75rem; padding: 4px 10px; border-radius: 6px; }
+
+    .trend-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+    .trend-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1.1rem; }
+    .trend-card h3 { font-size: 0.9rem; color: #fff; margin-bottom: 0.4rem; }
+    .trend-card p { font-size: 0.8rem; color: var(--muted); }
+    .trend-icon { font-size: 1.4rem; margin-bottom: 0.4rem; }
+
+    .strategy-list { list-style: none; }
+    .strategy-list li { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; margin-bottom: 0.75rem; display: flex; gap: 1rem; align-items: flex-start; }
+    .strategy-num { background: var(--accent); color: #000; font-weight: 800; font-size: 0.8rem; min-width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .strategy-text strong { display: block; color: #fff; font-size: 0.9rem; margin-bottom: 0.2rem; }
+    .strategy-text span { font-size: 0.8rem; color: var(--muted); }
+
+    .pulse-table { width: 100%; border-collapse: collapse; }
+    .pulse-table th { text-align: left; color: var(--accent); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; padding: 0.6rem 1rem; border-bottom: 1px solid var(--border); }
+    .pulse-table td { padding: 0.75rem 1rem; border-bottom: 1px solid var(--border); font-size: 0.85rem; color: #ccc; }
+    .pulse-table tr:last-child td { border-bottom: none; }
+    .pulse-table .company { color: #fff; font-weight: 600; }
+    .pulse-table .score-high { color: var(--green); font-weight: 700; }
+    .pulse-table .score-mid { color: var(--accent); font-weight: 700; }
+
+    footer { border-top: 1px solid var(--border); padding-top: 1.5rem; margin-top: 2rem; color: var(--muted); font-size: 0.75rem; text-align: center; }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <div class="badge">AUREA — RESEARCH AGENT</div>
+    <h1>Lead Generation Report: Restaurantes</h1>
+    <p class="subtitle">Costa Rica — Oportunidades para Agencia de Publicidad</p>
+    <div class="meta">
+      <div class="meta-item">📅 <span>Mayo 04, 2026</span> 00:00 CST</div>
+      <div class="meta-item">🏷️ <span>Restaurantes</span></div>
+      <div class="meta-item">🌎 <span>Costa Rica — San José &amp; Alajuela</span></div>
+      <div class="meta-item">📊 <span>10 empresas / 5 estrategias / 4 tendencias</span></div>
+    </div>
+  </header>
+
+  <!-- MARKET PULSE -->
+  <div class="section">
+    <div class="section-title">Market Pulse — Sector Gastronómico CR</div>
+    <table class="pulse-table">
+      <thead>
+        <tr>
+          <th>Empresa / Marca</th>
+          <th>Tipo</th>
+          <th>Ubicación</th>
+          <th>Puntuación Lead</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="company">Restaurante Silvestre</td>
+          <td>Fine Dining CR</td>
+          <td>Barrio Amón, San José</td>
+          <td class="score-high">ALTA</td>
+        </tr>
+        <tr>
+          <td class="company">El Taller de Billy Sazón</td>
+          <td>Fine Dining / tasting menu</td>
+          <td>San José Centro</td>
+          <td class="score-high">ALTA</td>
+        </tr>
+        <tr>
+          <td class="company">Enbocacr</td>
+          <td>Fine Dining</td>
+          <td>San José</td>
+          <td class="score-high">ALTA</td>
+        </tr>
+        <tr>
+          <td class="company">Sikwa Restaurante</td>
+          <td>Alta cocina / indígena</td>
+          <td>Los Yoses, San José</td>
+          <td class="score-high">ALTA</td>
+        </tr>
+        <tr>
+          <td class="company">Copa del Café</td>
+          <td>Café-restaurant</td>
+          <td>Escazú, San José</td>
+          <td class="score-mid">MEDIA-ALTA</td>
+        </tr>
+        <tr>
+          <td class="company">Exclusive Coffees CR</td>
+          <td>Café / restaurant</td>
+          <td>San Rafael, Alajuela</td>
+          <td class="score-mid">MEDIA-ALTA</td>
+        </tr>
+        <tr>
+          <td class="company">Park Cafe Costa Rica</td>
+          <td>Café / brunch</td>
+          <td>San José</td>
+          <td class="score-mid">MEDIA</td>
+        </tr>
+        <tr>
+          <td class="company">Los Tres Perros</td>
+          <td>Restaurante / bar</td>
+          <td>San José</td>
+          <td class="score-mid">MEDIA</td>
+        </tr>
+        <tr>
+          <td class="company">Ristorante da Maria</td>
+          <td>Italiano upscale</td>
+          <td>San José</td>
+          <td class="score-mid">MEDIA</td>
+        </tr>
+        <tr>
+          <td class="company">Grano de Oro (Hotel)</td>
+          <td>Restaurante fine dining hotel</td>
+          <td>San José</td>
+          <td class="score-mid">MEDIA</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- LEADS DETAIL -->
+  <div class="section">
+    <div class="section-title">Empresas Identificadas — Perfil &amp; Estrategia</div>
+
+    <div class="lead-card">
+      <div class="lead-header">
+        <div class="lead-name">🌟 Restaturante Silvestre</div>
+        <span class="lead-tag tag-upscale">Fine Dining Premium</span>
+      </div>
+      <div class="lead-location">📍 Barrio Amón, San José, Costa Rica</div>
+      <div class="lead-contact">🌐 <a href="https://www.restaurantesilvestre.com" style="color:var(--blue)">restaurantesilvestre.com</a></div>
+      <div class="lead-desc">Chef/Santiago Fernández Benedetto. Gastronomía costarricense contemporánea con enfoque en sostenibilidad. Visión de posicionar a Costa Rica como referente mundial en gastronomía sostenible. Premiado y reconocido en escena fine dining regional.</div>
+      <div class="lead-actions">
+        <span class="action-chip">Instagram @restaurantesilvestre</span>
+        <span class="action-chip">Branding gastronómico</span>
+        <span class="action-chip">Contenido visual premium</span>
+        <span class="action-chip">SEO gastronómico</span>
+      </div>
+    </div>
+
+    <div class="lead-card">
+      <div class="lead-header">
+        <div class="lead-name">🌟 El Taller de Billy Sazón</div>
+        <span class="lead-tag tag-upscale">Fine Dining Premium</span>
+      </div>
+      <div class="lead-location">📍 San José, Costa Rica</div>
+      <div class="lead-contact">🌐 <a href="https://www.billysazon.com" style="color:var(--blue)">billysazon.com</a></div>
+      <div class="lead-desc">Chef Billy. Cocina costarricense refinada con técnica moderna. Experience-based tasting menu. 5.0 estrellas en TripAdvisor con 361 reseñas. Cliente objetivo de marketing de experiencia premium, contenido visual de alto impacto.</div>
+      <div class="lead-actions">
+        <span class="action-chip">Instagram propio</span>
+        <span class="action-chip">Google Business optimization</span>
+        <span class="action-chip">Influencer marketing gastronómico</span>
+        <span class="action-chip">Reservations / booking funnel</span>
+      </div>
+    </div>
+
+    <div class="lead-card">
+      <div class="lead-header">
+        <div class="lead-name">🌟 Enbocacr</div>
+        <span class="lead-tag tag-upscale">Fine Dining Premium</span>
+      </div>
+      <div class="lead-location">📍 San José, Costa Rica</div>
+      <div class="lead-contact">📸 Instagram / TripAdvisor ranking top 3 San José</div>
+      <div class="lead-desc">4.9 estrellas en TripAdvisor (641 reseñas). Ranking #1 en su categoría. Potencial alto para optimización de reseñas, campañas de visibilidad y estrategia de contenido que refuerce posicionamiento premium.</div>
+      <div class="lead-actions">
+        <span class="action-chip">Reputación online</span>
+        <span class="action-chip">Google Ads local</span>
+        <span class="action-chip">Contenido 4K/video</span>
+        <span class="action-chip">Email marketing reservas</span>
+      </div>
+    </div>
+
+    <div class="lead-card">
+      <div class="lead-header">
+        <div class="lead-name">🌟 Sikwa Restaurante</div>
+        <span class="lead-tag tag-upscale">Alta Cocina Cultural</span>
+      </div>
+      <div class="lead-location">📍 Los Yoses, San José</div>
+      <div class="lead-contact">🌐 Cas.go / TripAdvisor</div>
+      <div class="lead-desc">Gastronomía indígena costarricense contemporánea. Storytelling cultural fuerte. Diferenciador único: conecta historia indigenous con experiencia culinaria. Ideal para marketing de marca basada en propósito (purpose-driven branding).</div>
+      <div class="lead-actions">
+        <span class="action-chip">Storytelling cultural</span>
+        <span class="action-chip">Branded content video</span>
+        <span class="action-chip">Instagram / TikTok culinary</span>
+        <span class="action-chip">Tourism cross-marketing</span>
+      </div>
+    </div>
+
+    <div class="lead-card">
+      <div class="lead-header">
+        <div class="lead-name">🏪 Copa del Café</div>
+        <span class="lead-tag tag-mid">Café Restaurant</span>
+      </div>
+      <div class="lead-location">📍 Escazú, San José</div>
+      <div class="lead-contact">📧 copadelcafe@outlook.com | ☎️ +506 2208-5000</div>
+      <div class="lead-desc">Concepto de café-restaurant establecido. Ubicación premium en Escazú (zona de alto poder adquisitivo). Marca con potencial de expansión. Necesidad de refrescar presencia digital y estrategia de comunidad.</div>
+      <div class="lead-actions">
+        <span class="action-chip">Redes sociales</span>
+        <span class="action-chip">Email marketing</span>
+        <span class="action-chip">Programa de fidelización</span>
+        <span class="action-chip">Google Maps optimization</span>
+      </div>
+    </div>
+
+    <div class="lead-card">
+      <div class="lead-header">
+        <div class="lead-name">🏪 Exclusive Coffees CR</div>
+        <span class="lead-tag tag-mid">Café / Restaurant</span>
+      </div>
+      <div class="lead-location">📍 San Rafael de Alajuela, Costa Rica</div>
+      <div class="lead-contact">📧 fmena@exclusivecoffeecr.com | ☎️ +506 2239-0301</div>
+      <div class="lead-desc">Empresa de café especializado con componente restaurant/cafe. Contacto directo con decision-maker vía email (Fmena). Posibilidad de联 para servicios de branding de producto café premium y presencia digital.</div>
+      <div class="lead-actions">
+        <span class="action-chip">Email directo</span>
+        <span class="action-chip">Branding café premium</span>
+        <span class="action-chip">Web + e-commerce</span>
+        <span class="action-chip">SEO exportacion</span>
+      </div>
+    </div>
+
+    <div class="lead-card">
+      <div class="lead-header">
+        <div class="lead-name">🏪 Los Tres Perros</div>
+        <span class="lead-tag tag-mid">Restaurante / Bar</span>
+      </div>
+      <div class="lead-location">📍 San José, Costa Rica</div>
+      <div class="lead-contact">📸 TripAdvisor top rated</div>
+      <div class="lead-desc">4.9 estrellas / 498 reseñas. Concepto relajado pero bien posicionado. Oportunidad para campañas de redes sociales, promociones locales y contenido UGC.</div>
+      <div class="lead-actions">
+        <span class="action-chip">Instagram / TikTok</span>
+        <span class="action-chip">UGC campaigns</span>
+        <span class="action-chip">Promociones locales</span>
+        <span class="action-chip">Fidelización</span>
+      </div>
+    </div>
+
+    <div class="lead-card">
+      <div class="lead-header">
+        <div class="lead-name">🏪 Park Cafe Costa Rica</div>
+        <span class="lead-tag tag-mid">Café / Brunch</span>
+      </div>
+      <div class="lead-location">📍 San José, Costa Rica</div>
+      <div class="lead-contact">📸 Redes sociales propias</div>
+      <div class="lead-desc">Café de especialidad con perfil de brunch. Mercado afín a redes sociales y contenido visual. Oportunidad para estrategia de contenido y comunidad en Instagram.</div>
+      <div class="lead-actions">
+        <span class="action-chip">Instagram strategy</span>
+        <span class="action-chip">Visual content</span>
+        <span class="action-chip">Local SEO</span>
+        <span class="action-chip">Events / pop-ups</span>
+      </div>
+    </div>
+
+    <div class="lead-card">
+      <div class="lead-header">
+        <div class="lead-name">🏪 Ristorante da Maria</div>
+        <span class="lead-tag tag-mid">Italiano Upscale</span>
+      </div>
+      <div class="lead-location">📍 San José, Costa Rica</div>
+      <div class="lead-contact">👤 Prop.: George Keshek</div>
+      <div class="lead-desc">Restaurante italiano con secreto de la costa este mencionado en prensa local. Propietario accesible, nombre conocido. Oportunidad para estrategia de PR gastronómico y contenido storytelling.</div>
+      <div class="lead-actions">
+        <span class="action-chip">PR gastronómico</span>
+        <span class="action-chip">Storytelling</span>
+        <span class="action-chip">Facebook / Instagram</span>
+        <span class="action-chip">Local press</span>
+      </div>
+    </div>
+
+    <div class="lead-card">
+      <div class="lead-header">
+        <div class="lead-name">🏪 Grano de Oro (Hotel Grano de Oro)</div>
+        <span class="lead-tag tag-mid">Fine Dining Hotel</span>
+      </div>
+      <div class="lead-location">📍 San José, Costa Rica</div>
+      <div class="lead-desc">Restaurante de hotel clásico emblemático. Clientes: turistas de lujo y residentes de alto nivel. Oportunidad para联 cross-marketing hotel-restaurante y campaigns directed to tourists.</div>
+      <div class="lead-actions">
+        <span class="action-chip">Cross-marketing hotel</span>
+        <span class="action-chip">Tourist-facing ads</span>
+        <span class="action-chip">TripAdvisor management</span>
+        <span class="action-chip">Photography</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- TRENDS -->
+  <div class="section">
+    <div class="section-title">Tendencias de Marketing Gastronómico 2026 — Costa Rica</div>
+    <div class="trend-grid">
+      <div class="trend-card">
+        <div class="trend-icon">📸</div>
+        <h3>Short-form Video Dominates</h3>
+        <p>TikTok, Reels y Shorts son el canal #1 para discovery de restaurantes. Contenido de cocina en vivo, behind-the-scenes y plating visual generan mayor engagement orgánico en el mercado CR.</p>
+      </div>
+      <div class="trend-card">
+        <div class="trend-icon">🍽️</div>
+        <h3>Menú Digital &amp; QR</h3>
+        <p>Los menús digitales interactivos vía QR se consolidan como estándar post-pandemia. Oportunidad para servicios de diseño de menú digital, SEO local y estrategias de pedido online.</p>
+      </div>
+      <div class="trend-card">
+        <div class="trend-icon">⭐</div>
+        <h3>Gestión de Reseñas Activa</h3>
+        <p>Google Business Profile y TripAdvisor son decisive para fine dining. Restaurantes invierten en responder reseñas y generar contenido que estimule reviews positivas.</p>
+      </div>
+      <div class="trend-card">
+        <div class="trend-icon">🌱</div>
+        <h3>Sostenibilidad como Diferenciador</h3>
+        <p>Silvestre y otros restaurantes CR usan sostenibilidad como pillar de marca. Campañas con narrativaverde resuenan con el turismo de alto nivel y el consumidor local consciente.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT STRATEGIES -->
+  <div class="section">
+    <div class="section-title">Estrategias de Contacto — Cold Outreach</div>
+    <ul class="strategy-list">
+      <li>
+        <div class="strategy-num">1</div>
+        <div class="strategy-text">
+          <strong>Instagram DM + Valor eerst先</strong>
+          <span>Seguir cuentas de chefs y restaurantes, comentar con insights genuinos, luego enviar DM con propuesta de contenido. No vender de entrada — ofrecer un mini-audit gratuito de su presencia digital.</span>
+        </div>
+      </li>
+      <li>
+        <div class="strategy-num">2</div>
+        <div class="strategy-text">
+          <strong>Email directo con case study del sector</strong>
+          <span>Para Copa del Café (copadelcafe@outlook.com) y Exclusive Coffees (fmena@exclusivecoffeecr.com): email personalizado referencing su marca + caso de éxito similar en CR + propuesta de llamada.</span>
+        </div>
+      </li>
+      <li>
+        <div class="strategy-num">3</div>
+        <div class="strategy-text">
+          <strong>LinkedIn a gerentes y owners vía filtro industria</strong>
+          <span>Buscar "owner" / "gerente general" + "restaurante" + "Costa Rica" en LinkedIn. Usar filtro free o Sales Navigator trial. Mensaje breve: problema común del sector + cómo lo resuelven.</span>
+        </div>
+      </li>
+      <li>
+        <div class="strategy-num">4</div>
+        <div class="strategy-text">
+          <strong>Propuesta de contenido "Instagram del mes"</strong>
+          <span>Ofrecer un mes de contenido profesional fotográfico (before/after de su feed) como prueba. Para restaurantes fine dining como Silvestre, Billy Sazón, Enbocacr: pitching producción de 8-12 posts + reels.</span>
+        </div>
+      </li>
+      <li>
+        <div class="strategy-num">5</div>
+        <div class="strategy-text">
+          <strong>WhatsApp Business + catálogo visual</strong>
+          <span>En Costa Rica WhatsApp es canal primario de comunicación empresarial. Enviar catálogo de servicios gráficos + pricing vía WhatsApp Business después de contacto inicial por email o DM.</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- PITCH TEMPLATE -->
+  <div class="section">
+    <div class="section-title">Plantilla de Pitch — Email / DM</div>
+    <div style="background:#111;border:1px solid #2a2a2a;border-radius:10px;padding:1.25rem;font-size:0.82rem;color:#aaa;line-height:1.8;font-family:monospace;white-space:pre-wrap;">Asunto: Propuesta para [Nombre del Restaurante] — contenido visual que genera reservas
+
+Hola [Nombre],
+
+Vi [referencia específica al restaurante: su post sobre X, el ranking en TripAdvisor, la propuesta gastronómica basadas en sostenibilidad].
+
+En [nombre de agencia] trabajamos con restaurantes como [ejemplo similar] en Costa Rica, ayudando a [resultado concreto: aumentar reservas en X%, mejorar engagement en Instagram de 2% a 8%].
+
+Para [nombre del restaurante] veo una oportunidad concreta en: [una observación genuina sobre su presencia digital o propuesta].
+
+No es una venta. Es una idea: [descripción breve de una táctica específica].
+
+¿Podemos hablar 15 minutos esta semana?
+
+Saludos,
+[Tu nombre]
+[Nombre de Agencia]</div>
+  </div>
+
+  <footer>
+    <p>Reporte generado automáticamente por AUREA Research Agent — Logos | OpenClaw</p>
+    <p>Fuente: Tavily Web Search + datos públicos de restaurantes Costa Rica | Mayo 2026</p>
+    <p>⚠️ Datos de contacto expuestos son de fuentes públicas. Usar con ética y dentro de marco legal CR.</p>
+  </footer>
+
+</div>
+</body>
+</html>
