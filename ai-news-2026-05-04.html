@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI News Report — May 4, 2026</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: #0a0a0f; color: #e0e0e0; line-height: 1.6; }
+.container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+header { text-align: center; padding: 40px 0 30px; border-bottom: 1px solid #1a1a2e; }
+header h1 { font-size: 2.2em; background: linear-gradient(135deg, #00d4ff, #7b2ff7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+header .date { color: #888; font-size: 1.1em; margin-top: 8px; }
+header .subtitle { color: #aaa; margin-top: 4px; }
+.section { margin: 30px 0; }
+.section-title { font-size: 1.4em; color: #00d4ff; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid #1a1a2e; display: flex; align-items: center; gap: 10px; }
+.card { background: #12121c; border: 1px solid #1e1e30; border-radius: 12px; padding: 20px; margin-bottom: 16px; transition: border-color 0.2s; }
+.card:hover { border-color: #00d4ff44; }
+.card h3 { color: #fff; margin-bottom: 8px; font-size: 1.15em; }
+.card .tag { display: inline-block; font-size: 0.7em; padding: 2px 8px; border-radius: 10px; margin-right: 6px; margin-bottom: 6px; font-weight: 600; text-transform: uppercase; }
+.tag-openai { background: #10a37f22; color: #10a37f; }
+.tag-anthropic { background: #d4a57422; color: #d4a574; }
+.tag-google { background: #4285f422; color: #4285f4; }
+.tag-meta { background: #0084ff22; color: #0084ff; }
+.tag-xai { background: #ef444422; color: #ef4444; }
+.tag-microsoft { background: #00a4ef22; color: #00a4ef; }
+.tag-alibaba { background: #ff6a0022; color: #ff6a00; }
+.tag-industry { background: #a855f722; color: #a855f7; }
+.tag-funding { background: #f59e0b22; color: #f59e0b; }
+.tag-government { background: #ef444422; color: #ef4444; }
+.card p { color: #bbb; font-size: 0.95em; }
+.card .source { margin-top: 10px; font-size: 0.8em; color: #666; }
+.card .source a { color: #00d4ff; text-decoration: none; }
+.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-bottom: 24px; }
+.stat-card { background: #12121c; border: 1px solid #1e1e30; border-radius: 12px; padding: 20px; text-align: center; }
+.stat-card .value { font-size: 2em; font-weight: 700; background: linear-gradient(135deg, #00d4ff, #7b2ff7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.stat-card .label { color: #888; font-size: 0.85em; margin-top: 4px; }
+footer { text-align: center; padding: 30px 0; border-top: 1px solid #1a1a2e; color: #555; font-size: 0.85em; }
+.badge { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 0.75em; font-weight: 600; }
+.badge-hot { background: #ef444433; color: #ef4444; border: 1px solid #ef444444; }
+.badge-new { background: #10a37f33; color: #10a37f; border: 1px solid #10a37f44; }
+.badge-breaking { background: #f59e0b33; color: #f59e0b; border: 1px solid #f59e0b44; animation: pulse 2s infinite; }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
+ul.stories { list-style: none; }
+ul.stories li { padding: 10px 0; border-bottom: 1px solid #1a1a2e; }
+ul.stories li:last-child { border-bottom: none; }
+ul.stories li strong { color: #fff; }
+.github-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 12px; }
+.gh-card { background: #12121c; border: 1px solid #1e1e30; border-radius: 8px; padding: 14px; }
+.gh-card .name { color: #00d4ff; font-weight: 600; font-size: 1.05em; }
+.gh-card .desc { color: #999; font-size: 0.85em; margin-top: 4px; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <h1>🤖 AI News Report</h1>
+  <div class="date">Monday, May 4, 2026</div>
+  <div class="subtitle">Daily Intelligence Brief — Last 24 Hours</div>
+</header>
+
+<!-- KEY METRICS -->
+<div class="section">
+  <div class="section-title">📊 By the Numbers</div>
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="value">$40B</div>
+      <div class="label">Google → Anthropic Investment</div>
+    </div>
+    <div class="stat-card">
+      <div class="value">$380B</div>
+      <div class="label">Anthropic Valuation (Series G)</div>
+    </div>
+    <div class="stat-card">
+      <div class="value">$20B+</div>
+      <div class="label">Amazon Custom Silicon Revenue Run Rate</div>
+    </div>
+    <div class="stat-card">
+      <div class="value">GPT-5.5</div>
+      <div class="label">OpenAI's Latest Model Release</div>
+    </div>
+  </div>
+</div>
+
+<!-- BREAKING HEADLINES -->
+<div class="section">
+  <div class="section-title">🔴 Breaking Headlines</div>
+
+  <div class="card">
+    <span class="badge badge-breaking">BREAKING</span>
+    <span class="tag tag-anthropic">Anthropic</span>
+    <span class="tag tag-government">Pentagon</span>
+    <h3>Anthropic Refuses Pentagon Demand for Military Access to Claude</h3>
+    <p>Anthropic CEO Dario Amodei stated the company "cannot in good conscience accede" to the Pentagon's request for unrestricted military access to Claude, citing built-in protections against mass surveillance and lethal autonomous weapons. Hundreds of Google and OpenAI employees publicly backed Anthropic. Sam Altman expressed agreement with Anthropic's red lines. The Pentagon spokesperson denied wanting AI for mass surveillance or autonomous weapons.</p>
+    <div class="source">Sources: <a href="https://www.yahoo.com/news/articles/hundreds-google-openai-employees-back-182753659.html">Yahoo News</a> · <a href="https://www.latimes.com/business/story/2026-05-01/google-nvidia-other-tech-titans-sign-ai-deal-with-pentagon">LA Times</a></div>
+  </div>
+
+  <div class="card">
+    <span class="badge badge-hot">HOT</span>
+    <span class="tag tag-google">Google</span>
+    <span class="tag tag-anthropic">Anthropic</span>
+    <h3>Google Commits Up to $40 Billion Investment in Anthropic</h3>
+    <p>The New York Times reports Google has committed to invest up to $40B in Anthropic, solidifying the search giant's strategic AI partnership. This comes alongside Amazon's compute-for-cash deals with the lab. Anthropic's capacity is reportedly strained, and Google is providing additional compute resources.</p>
+    <div class="source">Source: <a href="https://www.nytimes.com/2026/04/24/technology/google-anthropic-investment-artificial-intelligence.html">NYT</a></div>
+  </div>
+
+  <div class="card">
+    <span class="badge badge-hot">HOT</span>
+    <span class="tag tag-industry">Industry</span>
+    <span class="tag tag-government">Government</span>
+    <h3>Google, Nvidia & Tech Titans Sign Major AI Deal with Pentagon</h3>
+    <p>Multiple tech giants including Google and Nvidia signed an AI agreement with the Pentagon, while OpenAI separately reached its own deal with the "Department of War." The contrast with Anthropic's refusal has drawn significant attention.</p>
+    <div class="source">Source: <a href="https://www.latimes.com/business/story/2026-05-01/google-nvidia-other-tech-titans-sign-ai-deal-with-pentagon">LA Times</a></div>
+  </div>
+</div>
+
+<!-- MODEL RELEASES -->
+<div class="section">
+  <div class="section-title">🧠 New AI Models & Releases</div>
+
+  <div class="card">
+    <span class="badge badge-new">NEW</span>
+    <span class="tag tag-openai">OpenAI</span>
+    <h3>OpenAI Releases GPT-5.5</h3>
+    <p>OpenAI released GPT-5.5 as part of its continued model evolution. The release comes amid ongoing scrutiny about the company's direction, including its acquisition of vodcaster TBPN for "low hundreds of millions."</p>
+    <div class="source">Sources: <a href="https://champaignmagazine.com/2026/05/03/ai-by-ai-weekly-top-5-april-27-may-3-2026/">Champaign Magazine</a> · <a href="https://fortune.com/2026/04/07/openai-drama-sam-altman-ipo-anthropic-cybersecurity-risks-eye-on-ai/">Fortune</a></div>
+  </div>
+
+  <div class="card">
+    <span class="tag tag-anthropic">Anthropic</span>
+    <h3>Claude Opus 4.7 — Now Generally Available</h3>
+    <p>Anthropic's latest flagship model Claude Opus 4.7 is now GA, delivering notable improvements over Opus 4.6 in advanced software engineering tasks. Also leaked: Claude Sonnet 4.8 and hints at "Claude Cardinal."</p>
+    <div class="source">Source: <a href="https://www.anthropic.com/news/claude-opus-4-7">Anthropic Blog</a></div>
+  </div>
+
+  <div class="card">
+    <span class="tag tag-xai">xAI</span>
+    <h3>Grok 4.3 API Launch + Grok 4.20</h3>
+    <p>xAI launched the Grok 4.3 API and released Grok 4.20, expanding access to the Grok model family for developers.</p>
+    <div class="source">Source: <a href="https://aitoolsrecap.com/blog/ai-model-releases-may-2026-what-to-expect">AIToolsRecap</a></div>
+  </div>
+
+  <div class="card">
+    <span class="tag tag-google">Google</span>
+    <h3>Gemma 4 31B — New Open-Weight Model</h3>
+    <p>Google DeepMind released Gemma 4 31B, the latest in its open-weight model family. Also spotted: new Gemini 3.5 previews and Google releasing new AI agents to compete with OpenAI and Anthropic.</p>
+    <div class="source">Sources: <a href="https://aitoolsrecap.com/blog/ai-model-releases-may-2026-what-to-expect">AIToolsRecap</a> · <a href="https://www.bloomberg.com/news/articles/2026-04-22/google-releases-new-ai-agents-to-challenge-openai-and-anthropic">Bloomberg</a></div>
+  </div>
+
+  <div class="card">
+    <span class="tag tag-alibaba">Alibaba</span>
+    <h3>Qwen3.6-27B & Qwen3.6-35B-A3B Released</h3>
+    <p>Alibaba's Qwen team released two new open-source models: Qwen3.6-27B (full dense) and Qwen3.6-35B-A3B (MoE), continuing the trend of capable open-weight models.</p>
+    <div class="source">Source: <a href="https://llm-stats.com/ai-news">LLM Stats</a></div>
+  </div>
+
+  <div class="card">
+    <span class="tag tag-microsoft">Microsoft</span>
+    <h3>Microsoft Expands In-House AI Models Beyond OpenAI</h3>
+    <p>Microsoft released new speech-to-text AI systems and made two existing in-house models broadly available, signaling continued diversification beyond its OpenAI partnership. Earlier in April, Microsoft released three foundational AI models.</p>
+    <div class="source">Sources: <a href="https://www.geekwire.com/2026/microsoft-releases-new-ai-models-to-further-expand-beyond-openai/">GeekWire</a> · <a href="https://techcrunch.com/2026/04/02/microsoft-takes-on-ai-rivals-with-three-new-foundational-models/">TechCrunch</a></div>
+  </div>
+</div>
+
+<!-- FUNDING -->
+<div class="section">
+  <div class="section-title">💰 AI Funding & Deals</div>
+
+  <div class="card">
+    <span class="tag tag-funding">Funding</span>
+    <h3>Q1 2026: Foundational AI Startup Funding Doubled</h3>
+    <p>Crunchbase reports foundational AI startup funding doubled in Q1 2026 compared to Q4 2025. 17 US-based AI companies raised $100M+ rounds in just the first two months. Key mega-rounds:</p>
+    <ul class="stories">
+      <li><strong>Anthropic</strong> — $30B Series G ($380B valuation)</li>
+      <li><strong>xAI</strong> — $20B Series E</li>
+      <li><strong>SkildAI</strong> — $1.4B Series C (robotics AI, $14B val)</li>
+      <li><strong>ElevenLabs</strong> — $500M Series D ($11B val)</li>
+      <li><strong>humans&</strong> — $480M seed round</li>
+      <li><strong>Runway</strong> — $315M Series E ($5.3B val)</li>
+      <li><strong>Fundamental</strong> — $255M Series A</li>
+      <li><strong>Deepgram</strong> — $130M Series C</li>
+    </ul>
+    <div class="source">Sources: <a href="https://techcrunch.com/2026/02/17/here-are-the-17-us-based-ai-companies-that-have-raised-100m-or-more-in-2026/">TechCrunch</a> · <a href="https://news.crunchbase.com/venture/foundational-ai-startup-funding-doubled-openai-anthropic-xai-q1-2026/">Crunchbase</a></div>
+  </div>
+
+  <div class="card">
+    <span class="tag tag-funding">M&A</span>
+    <h3>Meta's $2B Manus AI Acquisition Blocked by Beijing</h3>
+    <p>Meta's attempted $2B acquisition of AI agent startup Manus AI was blocked by Beijing regulators, adding to the complex geopolitical dynamics around AI technology transfer.</p>
+    <div class="source">Source: <a href="https://champaignmagazine.com/2026/05/03/ai-by-ai-weekly-top-5-april-27-may-3-2026/">Champaign Magazine</a></div>
+  </div>
+</div>
+
+<!-- INDUSTRY TRENDS -->
+<div class="section">
+  <div class="section-title">📈 Industry Trends & Analysis</div>
+
+  <div class="card">
+    <span class="tag tag-industry">Trend</span>
+    <h3>Google's Internal Struggle Handing AI Coding Race to Anthropic & OpenAI</h3>
+    <p>LA Times reports Google's fragmented suite of AI coding tools is losing ground to nimbler competitors Anthropic and OpenAI in what's become tech's most lucrative market. Google separately challenged Nvidia with new custom AI chips.</p>
+    <div class="source">Source: <a href="https://www.latimes.com/business/story/2026-04-22/googles-internal-struggle-is-handing-ai-coding-race-to-anthropic-openai">LA Times</a></div>
+  </div>
+
+  <div class="card">
+    <span class="tag tag-industry">Trend</span>
+    <h3>AI Captures Majority of Venture Funding in 2026</h3>
+    <p>AI startups are now capturing the majority of all VC funding. Tech megacaps plan to invest over $300B in AI infrastructure. Seed valuations for AI companies carry a significant premium over non-AI peers. India's AI startups had their best quarter ($679.8M in Q1 2026, 2x prior quarter).</p>
+    <div class="source">Sources: <a href="https://blog.mean.ceo/ai-vc-funding/">Mean CEO Blog</a> · <a href="https://qubit.capital/blog/ai-startup-fundraising-trends">Qubit Capital</a></div>
+  </div>
+
+  <div class="card">
+    <span class="tag tag-industry">Trend</span>
+    <h3>GitHub Trending: Agents, Local AI, and Open-Source Rule</h3>
+    <p>Analysis of 100 trending GitHub projects reveals: chatbots are out, agents are in. Local AI runners (Ollama, Open WebUI) are surging. Core + extensible skills architecture beats monoliths. Top trending repos include DeepSeek-V3, OpenClaw, n8n, Browser Use, LangChain, and Dify.</p>
+    <div class="source">Sources: <a href="https://dev.to/ji_ai/what-100-trending-github-projects-tell-us-about-where-ai-is-actually-going-4977">Dev.to</a> · <a href="https://blog.bytebytego.com/p/top-ai-github-repositories-in-2026">ByteByteGo</a></div>
+  </div>
+</div>
+
+<!-- ALSO NOTABLE -->
+<div class="section">
+  <div class="section-title">⚡ Also Notable This Week</div>
+  <ul class="stories">
+    <li>🔬 <strong>ARC-AGI-3 benchmark</strong> scores published — new frontier model evaluations</li>
+    <li>🤖 <strong>GitHub Copilot Max</strong> announced — next-gen AI coding assistant</li>
+    <li>🛒 <strong>Amazon custom silicon</strong> surpasses $20B revenue run rate</li>
+    <li>🎙️ <strong>Kimi K2.6</strong> released by Moonshot AI (open-source)</li>
+    <li>🎬 <strong>AI deepfake wildlife videos</strong> rising — raising concerns</li>
+    <li>🧪 <strong>AlphaEvolve</strong> by Google DeepMind — solving real enterprise problems</li>
+    <li>📜 <strong>Google & OpenAI file legal brief</strong> in support of Anthropic</li>
+  </ul>
+</div>
+
+<footer>
+  <p>Generated by Explorer 🔍 — OpenClaw Intelligence Report</p>
+  <p>Report date: May 4, 2026 · Sources: AIToolsRecap, TechCrunch, LA Times, NYT, Crunchbase, LLM Stats, Bloomberg, Fortune, Dev.to</p>
+</footer>
+
+</div>
+</body>
+</html>
