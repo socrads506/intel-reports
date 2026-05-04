@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aurea Leads — E-commerce Costa Rica — Mayo 4, 2026</title>
+  <style>
+    :root {
+      --bg-primary: #0d0d0d;
+      --bg-secondary: #1a1a1a;
+      --bg-card: #141414;
+      --accent: #f0a500;
+      --accent2: #e85500;
+      --text-primary: #e8e8e8;
+      --text-secondary: #9a9a9a;
+      --text-muted: #666;
+      --border: #2a2a2a;
+      --success: #3ecf8e;
+      --tag-bg: #1f1f1f;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+    .container { max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem; }
+    header {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .badge-row {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+    .badge {
+      background: var(--accent);
+      color: #000;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.2rem 0.7rem;
+      border-radius: 3px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .badge.secondary {
+      background: var(--bg-secondary);
+      color: var(--text-secondary);
+      border: 1px solid var(--border);
+    }
+    h1 {
+      font-size: 1.8rem;
+      color: var(--text-primary);
+      margin-bottom: 0.3rem;
+      letter-spacing: -0.02em;
+    }
+    h1 span { color: var(--accent); }
+    .subtitle { color: var(--text-secondary); font-size: 0.9rem; }
+    .meta {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 0.8rem;
+      flex-wrap: wrap;
+    }
+    .meta-item {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+    .meta-item strong { color: var(--text-secondary); }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+    .summary-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.2rem;
+    }
+    .summary-card .label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+    .summary-card .value {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .summary-card .sub { font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.2rem; }
+
+    h2 {
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-secondary);
+      border-left: 3px solid var(--accent);
+      padding-left: 0.8rem;
+      margin: 2.2rem 0 1rem;
+    }
+    h3 { font-size: 1rem; color: var(--text-primary); margin-bottom: 0.2rem; }
+
+    .leads-list { display: flex; flex-direction: column; gap: 1rem; }
+    .lead-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.2rem 1.4rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 0.8rem;
+      align-items: start;
+      transition: border-color 0.2s;
+    }
+    .lead-card:hover { border-color: var(--accent); }
+    .lead-main {}
+    .lead-header { display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 0.4rem; }
+    .lead-name { font-size: 1rem; font-weight: 600; color: var(--text-primary); }
+    .lead-category {
+      font-size: 0.65rem;
+      background: var(--tag-bg);
+      border: 1px solid var(--border);
+      color: var(--accent);
+      padding: 0.1rem 0.5rem;
+      border-radius: 3px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .lead-description { font-size: 0.83rem; color: var(--text-secondary); margin-bottom: 0.6rem; line-height: 1.5; }
+    .lead-contacts { display: flex; flex-direction: column; gap: 0.25rem; }
+    .contact-item { font-size: 0.78rem; color: var(--text-muted); }
+    .contact-item strong { color: var(--text-secondary); font-weight: 500; }
+    .lead-right { text-align: right; min-width: 120px; }
+    .lead-score {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0.3rem 0.6rem;
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      white-space: nowrap;
+    }
+    .score-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--success);
+    }
+    .lead-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; justify-content: flex-end; margin-top: 0.4rem; }
+    .tag { font-size: 0.65rem; color: var(--text-muted); background: var(--tag-bg); border: 1px solid var(--border); padding: 0.1rem 0.4rem; border-radius: 3px; }
+
+    .strategy-section { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 1.4rem; margin-bottom: 1.5rem; }
+    .strategy-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-top: 1rem; }
+    .strategy-item { background: var(--bg-secondary); border-radius: 6px; padding: 1rem; }
+    .strategy-item h4 { font-size: 0.85rem; color: var(--accent); margin-bottom: 0.4rem; }
+    .strategy-item p { font-size: 0.8rem; color: var(--text-secondary); line-height: 1.5; }
+
+    .trend-list { display: flex; flex-direction: column; gap: 0.7rem; }
+    .trend-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1rem 1.2rem;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+    .trend-icon { font-size: 1.2rem; flex-shrink: 0; }
+    .trend-content h4 { font-size: 0.88rem; color: var(--text-primary); margin-bottom: 0.2rem; }
+    .trend-content p { font-size: 0.78rem; color: var(--text-secondary); }
+
+    .insight-box {
+      background: linear-gradient(135deg, #1a1400 0%, #0d0d0d 100%);
+      border: 1px solid #3d2e00;
+      border-radius: 8px;
+      padding: 1.4rem;
+      margin: 1.5rem 0;
+    }
+    .insight-box h3 { color: var(--accent); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.7rem; }
+    .insight-box p { font-size: 0.83rem; color: var(--text-secondary); line-height: 1.6; }
+
+    .pitch-template {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.4rem;
+      margin-top: 1rem;
+    }
+    .pitch-template h4 { font-size: 0.85rem; color: var(--accent); margin-bottom: 0.6rem; }
+    .pitch-text {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      background: var(--bg-secondary);
+      border-radius: 6px;
+      padding: 1rem;
+      font-style: italic;
+      line-height: 1.6;
+      border-left: 3px solid var(--accent2);
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      margin-top: 3rem;
+      padding-top: 1.2rem;
+      text-align: center;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <div class="badge-row">
+    <span class="badge">Aurea Advertising</span>
+    <span class="badge secondary">Lead Research</span>
+    <span class="badge secondary">Costa Rica</span>
+    <span class="badge secondary">E-commerce</span>
+  </div>
+  <h1>Leads: <span>E-commerce Costa Rica</span></h1>
+  <p class="subtitle">Oportunidades de publicidad digital para agencias de advertising en el sector e-commerce costarricense</p>
+  <div class="meta">
+    <span class="meta-item"><strong>Fecha:</strong> Lunes 4 de Mayo, 2026</span>
+    <span class="meta-item"><strong>Hora:</strong> 10:00 UTC / 04:00 CST</span>
+    <span class="meta-item"><strong>Run:</strong> 2026-05-04 10:00 UTC</span>
+    <span class="meta-item"><strong>Fuentes:</strong> Tavily, Semrush, Crunchbase, BrandNav, PCMI</span>
+  </div>
+</header>
+
+<!-- KEY METRICS -->
+<div class="summary-grid">
+  <div class="summary-card">
+    <div class="label">Mercado E-commerce CR 2024</div>
+    <div class="value">$6.4B USD</div>
+    <div class="sub">Fuente: PCMI E-commerce Data Library</div>
+  </div>
+  <div class="summary-card">
+    <div class="label">Proyección 2027 (CAGR 13%)</div>
+    <div class="value">$9.3B USD</div>
+    <div class="sub">Crecimiento sostenido del 13% anual</div>
+  </div>
+  <div class="summary-card">
+    <div class="label">Adultos que compran online</div>
+    <div class="value">80%</div>
+    <div class="sub">4 de cada 5 adultos en Costa Rica</div>
+  </div>
+  <div class="summary-card">
+    <div class="label">Adultos con cuenta bancaria</div>
+    <div class="value">90%</div>
+    <div class="sub">Alta bancarización habilita pagos digitales</div>
+  </div>
+  <div class="summary-card">
+    <div class="label">Leads identificados</div>
+    <div class="value">10</div>
+    <div class="sub">Empresas y decision-makers en e-commerce CR</div>
+  </div>
+  <div class="summary-card">
+    <div class="label">Ley Digital Services</div>
+    <div class="value">Aprobada</div>
+    <div class="sub">Nuevo marco regulatorio para e-commerce CR</div>
+  </div>
+</div>
+
+<!-- NICHE CONTEXT -->
+<div class="insight-box">
+  <h3>Contexto del Nicho: E-commerce en Costa Rica</h3>
+  <p>Costa Rica es el mercado líder en e-commerce de Centroamérica. La reciente aprobación de la Ley de Gobernanza de Servicios Digitales y Comercio Electrónico refuerza las obligaciones de transparencia y protección al consumidor — creando la necesidad de que las tiendas online inviertan en comunicación clara y branding profesional. El 80% de los adultos ya compra en línea, y la población altamente bancarizada (90%) permite pagos digitales diversos: tarjetas de crédito, monederos electrónicos y pagos móviles. El mercado de cruces fronterizos (compra desde EE.UU. y China) está en auge a través de plataformas como Tiendamia.</p>
+</div>
+
+<!-- LEADS -->
+<h2>Empresas &amp; Decision Makers</h2>
+<div class="leads-list">
+
+  <!-- Lead 1 -->
+  <div class="lead-card">
+    <div class="lead-main">
+      <div class="lead-header">
+        <span class="lead-name">Roberto Jiménez</span>
+        <span class="lead-category">Founder & CEO</span>
+      </div>
+      <p class="lead-description">Fundador y CEO de Unimart.com, el marketplace B2C y B2B líder en Costa Rica y Guatemala. Opera en Pavas, San José. Vende tecnología, oficina, accesorios, electrodomésticos. 51-200 empleados.</p>
+      <div class="lead-contacts">
+        <span class="contact-item"><strong>Empresa:</strong> Unimart.com (Unimart Alfa S.A.)</span>
+        <span class="contact-item"><strong>Web:</strong> unimart.com</span>
+        <span class="contact-item"><strong>LinkedIn:</strong> /roberto-jimenez-ba9150a</span>
+        <span class="contact-item"><strong>Ubicación:</strong> Pavas, San José, Costa Rica</span>
+        <span class="contact-item"><strong>Fondado:</strong> 2016</span>
+      </div>
+    </div>
+    <div class="lead-right">
+      <div class="lead-score"><span class="score-dot"></span>Alta prioridad</div>
+      <div class="lead-tags">
+        <span class="tag">Marketplace</span>
+        <span class="tag">B2C/B2B</span>
+        <span class="tag">Tech</span>
+        <span class="tag">CR+GT</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lead 2 -->
+  <div class="lead-card">
+    <div class="lead-main">
+      <div class="lead-header">
+        <span class="lead-name">Tienda Monge</span>
+        <span class="lead-category">Major Online Retailer</span>
+      </div>
+      <p class="lead-description">Tienda en línea de electrodomésticos y productos para el hogar. Una de las tiendas online con mayor tráfico en Costa Rica según BrandNav. Pertenece al grupo Walmart (800-222-2000).</p>
+      <div class="lead-contacts">
+        <span class="contact-item"><strong>Sitio:</strong> tiendamonge.com</span>
+        <span class="contact-item"><strong>Tráfico estimado:</strong> $280,859/mes</span>
+        <span class="contact-item"><strong>Teléfono:</strong> +506 800-222-2000</span>
+        <span class="contact-item"><strong>Categoría:</strong> Home Appliances</span>
+        <span class="contact-item"><strong>Visitas:</strong> 770,925/mes</span>
+      </div>
+    </div>
+    <div class="lead-right">
+      <div class="lead-score"><span class="score-dot"></span>Alta prioridad</div>
+      <div class="lead-tags">
+        <span class="tag">Retail</span>
+        <span class="tag">Home</span>
+        <span class="tag">Walmart</span>
+        <span class="tag">Alto tráfico</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lead 3 -->
+  <div class="lead-card">
+    <div class="lead-main">
+      <div class="lead-header">
+        <span class="lead-name">Walmart Costa Rica Online</span>
+        <span class="lead-category">Major Online Retailer</span>
+      </div>
+      <p class="lead-description">Plataforma de comercio electrónico de Walmart en Costa Rica. Sitio de alto tráfico con categorías completas: abarrotes, hogar, belleza, lácteos, bebidas. Contacto: 800-800-0722.</p>
+      <div class="lead-contacts">
+        <span class="contact-item"><strong>Sitio:</strong> walmart.co.cr</span>
+        <span class="contact-item"><strong>Tráfico estimado:</strong> $297,709/mes</span>
+        <span class="contact-item"><strong>Teléfono:</strong> +506 800-800-0722</span>
+        <span class="contact-item"><strong>Categoría:</strong> Retail Multicategoría</span>
+        <span class="contact-item"><strong>Canal:</strong> omnicanal</span>
+      </div>
+    </div>
+    <div class="lead-right">
+      <div class="lead-score"><span class="score-dot"></span>Alta prioridad</div>
+      <div class="lead-tags">
+        <span class="tag">Retail</span>
+        <span class="tag">Omnicanal</span>
+        <span class="tag">Walmart</span>
+        <span class="tag">Alto tráfico</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lead 4 -->
+  <div class="lead-card">
+    <div class="lead-main">
+      <div class="lead-header">
+        <span class="lead-name">Tienda Sekono</span>
+        <span class="lead-category">Online Fashion Retailer</span>
+      </div>
+      <p class="lead-description">Tienda online de moda y ropa en Costa Rica. Sede en San José. Alto volumen de visitas mensuales. Representa una oportunidad para campañas de fashion/lifestyle.</p>
+      <div class="lead-contacts">
+        <span class="contact-item"><strong>Sitio:</strong> tiendasekono.com</span>
+        <span class="contact-item"><strong>Tráfico estimado:</strong> $248,119/mes</span>
+        <span class="contact-item"><strong>Ubicación:</strong> San José</span>
+        <span class="contact-item"><strong>Visitas:</strong> 1,318,267/mes</span>
+        <span class="contact-item"><strong>Categoría:</strong> Clothing & Fashion</span>
+      </div>
+    </div>
+    <div class="lead-right">
+      <div class="lead-score"><span class="score-dot"></span>Media-Alta</div>
+      <div class="lead-tags">
+        <span class="tag">Fashion</span>
+        <span class="tag">Alto tráfico</span>
+        <span class="tag">Retail</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lead 5 -->
+  <div class="lead-card">
+    <div class="lead-main">
+      <div class="lead-header">
+        <span class="lead-name">Café Britt</span>
+        <span class="lead-category">Premium E-commerce Brand</span>
+      </div>
+      <p class="lead-description">Marca costarricense premium de café gourmet, chocolate y regalos. Opera comercio electrónico internacional (cafebritt.com) con envío gratis en EE.UU. desde $50. Gran oportunidad para branding y marketing de contenidos.</p>
+      <div class="lead-contacts">
+        <span class="contact-item"><strong>Sitio:</strong> cafebritt.com</span>
+        <span class="contact-item"><strong>Tráfico estimado:</strong> $225,989/mes</span>
+        <span class="contact-item"><strong>Categoría:</strong> Coffee, Chocolate, Gifts</span>
+        <span class="contact-item"><strong>Presencia:</strong> Internacional (CR + EE.UU.)</span>
+        <span class="contact-item"><strong>Social:</strong> Instagram, YouTube (canal de café/farm tours)</span>
+      </div>
+    </div>
+    <div class="lead-right">
+      <div class="lead-score"><span class="score-dot"></span>Media-Alta</div>
+      <div class="lead-tags">
+        <span class="tag">Premium</span>
+        <span class="tag">Export</span>
+        <span class="tag">Contenido</span>
+        <span class="tag">Intl</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lead 6 -->
+  <div class="lead-card">
+    <div class="lead-main">
+      <div class="lead-header">
+        <span class="lead-name">Yelu.cr</span>
+        <span class="lead-category">Local E-commerce Platform</span>
+      </div>
+      <p class="lead-description">Plataforma de comercio electrónico local costarricense. Contacto disponible. Representa una oportunidad para posicionamiento en el mercado digital local.</p>
+      <div class="lead-contacts">
+        <span class="contact-item"><strong>Sitio:</strong> yelu.cr</span>
+        <span class="contact-item"><strong>Tráfico estimado:</strong> $202,624/mes</span>
+        <span class="contact-item"><strong>Teléfono:</strong> +506 4001 7749</span>
+        <span class="contact-item"><strong>Móvil:</strong> +506 8361 1171</span>
+        <span class="contact-item"><strong>Categoría:</strong> Marketplace Local</span>
+      </div>
+    </div>
+    <div class="lead-right">
+      <div class="lead-score"><span class="score-dot"></span>Media</div>
+      <div class="lead-tags">
+        <span class="tag">Local</span>
+        <span class="tag">Marketplace</span>
+        <span class="tag">Digital</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lead 7 -->
+  <div class="lead-card">
+    <div class="lead-main">
+      <div class="lead-header">
+        <span class="lead-name">Shoe Lab (shoelab.cr)</span>
+        <span class="lead-category">Online Footwear Specialist</span>
+      </div>
+      <p class="lead-description">Tienda online especializada en calzado deportivo y urbano de las mejores marcas. Envío gratis en pedidos desde ₡35,000. Niche de moda/calzado con audiencia definida.</p>
+      <div class="lead-contacts">
+        <span class="contact-item"><strong>Sitio:</strong> shoelab.cr</span>
+        <span class="contact-item"><strong>Categoría:</strong> Footwear & Urban Fashion</span>
+        <span class="contact-item"><strong>Envío:</strong> Gratis desde ₡35,000</span>
+        <span class="contact-item"><strong>Enfoque:</strong> Branding de marcas deportivas</span>
+      </div>
+    </div>
+    <div class="lead-right">
+      <div class="lead-score"><span class="score-dot"></span>Media</div>
+      <div class="lead-tags">
+        <span class="tag">Fashion</span>
+        <span class="tag">Footwear</span>
+        <span class="tag">Niche</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lead 8 -->
+  <div class="lead-card">
+    <div class="lead-main">
+      <div class="lead-header">
+        <span class="lead-name">Intelect.com</span>
+        <span class="lead-category">Technology & Variety Online Store</span>
+      </div>
+      <p class="lead-description">Tienda online costarricense de tecnología y variedades. Mencionada por usuarios locales como una de las opciones favoritas. Enfoque en electronics y variedad de productos.</p>
+      <div class="lead-contacts">
+        <span class="contact-item"><strong>Sitio:</strong> intelect.com</span>
+        <span class="contact-item"><strong>Categoría:</strong> Technology & Variety</span>
+        <span class="contact-item"><strong>Mercado:</strong> CR (mencionada en Reddit r/costarica)</span>
+        <span class="contact-item"><strong>Perfil:</strong> Consumidores locales CR</span>
+      </div>
+    </div>
+    <div class="lead-right">
+      <div class="lead-score"><span class="score-dot"></span>Media</div>
+      <div class="lead-tags">
+        <span class="tag">Tech</span>
+        <span class="tag">Electronics</span>
+        <span class="tag">Local</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lead 9 -->
+  <div class="lead-card">
+    <div class="lead-main">
+      <div class="lead-header">
+        <span class="lead-name">Tiendamia Costa Rica</span>
+        <span class="lead-category">Cross-Border E-commerce</span>
+      </div>
+      <p class="lead-description">Plataforma de comercio transfronterizo que conecta consumidores costarricenses con productos de Amazon, eBay, Walmart y Macy's desde EE.UU. Procesa pagos locales con dLocal. Operaciones CR activas.</p>
+      <div class="lead-contacts">
+        <span class="contact-item"><strong>Sitio:</strong> tiendamia.com</span>
+        <span class="contact-item"><strong>Sede:</strong> Miami, FL (opera en 6 países LATAM)</span>
+        <span class="contact-item"><strong>Contacto CR:</strong> A través de plataforma web</span>
+        <span class="contact-item"><strong>Modelo:</strong> Dropshipping / Cross-border</span>
+        <span class="contact-item"><strong>Socio payments:</strong> dLocal</span>
+      </div>
+    </div>
+    <div class="lead-right">
+      <div class="lead-score"><span class="score-dot"></span>Alta prioridad</div>
+      <div class="lead-tags">
+        <span class="tag">Cross-border</span>
+        <span class="tag">Marketplace</span>
+        <span class="tag">Intl</span>
+        <span class="tag">Logistics</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lead 10 -->
+  <div class="lead-card">
+    <div class="lead-main">
+      <div class="lead-header">
+        <span class="lead-name">Dokkan Marketplace</span>
+        <span class="lead-category">Niche Online Marketplace</span>
+      </div>
+      <p class="lead-description">Marketplace costarricense especializado en videojuegos. Mencionado como una de las plataformas locales de e-commerce destacadas en Reddit costarricense. Oportunidad para audiencias gamer.</p>
+      <div class="lead-contacts">
+        <span class="contact-item"><strong>Sitio:</strong> dokkan.co.cr (inferred)</span>
+        <span class="contact-item"><strong>Categoría:</strong> Videojuegos & Gaming</span>
+        <span class="contact-item"><strong>Mercado:</strong> CR (mencionado en Reddit r/costarica)</span>
+        <span class="contact-item"><strong>Audiencia:</strong> Gamer / Youth demographic</span>
+      </div>
+    </div>
+    <div class="lead-right">
+      <div class="lead-score"><span class="score-dot"></span>Baja-Media</div>
+      <div class="lead-tags">
+        <span class="tag">Gaming</span>
+        <span class="tag">Niche</span>
+        <span class="tag">Youth</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- CONTACT STRATEGIES -->
+<h2>Estrategias de Contacto</h2>
+<div class="strategy-section">
+  <div class="strategy-grid">
+    <div class="strategy-item">
+      <h4>LinkedIn Outreach Directo</h4>
+      <p>Conectar con Roberto Jiménez (Unimart) vía LinkedIn con propuesta de valor centrada en crecimiento de ventas digitales. Personalizar mensaje referencing su expansión regional a Guatemala. Tono profesional, propuesta de reunión virtual de 20 min.</p>
+    </div>
+    <div class="strategy-item">
+      <h4>Cold Email Segmentado</h4>
+      <p>Para Tiendamia, Café Britt, Shoe Lab: email personalizado highlighting competencia local y propuesta de branding/performance. Para Café Britt, enfatizar contenido visual para exportación. Para Tiendamia, posicionamiento en mercado CR.</p>
+    </div>
+    <div class="strategy-item">
+      <h4>Contacto Walmart / Tienda Monge</h4>
+      <p>Dirigirse al equipo de marketing digital corporativo vía línea 800. Proponer auditoría de presencia digital y estrategia de conversión. Alta competencia — enfocarse en diferenciación via creatividad y datos.</p>
+    </div>
+    <div class="strategy-item">
+      <h4>Instagram / Contenido Nativo</h4>
+      <p>Para Shoe Lab, Tienda Sekono, Café Britt: outreach vía Instagram con propuestas de campañas de influencers locales. Formato case study de نجاح similar en otros mercados latam. Evidenciar ROI con benchmarks de campañas previas.</p>
+    </div>
+    <div class="strategy-item">
+      <h4>Yelu.cr & Intelect.com</h4>
+      <p>Proponer partnership de co-marketing o paquete de branding digital. Enfoque en mejora de UX y optimización de conversiones. Contactar vía datos de contacto disponibles en sus sitios.</p>
+    </div>
+    <div class="strategy-item">
+      <h4>Prospección Cross-Border</h4>
+      <p>Tiendamia: proponer servicios de posicionamiento SEO localized para Costa Rica, dado su modelo cross-border. Crear propuesta de contenidos en español costarricense y campañas de adquisición en mercado local.</p>
+    </div>
+  </div>
+</div>
+
+<!-- PITCH TEMPLATE -->
+<div class="pitch-template">
+  <h4>Plantilla de Pitch — E-commerce Costa Rica</h4>
+  <div class="pitch-text">
+"Asunto: Cómo [Nombre Empresa] puede duplicar conversiones en el mercado costarricense<br><br>
+Hola [Nombre],<br><br>
+Soy [tu nombre] de Aurea, agencia de publicidad digital especializada en el mercado latinoamericano. Vi que [empresa] está posicionándose fuertemente en el e-commerce costarricense — un mercado que según PCMI alcanzó los $6.4B USD en 2024 y crece 13% anual.<br><br>
+Trabajamos con marcas como [ejemplo] ayudándolas a [resultado específico: aumentar ROAS, reducir CPA, escalar canales de paid media].<br><br>
+Tenemos好奇: ¿están invirtiendo actualmente en [canal específico: performance branding, retargeting, influencer marketing]? Me encantaría compartir cómo podríamos contribuir al crecimiento de [empresa] en los próximos 6 meses.<br><br>
+¿Disponibilidad de 20 minutos esta semana para una conversación breve?<br><br>
+Saludos,<br>[Tu nombre]"
+  </div>
+</div>
+
+<!-- MARKET TRENDS -->
+<h2>Market Trends — E-commerce &amp; Digital Marketing 2026</h2>
+<div class="trend-list">
+  <div class="trend-item">
+    <span class="trend-icon">📱</span>
+    <div class="trend-content">
+      <h4>Mobile-First Commerce Predomina</h4>
+      <p>En América Latina, casi 90% de usuarios de internet eligen dispositivos móviles como forma principal de acceso digital. El advertising in-app es el canal prioritario para engagement de audiencias activas. En Costa Rica, el 80% de adultos ya compra online — el mobile commerce es el canal dominante.</p>
+    </div>
+  </div>
+  <div class="trend-item">
+    <span class="trend-icon">🤖</span>
+    <div class="trend-content">
+      <h4>AI en Publicidad — Oportunidad y Riesgo de Homogeneización</h4>
+      <p>El 46% de marketers ya usan IA para escalar creatividades. Sin embargo, 3 de cada 4 están preocupados porque el contenido generado por IA haga que las marcas se vean iguales. La diferenciación creativa es más valiosa que nunca — oportunidad para agencias que dominen creatividad estratégica con IA.</p>
+    </div>
+  </div>
+  <div class="trend-item">
+    <span class="trend-icon">🎯</span>
+    <div class="trend-content">
+      <h4>Personalización como Driver Principal</h4>
+      <p>75% de consumidores son más propensos a comprar en marcas que ofrecen contenido personalizado. Las herramientas como Klaviyo para email personalization y Searchspring para recomendaciones de producto son estándar en e-commerce maduro. Las marcas CR están comenzando a adoptar estas prácticas.</p>
+    </div>
+  </div>
+  <div class="trend-item">
+    <span class="trend-icon">📺</span>
+    <div class="trend-content">
+      <h4>Video Short-Form como Canal de Conversión</h4>
+      <p>El video de formato corto (Reels, TikTok, Shorts) ya no es solo para awareness — en 2026 es canal directo de conversión para e-commerce. La pregunta ya no es "si hacer video" sino cómo integrarlo en la estrategia de funnel completa. Costa Rica sigue siendo un mercado donde el video está en fase de adopción acelerada.</p>
+    </div>
+  </div>
+  <div class="trend-item">
+    <span class="trend-icon">⚖️</span>
+    <div class="trend-content">
+      <h4>Ley de Comercio Digital — Nuevas Obligaciones</h4>
+      <p>La Asamblea Legislativa de Costa Rica aprobó la nueva Ley de Gobernanza de Servicios Digitales y Comercio Electrónico. Introduce régimen de responsabilidad para intermediarios digitales, obligaciones de transparencia en precios y costos, y prohíbe envío de comunicaciones comerciales sin consentimiento previo. Las tiendas online deberán invertir en compliance y comunicación clara — oportunidad para servicios de copywriting y branding.</p>
+    </div>
+  </div>
+  <div class="trend-item">
+    <span class="trend-icon">🌎</span>
+    <div class="trend-content">
+      <h4>Cross-Border Commerce en Auge</h4>
+      <p>Costa Rica es uno de los mercados líderes en compras transfronterizas en Centroamérica. Tiendamia conecta CR con Amazon, eBay y Walmart EE.UU. La nueva ley de ecommerce fortalece la confianza del consumidor en transacciones digitales — impulsará más players a invertir en presencia digital profesional.</p>
+    </div>
+  </div>
+  <div class="trend-item">
+    <span class="trend-icon">🔍</span>
+    <div class="trend-content">
+      <h4>AI Inside the Browser — Próxima Frontera del SEO/Advertising</h4>
+      <p>Los browsers están integrando IA que resume contenido, hace recomendaciones y muestra AI-driven ads antes de que el usuario llegue al sitio web. El SEO tradicional y el advertising deberán evolucionar hacia "content que entrena a la IA sobre tu marca". Oportunidad para agencies que dominen content strategy + AI optimization.</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>Aurea Lead Research — E-commerce Costa Rica — Lunes 4 de Mayo, 2026 — 10:00 UTC | Generado automáticamente por Logos AI Agent</p>
+  <p>Este reporte es para uso interno de Aurea Advertising. Datos de fuentes públicas — verificar información antes de contactar.</p>
+</footer>
+
+</div>
+</body>
+</html>
