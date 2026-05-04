@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurea Leads - Restaurantes Costa Rica | Mayo 2026</title>
+    <style>
+        :root {
+            --bg-primary: #0d1117;
+            --bg-secondary: #161b22;
+            --bg-card: #21262d;
+            --text-primary: #e6edf3;
+            --text-secondary: #8b949e;
+            --accent: #58a6ff;
+            --accent-green: #3fb950;
+            --accent-yellow: #d29922;
+            --accent-red: #f85149;
+            --border: #30363d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        header {
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--bg-primary);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .meta {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+        
+        .summary-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+        }
+        
+        .card-label {
+            font-size: 12px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+        
+        .card-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        
+        .card-accent { color: var(--accent); }
+        .card-green { color: var(--accent-green); }
+        .card-yellow { color: var(--accent-yellow); }
+        
+        section {
+            margin-bottom: 50px;
+        }
+        
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--accent);
+            display: inline-block;
+        }
+        
+        h3 {
+            font-size: 1.2rem;
+            color: var(--accent);
+            margin: 25px 0 15px 0;
+        }
+        
+        .company-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .company-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            transition: border-color 0.2s ease, transform 0.2s ease;
+        }
+        
+        .company-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+        
+        .company-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+        
+        .company-type {
+            display: inline-block;
+            font-size: 11px;
+            padding: 3px 8px;
+            border-radius: 4px;
+            background: var(--bg-secondary);
+            color: var(--accent-green);
+            margin-bottom: 12px;
+        }
+        
+        .company-type.franquicia {
+            color: var(--accent-yellow);
+        }
+        
+        .company-detail {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-bottom: 6px;
+        }
+        
+        .company-detail strong {
+            color: var(--text-primary);
+        }
+        
+        .trend-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin-bottom: 12px;
+        }
+        
+        .trend-item h4 {
+            font-size: 14px;
+            color: var(--accent);
+            margin-bottom: 6px;
+        }
+        
+        .trend-item p {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+        
+        .strategy-list {
+            list-style: none;
+        }
+        
+        .strategy-list li {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 50px;
+        }
+        
+        .strategy-list li::before {
+            content: attr(data-step);
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 24px;
+            height: 24px;
+            background: var(--accent);
+            color: var(--bg-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 700;
+        }
+        
+        .strategy-list h4 {
+            font-size: 14px;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+        
+        .strategy-list p {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+        
+        .instagram-handle {
+            font-family: monospace;
+            color: var(--accent);
+            background: var(--bg-secondary);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+        
+        footer {
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 13px;
+        }
+        
+        .highlight {
+            background: var(--bg-secondary);
+            border-left: 3px solid var(--accent);
+            padding: 16px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .highlight p {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+        
+        .highlight strong {
+            color: var(--accent-green);
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            text-align: left;
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        th {
+            background: var(--bg-secondary);
+            color: var(--accent);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        td {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+        
+        tr:hover td {
+            background: var(--bg-card);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <span class="badge">Lead Research</span>
+            <h1>Restaurantes en Costa Rica</h1>
+            <p class="meta">Lunes, 4 de Mayo de 2026 | 16:00 UTC | Agencia Aurea</p>
+        </header>
+
+        <div class="summary-cards">
+            <div class="card">
+                <div class="card-label">Franquicias en Expansión</div>
+                <div class="card-value card-accent">9+</div>
+            </div>
+            <div class="card">
+                <div class="card-label">Inversión Anunciada 2026</div>
+                <div class="card-value card-green">$9.1M+</div>
+            </div>
+            <div class="card">
+                <div class="card-label">Empleos a Generar</div>
+                <div class="card-value card-yellow">~400</div>
+            </div>
+            <div class="card">
+                <div class="card-label">Certificados San José (2022+)</div>
+                <div class="card-value">933+</div>
+            </div>
+        </div>
+
+        <section>
+            <h2>Franquicias en Expansión Activa</h2>
+            <p style="color: var(--text-secondary); margin-bottom: 20px;">Marcas que están invirtiendo agresivamente en Costa Rica durante 2026 y necesitan servicios de marketing.</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Cadena</th>
+                        <th>Planes 2026</th>
+                        <th>Total Locales</th>
+                        <th>Tipo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>KFC</strong></td>
+                        <td>7 nuevos restaurantes</td>
+                        <td>74 proyectados</td>
+                        <td>Comida Rápida</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Subway</strong></td>
+                        <td>4 aperturas (Heredia, Cartago, Alajuela, SJ)</td>
+                        <td>86+</td>
+                        <td>Comida Rápida</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Popeyes</strong></td>
+                        <td>Continúa expansión</td>
+                        <td>82</td>
+                        <td>Comida Rápida</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Burger King</strong></td>
+                        <td>Nuevas aperturas</td>
+                        <td>En crecimiento</td>
+                        <td>Comida Rápida</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Domino's Pizza</strong></td>
+                        <td>Expansión prevista</td>
+                        <td>13+</td>
+                        <td>Pizzería</td>
+                    </tr>
+                    <tr>
+                        <td><strong>IHOP/Applebee's</strong></td>
+                        <td>1 dual-brand por año (3 años)</td>
+                        <td>En expansión</td>
+                        <td> casual</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Arby's</strong></td>
+                        <td>Contratando 200+ personas</td>
+                        <td>4</td>
+                        <td>Comida Rápida</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Juan Valdez</strong></td>
+                        <td>Nuevas aperturas</td>
+                        <td>En crecimiento</td>
+                        <td>Cafetería</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2>Restaurantes y Cafeterías Locales</h2>
+            <p style="color: var(--text-secondary); margin-bottom: 20px;">Negocios locales que podrían necesitar servicios de branding y marketing digital.</p>
+            
+            <div class="company-grid">
+                <div class="company-card">
+                    <div class="company-name">Cafeoteca</div>
+                    <span class="company-type">Cafetería Specialty</span>
+                    <div class="company-detail"><strong>Ubicación:</strong> Barrio Escalante, San José</div>
+                    <div class="company-detail"><strong>Especialidad:</strong> Café de especialidad, movimiento third wave</div>
+                    <div class="company-detail"><strong>Relevancia:</strong> Pionera en cambiar la cultura cafetera de CR</div>
+                </div>
+                
+                <div class="company-card">
+                    <div class="company-name">Rosti</div>
+                    <span class="company-type">Cadena Nacional</span>
+                    <div class="company-detail"><strong>Segmento:</strong> Comida casual costarricense</div>
+                    <div class="company-detail"><strong>Relevancia:</strong> Una de las cadenas locales líderes en aperturas</div>
+                </div>
+                
+                <div class="company-card">
+                    <div class="company-name">Café Miel</div>
+                    <span class="company-type">Cafetería Local</span>
+                    <div class="company-detail"><strong>Ubicación:</strong> San José</div>
+                    <div class="company-detail"><strong>Especialidad:</strong> Café de especialidad</div>
+                </div>
+                
+                <div class="company-card">
+                    <div class="company-name">Café Rojo</div>
+                    <span class="company-type">Cafetería Specialty</span>
+                    <div class="company-detail"><strong>Ubicación:</strong> San José</div>
+                    <div class="company-detail"><strong>Reviews:</strong> 669+ (TripAdvisor)</div>
+                </div>
+                
+                <div class="company-card">
+                    <div class="company-name">Café A La Moda</div>
+                    <span class="company-type">Cafetería</span>
+                    <div class="company-detail"><strong>Reviews:</strong> 351+ (TripAdvisor)</div>
+                    <div class="company-detail"><strong>Rating:</strong> 4.9</div>
+                </div>
+                
+                <div class="company-card">
+                    <div class="company-name">Lúcida Cafetería</div>
+                    <span class="company-type">Cafetería</span>
+                    <div class="company-detail"><strong>Ubicación:</strong> Rohrmoser</div>
+                    <div class="company-detail"><strong>Entorno:</strong> Frente a Café Park</div>
+                </div>
+                
+                <div class="company-card">
+                    <div class="company-name">Montirol Forest Cafe</div>
+                    <span class="company-type">Restaurante</span>
+                    <div class="company-detail"><strong>Mención:</strong> Top 20 restaurantes CR 2026</div>
+                    <div class="company-detail"><strong>Instagram:</strong> <span class="instagram-handle">@montirolforestcafe</span></div>
+                </div>
+                
+                <div class="company-card">
+                    <div class="company-name">Ramensaki</div>
+                    <span class="company-type">Restaurante</span>
+                    <div class="company-detail"><strong>Tipo:</strong> Ramen japonés</div>
+                    <div class="company-detail"><strong>Instagram:</strong> <span class="instagram-handle">@ramensaki</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Tendencias del Mercado 2026</h2>
+            
+            <div class="trend-item">
+                <h4>Boom de Franquicias Internacionales</h4>
+                <p>Costa Rica recibe inversión récord de cadenas de comida rápida. Las franquicias suman 577 locales en el país (datos USDA 2025).</p>
+            </div>
+            
+            <div class="trend-item">
+                <h4>Turismo Gastronómico en Guanacaste</h4>
+                <p>Guanacaste será la provincia con mayor número de aperturas de restaurantes en 2026, impulsada por el turismo.</p>
+            </div>
+            
+            <div class="trend-item">
+                <h4>Digitalización Masiva</h4>
+                <p>80%+ de penetración de internet, 70%+ usa celular. Instagram es la plataforma principal para restaurantes en San José, Heredia y Alajuela.</p>
+            </div>
+            
+            <div class="trend-item">
+                <h4>Récord de Nuevos Negocios de Comida</h4>
+                <p>San José registró número récord de nuevos negocios de comida desde 2022 (933 certificados de impuestos emitidos).</p>
+            </div>
+            
+            <div class="trend-item">
+                <h4>Marketing Digital como Necesidad</h4>
+                <p>La publicidad digital es casi obligatoria. Las agencias que demuestren ROI medible tienen ventaja competitiva.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Estrategias de Contacto</h2>
+            
+            <ul class="strategy-list">
+                <li data-step="1">
+                    <h4>Enfoque en Franquicias en Expansión</h4>
+                    <p>KFC, Subway, Popeyes y Burger King están en modo crecimiento. Sus equipos de marketing están ocupados aperturando — ofrezcan soporte temporal para campañas de lanzamiento local.</p>
+                </li>
+                <li data-step="2">
+                    <h4>Pitch: "Diseño de Campañas de Apertura"</h4>
+                    <p>Cada nuevo restaurante necesita materiales de marketing local. Ofrecer un paquete de "lanzamiento" con redes sociales, materiales impresos y Google Business Profile optimizado.</p>
+                </li>
+                <li data-step="3">
+                    <h4>Restaurantes con Buena Presencia Digital</h4>
+                    <p>Cafeoteca, Café Rojo y similares ya entienden redes sociales. Su necesidad es diferenciarse, crear contenido de video, y manejar reseñas activamente.</p>
+                </li>
+                <li data-step="4">
+                    <h4>LinkedIn para Decision Makers</h4>
+                    <p>Buscar Gerentes de Restaurante y Directores de Marketing en LinkedIn. Contactar a través de InMail con propuesta de valor concreta.</p>
+                </li>
+                <li data-step="5">
+                    <h4>Propuesta de WhatsApp Business</h4>
+                    <p>Muitos restaurantes ticos aún no aprovechan WhatsApp Business. Presentar como solución de reservas, pedidos y atención al cliente integrada.</p>
+                </li>
+                <li data-step="6">
+                    <h4>Caso de Éxito: Turismo Gastronómico</h4>
+                    <p>Guanacaste es foco de inversión. Enfocar pitch en restaurateurs que atienden turistas: necesidad de presencia en Google, TripAdvisor, Instagram en inglés.</p>
+                </li>
+            </ul>
+        </section>
+
+        <div class="highlight">
+            <p><strong> insight clave:</strong> El mercado de restaurantes en Costa Rica está en expansión activa. Las franquicias tienen presupuestos de marketing corporativos, pero necesitan apoyo local para aperturas. Los restaurantes locales buscan diferenciarse en un mercado cada vez más competido. <strong>La oportunidad para Aurea está en paquetes de lanzamiento + marketing digital integral.</strong></p>
+        </div>
+
+        <footer>
+            <p>Reporte generado automáticamente | Aurea Advertising Agency</p>
+            <p>Próximo nicho: Clínicas | Scheduled: Mayo 4, 2026 17:00 UTC</p>
+        </footer>
+    </div>
+</body>
+</html>
