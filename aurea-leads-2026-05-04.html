@@ -3,642 +3,557 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aurea Leads - Escuelas Costa Rica | 2026-05-04</title>
+    <title>Aurea - Leads Clínicas Privadas Costa Rica | 4 Mayo 2026</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --bg-primary: #0f1117;
+            --bg-secondary: #1a1d27;
+            --bg-card: #22262f;
+            --accent: #f5a623;
+            --accent-hover: #f7b84b;
+            --text-primary: #e8eaf0;
+            --text-secondary: #9ca3af;
+            --text-muted: #6b7280;
+            --border: #2d323d;
+            --success: #34d399;
+            --warning: #fbbf24;
+            --danger: #f87171;
         }
-        
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 100%);
-            color: #e0e0e0;
-            min-height: 100vh;
-            padding: 20px;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        header {
-            text-align: center;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
             padding: 40px 20px;
-            border-bottom: 2px solid #7c3aed;
+        }
+        .container { max-width: 960px; margin: 0 auto; }
+        .header {
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 30px;
             margin-bottom: 40px;
         }
-        
-        .badge {
-            display: inline-block;
-            background: linear-gradient(135deg, #7c3aed, #a855f7);
-            color: white;
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
+        .logo {
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 3px;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 16px;
+            color: var(--accent);
+            margin-bottom: 20px;
         }
-        
         h1 {
-            font-size: 2.5rem;
-            background: linear-gradient(135deg, #7c3aed, #a855f7, #ec4899);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 10px;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text-primary);
         }
-        
-        .subtitle {
-            color: #9ca3af;
-            font-size: 1.1rem;
+        .meta {
+            color: var(--text-muted);
+            font-size: 14px;
         }
-        
-        .meta-info {
+        .badge-row {
             display: flex;
-            justify-content: center;
-            gap: 30px;
+            gap: 12px;
             margin-top: 20px;
             flex-wrap: wrap;
         }
-        
-        .meta-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: #9ca3af;
-            font-size: 14px;
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
         }
-        
-        .meta-item svg {
-            width: 18px;
-            height: 18px;
-            color: #7c3aed;
+        .badge-niche { background: rgba(245,166,35,0.15); color: var(--accent); border: 1px solid rgba(245,166,35,0.3); }
+        .badge-count { background: rgba(52,211,153,0.1); color: var(--success); border: 1px solid rgba(52,211,153,0.3); }
+        .badge-status { background: rgba(251,191,36,0.1); color: var(--warning); border: 1px solid rgba(251,191,36,0.3); }
+
+        .summary {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 28px;
+            margin-bottom: 36px;
         }
-        
-        section {
-            background: rgba(30, 30, 50, 0.6);
-            border-radius: 16px;
-            padding: 30px;
-            margin-bottom: 30px;
-            border: 1px solid rgba(124, 58, 237, 0.2);
+        .summary h2 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--accent);
         }
-        
-        h2 {
-            color: #a855f7;
-            font-size: 1.5rem;
+        .summary p { color: var(--text-secondary); font-size: 14px; }
+
+        .section { margin-bottom: 40px; }
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
             margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border);
             display: flex;
             align-items: center;
             gap: 10px;
         }
-        
-        h2::before {
-            content: '';
-            width: 4px;
-            height: 24px;
-            background: linear-gradient(180deg, #7c3aed, #a855f7);
-            border-radius: 2px;
-        }
-        
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-        
-        .stat-card {
-            background: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(168, 85, 247, 0.05));
-            border: 1px solid rgba(124, 58, 237, 0.3);
-            border-radius: 12px;
-            padding: 20px;
-            text-align: center;
-        }
-        
-        .stat-number {
-            font-size: 2.5rem;
+        .section-title .num {
+            background: var(--accent);
+            color: var(--bg-primary);
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
             font-weight: 700;
-            background: linear-gradient(135deg, #7c3aed, #a855f7);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
         }
-        
-        .stat-label {
-            color: #9ca3af;
-            font-size: 14px;
-            margin-top: 5px;
-        }
-        
-        .company-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 20px;
-        }
-        
+
         .company-card {
-            background: rgba(20, 20, 35, 0.8);
-            border: 1px solid rgba(124, 58, 237, 0.2);
-            border-radius: 12px;
-            padding: 24px;
-            transition: transform 0.3s, box-shadow 0.3s;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 16px;
+            transition: border-color 0.2s;
         }
-        
-        .company-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 40px rgba(124, 58, 237, 0.2);
-        }
-        
+        .company-card:hover { border-color: var(--accent); }
         .company-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 16px;
+            margin-bottom: 10px;
         }
-        
         .company-name {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #f0f0f0;
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-primary);
         }
-        
         .company-type {
-            background: rgba(236, 72, 153, 0.2);
-            color: #ec4899;
-            padding: 4px 10px;
-            border-radius: 6px;
             font-size: 11px;
             font-weight: 600;
             text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 3px 8px;
+            border-radius: 4px;
+            background: rgba(245,166,35,0.12);
+            color: var(--accent);
         }
-        
-        .company-director {
-            color: #a855f7;
-            font-size: 14px;
+        .company-desc {
+            font-size: 13px;
+            color: var(--text-secondary);
             margin-bottom: 12px;
         }
-        
-        .company-details {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
+        .company-details { display: flex; flex-wrap: wrap; gap: 8px; }
+        .detail-chip {
+            font-size: 11px;
+            padding: 3px 8px;
+            border-radius: 4px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            color: var(--text-muted);
         }
-        
-        .detail-row {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 14px;
-            color: #9ca3af;
+        .company-contact {
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid var(--border);
+            font-size: 12px;
+            color: var(--text-muted);
         }
-        
-        .detail-row svg {
-            width: 16px;
-            height: 16px;
-            color: #7c3aed;
-            flex-shrink: 0;
-        }
-        
-        .detail-row a {
-            color: #a855f7;
-            text-decoration: none;
-        }
-        
-        .detail-row a:hover {
-            text-decoration: underline;
-        }
-        
-        .contact-strategies ul {
-            list-style: none;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 16px;
-        }
-        
-        .contact-strategies li {
-            background: rgba(20, 20, 35, 0.6);
-            border-left: 3px solid #7c3aed;
-            padding: 16px 20px;
-            border-radius: 0 8px 8px 0;
-            font-size: 14px;
-            line-height: 1.6;
-        }
-        
-        .contact-strategies li strong {
-            color: #a855f7;
-        }
-        
-        .trends-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 16px;
-        }
-        
-        .trend-card {
-            background: linear-gradient(135deg, rgba(124, 58, 237, 0.08), rgba(168, 85, 247, 0.03));
-            border: 1px solid rgba(124, 58, 237, 0.2);
-            border-radius: 12px;
+        .company-contact strong { color: var(--text-secondary); }
+
+        .strategy-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
             padding: 20px;
+            margin-bottom: 14px;
         }
-        
-        .trend-card h4 {
-            color: #a855f7;
+        .strategy-card h3 {
             font-size: 15px;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--accent);
         }
-        
-        .trend-card p {
-            color: #9ca3af;
+        .strategy-card p { font-size: 13px; color: var(--text-secondary); }
+        .strategy-card ul {
+            margin: 8px 0 0 18px;
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+        .strategy-card ul li { margin-bottom: 4px; }
+
+        .trend-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 18px;
+            margin-bottom: 12px;
+        }
+        .trend-card h4 {
             font-size: 14px;
-            line-height: 1.6;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 6px;
         }
-        
-        .highlight {
-            background: rgba(124, 58, 237, 0.2);
-            padding: 20px;
-            border-radius: 12px;
-            margin-top: 20px;
+        .trend-card p { font-size: 13px; color: var(--text-secondary); }
+        .trend-tag {
+            display: inline-block;
+            margin-top: 8px;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 2px 8px;
+            border-radius: 4px;
         }
-        
-        .highlight h4 {
-            color: #a855f7;
-            margin-bottom: 10px;
-        }
-        
-        .highlight p {
-            color: #d1d5db;
-            line-height: 1.7;
-        }
-        
-        footer {
+        .trend-tag.high { background: rgba(52,211,153,0.1); color: var(--success); }
+        .trend-tag.medium { background: rgba(251,191,36,0.1); color: var(--warning); }
+
+        .footer {
+            margin-top: 50px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
             text-align: center;
-            padding: 30px;
-            color: #6b7280;
-            font-size: 14px;
-            border-top: 1px solid rgba(124, 58, 237, 0.2);
-            margin-top: 40px;
+            font-size: 12px;
+            color: var(--text-muted);
         }
-        
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 1.8rem;
-            }
-            
-            .company-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            section {
-                padding: 20px;
-            }
-        }
+        .footer a { color: var(--accent); text-decoration: none; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <span class="badge">Reporte de Leads</span>
-            <h1>Escuelas Privadas en Costa Rica</h1>
-            <p class="subtitle">Oportunidades de Lead Generation para Aurea Advertising Agency</p>
-            <div class="meta-info">
-                <div class="meta-item">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                    <span>Mayo 2026</span>
-                </div>
-                <div class="meta-item">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                    <span>Costa Rica - GAM</span>
-                </div>
-                <div class="meta-item">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                    <span>9 escuelas identificadas</span>
-                </div>
-            </div>
-        </header>
+<div class="container">
 
-        <section>
-            <h2>Métricas del Reporte</h2>
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-number">9</div>
-                    <div class="stat-label">Escuelas Identificadas</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">15+</div>
-                    <div class="stat-label">Contactos Directos</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">5</div>
-                    <div class="stat-label">Con Email Personal</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">8</div>
-                    <div class="stat-label">Ubicadas en GAM</div>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <h2>Escuelas Privadas Identificadas</h2>
-            <div class="company-grid">
-                
-                <div class="company-card">
-                    <div class="company-header">
-                        <div class="company-name">Blue Valley School</div>
-                        <div class="company-type">IB / US Diploma</div>
-                    </div>
-                    <div class="company-director">Head: Kathryn Scanlan</div>
-                    <div class="company-details">
-                        <div class="detail-row">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                            <a href="mailto:bryan.flores@bluevalley.ed.cr">bryan.flores@bluevalley.ed.cr</a> (College Counselor)
-                        </div>
-                        <div class="detail-row">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>
-                            <span>Guachipelín, Escazú, San José</span>
-                        </div>
-                        <div class="detail-row">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
-                            <a href="https://www.bluevalley.ed.cr">bluevalley.ed.cr</a>
-                        </div>
-                        <div class="detail-row">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                            <span>+35 años de trayectoria | Parte de Inspired Education</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="company-card">
-                    <div class="company-header">
-                        <div class="company-name">Lincoln School</div>
-                        <div class="company-type">IB / Bicultural</div>
-                    </div>
-                    <div class="company-director">General Director: Daniel Allen, Ed.D., NBCT</div>
-                    <div class="company-details">
-                        <div class="detail-row">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                            <a href="mailto:info@lincoln.ed.cr">info@lincoln.ed.cr</a>
-                        </div>
-                        <div class="detail-row">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>
-                            <span>Barrio Socorro, San Miguel, Santo Domingo de Heredia</span>
-                        </div>
-                        <div class="detail-row">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9"/></svg>
-                            <a href="https://www.lincoln.ed.cr">lincoln.ed.cr</a>
-                        </div>
-                        <div class="detail-row">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                            <span>+80 años | Aliados con Babson College</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="company-card">
-                    <div class="company-header">
-                        <div class="company-name">American International School (AIS)</div>
-                        <div class="company-type">US Diploma</div>
-                    </div>
-                    <div class="company-director">General Director: Christian Joneliukstis</div>
-                    <div class="company-details">
-                        <div class="detail-row">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                            <a href="mailto:aiscr@ais.ed.cr">aiscr@ais.ed.cr</a>
-                        </div>
-                        <div class="detail-row">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-                            <span>+506-2293-2567 | WhatsApp: 7070-0733</span>
-                        </div>
-                        <div class="detail-row">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9"/></svg>
-                            <a href="https://ais.ed.cr">ais.ed.cr</a>
-                        </div>
-                        <div class="detail-row">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                            <span>+50 años | Fundada 1970 | SAT Test Center</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="company-card">
-                    <div class="company-header">
-                        <div class="company-name">Colegio Humboldt</div>
-                        <div class="company-type">IB / Alemán</div>
-                    </div>
-                    <div class="company-director">National Director: Ana Patricia Arroyo</div>
-                    <div class="company-details">
-                        <div class="detail-row">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                            <a href="mailto:savalerio@colegiohumboldt.cr">savalerio@colegiohumboldt.cr</a> (Directora Nacional)
-                        </div>
-                        <div class="detail-row">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                            <a href="mailto:msantamaria@colegiohumboldt.cr">msantamaria@colegiohumboldt.cr</a> (Mercadeo)
-                        </div>
-                        <div class="detail-row">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-                            <span>(506) 2232 1455</span>
-                        </div>
-                        <div class="detail-row">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>
-                            <span>Contiguo a Iglesia Nuestra Señora de Loreto, Pavas</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="company-card">
-                    <div class="company-header">
-                        <div class="company-name">The British School of Costa Rica</div>
-                        <div class="company-type">IB / Cambridge</div>
-                    </div>
-                    <div class="company-director">Head of School: G. Arroyo</div>
-                    <div class="company-details">
-                        <div class="detail-row">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                            <a href="mailto:info@bscr.ed.cr">info@bscr.ed.cr</a>
-                        </div>
-                        <div class="detail-row">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                            <a href="mailto:admissions@bscr.ed.cr">admissions@bscr.ed.cr</a> (Admisiones)
-                        </div>
-                        <div class="detail-row">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-                            <span>+506 22200131</span>
-                        </div>
-                        <div class="detail-row">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>
-                            <span>Rohrmoser Boulevard 125m North, Pavas</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="company-card">
-                    <div class="company-header">
-                        <div class="company-name">New Summit Academy Costa Rica</div>
-                        <div class="company-type">US College Prep</div>
-                    </div>
-                    <div class="company-director">Executive Director: Heather Tracy, Ed.D.</div>
-                    <div class="company-details">
-                        <div class="detail-row">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                            <a href="mailto:info@newsummitacademy.com">info@newsummitacademy.com</a>
-                        </div>
-                        <div class="detail-row">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-                            <span>(800) 609-9496</span>
-                        </div>
-                        <div class="detail-row">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9"/></svg>
-                            <a href="https://www.newsummitacademy.com">newsummitacademy.com</a>
-                        </div>
-                        <div class="detail-row">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                            <span>Revenue: $6M (2026) | Ubicación en Corcovado</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="company-card">
-                    <div class="company-header">
-                        <div class="company-name">Saint George High School</div>
-                        <div class="company-type">High School</div>
-                    </div>
-                    <div class="company-director">Contacto administrativo</div>
-                    <div class="company-details">
-                        <div class="detail-row">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-                            <span>+506 2220-4960</span>
-                        </div>
-                        <div class="detail-row">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-                            <span>WhatsApp: +506 8630 6888</span>
-                        </div>
-                        <div class="detail-row">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>
-                            <span>Sabana, San José (de Librería Universal 125m sur)</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="company-card">
-                    <div class="company-header">
-                        <div class="company-name">Pan-American School</div>
-                        <div class="company-type">IB Continuum</div>
-                    </div>
-                    <div class="company-director">General Director: Alan Wrafter</div>
-                    <div class="company-details">
-                        <div class="detail-row">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9"/></svg>
-                            <span>Primer IB Continuum School en Costa Rica</span>
-                        </div>
-                        <div class="detail-row">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>
-                            <span>San José, Costa Rica</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="company-card">
-                    <div class="company-header">
-                        <div class="company-name">Gaia School Costa Rica</div>
-                        <div class="company-type">International</div>
-                    </div>
-                    <div class="company-director">Head (desde Jul 2026): Brayan Muñoz</div>
-                    <div class="company-details">
-                        <div class="detail-row">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                            <span>Nuevo Head appointed Oct 2025 | Inicio Jul 2026</span>
-                        </div>
-                        <div class="detail-row">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9"/></svg>
-                            <span>Expansión planeada bajo nuevo liderazgo</span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <section class="contact-strategies">
-            <h2>Estrategias de Contacto</h2>
-            <ul>
-                <li>
-                    <strong>Email Marketing Dirigido:</strong> Usar bases de datos de ACEP (Asociación de Centros Educativos Privados) para acceso a 398 escuelas privadas. Contacto: +506 8878-0734, Heredia.
-                </li>
-                <li>
-                    <strong>LinkedIn Outreach:</strong> Conectar directamente con directors y administrators de cada escuela. Tono profesional, propuestas de valor específicas para el sector educativo.
-                </li>
-                <li>
-                    <strong>WhatsApp Business:</strong> Contactos como +506 8630 6888 (Saint George) permiten outreach directo. Mensajes personalizados con propuestas de marketing educativo.
-                </li>
-                <li>
-                    <strong>Feria Educativa:</strong> Participar en eventos como el NEXTGEN Summit o Chess and Education Summit para networking directo con tomadores de decisión.
-                </li>
-                <li>
-                    <strong>Directorio MEP:</strong> Acceder a dgth.mep.go.cr/directorio-de-centros-educativos para datos oficiales de todos los centros educativos privados.
-                </li>
-                <li>
-                    <strong>Email Personalizado:</strong> Dirigirse a College Counselors (Blue Valley: bryan.flores@bluevalley.ed.cr) para servicios de admisiones y marketing.
-                </li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>Tendencias del Mercado 2026</h2>
-            <div class="trends-list">
-                <div class="trend-card">
-                    <h4>🎯 IA y Automatización en Educación</h4>
-                    <p>Blue Valley integra IA aplicada a la educación y usa herramientas como realidad virtual a través del Metaverso Inspired. Las escuelas buscan proveedores de marketing digital con expertise en IA.</p>
-                </div>
-                <div class="trend-card">
-                    <h4>📱 Marketing Digital Educativo</h4>
-                    <p>El 99%+ de schools buscan presencia digital más sofisticada. Tendencias 2026: personalización de contenido, automatización de admisiones, y estrategias allbound.</p>
-                </div>
-                <div class="trend-card">
-                    <h4>🌐 Bilingüismo como Diferenciador</h4>
-                    <p>Solo 12% de la población costarricense es bilingüe según MEP. Schools bilingües e internacionales buscan diferenciarse con propuestas académicas únicas.</p>
-                </div>
-                <div class="trend-card">
-                    <h4>📊 Inversión Récord en Infraestructura</h4>
-                    <p>Costa Rica 2026: Mayor inversión en infraestructura educativa de la historia con budget execution de 99.17%. Oportunidad para brands que apoyan educación.</p>
-                </div>
-                <div class="trend-card">
-                    <h4>🏆 Programas IB y Acreditaciones</h4>
-                    <p>Todas las schools premium tienen certificaciones IB, NEASC o Cambridge. Esto implica families con alto poder adquisitivo y mayor presupuesto para servicios complementarios.</p>
-                </div>
-                <div class="trend-card">
-                    <h4>💡 Entrepreneurship en Curriculum</h4>
-                    <p>Lincoln School tiene alianza con Babson College para entrepreneurship. Schools buscan partners para extracurriculares, workshops y programas de verano.</p>
-                </div>
-            </div>
-            
-            <div class="highlight">
-                <h4>💡 Oportunidad para Aurea</h4>
-                <p>El nicho de escuelas privadas en Costa Rica representa un mercado premium con decision-makers accesibles y presupuestos dedicados a marketing. La diferenciación clave está en demostrar ROI en captación de estudiantes internacionales y retención de familias. Enfocar pitch en: gestión de redes sociales para admisiones, content marketing bilingüe, y campaigns de captación en mercados meta (Nicaragua, USA, Europa).</p>
-            </div>
-        </section>
-
-        <section>
-            <h2>Próximo Nicho</h2>
-            <div style="background: rgba(236, 72, 153, 0.1); border: 1px solid rgba(236, 72, 153, 0.3); border-radius: 12px; padding: 24px;">
-                <p style="font-size: 16px; color: #d1d5db; line-height: 1.7;">
-                    <strong style="color: #ec4899;">Rotation para próxima hora:</strong> Schools → <strong>Manufacturers</strong> (fábricas y empresas de manufactura en Costa Rica)
-                </p>
-            </div>
-        </section>
-
-        <footer>
-            <p>Reporte generado automáticamente por Aurea Lead Research Agent</p>
-            <p style="margin-top: 8px;">Costa Rica | Mayo 2026</p>
-        </footer>
+    <!-- HEADER -->
+    <div class="header">
+        <div class="logo">Aurea · Advertising Intelligence</div>
+        <h1>Lead Research Report — Clínicas Privadas Costa Rica</h1>
+        <div class="meta">4 de Mayo, 2026 · 06:00 CST · Semana 18 · Ciclo #18</div>
+        <div class="badge-row">
+            <span class="badge badge-niche">NICHO: Clínicas Privadas</span>
+            <span class="badge badge-count">10 Empresas Identificadas</span>
+            <span class="badge badge-status">Nuevas Oportunidades</span>
+        </div>
     </div>
+
+    <!-- SUMMARY -->
+    <div class="summary">
+        <h2>Resumen Ejecutivo</h2>
+        <p>
+            El sector de clínicas privadas en Costa Rica presenta oportunidades significativas para servicios de publicidad y marketing digital. 
+            Este reporte identifica <strong>10 instituciones médicas</strong> —desde hospitales generales hasta clínicas de medicina estética y dental— 
+            que carecen de estrategias digitales maduras y son candidatos ideales para servicios de branding, redes sociales, 
+            SEO y publicidad digital. El mercado de turismo médico sigue siendo un impulsor clave de la inversión en marketing digital.
+        </p>
+    </div>
+
+    <!-- SECTION 1: COMPANIES -->
+    <div class="section">
+        <div class="section-title"><span class="num">1</span>Empresas Identificadas</div>
+
+        <div class="company-card">
+            <div class="company-header">
+                <span class="company-name">Hospital Clínica Bíblica</span>
+                <span class="company-type">Hospital General</span>
+            </div>
+            <p class="company-desc">
+                El hospital privado más grande y antiguo de Costa Rica (fundado en 1929). Acreditado por JCI, líder en turismo médico. 
+                Sede principal en San José con múltiples edificios integrados. 96 años de trayectoria.
+            </p>
+            <div class="company-details">
+                <span class="detail-chip">San José</span>
+                <span class="detail-chip">JCI Accredited</span>
+                <span class="detail-chip">Turismo Médico</span>
+                <span class="detail-chip">60+ especialidades</span>
+            </div>
+            <div class="company-contact">
+                <strong>Contacto:</strong> +(506) 2522-1000 · <a href="https://www.clinicabiblica.com" style="color:var(--accent)">clinicabiblica.com</a> · 
+                Avenida 14, Calle 1 Y Central, San José
+            </div>
+        </div>
+
+        <div class="company-card">
+            <div class="company-header">
+                <span class="company-name">Hospital CIMA</span>
+                <span class="company-type">Hospital General</span>
+            </div>
+            <p class="company-desc">
+                Parte del grupo Hospital CIMA con presencia en varias ciudades. Amplia variedad de especialidades médicas y subespecialidades. 
+                Ubicaciones estratégicas en San José y otras provincias.
+            </p>
+            <div class="company-details">
+                <span class="detail-chip">San José / multi-provincia</span>
+                <span class="detail-chip">60+ especialidades</span>
+                <span class="detail-chip">Turismo Médico</span>
+            </div>
+            <div class="company-contact">
+                <strong>Contacto:</strong> <a href="https://hospitalcima.com" style="color:var(--accent)">hospitalcima.com</a> · 
+                Hospital CIMA Torre I, San José
+            </div>
+        </div>
+
+        <div class="company-card">
+            <div class="company-header">
+                <span class="company-name">Hospital UNIBE</span>
+                <span class="company-type">Hospital Privado</span>
+            </div>
+            <p class="company-desc">
+                Hospital privado con más de 15 años de experiencia. Acreditado por ACHC. 
+                Sedes en Tibás y San Pedro. Especialidades quirúrgicas avanzadas incluyendo cirugía cardiovascular y urológica.
+            </p>
+            <div class="company-details">
+                <span class="detail-chip">Tibás / San Pedro</span>
+                <span class="detail-chip">ACHC Accredited</span>
+                <span class="detail-chip">Cirugía Avanzada</span>
+            </div>
+            <div class="company-contact">
+                <strong>Contacto:</strong> +(506) 2297-6300 24/7 · <a href="https://hospitalunibecr.com" style="color:var(--accent)">hospitalunibecr.com</a>
+            </div>
+        </div>
+
+        <div class="company-card">
+            <div class="company-header">
+                <span class="company-name">HF Derma Clinique — Dr. Hani Farhat</span>
+                <span class="company-type">Dermatología / Estética</span>
+            </div>
+            <p class="company-desc">
+                Clínica dermatológica de alta gama ubicada en Hospital CIMA. El Dr. Farhat tiene formación internacional y acreditación en 4 países. 
+                Equipamiento láser de vanguardia (Fotona). Enfoque en rejuvenecimiento y dermatología cosmética.
+            </p>
+            <div class="company-details">
+                <span class="detail-chip">Escazú</span>
+                <span class="detail-chip">Hospital CIMA</span>
+                <span class="detail-chip">Láser Fotona</span>
+                <span class="detail-chip">Mercado Premium</span>
+            </div>
+            <div class="company-contact">
+                <strong>Contacto:</strong> <a href="https://derma-clinique.com" style="color:var(--accent)">derma-clinique.com</a> · 
+                Dr. Hani Farhat · Hospital CIMA Torre I, consultorio
+            </div>
+        </div>
+
+        <div class="company-card">
+            <div class="company-header">
+                <span class="company-name">Centro Médico Estético Dr. Cárdenas</span>
+                <span class="company-type">Medicina Estética</span>
+            </div>
+            <p class="company-desc">
+                Dos ubicaciones: San Ramón de Alajuela y Paseo de Las Flores, Heredia. 
+                Especializado en reducción de medidas, depilación láser (Deodo, Neodimio, Luz Pulsada), rejuvenecimiento y control de acné.
+            </p>
+            <div class="company-details">
+                <span class="detail-chip">San Ramón / Heredia</span>
+                <span class="detail-chip">2 ubicaciones</span>
+                <span class="detail-chip">Depilación Láser</span>
+            </div>
+            <div class="company-contact">
+                <strong>Contacto:</strong> <a href="https://consultoriocardenas.com" style="color:var(--accent)">consultoriocardenas.com</a>
+            </div>
+        </div>
+
+        <div class="company-card">
+            <div class="company-header">
+                <span class="company-name">Clínica Costarricense de Medicina Estética — Dr. Bolaños</span>
+                <span class="company-type">Medicina Estética</span>
+            </div>
+            <p class="company-desc">
+                Más de 20 años de experiencia. Clínica especializada en medicina estética avanzada, láser, cirugía y dermatología general. 
+                Posicionamiento establecido en el mercado local.
+            </p>
+            <div class="company-details">
+                <span class="detail-chip">Costa Rica</span>
+                <span class="detail-chip">20+ años</span>
+                <span class="detail-chip">Láser / Dermatología</span>
+            </div>
+            <div class="company-contact">
+                <strong>Contacto:</strong> <a href="https://drbolanosleon.com" style="color:var(--accent)">drbolanosleon.com</a>
+            </div>
+        </div>
+
+        <div class="company-card">
+            <div class="company-header">
+                <span class="company-name">Face and Body Care Center Costa Rica</span>
+                <span class="company-type">Centro Médico Estético</span>
+            </div>
+            <p class="company-desc">
+                Centro médico dedicado al cuidado corporal y facial. Tratamientos de medicina estética, dermatología y antienvejecimiento. 
+                Equipo médico experimentado y tecnologías de vanguardia.
+            </p>
+            <div class="company-details">
+                <span class="detail-chip">Costa Rica</span>
+                <span class="detail-chip">Antienvejecimiento</span>
+                <span class="detail-chip">Dermatología</span>
+            </div>
+            <div class="company-contact">
+                <strong>Contacto:</strong> <a href="https://faceandbodycarecentercostarica.com" style="color:var(--accent)">faceandbodycarecentercostarica.com</a>
+            </div>
+        </div>
+
+        <div class="company-card">
+            <div class="company-header">
+                <span class="company-name">Aesthetic Dental Care Costa Rica</span>
+                <span class="company-type">Clínica Dental (Turismo Médico)</span>
+            </div>
+            <p class="company-desc">
+                Clínica dental con enfoque en turismo médico. Especialidades: implantes dentales, odontología cosmética, rehabilitación bucal. 
+                Pacientes internacionales reportan experiencias positivas. Posicionamiento en mercados de EE.UU. y Canadá.
+            </p>
+            <div class="company-details">
+                <span class="detail-chip">Turismo Médico</span>
+                <span class="detail-chip">Implantes / Cosmética</span>
+                <span class="detail-chip">Mercado Anglosajón</span>
+            </div>
+            <div class="company-contact">
+                <strong>Contacto:</strong> <a href="https://aestheticdentalcr.com" style="color:var(--accent)">aestheticdentalcr.com</a>
+            </div>
+        </div>
+
+        <div class="company-card">
+            <div class="company-header">
+                <span class="company-name">Costa Rica Dental Clinic Lab</span>
+                <span class="company-type">Clínica Dental</span>
+            </div>
+            <p class="company-desc">
+                Clínica dental enfocada en implantes asequibles, odontología cosmética y rehabilitación bucal completa. 
+                Parte del ecosistema de turismo dental en Costa Rica.
+            </p>
+            <div class="company-details">
+                <span class="detail-chip">Turismo Dental</span>
+                <span class="detail-chip">Implantes</span>
+                <span class="detail-chip">Costa Rica</span>
+            </div>
+            <div class="company-contact">
+                <strong>Contacto:</strong> <a href="https://dentalcliniclabcostarica.com" style="color:var(--accent)">dentalcliniclabcostarica.com</a>
+            </div>
+        </div>
+
+        <div class="company-card">
+            <div class="company-header">
+                <span class="company-name">Centro Dermatológico Estético Dr. Gamboa</span>
+                <span class="company-type">Dermatología Estética</span>
+            </div>
+            <p class="company-desc">
+                Especialista dermatológico reconocido en Costa Rica. Centro dedicado a dermatología estética con tratamientos avanzados para cuidado de la piel.
+            </p>
+            <div class="company-details">
+                <span class="detail-chip">Dermatología</span>
+                <span class="detail-chip">Estética</span>
+                <span class="detail-chip">Costa Rica</span>
+            </div>
+            <div class="company-contact">
+                <strong>Contacto:</strong> Disponible vía HuliHealth y WhatClinic
+            </div>
+        </div>
+
+    </div>
+
+    <!-- SECTION 2: CONTACT STRATEGIES -->
+    <div class="section">
+        <div class="section-title"><span class="num">2</span>Estrategias de Contacto</div>
+
+        <div class="strategy-card">
+            <h3>🏥 Hospitales Generales (Clínica Bíblica, CIMA, UNIBE)</h3>
+            <p>Instituciones grandes con presupuestos establecidos. Enfoque indirecto a través del Director de Marketing o Gerencia de Servicios.</p>
+            <ul>
+                <li><strong>Puerto de entrada:</strong> LinkedIn — buscar "Director de Marketing", "Gerente de Comunicaciones", "Jefe de Imagen Institucional"</li>
+                <li><strong>Propuesta inicial:</strong> Auditoría gratuita de presencia digital + benchmarking vs. hospitales de la región</li>
+                <li><strong>Ángulo:</strong> "Aumentar captación de pacientes internacionales mediante estrategia digital" (turismo médico)</li>
+                <li><strong>Tono:</strong> Corporativo, basado en datos y ROI</li>
+                <li><strong>Presupuesto estimado en marketing:</strong> Alto. Posible retención de agencia completa</li>
+            </ul>
+        </div>
+
+        <div class="strategy-card">
+            <h3>🔬 Clínicas de Medicina Estética y Dermatología</h3>
+            <p>Dueños/médicos通常是决策者. Marketing más urgencia por diferenciación y paciente nuevo.</p>
+            <ul>
+                <li><strong>Puerto de entrada:</strong> Instagram profesional + WhatsApp Business + email directo al médico</li>
+                <li><strong>Propuesta inicial:</strong> "Su clínica merece el doble de citas: estrategia digital para medicina estética"</li>
+                <li><strong>Ángulo:</strong> Atracción de pacientes locales y turismo estético. Mostrar casos de éxito en clínicas similares</li>
+                <li><strong>Tono:</strong> Consultivo, con понимание of the medical-professional nuances</li>
+                <li><strong>Servicios prioritarios:</strong> Gestión de Instagram, Google Ads para términos como "botox Costa Rica", "clínica estética San José"</li>
+            </ul>
+        </div>
+
+        <div class="strategy-card">
+            <h3>🦷 Clínicas Dentales (Turismo Médico)</h3>
+            <p>Mercado altamente competitivo en Costa Rica. Necesidad urgente de captar pacientes internacionales.</p>
+            <ul>
+                <li><strong>Puerto de entrada:</strong> Webinars para dentistas + partnerships con plataformas de turismo médico (Bookimed, MedicalTourism.com)</li>
+                <li><strong>Propuesta inicial:</strong> "Cómo atraer 3x más pacientes de USA/Canadá sin aumentar su presupuesto de marketing"</li>
+                <li><strong>Ángulo:</strong> Pacientes internacionales = revenue premium. SEO en inglés para términos "dental implants Costa Rica"</li>
+                <li><strong>Tono:</strong> Directo, orientado a resultados financieros</li>
+                <li><strong>Servicios prioritarios:</strong> SEO multilingüe, content marketing en inglés, Google Ads internacional</li>
+            </ul>
+        </div>
+
+        <div class="strategy-card">
+            <h3>📋 Mensajes Clave por Segmento</h3>
+            <p>Para frío emailing y LinkedIn outreach:</p>
+            <ul>
+                <li><strong>Para hospitales:</strong> "Aumenten su visibilidad digital para turismo médico. Auditoría gratuita de 30 puntos."</li>
+                <li><strong>Para clínicas estéticas:</strong> "Su Instagram no está convirtiendo? Les mostramos cómo pasar de seguidores a pacientes."</li>
+                <li><strong>Para dentales:</strong> "¿Cuántos pacientes internacionales perdió este mes por no aparecer en Google en inglés?"</li>
+                <li><strong>Universal:</strong> "En 2026, no estar en la primera página de Google es quedar fuera. Les ayudamos a entrar."</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- SECTION 3: MARKET TRENDS -->
+    <div class="section">
+        <div class="section-title"><span class="num">3</span>Tendencias del Mercado 2026</div>
+
+        <div class="trend-card">
+            <h4>📱 IA en Marketing de Salud</h4>
+            <p>El 46% de los especialistas en marketing de salud ya utiliza IA para escalar contenido creativo. Los "marketers de precisión" que integran IA tienen 27% más de probabilidades de reducir desperdicio presupuestario por debajo del 10%.</p>
+            <span class="trend-tag high">Alta Relevancia</span>
+        </div>
+
+        <div class="trend-card">
+            <h4>🌐 Turismo Médico Digital</h4>
+            <p>Costa Rica sigue siendo hub de turismo médico para EE.UU. y Canadá. Los pacientes internacionales investigan online antes de viajar. Clínicas que dominan SEO en inglés y tienen presencia digital sólida captan pacientes premium.</p>
+            <span class="trend-tag high">Alta Relevancia</span>
+        </div>
+
+        <div class="trend-card">
+            <h4>🎯 Marketing de Precisión en Salud</h4>
+            <p>El 31% de líderes de marketing usa modelos de IA para predecir rendimiento de campañas antes del lanzamiento. Campañas de prevención y lanzamientos de servicios llegan al paciente exacto en el momento de mayor necesidad.</p>
+            <span class="trend-tag medium">Media Relevancia</span>
+        </div>
+
+        <div class="trend-card">
+            <h4>📸 Contenido de Video para Clínicas</h4>
+            <p>El video se consolida como formato dominante en redes sociales médicas. Testimonios de pacientes (con consentimiento), tours de instalaciones y contenido educativo en video superan en engagement al contenido estático.</p>
+            <span class="trend-tag high">Alta Relevancia</span>
+        </div>
+
+        <div class="trend-card">
+            <h4>🔒 E-E-A-T en Marketing Médico</h4>
+            <p>Experience, Expertise, Authoritativeness, Trustworthiness son factores críticos en Google para contenido médico. Las clínicas que invierten en contenido de autoridad (artículos firmados por doctores, papers) mejoran posicionamiento significativamente.</p>
+            <span class="trend-tag high">Alta Relevancia</span>
+        </div>
+
+        <div class="trend-card">
+            <h4>💬 WhatsApp Business como Canal de Conversión</h4>
+            <p>En Costa Rica, WhatsApp es el canal de comunicación primario. Clínicas que integran WhatsApp Business con chatbots para agendar citas tienen tasas de conversión 3-4x superiores vs. formularios web tradicionales.</p>
+            <span class="trend-tag high">Alta Relevancia</span>
+        </div>
+
+        <div class="trend-card">
+            <h4>🏆 Competencia Creciente en Marketing Médico</h4>
+            <p>Agencias como Flow Results, Coco Creativo y Caribamarketing ya se posicionan agresivamente en el nicho de marketing médico costarricense. La diferenciación será clave para nuevas agencias que ingresen al mercado.</p>
+            <span class="trend-tag medium">Media Relevancia</span>
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <p>Reporte generado automáticamente por <strong>Aurea Lead Research Agent</strong></p>
+        <p>Fecha: 4 Mayo 2026 · 06:00 CST</p>
+        <p style="margin-top:8px">
+            <a href="https://github.com/asdelgado506/intel-reports">Repositorio Intel Reports</a> · 
+            Archivo: <strong>aurea-leads-2026-05-04.html</strong>
+        </p>
+    </div>
+
+</div>
 </body>
 </html>
