@@ -3,572 +3,405 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aurea Leads — Restaurantes Costa Rica | Mayo 2026</title>
+    <title>Aurea - Lead Research: Restaurantes Costa Rica | Mayo 2026</title>
     <style>
-        :root {
-            --bg-primary: #0d1117;
-            --bg-secondary: #161b22;
-            --bg-card: #1c2128;
-            --border: #30363d;
-            --text-primary: #e6edf3;
-            --text-secondary: #8b949e;
-            --accent: #f78166;
-            --accent-green: #3fb950;
-            --accent-blue: #58a6ff;
-            --accent-yellow: #d29922;
-            --accent-purple: #bc8cff;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
-            background-color: var(--bg-primary);
-            color: var(--text-primary);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0d1117;
+            color: #c9d1d9;
             line-height: 1.6;
-            padding: 2rem;
+            min-height: 100vh;
         }
-
         .container {
             max-width: 1100px;
             margin: 0 auto;
+            padding: 40px 20px;
         }
-
-        header {
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 1.5rem;
-            margin-bottom: 2rem;
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #30363d;
         }
-
         .badge {
             display: inline-block;
-            background: var(--accent);
-            color: var(--bg-primary);
-            font-size: 0.75rem;
-            font-weight: 700;
-            padding: 0.25rem 0.75rem;
+            background: linear-gradient(135deg, #238636, #2ea043);
+            color: #fff;
+            padding: 6px 16px;
             border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 0.75rem;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
         }
-
         h1 {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 0.25rem;
+            font-size: 28px;
+            color: #f0f6fc;
+            margin-bottom: 10px;
         }
-
         .subtitle {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
+            color: #8b949e;
+            font-size: 14px;
         }
-
-        .meta {
-            display: flex;
-            gap: 1.5rem;
-            margin-top: 1rem;
-            flex-wrap: wrap;
+        .timestamp {
+            color: #6e7681;
+            font-size: 12px;
+            margin-top: 5px;
         }
-
-        .meta-item {
+        .section {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+        .section-title {
+            font-size: 18px;
+            color: #f0f6fc;
+            margin-bottom: 20px;
             display: flex;
             align-items: center;
-            gap: 0.4rem;
-            color: var(--text-secondary);
-            font-size: 0.85rem;
+            gap: 10px;
         }
-
-        .meta-item span {
-            color: var(--accent-green);
-            font-weight: 600;
+        .section-title::before {
+            content: '';
+            width: 4px;
+            height: 20px;
+            background: linear-gradient(180deg, #238636, #2ea043);
+            border-radius: 2px;
         }
-
-        .summary-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        .summary-card {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 1.25rem;
-        }
-
-        .summary-card .number {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--accent);
-        }
-
-        .summary-card .label {
-            color: var(--text-secondary);
-            font-size: 0.85rem;
-            margin-top: 0.25rem;
-        }
-
-        h2 {
-            font-size: 1.25rem;
-            color: var(--text-primary);
-            border-left: 3px solid var(--accent);
-            padding-left: 0.75rem;
-            margin: 2rem 0 1rem;
-        }
-
-        .trend-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        .trend-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 1.25rem;
-        }
-
-        .trend-card h3 {
-            font-size: 1rem;
-            margin-bottom: 0.5rem;
-            color: var(--accent-blue);
-        }
-
-        .trend-card p {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
         .company-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 1.25rem;
-            margin-bottom: 1rem;
-        }
-
-        .company-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 0.75rem;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .company-name {
-            font-size: 1.05rem;
-            font-weight: 700;
-            color: var(--text-primary);
-        }
-
-        .company-type {
-            font-size: 0.75rem;
-            padding: 0.2rem 0.6rem;
-            border-radius: 12px;
-            font-weight: 600;
-            text-transform: uppercase;
-        }
-
-        .type-fastfood { background: #3b1f00; color: #ff9f1a; }
-        .type-finedining { background: #1a0f3d; color: #a78bfa; }
-        .type-gourmet { background: #0f2e1a; color: #3fb950; }
-        .type-cafe { background: #2a1f00; color: #f0c040; }
-
-        .company-meta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .tag {
-            font-size: 0.78rem;
-            padding: 0.2rem 0.6rem;
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            color: var(--text-secondary);
-        }
-
-        .company-desc {
-            color: var(--text-secondary);
-            font-size: 0.88rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .contact-box {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
+            background: #0d1117;
+            border: 1px solid #30363d;
             border-radius: 8px;
-            padding: 0.75rem 1rem;
+            padding: 20px;
+            margin-bottom: 15px;
+            transition: border-color 0.3s ease;
         }
-
-        .contact-box h4 {
-            font-size: 0.78rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--text-secondary);
-            margin-bottom: 0.4rem;
+        .company-card:hover {
+            border-color: #238636;
         }
-
-        .contact-name {
-            color: var(--accent-blue);
+        .company-name {
+            font-size: 16px;
             font-weight: 600;
-            font-size: 0.9rem;
+            color: #58a6ff;
+            margin-bottom: 8px;
         }
-
-        .contact-detail {
-            color: var(--text-secondary);
-            font-size: 0.83rem;
-            margin-top: 0.2rem;
+        .company-details {
+            font-size: 13px;
+            color: #8b949e;
         }
-
-        .strategy-box {
-            background: linear-gradient(135deg, #1a1f2e 0%, #0d1117 100%);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 1.5rem;
-            margin: 2rem 0;
+        .company-details strong {
+            color: #c9d1d9;
         }
-
-        .strategy-box h3 {
-            color: var(--accent-yellow);
-            font-size: 1rem;
-            margin-bottom: 1rem;
+        .tag {
+            display: inline-block;
+            background: #1f2937;
+            color: #9ca3af;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 11px;
+            margin-right: 5px;
+            margin-top: 8px;
         }
-
-        .strategy-list {
-            list-style: none;
+        .tag.hot { background: #7c2d12; color: #fb923c; }
+        .tag.new { background: #1e3a5f; color: #60a5fa; }
+        .tag.franchise { background: #3f3f46; color: #d4d4d8; }
+        .trends-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 0.75rem;
+            gap: 15px;
         }
-
-        .strategy-list li {
+        .trend-item {
+            background: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 18px;
+        }
+        .trend-item h4 {
+            color: #2ea043;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+        .trend-item p {
+            font-size: 13px;
+            color: #8b949e;
+        }
+        .strategy-item {
             display: flex;
-            gap: 0.6rem;
-            color: var(--text-secondary);
-            font-size: 0.88rem;
+            gap: 15px;
+            padding: 15px 0;
+            border-bottom: 1px solid #21262d;
         }
-
-        .strategy-list li::before {
-            content: '→';
-            color: var(--accent-green);
+        .strategy-item:last-child { border-bottom: none; }
+        .strategy-num {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, #238636, #2ea043);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-weight: 700;
+            font-size: 14px;
+            color: #fff;
             flex-shrink: 0;
         }
-
-        footer {
-            margin-top: 3rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid var(--border);
-            color: var(--text-secondary);
-            font-size: 0.8rem;
+        .strategy-content h4 {
+            color: #f0f6fc;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        .strategy-content p {
+            font-size: 13px;
+            color: #8b949e;
+        }
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #6e7681;
+            font-size: 12px;
+        }
+        .footer a {
+            color: #58a6ff;
+            text-decoration: none;
+        }
+        .summary-box {
+            background: linear-gradient(135deg, #1a2332, #0d1117);
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+        .summary-box h3 {
+            color: #f0f6fc;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+        .summary-stats {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        .stat {
             text-align: center;
         }
-
-        @media (max-width: 600px) {
-            body { padding: 1rem; }
-            h1 { font-size: 1.4rem; }
-            .summary-cards { grid-template-columns: 1fr 1fr; }
+        .stat-value {
+            font-size: 28px;
+            font-weight: 700;
+            color: #2ea043;
+        }
+        .stat-label {
+            font-size: 11px;
+            color: #8b949e;
+            text-transform: uppercase;
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <div class="header">
+            <div class="badge">Lead Research</div>
+            <h1>🍽️ Oportunidades para Restaurantes en Costa Rica</h1>
+            <p class="subtitle">Reporte de leads para Aurea - Agencia de Publicidad</p>
+            <p class="timestamp">📅 Lunes 4 de Mayo, 2026 | ⏰ 13:03 UTC | Nicho: Restaurantes</p>
+        </div>
 
-        <header>
-            <div class="badge">Leads Report — Restaurantes</div>
-            <h1>Lead Generation: Restaurantes en Costa Rica</h1>
-            <p class="subtitle">Sector gastronómico — oportunidades para agencias de publicidad</p>
-            <div class="meta">
-                <div class="meta-item">📅 <span>Mayo 4, 2026</span></div>
-                <div class="meta-item">🌎 <span>San José, Costa Rica</span></div>
-                <div class="meta-item">🏷️ <span>Nicho: Restaurantes</span></div>
-                <div class="meta-item">📊 <span>Compañías: 10</span></div>
-            </div>
-        </header>
-
-        <div class="summary-cards">
-            <div class="summary-card">
-                <div class="number">10+</div>
-                <div class="label">Compañías identificadas</div>
-            </div>
-            <div class="summary-card">
-                <div class="number">6</div>
-                <div class="label">Marcas en expansión activa</div>
-            </div>
-            <div class="summary-card">
-                <div class="number">~$9.1M</div>
-                <div class="label">Inversión KFC 2026</div>
-            </div>
-            <div class="summary-card">
-                <div class="number">400+</div>
-                <div class="label">Empleos por crear en sector</div>
+        <div class="summary-box">
+            <h3>📊 Resumen Ejecutivo</h3>
+            <div class="summary-stats">
+                <div class="stat">
+                    <div class="stat-value">8</div>
+                    <div class="stat-label">Empresas Identificadas</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">4</div>
+                    <div class="stat-label">Estrategias de Contacto</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">5</div>
+                    <div class="stat-label">Tendencias Clave</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">Alta</div>
+                    <div class="stat-label">Prioridad</div>
+                </div>
             </div>
         </div>
 
-        <h2>📈 Tendencias del Mercado 2026</h2>
-        <div class="trend-grid">
-            <div class="trend-card">
-                <h3>🥇 Expansión agresiva de fast food</h3>
-                <p>KFC invertirá $9.1M para abrir 7 restaurantes en Guanacaste, Heredia, Alajuela y San José. Burger King, Domino's, Popeyes y Subway también tienen planes activos de apertura para 2026.</p>
-            </div>
-            <div class="trend-card">
-                <h3>🌿 Gastronomía de experiencia</h3>
-                <p>Restaurantes únicos como San Lucas Treetop (Monteverde) y Fogo Rodizio lideran rankings internacionales. El consumidor busca experiencias, no solo comida.</p>
-            </div>
-            <div class="trend-card">
-                <h3>📱 Digitalización obligatoria</h3>
-                <p>KFC se convirtió en la primera cadena de comida rápida en Costa Rica con kioscos digitales de autoservicio en todos sus restaurantes. La transformación digital ya no es opcional.</p>
-            </div>
-            <div class="trend-card">
-                <h3>🏨 Debut internacional en Escazú</h3>
-                <p>Yard House (EE.UU.) abre su primer local internacional en Avenida Escazú. Las marcas globales eligen Costa Rica como punto de entrada a Centroamérica.</p>
-            </div>
-        </div>
+        <div class="section">
+            <h2 class="section-title">🏢 Empresas & Leads Identificados</h2>
 
-        <h2>🏢 Compañías Identificadas</h2>
-
-        <!-- KFC -->
-        <div class="company-card">
-            <div class="company-header">
-                <div class="company-name">KFC Costa Rica</div>
-                <span class="company-type type-fastfood">Fast Food</span>
-            </div>
-            <div class="company-meta">
-                <span class="tag">74 restaurantes proyectados</span>
-                <span class="tag">7 aperturas 2026</span>
-                <span class="tag">Inversión $9.1M</span>
-                <span class="tag">Guanacaste · Heredia · Alajuela · SJ</span>
-            </div>
-            <p class="company-desc">Líder en comida rápida de pollo en Costa Rica. En 2025 abrieron 7 restaurantes y mantienen el ritmo para 2026 con aperturas en zonas turísticas y urbanas. Primera cadena CR con kioscos digitales en todos los locales.</p>
-            <div class="contact-box">
-                <h4>Contacto clave</h4>
-                <div class="contact-name">Alfonso Gutiérrez Badilla — Gerente General</div>
-                <div class="contact-detail">LinkedIn: linkedin.com/in/alfonso-gutiérrez-badilla-897a9152 · @KFC_CostaRica</div>
-            </div>
-        </div>
-
-        <!-- Burger King -->
-        <div class="company-card">
-            <div class="company-header">
-                <div class="company-name">Burger King Costa Rica</div>
-                <span class="company-type type-fastfood">Fast Food</span>
-            </div>
-            <div class="company-meta">
-                <span class="tag">48 restaurantes</span>
-                <span class="tag">3 nuevos puntos 2025-2026</span>
-                <span class="tag">Expansión activa</span>
-                <span class="tag">Desamparados · Heredia · San Sebastián</span>
-            </div>
-            <p class="company-desc">48 locales operando. Nuevos puntos de venta en mall Zona Centro (Desamparados), Universidad Latina (Heredia) y San Sebastián. Franquiciado del mismo grupo que opera Domino's, Popeyes, Juan Valdez y Arby's.</p>
-            <div class="contact-box">
-                <h4>Contacto clave</h4>
-                <div class="contact-name">Vladimir Monestel — Director de Marketing</div>
-                <div class="contact-detail">LinkedIn: linkedin.com/in/vladimir-monestel-66379967 · @BurgerKingCR</div>
-            </div>
-        </div>
-
-        <!-- Domino's Pizza -->
-        <div class="company-card">
-            <div class="company-header">
-                <div class="company-name">Domino's Pizza Costa Rica</div>
-                <span class="company-type type-fastfood">Fast Food</span>
-            </div>
-            <div class="company-meta">
-                <span class="tag">15 restaurantes</span>
-                <span class="tag">2 nuevas aperturas recientes</span>
-                <span class="tag">Expansión activa</span>
-                <span class="tag">Nacional</span>
-            </div>
-            <p class="company-desc">15 puntos de venta a nivel nacional. Grupo empresarial compartido con Burger King, Popeyes, Juan Valdez y Arby's. Continuará aperturando nuevos locales en 2026.</p>
-            <div class="contact-box">
-                <h4>Punto de contacto</h4>
-                <div class="contact-name">Equipo de Marketing — Grupo BLT Global Brands</div>
-                <div class="contact-detail">Vía Vladimir Monestel (Director de Marketing) · @DominosCR</div>
-            </div>
-        </div>
-
-        <!-- Popeyes -->
-        <div class="company-card">
-            <div class="company-header">
-                <div class="company-name">Popeyes Costa Rica</div>
-                <span class="company-type type-fastfood">Fast Food</span>
-            </div>
-            <div class="company-meta">
-                <span class="tag">5+ restaurantes</span>
-                <span class="tag">3 aperturas 2025</span>
-                <span class="tag">Regresó al país jul 2024</span>
-                <span class="tag">City Mall · Rohrmoser · Food Mall Liberia</span>
-            </div>
-            <p class="company-desc">Regresó a Costa Rica en julio 2024 tras años de ausencia. Crecimiento acelerado con 5 locales en menos de 2 años: City Mall Alajuela, Rohrmoser, Food Mall Liberia, Vistana Guápiles, Centro Comercial Guadalupe.</p>
-            <div class="contact-box">
-                <h4>Punto de contacto</h4>
-                <div class="contact-name">Equipo de Expansión — Popeyes CR</div>
-                <div class="contact-detail">Vía Vladimir Monestel (Director de Marketing) · @PopeyesCR</div>
-            </div>
-        </div>
-
-        <!-- Fogo Rodizio -->
-        <div class="company-card">
-            <div class="company-header">
-                <div class="company-name">Fogo Rodizio — Grupo Tsunami</div>
-                <span class="company-type type-finedining">Fine Dining</span>
-            </div>
-            <div class="company-meta">
-                <span class="tag">Steakhouse premium</span>
-                <span class="tag">Fusión brasileña-costeña</span>
-                <span class="tag">Escazú</span>
-                <span class="tag">Resort · Spa · Eventos</span>
-            </div>
-            <p class="company-desc">Steakhouse gourmet que fusiona gastronomía brasileña con ingredientes costarricenses. Ubicado en Escazú con vista a montañas. Genera contenido gastronómico de alto nivel para redes sociales y eventos corporativos./whatsapp 8933-1321</p>
-            <div class="contact-box">
-                <h4>Contacto</h4>
-                <div class="contact-name">Fogo Rodizio — Reservaciones y cotizaciones</div>
-                <div class="contact-detail">Tel: +506 2288-6362 · WhatsApp: 8500-7008 / 8933-1321 · @fogoresort</div>
-            </div>
-        </div>
-
-        <!-- Subway -->
-        <div class="company-card">
-            <div class="company-header">
-                <div class="company-name">Subway Costa Rica</div>
-                <span class="company-type type-fastfood">Fast Food</span>
-            </div>
-            <div class="company-meta">
-                <span class="tag">4 aperturas previstas 2026</span>
-                <span class="tag">Heredia · Cartago · Alajuela · SJ</span>
-                <span class="tag">Expansión activa</span>
-            </div>
-            <p class="company-desc">Subway proyecta 4 nuevas aperturas durante 2026: una en Heredia (Q1), tres más en la segunda mitad del año en Cartago, Alajuela y San José. Oportunidad para posicionamiento de marca.</p>
-            <div class="contact-box">
-                <h4>Punto de contacto</h4>
-                <div class="contact-name">Equipo de Expansión — Subway CR</div>
-                <div class="contact-detail">LinkedIn: buscar "Subway Costa Rica expansion" · @SubwayCR</div>
-            </div>
-        </div>
-
-        <!-- IHOP + Applebee's -->
-        <div class="company-card">
-            <div class="company-header">
-                <div class="company-name">IHOP & Applebee's Costa Rica — BLT Global Brands</div>
-                <span class="company-type type-finedining">Fine Dining</span>
-            </div>
-            <div class="company-meta">
-                <span class="tag">Dual brand (formato combinado)</span>
-                <span class="tag">1 apertura/año x 3 años</span>
-                <span class="tag">Franquicias premium</span>
-            </div>
-            <p class="company-desc">BLT Global Brands (franquiciado de IHOP y Applebee's en Costa Rica) proyecta abrir un restaurante de formato dual por año durante los próximos 3 años. Marcas con alto reconocimiento internacional y budgets de marketing establecidos.</p>
-            <div class="contact-box">
-                <h4>Punto de contacto</h4>
-                <div class="contact-name">BLT Global Brands — Equipo directivo</div>
-                <div class="contact-detail">Vía Vladimir Monestel (Director de Marketing compartido) · @IHOP_CR · @ApplebeesCR</div>
-            </div>
-        </div>
-
-        <!-- Yard House -->
-        <div class="company-card">
-            <div class="company-header">
+            <div class="company-card">
                 <div class="company-name">Yard House Costa Rica</div>
-                <span class="company-type type-gourmet">Gourmet</span>
+                <div class="company-details">
+                    <p><strong>Tipo:</strong> Restaurante internacional de alta gama</p>
+                    <p><strong>Ubicación:</strong> San José, Costa Rica (primer local internacional)</p>
+                    <p><strong>Operador:</strong> AR Holdings</p>
+                    <p><strong>Contacto Clave:</strong> Miguel Ramírez, VP de Operaciones</p>
+                    <p><strong>Potencial:</strong> ⭐⭐⭐⭐⭐ (Gran marca con presupuesto publicitario)</p>
+                </div>
+                <span class="tag hot">HOT</span>
+                <span class="tag new">NUEVO</span>
+                <span class="tag">Internacional</span>
             </div>
-            <div class="company-meta">
-                <span class="tag">Debut internacional</span>
-                <span class="tag">Primera ubicación: Avenida Escazú</span>
-                <span class="tag">Marca estadounidense icónica</span>
+
+            <div class="company-card">
+                <div class="company-name">Café Rey</div>
+                <div class="company-details">
+                    <p><strong>Tipo:</strong> Cadena de cafeterías local (Top 1 en Costa Rica según Tracxn)</p>
+                    <p><strong>Potencial:</strong> ⭐⭐⭐⭐⭐ (Líder del mercado local)</p>
+                </div>
+                <span class="tag">Líder Local</span>
+                <span class="tag">Franchise</span>
             </div>
-            <p class="company-desc">Yard House, el emblemático restaurante estadounidense, abre su primer establecimiento internacional en Avenida Escazú. Más de 100 habitaciones de cerveza artesanal y menú americano premium. Demuestra atractivo de CR para marcas globales.</p>
-            <div class="contact-box">
-                <h4>Punto de contacto</h4>
-                <div class="contact-name">Yard House — Dirección General</div>
-                <div class="contact-detail">Avenida Escazú, San José · Redes: @YardHouseCR</div>
+
+            <div class="company-card">
+                <div class="company-name">Jersey Mike's Subs Costa Rica</div>
+                <div class="company-details">
+                    <p><strong>Tipo:</strong> Franquicia de sándwiches americana</p>
+                    <p><strong>Potencial:</strong> ⭐⭐⭐⭐ (Expansión activa en el mercado)</p>
+                </div>
+                <span class="tag franchise">FRANQUICIA</span>
+            </div>
+
+            <div class="company-card">
+                <div class="company-name">Freddy's Frozen Custard & Steakburgers</div>
+                <div class="company-details">
+                    <p><strong>Tipo:</strong> Franquicia de restaurantesinformales</p>
+                    <p><strong>Potencial:</strong> ⭐⭐⭐ (Entrada reciente al mercado)</p>
+                </div>
+                <span class="tag franchise">FRANQUICIA</span>
+            </div>
+
+            <div class="company-card">
+                <div class="company-name">Long John Silver's Costa Rica</div>
+                <div class="company-details">
+                    <p><strong>Tipo:</strong> Franquicia de comida de mar</p>
+                    <p><strong>Potencial:</strong> ⭐⭐⭐ (Marca internacional establecida)</p>
+                </div>
+                <span class="tag franchise">FRANQUICIA</span>
+            </div>
+
+            <div class="company-card">
+                <div class="company-name">Restaurante Iconic Beachside (Tamarindo)</div>
+                <div class="company-details">
+                    <p><strong>Tipo:</strong> Restaurante premium en zona turística</p>
+                    <p><strong>Ubicación:</strong> Tamarindo, Guanacaste</p>
+                    <p><strong>Potencial:</strong> ⭐⭐⭐⭐ (Mercado turístico de alto gasto)</p>
+                </div>
+                <span class="tag hot">HOT</span>
+                <span class="tag">Turismo</span>
+            </div>
+
+            <div class="company-card">
+                <div class="company-name">Steakhouse & Seafood Lounge (San Ramón)</div>
+                <div class="company-details">
+                    <p><strong>Tipo:</strong> Restaurante fino de alta gama</p>
+                    <p><strong>Ubicación:</strong> San Ramón de Alajuela</p>
+                    <p><strong>Potencial:</strong> ⭐⭐⭐ (Mercado local profesional)</p>
+                </div>
+                <span class="tag">Premium</span>
+            </div>
+
+            <div class="company-card">
+                <div class="company-name">Instituto Gastronómico Isabel Campabadal</div>
+                <div class="company-details">
+                    <p><strong>Tipo:</strong> Institución culinaria + operaciones de catering</p>
+                    <p><strong>Contacto:</strong> María Gonzalez-Campabadal, Sales & Marketing</p>
+                    <p><strong>Potencial:</strong> ⭐⭐⭐ (20+ años de experiencia, red establecida)</p>
+                </div>
+                <span class="tag">Educación</span>
+                <span class="tag">Catering</span>
             </div>
         </div>
 
-        <!-- CRB Restaurants -->
-        <div class="company-card">
-            <div class="company-header">
-                <div class="company-name">CRB Restaurants Ltda.</div>
-                <span class="company-type type-finedining">Grupo Gastronómico</span>
-            </div>
-            <div class="company-meta">
-                <span class="tag">Gerente de Mercadeo dedicada</span>
-                <span class="tag">LinkedIn activo</span>
-                <span class="tag">Sector en crecimiento</span>
-            </div>
-            <p class="company-desc">Grupo restaurantero local con operación propia y presencia en Costa Rica. Cuentan con profesional de marketing dedicada, lo que indica madurez organizacional y presupuesto para servicios de agencia.</p>
-            <div class="contact-box">
-                <h4>Contacto clave</h4>
-                <div class="contact-name">Guiselle Bolívar Torres — Gerente de Mercadeo</div>
-                <div class="contact-detail">LinkedIn: linkedin.com/in/guiselle-bolívar-torres-64221b292 · San José</div>
-            </div>
-        </div>
-
-        <!-- San Lucas Treetop -->
-        <div class="company-card">
-            <div class="company-header">
-                <div class="company-name">San Lucas Treetop Dining Experience</div>
-                <span class="company-type type-gourmet">Gourmet</span>
-            </div>
-            <div class="company-meta">
-                <span class="tag">#2 mejor restaurante único del mundo</span>
-                <span class="tag">Tripadvisor Travelers' Choice 2025</span>
-                <span class="tag">Monteverde</span>
-                <span class="tag">4.8/5 (968 reseñas)</span>
-            </div>
-            <p class="company-desc">Restaurante inmersivo en la copa de los árboles de Monteverde. Segundo lugar mundial en categoría "restaurantes únicos del mundo" según Tripadvisor. Demanda alta de contenido visual y marketing de experiencias.</p>
-            <div class="contact-box">
-                <h4>Punto de contacto</h4>
-                <div class="contact-name">San Lucas Treetop — Dirección</div>
-                <div class="contact-detail">Monteverde, Puntarenas · @SanLucasTreetop · Tripadvisor</div>
+        <div class="section">
+            <h2 class="section-title">📈 Tendencias del Mercado 2026</h2>
+            <div class="trends-grid">
+                <div class="trend-item">
+                    <h4>🤖 IA en Marketing</h4>
+                    <p>Personalización impulsada por IA, automatización de contenido y segmentación de clientes. Los restaurantes que adoptan IA están superando a los que usan estrategias genéricas.</p>
+                </div>
+                <div class="trend-item">
+                    <h4>📱 Social Media = Servicio al Cliente</h4>
+                    <p>Las reseñas, respuestas y presencia en redes sociales son ahora parte integral del servicio. Los restaurantes deben ser proactivos en su gestión digital.</p>
+                </div>
+                <div class="trend-item">
+                    <h4>🎯 Lealtad de Precisión</h4>
+                    <p>Reemplaza recompensas genéricas con ofertas personalizadas basadas en datos del cliente. Experience-led loyalty supera a discount-led loyalty.</p>
+                </div>
+                <div class="trend-item">
+                    <h4>🎬 Video Corto + UGC</h4>
+                    <p>Contenido auténtico (Reels, TikTok, UGC) supera a contenido genérico. Los restaurantes exitosos ponen autenticidad en el centro de su estrategia.</p>
+                </div>
+                <div class="trend-item">
+                    <h4>🛒 Pedidos Digitales Integrados</h4>
+                    <p>Orden en línea, tracking, programas de fidelización y comunicación automatizada deben estar integrados en una sola plataforma.</p>
+                </div>
             </div>
         </div>
 
-        <h2>🎯 Estrategias de Contacto</h2>
-        <div class="strategy-box">
-            <h3>Enfoque recomendado por segmento</h3>
-            <ul class="strategy-list">
-                <li><strong>Fast food chains:</strong> LinkedIn con propuesta de valor en branding digital, menú digital interactivo y gestión de reputación online. Contactar al Director de Marketing (Vladimir Monestel) como hub central del grupo BLT.</li>
-                <li><strong>Marcas en expansión:</strong> Ofrecer servicios de <em>grand opening campaigns</em>, activación en puntos de venta y marketing lokal para nuevas aperturas en zonas específicas.</li>
-                <li><strong>Fine dining / gourmet:</strong> Propuesta de contenido visual premium (fotografía, video 4K), gestión de redes sociales de alta gama, estrategia en Tripadvisor y Google Business.</li>
-                <li><strong>Grupos gastronómicos:</strong> Pitch de ecosistema completo: branding + redes + email marketing + lealtad. Presentarse como socio estratégico, no proveedor.</li>
-                <li><strong>KFC y cadenas con inversión:</strong> Enfocarse en resultados medibles: ROAS,ticket promedio digital, frecuencia de visita. Tener casos de éxito listos.</li>
-                <li><strong>Debut internacional (Yard House):</strong> Ofrecer servicios de posicionamiento local, awareness en mercado costarricense y gestión de redes para la transición de marca global a local.</li>
+        <div class="section">
+            <h2 class="section-title">🎯 Estrategias de Contacto</h2>
+
+            <div class="strategy-item">
+                <div class="strategy-num">1</div>
+                <div class="strategy-content">
+                    <h4>Email Personalizado a Yard House (AR Holdings)</h4>
+                    <p>Contactar a Miguel Ramírez con propuesta de marketing digital para lanzamiento internacional. Enfatizar conocimiento del mercado local y casos de éxito en restaurantes similares.</p>
+                </div>
+            </div>
+
+            <div class="strategy-item">
+                <div class="strategy-num">2</div>
+                <div class="strategy-content">
+                    <h4>LinkedIn Outreach a María Gonzalez-Campabadal</h4>
+                    <p>Conectar vía LinkedIn con propuesta de rebranding y estrategia digital para el Instituto Gastronómico y sus servicios de catering.</p>
+                </div>
+            </div>
+
+            <div class="strategy-item">
+                <div class="strategy-num">3</div>
+                <div class="strategy-content">
+                    <h4>Propuesta Digital para Franquicias</h4>
+                    <p>Enfocarse en franquicias que están en fase de expansión activa (Jersey Mike's, Freddy's). Ofrecer servicios de marketing local con enfoque en redes sociales y SEO.</p>
+                </div>
+            </div>
+
+            <div class="strategy-item">
+                <div class="strategy-num">4</div>
+                <div class="strategy-content">
+                    <h4>Paquetes para Restaurantes en Zonas Turísticas</h4>
+                    <p>Tamarindo, Guanacaste y zonas costeras tienen alto potencial. Ofrecer paquetes de marketing turístico digital (Instagram, Google My Business, Tripadvisor).</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">💡 Recomendaciones</h2>
+            <ul style="list-style: none; padding: 0;">
+                <li style="padding: 10px 0; border-bottom: 1px solid #21262d;">
+                    <span style="color: #2ea043;">✓</span> Priorizar contacto con <strong>Yard House Costa Rica</strong> - marca internacional con presupuesto para marketing profesional
+                </li>
+                <li style="padding: 10px 0; border-bottom: 1px solid #21262d;">
+                    <span style="color: #2ea043;">✓</span> Explorar oportunidades con <strong>cafés y franquicias en expansión</strong> - menor barrera de entrada
+                </li>
+                <li style="padding: 10px 0; border-bottom: 1px solid #21262d;">
+                    <span style="color: #2ea043;">✓</span> Enfatizar servicios de <strong>video corto y UGC</strong> en propuestas - tendencia dominante en 2026
+                </li>
+                <li style="padding: 10px 0;">
+                    <span style="color: #2ea043;">✓</span> Posicionar a Aurea como especialista en <strong>marketing para Hospitalidad</strong> - nichos de restaurantes, hoteles, turismo
+                </li>
             </ul>
         </div>
 
-        <h2>📋 Resumen Ejecutivo</h2>
-        <div class="trend-grid">
-            <div class="trend-card">
-                <h3>🎯 Prioridad Alta</h3>
-                <p>KFC, Burger King/Dominos/Popeyes/Arby's (mismo grupo), IHOP/Applebee's — budgets grandes, expansión activa, necesidad de branding y marketing digital constante.</p>
-            </div>
-            <div class="trend-card">
-                <h3>🎯 Prioridad Media</h3>
-                <p>Yard House (débil本地), Fogo Rodizio (potencial premium), CRB Restaurants (ya tiene marketing, necesita escalar). Subway y marcas en expansión.</p>
-            </div>
-            <div class="trend-card">
-                <h3>🎯 Oportunidad Naranja</h3>
-                <p>San Lucas Treetop y restaurantes gourmet únicos — poca presencia digital profesional, alto potencial de contenido visual y marketing experiencial.</p>
-            </div>
+        <div class="footer">
+            <p>Reporte generado automáticamente por <strong>Logos</strong> para <strong>Aurea Advertising Agency</strong></p>
+            <p style="margin-top: 10px;">Próximo nicho: <strong>Clínicas</strong> | Archivo: <a href="file:///home/asdelgado506/intel-reports/aurea-leads-2026-05-04-restaurants.html">aurea-leads-2026-05-04-restaurants.html</a></p>
         </div>
-
-        <footer>
-            <p>Reporte generado automáticamente por Aurea Lead Research · {date}</p>
-            <p>Datos recopilados de fuentes públicas: La Nación, El Financiero, Delfino.cr, LinkedIn, Tripadvisor, observador.cr, RocketReach</p>
-        </footer>
     </div>
 </body>
 </html>
