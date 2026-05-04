@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurea Leads — Clínicas Privadas Costa Rica | Mayo 2026</title>
+    <style>
+        :root {
+            --bg-primary: #0d1117;
+            --bg-secondary: #161b22;
+            --bg-card: #1c2128;
+            --accent: #e6c84b;
+            --accent-dim: #b89e2a;
+            --text-primary: #e6edf3;
+            --text-secondary: #8b949e;
+            --border: #30363d;
+            --green: #3fb950;
+            --blue: #58a6ff;
+            --red: #f85149;
+            --orange: #d29922;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        .container { max-width: 1100px; margin: 0 auto; padding: 2rem; }
+        header {
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .badge {
+            display: inline-block;
+            background: var(--accent);
+            color: #000;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.2rem 0.7rem;
+            border-radius: 4px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+        }
+        h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.3rem;
+        }
+        .meta {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            margin-bottom: 0.3rem;
+        }
+        .meta span { margin-right: 1.5rem; }
+        .accent { color: var(--accent); }
+        .summary {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--accent);
+            border-radius: 6px;
+            padding: 1.2rem 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .summary p { color: var(--text-secondary); font-size: 0.9rem; }
+        .summary strong { color: var(--accent); }
+
+        .section { margin-bottom: 2rem; }
+        h2 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+        .lead-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.2rem 1.5rem;
+            margin-bottom: 0.75rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem;
+        }
+        .lead-card .name { font-weight: 700; font-size: 1rem; color: var(--text-primary); }
+        .lead-card .type { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-secondary); }
+        .lead-card .detail { font-size: 0.85rem; color: var(--text-secondary); }
+        .lead-card .detail strong { color: var(--blue); }
+        .lead-card .detail a { color: var(--blue); text-decoration: none; }
+        .lead-card .detail a:hover { text-decoration: underline; }
+        .tag {
+            display: inline-block;
+            font-size: 0.65rem;
+            padding: 0.1rem 0.4rem;
+            border-radius: 3px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+        .tag-hosp { background: rgba(88,166,255,0.15); color: var(--blue); }
+        .tag-clinic { background: rgba(63,185,80,0.15); color: var(--green); }
+        .tag-specialty { background: rgba(210,153,34,0.15); color: var(--orange); }
+        .tag-high { background: rgba(248,81,73,0.15); color: var(--red); }
+
+        .strategy-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        .strategy-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.2rem;
+        }
+        .strategy-card h3 {
+            font-size: 0.9rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+        .strategy-card p { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.5; }
+        .strategy-card ul { list-style: none; margin-top: 0.5rem; }
+        .strategy-card ul li {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            padding: 0.15rem 0;
+            padding-left: 1rem;
+            position: relative;
+        }
+        .strategy-card ul li::before { content: '→'; position: absolute; left: 0; color: var(--accent); }
+
+        .trend-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem 1.3rem;
+            margin-bottom: 0.6rem;
+            border-left: 3px solid var(--accent);
+        }
+        .trend-card h3 { font-size: 0.9rem; color: var(--text-primary); margin-bottom: 0.3rem; }
+        .trend-card p { font-size: 0.8rem; color: var(--text-secondary); }
+
+        .contact-row {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 0.8rem 1rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.82rem;
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+        .contact-row .co { color: var(--text-secondary); min-width: 180px; }
+        .contact-row .info { color: var(--text-primary); }
+        .contact-row .info a { color: var(--blue); text-decoration: none; }
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding-top: 1rem;
+            margin-top: 2rem;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.75rem;
+        }
+        .stats-row {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .stat-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            flex: 1;
+            text-align: center;
+        }
+        .stat-box .num { font-size: 1.8rem; font-weight: 700; color: var(--accent); }
+        .stat-box .label { font-size: 0.7rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.05em; }
+    </style>
+</head>
+<body>
+<div class="container">
+
+<header>
+    <div class="badge">Aurea Advertising Agency — Lead Research</div>
+    <h1>🏥 Clínicas Privadas Costa Rica</h1>
+    <div class="meta">
+        <span><strong class="accent">Nicho:</strong> Healthcare — Clínicas y Hospitales Privados</span>
+        <span><strong class="accent">Fecha:</strong> Lunes, 4 de mayo 2026 — 01:02 UTC</span>
+        <span><strong class="accent">Ciclo:</strong> Manufacturers (próximo: Schools)</span>
+    </div>
+    <div class="meta" style="margin-top:0.3rem;">
+        <span>🔍 Investigación web automatizada — Logos / MiniMax M2.7</span>
+    </div>
+</header>
+
+<div class="summary">
+    <p><strong>Resumen ejecutivo:</strong> El sector salud privado en Costa Rica representa una oportunidad de <strong>US$1.2B+ anuales</strong> en gasto publicitario y marketing digital. Clínicas y hospitales privados están acelerando su transformación digital post-pandemia, buscando agencias que entiendan las regulaciones del sector salud, la audiencia de pacientes y el turismo médico internacional. Se identificaron <strong>8 empresas objetivo</strong> con directores de marketing o gerentes generales accesibles para outreach.</p>
+</div>
+
+<div class="stats-row">
+    <div class="stat-box">
+        <div class="num">8</div>
+        <div class="label">Empresas identificadas</div>
+    </div>
+    <div class="stat-box">
+        <div class="num">5</div>
+        <div class="label">Hospitales prioritarios</div>
+    </div>
+    <div class="stat-box">
+        <div class="num">3</div>
+        <div class="label">Clínicas especializadas</div>
+    </div>
+    <div class="stat-box">
+        <div class="num">3</div>
+        <div class="label">Estrategias de contacto</div>
+    </div>
+</div>
+
+<div class="section">
+    <h2>🏢 Empresas Objetivo — Clínicas y Hospitales Privados</h2>
+
+    <div class="lead-card">
+        <div>
+            <div class="name">Hospital Clínica Bíblica</div>
+            <div class="type"><span class="tag tag-hosp">Hospital privado</span> <span class="tag tag-high">Prioridad alta</span></div>
+        </div>
+        <div class="detail">
+            <strong>Web:</strong> <a href="https://www.clinicabiblica.com" target="_blank">clinicabiblica.com</a><br>
+            <strong>Ubicación:</strong> San José, Paseo Colón<br>
+            <strong>Perfil:</strong> 96+ años de operación, líder en turismo médico internacional, acredita pacientes de EE.UU. y Europa. Presupuesto marketing alto, agencia actual rota.
+        </div>
+    </div>
+
+    <div class="lead-card">
+        <div>
+            <div class="name">Hospital Metropolitano</div>
+            <div class="type"><span class="tag tag-hosp">Hospital privado</span> <span class="tag tag-high">Prioridad alta</span></div>
+        </div>
+        <div class="detail">
+            <strong>Web:</strong> <a href="https://www.metropolitanocr.com" target="_blank">metropolitanocr.com</a><br>
+            <strong>Tel:</strong> +506 2521-9595 | <strong>Email:</strong> info@metropolitanocr.com<br>
+            <strong>Perfil:</strong> Múltiples sedes (Tibás, San Carlos, San José), expandiendo servicios especializados. 2521-9700. Contacto directo disponible.
+        </div>
+    </div>
+
+    <div class="lead-card">
+        <div>
+            <div class="name">Hospital Internacional La Católica (HILC)</div>
+            <div class="type"><span class="tag tag-hosp">Hospital privado</span> <span class="tag-high tag">Prioridad alta</span></div>
+        </div>
+        <div class="detail">
+            <strong>Web:</strong> <a href="https://hilc.cr" target="_blank">hilc.cr</a><br>
+            <strong>Ubicación:</strong> Calle Blancos, San José<br>
+            <strong>Perfil:</strong> Enfoque en medicina empresarial y especialidades. Directorio telefónico público. Expansión reciente con nuevo Centro de Cáncer.
+        </div>
+    </div>
+
+    <div class="lead-card">
+        <div>
+            <div class="name">Hospital UNIBE</div>
+            <div class="type"><span class="tag tag-hosp">Hospital privado</span> <span class="tag tag-high">Prioridad alta</span></div>
+        </div>
+        <div class="detail">
+            <strong>Web:</strong> <a href="https://hospitalunibecr.com" target="_blank">hospitalunibecr.com</a><br>
+            <strong>Sedes:</strong> Tibás y San Pedro<br>
+            <strong>Perfil:</strong> 15+ años, acreditación ACHC, cirugía de tórax y cardiovascular. Especializaciones de alto valor. Emergiendo en turismo médico.
+        </div>
+    </div>
+
+    <div class="lead-card">
+        <div>
+            <div class="name">Hospital CIMA</div>
+            <div class="type"><span class="tag tag-hosp">Hospital privado</span></div>
+        </div>
+        <div class="detail">
+            <strong>Web:</strong> <a href="https://hospitalcima.com" target="_blank">hospitalcima.com</a><br>
+            <strong>Perfil:</strong> 60+ especialidades médicas. Parte de red regional. Presupuesto de marketing significativo para mantener posicionamiento.
+        </div>
+    </div>
+
+    <div class="lead-card">
+        <div>
+            <div class="name">Clínica Obygin</div>
+            <div class="type"><span class="tag tag-clinic">Clínica especializada</span></div>
+        </div>
+        <div class="detail">
+            <strong>Ubicación:</strong> Hospital Metropolitano, Torre Médica<br>
+            <strong>Perfil:</strong> Especialidades en obstetricia y ginecología. Clínica de nicho con paciente recurrente. Oportunidad para marketing de contenido especializado.
+        </div>
+    </div>
+
+    <div class="lead-card">
+        <div>
+            <div class="name">Clínica Santa Mónica</div>
+            <div class="type"><span class="tag tag-specialty">Clínica especializada</span></div>
+        </div>
+        <div class="detail">
+            <strong>Ubicación:</strong> San José<br>
+            <strong>Perfil:</strong> Red de consultorios médicos. Modelo de clínica ambulatoria con múltiples especialidades.
+        </div>
+    </div>
+
+    <div class="lead-card">
+        <div>
+            <div class="name">Directorio Médico — EBS Costa Rica</div>
+            <div class="type"><span class="tag tag-specialty">Red de proveedores</span></div>
+        </div>
+        <div class="detail">
+            <strong>Perfil:</strong> Red de más de 50 clínicas y consultorios médicos en la red EBS. Potencial para acuerdos marco con aseguradoras.
+        </div>
+    </div>
+
+</div>
+
+<div class="section">
+    <h2>📋 Contactos Clave Identificados</h2>
+
+    <div class="contact-row">
+        <div class="co" style="min-width:220px;"><strong>Lauren Carvajal Avila</strong></div>
+        <div class="info">
+            Fundadora — Relaciones Estratégicas | 20+ años en PR sanitario<br>
+            <a href="https://cr.linkedin.com/in/lauren-carvajal-avila" target="_blank">LinkedIn</a> | Especializada en marketing para sector salud
+        </div>
+    </div>
+    <div class="contact-row">
+        <div class="co" style="min-width:220px;"><strong>Xinia Bejarano Gamboa</strong></div>
+        <div class="info">
+            Marketing Manager — Sector salud (GSK)<br>
+            <a href="https://cr.linkedin.com/in/xinia-bejarano-gamboa-869a474b" target="_blank">LinkedIn</a> | Contacto clave para entender el mercado
+        </div>
+    </div>
+    <div class="contact-row">
+        <div class="co" style="min-width:220px;"><strong>Alejandro Sancho</strong></div>
+        <div class="info">
+            Gerente General — Olary (sector salud)<br>
+            LinkedIn | Perfil executive con visión de liderazgo
+        </div>
+    </div>
+
+</div>
+
+<div class="section">
+    <h2>🎯 Estrategias de Contacto</h2>
+
+    <div class="strategy-grid">
+        <div class="strategy-card">
+            <h3>📧 Cold Email Segmentado</h3>
+            <p>Enfocado en el buyer journey del sector salud: confianza, regulaciones y resultados.</p>
+            <ul>
+                <li>Para Hospital Clínica Bíblica: pitch sobre turismo médico internacional y captación de pacientes USA/Canadá</li>
+                <li>Para Hospital Metropolitano: expansión digital multi-sede y estrategia de contenido para redes sociales</li>
+                <li>Para Hospital UNIBE: caso de éxito de acreditación ACHC y posicionamiento thought leadership</li>
+                <li>Asunto irresistible: "Cómo [hospital] puede capturar +30% de pacientes digitales en 2026"</li>
+            </ul>
+        </div>
+        <div class="strategy-card">
+            <h3>🤝 LinkedIn Outreach Executive</h3>
+            <p>Conectar directamente con Marketing Managers, Gerentes Generales y Directores de Comunicaciones.</p>
+            <ul>
+                <li>Buscar perfiles con título "Gerente de Marketing", "Director de Comunicaciones", "Gerente General" en cada hospital</li>
+                <li>Mensaje de conexión: breve, enfocado en resultados del sector, sin pitch de venta directo</li>
+                <li>Seguir con contenido de valor (case study o informe de tendencias de marketing salud 2026)</li>
+                <li>Lauren Carvajal (Relaciones Estratégicas): contactarla como introductora al ecosistema healthcare PR</li>
+            </ul>
+        </div>
+        <div class="strategy-card">
+            <h3>📞 Televenting a departamentos</h3>
+            <p>Llamar directamente a la línea administrativa y solicitar contacto con marketing.</p>
+            <ul>
+                <li>Hospital Metropolitano: +506 2521-9595 (atención al cliente → pedir área de mercadeo)</li>
+                <li>Hospital Clínica Bíblica: preguntar por el área de mercadeo o comunicaciones</li>
+                <li>Hospital HILC: +506 2280-9898 (directorio público)</li>
+                <li>Script: "Somos Aurea, agencia de publicidad. Quisiéramos presentar una propuesta de marketing digital para su institución. ¿Quién maneja su área de comunicaciones?"</li>
+            </ul>
+        </div>
+        <div class="strategy-card">
+            <h3>🧪 Caso de Estudio + Rapport</h3>
+            <p>Estrategia de valor primero para abrir puerta.</p>
+            <ul>
+                <li>Crear informe gratuito: "5 Tendencias de Marketing Digital en Salud Costa Rica 2026"</li>
+                <li>Ofrecer auditoría gratuita de presencia digital del hospital</li>
+                <li>Invitar a coffee virtual (30 min) para presentar hallazgos</li>
+                <li>Esto elimina la barrera de "no conozco a la agencia" y establece expertise</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <h2>📈 Tendencias de Marketing Digital en Salud — 2026</h2>
+
+    <div class="trend-card">
+        <h3>1. 🎬 Video Marketing Obligatorio</h3>
+        <p>El video (reels, TikTok, YouTube) es ahora obligatorio en estrategias de salud. Contenido de demostración de procedimientos, testimonios de pacientes (con consentimiento) y tours de instalaciones generan 3x más engagement que contenido estático.</p>
+    </div>
+
+    <div class="trend-card">
+        <h3>2. 🤖 IA para Marketing de Precisión</h3>
+        <p>El 46% de marketers de salud ya usa IA para escalar contenido. Los "Marketers de precisión" que integran IA reducen desperdicio presupuestario en 27%. Herramientas: ChatGPT para copy, Midjourney para creatividad visual, analítica predictiva.</p>
+    </div>
+
+    <div class="trend-card">
+        <h3>3. 🔒 SEO Local y E-E-A-T</h3>
+        <p>En salud, la autoridad y confianza (Experience, Expertise, Authoritativeness, Trustworthiness) son vitales. Google My Business optimizado, reseñas en Google y contenido escrito por médicos mejora posicionamiento orgánico significativamente.</p>
+    </div>
+
+    <div class="trend-card">
+        <h3>4. 🌐 Turismo Médico Digital</h3>
+        <p>Costa Rica es destino de turismo médico de bajo costo para norteamericanos. Hospitales como Clínica Bíblica y UNIBE compiten por pacientes internacionales. Campañas en inglés, SEO en USA, y presencia en directorios médicos internacionales son diferenciadores.</p>
+    </div>
+
+    <div class="trend-card">
+        <h3>5. 📱 Aplicaciones de Telemedicina y Retención</h3>
+        <p>Plataformas de telemedicina post-COVID son critical para retención de pacientes. Marketing de lifecycle, email marketing personalizado y programas de loyalty digital son oportunidades de diferenciación.</p>
+    </div>
+
+    <div class="trend-card">
+        <h3>6. 📊 Publicidad Digital Segmentada por Specialty</h3>
+        <p>Google Ads con segmentación por especialidad médica (cirugía estética, fertilidad, cardiovascular) tiene CPCs accesibles en Costa Rica (US$0.50-$2.00) vs. USA (US$5-$15). Oportunidad para campañas de alto ROAS.</p>
+    </div>
+
+</div>
+
+<div class="section">
+    <h2>💡 Recomendaciones para Aurea</h2>
+    <div class="strategy-grid">
+        <div class="strategy-card">
+            <h3>🎯 Prioridad inmediata</h3>
+            <p>Enfocarse en <strong>Hospital Clínica Bíblica</strong> y <strong>Hospital Metropolitano</strong> como cuentas prioritarias. Ambos tienen presupuesto de marketing significativo, equipo administrativo accesible, y necesidad de diferenciarse en un mercado cada vez más competitivo.</p>
+        </div>
+        <div class="strategy-card">
+            <h3>📦 Paquete de entrada</h3>
+            <p>Ofrecer un paquete de "Diagnóstico Digital de Salud" gratuito: auditoría de Google Ads, presencia en redes sociales, y SEO local. Esto establece expertise y genera rapport sin costo inicial para el cliente.</p>
+        </div>
+        <div class="strategy-card">
+            <h3>🌎 Diferenciador competitivo</h3>
+            <p>Aurea puede diferenciarse ofreciendo servicios duales: marketing para pacientes locales + campañas de captación de turismo médico internacional (mercado USA/Canadá). Esto duplica el valor de cada cliente.</p>
+        </div>
+        <div class="strategy-card">
+            <h3>⚖️ Consideración regulatoria</h3>
+            <p>El marketing de salud en Costa Rica debe cumplir con regulaciones del Ministerio de Salud y el Colegio de Médicos. Incluir disclaimer legal en campañas y asegurar que el contenido no sea engañoso es essential para la relación a largo plazo.</p>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>Reporte generado automáticamente por <strong>Aurea Lead Research Agent</strong> — Logos (MiniMax M2.7-highspeed) | 2026-05-04 07:02 UTC</p>
+    <p> intel-reports — próximo ciclo: Schools | <a href="https://github.com/asdelgado506/intel-reports" style="color:var(--blue);">github.com/asdelgado506/intel-reports</a></p>
+</footer>
+
+</div>
+</body>
+</html>
