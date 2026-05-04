@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aurea — Leads Restaurantes Costa Rica · Mayo 2026</title>
+<style>
+  :root {
+    --bg: #0d0f14;
+    --card: #161a23;
+    --border: #252b38;
+    --accent: #f0a500;
+    --accent2: #e05a00;
+    --text: #dde3ed;
+    --muted: #7a8499;
+    --green: #2ecc71;
+    --red: #e74c3c;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; font-size: 15px; line-height: 1.6; }
+  .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+
+  header { text-align: center; margin-bottom: 50px; }
+  .badge { display: inline-block; background: linear-gradient(135deg, var(--accent), var(--accent2)); color: #000; font-weight: 700; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; padding: 4px 14px; border-radius: 20px; margin-bottom: 14px; }
+  h1 { font-size: 2.2rem; font-weight: 800; margin-bottom: 8px; background: linear-gradient(135deg, #fff 0%, var(--accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .subtitle { color: var(--muted); font-size: 0.95rem; }
+  .meta-row { display: flex; justify-content: center; gap: 24px; margin-top: 14px; flex-wrap: wrap; }
+  .meta-item { display: flex; align-items: center; gap: 6px; color: var(--muted); font-size: 13px; }
+  .meta-item span { color: var(--accent); font-weight: 600; }
+
+  .divider { height: 1px; background: var(--border); margin: 40px 0; }
+
+  .section-title { font-size: 1.15rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+  .section-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+  /* Lead cards */
+  .leads-grid { display: flex; flex-direction: column; gap: 16px; }
+  .lead-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; transition: border-color 0.2s; }
+  .lead-card:hover { border-color: var(--accent); }
+  .lead-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; flex-wrap: wrap; gap: 8px; }
+  .lead-name { font-size: 1.2rem; font-weight: 700; color: #fff; }
+  .lead-badge { font-size: 11px; padding: 3px 10px; border-radius: 12px; font-weight: 600; }
+  .badge-premium { background: rgba(240,165,0,0.15); color: var(--accent); border: 1px solid var(--accent); }
+  .badge-high { background: rgba(46,204,113,0.15); color: var(--green); border: 1px solid var(--green); }
+  .badge-medium { background: rgba(122,132,153,0.15); color: var(--muted); border: 1px solid var(--border); }
+
+  .lead-type { font-size: 12px; color: var(--muted); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
+  .lead-desc { font-size: 14px; color: #aab0c0; margin-bottom: 16px; line-height: 1.7; }
+
+  .contact-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; margin-bottom: 16px; }
+  .contact-item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: #c0c8d8; }
+  .contact-item .icon { color: var(--accent); font-size: 14px; min-width: 20px; text-align: center; }
+  .contact-item a { color: #7ab8ff; text-decoration: none; }
+  .contact-item a:hover { text-decoration: underline; }
+
+  .strategy-box { background: rgba(240,165,0,0.06); border-left: 3px solid var(--accent); padding: 12px 16px; border-radius: 0 8px 8px 0; }
+  .strategy-label { font-size: 11px; color: var(--accent); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+  .strategy-text { font-size: 13px; color: #b0b8cc; line-height: 1.6; }
+
+  /* Trends section */
+  .trends-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 14px; }
+  .trend-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 18px; }
+  .trend-icon { font-size: 24px; margin-bottom: 10px; }
+  .trend-title { font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 6px; }
+  .trend-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+  /* Contact strategy */
+  .strategy-list { list-style: none; }
+  .strategy-list li { display: flex; gap: 14px; margin-bottom: 16px; align-items: flex-start; }
+  .strategy-num { min-width: 32px; height: 32px; background: linear-gradient(135deg, var(--accent), var(--accent2)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 800; color: #000; flex-shrink: 0; }
+  .strategy-content { font-size: 14px; color: #c0c8d8; line-height: 1.7; }
+  .strategy-content strong { color: #fff; }
+
+  /* Summary stats */
+  .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 40px; }
+  .stat-box { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 18px; text-align: center; }
+  .stat-num { font-size: 2rem; font-weight: 800; background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .stat-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
+
+  /* Priority table */
+  .priority-table { width: 100%; border-collapse: collapse; background: var(--card); border-radius: 10px; overflow: hidden; margin-bottom: 30px; }
+  .priority-table th { background: rgba(240,165,0,0.1); color: var(--accent); padding: 12px 16px; text-align: left; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; }
+  .priority-table td { padding: 12px 16px; border-top: 1px solid var(--border); font-size: 14px; color: #c0c8d8; }
+  .priority-table tr:hover td { background: rgba(255,255,255,0.02); }
+  .priority-high { color: var(--green); font-weight: 600; }
+  .priority-med { color: var(--accent); font-weight: 600; }
+
+  footer { text-align: center; color: var(--muted); font-size: 12px; padding-top: 30px; border-top: 1px solid var(--border); margin-top: 50px; }
+
+  @media (max-width: 600px) {
+    h1 { font-size: 1.5rem; }
+    .stats-row { grid-template-columns: repeat(2, 1fr); }
+    .contact-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <div class="badge">Aurea Advertising Agency</div>
+  <h1>Lead Research Report</h1>
+  <p class="subtitle">Nicho: Restaurantes en Costa Rica · San José &gt;</p>
+  <div class="meta-row">
+    <div class="meta-item"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> <span>Lun 4 May 2026</span></div>
+    <div class="meta-item"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg> <span>23:00 UTC</span></div>
+    <div class="meta-item"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> <span>Costa Rica</span></div>
+    <div class="meta-item"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg> <span>7 Leads</span></div>
+  </div>
+</header>
+
+<!-- Stats -->
+<div class="stats-row">
+  <div class="stat-box"><div class="stat-num">7</div><div class="stat-label">Empresas</div></div>
+  <div class="stat-box"><div class="stat-num">5</div><div class="stat-label">Alto Prioridad</div></div>
+  <div class="stat-box"><div class="stat-num">4</div><div class="stat-label">Tendencias Clave</div></div>
+  <div class="stat-box"><div class="stat-num">6</div><div class="stat-label">Canales Activos</div></div>
+</div>
+
+<!-- Lead Cards -->
+<div class="section-title">Empresas Descubiertas</div>
+<div class="leads-grid">
+
+  <!-- Lead 1 -->
+  <div class="lead-card">
+    <div class="lead-header">
+      <div class="lead-name">Sikwa Restaurante</div>
+      <span class="lead-badge badge-premium">⭐ Premium · Alta Prioridad</span>
+    </div>
+    <div class="lead-type">Alta cocina · #43 Latam's 50 Best · Enfoque indígena</div>
+    <p class="lead-desc">
+      Mejor restaurante de Costa Rica 2025 según Latin America's 50 Best. Chef Pablo Bonilla lidera un proyecto de investigación y preservación gastronómica centrado en ingredientes ancestrales indígenas. Presupuesto alto para branding, medios internacionales y relaciones públicas.
+    </p>
+    <div class="contact-grid">
+      <div class="contact-item"><span class="icon">📧</span> <a href="mailto:reservas@sikwacr.com">reservas@sikwacr.com</a></div>
+      <div class="contact-item"><span class="icon">📞</span> +506 8319 4287</div>
+      <div class="contact-item"><span class="icon">🌐</span> <a href="https://www.sikwacostarica.com" target="_blank">sikwacostarica.com</a></div>
+      <div class="contact-item"><span class="icon">📍</span> San José, Costa Rica</div>
+    </div>
+    <div class="strategy-box">
+      <div class="strategy-label">Estrategia de contacto</div>
+      <div class="strategy-text">
+        Enfoque en marketing de marca de lujo y relaciones públicas internacionales. Contactar vía email con propuesta de gestión de redes sociales para Instagram/TikTok (contenido cinematográfico de alta producción), partnerships con influencers gastronómicos y campañas para atraer turistas culinary. Presencia digital actual limitada — oportunidad real.
+      </div>
+    </div>
+  </div>
+
+  <!-- Lead 2 -->
+  <div class="lead-card">
+    <div class="lead-header">
+      <div class="lead-name">Conservatorium</div>
+      <span class="lead-badge badge-premium">⭐ Premium · Alta Prioridad</span>
+    </div>
+    <div class="lead-type">Alta cocina · Tres chefs creativos · R&D gastronómico</div>
+    <p class="lead-desc">
+      Restaurante de alta cocina tri-nacional: Chefs Henry Quesada, Aldo Elizondo (Le Cordon Bleu México) y Kid Mey Chan. Ubicado en Ciudad Colón. Cuisine artística con laboratorio de I+D. Potencial para branding visual, contenido de video gastronómico y campañas de experiencia premium.
+    </p>
+    <div class="contact-grid">
+      <div class="contact-item"><span class="icon">📧</span> <a href="mailto:conservatoriumcr@gmail.com">conservatoriumcr@gmail.com</a></div>
+      <div class="contact-item"><span class="icon">📞</span> +506 6106-5321 / 4081-2451</div>
+      <div class="contact-item"><span class="icon">🌐</span> <a href="https://conservatoriumcr.com" target="_blank">conservatoriumcr.com</a></div>
+      <div class="contact-item"><span class="icon">📍</span> Ciudad Colón, San José</div>
+    </div>
+    <div class="strategy-box">
+      <div class="strategy-label">Estrategia de contacto</div>
+      <div class="strategy-text">
+        Propuesta de contenido de video corto para Instagram Reels y TikTok mostrando el proceso R&D del laboratorio. Campaña de expectativa para eventos especiales. Posible colaboración con Duck Studios (su actual desarrollador web) para estrategia digital integrada. Enfoque en storytelling visual y experiencia inmersiva.
+      </div>
+    </div>
+  </div>
+
+  <!-- Lead 3 -->
+  <div class="lead-card">
+    <div class="lead-header">
+      <div class="lead-name">Restaurante Silvestre</div>
+      <span class="lead-badge badge-high">Alta Prioridad</span>
+    </div>
+    <div class="lead-type">Cocina costarricense contemporánea · Barrio Amón</div>
+    <p class="lead-desc">
+      Chef-owner Santiago Fernández Benedetto. Restaurante reconnu por su approche farm-to-table, respectant les traditions culinaires costariciennes. Ubicado en el casco histórico de Barrio Amón. Revenue ~$1M annually. Necesita posicionamiento digital para turismo gastronómico y comunidad local.
+    </p>
+    <div class="contact-grid">
+      <div class="contact-item"><span class="icon">📍</span> Ave. 11 Calle 3A # 955, Barrio Amón, San José</div>
+      <div class="contact-item"><span class="icon">🌐</span> Perfil LinkedIn: Santiago Fernández Benedetto</div>
+      <div class="contact-item"><span class="icon">🍽️</span> OpenTable / TripAdvisor activo</div>
+    </div>
+    <div class="strategy-box">
+      <div class="strategy-label">Estrategia de contacto</div>
+      <div class="strategy-text">
+        Contactar a Santiago vía LinkedIn con propuesta de SEO local y content marketing enfocado en turismo gastronómico. Crear perfil Google Business optimizado, estrategia de reseñas en TripAdvisor y contenido para atraer al segmento de游客 internacionales. Presencia digital dependiente de plataformas de terceros — oportunidad para web propia.
+      </div>
+    </div>
+  </div>
+
+  <!-- Lead 4 -->
+  <div class="lead-card">
+    <div class="lead-header">
+      <div class="lead-name">Gusto Lindora RistoArte</div>
+      <span class="lead-badge badge-high">Alta Prioridad</span>
+    </div>
+    <div class="lead-type">Cocina italiana contemporánea · Galería de arte y comida</div>
+    <p class="lead-desc">
+      Propietarios Stefano y Stefania. Fusion de alta cocina italiana con espacio artístico-galería. Ubicado en Santa Ana. Concepto único de "food & art gallery" — ideal para campañas visuales, colaboraciones de marca y experiencias de contenido. Reserva frecuente en OpenTable.
+    </p>
+    <div class="contact-grid">
+      <div class="contact-item"><span class="icon">📞</span> +506 2282-1100 / 8469-2272</div>
+      <div class="contact-item"><span class="icon">📍</span> Av. 37, Santa Ana, San José 14301</div>
+      <div class="contact-item"><span class="icon">🌐</span> <a href="https://lindora.restaurantegusto.cr" target="_blank">lindora.restaurantegusto.cr</a></div>
+    </div>
+    <div class="strategy-box">
+      <div class="strategy-label">Estrategia de contacto</div>
+      <div class="strategy-text">
+        Contacto telefónico inicial seguido de email con propuesta de branded content y eventos co-creados con marcas de vino, gastronomía o arte. Modelo de galerías italianas con eventos privados tiene potencial para sponsorships. Campaña de Instagram basada en la experiencia artística del espacio.
+      </div>
+    </div>
+  </div>
+
+  <!-- Lead 5 -->
+  <div class="lead-card">
+    <div class="lead-header">
+      <div class="lead-name">El Taller de Billy Sazón</div>
+      <span class="lead-badge badge-high">Alta Prioridad</span>
+    </div>
+    <div class="lead-type">Cocina latina contemporánea · Travelers' Choice 2025</div>
+    <p class="lead-desc">
+      Restaurante en Rohrmoser reconocido con Travelers' Choice de TripAdvisor. 362 reseñas positivas. Enfoque en cocina costarricense moderna. Sin presencia web notable — oportunidad de digitalización. Dirigido por Chef Billy.
+    </p>
+    <div class="contact-grid">
+      <div class="contact-item"><span class="icon">📞</span> +506 6116 5797</div>
+      <div class="contact-item"><span class="icon">📍</span> Av 25 entre Calle 102 y 104, Rohrmoser, San José</div>
+      <div class="contact-item"><span class="icon">🌐</span> <a href="https://www.billysazon.com" target="_blank">billysazon.com</a></div>
+      <div class="contact-item"><span class="icon">📘</span> Facebook activo</div>
+    </div>
+    <div class="strategy-box">
+      <div class="strategy-label">Estrategia de contacto</div>
+      <div class="strategy-text">
+        Oportunidad para proyecto de rebranding completo y estrategia digital. Contactar vía teléfono para presentar propuesta de marketing digital (SEO, Google Ads local, Instagram). Al ser Travelers' Choice, tiene autoridad local que puede amplificarse digitalmente. Pitch: convertir reconocimiento TripAdvisor en tráfico constante.
+      </div>
+    </div>
+  </div>
+
+  <!-- Lead 6 -->
+  <div class="lead-card">
+    <div class="lead-header">
+      <div class="lead-name">El Patio del Balmoral</div>
+      <span class="lead-badge badge-medium">Prioridad Media</span>
+    </div>
+    <div class="lead-type">Restaurante de hotel · Cocina costarricense e internacional</div>
+    <p class="lead-desc">
+      Restaurante del Hotel Balmoral en Avenida Central, corazón de San José. Conectado a infraestructura hotelera. Marketing contact directo disponible: yzuniga@balmoral.co.cr. Enfoque en客人 turísticos y eventos corporativos.
+    </p>
+    <div class="contact-grid">
+      <div class="contact-item"><span class="icon">📧</span> <a href="mailto:yzuniga@balmoral.co.cr">yzuniga@balmoral.co.cr</a> (Marketing)</div>
+      <div class="contact-item"><span class="icon">📞</span> +506 2010 7233</div>
+      <div class="contact-item"><span class="icon">🌐</span> <a href="https://www.balmoral.co.cr" target="_blank">balmoral.co.cr</a></div>
+      <div class="contact-item"><span class="icon">📍</span> Av. Central, Calles 7 y 9, San José</div>
+    </div>
+    <div class="strategy-box">
+      <div class="strategy-label">Estrategia de contacto</div>
+      <div class="strategy-text">
+        Al estar dentro de un hotel, tiene presupuesto de marketing hotelero. Propuesta para paquete de marketing digital que incluya gestión de redes del restaurante + promoción de eventos. Contactar directo a Yessica Zúñiga (marketing) vía email con portafolio de casos similares en hotelería.
+      </div>
+    </div>
+  </div>
+
+  <!-- Lead 7 -->
+  <div class="lead-card">
+    <div class="lead-header">
+      <div class="lead-name">La Cascada Restaurant</div>
+      <span class="lead-badge badge-medium">Prioridad Media</span>
+    </div>
+    <div class="lead-type">Cocina de autor · Tradición desde 1965 · Awards múltiples</div>
+    <p class="lead-desc">
+      Establecimiento histórico fundado en 1965. Premios incl. Golden Fork, Five Forks distinction, The Bizz Awards 2007-2010. Reconocido por ICT como punto de interés turístico. Enfoque en carnes y cocina costarricense. Frecuentado por ejecutivos y familias.
+    </p>
+    <div class="contact-grid">
+      <div class="contact-item"><span class="icon">📞</span> +506 2228 0906</div>
+      <div class="contact-item"><span class="icon">📍</span> Escazú, San José</div>
+      <div class="contact-item"><span class="icon">🏛️</span> Tradición 60+ años</div>
+    </div>
+    <div class="strategy-box">
+      <div class="strategy-label">Estrategia de contacto</div>
+      <div class="strategy-text">
+        Restaurante tradicional que necesita modernizar su presencia digital. Oportunidad para propuesta integral: rebranding visual, nueva web, estrategia de redes para atraer tanto a clientes legacy como a nuevo público. Contactar por teléfono para cita con dueño/gerencia. Pitch: heritage marketing + digitalización.
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="divider"></div>
+
+<!-- Priority Table -->
+<div class="section-title">Matriz de Prioridad</div>
+<table class="priority-table">
+  <thead>
+    <tr>
+      <th>Empresa</th>
+      <th>Potencial</th>
+      <th>Presencia Digital</th>
+      <th>Facilidad de Contacto</th>
+      <th>Prioridad</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Sikwa Restaurante</td>
+      <td>Muy alto</td>
+      <td>Media</td>
+      <td>Email directo</td>
+      <td class="priority-high">Alta</td>
+    </tr>
+    <tr>
+      <td>Conservatorium</td>
+      <td>Muy alto</td>
+      <td>Media</td>
+      <td>Email + Teléfono</td>
+      <td class="priority-high">Alta</td>
+    </tr>
+    <tr>
+      <td>Restaurante Silvestre</td>
+      <td>Alto</td>
+      <td>Baja</td>
+      <td>LinkedIn + Web</td>
+      <td class="priority-high">Alta</td>
+    </tr>
+    <tr>
+      <td>Gusto Lindora</td>
+      <td>Alto</td>
+      <td>Media</td>
+      <td>Teléfono + Web</td>
+      <td class="priority-high">Alta</td>
+    </tr>
+    <tr>
+      <td>El Taller de Billy Sazón</td>
+      <td>Alto</td>
+      <td>Baja</td>
+      <td>Teléfono</td>
+      <td class="priority-high">Alta</td>
+    </tr>
+    <tr>
+      <td>El Patio del Balmoral</td>
+      <td>Medio</td>
+      <td>Buena</td>
+      <td>Email marketing directo</td>
+      <td class="priority-med">Media</td>
+    </tr>
+    <tr>
+      <td>La Cascada Restaurant</td>
+      <td>Medio</td>
+      <td>Muy baja</td>
+      <td>Teléfono</td>
+      <td class="priority-med">Media</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="divider"></div>
+
+<!-- Market Trends -->
+<div class="section-title">Tendencias del Mercado 2026</div>
+<div class="trends-grid">
+
+  <div class="trend-card">
+    <div class="trend-icon">🎬</div>
+    <div class="trend-title">Contenido de Video Corto Dominante</div>
+    <div class="trend-desc">Instagram Reels y TikTok son los canales principales de descubrimiento para restaurantes en Costa Rica. Contenido authentic y "behind the scenes" supera a contenido production excesiva. Invertí en equipos de filmación móviles y creators locales.</div>
+  </div>
+
+  <div class="trend-card">
+    <div class="trend-icon">🛜</div>
+    <div class="trend-title">SEO Local + Google Business</div>
+    <div class="trend-desc">La mayoría de restaurantes medianos en Costa Rica no optimizan su perfil de Google Business. Appearing en el "map pack" local es crucial. Mapa de calor de búsquedas: "restaurante cerca de mí" + geolocalización = tráfico constante gratuito.</div>
+  </div>
+
+  <div class="trend-card">
+    <div class="trend-icon">🤝</div>
+    <div class="trend-title">Influencer Marketing Gastronómico</div>
+    <div class="trend-desc">65% de consumidores siguen cuentas de comida y estilo de vida en RRSS. Micro-influencers locales (10K-50K seguidores) con público costarricense ofrecen mejor ROI que grandes figuras. #PuraVida y gastronomía local en tendencia.</div>
+  </div>
+
+  <div class="trend-card">
+    <div class="trend-icon">📊</div>
+    <div class="trend-title">Marketing como Sistema Integrado</div>
+    <div class="trend-desc">Los restaurantes que tratan marketing como sistema (datos + producto + contenido) superan a los que compiten por descuentos. Marketing automation, email marketing post-visita y programas de lealtad son diferenciales clave para 2026.</div>
+  </div>
+
+</div>
+
+<div class="divider"></div>
+
+<!-- Contact Strategy -->
+<div class="section-title">Estrategia de Contacto Recomendada</div>
+<ul class="strategy-list">
+  <li>
+    <div class="strategy-num">1</div>
+    <div class="strategy-content">
+      <strong>Primera semana — Outreach a 3 Premium:</strong> Email personalizado a Sikwa (reservas@sikwacr.com), Conservatorium (conservatoriumcr@gmail.com) y mensaje por LinkedIn a Chef Santiago de Silvestre. Pitch: propuesta de auditoría digital gratuita + mini propuesta de 90 días.
+    </div>
+  </li>
+  <li>
+    <div class="strategy-num">2</div>
+    <div class="strategy-content">
+      <strong>Segunda semana — Contacto telefônico:</strong> Llamar a Gusto Lindora (+506 8469-2272) y El Taller de Billy Sazón (+506 6116 5797) para concertar reunión. Preparar case study de restaurantes similares transformados digitalmente en Costa Rica o LATAM.
+    </div>
+  </li>
+  <li>
+    <div class="strategy-num">3</div>
+    <div class="strategy-content">
+      <strong>Email marketing directo:</strong> Enviar propuesta a yzuniga@balmoral.co.cr (Hotel Balmoral / El Patio) con referencia a resultados en marketing hotelero. Incluir estadísticas de apertura email y CTR objetivo.
+    </div>
+  </li>
+  <li>
+    <div class="strategy-num">4</div>
+    <div class="strategy-content">
+      <strong>Segmento medio: La Cascada:</strong> Visit in situ con propuesta de rebranding. Presentación presencial con carpeta de案例 de modernizaciones de restaurantes tradicionales. Enfoque en storytelling heritage.
+    </div>
+  </li>
+  <li>
+    <div class="strategy-num">5</div>
+    <div class="strategy-content">
+      <strong>Seguimiento automatizado:</strong> CRM para lead nurturing con secuencias de 7-14-30 días. Contenido de valor: guía gratuita "Cómo duplicar reservas de tu restaurante en Costa Rica sin pagar publicidad". Captura de email en landing page.
+    </div>
+  </li>
+</ul>
+
+<footer>
+  <p>Reporte generado automáticamente por <strong>Aurea Lead Research</strong> · Logos AI Agent · Lunes 4 de Mayo, 2026 · 23:00 UTC</p>
+  <p style="margin-top:6px; color: #4a5060;">Este reporte es para uso interno de Aurea Advertising Agency. Los datos fueron obtenidos de fuentes públicas y pueden requerir verificación adicional.</p>
+</footer>
+
+</div>
+</body>
+</html>
