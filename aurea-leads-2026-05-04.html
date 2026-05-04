@@ -3,187 +3,66 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aurea — Lead Research: Restaurantes | 4 Mayo 2026</title>
+  <title>Aurea — Lead Report: Real Estate Costa Rica | 2026-05-04</title>
   <style>
     :root {
-      --bg: #0d0d0d;
-      --card: #161616;
-      --border: #2a2a2a;
-      --accent: #f5a623;
-      --accent2: #e05c3a;
-      --text: #e8e8e8;
-      --muted: #888;
-      --green: #4caf50;
-      --blue: #29b6f6;
+      --bg:       #0d1117;
+      --surface:  #161b22;
+      --border:   #30363d;
+      --accent:   #e3b341;
+      --accent2:  #58a6ff;
+      --green:    #3fb950;
+      --red:      #f85149;
+      --text:     #c9d1d9;
+      --muted:    #8b949e;
+      --white:    #f0f6fc;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-      font-size: 14px;
-      line-height: 1.6;
-      padding: 40px 20px;
-    }
-    .container { max-width: 900px; margin: 0 auto; }
-    header {
-      border-bottom: 2px solid var(--accent);
-      padding-bottom: 24px;
-      margin-bottom: 36px;
-    }
-    .badge {
-      display: inline-block;
-      background: var(--accent);
-      color: #000;
-      font-weight: 700;
-      font-size: 11px;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      padding: 4px 10px;
-      border-radius: 3px;
-      margin-bottom: 12px;
-    }
-    h1 {
-      font-size: 28px;
-      font-weight: 800;
-      color: #fff;
-      margin-bottom: 6px;
-    }
-    .meta {
-      color: var(--muted);
-      font-size: 13px;
-      margin-top: 8px;
-    }
-    .meta span { margin-right: 20px; }
-    .meta strong { color: var(--accent); }
+    body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.6; }
+    .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
 
-    h2 {
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin: 36px 0 16px;
-      padding-bottom: 8px;
-      border-bottom: 1px solid var(--border);
-    }
-    h3 {
-      font-size: 15px;
-      font-weight: 600;
-      color: #fff;
-      margin: 14px 0 8px;
-    }
+    header { margin-bottom: 40px; }
+    .badge { display: inline-block; background: var(--accent); color: #000; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 4px 10px; border-radius: 4px; margin-bottom: 14px; }
+    h1 { font-size: 28px; font-weight: 700; color: var(--white); margin-bottom: 6px; }
+    h2 { font-size: 17px; font-weight: 600; color: var(--white); margin: 32px 0 14px; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
+    .subtitle { color: var(--muted); font-size: 14px; }
 
-    .summary-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 16px;
-      margin-bottom: 32px;
-    }
-    .stat-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 20px;
-    }
-    .stat-card .number {
-      font-size: 32px;
-      font-weight: 800;
-      color: var(--accent);
-    }
-    .stat-card .label {
-      color: var(--muted);
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-top: 4px;
-    }
+    .meta-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; margin-bottom: 36px; }
+    .meta-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 16px; }
+    .meta-card .label { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin-bottom: 4px; }
+    .meta-card .value { font-size: 15px; font-weight: 600; color: var(--white); }
 
-    .company-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 20px;
-      margin-bottom: 14px;
-      transition: border-color 0.2s;
-    }
-    .company-card:hover { border-color: var(--accent); }
-    .company-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 8px;
-    }
-    .company-name { font-size: 16px; font-weight: 700; color: #fff; }
-    .company-tag {
-      font-size: 10px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      padding: 3px 8px;
-      border-radius: 3px;
-      flex-shrink: 0;
-      margin-left: 12px;
-    }
-    .tag-fastfood { background: #e05c3a33; color: var(--accent2); }
-    .tag-local { background: #4caf5033; color: var(--green); }
-    .tag-gourmet { background: #29b6f633; color: var(--blue); }
-    .company-desc { color: var(--muted); font-size: 13px; margin-bottom: 10px; }
-    .contact-row {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-      font-size: 12px;
-    }
-    .contact-item { color: var(--muted); }
-    .contact-item strong { color: var(--text); }
+    section { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 24px; margin-bottom: 20px; }
 
-    .trend-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 18px;
-      margin-bottom: 12px;
-    }
-    .trend-card h3 .icon { margin-right: 8px; }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    th { text-align: left; background: var(--bg); color: var(--accent); font-size: 11px; text-transform: uppercase; letter-spacing: 1px; padding: 10px 14px; border-bottom: 1px solid var(--border); }
+    td { padding: 12px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    tr:last-child td { border-bottom: none; }
+    .company-name { font-weight: 600; color: var(--white); }
+    .tag { display: inline-block; background: rgba(88,166,255,0.12); color: var(--accent2); font-size: 10px; padding: 2px 7px; border-radius: 3px; margin-left: 6px; vertical-align: middle; }
+    .contact-str { font-size: 12px; color: var(--muted); margin-top: 4px; }
 
-    .strategy-item {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 18px;
-      margin-bottom: 12px;
-    }
-    .strategy-item h3 { color: var(--accent); margin-bottom: 8px; }
-    .strategy-item p { color: var(--text); font-size: 13px; }
+    .trend-card { display: flex; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--border); }
+    .trend-card:last-child { border-bottom: none; }
+    .trend-icon { font-size: 24px; flex-shrink: 0; width: 40px; text-align: center; }
+    .trend-title { font-weight: 600; color: var(--white); margin-bottom: 4px; }
+    .trend-desc { font-size: 13px; color: var(--muted); }
 
-    .contact-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 12px;
-    }
-    .contact-table th, .contact-table td {
-      text-align: left;
-      padding: 10px 14px;
-      border-bottom: 1px solid var(--border);
-      font-size: 13px;
-    }
-    .contact-table th {
-      color: var(--accent);
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-    .contact-table td { color: var(--text); }
-    .contact-table tr:hover td { background: #1e1e1e; }
+    .contact-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 8px; }
+    .contact-chip { display: inline-block; background: var(--bg); border: 1px solid var(--border); color: var(--accent2); font-size: 11px; padding: 3px 10px; border-radius: 4px; }
 
-    footer {
-      margin-top: 48px;
-      padding-top: 20px;
-      border-top: 1px solid var(--border);
-      text-align: center;
-      color: var(--muted);
-      font-size: 12px;
+    .strategy-item { padding: 14px 0; border-bottom: 1px solid var(--border); }
+    .strategy-item:last-child { border-bottom: none; }
+    .strategy-item h4 { color: var(--green); font-size: 13px; margin-bottom: 4px; }
+    .strategy-item p { font-size: 13px; color: var(--muted); }
+
+    footer { text-align: center; color: var(--muted); font-size: 12px; padding: 30px 0 10px; }
+
+    .insight-highlight { background: rgba(227,179,65,0.08); border-left: 3px solid var(--accent); padding: 14px 18px; margin: 16px 0; font-size: 13px; color: var(--text); border-radius: 0 6px 6px 0; }
+
+    @media (max-width: 600px) {
+      table { font-size: 12px; }
+      td, th { padding: 8px 10px; }
     }
   </style>
 </head>
@@ -191,331 +70,241 @@
 <div class="container">
 
 <header>
-  <div class="badge">Reporte de Leads — Aurea Advertising</div>
-  <h1>Investigación de Mercado: Nicho Restaurantes</h1>
-  <div class="meta">
-    <span><strong>Fecha:</strong> 4 Mayo 2026</span>
-    <span><strong>Hora:</strong> 08:00 CST / 14:00 UTC</span>
-    <span><strong>Cron:</strong> Cada hora</span>
-  </div>
-  <div class="meta" style="margin-top:6px;">
-    <span><strong>Próximo nicho:</strong> Clinics</span>
-  </div>
+  <span class="badge">Agencia Aurea — Research Report</span>
+  <h1>Real Estate Costa Rica: Lead Opportunities</h1>
+  <p class="subtitle">Lunes 4 de mayo, 2026 &nbsp;|&nbsp; Nicho: Real Estate &nbsp;|&nbsp; 9:00 AM Costa Rica (CST)</p>
 </header>
 
-<!-- RESUMEN EJECUTIVO -->
-<h2>Resumen Ejecutivo</h2>
-<div class="summary-grid">
-  <div class="stat-card">
-    <div class="number">6+</div>
-    <div class="label">Cadenas en expansión activa</div>
+<div class="meta-grid">
+  <div class="meta-card">
+    <div class="label">Empresas identificadas</div>
+    <div class="value">14</div>
   </div>
-  <div class="stat-card">
-    <div class="number">~$9M</div>
-    <div class="label">Inversión KFC 2026</div>
+  <div class="meta-card">
+    <div class="label">Brokers/Decisores clave</div>
+    <div class="value">10+</div>
   </div>
-  <div class="stat-card">
-    <div class="number">400</div>
-    <div class="label">Empleos generados 2026</div>
+  <div class="meta-card">
+    <div class="label">Mercado 2026</div>
+    <div class="value">Estable / Crec. 3-8%</div>
   </div>
-  <div class="stat-card">
-    <div class="number">74</div>
-    <div class="label">Locales KFC al cierre 2026</div>
+  <div class="meta-card">
+    <div class="label">Región clave</div>
+    <div class="value">Guanacaste / GAM</div>
   </div>
 </div>
 
-<p style="color:var(--muted);margin-bottom:28px;">
-  Costa Rica vive un auge en el sector de restaurantes. Cadenas internacionales como KFC, Popeyes y Burger King están invirtiendo fuertemente en aperturas durante 2026, especialmente en Guanacaste. Los restaurantes locales están respondiendo con propuestas de gastronomía sostenible y de autor. Este reporte identifica <strong>10 empresas objetivo</strong> con oportunidades concretas de contacto para Aurea.
-</p>
+<section>
+  <h2>📋 Empresas y Decisores Identificados</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Empresa</th>
+        <th>Decisor / Perfil</th>
+        <th>Zona</th>
+        <th>Foco / Notas</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="company-name">Blue Water Properties of Costa Rica <span class="tag">Top Pick</span></td>
+        <td>Rebecca Clower — Fundadora, CEO & Broker<br><span class="contact-str">Est. 2006 · 5 oficinas · 40+ agentes</span></td>
+        <td>Guanacaste (Tamarindo, Flamingo, Playas del Coco, Playa Negra, Nosara)</td>
+        <td>Mayor independiente en Guanacaste. Busca branding/marketing externo.</td>
+      </tr>
+      <tr>
+        <td class="company-name">KRAIN Costa Rica Real Estate</td>
+        <td>Equipo directivo<br><span class="contact-str">Afinidad global Coldwell Banker</span></td>
+        <td>Tamarindo, Flamingo, Potrero, Playas del Coco</td>
+        <td>Brokerage de lujo con presencia en EE.UU. y Canadá. Gestión profesionalizada.</td>
+      </tr>
+      <tr>
+        <td class="company-name">Coldwell Banker Vesta Group</td>
+        <td>Daveed Hollander — Managing Partner & Broker<br>Aaron Dyer — Vice President & COO</td>
+        <td>Dominical, Puntarenas Sur</td>
+        <td>24 agentes. MLS internacional. Gran volumen de transacciones.</td>
+      </tr>
+      <tr>
+        <td class="company-name">Coldwell Banker Tamarindo</td>
+        <td>Agentes en Tamarindo</td>
+        <td>Tamarindo, Guanacaste</td>
+        <td>Fuerza de marca global + presencia local.</td>
+      </tr>
+      <tr>
+        <td class="company-name">Coldwell Banker Costa Rica (Phyllis Adee)</td>
+        <td>Phyllis Caroline Adee — Franchise Owner & Exclusive Listing Broker</td>
+        <td>La Fortuna & Arenal</td>
+        <td>Desarrollo eco-lujo Arenal Hills Villas. Necesita marketing estructurado.</td>
+      </tr>
+      <tr>
+        <td class="company-name">Luxury Living Costa Rica</td>
+        <td>Broker desconocido</td>
+        <td>Nacional (lujo)</td>
+        <td>Boutique de lujo desde 1990. Inmuebles de +$1M USD. Nicho premium.</td>
+      </tr>
+      <tr>
+        <td class="company-name">Blue Zone Realty International</td>
+        <td>Broker desconocido</td>
+        <td>Southern Pacific Zone</td>
+        <td>Especializada en zona emergente. Marketing personalizado.</td>
+      </tr>
+      <tr>
+        <td class="company-name">GoDutch Realty</td>
+        <td>Broker desconocido</td>
+        <td>Central Valley</td>
+        <td>Foco en compradores de largo plazo. Enfoque relacional.</td>
+      </tr>
+      <tr>
+        <td class="company-name">RE/MAX Central</td>
+        <td>Broker desconocido</td>
+        <td>Escazú, San José (GAM)</td>
+        <td>Fuerza de marca global. Gran volumen de listados.</td>
+      </tr>
+      <tr>
+        <td class="company-name">Tropisphere Real Estate</td>
+        <td>Broker desconocido</td>
+        <td>Southern Nicoya Peninsula</td>
+        <td>Líder en Nicoya Peninsula sur. Zona en crecimiento.</td>
+      </tr>
+      <tr>
+        <td class="company-name">Realty ONE Group Executive</td>
+        <td>Broker desconocido</td>
+        <td>Nacional</td>
+        <td>Franchise modelo. Potencial expansión en marketing.</td>
+      </tr>
+      <tr>
+        <td class="company-name">LandPro Costa Rica</td>
+        <td>Broker desconocido</td>
+        <td>Nacional</td>
+        <td>Servicios profesionales de tierra y desarrollo.</td>
+      </tr>
+      <tr>
+        <td class="company-name">Exclusive Homes Costa Rica</td>
+        <td>Broker desconocido</td>
+        <td>Nacional</td>
+        <td>Full-service para compradores y vendedores internacionales.</td>
+      </tr>
+      <tr>
+        <td class="company-name">Cushman & Wakefield | AB Advisory</td>
+        <td>Equipo comercial</td>
+        <td>San José (oficina Alliance)</td>
+        <td>Real estate comercial. +500 transacciones regionales. Contacto corporativo.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
 
-<!-- EMPRESAS OBJETIVO -->
-<h2>Empresas Objetivo</h2>
+<section>
+  <h2>📈 Tendencias del Mercado 2026</h2>
 
-<div class="company-card">
-  <div class="company-header">
-    <div class="company-name">KFC Costa Rica</div>
-    <div class="company-tag tag-fastfood">Expansión activa</div>
+  <div class="trend-card">
+    <div class="trend-icon">⚖️</div>
+    <div>
+      <div class="trend-title">Mercado en estabilización post-pandemia</div>
+      <div class="trend-desc">El mercado costarricense entró en 2026 en una fase de equilibrio saludable. Los precios moderan crecimiento (3-8% en zonas prime). La especulación bajó. Las agencias necesitan diferenciarse con marketing profesional para capturar compradores calificados.</div>
+    </div>
   </div>
-  <div class="company-desc">
-    Cadena de comida rápida líder en expansión. Anunció apertura de 7 nuevos restaurantes en 2026 con inversión de $9.1 millones en Guanacaste, Heredia, Alajuela y San José. Cerrarán el año con 74 locales. Primera cadena con kioscos digitales de autoservicio en todos sus restaurantes.
-  </div>
-  <div class="contact-row">
-    <div class="contact-item"><strong>Contacto:</strong> Alfonso Gutiérrez — Gerente General</div>
-    <div class="contact-item"><strong>Estrategia:</strong> Presentación de servicios para innovación digital y campañas de marca</div>
-  </div>
-</div>
 
-<div class="company-card">
-  <div class="company-header">
-    <div class="company-name">Rosti (antes Rosti Pollos)</div>
-    <div class="company-tag tag-local">Marca local</div>
+  <div class="trend-card">
+    <div class="trend-icon">🌊</div>
+    <div>
+      <div class="trend-title">Guanacaste domina el real estate de lujo</div>
+      <div class="trend-desc">Tamarindo, Flamingo, Playas del Coco y Nosara siguen siendo los epicentros. Agencias como Blue Water Properties y KRAIN manejan carteras de +$1M USD. Oportunidad para contenido visual de alto nivel y SEO localized.</div>
+    </div>
   </div>
-  <div class="company-desc">
-    Cadena Costarricense en proceso de refrescamiento de marca y expansión. Se enfoca en formatos de cercanía con el consumidor, refuerza presencia en centros comerciales y puntos estratégicos de alto tránsito habitacional.
-  </div>
-  <div class="contact-row">
-    <div class="contact-item"><strong>Estrategia:</strong> Rebranding + estrategia de redes sociales + SEO local</div>
-  </div>
-</div>
 
-<div class="company-card">
-  <div class="company-header">
-    <div class="company-name">Popeyes Costa Rica</div>
-    <div class="company-tag tag-fastfood">Expansión activa</div>
+  <div class="trend-card">
+    <div class="trend-icon">🏠</div>
+    <div>
+      <div class="trend-title">Regiones emergentes: digital nomads y expatriados</div>
+      <div class="trend-desc">San Ramón, Junquillal, Paraíso Ciudad Colón y Atenas ganan tracción. Precios de entrada más bajos, demanda en ascenso. Agencias locales buscan formas de llegar a compradores internacionales.</div>
+    </div>
   </div>
-  <div class="company-desc">
-    Marca de pollo frito estilo Luisiana. Regresó al país en julio 2024 y ya tiene aperturas activas: Food Mall Liberia y Desamparados. Continuará expandiéndose en 2026 capitalizando la alta demanda del segmento.
-  </div>
-  <div class="contact-row">
-    <div class="contact-item"><strong>Estrategia:</strong> Campañas de lanzamiento local + gestión de reputación en redes</div>
-  </div>
-</div>
 
-<div class="company-card">
-  <div class="company-header">
-    <div class="company-name">Burger King Costa Rica</div>
-    <div class="company-tag tag-fastfood">Expansión activa</div>
+  <div class="trend-card">
+    <div class="trend-icon">📱</div>
+    <div>
+      <div class="trend-title">Profesionalización de STR (Short-Term Rentals)</div>
+      <div class="trend-desc">Airbnb taxes 2026 (12.75% retención) y reglas OCDE de transparencia obligan a las agencias a operar formalmente. Hay demanda por sistemas de reservas, automatización de marketing y fotografía profesional.</div>
+    </div>
   </div>
-  <div class="company-desc">
-    Tres nuevas aperturas recientes: mall Zona Centro (Desamparados), Universidad Latina (Heredia) y San Sebastián. Planifica nuevas aperturas en 2026. Busca contratar 200 colaboradores.
+
+  <div class="trend-card">
+    <div class="trend-icon">🌿</div>
+    <div>
+      <div class="trend-title">Turismo experiencial y bienestar impulsa zona sur</div>
+      <div class="trend-desc">Uvita, Ojochal, Dominical, Golfito y la Península de Osa ganan popularidad. Inmuebles con permisos de agua y certificaciones ambientales son los más valorados. Nicho para contenido editorial y video.</div>
+    </div>
   </div>
-  <div class="contact-row">
-    <div class="contact-item"><strong>Estrategia:</strong> Campañas de employer branding + marketing de proximidad</div>
+
+  <div class="insight-highlight">
+    💡 <strong>Insight clave:</strong> El mercado costarricense pasó de "especulativo" a "data-driven". Los compradores en 2026 exigen datos verificables, MLS listings, y profesionalismo. Las agencias que no inviertan en identidad de marca, presencia digital y contenido de calidad perderán frente a competidores más sofisticados.
   </div>
-</div>
+</section>
 
-<div class="company-card">
-  <div class="company-header">
-    <div class="company-name">Domino's Pizza Costa Rica</div>
-    <div class="company-tag tag-fastfood">Expansión activa</div>
+<section>
+  <h2>🎯 Estrategias de Contacto Recomendadas</h2>
+
+  <div class="strategy-item">
+    <h4>1. Cold Approach — Rebecca Clower (Blue Water Properties)</h4>
+    <p>Rebecca es fundadora y CEO. Comparte contenido sobre branding para brokerages en LinkedIn. Abordarla con una propuesta de valor específica sobre "cómo una agency's branding impacta en conversion de compradores internacionales" tiene alta probabilidad. Formato: InMail de LinkedIn + follow-up por email.</p>
+    <div class="contact-row">
+      <span class="contact-chip">LinkedIn: Rebecca Clower</span>
+      <span class="contact-chip">bluewaterpropertiesofcostarica.com</span>
+    </div>
   </div>
-  <div class="company-desc">
-    Nuevas aperturas en diversos puntos del país durante 2025-2026. Parte del grupo de cadenas que generarán cerca de 400 empleos en 2026.
+
+  <div class="strategy-item">
+    <h4>2. Propiedad intelectual — Phyllis Adee (Arenal Hills Villas)</h4>
+    <p>Phyllis trabaja en un desarrollo de 150+ homesites eco-lujo con Springs Resort & Spa. Necesita material de marketing que comunique el valor lifestyle. Propuesta: editorial de marca + estrategia de contenidos para redes del desarrollo. Contacto vía cold email con portfolio visual.</p>
+    <div class="contact-row">
+      <span class="contact-chip">coldwellbankercostarica.com/agent/2911</span>
+      <span class="contact-chip">La Fortuna & Arenal</span>
+    </div>
   </div>
-  <div class="contact-row">
-    <div class="contact-item"><strong>Estrategia:</strong> Delivery marketing + automatización de campañas digitales</div>
+
+  <div class="strategy-item">
+    <h4>3. Masivo — Agentes KRAIN / CB Tamarindo</h4>
+    <p>Crear una lista de 15-20 agentes activos en Guanacaste usando sus websites. Enviar email sequence con tips de SEO local para real estate. Offer: auditoría gratuita de su presencia digital. Seguimiento vía WhatsApp Business con mensaje personalizado.</p>
+    <div class="contact-row">
+      <span class="contact-chip">kraincostarica.com</span>
+      <span class="contact-chip">Guanacaste</span>
+    </div>
   </div>
-</div>
 
-<div class="company-card">
-  <div class="company-header">
-    <div class="company-name">Juan Valdez Café</div>
-    <div class="company-tag tag-fastfood">Expansión activa</div>
+  <div class="strategy-item">
+    <h4>4. Corporate — Cushman & Wakefield / AB Advisory</h4>
+    <p>Para el segmento comercial. Contactar al equipo vía website o LinkedIn de la oficina San José. Propuesta: caso de estudio sobre cómo el marketing digital incrementa captación de inquilinos corporativos en Costa Rica. Tono más formal y orientado a B2B.</p>
+    <div class="contact-row">
+      <span class="contact-chip">cushmanwakefield.com/en/offices/costa-rica</span>
+      <span class="contact-chip">Commercial Real Estate</span>
+    </div>
   </div>
-  <div class="company-desc">
-    Cadena de café colombiana con presencia en Costa Rica. Nuevas aperturas proyectadas para 2026. Parte del grupo de expansión con 200 contrataciones nuevas.
+
+  <div class="strategy-item">
+    <h4>5. Emerging Markets — RE/MAX Central, GoDutch, Tropisphere</h4>
+    <p>Estas agencias están en zonas de crecimiento (GAM, Nicoya Sur). Ofrecer workshop o mini-auditoría de marketing. El mensaje: "Sus clientes potenciales los encuentran en Google?" — SEO + contenido es el pain point más común en agencias de tamaño medio.</p>
+    <div class="contact-row">
+      <span class="contact-chip">remax-costa-rica.com</span>
+      <span class="contact-chip">Central Valley / Nicoya</span>
+    </div>
   </div>
-  <div class="contact-row">
-    <div class="contact-item"><strong>Estrategia:</strong> Marketing de experiencia + branded content + influencer local</div>
-  </div>
-</div>
+</section>
 
-<div class="company-card">
-  <div class="company-header">
-    <div class="company-name">Restaurante Silvestre</div>
-    <div class="company-tag tag-gourmet">Gastronomía sostenible</div>
-  </div>
-  <div class="company-desc">
-    Restaurante fino en San José con propuesta de gastronomía sostenible costarricense. Visión de posicionar a Costa Rica como referente mundial en gastronomía sostenible. Menú degustación y platos creativos con ingredientes locales.
-  </div>
-  <div class="contact-row">
-    <div class="contact-item"><strong>Estrategia:</strong> Branding de lujo + content marketing + relaciones públicas gastronómicas</div>
-  </div>
-</div>
-
-<div class="company-card">
-  <div class="company-header">
-    <div class="company-name">Sikwa</div>
-    <div class="company-tag tag-gourmet">Alta cocina</div>
-  </div>
-  <div class="company-desc">
-    Restaurante de alta cocina del chef Pablo Bonilla. Cocina indigenous y jungle-to-table. Referente de la nueva gastronomía costarricense.
-  </div>
-  <div class="contact-row">
-    <div class="contact-item"><strong>Estrategia:</strong> Storytelling de marca + fotografía profesional + medios especializados</div>
-  </div>
-</div>
-
-<div class="company-card">
-  <div class="company-header">
-    <div class="company-name">Conservatorium</div>
-    <div class="company-tag tag-gourmet">Grill premium</div>
-  </div>
-  <div class="company-desc">
-    Concepto de grill premium basado en carne seca madurada (dry aged) de ganado local costarricense. Parte de la tendencia de alta cocina con producto nacional.
-  </div>
-  <div class="contact-row">
-    <div class="contact-item"><strong>Estrategia:</strong> Campaña de posicionamiento premium + video content + colaboraciones con sumilleres</div>
-  </div>
-</div>
-
-<div class="company-card">
-  <div class="company-header">
-    <div class="company-name">El Taller de Billy Sazón</div>
-    <div class="company-tag tag-gourmet">Menú degustación</div>
-  </div>
-  <div class="company-desc">
-    Restaurante con menú degustación que celebra la diversidad de sabores costarricenses. Ubicación en San José. Presencia activa en TripAdvisor y redes gastronómicas.
-  </div>
-  <div class="contact-row">
-    <div class="contact-item"><strong>Estrategia:</strong> Social media management + reseñasdirigidas + experiencias inmersivas</div>
-  </div>
-</div>
-
-<!-- TENDENCIAS DE MERCADO -->
-<h2>Tendencias de Mercado 2026</h2>
-
-<div class="trend-card">
-  <h3><span class="icon">📱</span>SEO Local y Búsqueda por Intención</h3>
-  <p>El SEO para restaurantes va más allá de "restaurante cerca de mí". Ahora se optimiza para intención de reserva directa, pedidos online y búsquedas de experiencia. Google Business Profile es crítico.</p>
-</div>
-
-<div class="trend-card">
-  <h3><span class="icon">🤳</span>Micro-Influencers y Creadores de Nicho</h3>
-  <p>El marketing de influencers tradicional está en crisis. El mercado se desplaza hacia micro-comunidades, líderes de nicho y creadores con propósito. La credibilidad pesa más que el alcance. Lo que importa es la conexión emocional, no el volumen.</p>
-</div>
-
-<div class="trend-card">
-  <h3><span class="icon">🍃</span>Gastronomía Sostenible como Diferenciador</h3>
-  <p>Costa Rica líder global en sostenibilidad. Los restaurantes que comunican su impacto ambiental y uso de ingredientes locales tienen ventaja competitiva. El storytelling de sostenibilidad vende.</p>
-</div>
-
-<div class="trend-card">
-  <h3><span class="icon">📊</span>Autenticidad sobre Viralidad</h3>
-  <p>La saturación de mensajes ha provocado que los consumidores prioricen marcas auténticas y coherentes. El contenido que funciona es el que resuelve, personaliza y llama a actuar — no el diseño llamativo.</p>
-</div>
-
-<div class="trend-card">
-  <h3><span class="icon">🖥️</span>Kioscos Digitales y Autoservicio</h3>
-  <p>KFC se convirtió en la primera cadena de Costa Rica con kioscos digitales de autoservicio en todos sus restaurantes. La digitalización del punto de venta es una tendencia irreversible en fast food.</p>
-</div>
-
-<div class="trend-card">
-  <h3><span class="icon">🗺️</span>Guanacaste como Epicentro de Expansión</h3>
-  <p>La provincia de Guanacaste lidera las aperturas de restaurantes en 2026 (3 nuevos para KFC). El corredor turístico (Tamarindo, Liberia, Papagayo) impulsa la demanda de servicios de hospitalidad.</p>
-</div>
-
-<!-- ESTRATEGIAS DE CONTACTO -->
-<h2>Estrategias de Contacto</h2>
-
-<div class="strategy-item">
-  <h3>1. Franquicias Internacionales (KFC, Popeyes, Burger King, Domino's, Juan Valdez)</h3>
-  <p><strong>Ángulo:</strong> Estas marcas tienen departamentos de marketing centralizados. El contacto es a través de las franquicias matrices (Grupo Davicom, o similar). Pero el ángulo más efectivo es ofrecer servicios para sus <em>aperturas locales</em>: campañas de lanzamiento en zona, activation en nuevos locales, estrategias de employer branding para las 200+ contrataciones. Enfocarse en el gerente de operaciones o marketing regional.</p>
-</div>
-
-<div class="strategy-item">
-  <h3>2. Rosti (Marca Local en Rebranding)</h3>
-  <p><strong>Ángulo:</strong> Proceso de refrescamiento de marca = necesidad de apoyo de marketing. Ofrecer servicios de estrategia de rebranding, diseño de experiencia de marca y gestión de redes sociales. Contactar a la dirección de marketing o gerencia general.</p>
-</div>
-
-<div class="strategy-item">
-  <h3>3. Restaurantes Gourmet (Silvestre, Sikwa, Conservatorium, El Taller de Billy Sazón)</h3>
-  <p><strong>Ángulo:</strong> Propuesta de contenido visual premium (fotografía, video, storytelling). Estos restaurantes necesitan construir reputación para atraer turismo gastronómico. Ofrecer: producción de contenido, relaciones públicas gastronómicas, colaboraciones con influencers del nicho foodie.</p>
-</div>
-
-<div class="strategy-item">
-  <h3>4. Táctica: Google Business Profile + SEO Local</h3>
-  <p><strong>Ángulo:</strong> Para todos los restaurantes, ofrecer una auditoría gratuita de Google Business Profile y estrategia SEO local. Es un gancho de entrada de bajo costo que demuestra valor inmediato.</p>
-</div>
-
-<div class="strategy-item">
-  <h3>5. Contacto vía LinkedIn</h3>
-  <p><strong>Ángulo:</strong> Buscar activamente a Gerber managers, Marketing Managers y Decision Makers en los restaurantes encontrados. Usar mensajes personalizados referencing news de expansión reciente. Tono profesional pero cercano.</p>
-</div>
-
-<!-- TABLA DE CONTACTOS CLAVE -->
-<h2>Contacts Clave Potenciales</h2>
-<table class="contact-table">
-  <thead>
-    <tr>
-      <th>Empresa</th>
-      <th>Contacto / Rol</th>
-      <th>Tipo</th>
-      <th>Prioridad</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>KFC Costa Rica</td>
-      <td>Alfonso Gutiérrez — Gerente General</td>
-      <td>Franquicia internacional</td>
-      <td>🔴 Alta</td>
-    </tr>
-    <tr>
-      <td>Rosti</td>
-      <td>Gerencia de Marketing / Rebranding</td>
-      <td>Marca local</td>
-      <td>🔴 Alta</td>
-    </tr>
-    <tr>
-      <td>Burger King Costa Rica</td>
-      <td>Gerencia de Operaciones / Marketing Regional</td>
-      <td>Franquicia internacional</td>
-      <td>🔴 Alta</td>
-    </tr>
-    <tr>
-      <td>Popeyes Costa Rica</td>
-      <td>Dirección de Expansión</td>
-      <td>Franquicia internacional</td>
-      <td>🟡 Media</td>
-    </tr>
-    <tr>
-      <td>Domino's Pizza Costa Rica</td>
-      <td>Gerencia de Marketing Digital</td>
-      <td>Franquicia internacional</td>
-      <td>🟡 Media</td>
-    </tr>
-    <tr>
-      <td>Juan Valdez Café</td>
-      <td>Gerencia de Marca / Marketing</td>
-      <td>Franquicia internacional</td>
-      <td>🟡 Media</td>
-    </tr>
-    <tr>
-      <td>Restaurante Silvestre</td>
-      <td>Propietarios / Chef</td>
-      <td>Gastronomía gourmet</td>
-      <td>🟡 Media</td>
-    </tr>
-    <tr>
-      <td>Sikwa</td>
-      <td>Chef Pablo Bonilla</td>
-      <td>Alta cocina</td>
-      <td>🟢 Oportunidad</td>
-    </tr>
-    <tr>
-      <td>Conservatorium</td>
-      <td>Dirección / Propietarios</td>
-      <td>Grill premium</td>
-      <td>🟢 Oportunidad</td>
-    </tr>
-    <tr>
-      <td>El Taller de Billy Sazón</td>
-      <td>Propietarios</td>
-      <td>Menú degustación</td>
-      <td>🟢 Oportunidad</td>
-    </tr>
-  </tbody>
-</table>
-
-<!-- PRÓXIMOS PASOS -->
-<h2>Próximos Pasos Recomendados</h2>
-<div class="strategy-item">
-  <h3>Semana 1</h3>
-  <p>LinkedIn outreach a Alfonso Gutiérrez (KFC) y contacto con Rosti para propuesta de rebranding. Preparar auditoría gratuita de Google Business Profile como carta de presentación.</p>
-</div>
-<div class="strategy-item">
-  <h3>Semana 2</h3>
-  <p>Investigar estructura de franquicias (Grupo que opera Burger King, Popeyes en CR). Contactar gerentes de operaciones de cadenas en expansión. Outreach a restaurantes gourmet con propuesta de contenido visual.</p>
-</div>
-<div class="strategy-item">
-  <h3>Semana 3-4</h3>
-  <p>Seguimiento de primeros contactos. Preparar case studies adaptados al sector restaurantes. Pitch de paquete "Lanzamiento de Restaurante" para cadenas en expansión.</p>
-</div>
+<section>
+  <h2>💡 Recomendaciones para Aurea</h2>
+  <ul style="padding-left: 20px; color: var(--text); font-size: 13px; line-height: 2;">
+    <li><strong>Servicios de mayor demanda:</strong> Branding de agencia, fotografía profesional, SEO localized, content marketing para MLS + redes sociales, automatización de nurturing para leads internacionales.</li>
+    <li><strong>Presencia LinkedIn es clave:</strong> Los brokers internacionales (especialmente CB, RE/MAX) valoran la credibilidad profesional. Casos de estudio funcionan mejor que proposals genéricas.</li>
+    <li><strong>Video y tours virtuales:</strong> Post-OECD transparency, los compradores exigen más información profesional. Agencias que ofrezcan tours 3D y video se diferencian.</li>
+    <li><strong>Timing:</strong> Q4 2025 - Q1 2026 fue de consolidación. Q2-Q3 2026 se perfila como momento óptimo para que agencias inviertan en marketing si el mercado继续保持 (mantiene) demanda.</li>
+    <li><strong>FB/Instagram:</strong> Guanacaste y Pacífico Sur tienen audiencias internacionales activas. Campañas paid en Meta segmentadas por país de interés (EE.UU., Canadá, Europa) son subutilizadas por la mayoría de estas agencias.</li>
+  </ul>
+</section>
 
 <footer>
-  <p>Reporte generado automáticamente — Aurea Advertising Lead Research</p>
-  <p>Nicho de esta hora: <strong>Restaurantes</strong> | Próximo: <strong>Clinics</strong> | 4 Mayo 2026 08:00 CST</p>
+  <p>Reporte generado automáticamente por <strong>Logos</strong> para <strong>Aurea Advertising Agency</strong> &nbsp;|&nbsp; 2026-05-04 09:00 UTC</p>
+  <p style="margin-top: 6px; color: #484f58;">Este reporte es material propietario de Aurea. No distribuir sin autorización.</p>
 </footer>
 
 </div>
