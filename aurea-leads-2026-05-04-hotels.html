@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aurea — Leads Hotels Costa Rica | 04 Mayo 2026</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg: #0d0d12;
+    --surface: #13131c;
+    --surface2: #1a1a27;
+    --border: #252535;
+    --accent: #f0a500;
+    --accent2: #e06b2d;
+    --text: #e4e4f0;
+    --text2: #9090aa;
+    --green: #3ecf8e;
+    --red: #ff5f5f;
+    --blue: #4dabf7;
+  }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; font-size: 14px; }
+  .container { max-width: 960px; margin: 0 auto; padding: 32px 20px; }
+  header { border-bottom: 2px solid var(--accent); padding-bottom: 20px; margin-bottom: 32px; }
+  .badge { background: linear-gradient(135deg, var(--accent), var(--accent2)); color: #000; font-weight: 700; font-size: 11px; padding: 4px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 1.5px; }
+  h1 { font-size: 28px; margin: 14px 0 6px; color: #fff; }
+  .meta { color: var(--text2); font-size: 13px; }
+  .meta span { margin-right: 18px; }
+  .hero-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 28px; }
+  .hero-card p { color: var(--text2); font-size: 15px; margin-top: 10px; }
+  .section-title { font-size: 16px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); margin: 32px 0 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 20px; margin-bottom: 14px; }
+  .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; flex-wrap: wrap; gap: 8px; }
+  .card h3 { font-size: 16px; color: #fff; }
+  .tag { font-size: 10px; padding: 3px 9px; border-radius: 4px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px; }
+  .tag-gm { background: rgba(240,165,0,0.15); color: var(--accent); }
+  .tag-dev { background: rgba(61,207,142,0.15); color: var(--green); }
+  .tag-open { background: rgba(77,171,247,0.15); color: var(--blue); }
+  .tag-owner { background: rgba(224,107,45,0.15); color: var(--accent2); }
+  .contact-row { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 8px; }
+  .contact-chip { background: var(--surface2); border: 1px solid var(--border); border-radius: 6px; padding: 5px 12px; font-size: 12px; color: var(--text2); }
+  .contact-chip strong { color: var(--text); }
+  .card p { color: var(--text2); font-size: 13px; }
+  .trend-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .trend-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px; }
+  .trend-card h4 { font-size: 13px; color: var(--accent); margin-bottom: 6px; }
+  .trend-card p { font-size: 12px; color: var(--text2); }
+  .strategy-item { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px; margin-bottom: 12px; }
+  .strategy-item h4 { font-size: 14px; color: var(--accent); margin-bottom: 6px; }
+  .strategy-item p { font-size: 13px; color: var(--text2); }
+  .warning-box { background: rgba(240,165,0,0.08); border: 1px solid rgba(240,165,0,0.25); border-radius: 8px; padding: 16px; margin-top: 24px; font-size: 13px; color: var(--text2); }
+  .stats-row { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 24px; }
+  .stat-card { flex: 1; min-width: 140px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px; text-align: center; }
+  .stat-card .num { font-size: 28px; font-weight: 700; color: var(--accent); }
+  .stat-card .label { font-size: 11px; color: var(--text2); text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
+  footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border); color: var(--text2); font-size: 12px; text-align: center; }
+  @media (max-width: 600px) { .trend-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <span class="badge">Investigación de Leads — Aurea</span>
+  <h1>Hoteles & Resorts en Costa Rica</h1>
+  <div class="meta">
+    <span>📅 4 Mayo 2026</span>
+    <span>⏰ 22:00 CST</span>
+    <span>🏷️ Nicho: Hoteles / Hospitality</span>
+  </div>
+</header>
+
+<div class="hero-card">
+  <div style="font-size:12px;text-transform:uppercase;letter-spacing:1.5px;color:var(--accent);font-weight:700;margin-bottom:8px;">Resumen Ejecutivo</div>
+  <p>Costa Rica consolida su posición como destino de lujo en Latinoamérica. La inversión hotelera se concentra en Guanacaste y la Peninsula Papagayo, con <strong>17 nuevos proyectos por $391.8M</strong> que agregarán ~1,500 habitaciones. Aperturas clave 2026–2027 incluyen el <strong>Waldorf Astoria Costa Rica</strong>, <strong>JW Marriott Costa Elena</strong> (415 habitaciones) y el <strong>Moxy Hotel</strong> en Alajuela. La tendencia es ultra-lujo, bienestar y marcas residenciales. Los GMs y Directores de Ventas/Marketing son los puntos de contacto ideales para Aurea.</p>
+</div>
+
+<div class="stats-row">
+  <div class="stat-card"><div class="num">17</div><div class="label">Nuevos proyectos turísticos</div></div>
+  <div class="stat-card"><div class="num">$392M</div><div class="label">Inversión confirmada</div></div>
+  <div class="stat-card"><div class="num">~1,500</div><div class="label">Habitaciones nuevas</div></div>
+  <div class="stat-card"><div class="num">6</div><div class="label">de 17 proyectos en Guanacaste</div></div>
+</div>
+
+<div class="section-title">🏨 Empresas & Decision Makers</div>
+
+<div class="card">
+  <div class="card-header">
+    <h3>Four Seasons Resort Costa Rica at Peninsula Papagayo</h3>
+    <span class="tag tag-gm">GM Confirmado 2025</span>
+  </div>
+  <p>Forbes Five-Star 10 años consecutivos. Propiedad de Gencom y Mohari Hospitality. Resort de lujo insignia de Latinoamérica.</p>
+  <div class="contact-row">
+    <div class="contact-chip"><strong>GM:</strong> Brent Martin</div>
+    <div class="contact-chip"><strong>Ownership:</strong> Gencom & Mohari Hospitality</div>
+    <div class="contact-chip"><strong>Segmento:</strong> Ultra-lujo</div>
+    <div class="contact-chip"><strong>Ubicación:</strong> Peninsula Papagayo, Guanacaste</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <h3>Andaz Peninsula Papagayo Resort</h3>
+    <span class="tag tag-gm">GM Confirmado 2026</span>
+  </div>
+  <p>Hyatt / Andaz. Ubicado en Peninsula Papagayo. Resort lifestyle de alta gama con enfoque en sostenibilidad y experiencias auténticas.</p>
+  <div class="contact-row">
+    <div class="contact-chip"><strong>GM:</strong> Markus Laahanen (desde ene 2026)</div>
+    <div class="contact-chip"><strong>Dir. Ventas:</strong> Dale N. Smith</div>
+    <div class="contact-chip"><strong>Marca:</strong> Hyatt / Andaz</div>
+    <div class="contact-chip"><strong>Ubicación:</strong> Peninsula Papagayo</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <h3>Waldorf Astoria Costa Rica Punta Cacique</h3>
+    <span class="tag tag-open">Abierto 2025</span>
+  </div>
+  <p>Proyecto de Steve Case (cofundador de AOL / Revolution Places). Primera propiedad Waldorf Astoria en Costa Rica. Invierte en comunidad y turismo sostenible.</p>
+  <div class="contact-row">
+    <div class="contact-chip"><strong>Promotor:</strong> Steve Case — Revolution Places</div>
+    <div class="contact-chip"><strong>Segmento:</strong> Ultra-lujo / Branded Residences</div>
+    <div class="contact-chip"><strong>Ubicación:</strong> Punta Cacique, Guanacaste</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <h3>Nekajui, a Ritz-Carlton Reserve</h3>
+    <span class="tag tag-open">Abierto — Peninsula Papagayo</span>
+  </div>
+  <p>Uno de los proyectos más emblemáticos de la zona. La marca Ritz-Carlton Reserve representa la máxima expresión de exclusividad del grupo Marriott.</p>
+  <div class="contact-row">
+    <div class="contact-chip"><strong>Marca:</strong> Ritz-Carlton Reserve / Marriott Int'l</div>
+    <div class="contact-chip"><strong>Segmento:</strong> Ultra-lujo</div>
+    <div class="contact-chip"><strong>Ubicación:</strong> Peninsula Papagayo, Guanacaste</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <h3>JW Marriott Costa Elena Resort All-Inclusive</h3>
+    <span class="tag tag-dev">Apertura May 2027</span>
+  </div>
+  <p>Inversión de $60M. Operador: Mullen Hospitality Management. 415 habitaciones. Ubicado en Guanacaste. Primer JW Marriott All-Inclusive en Costa Rica.</p>
+  <div class="contact-row">
+    <div class="contact-chip"><strong>Operador:</strong> Mullen Hospitality Management</div>
+    <div class="contact-chip"><strong>Inversión:</strong> $60M USD</div>
+    <div class="contact-chip"><strong>Habitaciones:</strong> 415</div>
+    <div class="contact-chip"><strong>Ubicación:</strong> Guanacaste</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <h3>Moxy Hotel — SJO Airport (Alajuela)</h3>
+    <span class="tag tag-dev">Apertura Abr 2027</span>
+  </div>
+  <p>Hotel de Marriott orientado a viajeros de negocio y tránsito aéreo. 173 habitaciones. Fortalece la puerta de entrada aérea principal de Costa Rica.</p>
+  <div class="contact-row">
+    <div class="contact-chip"><strong>Marca:</strong> Moxy / Marriott International</div>
+    <div class="contact-chip"><strong>Habitaciones:</strong> 173</div>
+    <div class="contact-chip"><strong>Ubicación:</strong> Alajuela (cerca SJO)</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <h3>Hotel Fermata — Santa Teresa</h3>
+    <span class="tag tag-open">T+L 2026 It List</span>
+  </div>
+  <p>Boutique costero en la península de Nicoya. Reconocido por Travel + Leisure en su lista de mejores hoteles nuevos del mundo 2026. Enfoque en experiencias acuáticas y bienestar.</p>
+  <div class="contact-row">
+    <div class="contact-chip"><strong>Reconocimiento:</strong> T+L 2026 It List</div>
+    <div class="contact-chip"><strong>Estilo:</strong> Boutique / Wellness</div>
+    <div class="contact-chip"><strong>Ubicación:</strong> Santa Teresa, Puntarenas</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <h3>Origins Astral Lodge — Bijagua de Upala</h3>
+    <span class="tag tag-open">T+L 2026 It List</span>
+  </div>
+  <p>Eco-lodge en el norte del país (elevación 2,600 pies, entre Volcanes Miravalles y Tenorio). Hermana de Origins Floral (2018). Enfoque en bienestar holístico y naturaleza.</p>
+  <div class="contact-row">
+    <div class="contact-chip"><strong>Reconocimiento:</strong> T+L 2026 It List</div>
+    <div class="contact-chip"><strong>Estilo:</strong> Eco-lodge / Wellness</div>
+    <div class="contact-chip"><strong>Ubicación:</strong> Bijagua, Alajuela</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <h3>Chayote Lodge — Manual Antonio</h3>
+    <span class="tag tag-owner">Propietario Directo</span>
+  </div>
+  <p>Propietario Rolando Campos: veterano de 30 años en turismo Costarricense. Dueño de Chayote Lodge y ex-director de Swiss Travel (DMC). Proyecto activo de inversión en Manuel Antonio.</p>
+  <div class="contact-row">
+    <div class="contact-chip"><strong>Propietario:</strong> Rolando Campos</div>
+    <div class="contact-chip"><strong>Perfil:</strong> 30 años en turismo CR</div>
+    <div class="contact-chip"><strong>Contacto:</strong> info@investingcostarica.com</div>
+    <div class="contact-chip"><strong>Ubicación:</strong> Manuel Antonio, Puntarenas</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <h3>Marriott Costa Rica — Portafolio Nacional</h3>
+    <span class="tag tag-gm">Country Manager</span>
+  </div>
+  <p>Dennis Whitelaw como Country Manager overseeing Costa Rica Marriott Hotel San Jose, Los Suenos Marriott Ocean & Golf Resort, Courtyard San Jose y otros. Punto de contacto para todo el portafolio Marriott en CR.</p>
+  <div class="contact-row">
+    <div class="contact-chip"><strong>Country Mgr:</strong> Dennis Whitelaw</div>
+    <div class="contact-chip"><strong>Marca:</strong> Marriott International</div>
+    <div class="contact-chip"><strong>Propiedades:</strong> Marriott SJ, Los Suenos, Courtyard SJ</div>
+  </div>
+</div>
+
+<div class="section-title">📈 Tendencias del Mercado</div>
+
+<div class="trend-grid">
+  <div class="trend-card">
+    <h4>Ultra-Luxury & Branded Residences</h4>
+    <p>La inversión se desplaza hacia resorts de ultra-lujo y residencias de marca (Waldorf Astoria, Ritz-Carlton Reserve, Four Seasons). Costa Rica compite con Caribe y Europa.</p>
+  </div>
+  <div class="trend-card">
+    <h4>Wellness Tourism 2026</h4>
+    <p>Viajeros premium buscan bienestar holístico, privacidad intencional y experiencias significativas. Hotels Fermata, Origins y Nekajui responden a esta demanda.</p>
+  </div>
+  <div class="trend-card">
+    <h4>IA & Personalización</h4>
+    <p>Hoteles adoptan IA para recomendaciones personalizadas, check-in móvil, CRM guest y optimización de revenue. Oportunidad para herramientas de marketing digital.</p>
+  </div>
+  <div class="trend-card">
+    <h4>Dependencia del Mercado Estadounidense</h4>
+    <p>32% del turismo de lujo global viene de Norteamérica. Costa Rica debe diversificar mercados emisores para reducir vulnerabilidad cambiaria.</p>
+  </div>
+  <div class="trend-card">
+    <h4>Agentes IA en Hospitalidad</h4>
+    <p>Plataformas con itinerarios generados por IA, reservas y programas de recompensas integrados. Los hoteles que no se adapten perderán visibilidad en search semántico.</p>
+  </div>
+  <div class="trend-card">
+    <h4>Campaña ICT 2026</h4>
+    <p>Instituto Costarricense de Turismo lanza campaña publicitaria en mercados europeos prioridad (mar-nov 2026). Targeting: seniors, familias, viajeros experiential.</p>
+  </div>
+</div>
+
+<div class="section-title">🎯 Estrategias de Contacto</div>
+
+<div class="strategy-item">
+  <h4>LinkedIn DM a GMs y Directors of Sales</h4>
+  <p>Objetivo: Brent Martin (Four Seasons), Markus Laahanen (Andaz), Dale N. Smith (Andaz Sales), Dennis Whitelaw (Marriott CR). Mensaje corto referencing su propiedad + propuesta de valor de Aurea. Usar versión EN por LinkedIn.</p>
+</div>
+
+<div class="strategy-item">
+  <h4>Cold Email Personalizado a Nuevos Desarrollos</h4>
+  <p>Mullen Hospitality (JW Marriott Costa Elena) y equipos de proyecto del Waldorf Astoria / Moxy buscan partners de go-to-market. Ofrecer servicios de launch campaign y posicionamiento de marca. Ideal: contactar durante fase pre-apertura.</p>
+</div>
+
+<div class="strategy-item">
+  <h4>Contacto vía Email a Boutique Hotels</h4>
+  <p>Hotel Fermata y Origins Astral Lodge: contactar directamente por sus websites o redes sociales para propuesta de contenido digital, redes sociales y reputación online. Son ágiles y receptivos a agencies boutique.</p>
+</div>
+
+<div class="strategy-item">
+  <h4>Podcast / Contenido como Puerta de Entrada</h4>
+  <p>Rolando Campos (Chayote Lodge) tiene podcast activo sobre inversión turística en Costa Rica. Aurea puede ofrecer un episodio o赞助 de contenido sobre marketing hotelero. Construye autoridad y relación.</p>
+</div>
+
+<div class="strategy-item">
+  <h4>Follow-up Trimestral a Portafolio Marriott/Hyatt</h4>
+  <p>Los grandes grupos internacionales-renovación de contratos de marketing y digital annually. Mantener base de datos actualizada con contactos de GMs y Commercial en cada propiedad.</p>
+</div>
+
+<div class="warning-box">
+  ⚠️ <strong>Nota sobre el mercado:</strong> Los resorts de Papagayo están inundados de proveedores. La diferenciación de Aurea debe ser específica (wellness tourism, segmento MICE, mercado europeo o sostenibilidad) y no genérica. Las propiedades más accesibles para una agencia como Aurea son los boutique hotels (Fermata, Origins, Chayote Lodge) y los nuevos desarrollos en fase pre-apertura.</p>
+</div>
+
+<footer>
+  Reporte generado automáticamente por Logos (Aurea Research Agent) · 4 Mayo 2026 · 22:00 CST<br>
+  /home/asdelgado506/intel-reports/aurea-leads-2026-05-04-hotels.html
+</footer>
+
+</div>
+</body>
+</html>
