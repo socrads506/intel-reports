@@ -1,528 +1,597 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aurea — Lead Research: Real Estate CR | 2026-05-03</title>
-<style>
-  :root {
-    --bg: #0d0d0f;
-    --surface: #16161a;
-    --surface2: #1e1e24;
-    --border: #2a2a35;
-    --accent: #f0a500;
-    --accent2: #e05c5c;
-    --text: #e8e8f0;
-    --muted: #8888a0;
-    --green: #4ecb8a;
-    --tag-rest: #2d6a4f;
-    --tag-text: #d8f3dc;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'Segoe UI', system-ui, sans-serif;
-    font-size: 15px;
-    line-height: 1.6;
-    min-height: 100vh;
-  }
-  .container { max-width: 960px; margin: 0 auto; padding: 40px 20px; }
-
-  /* HEADER */
-  .header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 1px solid var(--border);
-    padding-bottom: 24px;
-    margin-bottom: 36px;
-  }
-  .brand { display: flex; align-items: center; gap: 12px; }
-  .brand-icon {
-    width: 40px; height: 40px;
-    background: var(--accent);
-    border-radius: 8px;
-    display: flex; align-items: center; justify-content: center;
-    font-weight: 800; font-size: 18px; color: #000;
-  }
-  .brand-name { font-size: 22px; font-weight: 700; letter-spacing: -0.5px; }
-  .brand-name span { color: var(--accent); }
-  .badge {
-    background: var(--accent);
-    color: #000;
-    font-size: 11px;
-    font-weight: 700;
-    padding: 4px 10px;
-    border-radius: 20px;
-    letter-spacing: 0.5px;
-  }
-  .meta {
-    display: flex; gap: 24px; margin-top: 8px;
-    color: var(--muted); font-size: 13px;
-  }
-  .meta span { display: flex; align-items: center; gap: 5px; }
-
-  /* SECTIONS */
-  .section { margin-bottom: 36px; }
-  .section-title {
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 16px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid var(--border);
-  }
-
-  /* KPI CARDS */
-  .kpi-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 14px;
-  }
-  .kpi {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 18px 20px;
-  }
-  .kpi-label { font-size: 11px; color: var(--muted); letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 6px; }
-  .kpi-value { font-size: 22px; font-weight: 700; }
-  .kpi-sub { font-size: 12px; color: var(--muted); margin-top: 2px; }
-
-  /* COMPANY CARDS */
-  .company-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 14px;
-  }
-  .company-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 20px;
-    transition: border-color 0.2s;
-  }
-  .company-card:hover { border-color: var(--accent); }
-  .company-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
-  .company-name { font-size: 15px; font-weight: 600; color: var(--text); }
-  .company-tag {
-    font-size: 10px; font-weight: 600; padding: 2px 8px;
-    border-radius: 10px; letter-spacing: 0.3px;
-  }
-  .tag-tier1 { background: #7b4f00; color: #f5c06d; }
-  .tag-tier2 { background: #1a3a5c; color: #7ec8e3; }
-  .tag-tier3 { background: #2d2d3a; color: var(--muted); }
-  .company-detail { font-size: 13px; color: var(--muted); margin-bottom: 4px; }
-  .company-contact { font-size: 13px; color: var(--green); margin-top: 8px; }
-  .company-contact a { color: var(--green); text-decoration: none; }
-  .company-contact a:hover { text-decoration: underline; }
-
-  /* TRENDS */
-  .trend-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-  @media (max-width: 600px) { .trend-grid { grid-template-columns: 1fr; } }
-  .trend-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 18px 20px;
-  }
-  .trend-icon { font-size: 22px; margin-bottom: 8px; }
-  .trend-title { font-size: 14px; font-weight: 600; margin-bottom: 6px; }
-  .trend-desc { font-size: 13px; color: var(--muted); line-height: 1.5; }
-
-  /* STRATEGY */
-  .strategy-list { list-style: none; }
-  .strategy-item {
-    display: flex;
-    gap: 14px;
-    padding: 16px 0;
-    border-bottom: 1px solid var(--border);
-  }
-  .strategy-item:last-child { border-bottom: none; }
-  .strategy-num {
-    width: 28px; height: 28px; min-width: 28px;
-    background: var(--accent);
-    color: #000;
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 12px; font-weight: 700;
-  }
-  .strategy-text h4 { font-size: 14px; font-weight: 600; margin-bottom: 3px; }
-  .strategy-text p { font-size: 13px; color: var(--muted); }
-
-  /* OUTREACH */
-  .outreach-table { width: 100%; border-collapse: collapse; }
-  .outreach-table th {
-    text-align: left; font-size: 11px; letter-spacing: 0.5px;
-    text-transform: uppercase; color: var(--muted);
-    padding: 10px 14px; border-bottom: 1px solid var(--border);
-  }
-  .outreach-table td {
-    padding: 12px 14px; border-bottom: 1px solid var(--border);
-    font-size: 13px;
-  }
-  .outreach-table tr:last-child td { border-bottom: none; }
-  .outreach-table tr:hover td { background: var(--surface2); }
-  .priority-badge {
-    display: inline-block; padding: 2px 8px; border-radius: 10px;
-    font-size: 11px; font-weight: 600;
-  }
-  .prio-hi { background: #7b2d2d; color: #ff9999; }
-  .prio-md { background: #2d4a7b; color: #99b3ff; }
-  .prio-lo { background: #2d2d3a; color: var(--muted); }
-
-  /* FOOTER */
-  .footer {
-    text-align: center;
-    color: var(--muted);
-    font-size: 12px;
-    padding-top: 24px;
-    border-top: 1px solid var(--border);
-    margin-top: 40px;
-  }
-  .next-run { color: var(--accent); font-weight: 600; }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurea - Leads Restaurantes Costa Rica | 3 Mayo 2026</title>
+    <style>
+        :root {
+            --bg-primary: #0d0d0d;
+            --bg-secondary: #1a1a1a;
+            --bg-card: #242424;
+            --accent: #f5a623;
+            --accent-secondary: #e8912d;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0b0;
+            --text-muted: #707070;
+            --border: #333333;
+            --success: #4ade80;
+            --info: #60a5fa;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 40px;
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-card) 100%);
+            border-radius: 16px;
+            border: 1px solid var(--border);
+        }
+        
+        .logo {
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            font-size: 2.2em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, var(--text-primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1em;
+        }
+        
+        .date-badge {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--bg-primary);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.85em;
+            margin-top: 20px;
+        }
+        
+        .niche-tag {
+            display: inline-block;
+            background: var(--bg-card);
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            padding: 8px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            margin-top: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9em;
+        }
+        
+        .section {
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid var(--border);
+        }
+        
+        h2 {
+            font-size: 1.4em;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        h2 .icon {
+            font-size: 1.2em;
+        }
+        
+        .company-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 20px;
+        }
+        
+        .company-card {
+            background: var(--bg-card);
+            border-radius: 10px;
+            padding: 22px;
+            border: 1px solid var(--border);
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        
+        .company-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--accent);
+        }
+        
+        .company-name {
+            font-size: 1.1em;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+        
+        .company-type {
+            font-size: 0.75em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent);
+            margin-bottom: 12px;
+        }
+        
+        .company-detail {
+            font-size: 0.9em;
+            color: var(--text-secondary);
+            margin-bottom: 6px;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+        
+        .company-detail span:first-child {
+            color: var(--text-muted);
+            min-width: 80px;
+        }
+        
+        .strategy-list {
+            list-style: none;
+        }
+        
+        .strategy-list li {
+            background: var(--bg-card);
+            padding: 16px 20px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            border-left: 3px solid var(--accent);
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        
+        .strategy-list .num {
+            background: var(--accent);
+            color: var(--bg-primary);
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.85em;
+            flex-shrink: 0;
+        }
+        
+        .trend-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        
+        .trend-card {
+            background: var(--bg-card);
+            padding: 22px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+        }
+        
+        .trend-card h3 {
+            font-size: 1em;
+            color: var(--accent);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .trend-card p {
+            color: var(--text-secondary);
+            font-size: 0.9em;
+        }
+        
+        .insight-box {
+            background: linear-gradient(135deg, rgba(245, 166, 35, 0.15) 0%, rgba(232, 145, 45, 0.05) 100%);
+            border: 1px solid var(--accent);
+            border-radius: 10px;
+            padding: 24px;
+            margin-top: 20px;
+        }
+        
+        .insight-box h3 {
+            color: var(--accent);
+            margin-bottom: 12px;
+            font-size: 1.05em;
+        }
+        
+        .insight-box p {
+            color: var(--text-secondary);
+            font-size: 0.9em;
+        }
+        
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .stat-box {
+            background: var(--bg-card);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid var(--border);
+        }
+        
+        .stat-value {
+            font-size: 2em;
+            font-weight: 700;
+            color: var(--accent);
+        }
+        
+        .stat-label {
+            font-size: 0.8em;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 5px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: var(--text-muted);
+            font-size: 0.85em;
+            border-top: 1px solid var(--border);
+            margin-top: 40px;
+        }
+        
+        @media (max-width: 768px) {
+            .stats-row {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            h1 {
+                font-size: 1.6em;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
-<div class="container">
-
-  <!-- HEADER -->
-  <div class="header">
-    <div>
-      <div class="brand">
-        <div class="brand-icon">A</div>
-        <div class="brand-name">Aurea<span>Lead Intel</span></div>
-      </div>
-      <div class="meta">
-        <span>📅 May 3, 2026 — 16:00 CST</span>
-        <span>📍 Costa Rica — Real Estate</span>
-        <span>⏱ Hourly Cron Run</span>
-      </div>
+    <div class="container">
+        <header>
+            <div class="logo">Aurea Advertising Agency</div>
+            <h1>Lead Research Report</h1>
+            <p class="subtitle">Oportunidades de negocio en el sector restaurantes de Costa Rica</p>
+            <div class="niche-tag">Nichos: Restaurantes</div>
+            <div class="date-badge">3 de Mayo, 2026</div>
+        </header>
+        
+        <div class="stats-row">
+            <div class="stat-box">
+                <div class="stat-value">2.7M</div>
+                <div class="stat-label">Turistas/Año</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-value">$5.4B</div>
+                <div class="stat-label">Gasto Turístico</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-value">350</div>
+                <div class="stat-label">Nuevos Empleos</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-value">5</div>
+                <div class="stat-label">Cadenas Expanden</div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2><span class="icon">🏢</span> Empresas Objetivo Identificadas</h2>
+            
+            <div class="company-grid">
+                <div class="company-card">
+                    <div class="company-name">Sikwa</div>
+                    <div class="company-type">Restaurante Premium</div>
+                    <div class="company-detail">
+                        <span>Ubicación</span>
+                        <span>San José, Costa Rica</span>
+                    </div>
+                    <div class="company-detail">
+                        <span>Chef</span>
+                        <span>Pablo Bonilla</span>
+                    </div>
+                    <div class="company-detail">
+                        <span>Distinción</span>
+                        <span>#43 Lat America's 50 Best Restaurants 2025</span>
+                    </div>
+                    <div class="company-detail">
+                        <span>Potencial</span>
+                        <span>Alta - Posicionamiento premium requiere branding estratégico</span>
+                    </div>
+                </div>
+                
+                <div class="company-card">
+                    <div class="company-name">Burger King Costa Rica</div>
+                    <div class="company-type">Cadena Fast Food</div>
+                    <div class="company-detail">
+                        <span>Expansión</span>
+                        <span>Creciendo - Parte de los 350 nuevos empleos</span>
+                    </div>
+                    <div class="company-detail">
+                        <span>Foco</span>
+                        <span>Nuevas aperturas, marketing de expansión</span>
+                    </div>
+                    <div class="company-detail">
+                        <span>Potencial</span>
+                        <span>Alta - Franquicia en crecimiento necesita soporte publicitario</span>
+                    </div>
+                </div>
+                
+                <div class="company-card">
+                    <div class="company-name">Domino's Pizza Costa Rica</div>
+                    <div class="company-type">Cadena de Delivery</div>
+                    <div class="company-detail">
+                        <span>Expansión</span>
+                        <span>Creciendo - Parte de los 350 nuevos empleos</span>
+                    </div>
+                    <div class="company-detail">
+                        <span>Foco</span>
+                        <span>Delivery, marketing digital, promociones</span>
+                    </div>
+                    <div class="company-detail">
+                        <span>Potencial</span>
+                        <span>Alta - En fase de expansión requiere estrategia de marca</span>
+                    </div>
+                </div>
+                
+                <div class="company-card">
+                    <div class="company-name">Juan Valdez Café</div>
+                    <div class="company-type">Cafetería Premium CR</div>
+                    <div class="company-detail">
+                        <span>Expansión</span>
+                        <span>Creciendo - Parte de los 350 nuevos empleos</span>
+                    </div>
+                    <div class="company-detail">
+                        <span>Foco</span>
+                        <span>Experiencia de marca, posicionamiento premium</span>
+                    </div>
+                    <div class="company-detail">
+                        <span>Potencial</span>
+                        <span>Alta - Marca costarricense icónica en crecimiento</span>
+                    </div>
+                </div>
+                
+                <div class="company-card">
+                    <div class="company-name">Arby's Costa Rica</div>
+                    <div class="company-type">Cadena Fast Food</div>
+                    <div class="company-detail">
+                        <span>Expansión</span>
+                        <span>Creciendo - Parte de los 350 nuevos empleos</span>
+                    </div>
+                    <div class="company-detail">
+                        <span>Foco</span>
+                        <span>Marketing local, penetración de mercado</span>
+                    </div>
+                    <div class="company-detail">
+                        <span>Potencial</span>
+                        <span>Media-Alta - Nuevo en mercado requiere awareness</span>
+                    </div>
+                </div>
+                
+                <div class="company-card">
+                    <div class="company-name">Popeyes Costa Rica</div>
+                    <div class="company-type">Cadena de Pollo</div>
+                    <div class="company-detail">
+                        <span>Expansión</span>
+                        <span>Creciendo - Parte de los 350 nuevos empleos</span>
+                    </div>
+                    <div class="company-detail">
+                        <span>Foco</span>
+                        <span>Estrategia de entrada al mercado, brand awareness</span>
+                    </div>
+                    <div class="company-detail">
+                        <span>Potencial</span>
+                        <span>Alta - Marca global con planes de expansión regional</span>
+                    </div>
+                </div>
+                
+                <div class="company-card">
+                    <div class="company-name">Conservatorium</div>
+                    <div class="company-type">Restaurante Grill Premium</div>
+                    <div class="company-detail">
+                        <span>Ubicación</span>
+                        <span>San José</span>
+                    </div>
+                    <div class="company-detail">
+                        <span>Concepto</span>
+                        <span>Dry aged local cattle, alta cocina</span>
+                    </div>
+                    <div class="company-detail">
+                        <span>Potencial</span>
+                        <span>Media - Nicho premium requiere marketing especializado</span>
+                    </div>
+                </div>
+                
+                <div class="company-card">
+                    <div class="company-name">Dunkin' Donuts Costa Rica</div>
+                    <div class="company-type">Cadena de Café/Donas</div>
+                    <div class="company-detail">
+                        <span>Plan</span>
+                        <span>8 nuevos restaurantes antes de fin 2025</span>
+                    </div>
+                    <div class="company-detail">
+                        <span>Foco</span>
+                        <span>Expansión acelerada, marketing de lanzamiento</span>
+                    </div>
+                    <div class="company-detail">
+                        <span>Potencial</span>
+                        <span>Alta - Inversión significativa en mercado costarricense</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2><span class="icon">🎯</span> Estrategias de Contacto</h2>
+            
+            <ul class="strategy-list">
+                <li>
+                    <span class="num">1</span>
+                    <div>
+                        <strong>LinkedIn Outreach Masivo</strong><br>
+                        <span style="color: var(--text-secondary)">Conectar con Marketing Managers y Directores de Franquicias de Burger King, Domino's, Juan Valdez, Arby's y Popeyes Costa Rica. Usar InMail premium para propuesta de valor diferenciada sobre publicidad para expansión.</span>
+                    </div>
+                </li>
+                <li>
+                    <span class="num">2</span>
+                    <div>
+                        <strong>Cold Email a Propietarios de Restaurantes Premium</strong><br>
+                        <span style="color: var(--text-secondary)">Para Sikwa y Conservatorium: propuesta de branding de lujo y content marketing gastronómico. Enfocarse en storytelling y posicionamiento en guías internacionales como World's 50 Best.</span>
+                    </div>
+                </li>
+                <li>
+                    <span class="num">3</span>
+                    <div>
+                        <strong>Caso de Éxito Dunkin' Expansion</strong><br>
+                        <span style="color: var(--text-secondary)">Preparar pitch deck sobre éxito en marketing de lanzamiento para cadenas en expansión. Enfocar en resultados medibles: ROI de campañas, aumento de ticket promedio,覆盖率.</span>
+                    </div>
+                </li>
+                <li>
+                    <span class="num">4</span>
+                    <div>
+                        <strong>Webinar: Marketing para Restaurantes en Costa Rica 2026</strong><br>
+                        <span style="color: var(--text-secondary)">Organizar webinar educativo sobre tendencias: menús digitales, SEO local, reseñas en Google y TripAdvisor, WhatsApp Business. Posicionarse como expertos del sector.</span>
+                    </div>
+                </li>
+                <li>
+                    <span class="num">5</span>
+                    <div>
+                        <strong>Alianza con Proveedores de Softwares de Restaurantes</strong><br>
+                        <span style="color: var(--text-secondary)">Contactar empresas como Toast, Square o proveedores locales para crear paquete conjunto software + marketing digital. Acceso a decision makers de múltiples restaurantes.</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2><span class="icon">📊</span> Tendencias del Mercado 2025-2026</h2>
+            
+            <div class="trend-grid">
+                <div class="trend-card">
+                    <h3>🌐 Presencia Digital Omnicanal</h3>
+                    <p>Restaurantes invierten en presencia en Google My Business, TripAdvisor, redes sociales y delivery apps simultáneamente. La gestión de reputación online es crítica.</p>
+                </div>
+                
+                <div class="trend-card">
+                    <h3>📱 Marketing de Delivery</h3>
+                    <p>Apps como PedidosYa, Rappi y Uber Eats dominan. Restaurantes necesitan estrategias específicas para plataformas de delivery y optimización de perfiles.</p>
+                </div>
+                
+                <div class="trend-card">
+                    <h3>♻️ Sostenibilidad como Diferenciador</h3>
+                    <p>Consumidores valoran prácticas sostenibles. Certificaciones ambientales y transparencia en cadena de suministro son argumentos de marketing.</p>
+                </div>
+                
+                <div class="trend-card">
+                    <h3>🤖 IA y Personalización</h3>
+                    <p>Chatbots para reservas, recomendaciones personalizadas via email marketing, y análisis predictivo para optimizar inventario y campañas.</p>
+                </div>
+                
+                <div class="trend-card">
+                    <h3>📸 Redes Sociales Visuales</h3>
+                    <p>Instagram y TikTok son canales clave. Contenido de detrás de escena, historias de chefs y videos cortos de platos generan engagement masivo.</p>
+                </div>
+                
+                <div class="trend-card">
+                    <h3>💬 WhatsApp Business</h3>
+                    <p>En Costa Rica, WhatsApp es canal principal de comunicación. Respuestas rápidas, catálogos de productos y atención al cliente son esenciales.</p>
+                </div>
+            </div>
+            
+            <div class="insight-box">
+                <h3>💡 Insight Clave para Aurea</h3>
+                <p>Costa Rica recibió 2.7 millones de turistas en 2024 con un gasto de $5.4 mil millones. El sector HRI (Hotel, Restaurante, Institucional) está en expansión con 350 nuevos empleos solo en cadenas de franquicias. La oportunidad para Aurea está en:</p>
+                <br>
+                <p>1) <strong>Franquicias en expansión</strong> - Dunkin' (8 locales), Burger King, Domino's, Juan Valdez, Arby's, Popeyes todas crecen simultáneamente y necesitan soporte de marketing.</p>
+                <p>2) <strong>Restaurantes premium</strong> - Sikwa y Conservatorium buscan posicionamiento internacional y podrían invertir en branding de lujo.</p>
+                <p>3) <strong>Digitalización post-COVID</strong> - Muchos restaurantes todavía están adaptando sus estrategias digitales, creando demanda por servicios especializados.</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2><span class="icon">📋</span> Próximos Pasos Recomendados</h2>
+            <ul class="strategy-list">
+                <li>
+                    <span class="num">1</span>
+                    <div>
+                        <strong>Semana 1-2:</strong> Outreach inicial a Dunkin' Costa Rica y Juan Valdez con propuesta de marketing para expansión
+                    </div>
+                </li>
+                <li>
+                    <span class="num">2</span>
+                    <div>
+                        <strong>Semana 3-4:</strong> Contactar restaurantes premium (Sikwa, Conservatorium) con pitch de branding internacional
+                    </div>
+                </li>
+                <li>
+                    <span class="num">3</span>
+                    <div>
+                        <strong>Mes 2:</strong> Preparar y ejecutar webinar sobre marketing gastronómico para generar leads
+                    </div>
+                </li>
+                <li>
+                    <span class="num">4</span>
+                    <div>
+                        <strong>Mes 3:</strong> Seguimiento con cadenas en expansión y negociación de contratos piloto
+                    </div>
+                </li>
+            </ul>
+        </div>
+        
+        <footer>
+            <p>Reporte generado automáticamente por AUREa Lead Research Agent</p>
+            <p>Fecha: 3 de Mayo, 2026 | Próxima actualización: 4 de Mayo, 2026</p>
+            <p style="margin-top: 10px; color: var(--accent);">Confidencial - Solo para uso interno de Aurea Advertising Agency</p>
+        </footer>
     </div>
-    <div class="badge">LIVE RESEARCH</div>
-  </div>
-
-  <!-- EXECUTIVE SUMMARY + KPIs -->
-  <div class="section">
-    <div class="section-title">Executive Summary</div>
-    <p style="color: var(--muted); margin-bottom: 18px; font-size: 14px; max-width: 720px;">
-      This report covers the <strong style="color: var(--text);">Real Estate vertical in Costa Rica</strong> for Aurea's outbound prospecting. 
-      The market is currently a <strong style="color: var(--accent2);">buyer's market</strong> with median home prices down ~41% YoY, 
-      creating urgency for developers and brokerages to differentiate through professional marketing. 
-      We identified <strong style="color: var(--text);">10 actionable leads</strong> including two major developers with known decision-maker contacts.
-    </p>
-    <div class="kpi-grid">
-      <div class="kpi">
-        <div class="kpi-label">Total Leads Identified</div>
-        <div class="kpi-value">10</div>
-        <div class="kpi-sub">Real estate developers, brokerages & key contacts</div>
-      </div>
-      <div class="kpi">
-        <div class="kpi-label">Top Revenue Company</div>
-        <div class="kpi-value" style="color: var(--accent);">Capris</div>
-        <div class="kpi-sub">$92.4M revenue — Tier 1 prospect</div>
-      </div>
-      <div class="kpi">
-        <div class="kpi-label">Median Home Price Drop</div>
-        <div class="kpi-value" style="color: var(--accent2);">−41%</div>
-        <div class="kpi-sub">Jan 2024 ($907K) → Jan 2025 ($533K)</div>
-      </div>
-      <div class="kpi">
-        <div class="kpi-label">2026 Price Forecast</div>
-        <div class="kpi-value" style="color: var(--green);">+4–7%</div>
-        <div class="kpi-sub">Central Valley · Coastal up to +8%</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- COMPANIES -->
-  <div class="section">
-    <div class="section-title">Companies & Decision Makers</div>
-    <div class="company-grid">
-
-      <div class="company-card">
-        <div class="company-header">
-          <div class="company-name">Capris</div>
-          <span class="company-tag tag-tier1">Tier 1</span>
-        </div>
-        <div class="company-detail">🏢 Real Estate Developer & Engineering</div>
-        <div class="company-detail">💰 Revenue: $92.4M</div>
-        <div class="company-detail">📍 San José, Costa Rica</div>
-        <div class="company-contact">
-          <a href="https://capriseng.com" target="_blank">capriseng.com</a> · <a href="https://www.cppropertiescostarica.com" target="_blank">CP Properties</a>
-        </div>
-        <div class="company-detail" style="margin-top:8px; font-size:12px; color: var(--accent);">⚡ Key opportunity: Largest real estate company in CR. Likely needs full-service ad agency for multi-channel campaigns.</div>
-      </div>
-
-      <div class="company-card">
-        <div class="company-header">
-          <div class="company-name">Rocca Development Group</div>
-          <span class="company-tag tag-tier1">Tier 1</span>
-        </div>
-        <div class="company-detail">🏗️ Real Estate Developer — 33+ years</div>
-        <div class="company-detail">💰 Revenue: $38.7M</div>
-        <div class="company-detail">📍 Santa Ana, San José</div>
-        <div class="company-contact">📞 +506 4035 5000 · <a href="https://roccacr.com" target="_blank">roccacr.com</a></div>
-        <div class="company-detail" style="margin-top:8px;">👤 <strong>Rodolfo Castro</strong> — Director General</div>
-        <div class="company-detail" style="font-size:12px; color: var(--accent);">⚡ Known decision-maker identified. Prime candidate for branded development marketing.</div>
-      </div>
-
-      <div class="company-card">
-        <div class="company-header">
-          <div class="company-name">Blue Water Properties</div>
-          <span class="company-tag tag-tier1">Tier 1</span>
-        </div>
-        <div class="company-detail">🏢 Brokerage — 5 offices, 40+ agents</div>
-        <div class="company-detail">📍 Tamarindo, Flamingo, Coco, Negra, Nosara</div>
-        <div class="company-contact"><a href="https://bluewaterpropertiesofcostarica.com" target="_blank">bluewaterpropertiesofcostarica.com</a></div>
-        <div class="company-detail" style="margin-top:8px; font-size:12px; color: var(--accent);">⚡ Largest independent brokerage in Guanacaste. Multi-location → multi-campaign potential.</div>
-      </div>
-
-      <div class="company-card">
-        <div class="company-header">
-          <div class="company-name">Volio & Trejos Asociados</div>
-          <span class="company-tag tag-tier2">Tier 2</span>
-        </div>
-        <div class="company-detail">🏗️ Real Estate Developer</div>
-        <div class="company-detail">💰 Revenue: $29.4M</div>
-        <div class="company-detail">📍 San José, Costa Rica</div>
-        <div class="company-contact"><a href="https://www.goodfirms.co/real-estate-companies/costa-rica" target="_blank">goodfirms.co/cr-real-estate</a></div>
-        <div class="company-detail" style="margin-top:8px; font-size:12px; color: var(--accent);">⚡ Established developer — potential for rebrand / digital marketing refresh.</div>
-      </div>
-
-      <div class="company-card">
-        <div class="company-header">
-          <div class="company-name">Urbania</div>
-          <span class="company-tag tag-tier2">Tier 2</span>
-        </div>
-        <div class="company-detail">🏗️ Real Estate Development</div>
-        <div class="company-detail">📍 Costa Rica</div>
-        <div class="company-detail">👤 <strong>Michael Tarcica</strong> — CEO & Founder</div>
-        <div class="company-contact"><a href="https://cr.linkedin.com/in/michael-tarcica" target="_blank">LinkedIn Profile</a></div>
-        <div class="company-detail" style="margin-top:8px; font-size:12px; color: var(--accent);">⚡ Transforming traditional real estate — forward-thinking leadership, likely receptive to digital strategy.</div>
-      </div>
-
-      <div class="company-card">
-        <div class="company-header">
-          <div class="company-name">Osa Development LLC</div>
-          <span class="company-tag tag-tier2">Tier 2</span>
-        </div>
-        <div class="company-detail">🏝️ Real Estate Development — Osa Peninsula</div>
-        <div class="company-detail">👤 <strong>Trevor Yoder</strong> — Founder & CEO (Attorney)</div>
-        <div class="company-contact"><a href="https://cr.linkedin.com/in/trevor-yoder-a8977731" target="_blank">LinkedIn Profile</a></div>
-        <div class="company-detail" style="margin-top:8px; font-size:12px; color: var(--accent);">⚡ High-net-worth niche market. Boutique projects need premium brand positioning.</div>
-      </div>
-
-      <div class="company-card">
-        <div class="company-header">
-          <div class="company-name">Coldwell Banker Vesta Group</div>
-          <span class="company-tag tag-tier2">Tier 2</span>
-        </div>
-        <div class="company-detail">🏢 Luxury Brokerage — Dominical & South Pacific</div>
-        <div class="company-detail">👤 <strong>Kelly Brannon</strong> — Brand Strategist & Associate Broker</div>
-        <div class="company-contact"><a href="https://cr.linkedin.com/in/kelly-brannon-670a4464" target="_blank">LinkedIn Profile</a></div>
-        <div class="company-detail" style="margin-top:8px; font-size:12px; color: var(--accent);">⚡ Active in luxury coastal — already marketing-focused, potential white-label partnership.</div>
-      </div>
-
-      <div class="company-card">
-        <div class="company-header">
-          <div class="company-name">El Rincón Inmobiliaria</div>
-          <span class="company-tag tag-tier3">Tier 3</span>
-        </div>
-        <div class="company-detail">🏠 Real Estate Developer</div>
-        <div class="company-detail">👤 <strong>Alexandra Sánchez Monge</strong> — Developer & Marketing Strategist</div>
-        <div class="company-contact"><a href="https://cr.linkedin.com/in/alexandrasanchezmonge" target="_blank">LinkedIn Profile</a></div>
-        <div class="company-detail" style="margin-top:8px; font-size:12px; color: var(--accent);">⚡ Developer with marketing expertise = understands value of agency partnership.</div>
-      </div>
-
-      <div class="company-card">
-        <div class="company-header">
-          <div class="company-name">CP Properties Costa Rica</div>
-          <span class="company-tag tag-tier3">Tier 3</span>
-        </div>
-        <div class="company-detail">🏡 Real Estate & Rentals — Jacó</div>
-        <div class="company-detail">📧 info@cppropertiescostarica.com</div>
-        <div class="company-detail">📞 +506 8718 7216</div>
-        <div class="company-detail">📍 Jacó, Puntarenas</div>
-        <div class="company-detail" style="margin-top:8px; font-size:12px; color: var(--accent);">⚡ Vacation rental focus — strong content & social media opportunity.</div>
-      </div>
-
-      <div class="company-card">
-        <div class="company-header">
-          <div class="company-name">Cushman & Wakefield AB Advisory</div>
-          <span class="company-tag tag-tier2">Tier 2</span>
-        </div>
-        <div class="company-detail">🏢 Commercial Real Estate — Global Brand</div>
-        <div class="company-detail">📍 San Rafael, Escazú, San José</div>
-        <div class="company-contact"><a href="https://www.cushmanwakefield.com/en/offices/costa-rica" target="_blank">Costa Rica Office</a></div>
-        <div class="company-detail" style="margin-top:8px; font-size:12px; color: var(--accent);">⚡ International standards, likely needs bilingual campaigns for expat/foreign buyer segments.</div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- MARKET TRENDS -->
-  <div class="section">
-    <div class="section-title">Market Trends — Costa Rica Real Estate 2025–2026</div>
-    <div class="trend-grid">
-      <div class="trend-card">
-        <div class="trend-icon">📉</div>
-        <div class="trend-title">Buyer's Market / Price Correction</div>
-        <div class="trend-desc">Median home prices dropped 41% (Jan 2024: $907K → Jan 2025: $533K). Buyers have leverage. Sellers need competitive positioning via professional marketing to stand out.</div>
-      </div>
-      <div class="trend-card">
-        <div class="trend-icon">🌊</div>
-        <div class="trend-title">Coastal Markets Lead Recovery</div>
-        <div class="trend-desc">Escazú, Santa Ana, and Nosara driving price appreciation in 2026 (+5–8% coastal). Vacation rental demand and tourism are key demand drivers.</div>
-      </div>
-      <div class="trend-card">
-        <div class="trend-icon">🌐</div>
-        <div class="trend-title">Foreign Buyer Dominance</div>
-        <div class="trend-desc">US buyers make up the majority of foreign demand. Political/economic news cycles in the US directly impact CR buyer sentiment — campaigns must be crisis-resilient.</div>
-      </div>
-      <div class="trend-card">
-        <div class="trend-icon">⏱️</div>
-        <div class="trend-title">Longer Time on Market</div>
-        <div class="trend-desc">Homes in the Central & South Pacific taking longer to sell. Sellers compete on price AND presentation. Professional photography, video, and staging content = higher conversions.</div>
-      </div>
-      <div class="trend-card">
-        <div class="trend-icon">🏗️</div>
-        <div class="trend-title">New Development Projects Active</div>
-        <div class="trend-desc">Las Catalinas announcing 28 new residences (starting $450K) in 2026. New projects need full go-to-market campaigns: branding, launch strategy, digital ads.</div>
-      </div>
-      <div class="trend-card">
-        <div class="trend-icon">🛏️</div>
-        <div class="trend-title">Short-Term Rental / Eco Tourism</div>
-        <div class="trend-desc">Dual-purpose properties (private + rental) growing. "Pura vida" wellness tourism and eco-investment hotspots expanding. Content marketing opportunity around lifestyle positioning.</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- CONTACT STRATEGY -->
-  <div class="section">
-    <div class="section-title">Contact Strategy</div>
-    <ul class="strategy-list">
-      <li class="strategy-item">
-        <div class="strategy-num">1</div>
-        <div class="strategy-text">
-          <h4>LinkedIn DM to Principals (Week 1)</h4>
-          <p>Target: Rodolfo Castro (Rocca), Michael Tarcica (Urbania), Trevor Yoder (Osa Development). Lead with data: "We help CR developers increase foreign buyer conversion by X%." Personalized, brief, no attach.</p>
-        </div>
-      </li>
-      <li class="strategy-item">
-        <div class="strategy-num">2</div>
-        <div class="strategy-text">
-          <h4>Cold Email Sequence — Marketing Directors (Week 1–2)</h4>
-          <p>For Capris, Blue Water Properties, and Vesta Group: 3-email sequence. Email 1: market data hook (buyer's market stat). Email 2: case study from comparable market. Email 3: free 30-min strategy audit.</p>
-        </div>
-      </li>
-      <li class="strategy-item">
-        <div class="strategy-num">3</div>
-        <div class="strategy-text">
-          <h4>CP Properties Direct Outreach (Week 2)</h4>
-          <p>Has public email and phone. Direct call + follow-up email. Vacation rental angle: "We help Jacó-area property managers increase direct bookings and reduce OTA commission fees."</p>
-        </div>
-      </li>
-      <li class="strategy-item">
-        <div class="strategy-num">4</div>
-        <div class="strategy-text">
-          <h4>Industry Event / Association Networking</h4>
-          <p>Connect via Costa Rica Real Estate Chamber (Cámara Inmobiliaria Costarricense) and AMPI Costa Rica. Attend expat investor meetups in Escazú/Santa Ana. Build credibility before pitching.</p>
-        </div>
-      </li>
-      <li class="strategy-item">
-        <div class="strategy-num">5</div>
-        <div class="strategy-text">
-          <h4>Content Marketing Play — "CR Developer Brand Playbook"</h4>
-          <p>Offer a free downloadable guide: "How to Attract US Buyers to Your CR Development in 2026." Gated lead gen. Position Aurea as the expert agency for this vertical.</p>
-        </div>
-      </li>
-    </ul>
-  </div>
-
-  <!-- OUTREACH PRIORITY TABLE -->
-  <div class="section">
-    <div class="section-title">Outreach Priority Matrix</div>
-    <table class="outreach-table">
-      <thead>
-        <tr>
-          <th>Company</th>
-          <th>Contact</th>
-          <th>Channel</th>
-          <th>Priority</th>
-          <th>Hook / Angle</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>Rocca Development Group</strong></td>
-          <td>Rodolfo Castro (Dir. Gral.)</td>
-          <td>LinkedIn DM + Email</td>
-          <td><span class="priority-badge prio-hi">HIGH</span></td>
-          <td>33+ years — rebrand for next generation of buyers</td>
-        </tr>
-        <tr>
-          <td><strong>Capris</strong></td>
-          <td>Unknown Marketing Lead</td>
-          <td>LinkedIn Search + Website</td>
-          <td><span class="priority-badge prio-hi">HIGH</span></td>
-          <td>$92.4M revenue — full-service agency opportunity</td>
-        </tr>
-        <tr>
-          <td><strong>Urbania</strong></td>
-          <td>Michael Tarcica (CEO)</td>
-          <td>LinkedIn DM</td>
-          <td><span class="priority-badge prio-hi">HIGH</span></td>
-          <td>"Transforming real estate development" — match their ambition</td>
-        </tr>
-        <tr>
-          <td><strong>Blue Water Properties</strong></td>
-          <td>Team / General</td>
-          <td>LinkedIn + Email</td>
-          <td><span class="priority-badge prio-md">MEDIUM</span></td>
-          <td>Multi-location brokerage — consolidated ad campaigns</td>
-        </tr>
-        <tr>
-          <td><strong>Volio & Trejos Asociados</strong></td>
-          <td>Unknown</td>
-          <td>LinkedIn Search</td>
-          <td><span class="priority-badge prio-md">MEDIUM</span></td>
-          <td>$29.4M — digital marketing refresh opportunity</td>
-        </tr>
-        <tr>
-          <td><strong>Osa Development LLC</strong></td>
-          <td>Trevor Yoder (CEO)</td>
-          <td>LinkedIn DM</td>
-          <td><span class="priority-badge prio-md">MEDIUM</span></td>
-          <td>Boutique luxury — premium brand positioning</td>
-        </tr>
-        <tr>
-          <td><strong>CP Properties Costa Rica</strong></td>
-          <td>info@cppropertiescostarica.com</td>
-          <td>Email + Phone</td>
-          <td><span class="priority-badge prio-md">MEDIUM</span></td>
-          <td>Vacation rental STR angle — reduce OTA commissions</td>
-        </tr>
-        <tr>
-          <td><strong>Coldwell Banker Vesta</strong></td>
-          <td>Kelly Brannon</td>
-          <td>LinkedIn DM</td>
-          <td><span class="priority-badge prio-lo">LOW</span></td>
-          <td>Already marketing-savvy — white-label or referral play</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <!-- FOOTER -->
-  <div class="footer">
-    <p>Aurea Lead Intel — Costa Rica Real Estate · Hourly Cron Run</p>
-    <p>Next run: <span class="next-run">2026-05-03 17:00 CST</span> · Report saved to <code>/home/asdelgado506/intel-reports/aurea-leads-2026-05-03.html</code></p>
-  </div>
-
-</div>
 </body>
 </html>
