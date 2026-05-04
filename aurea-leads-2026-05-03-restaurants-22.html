@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aurea — Leads Restaurantes Costa Rica | Mayo 2026</title>
+  <style>
+    :root {
+      --bg: #0d0d0d;
+      --surface: #161616;
+      --surface2: #1e1e1e;
+      --border: #2a2a2a;
+      --accent: #f0a500;
+      --accent2: #ff6b35;
+      --text: #e0e0e0;
+      --muted: #888;
+      --green: #4caf50;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.6; }
+    .container { max-width: 900px; margin: 0 auto; padding: 32px 20px; }
+    header { border-bottom: 2px solid var(--accent); padding-bottom: 20px; margin-bottom: 28px; }
+    .badge { display: inline-block; background: var(--accent); color: #000; font-weight: 700; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; padding: 4px 10px; border-radius: 3px; margin-bottom: 10px; }
+    h1 { font-size: 26px; font-weight: 800; color: #fff; line-height: 1.2; margin-bottom: 6px; }
+    .subtitle { color: var(--muted); font-size: 13px; }
+    .meta { display: flex; gap: 20px; margin-top: 14px; flex-wrap: wrap; }
+    .meta-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--muted); }
+    .meta-item span { color: var(--accent); font-weight: 600; }
+
+    .summary-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin-bottom: 32px; }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 16px; }
+    .card-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+    .card-value { font-size: 22px; font-weight: 700; color: var(--accent); }
+    .card-sub { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+    h2 { font-size: 17px; font-weight: 700; color: #fff; margin: 30px 0 14px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+    h3 { font-size: 14px; font-weight: 600; color: var(--accent); margin-bottom: 4px; }
+    h4 { font-size: 13px; font-weight: 600; color: #ccc; margin-bottom: 3px; }
+
+    .lead { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 18px; margin-bottom: 14px; }
+    .lead-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; gap: 12px; }
+    .lead-name { font-size: 15px; font-weight: 700; color: #fff; }
+    .lead-tag { display: inline-block; font-size: 10px; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; padding: 3px 8px; border-radius: 3px; margin-left: 10px; vertical-align: middle; }
+    .tag-chain { background: #1a3a2a; color: #4caf50; }
+    .tag-local { background: #2a1a3a; color: #ce93d8; }
+    .tag-expansion { background: #1a2a3a; color: #42a5f5; }
+    .lead-meta { display: flex; flex-wrap: wrap; gap: 14px; font-size: 12px; color: var(--muted); margin-bottom: 10px; }
+    .lead-meta strong { color: #ccc; }
+    .lead-detail { display: flex; align-items: start; gap: 6px; font-size: 12px; color: var(--text); margin-bottom: 6px; }
+    .lead-detail::before { content: "▸"; color: var(--accent); flex-shrink: 0; margin-top: 1px; }
+    .contact-strategy { background: var(--surface2); border-radius: 6px; padding: 12px 14px; margin-top: 12px; }
+    .contact-strategy p { font-size: 12px; color: #aaa; }
+    .contact-strategy strong { color: var(--accent2); }
+
+    .trend-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-bottom: 10px; }
+    .trend { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 14px; }
+    .trend h4 { color: var(--accent); font-size: 13px; margin-bottom: 6px; }
+    .trend p { font-size: 12px; color: #aaa; }
+    .trend-tag { display: inline-block; font-size: 10px; padding: 2px 7px; border-radius: 3px; margin-top: 6px; }
+    .trend-hot { background: #2a1a1a; color: #ef5350; }
+    .trend-opp { background: #1a2a1a; color: var(--green); }
+
+    .strategy-section { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 20px; margin-bottom: 14px; }
+    .strategy-section h3 { color: var(--accent2); font-size: 14px; margin-bottom: 10px; }
+    .strategy-row { display: flex; gap: 10px; margin-bottom: 10px; }
+    .step-num { background: var(--accent); color: #000; font-weight: 800; font-size: 11px; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .step-text { font-size: 13px; color: #ccc; }
+
+    footer { border-top: 1px solid var(--border); margin-top: 40px; padding-top: 16px; text-align: center; font-size: 11px; color: var(--muted); }
+  </style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <div class="badge">🔎 Research Report — Aurea Advertising Agency</div>
+  <h1>Leads: Sector Restaurantes en Costa Rica</h1>
+  <div class="subtitle">Oportunidades de lead generation para agencias de publicidad</div>
+  <div class="meta">
+    <div class="meta-item"><span>📅</span> 3 de mayo, 2026 — 22:00 CST</div>
+    <div class="meta-item"><span>🌎</span> Costa Rica</div>
+    <div class="meta-item"><span>🏷️</span> Niche: Restaurantes</div>
+    <div class="meta-item"><span>🔢</span> 8 companies found</div>
+  </div>
+</header>
+
+<div class="summary-cards">
+  <div class="card">
+    <div class="card-label">Cadenas en expansión</div>
+    <div class="card-value">5</div>
+    <div class="card-sub">KFC, Popeyes, Così, Rosti, Subway</div>
+  </div>
+  <div class="card">
+    <div class="card-label">Restaurantes gourmet/alta gama</div>
+    <div class="card-value">3</div>
+    <div class="card-sub">Silvestre, Sikwa, Enbocacr</div>
+  </div>
+  <div class="card">
+    <div class="card-label">Inversión reportada 2025-26</div>
+    <div class="card-value">$9.1M+</div>
+    <div class="card-sub">Solo KFC CR (7 aperturas)</div>
+  </div>
+  <div class="card">
+    <div class="card-label">Aperturas nuevas 2026</div>
+    <div class="card-value">13+</div>
+    <div class="card-sub">KFC 7, Popeyes 2, Così 2, Rosti 2</div>
+  </div>
+</div>
+
+<h2>🍽️ Companies &amp; Decision Makers</h2>
+
+<div class="lead">
+  <div class="lead-header">
+    <div class="lead-name">KFC Costa Rica</div>
+    <span class="lead-tag tag-expansion">Expansión activa</span>
+  </div>
+  <div class="lead-meta">
+    <div><strong>Ubicaciones:</strong> 69 restaurantes</div>
+    <div><strong>Inversión 2025:</strong> $9.1 millones USD</div>
+    <div><strong>Planes 2026:</strong> 7 nuevas aperturas</div>
+  </div>
+  <div class="lead-detail">Apertura 69° restaurante en Playas del Coco, Guanacaste (abr 2026) — zona turística de alto crecimiento</div>
+  <div class="lead-detail">Aperturas previas 2025: Santa Ana Trade Center, San Carlos, Desamparados (3 en un mes)</div>
+  <div class="lead-detail">Crecimiento sostenido en Guanacaste, Heredia, Alajuela y San José</div>
+  <div class="lead-detail">Digital signage y tecnología en restaurante como parte de la experiencia de marca</div>
+  <div class="contact-strategy">
+    <p><strong>🎯 Estrategia de contacto:</strong> Marketing digital, redes sociales, campaigns de expansión de marca. Contactar al equipo de Marketing a través de LinkedIn corporativo o vía web de la franquicia. Target: Brand Manager / Marketing Manager. Angulo: experiencia de marca en comunidades turisticas Guanacaste.</p>
+  </div>
+</div>
+
+<div class="lead">
+  <div class="lead-header">
+    <div class="lead-name">Popeyes Costa Rica</div>
+    <span class="lead-tag tag-expansion">Expansión activa</span>
+  </div>
+  <div class="lead-meta">
+    <div><strong>Ubicaciones:</strong> 6 restaurantes</div>
+    <div><strong>Apertura más grande:</strong> Santa Ana Trade Center (feb 2026)</div>
+    <div><strong>Empleos última apertura:</strong> 35 directos</div>
+  </div>
+  <div class="lead-detail">Inauguró su local más grande del país en Santa Ana en febrero 2026 — posicionando marca</div>
+  <div class="lead-detail">Sigue plan de crecimiento con nuevas aperturas en 2026</div>
+  <div class="lead-detail">Pertenece a grupo corporativo榴 con soporte regional para marketing</div>
+  <div class="contact-strategy">
+    <p><strong>🎯 Estrategia de contacto:</strong> Enfoque en marketing de marca y launching de nuevas sucursales. Contactar vía corporate regional o LinkedIn del equipo de operaciones CR. Angulo: apoyo en campañas de posicionamiento local y digital para aperturas.</p>
+  </div>
+</div>
+
+<div class="lead">
+  <div class="lead-header">
+    <div class="lead-name">Così Italian Restaurant</div>
+    <span class="lead-tag tag-expansion">Expansión activa</span>
+  </div>
+  <div class="lead-meta">
+    <div><strong>Ubicaciones:</strong> 11 restaurantes</div>
+    <div><strong>Próximas aperturas:</strong> Cartago + Plaza Lincoln, Moravia</div>
+    <div><strong>Zonas actuales:</strong> Escazú, Curridabat, Heredia, Alajuela, San Pedro</div>
+  </div>
+  <div class="lead-detail">Cadena italiana de franquicia expandiendo agresivamente en el GAM</div>
+  <div class="lead-detail">Próxima apertura: Cartago y Moravia en 2026</div>
+  <div class="lead-detail">Equipo de mercadeo confirmado expandiendo presencia</div>
+  <div class="contact-strategy">
+    <p><strong>🎯 Estrategia de contacto:</strong> Outreach vía LinkedIn al equipo de mercadeo. Enfoque: branding para nueva apertura en Cartago, campañas locales en comunidades específicas. Cadena mediana con necesidad de apoyo de marketing externo.</p>
+  </div>
+</div>
+
+<div class="lead">
+  <div class="lead-header">
+    <div class="lead-name">Rosti — Cadena Tica</div>
+    <span class="lead-tag tag-chain">Cadena nacional</span>
+  </div>
+  <div class="lead-meta">
+    <div><strong>Ubicaciones:</strong> 40 restaurantes a nivel nacional</div>
+    <div><strong>Últimas aperturas:</strong> Mall San Pedro + Multicentro Desamparados</div>
+    <div><strong>Modelo:</strong> Comida costarricense / tips y platos locales</div>
+  </div>
+  <div class="lead-detail">40 ubicaciones tras reciente expansión — cadena tica más grande del sector</div>
+  <div class="lead-detail">Inauguración en Mall San Pedro y Multicentro Desamparados como parte de su estrategia GAM</div>
+  <div class="lead-detail">Descrita como "voto de confianza en la economía costarricense" por prensa local</div>
+  <div class="contact-strategy">
+    <p><strong>🎯 Estrategia de contacto:</strong> Cadena establecida con necesidad de innovación en marketing digital y redes sociales. Outreach vía LinkedIn o web. Angulo: posicionamiento en audiencias locales, marketing de comunidad para cada nueva sucursal.</p>
+  </div>
+</div>
+
+<div class="lead">
+  <div class="lead-header">
+    <div class="lead-name">Subway Costa Rica</div>
+    <span class="lead-tag tag-chain">Master franquiciado</span>
+  </div>
+  <div class="lead-meta">
+    <div><strong>Modelo:</strong> Master Franchisee (2do a nivel mundial)</div>
+    <div><strong>Expansión:</strong> Nuevos acuerdos comerciales en 2026</div>
+  </div>
+  <div class="lead-detail">Subway CR se convirtió en el segundo master franquiciado global de la marca</div>
+  <div class="lead-detail">Cambio de modelo implica estrategia de crecimiento y marketing más agresiva en 2026</div>
+  <div class="contact-strategy">
+    <p><strong>🎯 Estrategia de contacto:</strong> Master franquiciado con nueva estructura comercial. Contactar para campañas de marca y marketing para nuevas aperturas. Enfoque en marketing digital y de comunidad.</p>
+  </div>
+</div>
+
+<div class="lead">
+  <div class="lead-header">
+    <div class="lead-name">Restaurante Silvestre</div>
+    <span class="lead-tag tag-local">Alta gama</span>
+  </div>
+  <div class="lead-meta">
+    <div><strong>Ubicación:</strong> San José, Barrio Escalante</div>
+    <div><strong>Concepto:</strong> Costa Rican gourmet, cocina indígena moderna</div>
+    <div><strong>Reconocido:</strong> Entre los mejores de San José</div>
+  </div>
+  <div class="lead-detail">Considerado uno de los mejores restaurantes de Costa Rica — tasting menu</div>
+  <div class="lead-detail">Chef Pablo Bonilla — cocina jungle-to-table con ingredientes nativos</div>
+  <div class="lead-detail">Mercado premium: bodas, eventos, turismo gastronómico</div>
+  <div class="contact-strategy">
+    <p><strong>🎯 Estrategia de contacto:</strong> Enfoque en branding de lujo, fotografía profesional, contenido digital de alto valor. Instagram y marketing de experiencias. Contactar vía Instagram o web del restaurante.</p>
+  </div>
+</div>
+
+<div class="lead">
+  <div class="lead-header">
+    <div class="lead-name">Sikwa</div>
+    <span class="lead-tag tag-local">Alta gama</span>
+  </div>
+  <div class="lead-meta">
+    <div><strong>Ubicación:</strong> San José</div>
+    <div><strong>Concepto:</strong> Cocina indígena / pantry indigenous</div>
+    <div><strong>Chef:</strong> Pablo Bonilla</div>
+  </div>
+  <div class="lead-detail">Restaurante reconocido por innovación culinaria con ingredientes nativos</div>
+  <div class="lead-detail">Representa la tendencia "regional dining" en Costa Rica</div>
+  <div class="lead-detail">Mercado objetivo: turismo gastronómico internacional, foodies</div>
+  <div class="contact-strategy">
+    <p><strong>🎯 Estrategia de contacto:</strong> Marketing digital enfocato en turismo gastronómico, presencia en guías internacionales (Michelin, World's 50 Best), estrategias de contenido para redes sociales con estética visual premium.</p>
+  </div>
+</div>
+
+<div class="lead">
+  <div class="lead-header">
+    <div class="lead-name">Enbocacr</div>
+    <span class="lead-tag tag-local">Alta gama</span>
+  </div>
+  <div class="lead-meta">
+    <div><strong>Ubicación:</strong> San José</div>
+    <div><strong>Rating:</strong> 4.9 / 641 reseñas</div>
+    <div><strong>Categoría:</strong> Fine dining</div>
+  </div>
+  <div class="lead-detail">#1 en TripAdvisor para fine dining en San José según últimos rankings</div>
+  <div class="lead-detail">Alto volumen de reseñas y reconocimiento público</div>
+  <div class="contact-strategy">
+    <p><strong>🎯 Estrategia de contacto:</strong> Gestión de reputación online, contenido para plataformas de reseñas, email marketing para clientes frecuentes. Enfoque digital para mantener posicionamiento.</p>
+  </div>
+</div>
+
+<h2>📈 Market Trends — Restaurantes Costa Rica 2026</h2>
+
+<div class="trend-grid">
+  <div class="trend">
+    <h4>🚨 Expansión de QSR (Fast Food)</h4>
+    <p>KFC invertirá $9M+ con 7 aperturas en 2026. Popeyes y Così también en modo crecimiento agresivo. Mercado caliente para campañas de branding asociadas a aperturas.</p>
+    <span class="trend-tag trend-hot">Muy activo</span>
+  </div>
+  <div class="trend">
+    <h4>🌿 Gastronomía Tica Premium</h4>
+    <p>Silvestre, Sikwa, Enbocacr lideran el shift hacia cocina regional de autor. El turismo gastronómico es un motor clave. Oportunidad para branding de lujo.</p>
+    <span class="trend-tag trend-opp">Oportunidad</span>
+  </div>
+  <div class="trend">
+    <h4>📱 Digital Signage &amp; Tecnología</h4>
+    <p>Cadenas de fast food adoptando señalización digital en restaurantes. QSR Magazine reporta inversión en pantallas dinámicas para менú y promociones en tiempo real.</p>
+    <span class="trend-tag trend-hot">Tendencia</span>
+  </div>
+  <div class="trend">
+    <h4>🏘️ Expansión en Guanacaste</h4>
+    <p>Playas del Coco y zona norte de Guanacaste emergen como hub de aperturas (KFC). El turismo y la población expatriate son el driver. Oportunidad para marketing local.</p>
+    <span class="trend-tag trend-opp">Oportunidad</span>
+  </div>
+  <div class="trend">
+    <h4>🎯 Delivery &amp; Comida para llevar</h4>
+    <p>El mercado de delivery sigue creciendo en CR. Restaurantes invirtiendo en presencia en Rappi, Uber Eats. Oportunidad para campaigns de adquisición y branding en apps.</p>
+    <span class="trend-tag trend-opp">Oportunidad</span>
+  </div>
+  <div class="trend">
+    <h4>🏬 Centros Comerciales como Hub</h4>
+    <p>Mall San Pedro, Santa Ana Trade Center, Multiplaza Escazú son puntos clave de aperturas.food court y zonas gastronómicas son prioridad de inversión.</p>
+    <span class="trend-tag trend-opp">Oportunidad</span>
+  </div>
+</div>
+
+<h2>🎯 Contact Strategies — Resumen</h2>
+
+<div class="strategy-section">
+  <h3>Para Cadenas de Fast Food (KFC, Popeyes, Così, Subway)</h3>
+  <div class="strategy-row">
+    <div class="step-num">1</div>
+    <div class="step-text">Identificar el equipo de marketing a través de LinkedIn corporativo o la web de la franquicia</div>
+  </div>
+  <div class="strategy-row">
+    <div class="step-num">2</div>
+    <div class="step-text">Pitch: campañas de lanzamiento para nuevas aperturas + marketing digital local en zonas de expansión (Guanacaste)</div>
+  </div>
+  <div class="strategy-row">
+    <div class="step-num">3</div>
+    <div class="step-text">Proponer casos de éxito en otros mercados LATAM — show track record de campañas QSR</div>
+  </div>
+  <div class="strategy-row">
+    <div class="step-num">4</div>
+    <div class="step-text">Formato: presentación breve + 1 pager con métricas de campañas similares en la región</div>
+  </div>
+</div>
+
+<div class="strategy-section">
+  <h3>Para Restaurantes Gourmet / Alta Gama (Silvestre, Sikwa, Enbocacr)</h3>
+  <div class="strategy-row">
+    <div class="step-num">1</div>
+    <div class="step-text">Outreach por Instagram o web directa — tono más personal y de valor que transactional</div>
+  </div>
+  <div class="strategy-row">
+    <div class="step-num">2</div>
+    <div class="step-text">Proponer: gestión de contenido visual, fotografía profesional, posicionamiento en guías internacionales</div>
+  </div>
+  <div class="strategy-row">
+    <div class="step-num">3</div>
+    <div class="step-text">Capacidades: branding de lujo, social media strategy para turismo gastronómico</div>
+  </div>
+</div>
+
+<div class="strategy-section">
+  <h3>Para Cadena Nacional Rosti</h3>
+  <div class="strategy-row">
+    <div class="step-num">1</div>
+    <div class="step-text">Cadena establecida pero con 40 ubicaciones — necesita innovación en marketing digital y community management</div>
+  </div>
+  <div class="strategy-row">
+    <div class="step-num">2</div>
+    <div class="step-text">Pitch: estrategia de marketing por comunidad para cada zona de ubicación nueva</div>
+  </div>
+  <div class="strategy-row">
+    <div class="step-num">3</div>
+    <div class="step-text">Formato: propuesta integral de social media + campaigns locales geolocalizadas</div>
+  </div>
+</div>
+
+<footer>
+  <p>Reporte generado por <strong>Aurea Lead Research Agent</strong> — {date}</p>
+  <p>Fuente: Tavily web search, El Financiero CR, TicosLand, Eater, TripAdvisor, QSR Magazine</p>
+  <p>⚠️ La información de contacto es estimable y debe verificarse antes de cualquier outreach.</p>
+</footer>
+
+</div>
+</body>
+</html>
