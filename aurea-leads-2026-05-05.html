@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurea - Lead Research Costa Rica | Restaurants | 2026-05-05</title>
+    <style>
+        :root {
+            --bg-primary: #0d1117;
+            --bg-secondary: #161b22;
+            --bg-card: #1c2128;
+            --accent: #f78166;
+            --accent-secondary: #d2a8ff;
+            --text-primary: #e6edf3;
+            --text-secondary: #8b949e;
+            --border: #30363d;
+            --success: #3fb950;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        .container { max-width: 1100px; margin: 0 auto; padding: 2rem; }
+        header {
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .badge {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--bg-primary);
+            padding: 0.2rem 0.7rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.75rem;
+        }
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--text-primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .subtitle { color: var(--text-secondary); font-size: 0.95rem; }
+        .meta {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        .meta span { display: flex; align-items: center; gap: 0.4rem; }
+
+        section { margin-bottom: 2.5rem; }
+        h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border);
+            color: var(--accent);
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.25rem;
+        }
+        .stat-card .number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+        .stat-card .label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 0.25rem;
+        }
+
+        .company-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            transition: border-color 0.2s;
+        }
+        .company-card:hover { border-color: var(--accent); }
+        .company-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.75rem;
+        }
+        .company-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        .company-type {
+            font-size: 0.75rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            padding: 0.15rem 0.6rem;
+            border-radius: 15px;
+            color: var(--accent-secondary);
+        }
+        .company-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+        .contact-tag {
+            font-size: 0.8rem;
+            background: var(--bg-secondary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 6px;
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+        }
+        .contact-tag a { color: var(--accent); text-decoration: none; }
+        .contact-tag a:hover { text-decoration: underline; }
+
+        .strategy-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.25rem;
+            margin-bottom: 1rem;
+        }
+        .strategy-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--accent-secondary);
+            margin-bottom: 0.5rem;
+        }
+        .strategy-card p { font-size: 0.9rem; color: var(--text-secondary); }
+
+        .trend-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.25rem;
+            margin-bottom: 1rem;
+        }
+        .trend-card h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--success);
+            margin-bottom: 0.4rem;
+        }
+        .trend-card p { font-size: 0.85rem; color: var(--text-secondary); }
+
+        .note {
+            background: var(--bg-secondary);
+            border-left: 3px solid var(--accent);
+            padding: 1rem 1.25rem;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-top: 1.5rem;
+        }
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding-top: 1.5rem;
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <span class="badge">Lead Research — Costa Rica</span>
+            <h1>Sector Restaurantes en Costa Rica</h1>
+            <p class="subtitle">Oportunidades de lead generation para Aurea Advertising Agency</p>
+            <div class="meta">
+                <span>📅 Lunes, 5 de mayo de 2026</span>
+                <span>⏰ 00:00 UTC</span>
+                <span>🏷️ Nicho: Restaurantes</span>
+            </div>
+        </header>
+
+        <section>
+            <h2>📊 Resumen Ejecutivo</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="number">8</div>
+                    <div class="label">Empresas identificadas</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">5</div>
+                    <div class="label">Alta prioridad</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">3</div>
+                    <div class="label">Decisores clave localizados</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">2026</div>
+                    <div class="label">Tendencias actuales</div>
+                </div>
+            </div>
+            <p class="note">
+                <strong>Insight clave:</strong> El sector gastronómico de Costa Rica está en plena transformación digital. 
+                Restaurantes como Sikwa (#43 en Latin America's 50 Best, #1 Costa Rica) y Silvestre lideran la escena, 
+                pero la mayoría de los actores del mercado aún no han profesionalizado su marketing digital — una ventana de 
+                oportunidad para Aurea.
+            </p>
+        </section>
+
+        <section>
+            <h2>🏢 Empresas Identificadas</h2>
+
+            <div class="company-card">
+                <div class="company-header">
+                    <span class="company-name">Sikwa Restaurante</span>
+                    <span class="company-type">Fine Dining Premium</span>
+                </div>
+                <p class="company-desc">
+                    Mejor restaurante de Costa Rica 2025 según Latin America's 50 Best (#43 ranking regional). 
+                    Cocina ancestral costarricense con enfoque en ingredientes indígenas. Fundado en 2018 por 
+                    Chef Pablo Bonilla. Modelo de economía circular con productores locales.
+                </p>
+                <div class="contact-info">
+                    <span class="contact-tag">📍 San José, Costa Rica</span>
+                    <span class="contact-tag">👨‍🍳 Chef/Fundador: Pablo Bonilla</span>
+                    <span class="contact-tag">🌐 <a href="https://www.sikwacostarica.com" target="_blank">sikwacostarricacom</a></span>
+                    <span class="contact-tag">📷 @pabloelcocinero</span>
+                </div>
+            </div>
+
+            <div class="company-card">
+                <div class="company-header">
+                    <span class="company-name">Restaurante Silvestre</span>
+                    <span class="company-type">Fine Dining Premium</span>
+                </div>
+                <p class="company-desc">
+                    Cocina contemporánea costarricense en el corazón del barrio histórico Amón. 
+                    Chef y propietario Santiago Fernández Benedetto (Embajador Marca País Costa Rica). 
+                    Enfatiza producto nacional, pesca responsable y ingredientes orgánicos.
+                </p>
+                <div class="contact-info">
+                    <span class="contact-tag">📍 Barrio Amón, San José</span>
+                    <span class="contact-tag">👨‍🍳 Chef/Propietario: Santiago Fernández Benedetto</span>
+                    <span class="contact-tag">📷 @santiagofb / @restsilvestre</span>
+                    <span class="contact-tag">🌐 Parte de Enchanting Experiences Collection</span>
+                </div>
+            </div>
+
+            <div class="company-card">
+                <div class="company-header">
+                    <span class="company-name">KFC Costa Rica</span>
+                    <span class="company-type">Fast Food / Franchise</span>
+                </div>
+                <p class="company-desc">
+                    Cadena de comida rápida con presencia nacional. Gerente General con 20+ años de experiencia 
+                    en marketing y ventas. Estructura corporativa con presupuesto de marketing establecido.
+                </p>
+                <div class="contact-info">
+                    <span class="contact-tag">📍 Nivel nacional</span>
+                    <span class="contact-tag">👔 GM: Isidro Perera (LinkedIn)</span>
+                    <span class="contact-tag">🎓 MBA INCAE Business School</span>
+                    <span class="contact-tag">📊 Potencial alto volumen publicitario</span>
+                </div>
+            </div>
+
+            <div class="company-card">
+                <div class="company-header">
+                    <span class="company-name">Café Britt</span>
+                    <span class="company-type">Restaurant/Café Brand</span>
+                </div>
+                <p class="company-desc">
+                    Marca icónica de café costarricense con presencia en旅游业 y restaurantes. 
+                    CEO activa en LinkedIn. Combinan experiencia gastronómica con merchandising de café premium.
+                </p>
+                <div class="contact-info">
+                    <span class="contact-tag">📍 San José, Costa Rica</span>
+                    <span class="contact-tag">👔 CEO: Gabriela Muñoz Riggioni (LinkedIn)</span>
+                    <span class="contact-tag">☕ 500+ contactos profesionales</span>
+                </div>
+            </div>
+
+            <div class="company-card">
+                <div class="company-header">
+                    <span class="company-name">Grano de Oro</span>
+                    <span class="company-type">Fine Dining / Hotel Restaurant</span>
+                </div>
+                <p class="company-desc">
+                    Restaurante clásico de alta cocina dentro del Hotel Grano de Oro. 
+                    Cocina costarricense fina en ambiente elegante. Punto de referencia para turismo de lujo.
+                </p>
+                <div class="contact-info">
+                    <span class="contact-tag">📍 San José</span>
+                    <span class="contact-tag">🏨 Hotel Grano de Oro</span>
+                    <span class="contact-tag">🎯 Turismo de lujo /-Expatriados</span>
+                </div>
+            </div>
+
+            <div class="company-card">
+                <div class="company-header">
+                    <span class="company-name">Conservatorium</span>
+                    <span class="company-type">Grill / Premium</span>
+                </div>
+                <p class="company-desc">
+                    Concepto de grill basado en carne local seca aged. 
+                    Representa la nueva ola de restaurantes que posicionan ingredientes costarricenses 
+                    con técnicas internacionales.
+                </p>
+                <div class="contact-info">
+                    <span class="contact-tag">📍 San José</span>
+                    <span class="contact-tag">🥩 Concepto premium cárnico</span>
+                    <span class="contact-tag">📸 Alto potencial para contenido visual</span>
+                </div>
+            </div>
+
+            <div class="company-card">
+                <div class="company-header">
+                    <span class="company-name">FIFCO ( Heineken Costa Rica)</span>
+                    <span class="company-type">Bebidas / Food & Beverage</span>
+                </div>
+                <p class="company-desc">
+                    Compañía cervecera con expandida al sector gastronómico. 
+                    RTD (Ready-to-Drink) marketing manager identificado en LinkedIn. 
+                    Potencial para partnerships restaurante-bebida.
+                </p>
+                <div class="contact-info">
+                    <span class="contact-tag">📍 San José</span>
+                    <span class="contact-tag">👔 Marketing Manager RTD: Nicolás Silva Quiroz (LinkedIn)</span>
+                    <span class="contact-tag">🍺 HEINEKEN Company</span>
+                </div>
+            </div>
+
+            <div class="company-card">
+                <div class="company-header">
+                    <span class="company-name">Restaurantes Informales / Sodas Ticas</span>
+                    <span class="company-type">Mercado Masivo</span>
+                </div>
+                <p class="company-desc">
+                    El segmento de "sodas" (restaurantes locales costarricenses) representa el 80% del mercado. 
+                    Mercado masivo con necesidades digitales básicas: Google Business, fotos, redes sociales. 
+                    Oportunidad de paquetes accesibles.
+                </p>
+                <div class="contact-info">
+                    <span class="contact-tag">📍 Todo el país</span>
+                    <span class="contact-tag">💰 Paquetes de entrada</span>
+                    <span class="contact-tag">📱 Alto volumen potencial</span>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>🎯 Estrategias de Contacto</h2>
+
+            <div class="strategy-card">
+                <h3>1. Outreach a Fine Dining (Alta Prioridad)</h3>
+                <p>
+                    Enfocarse en Sikwa, Silvestre y Conservatorium. Propuesta: gestión de redes sociales 
+                    premium, contenido de marca personal del chef, fotografía gastronómica profesional, 
+                    campañas en Instagram/TikTok. Tono: institucional, personalizado, storytelling de marca. 
+                    Ejecutar via DM de Instagram o email directo por LinkedIn.
+                </p>
+            </div>
+
+            <div class="strategy-card">
+                <h3>2. Contacto Corporativo (KFC, Café Britt, FIFCO)</h3>
+                <p>
+                    Usar LinkedIn para conectar con decisores (Isidro Perera, Gabriela Muñoz Riggioni, 
+                    Nicolás Silva Quiroz). Propuesta: marketing de franquicias, publicidad digital multi-ubicación, 
+                    estrategias de marca beverage-restaurant partnerships. Pitch deck profesional.
+                </p>
+            </div>
+
+            <div class="strategy-card">
+                <h3>3. Paquetes para Sodas / Restaurantes Locales</h3>
+                <p>
+                    Producto digital accesible: optimización Google Business, contenido mensual para 
+                    Instagram/Facebook, fotos de menú, reseñas. Mensaje: "presencia digital profesional 
+                    sin costo de agencia tradicional." Marketing directo via WhatsApp Business.
+                </p>
+            </div>
+
+            <div class="strategy-card">
+                <h3>4. Eventos y Collaborations</h3>
+                <p>
+                    Organizar tasting de marketing digital para restaurateurs. Invitar chefs de Sikwa y 
+                    Silvestre como speakers. Posicionar a Aurea como la agencia que "entiende la escena 
+                    gastronómica costarricense." Genera credibilidad y leads cualificados.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2>📈 Tendencias del Mercado 2026</h2>
+
+            <div class="trend-card">
+                <h3>🎬 Short-form Video Dominante</h3>
+                <p>
+                    El contenido de video corto (Reels, TikTok) es ahora el formato #1 para discovery 
+                    de restaurantes. Los algoritmos de Instagram y Google ahora priorizan contenido 
+                    social en búsquedas locales. Los restaurantes que no producen video están perdiendo 
+                    visibilidad orgánic.
+                </p>
+            </div>
+
+            <div class="trend-card">
+                <h3>🤳 Autenticidad sobre Producción</h3>
+                <p>
+                    Los consumidores del 2026 valoran contenido real (chef en acción, cocina en vivo, 
+                    reacciones de clientes) por encima de fotos de menú perfectamente editadas. 
+                    UGC (User Generated Content) y contenido de empleado-autor son más creíbles que 
+                    publicidad tradicional.
+                </p>
+            </div>
+
+            <div class="trend-card">
+                <h3>🔍 Social Search en Google</h3>
+                <p>
+                    breakthrough: posts de Facebook e Instagram ahora aparecen en la primera página de 
+                    Google. Esto cambia todo — el contenido social ES SEO. Restaurantes necesitan 
+                    estrategia unificada de contenido que sirva ambos canales simultáneamente.
+                </p>
+            </div>
+
+            <div class="trend-card">
+                <h3>🤖 IA como Herramienta, No Sustituto</h3>
+                <p>
+                    La IA se usa para targeting de ads, análisis de datos y generación de ideas, 
+                    pero el contenido auténtico sigue siendo hecho por humanos. 
+                    Restaurantes que delegan todo a IA sin supervisión están perdiendo conexión con su audiencia.
+                </p>
+            </div>
+
+            <div class="trend-card">
+                <h3>🌱 Sostenibilidad y Origen Local</h3>
+                <p>
+                    Los restaurantes costarricenses que highlightanan ingredientes locales, prácticas 
+                    sostenibles y comercio justo tienen ventaja competitiva. 
+                    El storytelling de origen es clave para diferenciarse en un mercado saturado.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2>📋 Próximos Pasos Recomendados</h2>
+            <ol style="color: var(--text-secondary); font-size: 0.9rem; padding-left: 1.5rem; line-height: 2;">
+                <li>Elaborar pitch deck personalizado para cada segmento (fine dining vs. fast food vs. sodas)</li>
+                <li>Investigar emails corporativos de KFC Costa Rica y Café Britt para outreach masivo</li>
+                <li>Crear contenido de referencia en Instagram/TikTok mostrando "antes/después" de restaurantes</li>
+                <li>Preparar propuesta de valor para Google Business optimization + social media</li>
+                <li>Mapear 20+ sodas en San José para kampanas piloto de bajo costo</li>
+            </ol>
+        </section>
+
+        <footer>
+            <p>Reporte generado por <strong>Aurea Lead Research Agent</strong> — 2026-05-05 00:00 UTC</p>
+            <p> Nicho: Restaurantes | País: Costa Rica | saveMode: hourly cron</p>
+        </footer>
+    </div>
+</body>
+</html>
